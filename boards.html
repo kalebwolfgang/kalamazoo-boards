@@ -125,15 +125,20 @@
 
     /* ── BOARD PANEL ── */
     .board-panel {
-      background: var(--white);
       border: 1px solid var(--border);
       border-left: 5px solid var(--navy-light);
       border-radius: 4px;
       margin-bottom: 48px;
       overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
       transition: box-shadow 0.15s;
     }
-    .board-panel:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .board-panel:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); }
+
+    /* 3-color alternating backgrounds */
+    .board-panel.bg-0 { background: #ffffff; }
+    .board-panel.bg-1 { background: #f9f7f3; }
+    .board-panel.bg-2 { background: #edeae4; }
     .board-panel.has-vacant      { border-left-color: #dc2626; }
     .board-panel.has-transitioning { border-left-color: #d97706; }
     .board-panel.all-seated      { border-left-color: #15803d; }
@@ -413,7 +418,7 @@ fetch('boards.json')
     // Build board panels
     const list = document.getElementById('boards-list');
 
-    boards.forEach(board => {
+    boards.forEach((board, i) => {
       const nVac  = board.members.filter(m => displayStatus(seatStatus(m)) === 'open').length;
       const nTrans = board.members.filter(m => displayStatus(seatStatus(m)) === 'transitioning').length;
       const nSeat = board.members.filter(m => displayStatus(seatStatus(m)) === 'seated').length;
@@ -493,7 +498,7 @@ fetch('boards.json')
 
       // Assemble panel
       const panel = document.createElement('div');
-      panel.className = `board-panel ${borderCls}`;
+      panel.className = `board-panel ${borderCls} bg-${i % 3}`;
       panel.dataset.name = board.name.toLowerCase();
       panel.dataset.abbr = board.abbr.toLowerCase();
 
