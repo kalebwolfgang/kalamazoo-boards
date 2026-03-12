@@ -23,8 +23,6 @@
       --muted:      #6b7280;
       --border:     #ddd8ce;
       --border-lt:  #eee9e0;
-      --red:        #dc2626;
-      --red-bg:     #fef2f2;
     }
 
     html { scroll-behavior: smooth; }
@@ -66,8 +64,8 @@
     /* ── PAGE HEADER ── */
     .page-header { background: var(--navy); padding: 48px 40px 44px; }
     .page-header-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: end; }
-    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 600; color: white; line-height: 1.2; margin-bottom: 10px; }
-    .page-header p { color: rgba(255,255,255,0.5); font-size: 19px; font-weight: 300; max-width: 560px; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3vw, 44px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 10px; }
+    .page-header p { color: rgba(255,255,255,0.5); font-size: 19px; font-weight: 300; max-width: 540px; }
     .header-stats { display: flex; gap: 2px; flex-shrink: 0; }
     .hstat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: 18px 24px; text-align: center; min-width: 100px; }
     .hstat:first-child { border-radius: 4px 0 0 4px; }
@@ -76,75 +74,134 @@
     .hstat-n.red    { color: #f87171; }
     .hstat-n.yellow { color: var(--gold-lt); }
     .hstat-n.green  { color: #86efac; }
-    .hstat-lbl { font-size: 13px; color: rgba(255,255,255,0.38); letter-spacing: 0.04em; line-height: 1.4; }
+    .hstat-lbl { font-size: 13px; color: rgba(255,255,255,0.38); letter-spacing: 0.04em; line-height: 1.4; text-transform: uppercase; }
 
     /* ── LEGEND ── */
-    .legend-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 12px 40px; }
-    .legend-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
-    .legend-label { font-size: 15px; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .legend-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 40px; }
+    .legend-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+    .legend-label { font-size: 15px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
     .legend-item { display: flex; align-items: center; gap: 10px; font-size: 17px; color: var(--body); }
-    .legend-arch { width: 32px; height: 16px; border-radius: 16px 16px 0 0; flex-shrink: 0; }
-    .legend-arch.red    { background: #dc2626; }
-    .legend-arch.yellow { background: #d97706; }
-    .legend-arch.green  { background: #15803d; }
+    .legend-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; }
+    .legend-dot.red    { background: #dc2626; }
+    .legend-dot.yellow { background: #d97706; }
+    .legend-dot.green  { background: #15803d; }
 
     /* ── CATEGORY NAV ── */
     .cat-nav { background: var(--cream-dk); border-bottom: 1px solid var(--border); position: sticky; top: 63px; z-index: 100; }
     .cat-nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; overflow-x: auto; }
     .cat-nav-inner::-webkit-scrollbar { display: none; }
-    .cat-btn { padding: 14px 22px; font-size: 17px; font-weight: 500; color: var(--muted); text-decoration: none; white-space: nowrap; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; }
+    .cat-btn { padding: 15px 22px; font-size: 17px; font-weight: 500; color: var(--muted); text-decoration: none; white-space: nowrap; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; }
     .cat-btn:hover { color: var(--navy); border-color: var(--gold); }
     .cat-btn.active { color: var(--navy); border-color: var(--gold); font-weight: 600; }
 
     /* ── MAIN ── */
-    .main-wrap { max-width: 1400px; margin: 0 auto; padding: 56px 40px 120px; }
+    .main-wrap { max-width: 1400px; margin: 0 auto; padding: 64px 40px 120px; }
 
     /* ── CATEGORY SECTION ── */
-    .cat-section { margin-bottom: 72px; }
-    .cat-section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; padding-bottom: 14px; border-bottom: 2px solid var(--gold); }
-    .cat-section-head h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: var(--navy); }
-    .cat-section-count { font-size: 17px; color: var(--muted); }
+    .cat-section { margin-bottom: 80px; }
+    .cat-section-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 32px; padding-bottom: 16px;
+      border-bottom: 3px solid var(--gold);
+    }
+    .cat-section-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 600; color: var(--navy); line-height: 1.1;
+    }
+    .cat-section-meta { font-size: 17px; color: var(--muted); text-align: right; line-height: 1.8; }
+    .cat-open { color: #dc2626; font-weight: 600; }
+    .cat-exp  { color: #d97706; font-weight: 600; }
 
     /* ── BOARD PANEL ── */
-    .board-panel { background: var(--white); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 18px; overflow: hidden; }
-    .board-panel-inner { display: grid; grid-template-columns: 280px 1fr; min-height: 100px; }
+    .board-panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--navy-light);
+      border-radius: 4px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: box-shadow 0.15s;
+    }
+    .board-panel:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .board-panel.has-vacant   { border-left-color: #dc2626; }
+    .board-panel.has-expiring { border-left-color: #d97706; }
+    .board-panel.all-stable   { border-left-color: #15803d; }
 
-    .board-info { padding: 24px 28px; border-right: 1px solid var(--border-lt); display: flex; flex-direction: column; justify-content: center; }
-    .board-abbr { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
-    .board-name { font-size: 20px; font-weight: 600; color: var(--navy); line-height: 1.25; margin-bottom: 10px; }
-    .board-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-    .board-tag { font-size: 14px; padding: 2px 8px; border-radius: 2px; background: var(--cream); color: var(--muted); border: 1px solid var(--border); }
-    .board-tag.has-vacancies { background: var(--red-bg); color: var(--red); border-color: #fecaca; font-weight: 600; }
+    .board-panel-inner {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      min-height: 180px;
+    }
 
-    .board-seats { padding: 24px 28px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+    /* ── BOARD INFO (left col) ── */
+    .board-info {
+      padding: 28px 32px;
+      border-right: 1px solid var(--border-lt);
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .board-abbr {
+      font-size: 34px; font-weight: 700;
+      color: var(--gold); letter-spacing: -0.01em; line-height: 1;
+      margin-bottom: 8px;
+    }
+    .board-name {
+      font-size: 20px; font-weight: 600;
+      color: var(--navy); line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .board-divider {
+      height: 1px; background: var(--border-lt); margin-bottom: 14px;
+    }
+    .board-stats { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 14px; }
+    .board-stat { display: flex; align-items: baseline; gap: 5px; font-size: 17px; color: var(--muted); }
+    .board-stat-n { font-size: 22px; font-weight: 700; line-height: 1; }
+    .board-stat-n.total  { color: var(--navy); }
+    .board-stat-n.red    { color: #dc2626; }
+    .board-stat-n.yellow { color: #d97706; }
+    .board-stat-n.green  { color: #15803d; }
 
-    /* ── SEAT ARCH ── */
-    .seat { position: relative; width: 52px; height: 26px; border-radius: 26px 26px 0 0; cursor: default; transition: transform 0.12s, filter 0.12s; flex-shrink: 0; }
-    .seat:hover { transform: translateY(-4px); filter: brightness(1.15); }
-    .seat.red    { background: #dc2626; }
-    .seat.yellow { background: #d97706; }
-    .seat.green  { background: #15803d; }
+    /* ── BOARD CHART (right col) ── */
+    .board-chart {
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .board-chart svg {
+      max-width: 400px; width: 100%; height: auto; display: block;
+      overflow: visible;
+    }
+    .seat-dot {
+      cursor: default;
+      transition: filter 0.12s;
+    }
+    .seat-dot:hover {
+      filter: brightness(1.25) drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+    }
 
     /* ── TOOLTIP ── */
-    .tooltip { position: fixed; background: var(--navy); color: white; padding: 12px 16px; border-radius: 4px; font-size: 16px; line-height: 1.5; pointer-events: none; z-index: 9999; max-width: 300px; box-shadow: 0 4px 24px rgba(0,0,0,0.35); display: none; }
+    .tooltip {
+      position: fixed; background: var(--navy); color: white;
+      padding: 13px 17px; border-radius: 4px; font-size: 16px; line-height: 1.5;
+      pointer-events: none; z-index: 9999; max-width: 310px;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.4); display: none;
+    }
     .tooltip.visible { display: block; }
-    .tooltip-name { font-weight: 600; font-size: 18px; margin-bottom: 2px; }
+    .tooltip-name { font-weight: 600; font-size: 19px; margin-bottom: 2px; }
     .tooltip-role { color: var(--gold-lt); font-size: 15px; margin-bottom: 3px; }
-    .tooltip-req  { color: rgba(255,255,255,0.55); font-size: 14px; margin-bottom: 5px; font-style: italic; }
-    .tooltip-term { font-size: 15px; }
+    .tooltip-req  { color: rgba(255,255,255,0.55); font-size: 14px; margin-bottom: 6px; font-style: italic; }
+    .tooltip-term { font-size: 16px; }
     .tooltip-term.expired   { color: #fca5a5; }
     .tooltip-term.expiring  { color: var(--gold-lt); }
     .tooltip-term.stable    { color: #86efac; }
     .tooltip-term.permanent { color: #86efac; }
-    .tooltip-term.vacant    { color: #f87171; font-weight: 600; }
-    .tooltip-res  { color: rgba(255,255,255,0.45); font-size: 14px; margin-top: 4px; }
+    .tooltip-term.vacant    { color: #f87171; font-weight: 600; font-size: 17px; }
+    .tooltip-res  { color: rgba(255,255,255,0.45); font-size: 14px; margin-top: 5px; }
 
     /* ── FOOTER ── */
     footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 32px 40px; text-align: center; font-size: 16px; color: rgba(255,255,255,0.4); }
     footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
     footer a:hover { color: var(--gold-lt); }
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .board-panel-inner { grid-template-columns: 1fr; }
       .board-info { border-right: none; border-bottom: 1px solid var(--border-lt); }
       .page-header-inner { grid-template-columns: 1fr; gap: 28px; }
@@ -195,12 +252,12 @@
   <div class="page-header-inner">
     <div>
       <h1>Boards &amp; Commissions</h1>
-      <p>Every seat shown — hover any arch to see who holds it and when it becomes available.</p>
+      <p>Every seat on every board — hover any dot to see who holds it and when it opens up.</p>
     </div>
     <div class="header-stats">
-      <div class="hstat"><div class="hstat-n" id="stat-boards">—</div><div class="hstat-lbl">Boards</div></div>
+      <div class="hstat"><div class="hstat-n"        id="stat-boards">—</div><div class="hstat-lbl">Boards</div></div>
       <div class="hstat"><div class="hstat-n red"    id="stat-vacant">—</div><div class="hstat-lbl">Open Now</div></div>
-      <div class="hstat"><div class="hstat-n yellow" id="stat-expiring">—</div><div class="hstat-lbl">Expiring Soon</div></div>
+      <div class="hstat"><div class="hstat-n yellow" id="stat-expiring">—</div><div class="hstat-lbl">Expiring</div></div>
       <div class="hstat"><div class="hstat-n green"  id="stat-stable">—</div><div class="hstat-lbl">Stable</div></div>
     </div>
   </div>
@@ -209,9 +266,9 @@
 <div class="legend-strip">
   <div class="legend-inner">
     <span class="legend-label">Seat Key</span>
-    <div class="legend-item"><div class="legend-arch red"></div> Open — currently vacant</div>
-    <div class="legend-item"><div class="legend-arch yellow"></div> Expiring — term ends within 6 months or has already lapsed (holdover)</div>
-    <div class="legend-item"><div class="legend-arch green"></div> Stable — 6+ months remaining, or permanent appointment</div>
+    <div class="legend-item"><div class="legend-dot red"></div>   Open — currently vacant</div>
+    <div class="legend-item"><div class="legend-dot yellow"></div> Expiring — ends within 6 months, or term has already lapsed (holdover)</div>
+    <div class="legend-item"><div class="legend-dot green"></div>  Stable — 6+ months remaining or permanent</div>
   </div>
 </div>
 
@@ -235,8 +292,7 @@
 </footer>
 
 <script>
-// Today's date — update this when deploying; or change to new Date() for live calculation
-const TODAY = new Date();
+const TODAY  = new Date();
 const SIX_MO = new Date(TODAY);
 SIX_MO.setMonth(SIX_MO.getMonth() + 6);
 
@@ -255,136 +311,186 @@ function seatStatus(m) {
   if (m.isVacant) return 'vacant';
   if (!m.termEnd || m.termEnd === '2100-01-01') return 'permanent';
   const end = new Date(m.termEnd);
-  if (end < TODAY)  return 'expired';   // holdover — term lapsed, still seated
-  if (end < SIX_MO) return 'expiring'; // within 6 months
+  if (end < TODAY)  return 'expired';
+  if (end < SIX_MO) return 'expiring';
   return 'stable';
-}
-
-function seatColor(s) {
-  if (s === 'vacant')   return 'red';
-  if (s === 'expired' || s === 'expiring') return 'yellow';
-  return 'green';
 }
 
 function fmtDate(iso) {
   if (!iso || iso === '2100-01-01') return null;
-  const [y,m,d] = iso.split('-');
-  return `${MONTHS[+m-1]} ${+d}, ${y}`;
+  const [y, m, d] = iso.split('-');
+  return `${MONTHS[+m - 1]} ${+d}, ${y}`;
 }
 
+function termText(m) {
+  const st = seatStatus(m);
+  if (st === 'vacant')    return 'Vacant';
+  if (st === 'permanent') return 'Permanent appointment';
+  if (st === 'expired')   return `Term expired ${fmtDate(m.termEnd)} — serving as holdover`;
+  if (st === 'expiring')  return `Term ends ${fmtDate(m.termEnd)}`;
+  return `Term ends ${fmtDate(m.termEnd)}`;
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── Parliament-style SVG ────────────────────────────────────────────────────
+function parliamentSVG(members) {
+  const n   = members.length;
+  const VW  = 400, VH = 200;
+  const cx  = VW / 2, cy = VH;
+
+  // Distribute seats across arc rows
+  let rows;
+  if (n <= 8) {
+    rows = [members];
+  } else if (n <= 14) {
+    const nIn = Math.floor(n * 0.42);
+    rows = [members.slice(0, nIn), members.slice(nIn)];
+  } else {
+    const nIn  = Math.floor(n * 0.30);
+    const nMid = Math.floor(n * 0.35);
+    rows = [
+      members.slice(0, nIn),
+      members.slice(nIn, nIn + nMid),
+      members.slice(nIn + nMid)
+    ];
+  }
+
+  const radii  = rows.length === 1 ? [155] : rows.length === 2 ? [108, 155] : [80, 118, 155];
+  const dotR   = n <= 8 ? 11 : 10;
+  const A_LEFT  = Math.PI * 0.92;   // ~165° — left end of arc
+  const A_RIGHT = Math.PI * 0.08;   // ~15°  — right end of arc
+
+  let circles = '';
+  rows.forEach((rowMembers, ri) => {
+    const r = radii[ri];
+    rowMembers.forEach((m, i) => {
+      const t     = rowMembers.length > 1 ? i / (rowMembers.length - 1) : 0.5;
+      const angle = A_LEFT + (A_RIGHT - A_LEFT) * t;
+      const x     = (cx + r * Math.cos(angle)).toFixed(1);
+      const y     = (cy - r * Math.sin(angle)).toFixed(1);
+
+      const st   = seatStatus(m);
+      const fill = st === 'vacant' ? '#dc2626'
+                 : (st === 'expired' || st === 'expiring') ? '#d97706'
+                 : '#15803d';
+      const strokeC = st === 'vacant' ? '#991b1b'
+                    : (st === 'expired' || st === 'expiring') ? '#92400e'
+                    : '#14532d';
+
+      const name = m.isVacant ? '' : `${m.firstName} ${m.lastName}`.trim();
+
+      circles += `<circle`
+        + ` cx="${x}" cy="${y}" r="${dotR}"`
+        + ` fill="${fill}" stroke="${strokeC}" stroke-width="1.5"`
+        + ` class="seat-dot"`
+        + ` data-name="${esc(name)}"`
+        + ` data-role="${esc(m.role)}"`
+        + ` data-req="${esc(m.positionRequirement)}"`
+        + ` data-term="${esc(termText(m))}"`
+        + ` data-termcls="${st}"`
+        + ` data-res="${esc(m.residency)}"`
+        + `/>`;
+    });
+  });
+
+  return `<svg viewBox="0 0 ${VW} ${VH}" style="width:100%;height:auto;display:block;overflow:visible;">${circles}</svg>`;
+}
+
+// ── Build page ──────────────────────────────────────────────────────────────
 fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
 
     // Header stats
-    let nVacant = 0, nExpiring = 0, nStable = 0;
+    let nV = 0, nE = 0, nS = 0;
     boards.forEach(b => b.members.forEach(m => {
       const s = seatStatus(m);
-      if (s === 'vacant') nVacant++;
-      else if (s === 'expired' || s === 'expiring') nExpiring++;
-      else nStable++;
+      if (s === 'vacant') nV++;
+      else if (s === 'expired' || s === 'expiring') nE++;
+      else nS++;
     }));
     document.getElementById('stat-boards').textContent   = boards.length;
-    document.getElementById('stat-vacant').textContent   = nVacant;
-    document.getElementById('stat-expiring').textContent = nExpiring;
-    document.getElementById('stat-stable').textContent   = nStable;
+    document.getElementById('stat-vacant').textContent   = nV;
+    document.getElementById('stat-expiring').textContent = nE;
+    document.getElementById('stat-stable').textContent   = nS;
 
     // Category nav
     const catNav = document.getElementById('cat-nav');
     CATEGORIES.forEach((cat, i) => {
-      const catId = 'sec-' + i;
       const a = document.createElement('a');
       a.className = 'cat-btn' + (i === 0 ? ' active' : '');
-      a.href = '#' + catId;
+      a.href = '#sec-' + i;
       a.textContent = cat;
       catNav.appendChild(a);
     });
 
     // Main content
     const main = document.getElementById('main-content');
-    CATEGORIES.forEach((cat, i) => {
+
+    CATEGORIES.forEach((cat, ci) => {
       const catBoards = boards.filter(b => b.category === cat);
       if (!catBoards.length) return;
 
+      // Category-level stats
+      const catVacant   = catBoards.reduce((a, b) => a + b.members.filter(m => m.isVacant).length, 0);
+      const catExpiring = catBoards.reduce((a, b) => a + b.members.filter(m => ['expired','expiring'].includes(seatStatus(m))).length, 0);
+
+      let metaParts = [`${catBoards.length} board${catBoards.length !== 1 ? 's' : ''}`];
+      if (catVacant   > 0) metaParts.push(`<span class="cat-open">${catVacant} open seat${catVacant !== 1 ? 's' : ''}</span>`);
+      if (catExpiring > 0) metaParts.push(`<span class="cat-exp">${catExpiring} expiring</span>`);
+
       const section = document.createElement('div');
       section.className = 'cat-section';
-      section.id = 'sec-' + i;
+      section.id = 'sec-' + ci;
 
       const head = document.createElement('div');
       head.className = 'cat-section-head';
-      head.innerHTML = `<h2>${cat}</h2><span class="cat-section-count">${catBoards.length} board${catBoards.length !== 1 ? 's' : ''}</span>`;
+      head.innerHTML =
+        `<h2>${cat}</h2>` +
+        `<div class="cat-section-meta">${metaParts.join(' &nbsp;·&nbsp; ')}</div>`;
       section.appendChild(head);
 
       catBoards.forEach(board => {
-        const vacancies = board.members.filter(m => m.isVacant).length;
+        const nVac = board.members.filter(m => m.isVacant).length;
+        const nExp = board.members.filter(m => ['expired','expiring'].includes(seatStatus(m))).length;
+        const nStb = board.members.filter(m => ['stable','permanent'].includes(seatStatus(m))).length;
+        const borderCls = nVac > 0 ? 'has-vacant' : nExp > 0 ? 'has-expiring' : 'all-stable';
+
+        // Stats row
+        let statsHtml =
+          `<span class="board-stat"><span class="board-stat-n total">${board.members.length}</span>&nbsp;seats</span>`;
+        if (nVac > 0) statsHtml +=
+          `<span class="board-stat"><span class="board-stat-n red">${nVac}</span>&nbsp;open</span>`;
+        if (nExp > 0) statsHtml +=
+          `<span class="board-stat"><span class="board-stat-n yellow">${nExp}</span>&nbsp;expiring</span>`;
+        if (nStb > 0) statsHtml +=
+          `<span class="board-stat"><span class="board-stat-n green">${nStb}</span>&nbsp;stable</span>`;
 
         const panel = document.createElement('div');
-        panel.className = 'board-panel';
+        panel.className = `board-panel ${borderCls}`;
 
         const inner = document.createElement('div');
         inner.className = 'board-panel-inner';
 
-        // Info col
+        // Left: info
         const info = document.createElement('div');
         info.className = 'board-info';
         info.innerHTML =
           `<div class="board-abbr">${board.abbr}</div>` +
           `<div class="board-name">${board.name}</div>` +
-          `<div class="board-meta">` +
-            `<span class="board-tag">${board.members.length} seat${board.members.length !== 1 ? 's' : ''}</span>` +
-            (vacancies ? `<span class="board-tag has-vacancies">${vacancies} open</span>` : '') +
-          `</div>`;
+          `<div class="board-divider"></div>` +
+          `<div class="board-stats">${statsHtml}</div>`;
 
-        // Seats col
-        const seatsCol = document.createElement('div');
-        seatsCol.className = 'board-seats';
-
-        board.members.forEach(m => {
-          const st    = seatStatus(m);
-          const color = seatColor(st);
-          const seat  = document.createElement('div');
-          seat.className = `seat ${color}`;
-
-          // Tooltip data
-          const name = m.isVacant ? '' : `${m.firstName} ${m.lastName}`.trim();
-          const role = m.role || '';
-          const req  = m.positionRequirement || '';
-          const res  = m.residency || '';
-          let termText = '', termCls = st;
-
-          if (st === 'vacant') {
-            termText = 'Vacant';
-          } else if (st === 'permanent') {
-            termText = 'Permanent appointment';
-            termCls = 'permanent';
-          } else if (st === 'expired') {
-            termText = `Term expired ${fmtDate(m.termEnd)} — serving as holdover`;
-            termCls = 'expired';
-          } else if (st === 'expiring') {
-            termText = `Term ends ${fmtDate(m.termEnd)}`;
-            termCls = 'expiring';
-          } else {
-            termText = `Term ends ${fmtDate(m.termEnd)}`;
-            termCls = 'stable';
-          }
-
-          seat.dataset.name    = name;
-          seat.dataset.role    = role;
-          seat.dataset.req     = req;
-          seat.dataset.term    = termText;
-          seat.dataset.termcls = termCls;
-          seat.dataset.res     = res;
-
-          const label = m.isVacant
-            ? `Position ${m.position}: open seat${req ? ' — ' + req : ''}`
-            : `Position ${m.position}: ${name}, ${role}`;
-          seat.setAttribute('aria-label', label);
-
-          seatsCol.appendChild(seat);
-        });
+        // Right: parliament chart
+        const chart = document.createElement('div');
+        chart.className = 'board-chart';
+        chart.innerHTML = parliamentSVG(board.members);
 
         inner.appendChild(info);
-        inner.appendChild(seatsCol);
+        inner.appendChild(chart);
         panel.appendChild(inner);
         section.appendChild(panel);
       });
@@ -392,41 +498,40 @@ fetch('boards.json')
       main.appendChild(section);
     });
 
-    // Tooltip
+    // ── Tooltip ──────────────────────────────────────────────────────────
     const tooltip = document.getElementById('tooltip');
     const ttName  = document.getElementById('tt-name');
     const ttRole  = document.getElementById('tt-role');
     const ttReq   = document.getElementById('tt-req');
     const ttTerm  = document.getElementById('tt-term');
     const ttRes   = document.getElementById('tt-res');
+    let   lastDot = null;
 
-    let lastSeat = null;
     document.addEventListener('mousemove', e => {
-      const seat = e.target.closest('.seat');
-      if (!seat) {
+      const isDot = e.target.classList && e.target.classList.contains('seat-dot');
+      if (!isDot) {
         tooltip.classList.remove('visible');
-        lastSeat = null;
+        lastDot = null;
         return;
       }
-      if (seat !== lastSeat) {
-        lastSeat = seat;
-        const n = seat.dataset.name;
-        ttName.textContent = n || 'Open Seat';
-        ttRole.textContent = seat.dataset.role;
-        ttReq.textContent  = seat.dataset.req;
-        ttTerm.textContent = seat.dataset.term;
-        ttTerm.className   = `tooltip-term ${seat.dataset.termcls}`;
-        ttRes.textContent  = seat.dataset.res ? `Residency: ${seat.dataset.res}` : '';
-        ttRole.style.display = seat.dataset.role ? '' : 'none';
-        ttReq.style.display  = seat.dataset.req  ? '' : 'none';
-        ttRes.style.display  = seat.dataset.res  ? '' : 'none';
+      const el = e.target;
+      if (el !== lastDot) {
+        lastDot = el;
+        ttName.textContent = el.dataset.name  || 'Open Seat';
+        ttRole.textContent = el.dataset.role  || '';
+        ttReq.textContent  = el.dataset.req   || '';
+        ttTerm.textContent = el.dataset.term  || '';
+        ttTerm.className   = `tooltip-term ${el.dataset.termcls}`;
+        ttRes.textContent  = el.dataset.res ? `Residency: ${el.dataset.res}` : '';
+        ttRole.style.display = el.dataset.role ? '' : 'none';
+        ttReq.style.display  = el.dataset.req  ? '' : 'none';
+        ttRes.style.display  = el.dataset.res  ? '' : 'none';
       }
 
       tooltip.classList.add('visible');
       const pad = 16;
       let x = e.clientX + pad;
       let y = e.clientY + pad;
-      // flip if near edge
       const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
       if (x + tw > window.innerWidth  - 8) x = e.clientX - tw - pad;
       if (y + th > window.innerHeight - 8) y = e.clientY - th - pad;
@@ -436,10 +541,10 @@ fetch('boards.json')
 
     document.addEventListener('mouseleave', () => {
       tooltip.classList.remove('visible');
-      lastSeat = null;
+      lastDot = null;
     });
 
-    // Scroll-spy
+    // ── Scroll-spy ────────────────────────────────────────────────────────
     const sections = document.querySelectorAll('.cat-section');
     const catBtns  = document.querySelectorAll('.cat-btn');
     const io = new IntersectionObserver(entries => {
