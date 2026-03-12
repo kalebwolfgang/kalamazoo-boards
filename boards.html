@@ -10,42 +10,44 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:        #0f2744;
-      --navy-mid:    #1a3a5c;
-      --navy-light:  #2c527e;
-      --gold:        #c9921a;
-      --gold-lt:     #e8b84b;
-      --cream:       #f5f2ec;
-      --cream-dk:    #ebe6db;
-      --white:       #ffffff;
-      --text:        #1c2333;
-      --body:        #374151;
-      --muted:       #6b7280;
-      --border:      #ddd8ce;
-      --border-lt:   #eee9e0;
-      --seat-red:    #ef4444;
-      --seat-red-bg: #fef2f2;
-      --seat-yel:    #f59e0b;
-      --seat-yel-bg: #fffbeb;
-      --seat-grn:    #22c55e;
-      --seat-grn-bg: #f0fdf4;
+      --navy:       #0f2744;
+      --navy-mid:   #1a3a5c;
+      --navy-light: #2c527e;
+      --gold:       #c9921a;
+      --gold-lt:    #e8b84b;
+      --cream:      #f5f2ec;
+      --cream-dk:   #ebe6db;
+      --white:      #ffffff;
+      --text:       #1c2333;
+      --body:       #374151;
+      --muted:      #6b7280;
+      --border:     #ddd8ce;
+      --border-lt:  #eee9e0;
+      --red:        #dc2626;
+      --red-bg:     #fef2f2;
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'IBM Plex Sans', sans-serif; background: var(--cream); color: var(--text); font-size: 20px; line-height: 1.6; }
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 20px;
+      line-height: 1.6;
+    }
 
-    /* TOPBAR */
+    /* ── TOPBAR ── */
     .topbar { background: var(--navy-mid); padding: 6px 40px; font-size: 15px; color: rgba(255,255,255,0.5); }
     .topbar-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .topbar a { color: rgba(255,255,255,0.5); text-decoration: none; }
     .topbar a:hover { color: var(--gold-lt); }
     .topbar-links { display: flex; gap: 20px; }
 
-    /* NAV */
+    /* ── NAV ── */
     nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 200; }
-    .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-seal { width: 38px; height: 38px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--navy); }
+    .nav-seal { width: 36px; height: 36px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--navy); letter-spacing: 0.03em; }
     .nav-title-main { color: white; font-size: 19px; font-weight: 500; display: block; line-height: 1.2; }
     .nav-title-sub  { color: rgba(255,255,255,0.4); font-size: 15px; display: block; }
     .nav-right { display: flex; align-items: center; gap: 24px; }
@@ -54,119 +56,99 @@
     .nav-apply { background: var(--gold); color: var(--navy); text-decoration: none; font-weight: 600; font-size: 17px; padding: 8px 18px; border-radius: 2px; transition: background 0.15s; }
     .nav-apply:hover { background: var(--gold-lt); }
 
-    /* BREADCRUMB */
+    /* ── BREADCRUMB ── */
     .breadcrumb { background: var(--white); border-bottom: 1px solid var(--border); padding: 9px 40px; font-size: 16px; color: var(--muted); }
     .breadcrumb-inner { max-width: 1400px; margin: 0 auto; display: flex; gap: 8px; align-items: center; }
     .breadcrumb a { color: var(--navy-light); text-decoration: none; }
     .breadcrumb a:hover { text-decoration: underline; }
     .bc-sep { color: var(--border); }
 
-    /* PAGE HEADER */
-    .page-header { background: var(--navy); padding: 52px 40px 48px; }
-    .page-header-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 80px; align-items: end; }
-    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px); font-weight: 600; color: white; line-height: 1.2; margin-bottom: 12px; }
-    .page-header p { color: rgba(255,255,255,0.5); font-size: 20px; font-weight: 300; line-height: 1.7; max-width: 600px; }
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--navy); padding: 48px 40px 44px; }
+    .page-header-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: end; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 600; color: white; line-height: 1.2; margin-bottom: 10px; }
+    .page-header p { color: rgba(255,255,255,0.5); font-size: 19px; font-weight: 300; max-width: 560px; }
     .header-stats { display: flex; gap: 2px; flex-shrink: 0; }
-    .hstat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: 20px 28px; text-align: center; min-width: 110px; }
+    .hstat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: 18px 24px; text-align: center; min-width: 100px; }
     .hstat:first-child { border-radius: 4px 0 0 4px; }
     .hstat:last-child  { border-radius: 0 4px 4px 0; }
-    .hstat-n { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 600; color: white; line-height: 1; margin-bottom: 5px; }
-    .hstat-n.red  { color: var(--seat-red); }
-    .hstat-n.yel  { color: var(--gold-lt); }
-    .hstat-n.grn  { color: var(--seat-grn); }
-    .hstat-n.gold { color: var(--gold-lt); }
-    .hstat-lbl { font-size: 13px; color: rgba(255,255,255,0.38); letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.5; }
+    .hstat-n { font-family: 'Playfair Display', serif; font-size: 43px; font-weight: 600; color: white; line-height: 1; margin-bottom: 4px; }
+    .hstat-n.red    { color: #f87171; }
+    .hstat-n.yellow { color: var(--gold-lt); }
+    .hstat-n.green  { color: #86efac; }
+    .hstat-lbl { font-size: 13px; color: rgba(255,255,255,0.38); letter-spacing: 0.04em; line-height: 1.4; }
 
-    /* LEGEND */
-    .legend-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 40px; }
-    .legend-bar-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
-    .legend-item { display: flex; align-items: center; gap: 10px; font-size: 18px; color: var(--body); }
-    .legend-seat { width: 32px; height: 16px; border-radius: 16px 16px 0 0; flex-shrink: 0; }
-    .legend-seat.red { background: var(--seat-red); }
-    .legend-seat.yel { background: var(--seat-yel); }
-    .legend-seat.grn { background: var(--seat-grn); }
-    .legend-divider { width: 1px; height: 22px; background: var(--border); }
-    .legend-note { font-size: 16px; color: var(--muted); margin-left: auto; font-style: italic; }
+    /* ── LEGEND ── */
+    .legend-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 12px 40px; }
+    .legend-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .legend-label { font-size: 15px; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .legend-item { display: flex; align-items: center; gap: 10px; font-size: 17px; color: var(--body); }
+    .legend-arch { width: 32px; height: 16px; border-radius: 16px 16px 0 0; flex-shrink: 0; }
+    .legend-arch.red    { background: #dc2626; }
+    .legend-arch.yellow { background: #d97706; }
+    .legend-arch.green  { background: #15803d; }
 
-    /* CATEGORY JUMP NAV */
-    .cat-nav { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 67px; z-index: 150; }
+    /* ── CATEGORY NAV ── */
+    .cat-nav { background: var(--cream-dk); border-bottom: 1px solid var(--border); position: sticky; top: 63px; z-index: 100; }
     .cat-nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; overflow-x: auto; }
     .cat-nav-inner::-webkit-scrollbar { display: none; }
-    .cat-jump { padding: 0 22px; height: 50px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 17px; font-weight: 500; text-decoration: none; white-space: nowrap; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; }
-    .cat-jump:hover { color: white; border-bottom-color: var(--gold-lt); }
-    .cat-jump.active { color: white; border-bottom-color: var(--gold); }
-    .cat-jump-count { font-size: 13px; background: rgba(255,255,255,0.1); border-radius: 10px; padding: 2px 8px; }
+    .cat-btn { padding: 14px 22px; font-size: 17px; font-weight: 500; color: var(--muted); text-decoration: none; white-space: nowrap; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; }
+    .cat-btn:hover { color: var(--navy); border-color: var(--gold); }
+    .cat-btn.active { color: var(--navy); border-color: var(--gold); font-weight: 600; }
 
-    /* MAIN */
-    .main-wrap { max-width: 1400px; margin: 0 auto; padding: 56px 40px 120px; display: flex; flex-direction: column; gap: 64px; }
+    /* ── MAIN ── */
+    .main-wrap { max-width: 1400px; margin: 0 auto; padding: 56px 40px 120px; }
 
-    /* CATEGORY SECTION */
-    .cat-header { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 2px solid var(--border); }
-    .cat-icon { font-size: 28px; }
-    .cat-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: var(--navy); }
-    .cat-board-count { font-size: 18px; color: var(--muted); }
-    .cat-vacancy-badge { margin-left: auto; font-size: 17px; font-weight: 600; padding: 4px 14px; border-radius: 14px; background: var(--seat-red-bg); color: var(--seat-red); }
-    .cat-vacancy-badge.none { background: var(--seat-grn-bg); color: #16a34a; }
-    .boards-list { display: flex; flex-direction: column; gap: 12px; }
+    /* ── CATEGORY SECTION ── */
+    .cat-section { margin-bottom: 72px; }
+    .cat-section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; padding-bottom: 14px; border-bottom: 2px solid var(--gold); }
+    .cat-section-head h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: var(--navy); }
+    .cat-section-count { font-size: 17px; color: var(--muted); }
 
-    /* BOARD PANEL */
-    .board-panel { background: var(--white); border: 1px solid var(--border); border-radius: 4px; display: grid; grid-template-columns: 340px 1fr; overflow: visible; transition: border-color 0.15s, box-shadow 0.15s; }
-    .board-panel:hover { border-color: var(--navy-light); box-shadow: 0 2px 16px rgba(15,39,68,0.07); }
+    /* ── BOARD PANEL ── */
+    .board-panel { background: var(--white); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 18px; overflow: hidden; }
+    .board-panel-inner { display: grid; grid-template-columns: 280px 1fr; min-height: 100px; }
 
-    .panel-meta { padding: 24px 28px; border-right: 1px solid var(--border-lt); display: flex; flex-direction: column; gap: 5px; }
-    .panel-abbr { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-    .panel-name { font-size: 20px; font-weight: 600; color: var(--text); line-height: 1.3; margin-bottom: 6px; }
-    .panel-detail { font-size: 17px; color: var(--muted); display: flex; align-items: flex-start; gap: 7px; line-height: 1.4; }
-    .panel-detail svg { flex-shrink: 0; margin-top: 3px; }
-    .panel-vacancy-note { margin-top: 10px; font-size: 18px; font-weight: 600; color: var(--seat-red); }
-    .panel-vacancy-note.none { color: #16a34a; }
+    .board-info { padding: 24px 28px; border-right: 1px solid var(--border-lt); display: flex; flex-direction: column; justify-content: center; }
+    .board-abbr { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+    .board-name { font-size: 20px; font-weight: 600; color: var(--navy); line-height: 1.25; margin-bottom: 10px; }
+    .board-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .board-tag { font-size: 14px; padding: 2px 8px; border-radius: 2px; background: var(--cream); color: var(--muted); border: 1px solid var(--border); }
+    .board-tag.has-vacancies { background: var(--red-bg); color: var(--red); border-color: #fecaca; font-weight: 600; }
 
-    .panel-seats { padding: 24px 28px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
-    .seats-label { font-size: 15px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
-    .seats-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; padding-top: 6px; }
+    .board-seats { padding: 24px 28px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
 
-    /* HALF-CIRCLE SEAT */
-    .seat { position: relative; width: 52px; height: 26px; border-radius: 52px 52px 0 0; cursor: pointer; transition: transform 0.12s, filter 0.12s; flex-shrink: 0; }
-    .seat:hover { transform: translateY(-5px) scaleY(1.12); filter: brightness(1.12); }
-    .seat.red { background: var(--seat-red); }
-    .seat.yel { background: var(--seat-yel); }
-    .seat.grn { background: var(--seat-grn); }
+    /* ── SEAT ARCH ── */
+    .seat { position: relative; width: 52px; height: 26px; border-radius: 26px 26px 0 0; cursor: default; transition: transform 0.12s, filter 0.12s; flex-shrink: 0; }
+    .seat:hover { transform: translateY(-4px); filter: brightness(1.15); }
+    .seat.red    { background: #dc2626; }
+    .seat.yellow { background: #d97706; }
+    .seat.green  { background: #15803d; }
 
-    /* TOOLTIP */
-    .seat-tooltip { position: fixed; background: var(--navy); color: white; border-radius: 4px; padding: 12px 16px; font-size: 16px; line-height: 1.5; pointer-events: none; z-index: 9999; max-width: 260px; box-shadow: 0 6px 24px rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.1s; white-space: nowrap; border-top: 3px solid var(--gold); }
-    .seat-tooltip.visible { opacity: 1; }
-    .tt-status { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 5px; }
-    .tt-status.red { color: #fca5a5; }
-    .tt-status.yel { color: var(--gold-lt); }
-    .tt-status.grn { color: #86efac; }
-    .tt-name { font-weight: 600; font-size: 18px; }
-    .tt-role { color: rgba(255,255,255,0.55); font-size: 15px; }
-    .tt-date { margin-top: 5px; font-size: 15px; color: rgba(255,255,255,0.7); }
+    /* ── TOOLTIP ── */
+    .tooltip { position: fixed; background: var(--navy); color: white; padding: 12px 16px; border-radius: 4px; font-size: 16px; line-height: 1.5; pointer-events: none; z-index: 9999; max-width: 300px; box-shadow: 0 4px 24px rgba(0,0,0,0.35); display: none; }
+    .tooltip.visible { display: block; }
+    .tooltip-name { font-weight: 600; font-size: 18px; margin-bottom: 2px; }
+    .tooltip-role { color: var(--gold-lt); font-size: 15px; margin-bottom: 3px; }
+    .tooltip-req  { color: rgba(255,255,255,0.55); font-size: 14px; margin-bottom: 5px; font-style: italic; }
+    .tooltip-term { font-size: 15px; }
+    .tooltip-term.expired   { color: #fca5a5; }
+    .tooltip-term.expiring  { color: var(--gold-lt); }
+    .tooltip-term.stable    { color: #86efac; }
+    .tooltip-term.permanent { color: #86efac; }
+    .tooltip-term.vacant    { color: #f87171; font-weight: 600; }
+    .tooltip-res  { color: rgba(255,255,255,0.45); font-size: 14px; margin-top: 4px; }
 
-    /* FOOTER */
-    footer { background: var(--navy); border-top: 3px solid var(--gold); padding: 36px 40px; }
-    .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
-    .fc { display: flex; flex-direction: column; gap: 8px; }
-    .fc h4 { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
-    .fc a, .fc p { font-size: 17px; color: rgba(255,255,255,0.55); text-decoration: none; line-height: 1.6; }
-    .fc a:hover { color: var(--gold-lt); }
-    .footer-bottom { max-width: 1400px; margin: 24px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.3); }
-    .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
-    .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+    /* ── FOOTER ── */
+    footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 32px 40px; text-align: center; font-size: 16px; color: rgba(255,255,255,0.4); }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--gold-lt); }
 
-    @media (max-width: 1000px) { .board-panel { grid-template-columns: 280px 1fr; } }
-    @media (max-width: 800px) {
-      .board-panel { grid-template-columns: 1fr; }
-      .panel-meta { border-right: none; border-bottom: 1px solid var(--border-lt); }
+    @media (max-width: 900px) {
+      .board-panel-inner { grid-template-columns: 1fr; }
+      .board-info { border-right: none; border-bottom: 1px solid var(--border-lt); }
       .page-header-inner { grid-template-columns: 1fr; gap: 28px; }
-    }
-    @media (max-width: 600px) {
-      .topbar, .breadcrumb, .legend-bar { padding-left: 20px; padding-right: 20px; }
-      .nav-inner, .cat-nav-inner { padding-left: 20px; padding-right: 20px; }
-      .page-header { padding: 32px 20px 28px; }
-      .main-wrap { padding: 32px 20px 80px; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 8px; }
+      .header-stats { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -174,10 +156,11 @@
 
 <div class="topbar">
   <div class="topbar-inner">
-    <span>City of Kalamazoo, Michigan</span>
+    <span>City of Kalamazoo — Official Site</span>
     <div class="topbar-links">
-      <a href="https://www.kalamazoocity.org">kalamazoocity.org</a>
-      <a href="tel:311">311</a>
+      <a href="#">City Services</a>
+      <a href="#">Government</a>
+      <a href="#">Contact</a>
     </div>
   </div>
 </div>
@@ -185,314 +168,295 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
-      <div class="nav-seal">COK</div>
+      <div class="nav-seal">CoK</div>
       <div>
         <span class="nav-title-main">City of Kalamazoo</span>
         <span class="nav-title-sub">Boards &amp; Commissions</span>
       </div>
     </a>
     <div class="nav-right">
-      <a class="nav-link" href="index.html">Home</a>
       <a class="nav-link" href="boards.html">All Boards</a>
-      <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
+      <a class="nav-link" href="#">Calendar</a>
+      <a class="nav-link" href="#">Minutes</a>
+      <a class="nav-apply" href="#">Apply to Serve</a>
     </div>
   </div>
 </nav>
 
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
-    <a href="https://www.kalamazoocity.org">kalamazoocity.org</a>
+    <a href="index.html">Home</a>
     <span class="bc-sep">›</span>
-    <a href="index.html">Boards &amp; Commissions</a>
-    <span class="bc-sep">›</span>
-    <span>All Boards</span>
+    <span>All Boards &amp; Commissions</span>
   </div>
 </div>
 
 <div class="page-header">
   <div class="page-header-inner">
     <div>
-      <h1>Boards &amp; Commissions Directory</h1>
-      <p>Every seat across all 27 appointed bodies — color-coded by availability. Hover any seat to see who holds it and when it opens.</p>
+      <h1>Boards &amp; Commissions</h1>
+      <p>Every seat shown — hover any arch to see who holds it and when it becomes available.</p>
     </div>
     <div class="header-stats">
-      <div class="hstat">
-        <div class="hstat-n gold" id="stat-boards">—</div>
-        <div class="hstat-lbl">Boards</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-n red" id="stat-red">—</div>
-        <div class="hstat-lbl">Open<br>Now</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-n yel" id="stat-yel">—</div>
-        <div class="hstat-lbl">Expiring<br>Soon</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-n grn" id="stat-grn">—</div>
-        <div class="hstat-lbl">Filled<br>&gt;6 mo</div>
-      </div>
+      <div class="hstat"><div class="hstat-n" id="stat-boards">—</div><div class="hstat-lbl">Boards</div></div>
+      <div class="hstat"><div class="hstat-n red"    id="stat-vacant">—</div><div class="hstat-lbl">Open Now</div></div>
+      <div class="hstat"><div class="hstat-n yellow" id="stat-expiring">—</div><div class="hstat-lbl">Expiring Soon</div></div>
+      <div class="hstat"><div class="hstat-n green"  id="stat-stable">—</div><div class="hstat-lbl">Stable</div></div>
     </div>
   </div>
 </div>
 
-<div class="legend-bar">
-  <div class="legend-bar-inner">
-    <div class="legend-item"><div class="legend-seat red"></div> Open — vacant now</div>
-    <div class="legend-divider"></div>
-    <div class="legend-item"><div class="legend-seat yel"></div> Expiring within 6 months</div>
-    <div class="legend-divider"></div>
-    <div class="legend-item"><div class="legend-seat grn"></div> Filled — 6+ months remaining</div>
-    <span class="legend-note">Hover any seat for name &amp; term details</span>
+<div class="legend-strip">
+  <div class="legend-inner">
+    <span class="legend-label">Seat Key</span>
+    <div class="legend-item"><div class="legend-arch red"></div> Open — currently vacant</div>
+    <div class="legend-item"><div class="legend-arch yellow"></div> Expiring — term ends within 6 months or has already lapsed (holdover)</div>
+    <div class="legend-item"><div class="legend-arch green"></div> Stable — 6+ months remaining, or permanent appointment</div>
   </div>
 </div>
 
-<div class="cat-nav">
-  <div class="cat-nav-inner" id="cat-nav-inner"></div>
-</div>
+<div class="cat-nav"><div class="cat-nav-inner" id="cat-nav"></div></div>
 
-<div class="main-wrap" id="main-wrap">
-  <div style="text-align:center; padding:80px 0; color:var(--muted);">Loading board data…</div>
-</div>
+<div class="main-wrap" id="main-content"></div>
 
-<div class="seat-tooltip" id="seat-tooltip"></div>
+<div class="tooltip" id="tooltip">
+  <div class="tooltip-name" id="tt-name"></div>
+  <div class="tooltip-role" id="tt-role"></div>
+  <div class="tooltip-req"  id="tt-req"></div>
+  <div class="tooltip-term" id="tt-term"></div>
+  <div class="tooltip-res"  id="tt-res"></div>
+</div>
 
 <footer>
-  <div class="footer-inner">
-    <div class="fc">
-      <h4>City of Kalamazoo</h4>
-      <p>241 W South Street<br>Kalamazoo, MI 49007</p>
-      <a href="tel:311">311 or (269) 337-8000</a>
-      <a href="mailto:clerk@kalamazoocity.org">clerk@kalamazoocity.org</a>
-    </div>
-    <div class="fc">
-      <h4>Boards &amp; Commissions</h4>
-      <a href="boards.html">All Boards</a>
-      <a href="#">Meeting Calendar</a>
-      <a href="#">Minutes &amp; Agendas</a>
-      <a href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
-    </div>
-    <div class="fc">
-      <h4>Government</h4>
-      <a href="#">City Commission</a>
-      <a href="#">City Charter</a>
-      <a href="#">Code of Ordinances</a>
-      <a href="#">Departments</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 City of Kalamazoo · Data sourced from the City Clerk's Office</span>
-    <span><a href="#">Disclaimer</a> · <a href="#">Privacy Policy</a></span>
-  </div>
+  <p>City of Kalamazoo — Boards &amp; Commissions Office &nbsp;|&nbsp;
+    <a href="tel:+12693376200">(269) 337-6200</a> &nbsp;|&nbsp;
+    <a href="#">City Clerk's Office</a>
+  </p>
 </footer>
 
 <script>
-const TODAY   = new Date('2026-03-12');
-const SIX_MO  = new Date(TODAY); SIX_MO.setMonth(SIX_MO.getMonth() + 6);
-const PERM    = new Date('2090-01-01');
+// Today's date — update this when deploying; or change to new Date() for live calculation
+const TODAY = new Date();
+const SIX_MO = new Date(TODAY);
+SIX_MO.setMonth(SIX_MO.getMonth() + 6);
 
-const CAT_CONFIG = {
-  'Land Use & Planning':          { icon: '🏗',  slug: 'land-use'    },
-  'Economic Development':         { icon: '📈',  slug: 'economic'    },
-  'Environment & Parks':          { icon: '🌿',  slug: 'environment' },
-  'Finance & Governance':         { icon: '⚖️', slug: 'finance'     },
-  'Public Safety & Civil Rights': { icon: '🛡',  slug: 'safety'      },
-  'Community Services':           { icon: '🤝',  slug: 'community'   },
-};
+const CATEGORIES = [
+  'Land Use & Planning',
+  'Economic Development',
+  'Public Safety & Civil Rights',
+  'Environment & Parks',
+  'Finance & Governance',
+  'Community Services'
+];
 
-function seatColor(m) {
-  if (m.isVacant) return 'red';
-  if (!m.termEnd) return 'grn';
-  const d = new Date(m.termEnd);
-  if (d > PERM) return 'grn';
-  if (d < TODAY) return 'yel';
-  if (d <= SIX_MO) return 'yel';
-  return 'grn';
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function seatStatus(m) {
+  if (m.isVacant) return 'vacant';
+  if (!m.termEnd || m.termEnd === '2100-01-01') return 'permanent';
+  const end = new Date(m.termEnd);
+  if (end < TODAY)  return 'expired';   // holdover — term lapsed, still seated
+  if (end < SIX_MO) return 'expiring'; // within 6 months
+  return 'stable';
 }
 
-function fmtDate(s) {
-  if (!s) return null;
-  const d = new Date(s);
-  if (d > PERM) return 'Permanent appointment';
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+function seatColor(s) {
+  if (s === 'vacant')   return 'red';
+  if (s === 'expired' || s === 'expiring') return 'yellow';
+  return 'green';
 }
 
-function esc(s) {
-  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function escAttr(s) {
-  return String(s ?? '').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-}
-
-// Tooltip
-const tt = document.getElementById('seat-tooltip');
-let ttOn = false;
-
-function showTT(e, m, color) {
-  const isVacant = m.isVacant;
-  const name = isVacant ? 'Open seat' : `${m.firstName} ${m.lastName}`.trim();
-  const label = color === 'red' ? 'Open now' : color === 'yel' ? 'Expiring soon' : 'Filled';
-  const termDate = fmtDate(m.termEnd);
-
-  let html = `<div class="tt-status ${color}">${label}</div>`;
-  html += `<div class="tt-name">${esc(name)}</div>`;
-  if (!isVacant && m.role) html += `<div class="tt-role">${esc(m.role)}</div>`;
-  if (!isVacant && termDate) html += `<div class="tt-date">Term ends ${esc(termDate)}</div>`;
-  if (isVacant && termDate) html += `<div class="tt-date">Term period: ${esc(termDate)}</div>`;
-  if (!isVacant && m.residency) html += `<div class="tt-date">${esc(m.residency)}</div>`;
-
-  tt.innerHTML = html;
-  tt.classList.add('visible');
-  ttOn = true;
-  posTT(e);
+function fmtDate(iso) {
+  if (!iso || iso === '2100-01-01') return null;
+  const [y,m,d] = iso.split('-');
+  return `${MONTHS[+m-1]} ${+d}, ${y}`;
 }
 
-function posTT(e) {
-  const w = tt.offsetWidth, h = tt.offsetHeight;
-  let x = e.clientX + 16, y = e.clientY - h - 12;
-  if (x + w > window.innerWidth - 8) x = e.clientX - w - 16;
-  if (y < 8) y = e.clientY + 22;
-  tt.style.left = x + 'px';
-  tt.style.top  = y + 'px';
-}
+fetch('boards.json')
+  .then(r => r.json())
+  .then(boards => {
 
-document.addEventListener('mousemove', e => { if (ttOn) posTT(e); });
+    // Header stats
+    let nVacant = 0, nExpiring = 0, nStable = 0;
+    boards.forEach(b => b.members.forEach(m => {
+      const s = seatStatus(m);
+      if (s === 'vacant') nVacant++;
+      else if (s === 'expired' || s === 'expiring') nExpiring++;
+      else nStable++;
+    }));
+    document.getElementById('stat-boards').textContent   = boards.length;
+    document.getElementById('stat-vacant').textContent   = nVacant;
+    document.getElementById('stat-expiring').textContent = nExpiring;
+    document.getElementById('stat-stable').textContent   = nStable;
 
-function hideTT() { tt.classList.remove('visible'); ttOn = false; }
-
-// Build
-async function loadBoards() {
-  let boards;
-  try {
-    const r = await fetch('boards.json');
-    if (!r.ok) throw 0;
-    boards = await r.json();
-  } catch {
-    document.getElementById('main-wrap').innerHTML =
-      '<p style="color:var(--muted);padding:80px 0;text-align:center;">Could not load boards.json — place it in the same directory.</p>';
-    return;
-  }
-
-  // Stats
-  let nRed = 0, nYel = 0, nGrn = 0;
-  boards.forEach(b => b.members.forEach(m => {
-    const c = seatColor(m);
-    if (c==='red') nRed++; else if (c==='yel') nYel++; else nGrn++;
-  }));
-  document.getElementById('stat-boards').textContent = boards.length;
-  document.getElementById('stat-red').textContent    = nRed;
-  document.getElementById('stat-yel').textContent    = nYel;
-  document.getElementById('stat-grn').textContent    = nGrn;
-
-  // Group by cat
-  const catOrder = Object.keys(CAT_CONFIG);
-  const byCat = {};
-  catOrder.forEach(c => byCat[c] = []);
-  boards.forEach(b => { if (byCat[b.category]) byCat[b.category].push(b); });
-
-  // Cat nav
-  const nav = document.getElementById('cat-nav-inner');
-  catOrder.forEach(cat => {
-    const bds = byCat[cat];
-    if (!bds.length) return;
-    const cfg = CAT_CONFIG[cat];
-    const a = document.createElement('a');
-    a.className = 'cat-jump';
-    a.href = '#cat-' + cfg.slug;
-    a.innerHTML = `${cfg.icon} ${cat} <span class="cat-jump-count">${bds.length}</span>`;
-    nav.appendChild(a);
-  });
-
-  // Main content
-  const main = document.getElementById('main-wrap');
-  main.innerHTML = '';
-
-  catOrder.forEach(cat => {
-    const bds = byCat[cat];
-    if (!bds.length) return;
-    const cfg = CAT_CONFIG[cat];
-    const catVac = bds.reduce((s,b) => s + b.vacancies, 0);
-
-    const sec = document.createElement('section');
-    sec.className = 'cat-section';
-    sec.id = 'cat-' + cfg.slug;
-
-    sec.innerHTML = `
-      <div class="cat-header">
-        <span class="cat-icon">${cfg.icon}</span>
-        <span class="cat-title">${esc(cat)}</span>
-        <span class="cat-board-count">${bds.length} board${bds.length!==1?'s':''}</span>
-        <span class="cat-vacancy-badge${catVac===0?' none':''}">
-          ${catVac===0 ? 'No vacancies' : catVac + ' open seat' + (catVac!==1?'s':'')}
-        </span>
-      </div>
-      <div class="boards-list">
-        ${bds.map(b => buildPanel(b)).join('')}
-      </div>`;
-
-    main.appendChild(sec);
-  });
-
-  // Seat events
-  main.querySelectorAll('.seat').forEach(el => {
-    const m = JSON.parse(el.dataset.m);
-    const color = el.dataset.c;
-    el.addEventListener('mouseenter', e => showTT(e, m, color));
-    el.addEventListener('mouseleave', hideTT);
-  });
-
-  // Scroll spy
-  const jumps = document.querySelectorAll('.cat-jump');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        jumps.forEach(j => j.classList.toggle('active', j.getAttribute('href') === '#' + id));
-      }
+    // Category nav
+    const catNav = document.getElementById('cat-nav');
+    CATEGORIES.forEach((cat, i) => {
+      const catId = 'sec-' + i;
+      const a = document.createElement('a');
+      a.className = 'cat-btn' + (i === 0 ? ' active' : '');
+      a.href = '#' + catId;
+      a.textContent = cat;
+      catNav.appendChild(a);
     });
-  }, { rootMargin: '-15% 0px -70% 0px' });
 
-  catOrder.forEach(cat => {
-    const el = document.getElementById('cat-' + CAT_CONFIG[cat].slug);
-    if (el) observer.observe(el);
+    // Main content
+    const main = document.getElementById('main-content');
+    CATEGORIES.forEach((cat, i) => {
+      const catBoards = boards.filter(b => b.category === cat);
+      if (!catBoards.length) return;
+
+      const section = document.createElement('div');
+      section.className = 'cat-section';
+      section.id = 'sec-' + i;
+
+      const head = document.createElement('div');
+      head.className = 'cat-section-head';
+      head.innerHTML = `<h2>${cat}</h2><span class="cat-section-count">${catBoards.length} board${catBoards.length !== 1 ? 's' : ''}</span>`;
+      section.appendChild(head);
+
+      catBoards.forEach(board => {
+        const vacancies = board.members.filter(m => m.isVacant).length;
+
+        const panel = document.createElement('div');
+        panel.className = 'board-panel';
+
+        const inner = document.createElement('div');
+        inner.className = 'board-panel-inner';
+
+        // Info col
+        const info = document.createElement('div');
+        info.className = 'board-info';
+        info.innerHTML =
+          `<div class="board-abbr">${board.abbr}</div>` +
+          `<div class="board-name">${board.name}</div>` +
+          `<div class="board-meta">` +
+            `<span class="board-tag">${board.members.length} seat${board.members.length !== 1 ? 's' : ''}</span>` +
+            (vacancies ? `<span class="board-tag has-vacancies">${vacancies} open</span>` : '') +
+          `</div>`;
+
+        // Seats col
+        const seatsCol = document.createElement('div');
+        seatsCol.className = 'board-seats';
+
+        board.members.forEach(m => {
+          const st    = seatStatus(m);
+          const color = seatColor(st);
+          const seat  = document.createElement('div');
+          seat.className = `seat ${color}`;
+
+          // Tooltip data
+          const name = m.isVacant ? '' : `${m.firstName} ${m.lastName}`.trim();
+          const role = m.role || '';
+          const req  = m.positionRequirement || '';
+          const res  = m.residency || '';
+          let termText = '', termCls = st;
+
+          if (st === 'vacant') {
+            termText = 'Vacant';
+          } else if (st === 'permanent') {
+            termText = 'Permanent appointment';
+            termCls = 'permanent';
+          } else if (st === 'expired') {
+            termText = `Term expired ${fmtDate(m.termEnd)} — serving as holdover`;
+            termCls = 'expired';
+          } else if (st === 'expiring') {
+            termText = `Term ends ${fmtDate(m.termEnd)}`;
+            termCls = 'expiring';
+          } else {
+            termText = `Term ends ${fmtDate(m.termEnd)}`;
+            termCls = 'stable';
+          }
+
+          seat.dataset.name    = name;
+          seat.dataset.role    = role;
+          seat.dataset.req     = req;
+          seat.dataset.term    = termText;
+          seat.dataset.termcls = termCls;
+          seat.dataset.res     = res;
+
+          const label = m.isVacant
+            ? `Position ${m.position}: open seat${req ? ' — ' + req : ''}`
+            : `Position ${m.position}: ${name}, ${role}`;
+          seat.setAttribute('aria-label', label);
+
+          seatsCol.appendChild(seat);
+        });
+
+        inner.appendChild(info);
+        inner.appendChild(seatsCol);
+        panel.appendChild(inner);
+        section.appendChild(panel);
+      });
+
+      main.appendChild(section);
+    });
+
+    // Tooltip
+    const tooltip = document.getElementById('tooltip');
+    const ttName  = document.getElementById('tt-name');
+    const ttRole  = document.getElementById('tt-role');
+    const ttReq   = document.getElementById('tt-req');
+    const ttTerm  = document.getElementById('tt-term');
+    const ttRes   = document.getElementById('tt-res');
+
+    let lastSeat = null;
+    document.addEventListener('mousemove', e => {
+      const seat = e.target.closest('.seat');
+      if (!seat) {
+        tooltip.classList.remove('visible');
+        lastSeat = null;
+        return;
+      }
+      if (seat !== lastSeat) {
+        lastSeat = seat;
+        const n = seat.dataset.name;
+        ttName.textContent = n || 'Open Seat';
+        ttRole.textContent = seat.dataset.role;
+        ttReq.textContent  = seat.dataset.req;
+        ttTerm.textContent = seat.dataset.term;
+        ttTerm.className   = `tooltip-term ${seat.dataset.termcls}`;
+        ttRes.textContent  = seat.dataset.res ? `Residency: ${seat.dataset.res}` : '';
+        ttRole.style.display = seat.dataset.role ? '' : 'none';
+        ttReq.style.display  = seat.dataset.req  ? '' : 'none';
+        ttRes.style.display  = seat.dataset.res  ? '' : 'none';
+      }
+
+      tooltip.classList.add('visible');
+      const pad = 16;
+      let x = e.clientX + pad;
+      let y = e.clientY + pad;
+      // flip if near edge
+      const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+      if (x + tw > window.innerWidth  - 8) x = e.clientX - tw - pad;
+      if (y + th > window.innerHeight - 8) y = e.clientY - th - pad;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('visible');
+      lastSeat = null;
+    });
+
+    // Scroll-spy
+    const sections = document.querySelectorAll('.cat-section');
+    const catBtns  = document.querySelectorAll('.cat-btn');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = [...sections].indexOf(entry.target);
+          catBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
+        }
+      });
+    }, { rootMargin: '-10% 0px -70% 0px' });
+    sections.forEach(s => io.observe(s));
+
+  })
+  .catch(err => {
+    document.getElementById('main-content').innerHTML =
+      `<p style="color:red;padding:40px;font-size:18px">Could not load boards.json — ${err.message}</p>`;
   });
-}
-
-function buildPanel(b) {
-  const termStr = b.termYears ? `${b.termYears % 1 === 0 ? b.termYears : b.termYears}-year terms` : 'Term varies';
-  const res = b.residencyRequirement === 'Resident' ? 'City residency required'
-    : b.residencyRequirement === 'Non-Resident' ? 'Non-residents eligible'
-    : b.residencyRequirement || 'See requirements';
-  const vacNote = b.vacancies > 0 ? `${b.vacancies} open seat${b.vacancies!==1?'s':''}` : 'Fully seated';
-  const calIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>`;
-  const pinIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
-  const usrIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>`;
-
-  const seatsHTML = b.members.map(m => {
-    const color = seatColor(m);
-    const mJson = JSON.stringify(m).replace(/\\/g,'\\\\').replace(/'/g,'&#39;');
-    return `<div class="seat ${color}" data-c="${color}" data-m='${mJson}'></div>`;
-  }).join('');
-
-  return `
-    <div class="board-panel">
-      <div class="panel-meta">
-        <div class="panel-abbr">${esc(b.abbr)}</div>
-        <div class="panel-name">${esc(b.name)}</div>
-        <div class="panel-detail">${calIcon} ${esc(termStr)}</div>
-        <div class="panel-detail">${pinIcon} ${esc(res)}</div>
-        ${b.positionRequirement ? `<div class="panel-detail">${usrIcon} ${esc(b.positionRequirement)}</div>` : ''}
-        <div class="panel-vacancy-note${b.vacancies===0?' none':''}">${esc(vacNote)}</div>
-      </div>
-      <div class="panel-seats">
-        <div class="seats-label">${b.totalSeats} seat${b.totalSeats!==1?'s':''} — hover to inspect</div>
-        <div class="seats-row">${seatsHTML}</div>
-      </div>
-    </div>`;
-}
-
-loadBoards();
 </script>
-
 </body>
 </html>
