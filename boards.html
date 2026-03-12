@@ -139,17 +139,24 @@
     .board-panel.all-stable   { border-left-color: #15803d; }
     .board-panel.hidden       { display: none; }
 
+    /* Stacked layout: everything in one column */
     .board-panel-inner {
-      display: grid;
-      grid-template-columns: 340px 1fr;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 28px;
     }
 
-    /* ── LEFT: INFO ── */
-    .board-info {
-      padding: 26px 30px;
-      border-right: 1px solid var(--border-lt);
-      display: flex; flex-direction: column; gap: 0;
+    /* ── TOP ROW: title left, stats right ── */
+    .board-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
     }
+
+    .board-title { flex: 1; min-width: 0; }
+
     .board-abbr {
       font-size: 34px; font-weight: 700;
       color: var(--gold); letter-spacing: -0.01em; line-height: 1;
@@ -158,12 +165,14 @@
     .board-name {
       font-size: 19px; font-weight: 600;
       color: var(--navy); line-height: 1.3;
-      margin-bottom: 16px;
     }
-    .board-divider { height: 1px; background: var(--border-lt); margin-bottom: 14px; }
 
-    /* Stats row */
-    .board-stats { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 14px; }
+    /* Stats (sit to the right of the title) */
+    .board-stats {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      align-items: baseline; flex-shrink: 0;
+      padding-top: 6px;
+    }
     .board-stat { display: flex; align-items: baseline; gap: 5px; font-size: 17px; color: var(--muted); }
     .board-stat-n { font-size: 22px; font-weight: 700; line-height: 1; }
     .board-stat-n.total  { color: var(--navy); }
@@ -171,26 +180,31 @@
     .board-stat-n.yellow { color: #d97706; }
     .board-stat-n.green  { color: #15803d; }
 
-    /* Extra info rows */
+    /* Divider */
+    .board-divider { height: 1px; background: var(--border-lt); margin: 16px 0 14px; }
+
+    /* Detail rows (Includes / Residency) */
+    .board-details { margin-bottom: 14px; }
     .board-detail {
       font-size: 16px; color: var(--muted);
       display: flex; align-items: flex-start; gap: 8px;
-      margin-top: 8px; line-height: 1.45;
+      margin-bottom: 6px; line-height: 1.45;
     }
+    .board-detail:last-child { margin-bottom: 0; }
     .board-detail-label {
       font-weight: 600; color: var(--body);
       white-space: nowrap; flex-shrink: 0;
     }
 
-    /* ── RIGHT: SEATS ── */
+    /* ── SEATS — full width, wraps naturally ── */
     .board-seats {
-      padding: 26px 28px;
-      display: flex; align-items: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       align-content: flex-start;
-      flex-wrap: wrap; gap: 10px;
     }
 
-    /* Full circle seats */
+    /* Full circle dots */
     .seat-dot {
       width: 22px; height: 22px;
       border-radius: 50%;
@@ -235,9 +249,8 @@
     footer a:hover { color: var(--gold-lt); }
 
     @media (max-width: 900px) {
-      .board-panel-inner { grid-template-columns: 1fr; }
-      .board-info { border-right: none; border-bottom: 1px solid var(--border-lt); }
       .page-header-inner { grid-template-columns: 1fr; gap: 28px; }
+      .board-top { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
@@ -431,7 +444,7 @@ fetch('boards.json')
         }
       }
 
-      // Build extra detail rows
+      // Build detail rows (Includes, Residency)
       let detailsHtml = '';
       if (reqs.length) {
         detailsHtml +=
@@ -449,13 +462,13 @@ fetch('boards.json')
       }
 
       // Build seat dots
-      const seatsCol = document.createElement('div');
-      seatsCol.className = 'board-seats';
+      const seatsRow = document.createElement('div');
+      seatsRow.className = 'board-seats';
 
       board.members.forEach(m => {
-        const st   = seatStatus(m);
-        const col  = st === 'vacant' ? 'red' : (st === 'expired' || st === 'expiring') ? 'yellow' : 'green';
-        const dot  = document.createElement('div');
+        const st  = seatStatus(m);
+        const col = st === 'vacant' ? 'red' : (st === 'expired' || st === 'expiring') ? 'yellow' : 'green';
+        const dot = document.createElement('div');
         dot.className = `seat-dot ${col}`;
         const name = m.isVacant ? '' : `${m.firstName} ${m.lastName}`.trim();
         dot.dataset.name    = name;
@@ -469,7 +482,7 @@ fetch('boards.json')
             ? `Position ${m.position}: open seat${m.positionRequirement ? ' — ' + m.positionRequirement : ''}`
             : `Position ${m.position}: ${name}, ${m.role}`
         );
-        seatsCol.appendChild(dot);
+        seatsRow.appendChild(dot);
       });
 
       // Assemble panel
@@ -481,27 +494,43 @@ fetch('boards.json')
       const inner = document.createElement('div');
       inner.className = 'board-panel-inner';
 
-      const info = document.createElement('div');
-      info.className = 'board-info';
-      info.innerHTML =
-        `<div class="board-abbr">${board.abbr}</div>` +
-        `<div class="board-name">${board.name}</div>` +
-        `<div class="board-divider"></div>` +
-        `<div class="board-stats">${statsHtml}</div>` +
-        detailsHtml;
+      // Top row: ABBR + name on left, stats on right
+      const topRow = document.createElement('div');
+      topRow.className = 'board-top';
+      topRow.innerHTML =
+        `<div class="board-title">` +
+          `<div class="board-abbr">${board.abbr}</div>` +
+          `<div class="board-name">${board.name}</div>` +
+        `</div>` +
+        `<div class="board-stats">${statsHtml}</div>`;
+      inner.appendChild(topRow);
 
-      inner.appendChild(info);
-      inner.appendChild(seatsCol);
+      // Divider
+      const divider = document.createElement('div');
+      divider.className = 'board-divider';
+      inner.appendChild(divider);
+
+      // Details (only rendered if present)
+      if (detailsHtml) {
+        const details = document.createElement('div');
+        details.className = 'board-details';
+        details.innerHTML = detailsHtml;
+        inner.appendChild(details);
+      }
+
+      // Dots — full width, wraps naturally
+      inner.appendChild(seatsRow);
+
       panel.appendChild(inner);
       list.appendChild(panel);
     });
 
     // ── Live search ─────────────────────────────────────────────────────
-    const searchInput  = document.getElementById('search-input');
-    const searchCount  = document.getElementById('search-count');
-    const noResults    = document.getElementById('no-results');
+    const searchInput   = document.getElementById('search-input');
+    const searchCount   = document.getElementById('search-count');
+    const noResults     = document.getElementById('no-results');
     const noResultsTerm = document.getElementById('no-results-term');
-    const allPanels    = document.querySelectorAll('.board-panel');
+    const allPanels     = document.querySelectorAll('.board-panel');
 
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.trim().toLowerCase();
@@ -513,7 +542,7 @@ fetch('boards.json')
       });
       if (q) {
         searchCount.innerHTML = `Showing <strong>${visible}</strong> of ${boards.length} boards`;
-        noResults.style.display  = visible === 0 ? 'block' : 'none';
+        noResults.style.display   = visible === 0 ? 'block' : 'none';
         noResultsTerm.textContent = `"${searchInput.value.trim()}"`;
       } else {
         searchCount.innerHTML = `Showing <strong>${boards.length}</strong> boards`;
