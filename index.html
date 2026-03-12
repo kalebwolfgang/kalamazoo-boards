@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boards & Commissions — City of Kalamazoo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0f2744;
+      --navy-mid:   #1a3a5c;
+      --navy-light: #2c527e;
+      --gold:       #c9921a;
+      --gold-lt:    #e8b84b;
+      --cream:      #f5f2ec;
+      --cream-dk:   #ebe6db;
+      --white:      #ffffff;
+      --text:       #1c2333;
+      --body:       #374151;
+      --muted:      #6b7280;
+      --border:     #ddd8ce;
+      --border-lt:  #eee9e0;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--navy-mid);
+      padding: 6px 40px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+    }
+    .topbar-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .topbar a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .topbar a:hover { color: var(--gold-lt); }
+    .topbar-links { display: flex; gap: 20px; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      border-bottom: 3px solid var(--gold);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 40px;
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-seal {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold); display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: var(--navy); letter-spacing: 0.03em;
+    }
+    .nav-title-main { color: white; font-size: 19px; font-weight: 500; display: block; line-height: 1.2; }
+    .nav-title-sub  { color: rgba(255,255,255,0.4); font-size: 15px; display: block; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 17px; transition: color 0.15s; }
+    .nav-link:hover { color: var(--gold-lt); }
+    .nav-apply {
+      background: var(--gold); color: var(--navy);
+      text-decoration: none; font-weight: 600; font-size: 17px;
+      padding: 8px 18px; border-radius: 2px; transition: background 0.15s;
+    }
+    .nav-apply:hover { background: var(--gold-lt); }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 9px 40px; font-size: 16px; color: var(--muted);
+    }
+    .breadcrumb-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 8px; align-items: center; }
+    .breadcrumb a { color: var(--navy-light); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .bc-sep { color: var(--border); }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--navy); padding: 48px 40px 44px; }
+    .page-header-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: end;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 38px); font-weight: 600;
+      color: white; line-height: 1.2; margin-bottom: 10px;
+    }
+    .page-header p {
+      color: rgba(255,255,255,0.5);
+      font-size: 19px; font-weight: 300; line-height: 1.7; max-width: 560px;
+    }
+    .header-stats { display: flex; gap: 2px; flex-shrink: 0; }
+    .hstat {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09);
+      padding: 18px 24px; text-align: center; min-width: 100px;
+    }
+    .hstat:first-child { border-radius: 4px 0 0 4px; }
+    .hstat:last-child  { border-radius: 0 4px 4px 0; }
+    .hstat-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 43px; font-weight: 600; color: white; line-height: 1; margin-bottom: 4px;
+    }
+    .hstat-n.red  { color: #f87171; }
+    .hstat-n.gold { color: var(--gold-lt); }
+    .hstat-lbl { font-size: 13px; color: rgba(255,255,255,0.38); letter-spacing: 0.04em; line-height: 1.4; }
+
+    /* ── MAIN LAYOUT ── */
+    .main-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 72px 40px 120px;
+      display: flex; flex-direction: column; gap: 72px;
+    }
+
+    /* ── VACANCIES FULL WIDTH ── */
+    .vac-section { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .vac-section-head {
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--navy);
+    }
+    .vac-section-head h2 { font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: white; }
+    .vac-section-head a { font-size: 16px; color: var(--gold-lt); text-decoration: none; }
+    .vac-section-head a:hover { text-decoration: underline; }
+    .vac-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .vac-cell {
+      display: flex; flex-direction: column;
+      padding: 24px 22px;
+      border-right: 1px solid var(--border-lt);
+      text-decoration: none; color: inherit;
+      transition: background 0.15s;
+    }
+    .vac-cell:last-child { border-right: none; }
+    .vac-cell:hover { background: var(--cream); }
+    .vac-cell-abbr { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .vac-cell-name { font-size: 15px; color: var(--muted); line-height: 1.4; margin-bottom: 12px; flex: 1; }
+    .vac-cell-badge {
+      display: inline-block; font-size: 15px; font-weight: 600;
+      padding: 3px 9px; border-radius: 10px;
+      background: #fef2f2; color: #dc2626; align-self: flex-start;
+    }
+
+    /* ── BOTTOM ROW: Apply + Clerk side by side ── */
+    .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 700px) { .bottom-row { grid-template-columns: 1fr; } }
+
+    /* ── RELATED PAGES FULL WIDTH ── */
+    .related-section { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .related-head {
+      padding: 12px 20px; background: var(--navy);
+      font-size: 15px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: white;
+    }
+    .related-links { display: grid; grid-template-columns: repeat(5, 1fr); }
+    .related-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 24px; border-right: 1px solid var(--border-lt);
+      text-decoration: none; color: var(--navy-light);
+      font-size: 17px; font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+    }
+    .related-link:last-child { border-right: none; }
+    .related-link:hover { background: var(--cream); color: var(--navy); }
+    .related-link-arrow { color: var(--border); }
+
+    /* ── ACCORDION ── */
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* Each item = trigger bar + collapsible body */
+    .acc-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .acc-item:last-child { border-bottom: none; }
+
+    .acc-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 72px;
+      background: var(--white);
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
+      gap: 12px;
+    }
+    .acc-trigger:hover { background: var(--cream); }
+    .acc-trigger.active {
+      background: var(--navy);
+    }
+    .acc-trigger.active:hover { background: var(--navy-mid); }
+
+    .acc-trigger-left {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .acc-icon { font-size: 20px; flex-shrink: 0; }
+    .acc-label {
+      font-size: 17px; font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+    .acc-trigger.active .acc-label { color: white; }
+
+    .acc-meta {
+      font-size: 15px; color: var(--muted);
+      font-weight: 400; margin-left: auto;
+    }
+    .acc-trigger.active .acc-meta { color: rgba(255,255,255,0.45); }
+
+    .acc-chevron {
+      font-size: 15px;
+      color: var(--muted);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .acc-trigger.active .acc-chevron {
+      transform: rotate(180deg);
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Collapsible body */
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+      background: var(--white);
+      border-top: 1px solid transparent;
+    }
+    .acc-body.open {
+      max-height: 800px;
+      border-top-color: var(--border-lt);
+    }
+    .acc-body-inner {
+      padding: 36px 36px;
+    }
+
+    /* ── PANEL CONTENT STYLES ── */
+
+    /* About */
+    .about-text p { font-size: 18px; color: var(--body); line-height: 1.75; margin-bottom: 12px; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .type-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+    @media (max-width: 600px) { .type-chips { grid-template-columns: 1fr; } }
+    .type-chip {
+      padding: 14px 16px; border-radius: 3px;
+      border: 1px solid var(--border); font-size: 17px; color: var(--body); line-height: 1.6;
+    }
+    .type-chip strong {
+      display: block; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 5px;
+    }
+    .type-chip.advisory { border-left: 3px solid #1d4ed8; }
+    .type-chip.advisory strong { color: #1d4ed8; }
+    .type-chip.quasi    { border-left: 3px solid #92400e; }
+    .type-chip.quasi strong    { color: #92400e; }
+
+    /* Eligibility */
+    .elig-table { width: 100%; border-collapse: collapse; font-size: 17px; }
+    .elig-table tr { border-bottom: 1px solid var(--border-lt); }
+    .elig-table tr:last-child { border-bottom: none; }
+    .elig-table td { padding: 11px 12px; vertical-align: top; line-height: 1.65; }
+    .elig-table td:first-child {
+      font-size: 15px; font-weight: 600; color: var(--navy-light);
+      white-space: nowrap; width: 130px; padding-right: 20px;
+    }
+    .elig-table td:last-child { color: var(--body); }
+
+    /* Commitment */
+    .commit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) { .commit-grid { grid-template-columns: 1fr; } }
+    .cg {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px; background: var(--cream); border-radius: 3px;
+      border: 1px solid var(--border);
+    }
+    .cg-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 35px; font-weight: 600; color: var(--navy);
+      min-width: 56px; line-height: 1; flex-shrink: 0;
+    }
+    .cg h4 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .cg p  { font-size: 16px; color: var(--muted); line-height: 1.55; }
+
+    /* Browse by area */
+    .area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    @media (max-width: 680px) { .area-grid { grid-template-columns: 1fr 1fr; } }
+    .area-card {
+      background: var(--cream); border: 1px solid var(--border);
+      padding: 14px; border-radius: 2px; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .area-card:hover { border-color: var(--navy-light); background: var(--cream-dk); }
+    .area-card-top { display: flex; align-items: center; gap: 8px; }
+    .area-card-icon { font-size: 21px; }
+    .area-card-name { font-size: 17px; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .area-card-meta { display: flex; justify-content: space-between; font-size: 15px; color: var(--muted); }
+    .area-card-vac { font-weight: 600; color: #dc2626; }
+    .area-all { margin-top: 12px; text-align: center; font-size: 17px; color: var(--navy-light); text-decoration: underline; }
+
+    /* How to apply */
+    .steps { display: flex; flex-direction: column; }
+    .step {
+      display: grid; grid-template-columns: 32px 1fr;
+      gap: 14px; padding: 13px 0;
+      border-bottom: 1px solid var(--border-lt); align-items: start;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-n {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--navy); color: white; font-size: 16px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .step h4 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .step p  { font-size: 17px; color: var(--muted); line-height: 1.6; }
+    .step-note {
+      display: inline-block; margin-top: 5px;
+      font-size: 15px; color: var(--gold); background: #fdf3e0;
+      padding: 2px 8px; border-radius: 2px;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 18px; }
+    .sc { background: var(--white); border: 1px solid var(--border); overflow: hidden; border-radius: 2px; }
+    .sc-head {
+      padding: 11px 16px;
+      font-size: 15px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: white; background: var(--navy);
+    }
+    .sc-body { padding: 24px; }
+
+    .apply-sc .sc-head { background: var(--gold); color: var(--navy); }
+    .apply-sc .sc-body p { font-size: 17px; color: var(--body); line-height: 1.65; margin-bottom: 14px; }
+    .btn-sb {
+      display: block; width: 100%;
+      background: var(--navy); color: white;
+      text-decoration: none; text-align: center;
+      font-size: 17px; font-weight: 600;
+      padding: 10px 0; border-radius: 2px; transition: background 0.15s;
+    }
+    .btn-sb:hover { background: var(--navy-mid); }
+
+    .vac-list { display: flex; flex-direction: column; gap: 6px; }
+    .vac-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 10px; background: var(--cream); border-radius: 2px;
+      text-decoration: none; color: inherit; font-size: 16px;
+      border: 1px solid var(--border-lt); transition: border-color 0.15s;
+    }
+    .vac-item:hover { border-color: var(--navy-light); }
+    .vac-item-name { font-weight: 500; color: var(--text); }
+    .vac-badge { font-size: 14px; font-weight: 600; padding: 2px 7px; border-radius: 10px; background: #fef2f2; color: #dc2626; }
+    .vac-more {
+      font-size: 16px; color: var(--navy-light); text-align: center;
+      padding: 8px 0; border-top: 1px solid var(--border-lt);
+      margin-top: 6px; display: block; text-decoration: none;
+    }
+    .vac-more:hover { text-decoration: underline; }
+
+    .cr-row { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--border-lt); font-size: 17px; }
+    .cr-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .cr-row-icon { font-size: 19px; flex-shrink: 0; margin-top: 1px; }
+    .cr-row-body { color: var(--body); line-height: 1.5; }
+    .cr-row-lbl  { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+    .cr-row-body a { color: var(--navy-light); text-decoration: none; }
+    .cr-row-body a:hover { text-decoration: underline; }
+
+    .ul-links { list-style: none; }
+    .ul-links li a {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 9px 0; border-bottom: 1px solid var(--border-lt);
+      color: var(--navy-light); text-decoration: none; font-size: 17px;
+    }
+    .ul-links li:last-child a { border-bottom: none; }
+    .ul-links li a:hover { color: var(--navy); }
+    .ul-arrow { color: var(--border); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); border-top: 3px solid var(--gold); padding: 32px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+    .fc h4 { font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .fc p, .fc a { font-size: 16px; color: rgba(255,255,255,0.4); line-height: 1.8; text-decoration: none; display: block; }
+    .fc a:hover { color: var(--gold-lt); }
+    .footer-bottom {
+      max-width: 1100px; margin: 20px auto 0; padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 15px; color: rgba(255,255,255,0.2);
+      display: flex; justify-content: space-between;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.25); text-decoration: none; }
+
+    /* ── SECTION ACCENTS (Option A) ── */
+    .vac-section    { border-left: 4px solid #dc2626; }
+    .accordion      { border-left: 4px solid var(--navy); }
+    .bottom-row .sc.apply-sc { border-left: 4px solid var(--gold); }
+    .bottom-row .sc:not(.apply-sc) { border-left: 4px solid #475569; }
+    .related-section { border-left: 4px solid #64748b; }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>City of Kalamazoo, Michigan — Official Website</span>
+    <div class="topbar-links">
+      <a href="#">311 Service</a>
+      <a href="#">Translate</a>
+      <a href="#">Accessibility</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <div class="nav-seal">COK</div>
+      <div>
+        <span class="nav-title-main">City of Kalamazoo</span>
+        <span class="nav-title-sub">Boards &amp; Commissions</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <a class="nav-link" href="boards.html">All Boards</a>
+      <a class="nav-link" href="boards.html?f=vacancy">Vacancies</a>
+      <a class="nav-link" href="#">Meeting Calendar</a>
+      <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="#">Home</a> <span class="bc-sep">/</span>
+    <a href="#">Government</a> <span class="bc-sep">/</span>
+    <span>Boards &amp; Commissions</span>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <h1>Boards &amp; Commissions</h1>
+      <p>27 boards and commissions composed of resident volunteers appointed by the Mayor or City Commission. Members advise on city policy, review applications, and in some cases make binding decisions.</p>
+    </div>
+    <div class="header-stats">
+      <div class="hstat">
+        <div class="hstat-n red">24</div>
+        <div class="hstat-lbl">Open<br>Seats</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n gold">14</div>
+        <div class="hstat-lbl">Boards<br>Recruiting</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">27</div>
+        <div class="hstat-lbl">Total<br>Bodies</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- 1. CURRENT VACANCIES -->
+  <div class="vac-section">
+    <div class="vac-section-head">
+      <h2>Current Vacancies</h2>
+      <a href="boards.html?f=vacancy">View all vacancies &rarr;</a>
+    </div>
+    <div class="vac-grid">
+      <a class="vac-cell" href="#">
+        <div class="vac-cell-abbr">ECC</div>
+        <div class="vac-cell-name">Ethics &amp; Civil Rights Commission</div>
+        <span class="vac-cell-badge">4 open</span>
+      </a>
+      <a class="vac-cell" href="#">
+        <div class="vac-cell-abbr">HDC</div>
+        <div class="vac-cell-name">Historic District Commission</div>
+        <span class="vac-cell-badge">2 open</span>
+      </a>
+      <a class="vac-cell" href="#">
+        <div class="vac-cell-abbr">DDA</div>
+        <div class="vac-cell-name">Downtown Development Authority</div>
+        <span class="vac-cell-badge">2 open</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- 2. ACCORDION -->
+  <div class="accordion">
+
+      <!-- 1. About -->
+      <div class="acc-item">
+        <button class="acc-trigger" data-target="about">
+          <div class="acc-trigger-left">
+            <span class="acc-icon">📋</span>
+            <span class="acc-label">About Boards &amp; Commissions</span>
+          </div>
+          <span class="acc-meta">What they are &amp; what they do</span>
+          <span class="acc-chevron">▼</span>
+        </button>
+        <div class="acc-body" id="about">
+          <div class="acc-body-inner">
+            <div class="about-text">
+              <p>Boards and commissions are citizen bodies created by the City Commission to assist in the administration of city government. Members are Kalamazoo residents appointed to serve on a volunteer basis.</p>
+              <p>Membership requirements, term lengths, and appointment authority vary by board. All appointments are made by the Mayor or City Commission. Interested residents may apply online or contact the City Clerk's Office.</p>
+            </div>
+            <div class="type-chips">
+              <div class="type-chip advisory">
+                <strong>Advisory Boards</strong>
+                Most boards make formal recommendations to the City Commission or City Manager. The Commission retains final decision-making authority.
+              </div>
+              <div class="type-chip quasi">
+                <strong>Quasi-Judicial Boards</strong>
+                Some boards — including the Zoning Board of Appeals and Building Board of Appeals — make binding decisions on appeals and variances.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Eligibility -->
+      <div class="acc-item">
+        <button class="acc-trigger" data-target="eligibility">
+          <div class="acc-trigger-left">
+            <span class="acc-icon">✅</span>
+            <span class="acc-label">Member Eligibility</span>
+          </div>
+          <span class="acc-meta">Residency, qualifications &amp; term limits</span>
+          <span class="acc-chevron">▼</span>
+        </button>
+        <div class="acc-body" id="eligibility">
+          <div class="acc-body-inner">
+            <table class="elig-table">
+              <tr>
+                <td>Residency</td>
+                <td>Most boards require City of Kalamazoo residency. Some permit non-residents where specific expertise is needed. Requirements are listed on each board's page.</td>
+              </tr>
+              <tr>
+                <td>Expertise</td>
+                <td>No professional credentials are required for most boards. Several boards seek members with both subject matter expertise and lived community experience.</td>
+              </tr>
+              <tr>
+                <td>Conflicts</td>
+                <td>Members must disclose conflicts on individual agenda items. Certain boards have specific disqualifying conditions listed in their bylaws.</td>
+              </tr>
+              <tr>
+                <td>Term Limits</td>
+                <td>Most boards allow up to two consecutive terms. Members who complete two terms are typically eligible to reapply after a waiting period of one to three years.</td>
+              </tr>
+              <tr>
+                <td>Compensation</td>
+                <td>Board and commission members serve on a volunteer basis and receive no compensation.</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Time Commitment -->
+      <div class="acc-item">
+        <button class="acc-trigger" data-target="commitment">
+          <div class="acc-trigger-left">
+            <span class="acc-icon">📅</span>
+            <span class="acc-label">Time Commitment</span>
+          </div>
+          <span class="acc-meta">Meeting frequency, length &amp; format</span>
+          <span class="acc-chevron">▼</span>
+        </button>
+        <div class="acc-body" id="commitment">
+          <div class="acc-body-inner">
+            <div class="commit-grid">
+              <div class="cg">
+                <div class="cg-n">1×</div>
+                <div>
+                  <h4>Meeting frequency</h4>
+                  <p>Most boards meet once per month. Some meet quarterly. Specific schedules are on each board's page.</p>
+                </div>
+              </div>
+              <div class="cg">
+                <div class="cg-n">1–2h</div>
+                <div>
+                  <h4>Typical meeting length</h4>
+                  <p>Most regular meetings run one to two hours. Hearings may run longer depending on the agenda.</p>
+                </div>
+              </div>
+              <div class="cg">
+                <div class="cg-n">3 yr</div>
+                <div>
+                  <h4>Standard term length</h4>
+                  <p>Most appointments are for three-year terms. Partial terms are sometimes available mid-cycle.</p>
+                </div>
+              </div>
+              <div class="cg">
+                <div class="cg-n">↔</div>
+                <div>
+                  <h4>Meeting format</h4>
+                  <p>Most meetings are in person at City Hall. Some boards permit remote participation. Format is noted on each board's page.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Browse by Area -->
+      <div class="acc-item">
+        <button class="acc-trigger" data-target="browse">
+          <div class="acc-trigger-left">
+            <span class="acc-icon">🗂</span>
+            <span class="acc-label">Browse by Area</span>
+          </div>
+          <span class="acc-meta">Find boards by topic area</span>
+          <span class="acc-chevron">▼</span>
+        </button>
+        <div class="acc-body" id="browse">
+          <div class="acc-body-inner">
+            <div class="area-grid">
+              <a class="area-card" href="boards.html?cat=Land+Use+%26+Planning">
+                <div class="area-card-top"><span class="area-card-icon">🏗</span><span class="area-card-name">Land Use &amp; Planning</span></div>
+                <div class="area-card-meta"><span>7 boards</span><span class="area-card-vac">4 open</span></div>
+              </a>
+              <a class="area-card" href="boards.html?cat=Economic+Development">
+                <div class="area-card-top"><span class="area-card-icon">📈</span><span class="area-card-name">Economic Development</span></div>
+                <div class="area-card-meta"><span>5 boards</span><span class="area-card-vac">3 open</span></div>
+              </a>
+              <a class="area-card" href="boards.html?cat=Public+Safety+%26+Civil+Rights">
+                <div class="area-card-top"><span class="area-card-icon">🛡</span><span class="area-card-name">Public Safety &amp; Civil Rights</span></div>
+                <div class="area-card-meta"><span>2 boards</span><span class="area-card-vac">3 open</span></div>
+              </a>
+              <a class="area-card" href="boards.html?cat=Environment+%26+Parks">
+                <div class="area-card-top"><span class="area-card-icon">🌿</span><span class="area-card-name">Environment &amp; Parks</span></div>
+                <div class="area-card-meta"><span>6 boards</span><span class="area-card-vac">6 open</span></div>
+              </a>
+              <a class="area-card" href="boards.html?cat=Finance+%26+Governance">
+                <div class="area-card-top"><span class="area-card-icon">⚖️</span><span class="area-card-name">Finance &amp; Governance</span></div>
+                <div class="area-card-meta"><span>6 boards</span><span class="area-card-vac">3 open</span></div>
+              </a>
+              <a class="area-card" href="boards.html?cat=Community+Services">
+                <div class="area-card-top"><span class="area-card-icon">🤝</span><span class="area-card-name">Community Services</span></div>
+                <div class="area-card-meta"><span>3 boards</span><span class="area-card-vac">5 open</span></div>
+              </a>
+            </div>
+            <div class="area-all">
+              <a href="boards.html">View all 27 boards →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. How to Apply -->
+      <div class="acc-item">
+        <button class="acc-trigger" data-target="apply">
+          <div class="acc-trigger-left">
+            <span class="acc-icon">📝</span>
+            <span class="acc-label">How to Apply</span>
+          </div>
+          <span class="acc-meta">Application &amp; appointment process</span>
+          <span class="acc-chevron">▼</span>
+        </button>
+        <div class="acc-body" id="apply">
+          <div class="acc-body-inner">
+            <div class="steps">
+              <div class="step">
+                <div class="step-n">1</div>
+                <div>
+                  <h4>Review open boards</h4>
+                  <p>Use the board directory to find boards with current vacancies or upcoming term expirations. Each board page lists availability, residency requirements, and meeting details.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-n">2</div>
+                <div>
+                  <h4>Submit an application</h4>
+                  <p>Applications are submitted online through the City Clerk's Office. You may indicate interest in multiple boards on a single application.</p>
+                  <span class="step-note">Applications are kept on file for any matching vacancy</span>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-n">3</div>
+                <div>
+                  <h4>Clerk's Office review</h4>
+                  <p>Staff review applications for eligibility and forward qualified applications to the Mayor's office or, for some boards, directly to the City Manager.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-n">4</div>
+                <div>
+                  <h4>Mayor's recommendation &amp; Commission vote</h4>
+                  <p>The Mayor recommends a candidate and the City Commission votes at a public meeting, which is open to attend.</p>
+                  <span class="step-note">If appointed, your name is read at the meeting</span>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-n">5</div>
+                <div>
+                  <h4>Notification &amp; onboarding</h4>
+                  <p>Appointed members are contacted by the Clerk's Office and connected with their board's staff liaison for scheduling and orientation materials.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /accordion -->
+
+  <!-- 3. APPLY + CLERK ROW -->
+  <div class="bottom-row">
+    <div class="sc apply-sc">
+      <div class="sc-head">Apply to Serve</div>
+      <div class="sc-body">
+        <p>Applications are accepted year-round through the City Clerk's Office.</p>
+        <a class="btn-sb" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Submit Application &rarr;</a>
+      </div>
+    </div>
+    <div class="sc">
+      <div class="sc-head">City Clerk's Office</div>
+      <div class="sc-body">
+        <div class="cr-row">
+          <div class="cr-row-icon">&#128205;</div>
+          <div class="cr-row-body">
+            <div class="cr-row-lbl">Address</div>
+            241 W South Street, Kalamazoo MI 49007
+          </div>
+        </div>
+        <div class="cr-row">
+          <div class="cr-row-icon">&#128222;</div>
+          <div class="cr-row-body">
+            <div class="cr-row-lbl">Phone</div>
+            <a href="tel:311">311</a> or <a href="tel:2693378000">(269) 337-8000</a>
+          </div>
+        </div>
+        <div class="cr-row">
+          <div class="cr-row-icon">&#9993;&#65039;</div>
+          <div class="cr-row-body">
+            <div class="cr-row-lbl">Email</div>
+            <a href="mailto:311@kalamazoocity.org">311@kalamazoocity.org</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. RELATED PAGES -->
+  <div class="related-section">
+    <div class="related-head">Related Pages</div>
+    <div class="related-links">
+      <a class="related-link" href="#">Meeting Calendar <span class="related-link-arrow">&rsaquo;</span></a>
+      <a class="related-link" href="#">Minutes &amp; Agendas <span class="related-link-arrow">&rsaquo;</span></a>
+      <a class="related-link" href="#">Watch City Meetings <span class="related-link-arrow">&rsaquo;</span></a>
+      <a class="related-link" href="#">Special Meeting Notices <span class="related-link-arrow">&rsaquo;</span></a>
+      <a class="related-link" href="#">City Commission <span class="related-link-arrow">&rsaquo;</span></a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="fc">
+      <h4>City of Kalamazoo</h4>
+      <p>241 W South Street<br>Kalamazoo, MI 49007</p>
+      <a href="tel:311" style="margin-top:6px;">311 or (269) 337-8000</a>
+      <a href="mailto:311@kalamazoocity.org">311@kalamazoocity.org</a>
+    </div>
+    <div class="fc">
+      <h4>Boards &amp; Commissions</h4>
+      <a href="boards.html">All Boards</a>
+      <a href="boards.html?f=vacancy">Current Vacancies</a>
+      <a href="#">Meeting Calendar</a>
+      <a href="#">Minutes &amp; Agendas</a>
+      <a href="#">Apply to Serve</a>
+    </div>
+    <div class="fc">
+      <h4>Government</h4>
+      <a href="#">City Commission</a>
+      <a href="#">City Charter</a>
+      <a href="#">Code of Ordinances</a>
+      <a href="#">Departments</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 City of Kalamazoo · Data sourced from the City Clerk's Office</span>
+    <span><a href="#">Disclaimer</a> · <a href="#">Privacy Policy</a></span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.acc-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const body = document.getElementById(trigger.dataset.target);
+      const isOpen = body.classList.contains('open');
+
+      // toggle just this panel independently
+      body.classList.toggle('open');
+      trigger.classList.toggle('active');
+      trigger.querySelector('.acc-chevron').textContent = isOpen ? '▼' : '▲';
+    });
+  });
+</script>
+
+</body>
+</html>
