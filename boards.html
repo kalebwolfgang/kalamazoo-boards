@@ -135,10 +135,9 @@
     }
     .board-panel:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); }
 
-    /* 3-color alternating backgrounds */
+    /* 2-color alternating backgrounds */
     .board-panel.bg-0 { background: #ffffff; }
-    .board-panel.bg-1 { background: #f9f7f3; }
-    .board-panel.bg-2 { background: #edeae4; }
+    .board-panel.bg-1 { background: #edeae4; }
     .board-panel.has-vacant      { border-left-color: #dc2626; }
     .board-panel.has-transitioning { border-left-color: #d97706; }
     .board-panel.all-seated      { border-left-color: #15803d; }
@@ -498,7 +497,7 @@ fetch('boards.json')
 
       // Assemble panel
       const panel = document.createElement('div');
-      panel.className = `board-panel ${borderCls} bg-${i % 3}`;
+      panel.className = `board-panel ${borderCls} bg-${i % 2}`;
       panel.dataset.name = board.name.toLowerCase();
       panel.dataset.abbr = board.abbr.toLowerCase();
 
