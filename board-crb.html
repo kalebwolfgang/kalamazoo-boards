@@ -23,6 +23,9 @@
       --muted:      #6b7280;
       --border:     #ddd8ce;
       --border-lt:  #eee9e0;
+      --red:        #991b1b;
+      --red-mid:    #7f1d1d;
+      --red-dk:     #450a0a;
     }
 
     html { scroll-behavior: smooth; }
@@ -118,7 +121,7 @@
     .req-card-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
     .req-card-value { font-size: 16px; color: var(--body); line-height: 1.55; }
 
-    /* ── SIDEBAR (right column — 2 cards only) ── */
+    /* ── SIDEBAR (right column — meetings only) ── */
     .sidebar { display: flex; flex-direction: column; gap: 22px; }
     .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
     .sidebar-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
@@ -137,13 +140,20 @@
     .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; color: var(--navy-light); text-decoration: none; }
     .map-link:hover { text-decoration: underline; }
 
-    /* Complaint CTA */
-    .complaint-btn { display: block; background: #dc2626; color: white; text-align: center; text-decoration: none; font-size: 17px; font-weight: 600; padding: 13px 20px; border-radius: 3px; transition: background 0.15s; }
-    .complaint-btn:hover { background: #b91c1c; }
-    .complaint-desc { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.55; }
+    /* ── COMPLAINT CTA (full-width) ── */
+    .complaint-cta { background: var(--red-mid); border-top: 4px solid #dc2626; border-bottom: 4px solid #dc2626; padding: 56px 40px; margin-top: 40px; }
+    .complaint-cta-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .complaint-cta-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+    .complaint-cta-heading { font-family: 'Playfair Display', serif; font-size: clamp(28px, 2.5vw, 40px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 18px; }
+    .complaint-cta-desc { font-size: 18px; color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 680px; }
+    .complaint-cta-desc strong { color: rgba(255,255,255,0.92); }
+    .complaint-cta-action { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .complaint-cta-btn { display: inline-block; background: #dc2626; color: white; text-decoration: none; font-size: 19px; font-weight: 700; padding: 20px 44px; border-radius: 3px; border: 2px solid rgba(255,255,255,0.3); transition: background 0.15s, border-color 0.15s; white-space: nowrap; text-align: center; }
+    .complaint-cta-btn:hover { background: #b91c1c; border-color: rgba(255,255,255,0.55); }
+    .complaint-cta-note { font-size: 13px; color: rgba(255,255,255,0.45); text-align: center; line-height: 1.5; }
 
     /* ── BOTTOM CARDS ROW (3-column) ── */
-    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: 32px 40px 80px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: start; }
+    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: 40px 40px 80px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: start; }
     .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
     .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
     .bottom-card-body { padding: 20px; }
@@ -218,6 +228,7 @@
 
     @media (max-width: 1024px) {
       .board-body { grid-template-columns: 1fr; }
+      .complaint-cta-inner { grid-template-columns: 1fr; gap: 32px; }
       .bottom-cards { grid-template-columns: 1fr; }
       .page-header-inner { grid-template-columns: 1fr; gap: 32px; }
       .req-grid { grid-template-columns: 1fr; }
@@ -318,20 +329,20 @@
   </div>
 </div>
 
-<!-- MAIN BODY: Accordion + 2 sidebar cards -->
+<!-- MAIN BODY: Accordion + Meetings sidebar -->
 <div class="board-body">
 
   <!-- LEFT: ACCORDION -->
   <div>
     <div class="accordion">
 
-      <!-- About & Mission -->
+      <!-- About & Mission — OPEN BY DEFAULT -->
       <div class="acc-item">
-        <button class="acc-trigger" aria-expanded="false">
+        <button class="acc-trigger" aria-expanded="true">
           About &amp; Mission
           <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-panel" hidden>
+        <div class="acc-panel">
           <div class="acc-panel-inner">
             <p>The Civil Rights Board implements the general policy and purposes set forth in Chapter 18 "Non-Discrimination" and Chapter 18A "Fair Housing" of the City of Kalamazoo Code of Ordinances. The Board was created in September 2020 following updates to Chapter 18.</p>
             <p>The Board fosters mutual understanding and respect among all people in the City, working to discourage and prevent unlawful discriminatory practices toward the protected classes described in the Ordinance.</p>
@@ -409,10 +420,8 @@
     </div>
   </div>
 
-  <!-- RIGHT: 2 sidebar cards -->
+  <!-- RIGHT: Upcoming Meetings only -->
   <aside class="sidebar">
-
-    <!-- Upcoming Meetings + Location -->
     <div class="sidebar-card">
       <div class="sidebar-card-header">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -443,22 +452,27 @@
         </div>
       </div>
     </div>
-
-    <!-- File a Complaint -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        File a Complaint
-      </div>
-      <div class="sidebar-card-body">
-        <a class="complaint-btn" href="https://www.kalamazoocity.org/Residents/Solve-a-Problem-with-311/Report-Civil-Rights-Complaint" target="_blank" rel="noopener">
-          Report Civil Rights Complaint
-        </a>
-        <p class="complaint-desc">Report potential violations of the City of Kalamazoo's Civil Rights Ordinance or Fair Housing Ordinance.</p>
-      </div>
-    </div>
-
   </aside>
+</div>
+
+<!-- COMPLAINT CTA — full width -->
+<div class="complaint-cta">
+  <div class="complaint-cta-inner">
+    <div>
+      <div class="complaint-cta-eyebrow">Civil Rights Board — Complaint Process</div>
+      <div class="complaint-cta-heading">Experienced discrimination in Kalamazoo?</div>
+      <p class="complaint-cta-desc">
+        The Civil Rights Board directly reviews complaints filed under the City's Non-Discrimination and Fair Housing Ordinances.
+        <strong>This Board hears your case.</strong> Following investigation by the City Manager's office, the Board reviews findings and makes recommendations for resolution — giving residents a direct path to accountability.
+      </p>
+    </div>
+    <div class="complaint-cta-action">
+      <a class="complaint-cta-btn" href="https://www.kalamazoocity.org/Residents/Solve-a-Problem-with-311/Report-Civil-Rights-Complaint" target="_blank" rel="noopener">
+        Report a Complaint →
+      </a>
+      <div class="complaint-cta-note">Violations of the Civil Rights Ordinance<br>or Fair Housing Ordinance</div>
+    </div>
+  </div>
 </div>
 
 <!-- BOTTOM CARDS ROW: Minutes | Key Docs | Recordings -->
