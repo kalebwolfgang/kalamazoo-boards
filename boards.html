@@ -230,6 +230,8 @@
     .seat-dot.red    { background: #dc2626; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
     .seat-dot.yellow { background: #d97706; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
     .seat-dot.green  { background: #15803d; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
+    .seat-dot.expandable { background: transparent; border: 2px dashed var(--muted); opacity: 0.55; }
+    .seat-dot.expandable:hover { filter: none; opacity: 0.85; }
 
     /* ── NO RESULTS ── */
     .no-results {
@@ -441,8 +443,11 @@ fetch('boards.json')
       const borderCls = nVac > 0 ? 'has-vacant' : nTrans > 0 ? 'has-transitioning' : 'all-seated';
 
       // Stats HTML
+      const seatsLabel = board.maxMembers
+        ? `${board.members.length}&nbsp;of up to ${board.maxMembers}`
+        : board.members.length;
       let statsHtml =
-        `<span class="board-stat"><span class="board-stat-n total">${board.members.length}</span>&nbsp;seats</span>`;
+        `<span class="board-stat"><span class="board-stat-n total">${seatsLabel}</span>&nbsp;seats</span>`;
       if (nVac   > 0) statsHtml +=
         `<span class="board-stat"><span class="board-stat-n red">${nVac}</span>&nbsp;open</span>`;
       if (nTrans > 0) statsHtml +=
@@ -511,6 +516,22 @@ fetch('boards.json')
         );
         seatsRow.appendChild(dot);
       });
+
+      // Expandable dots for flexible-membership boards
+      if (board.maxMembers && board.maxMembers > board.members.length) {
+        const available = board.maxMembers - board.members.length;
+        for (let x = 0; x < available; x++) {
+          const xdot = document.createElement('div');
+          xdot.className = 'seat-dot expandable';
+          xdot.dataset.name    = 'Available seat';
+          xdot.dataset.role    = '';
+          xdot.dataset.term    = `Board may expand to up to ${board.maxMembers} members`;
+          xdot.dataset.termcls = 'open';
+          xdot.dataset.res     = '';
+          xdot.setAttribute('aria-label', `Available seat — board may expand to ${board.maxMembers} members`);
+          seatsRow.appendChild(xdot);
+        }
+      }
 
       // Assemble panel
       const panel = document.createElement('div');

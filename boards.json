@@ -21,6 +21,7 @@
     "abbr": "BRA",
     "name": "Brownfield Redevelopment Authority Board",
     "category": "Economic Development",
+    "maxMembers": 13,
     "meetingSchedule": "",
     "description": "",
     "members": [
@@ -154,6 +155,7 @@
     "abbr": "EDC",
     "name": "Economic Development Corporation Board",
     "category": "Economic Development",
+    "maxMembers": 13,
     "meetingSchedule": "",
     "description": "",
     "members": [
