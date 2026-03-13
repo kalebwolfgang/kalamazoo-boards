@@ -61,7 +61,6 @@
 
     .board-badge { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
     .board-abbr-large { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 600; color: var(--gold); line-height: 1; }
-    .board-cat-tag { background: rgba(201,146,26,0.18); color: var(--gold-lt); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(201,146,26,0.3); }
 
     .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 2.5vw, 38px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 14px; }
     .page-header-desc { color: rgba(255,255,255,0.58); font-size: 18px; font-weight: 300; max-width: 620px; line-height: 1.65; }
@@ -95,17 +94,26 @@
     /* ── MAIN TWO-COLUMN BODY ── */
     .board-body { max-width: 1400px; margin: 0 auto; padding: 48px 40px 80px; display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: start; }
 
-    /* Left column sections */
-    .content-section { margin-bottom: 44px; }
-    .content-section:last-child { margin-bottom: 0; }
-    .section-heading { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; color: var(--navy); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--gold); display: inline-block; }
-    .content-section p { font-size: 18px; color: var(--body); line-height: 1.75; margin-bottom: 14px; }
-    .content-section p:last-child { margin-bottom: 0; }
-    .content-section ul { margin: 0 0 0 22px; }
-    .content-section li { font-size: 18px; color: var(--body); line-height: 1.7; margin-bottom: 8px; }
-    .content-section li:last-child { margin-bottom: 0; }
+    /* ── ACCORDION ── */
+    .accordion { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .acc-item { border-bottom: 1px solid var(--border); }
+    .acc-item:last-child { border-bottom: none; }
+    .acc-trigger { width: 100%; background: var(--white); border: none; padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: 'IBM Plex Sans', sans-serif; font-size: 18px; font-weight: 600; color: var(--navy); cursor: pointer; text-align: left; transition: background 0.15s, color 0.15s; }
+    .acc-trigger:hover { background: var(--cream); }
+    .acc-trigger[aria-expanded="true"] { background: var(--cream-dk); border-bottom: 1px solid var(--border); }
+    .acc-chevron { flex-shrink: 0; transition: transform 0.22s ease; color: var(--muted); }
+    .acc-trigger[aria-expanded="true"] .acc-chevron { transform: rotate(180deg); color: var(--gold); }
+    .acc-panel[hidden] { display: none; }
+    .acc-panel-inner { padding: 26px 22px; }
+    .acc-panel-inner p { font-size: 18px; color: var(--body); line-height: 1.75; margin-bottom: 14px; }
+    .acc-panel-inner p:last-child { margin-bottom: 0; }
+    .acc-panel-inner ul { margin: 0 0 0 22px; }
+    .acc-panel-inner li { font-size: 18px; color: var(--body); line-height: 1.7; margin-bottom: 8px; }
+    .acc-panel-inner li:last-child { margin-bottom: 0; }
+    .acc-panel-inner a { color: var(--navy-light); }
+    .acc-panel-inner a:hover { color: var(--gold); text-decoration: underline; }
 
-    .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
+    .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
     .req-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--navy-light); border-radius: 3px; padding: 16px 18px; }
     .req-card-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
     .req-card-value { font-size: 16px; color: var(--body); line-height: 1.55; }
@@ -124,10 +132,11 @@
     .meeting-time { font-size: 15px; color: var(--muted); margin-top: 2px; }
     .meeting-note { font-size: 14px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
 
-    /* Location */
-    .location-name { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
-    .location-addr { font-size: 15px; color: var(--muted); line-height: 1.6; }
-    .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 15px; color: var(--navy-light); text-decoration: none; }
+    /* Location merged into meetings card */
+    .meeting-location { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-lt); }
+    .location-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+    .location-addr { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; color: var(--navy-light); text-decoration: none; }
     .map-link:hover { text-decoration: underline; }
 
     /* Documents */
@@ -142,6 +151,20 @@
     .complaint-btn { display: block; background: #dc2626; color: white; text-align: center; text-decoration: none; font-size: 17px; font-weight: 600; padding: 13px 20px; border-radius: 3px; transition: background 0.15s; }
     .complaint-btn:hover { background: #b91c1c; }
     .complaint-desc { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.55; }
+
+    /* Recordings */
+    .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
+    .recording-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .rec-thumb { position: relative; flex-shrink: 0; width: 100px; border-radius: 3px; overflow: hidden; }
+    .rec-thumb img { width: 100%; display: block; }
+    .rec-play { position: absolute; inset: 0; background: rgba(0,0,0,0.38); display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+    .recording-item:hover .rec-play { background: rgba(0,0,0,0.18); }
+    .rec-info { flex: 1; }
+    .rec-date { font-size: 15px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 3px; }
+    .rec-sublabel { font-size: 13px; color: var(--muted); }
+    .rec-watch { font-size: 14px; color: var(--navy-light); margin-top: 6px; display: flex; align-items: center; gap: 5px; }
+    .recording-item:hover .rec-date { color: var(--gold); }
+    .recording-item:hover .rec-watch { color: var(--gold); }
 
     /* ── MEMBERS SECTION ── */
     .members-section { background: var(--white); border-top: 1px solid var(--border); padding: 56px 40px 72px; }
@@ -167,24 +190,6 @@
     .status-badge.open          { background: #fee2e2; color: #991b1b; }
     .status-badge.transitioning { background: #fef3c7; color: #92400e; }
     .status-badge.seated        { background: #dcfce7; color: #166534; }
-
-    /* Content links */
-    .content-section a { color: var(--navy-light); }
-    .content-section a:hover { color: var(--gold); text-decoration: underline; }
-
-    /* Recordings */
-    .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
-    .recording-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-    .rec-thumb { position: relative; flex-shrink: 0; width: 100px; border-radius: 3px; overflow: hidden; }
-    .rec-thumb img { width: 100%; display: block; }
-    .rec-play { position: absolute; inset: 0; background: rgba(0,0,0,0.38); display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
-    .recording-item:hover .rec-play { background: rgba(0,0,0,0.18); }
-    .rec-info { flex: 1; }
-    .rec-date { font-size: 15px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 3px; }
-    .rec-sublabel { font-size: 13px; color: var(--muted); }
-    .rec-watch { font-size: 14px; color: var(--navy-light); margin-top: 6px; display: flex; align-items: center; gap: 5px; }
-    .recording-item:hover .rec-date { color: var(--gold); }
-    .recording-item:hover .rec-watch { color: var(--gold); }
 
     /* Staff note */
     .staff-note-wrap { max-width: 1400px; margin: 0 auto; padding: 0 40px 48px; }
@@ -266,7 +271,6 @@
     <div>
       <div class="board-badge">
         <span class="board-abbr-large">CRB</span>
-        <span class="board-cat-tag">Public Safety &amp; Civil Rights</span>
       </div>
       <h1>Civil Rights Board</h1>
       <p class="page-header-desc">Reviews allegations and violations of the Non-Discrimination and Fair Housing Ordinances. Makes recommendations to the City on policies and practices that lead to discrimination. Established September 2020 under Chapter 18 of the Code of Ordinances.</p>
@@ -312,62 +316,98 @@
 <!-- MAIN BODY -->
 <div class="board-body">
 
-  <!-- LEFT: CONTENT -->
+  <!-- LEFT: ACCORDION -->
   <div>
-    <div class="content-section">
-      <div class="section-heading">About &amp; Mission</div>
-      <p>The Civil Rights Board implements the general policy and purposes set forth in Chapter 18 "Non-Discrimination" and Chapter 18A "Fair Housing" of the City of Kalamazoo Code of Ordinances. The Board was created in September 2020 following updates to Chapter 18.</p>
-      <p>The Board fosters mutual understanding and respect among all people in the City, working to discourage and prevent unlawful discriminatory practices toward the protected classes described in the Ordinance.</p>
-    </div>
+    <div class="accordion">
 
-    <div class="content-section">
-      <div class="section-heading">Powers &amp; Responsibilities</div>
-      <ul>
-        <li>Review claims of discrimination brought by City residents and make recommendations for resolution following investigation by the City Manager or designee</li>
-        <li>Review and analyze conditions, practices, attitudes, and policies within Kalamazoo that contribute to discriminatory impact and further inequities</li>
-        <li>Make recommendations to the City Commission and City Manager on ways to improve programs and ordinances to eliminate discrimination</li>
-        <li>Engage in public awareness activities to ensure residents understand local protections and the role of the Board</li>
-        <li>Engage with federal, state, and local agencies to help address issues of discrimination in the City</li>
-        <li>Submit an annual report to the City Commission regarding complaints received and actions taken by February 1 of each year</li>
-      </ul>
-    </div>
-
-    <div class="content-section">
-      <div class="section-heading">Membership Requirements</div>
-      <p>The Board consists of <strong>9 members</strong> — 7 voting members and 2 ex-officio members who may fully participate in meetings but do not vote.</p>
-      <div class="req-grid">
-        <div class="req-card">
-          <div class="req-card-label">Appointment</div>
-          <div class="req-card-value">Voting members are appointed by the Mayor and approved by the City Commission. Members must demonstrate experience in civil rights, public accommodation, employment, disability, or housing law.</div>
-        </div>
-        <div class="req-card">
-          <div class="req-card-label">Expertise Required</div>
-          <div class="req-card-value">Experience in civil rights, public accommodation, employment, disability, or housing law.</div>
-        </div>
-        <div class="req-card">
-          <div class="req-card-label">Residency</div>
-          <div class="req-card-value">Members are generally required to be City residents. Up to 2 of the 7 voting seats may be filled by non-residents — such as someone who works in the City or has special expertise. Non-resident members hold full voting rights.</div>
-        </div>
-        <div class="req-card">
-          <div class="req-card-label">Ex-Officio Members</div>
-          <div class="req-card-value">One City Commissioner and one City officer or employee recommended by the City Manager — both appointed by the Mayor.</div>
+      <!-- About & Mission -->
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          About &amp; Mission
+          <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-panel" hidden>
+          <div class="acc-panel-inner">
+            <p>The Civil Rights Board implements the general policy and purposes set forth in Chapter 18 "Non-Discrimination" and Chapter 18A "Fair Housing" of the City of Kalamazoo Code of Ordinances. The Board was created in September 2020 following updates to Chapter 18.</p>
+            <p>The Board fosters mutual understanding and respect among all people in the City, working to discourage and prevent unlawful discriminatory practices toward the protected classes described in the Ordinance.</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="content-section">
-      <div class="section-heading">Attend a Meeting</div>
-      <p>Civil Rights Board meetings are open to the public — no registration required. Meetings are held the first Wednesday of every other month at <strong>5:00 PM</strong> in City Commission Chambers at Kalamazoo City Hall, 241 W South Street.</p>
-      <p><strong>Public Comment:</strong> Citizens may address the Board for up to 4 minutes. Sign in at the start of the meeting before 5:00 PM. Written comments may also be submitted to the staff liaison in advance of a meeting.</p>
-      <p><strong>Minutes &amp; Agendas:</strong> Meeting records are published on the City's <a href="https://kalamazoomi.portal.civicclerk.com/?category_id=32" target="_blank" rel="noopener">Civic Clerk portal</a>. Scroll up on the portal page to browse past meeting agendas, minutes, and supporting documents.</p>
-      <p><strong>Interested in Serving?</strong> Board seats are filled through mayoral appointment with City Commission approval. Use the <a href="#" target="_blank" rel="noopener">Apply to Serve</a> page to submit an interest form or learn more about the application process.</p>
+      <!-- Powers & Responsibilities -->
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          Powers &amp; Responsibilities
+          <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-panel" hidden>
+          <div class="acc-panel-inner">
+            <ul>
+              <li>Review claims of discrimination brought by City residents and make recommendations for resolution following investigation by the City Manager or designee</li>
+              <li>Review and analyze conditions, practices, attitudes, and policies within Kalamazoo that contribute to discriminatory impact and further inequities</li>
+              <li>Make recommendations to the City Commission and City Manager on ways to improve programs and ordinances to eliminate discrimination</li>
+              <li>Engage in public awareness activities to ensure residents understand local protections and the role of the Board</li>
+              <li>Engage with federal, state, and local agencies to help address issues of discrimination in the City</li>
+              <li>Submit an annual report to the City Commission regarding complaints received and actions taken by February 1 of each year</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Membership Requirements -->
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          Membership Requirements
+          <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-panel" hidden>
+          <div class="acc-panel-inner">
+            <p>The Board consists of <strong>9 members</strong> — 7 voting members and 2 ex-officio members who may fully participate in meetings but do not vote.</p>
+            <div class="req-grid">
+              <div class="req-card">
+                <div class="req-card-label">Appointment</div>
+                <div class="req-card-value">Voting members are appointed by the Mayor and approved by the City Commission. Members must demonstrate experience in civil rights, public accommodation, employment, disability, or housing law.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Expertise Required</div>
+                <div class="req-card-value">Experience in civil rights, public accommodation, employment, disability, or housing law.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Residency</div>
+                <div class="req-card-value">Members are generally required to be City residents. Up to 2 of the 7 voting seats may be filled by non-residents — such as someone who works in the City or has special expertise. Non-resident members hold full voting rights.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Ex-Officio Members</div>
+                <div class="req-card-value">One City Commissioner and one City officer or employee recommended by the City Manager — both appointed by the Mayor.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attend a Meeting -->
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          Attend a Meeting
+          <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-panel" hidden>
+          <div class="acc-panel-inner">
+            <p>Civil Rights Board meetings are open to the public — no registration required. Meetings are held the first Wednesday of every other month at <strong>5:00 PM</strong> in City Commission Chambers at Kalamazoo City Hall, 241 W South Street.</p>
+            <p><strong>Public Comment:</strong> Citizens may address the Board for up to 4 minutes. Sign in at the start of the meeting before 5:00 PM. Written comments may also be submitted to the staff liaison in advance of a meeting.</p>
+            <p><strong>Minutes &amp; Agendas:</strong> Meeting records are published on the City's <a href="https://kalamazoomi.portal.civicclerk.com/?category_id=32" target="_blank" rel="noopener">Civic Clerk portal</a>. Scroll up on the portal page to browse past meeting agendas, minutes, and supporting documents.</p>
+            <p><strong>Interested in Serving?</strong> Board seats are filled through mayoral appointment with City Commission approval. Use the <a href="#" target="_blank" rel="noopener">Apply to Serve</a> page to submit an interest form or learn more about the application process.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <!-- RIGHT: SIDEBAR -->
   <aside class="sidebar">
 
-    <!-- Next 3 Meetings -->
+    <!-- Upcoming Meetings + Location -->
     <div class="sidebar-card">
       <div class="sidebar-card-header">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -388,22 +428,14 @@
           <div class="meeting-time">5:00 PM – 7:00 PM</div>
         </div>
         <p class="meeting-note">Meets the 1st Wednesday of every other month. All meetings open to the public — citizens may address the Board for up to 4 minutes.</p>
-      </div>
-    </div>
-
-    <!-- Location -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Location
-      </div>
-      <div class="sidebar-card-body">
-        <div class="location-name">City Commission Chambers</div>
-        <div class="location-addr">Kalamazoo City Hall, Second Floor<br>241 W South Street<br>Kalamazoo, MI 49007</div>
-        <a class="map-link" href="https://maps.google.com/?q=241+W+South+Street,+Kalamazoo,+MI+49007" target="_blank" rel="noopener">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View on Google Maps
-        </a>
+        <div class="meeting-location">
+          <div class="location-name">City Commission Chambers</div>
+          <div class="location-addr">Kalamazoo City Hall, Second Floor<br>241 W South Street, Kalamazoo, MI 49007</div>
+          <a class="map-link" href="https://maps.google.com/?q=241+W+South+Street,+Kalamazoo,+MI+49007" target="_blank" rel="noopener">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View on Google Maps
+          </a>
+        </div>
       </div>
     </div>
 
@@ -613,9 +645,9 @@ fetch('boards.json')
     let nO = 0, nT = 0, nS = 0;
     members.forEach(m => {
       const ds = displayStatus(seatStatus(m));
-      if (ds === 'open')           nO++;
+      if (ds === 'open')               nO++;
       else if (ds === 'transitioning') nT++;
-      else                         nS++;
+      else                             nS++;
     });
     document.getElementById('stat-total').textContent  = members.length;
     document.getElementById('stat-open').textContent   = nO;
@@ -707,6 +739,15 @@ fetch('boards.json')
     });
   })
   .catch(err => console.error('Could not load boards.json:', err));
+
+// ── Accordion ────────────────────────────────────────
+document.querySelectorAll('.acc-trigger').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    btn.nextElementSibling.hidden = expanded;
+  });
+});
 </script>
 </body>
 </html>
