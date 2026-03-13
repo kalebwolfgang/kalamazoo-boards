@@ -159,14 +159,23 @@
     .complaint-cta-btn:hover { background: #b91c1c; border-color: rgba(255,255,255,0.55); }
     .complaint-cta-note { font-size: 13px; color: rgba(255,255,255,0.45); text-align: center; line-height: 1.5; }
 
-    /* ── BOTTOM CARDS ROW (3-column) ── */
-    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: 40px 40px 80px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: stretch; }
+    /* ── BOTTOM CARDS (3-col × 2-row grid) ── */
+    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: 40px 40px 80px; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 28px; align-items: stretch; }
     .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+    /* Recordings spans both rows in col 3 */
+    .bottom-card:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 3; }
+    /* Apply to Serve spans cols 1–2 on row 2 */
+    .bottom-card:nth-child(4) { grid-column: 1 / 3; grid-row: 2 / 3; border-left: 4px solid var(--gold); }
     .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .bottom-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-    .card-apply { margin-top: auto; padding-top: 18px; }
-    .card-apply-btn { display: block; background: var(--navy); color: var(--gold-lt); text-align: center; text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; }
-    .card-apply-btn:hover { background: var(--navy-mid); color: white; }
+    /* Apply to Serve standalone card */
+    .apply-standalone-inner { padding: 30px 36px; display: flex; align-items: center; gap: 48px; height: 100%; }
+    .apply-standalone-text { flex: 1; }
+    .apply-standalone-heading { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+    .apply-standalone-desc { font-size: 16px; color: var(--body); line-height: 1.65; }
+    .apply-standalone-action { flex-shrink: 0; }
+    .apply-standalone-btn { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 17px; font-weight: 700; padding: 16px 40px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
+    .apply-standalone-btn:hover { background: var(--navy-mid); color: white; }
 
     /* Documents */
     .doc-link { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: var(--navy-light); font-size: 16px; transition: color 0.15s; }
@@ -487,9 +496,6 @@
         Civic Clerk Meeting Portal
       </a>
       <p style="font-size:14px;color:var(--muted);margin-top:12px;line-height:1.55;">Agendas, minutes, and supporting documents are archived on the City's Civic Clerk portal. Scroll up on the portal page to view past meetings.</p>
-      <div class="card-apply">
-        <a class="card-apply-btn" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve →</a>
-      </div>
     </div>
   </div>
 
@@ -513,9 +519,6 @@
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
         Chapter 18A: Fair Housing
       </a>
-      <div class="card-apply">
-        <a class="card-apply-btn" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve →</a>
-      </div>
     </div>
   </div>
 
@@ -574,6 +577,20 @@
           </div>
         </div>
       </a>
+    </div>
+  </div>
+
+
+  <!-- Apply to Serve -->
+  <div class="bottom-card">
+    <div class="apply-standalone-inner">
+      <div class="apply-standalone-text">
+        <div class="apply-standalone-heading">Interested in Serving on a City Board?</div>
+        <p class="apply-standalone-desc">Board seats are filled through mayoral appointment with City Commission approval. Submit an interest form to be considered for open or upcoming vacancies on the Civil Rights Board or any other City board or commission.</p>
+      </div>
+      <div class="apply-standalone-action">
+        <a class="apply-standalone-btn" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve →</a>
+      </div>
     </div>
   </div>
 
