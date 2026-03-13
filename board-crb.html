@@ -65,7 +65,7 @@
     .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 2.5vw, 38px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 14px; }
     .page-header-desc { color: rgba(255,255,255,0.58); font-size: 18px; font-weight: 300; max-width: 620px; line-height: 1.65; }
 
-    /* Seat block (right of header) */
+    /* Seat block */
     .header-seat-block { flex-shrink: 0; }
     .seat-stat-row { display: flex; gap: 2px; margin-bottom: 18px; }
     .seat-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: 14px 20px; text-align: center; min-width: 86px; }
@@ -92,7 +92,7 @@
     .gov-label { font-size: 12px; color: rgba(255,255,255,0.42); text-transform: uppercase; letter-spacing: 0.06em; }
 
     /* ── MAIN TWO-COLUMN BODY ── */
-    .board-body { max-width: 1400px; margin: 0 auto; padding: 48px 40px 80px; display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: start; }
+    .board-body { max-width: 1400px; margin: 0 auto; padding: 48px 40px 0; display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: start; }
 
     /* ── ACCORDION ── */
     .accordion { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
@@ -118,7 +118,7 @@
     .req-card-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
     .req-card-value { font-size: 16px; color: var(--body); line-height: 1.55; }
 
-    /* ── SIDEBAR ── */
+    /* ── SIDEBAR (right column — 2 cards only) ── */
     .sidebar { display: flex; flex-direction: column; gap: 22px; }
     .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
     .sidebar-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
@@ -131,13 +131,22 @@
     .meeting-date { font-size: 17px; font-weight: 600; color: var(--navy); line-height: 1.4; }
     .meeting-time { font-size: 15px; color: var(--muted); margin-top: 2px; }
     .meeting-note { font-size: 14px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
-
-    /* Location merged into meetings card */
     .meeting-location { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-lt); }
     .location-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
     .location-addr { font-size: 14px; color: var(--muted); line-height: 1.6; }
     .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; color: var(--navy-light); text-decoration: none; }
     .map-link:hover { text-decoration: underline; }
+
+    /* Complaint CTA */
+    .complaint-btn { display: block; background: #dc2626; color: white; text-align: center; text-decoration: none; font-size: 17px; font-weight: 600; padding: 13px 20px; border-radius: 3px; transition: background 0.15s; }
+    .complaint-btn:hover { background: #b91c1c; }
+    .complaint-desc { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.55; }
+
+    /* ── BOTTOM CARDS ROW (3-column) ── */
+    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: 32px 40px 80px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: start; }
+    .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+    .bottom-card-body { padding: 20px; }
 
     /* Documents */
     .doc-link { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: var(--navy-light); font-size: 16px; transition: color 0.15s; }
@@ -146,11 +155,6 @@
     .doc-link svg { flex-shrink: 0; color: var(--muted); }
     .doc-link:hover svg { color: var(--gold); }
     .pdf-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 2px; margin-left: auto; flex-shrink: 0; }
-
-    /* Complaint CTA */
-    .complaint-btn { display: block; background: #dc2626; color: white; text-align: center; text-decoration: none; font-size: 17px; font-weight: 600; padding: 13px 20px; border-radius: 3px; transition: background 0.15s; }
-    .complaint-btn:hover { background: #b91c1c; }
-    .complaint-desc { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.55; }
 
     /* Recordings */
     .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
@@ -214,6 +218,7 @@
 
     @media (max-width: 1024px) {
       .board-body { grid-template-columns: 1fr; }
+      .bottom-cards { grid-template-columns: 1fr; }
       .page-header-inner { grid-template-columns: 1fr; gap: 32px; }
       .req-grid { grid-template-columns: 1fr; }
       .gov-inner { flex-wrap: wrap; }
@@ -313,7 +318,7 @@
   </div>
 </div>
 
-<!-- MAIN BODY -->
+<!-- MAIN BODY: Accordion + 2 sidebar cards -->
 <div class="board-body">
 
   <!-- LEFT: ACCORDION -->
@@ -404,7 +409,7 @@
     </div>
   </div>
 
-  <!-- RIGHT: SIDEBAR -->
+  <!-- RIGHT: 2 sidebar cards -->
   <aside class="sidebar">
 
     <!-- Upcoming Meetings + Location -->
@@ -439,103 +444,7 @@
       </div>
     </div>
 
-    <!-- Minutes & Agendas -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        Minutes &amp; Agendas
-      </div>
-      <div class="sidebar-card-body">
-        <a class="doc-link" href="https://kalamazoomi.portal.civicclerk.com/?category_id=32" target="_blank" rel="noopener">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Civic Clerk Meeting Portal
-        </a>
-        <p style="font-size:14px;color:var(--muted);margin-top:12px;line-height:1.55;">Agendas, minutes, and supporting documents are archived on the City's Civic Clerk portal. Scroll up on the portal page to view past meetings.</p>
-      </div>
-    </div>
-
-    <!-- Key Documents -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Key Documents
-      </div>
-      <div class="sidebar-card-body">
-        <a class="doc-link" href="https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/kcrb-comm-bylaws-final.pdf" target="_blank" rel="noopener">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Civil Rights Board Bylaws
-          <span class="pdf-badge">PDF</span>
-        </a>
-        <a class="doc-link" href="https://ecode360.com/9695185#9695185" target="_blank" rel="noopener">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          Chapter 18: Nondiscrimination
-        </a>
-        <a class="doc-link" href="https://ecode360.com/9695230#9695230" target="_blank" rel="noopener">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          Chapter 18A: Fair Housing
-        </a>
-      </div>
-    </div>
-
-    <!-- Past Meeting Recordings -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-        Past Meeting Recordings
-      </div>
-      <div class="sidebar-card-body">
-        <a class="recording-item" href="https://www.youtube.com/watch?v=AyZ7Xlchn0g" target="_blank" rel="noopener">
-          <div class="rec-thumb">
-            <img src="https://img.youtube.com/vi/AyZ7Xlchn0g/mqdefault.jpg" alt="February 4, 2026 meeting recording">
-            <div class="rec-play">
-              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-          </div>
-          <div class="rec-info">
-            <div class="rec-date">February 4, 2026</div>
-            <div class="rec-sublabel">Civil Rights Board</div>
-            <div class="rec-watch">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Watch on YouTube
-            </div>
-          </div>
-        </a>
-        <a class="recording-item" href="https://www.youtube.com/watch?v=S-fbz2QWogk&t=2s" target="_blank" rel="noopener">
-          <div class="rec-thumb">
-            <img src="https://img.youtube.com/vi/S-fbz2QWogk/mqdefault.jpg" alt="December 3, 2025 meeting recording">
-            <div class="rec-play">
-              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-          </div>
-          <div class="rec-info">
-            <div class="rec-date">December 3, 2025</div>
-            <div class="rec-sublabel">Civil Rights Board</div>
-            <div class="rec-watch">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Watch on YouTube
-            </div>
-          </div>
-        </a>
-        <a class="recording-item" href="https://www.youtube.com/watch?v=tlmv3vpCP7A" target="_blank" rel="noopener">
-          <div class="rec-thumb">
-            <img src="https://img.youtube.com/vi/tlmv3vpCP7A/mqdefault.jpg" alt="October 1, 2025 meeting recording">
-            <div class="rec-play">
-              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-          </div>
-          <div class="rec-info">
-            <div class="rec-date">October 1, 2025</div>
-            <div class="rec-sublabel">Civil Rights Board</div>
-            <div class="rec-watch">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Watch on YouTube
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Report Complaint -->
+    <!-- File a Complaint -->
     <div class="sidebar-card">
       <div class="sidebar-card-header">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -550,6 +459,107 @@
     </div>
 
   </aside>
+</div>
+
+<!-- BOTTOM CARDS ROW: Minutes | Key Docs | Recordings -->
+<div class="bottom-cards">
+
+  <!-- Minutes & Agendas -->
+  <div class="bottom-card">
+    <div class="bottom-card-header">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      Minutes &amp; Agendas
+    </div>
+    <div class="bottom-card-body">
+      <a class="doc-link" href="https://kalamazoomi.portal.civicclerk.com/?category_id=32" target="_blank" rel="noopener">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Civic Clerk Meeting Portal
+      </a>
+      <p style="font-size:14px;color:var(--muted);margin-top:12px;line-height:1.55;">Agendas, minutes, and supporting documents are archived on the City's Civic Clerk portal. Scroll up on the portal page to view past meetings.</p>
+    </div>
+  </div>
+
+  <!-- Key Documents -->
+  <div class="bottom-card">
+    <div class="bottom-card-header">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Key Documents
+    </div>
+    <div class="bottom-card-body">
+      <a class="doc-link" href="https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/kcrb-comm-bylaws-final.pdf" target="_blank" rel="noopener">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Civil Rights Board Bylaws
+        <span class="pdf-badge">PDF</span>
+      </a>
+      <a class="doc-link" href="https://ecode360.com/9695185#9695185" target="_blank" rel="noopener">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Chapter 18: Nondiscrimination
+      </a>
+      <a class="doc-link" href="https://ecode360.com/9695230#9695230" target="_blank" rel="noopener">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Chapter 18A: Fair Housing
+      </a>
+    </div>
+  </div>
+
+  <!-- Past Meeting Recordings -->
+  <div class="bottom-card">
+    <div class="bottom-card-header">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      Past Meeting Recordings
+    </div>
+    <div class="bottom-card-body">
+      <a class="recording-item" href="https://www.youtube.com/watch?v=AyZ7Xlchn0g" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/AyZ7Xlchn0g/mqdefault.jpg" alt="February 4, 2026 meeting recording">
+          <div class="rec-play">
+            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">February 4, 2026</div>
+          <div class="rec-sublabel">Civil Rights Board</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
+      </a>
+      <a class="recording-item" href="https://www.youtube.com/watch?v=S-fbz2QWogk&t=2s" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/S-fbz2QWogk/mqdefault.jpg" alt="December 3, 2025 meeting recording">
+          <div class="rec-play">
+            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">December 3, 2025</div>
+          <div class="rec-sublabel">Civil Rights Board</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
+      </a>
+      <a class="recording-item" href="https://www.youtube.com/watch?v=tlmv3vpCP7A" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/tlmv3vpCP7A/mqdefault.jpg" alt="October 1, 2025 meeting recording">
+          <div class="rec-play">
+            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">October 1, 2025</div>
+          <div class="rec-sublabel">Civil Rights Board</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <!-- MEMBERS SECTION -->
