@@ -85,6 +85,12 @@
     .seat-dot-hdr.red    { background: #dc2626; }
     .seat-dot-hdr.yellow { background: #d97706; }
     .seat-dot-hdr.green  { background: #15803d; }
+    .dot-legend { display: flex; gap: 18px; margin-top: 12px; }
+    .dl-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.42); letter-spacing: 0.03em; }
+    .dl-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .dl-dot.red    { background: #dc2626; }
+    .dl-dot.yellow { background: #d97706; }
+    .dl-dot.green  { background: #15803d; }
 
     /* ── GOVERNANCE STRIP ── */
     .gov-strip { background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.07); }
@@ -154,10 +160,13 @@
     .complaint-cta-note { font-size: 13px; color: rgba(255,255,255,0.45); text-align: center; line-height: 1.5; }
 
     /* ── BOTTOM CARDS ROW (3-column) ── */
-    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: 40px 40px 80px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: start; }
-    .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
-    .bottom-card-body { padding: 20px; }
+    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: 40px 40px 80px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: stretch; }
+    .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+    .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .bottom-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .card-apply { margin-top: auto; padding-top: 18px; }
+    .card-apply-btn { display: block; background: var(--navy); color: var(--gold-lt); text-align: center; text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; }
+    .card-apply-btn:hover { background: var(--navy-mid); color: white; }
 
     /* Documents */
     .doc-link { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: var(--navy-light); font-size: 16px; transition: color 0.15s; }
@@ -300,6 +309,11 @@
         <div class="seat-stat"><div class="seat-stat-n green"  id="stat-seated">—</div><div class="seat-stat-lbl">Seated</div></div>
       </div>
       <div class="header-dots" id="header-dots"></div>
+      <div class="dot-legend">
+        <span class="dl-item"><span class="dl-dot red"></span> Open</span>
+        <span class="dl-item"><span class="dl-dot yellow"></span> Transitioning</span>
+        <span class="dl-item"><span class="dl-dot green"></span> Seated</span>
+      </div>
     </div>
   </div>
 </div>
@@ -429,16 +443,18 @@
         Upcoming Meetings
       </div>
       <div class="sidebar-card-body">
-        <div class="meeting-item">
-          <div class="next-badge">Next</div>
+        <div class="meeting-item" data-date="2026-04-01">
+          <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">Wednesday, April 1, 2026</div>
           <div class="meeting-time">5:00 PM – 7:00 PM</div>
         </div>
-        <div class="meeting-item">
+        <div class="meeting-item" data-date="2026-06-03">
+          <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">Wednesday, June 3, 2026</div>
           <div class="meeting-time">5:00 PM – 7:00 PM</div>
         </div>
-        <div class="meeting-item">
+        <div class="meeting-item" data-date="2026-08-05">
+          <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">Wednesday, August 5, 2026</div>
           <div class="meeting-time">5:00 PM – 7:00 PM</div>
         </div>
@@ -471,6 +487,9 @@
         Civic Clerk Meeting Portal
       </a>
       <p style="font-size:14px;color:var(--muted);margin-top:12px;line-height:1.55;">Agendas, minutes, and supporting documents are archived on the City's Civic Clerk portal. Scroll up on the portal page to view past meetings.</p>
+      <div class="card-apply">
+        <a class="card-apply-btn" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve →</a>
+      </div>
     </div>
   </div>
 
@@ -494,6 +513,9 @@
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
         Chapter 18A: Fair Housing
       </a>
+      <div class="card-apply">
+        <a class="card-apply-btn" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve →</a>
+      </div>
     </div>
   </div>
 
@@ -775,6 +797,20 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
     btn.nextElementSibling.hidden = expanded;
   });
 });
+
+// ── Dynamic "Next" meeting badge ─────────────────────
+(function () {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  let found = false;
+  document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
+    const d = new Date(item.dataset.date + 'T00:00:00');
+    if (!found && d >= today) {
+      item.querySelector('.next-badge').style.display = '';
+      found = true;
+    }
+  });
+})();
 </script>
 </body>
 </html>
