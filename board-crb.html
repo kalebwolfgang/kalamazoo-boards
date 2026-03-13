@@ -168,6 +168,24 @@
     .status-badge.transitioning { background: #fef3c7; color: #92400e; }
     .status-badge.seated        { background: #dcfce7; color: #166534; }
 
+    /* Content links */
+    .content-section a { color: var(--navy-light); }
+    .content-section a:hover { color: var(--gold); text-decoration: underline; }
+
+    /* Recordings */
+    .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
+    .recording-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .rec-thumb { position: relative; flex-shrink: 0; width: 100px; border-radius: 3px; overflow: hidden; }
+    .rec-thumb img { width: 100%; display: block; }
+    .rec-play { position: absolute; inset: 0; background: rgba(0,0,0,0.38); display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+    .recording-item:hover .rec-play { background: rgba(0,0,0,0.18); }
+    .rec-info { flex: 1; }
+    .rec-date { font-size: 15px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 3px; }
+    .rec-sublabel { font-size: 13px; color: var(--muted); }
+    .rec-watch { font-size: 14px; color: var(--navy-light); margin-top: 6px; display: flex; align-items: center; gap: 5px; }
+    .recording-item:hover .rec-date { color: var(--gold); }
+    .recording-item:hover .rec-watch { color: var(--gold); }
+
     /* Staff note */
     .staff-note-wrap { max-width: 1400px; margin: 0 auto; padding: 0 40px 48px; }
     .staff-note { background: var(--cream-dk); border: 1px solid var(--border); border-radius: 3px; padding: 14px 18px; font-size: 15px; color: var(--muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
@@ -319,22 +337,30 @@
       <p>The Board consists of <strong>9 members</strong> — 7 voting members and 2 ex-officio members who may fully participate in meetings but do not vote.</p>
       <div class="req-grid">
         <div class="req-card">
-          <div class="req-card-label">Voting Members</div>
-          <div class="req-card-value">Appointed by Mayor, approved by City Commission. Must be City residents reflecting the diversity of the Kalamazoo community.</div>
+          <div class="req-card-label">Appointment</div>
+          <div class="req-card-value">Voting members are appointed by the Mayor and approved by the City Commission. Members must demonstrate experience in civil rights, public accommodation, employment, disability, or housing law.</div>
         </div>
         <div class="req-card">
           <div class="req-card-label">Expertise Required</div>
           <div class="req-card-value">Experience in civil rights, public accommodation, employment, disability, or housing law.</div>
         </div>
         <div class="req-card">
-          <div class="req-card-label">Non-Resident Exception</div>
-          <div class="req-card-value">Up to 2 non-residents may serve if they work in the City or have special expertise relevant to the Board's duties.</div>
+          <div class="req-card-label">Residency</div>
+          <div class="req-card-value">Members are generally required to be City residents. Up to 2 of the 7 voting seats may be filled by non-residents — such as someone who works in the City or has special expertise. Non-resident members hold full voting rights.</div>
         </div>
         <div class="req-card">
           <div class="req-card-label">Ex-Officio Members</div>
           <div class="req-card-value">One City Commissioner and one City officer or employee recommended by the City Manager — both appointed by the Mayor.</div>
         </div>
       </div>
+    </div>
+
+    <div class="content-section">
+      <div class="section-heading">Attend a Meeting</div>
+      <p>Civil Rights Board meetings are open to the public — no registration required. Meetings are held the first Wednesday of every other month at <strong>5:00 PM</strong> in City Commission Chambers at Kalamazoo City Hall, 241 W South Street.</p>
+      <p><strong>Public Comment:</strong> Citizens may address the Board for up to 4 minutes. Sign in at the start of the meeting before 5:00 PM. Written comments may also be submitted to the staff liaison in advance of a meeting.</p>
+      <p><strong>Minutes &amp; Agendas:</strong> Meeting records are published on the City's <a href="https://kalamazoomi.portal.civicclerk.com/?category_id=32" target="_blank" rel="noopener">Civic Clerk portal</a>. Scroll up on the portal page to browse past meeting agendas, minutes, and supporting documents.</p>
+      <p><strong>Interested in Serving?</strong> Board seats are filled through mayoral appointment with City Commission approval. Use the <a href="#" target="_blank" rel="noopener">Apply to Serve</a> page to submit an interest form or learn more about the application process.</p>
     </div>
   </div>
 
@@ -381,6 +407,21 @@
       </div>
     </div>
 
+    <!-- Minutes & Agendas -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Minutes &amp; Agendas
+      </div>
+      <div class="sidebar-card-body">
+        <a class="doc-link" href="https://kalamazoomi.portal.civicclerk.com/?category_id=32" target="_blank" rel="noopener">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Civic Clerk Meeting Portal
+        </a>
+        <p style="font-size:14px;color:var(--muted);margin-top:12px;line-height:1.55;">Agendas, minutes, and supporting documents are archived on the City's Civic Clerk portal. Scroll up on the portal page to view past meetings.</p>
+      </div>
+    </div>
+
     <!-- Key Documents -->
     <div class="sidebar-card">
       <div class="sidebar-card-header">
@@ -388,18 +429,76 @@
         Key Documents
       </div>
       <div class="sidebar-card-body">
-        <a class="doc-link" href="kcrb-comm-bylaws-final.pdf" target="_blank">
+        <a class="doc-link" href="https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/kcrb-comm-bylaws-final.pdf" target="_blank" rel="noopener">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           Civil Rights Board Bylaws
           <span class="pdf-badge">PDF</span>
         </a>
-        <a class="doc-link" href="https://www.kalamazoocity.org/Government/City-Code-of-Ordinances" target="_blank" rel="noopener">
+        <a class="doc-link" href="https://ecode360.com/9695185#9695185" target="_blank" rel="noopener">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
           Chapter 18: Nondiscrimination
         </a>
-        <a class="doc-link" href="https://www.kalamazoocity.org/Government/City-Code-of-Ordinances" target="_blank" rel="noopener">
+        <a class="doc-link" href="https://ecode360.com/9695230#9695230" target="_blank" rel="noopener">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
           Chapter 18A: Fair Housing
+        </a>
+      </div>
+    </div>
+
+    <!-- Past Meeting Recordings -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        Past Meeting Recordings
+      </div>
+      <div class="sidebar-card-body">
+        <a class="recording-item" href="https://www.youtube.com/watch?v=AyZ7Xlchn0g" target="_blank" rel="noopener">
+          <div class="rec-thumb">
+            <img src="https://img.youtube.com/vi/AyZ7Xlchn0g/mqdefault.jpg" alt="February 4, 2026 meeting recording">
+            <div class="rec-play">
+              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="rec-info">
+            <div class="rec-date">February 4, 2026</div>
+            <div class="rec-sublabel">Civil Rights Board</div>
+            <div class="rec-watch">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Watch on YouTube
+            </div>
+          </div>
+        </a>
+        <a class="recording-item" href="https://www.youtube.com/watch?v=S-fbz2QWogk&t=2s" target="_blank" rel="noopener">
+          <div class="rec-thumb">
+            <img src="https://img.youtube.com/vi/S-fbz2QWogk/mqdefault.jpg" alt="December 3, 2025 meeting recording">
+            <div class="rec-play">
+              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="rec-info">
+            <div class="rec-date">December 3, 2025</div>
+            <div class="rec-sublabel">Civil Rights Board</div>
+            <div class="rec-watch">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Watch on YouTube
+            </div>
+          </div>
+        </a>
+        <a class="recording-item" href="https://www.youtube.com/watch?v=tlmv3vpCP7A" target="_blank" rel="noopener">
+          <div class="rec-thumb">
+            <img src="https://img.youtube.com/vi/tlmv3vpCP7A/mqdefault.jpg" alt="October 1, 2025 meeting recording">
+            <div class="rec-play">
+              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="rec-info">
+            <div class="rec-date">October 1, 2025</div>
+            <div class="rec-sublabel">Civil Rights Board</div>
+            <div class="rec-watch">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Watch on YouTube
+            </div>
+          </div>
         </a>
       </div>
     </div>
@@ -411,7 +510,7 @@
         File a Complaint
       </div>
       <div class="sidebar-card-body">
-        <a class="complaint-btn" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board" target="_blank" rel="noopener">
+        <a class="complaint-btn" href="https://www.kalamazoocity.org/Residents/Solve-a-Problem-with-311/Report-Civil-Rights-Complaint" target="_blank" rel="noopener">
           Report Civil Rights Complaint
         </a>
         <p class="complaint-desc">Report potential violations of the City of Kalamazoo's Civil Rights Ordinance or Fair Housing Ordinance.</p>
