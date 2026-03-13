@@ -140,9 +140,10 @@
     .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; color: var(--navy-light); text-decoration: none; }
     .map-link:hover { text-decoration: underline; }
 
-    /* ── COMPLAINT CTA (full-width) ── */
-    .complaint-cta { background: var(--red-mid); border-top: 4px solid #dc2626; border-bottom: 4px solid #dc2626; padding: 56px 40px; margin-top: 40px; }
-    .complaint-cta-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    /* ── COMPLAINT CTA ── */
+    .complaint-cta-wrap { max-width: 1400px; margin: 0 auto; padding: 0 40px 48px; }
+    .complaint-cta { background: var(--red-mid); border-radius: 4px; padding: 44px 48px; }
+    .complaint-cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
     .complaint-cta-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
     .complaint-cta-heading { font-family: 'Playfair Display', serif; font-size: clamp(28px, 2.5vw, 40px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 18px; }
     .complaint-cta-desc { font-size: 18px; color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 680px; }
@@ -455,26 +456,6 @@
   </aside>
 </div>
 
-<!-- COMPLAINT CTA — full width -->
-<div class="complaint-cta">
-  <div class="complaint-cta-inner">
-    <div>
-      <div class="complaint-cta-eyebrow">Civil Rights Board — Complaint Process</div>
-      <div class="complaint-cta-heading">Experienced discrimination in Kalamazoo?</div>
-      <p class="complaint-cta-desc">
-        The Civil Rights Board directly reviews complaints filed under the City's Non-Discrimination and Fair Housing Ordinances.
-        <strong>This Board hears your case.</strong> Following investigation by the City Manager's office, the Board reviews findings and makes recommendations for resolution — giving residents a direct path to accountability.
-      </p>
-    </div>
-    <div class="complaint-cta-action">
-      <a class="complaint-cta-btn" href="https://www.kalamazoocity.org/Residents/Solve-a-Problem-with-311/Report-Civil-Rights-Complaint" target="_blank" rel="noopener">
-        Report a Complaint →
-      </a>
-      <div class="complaint-cta-note">Violations of the Civil Rights Ordinance<br>or Fair Housing Ordinance</div>
-    </div>
-  </div>
-</div>
-
 <!-- BOTTOM CARDS ROW: Minutes | Key Docs | Recordings -->
 <div class="bottom-cards">
 
@@ -574,6 +555,28 @@
     </div>
   </div>
 
+</div>
+
+<!-- COMPLAINT CTA -->
+<div class="complaint-cta-wrap">
+  <div class="complaint-cta">
+    <div class="complaint-cta-inner">
+      <div>
+        <div class="complaint-cta-eyebrow">Civil Rights Board — Complaint Process</div>
+        <div class="complaint-cta-heading">Experienced discrimination in Kalamazoo?</div>
+        <p class="complaint-cta-desc">
+          The Civil Rights Board directly reviews complaints filed under the City's Non-Discrimination and Fair Housing Ordinances.
+          <strong>This Board hears your case.</strong> Following investigation by the City Manager's office, the Board reviews findings and makes recommendations for resolution — giving residents a direct path to accountability.
+        </p>
+      </div>
+      <div class="complaint-cta-action">
+        <a class="complaint-cta-btn" href="https://www.kalamazoocity.org/Residents/Solve-a-Problem-with-311/Report-Civil-Rights-Complaint" target="_blank" rel="noopener">
+          Report a Complaint →
+        </a>
+        <div class="complaint-cta-note">Violations of the Civil Rights Ordinance<br>or Fair Housing Ordinance</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- MEMBERS SECTION -->
