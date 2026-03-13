@@ -170,6 +170,15 @@
       font-size: 19px; font-weight: 600;
       color: var(--navy); line-height: 1.3;
     }
+    .board-detail-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 8px; font-size: 15px; font-weight: 600;
+      color: var(--navy-light); text-decoration: none;
+      transition: color 0.15s;
+    }
+    .board-detail-link:hover { color: var(--gold); }
+    .board-detail-link svg { transition: transform 0.15s; }
+    .board-detail-link:hover svg { transform: translateX(3px); }
 
     /* Stats (sit to the right of the title) */
     .board-stats {
@@ -396,6 +405,11 @@ fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
 
+    // Detail pages — add abbr here as each board page is built
+    const detailPages = {
+      'CRB': 'board-crb.html'
+    };
+
     // Sort alphabetically by board name
     boards.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -507,10 +521,15 @@ fetch('boards.json')
       // Top row: ABBR + name on left, stats on right
       const topRow = document.createElement('div');
       topRow.className = 'board-top';
+      const detailLink = detailPages[board.abbr]
+        ? `<a class="board-detail-link" href="${detailPages[board.abbr]}">View Details <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>`
+        : '';
+
       topRow.innerHTML =
         `<div class="board-title">` +
           `<div class="board-abbr">${board.abbr}</div>` +
           `<div class="board-name">${board.name}</div>` +
+          detailLink +
         `</div>` +
         `<div class="board-stats">${statsHtml}</div>`;
       inner.appendChild(topRow);
