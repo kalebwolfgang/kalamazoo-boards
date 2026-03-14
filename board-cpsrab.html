@@ -170,7 +170,18 @@
     .bottom-cards { max-width: 1400px; margin: 0 auto; padding: 40px 40px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
     .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
     .bottom-card:last-child { border-left: 4px solid var(--gold); grid-column: 1 / -1; }
-    .yt-badge { font-size: 11px; font-weight: 700; background: #ef4444; color: white; padding: 2px 6px; border-radius: 2px; margin-left: auto; flex-shrink: 0; }
+    .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
+    .recording-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .rec-thumb { position: relative; flex-shrink: 0; width: 100px; border-radius: 3px; overflow: hidden; }
+    .rec-thumb img { width: 100%; display: block; }
+    .rec-play { position: absolute; inset: 0; background: rgba(0,0,0,0.38); display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+    .recording-item:hover .rec-play { background: rgba(0,0,0,0.18); }
+    .rec-info { flex: 1; }
+    .rec-date { font-size: 15px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 3px; }
+    .rec-sublabel { font-size: 13px; color: var(--muted); }
+    .rec-watch { font-size: 14px; color: var(--navy-light); margin-top: 6px; display: flex; align-items: center; gap: 5px; }
+    .recording-item:hover .rec-date { color: var(--gold); }
+    .recording-item:hover .rec-watch { color: var(--gold); }
     .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .bottom-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
     /* Apply to Serve standalone */
@@ -609,25 +620,69 @@
       Meeting Recordings
     </div>
     <div class="bottom-card-body">
-      <a class="doc-link" href="https://www.youtube.com/watch?v=1vjmTFAeI_E" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        March 10, 2026
-        <span class="yt-badge">YouTube</span>
+      <a class="recording-item" href="https://www.youtube.com/watch?v=1vjmTFAeI_E" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/1vjmTFAeI_E/mqdefault.jpg" alt="March 10, 2026 meeting recording">
+          <div class="rec-play">
+            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">March 10, 2026</div>
+          <div class="rec-sublabel">Citizens Public Safety Review and Appeal Board</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
       </a>
-      <a class="doc-link" href="https://www.youtube.com/watch?v=AnADYTN4GRo" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        February 10, 2026
-        <span class="yt-badge">YouTube</span>
+      <a class="recording-item" href="https://www.youtube.com/watch?v=AnADYTN4GRo" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/AnADYTN4GRo/mqdefault.jpg" alt="February 10, 2026 meeting recording">
+          <div class="rec-play">
+            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">February 10, 2026</div>
+          <div class="rec-sublabel">Citizens Public Safety Review and Appeal Board</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
       </a>
-      <a class="doc-link" href="https://www.youtube.com/watch?v=8iDMxzfnMqM" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        January 13, 2026
-        <span class="yt-badge">YouTube</span>
+      <a class="recording-item" href="https://www.youtube.com/watch?v=8iDMxzfnMqM" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/8iDMxzfnMqM/mqdefault.jpg" alt="January 13, 2026 meeting recording">
+          <div class="rec-play">
+            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">January 13, 2026</div>
+          <div class="rec-sublabel">Citizens Public Safety Review and Appeal Board</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
       </a>
-      <a class="doc-link" href="https://www.youtube.com/watch?v=yrHpqDmYiTc" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        December 9, 2025
-        <span class="yt-badge">YouTube</span>
+      <a class="recording-item" href="https://www.youtube.com/watch?v=yrHpqDmYiTc" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/yrHpqDmYiTc/mqdefault.jpg" alt="December 9, 2025 meeting recording">
+          <div class="rec-play">
+            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">December 9, 2025</div>
+          <div class="rec-sublabel">Citizens Public Safety Review and Appeal Board</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
       </a>
     </div>
   </div>
