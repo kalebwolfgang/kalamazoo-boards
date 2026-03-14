@@ -423,11 +423,16 @@ fetch('boards.json')
       'EDC':          'board-edc.html',
       'HDC':          'board-hdc.html',
       'HPC':          'board-hpc.html',
-      'Pension Board': 'board-pension-board.html'
+      'Pension Board': 'board-pension-board.html',
+      'RIC':          'board-ric.html',
+      'PCIC':         'board-ric.html'
     };
 
     // Sort alphabetically by board name
     boards.sort((a, b) => a.name.localeCompare(b.name));
+
+    // PCIC shares a page with RIC — remove from rendered set to avoid double-counting
+    boards = boards.filter(b => b.abbr !== 'PCIC');
 
     // Header stats
     let nO = 0, nT = 0, nS = 0;
@@ -448,6 +453,12 @@ fetch('boards.json')
     const list = document.getElementById('boards-list');
 
     boards.forEach((board, i) => {
+      // RIC + PCIC share a page — override display name / abbr for the RIC card
+      const displayName = board.abbr === 'RIC'
+        ? 'Investment Committee of the Retirement System & Perpetual Care Investment Committee'
+        : board.name;
+      const displayAbbr = board.abbr === 'RIC' ? 'RIC / PCIC' : board.abbr;
+
       const nVac  = board.members.filter(m => displayStatus(seatStatus(m)) === 'open').length;
       const nTrans = board.members.filter(m => displayStatus(seatStatus(m)) === 'transitioning').length;
       const nSeat = board.members.filter(m => displayStatus(seatStatus(m)) === 'seated').length;
@@ -547,8 +558,8 @@ fetch('boards.json')
       // Assemble panel
       const panel = document.createElement('div');
       panel.className = `board-panel ${borderCls} bg-${i % 2}`;
-      panel.dataset.name = board.name.toLowerCase();
-      panel.dataset.abbr = board.abbr.toLowerCase();
+      panel.dataset.name = displayName.toLowerCase();
+      panel.dataset.abbr = displayAbbr.toLowerCase();
 
       const inner = document.createElement('div');
       inner.className = 'board-panel-inner';
@@ -562,8 +573,8 @@ fetch('boards.json')
 
       topRow.innerHTML =
         `<div class="board-title">` +
-          `<div class="board-abbr">${board.abbr}</div>` +
-          `<div class="board-name">${board.name}</div>` +
+          `<div class="board-abbr">${displayAbbr}</div>` +
+          `<div class="board-name">${displayName}</div>` +
           detailLink +
         `</div>` +
         `<div class="board-stats">${statsHtml}</div>`;
