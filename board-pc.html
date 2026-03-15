@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planning Commission — City of Kalamazoo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0f2744;
+      --navy-mid:   #1a3a5c;
+      --navy-light: #2c527e;
+      --gold:       #c9921a;
+      --gold-lt:    #e8b84b;
+      --cream:      #f5f2ec;
+      --cream-dk:   #ebe6db;
+      --white:      #ffffff;
+      --text:       #1c2333;
+      --body:       #374151;
+      --muted:      #6b7280;
+      --border:     #ddd8ce;
+      --border-lt:  #eee9e0;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'IBM Plex Sans', sans-serif; background: var(--cream); color: var(--text); font-size: 20px; line-height: 1.6; }
+
+    /* ── TOPBAR ── */
+    .topbar { background: var(--navy-mid); padding: 6px 40px; font-size: 15px; color: rgba(255,255,255,0.5); }
+    .topbar-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .topbar a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .topbar a:hover { color: var(--gold-lt); }
+    .topbar-links { display: flex; gap: 20px; }
+
+    /* ── NAV ── */
+    nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 200; }
+    .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-seal { width: 36px; height: 36px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--navy); }
+    .nav-title-main { color: white; font-size: 19px; font-weight: 500; display: block; line-height: 1.2; }
+    .nav-title-sub  { color: rgba(255,255,255,0.4); font-size: 15px; display: block; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 17px; transition: color 0.15s; }
+    .nav-link:hover { color: var(--gold-lt); }
+    .nav-apply { background: var(--gold); color: var(--navy); text-decoration: none; font-weight: 600; font-size: 17px; padding: 8px 18px; border-radius: 2px; transition: background 0.15s; }
+    .nav-apply:hover { background: var(--gold-lt); }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { background: var(--white); border-bottom: 1px solid var(--border); padding: 9px 40px; font-size: 16px; color: var(--muted); }
+    .breadcrumb-inner { max-width: 1400px; margin: 0 auto; display: flex; gap: 8px; align-items: center; }
+    .breadcrumb a { color: var(--navy-light); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .bc-sep { color: var(--border); }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--navy); padding: 48px 40px 44px; border-bottom: 3px solid var(--gold); }
+    .page-header-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; }
+    .board-badge { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+    .board-abbr-large { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 600; color: var(--gold); line-height: 1.1; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.2vw, 34px); font-weight: 600; color: white; line-height: 1.2; margin-bottom: 14px; }
+    .page-header-desc { color: rgba(255,255,255,0.58); font-size: 18px; font-weight: 300; max-width: 620px; line-height: 1.65; }
+
+    /* Seat block */
+    .header-seat-block { flex-shrink: 0; }
+    .seat-stat-row { display: flex; gap: 2px; margin-bottom: 18px; }
+    .seat-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: 14px 20px; text-align: center; min-width: 86px; }
+    .seat-stat:first-child { border-radius: 4px 0 0 4px; }
+    .seat-stat:last-child  { border-radius: 0 4px 4px 0; }
+    .seat-stat-n { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 600; color: white; line-height: 1; margin-bottom: 4px; }
+    .seat-stat-n.red    { color: #f87171; }
+    .seat-stat-n.yellow { color: var(--gold-lt); }
+    .seat-stat-n.green  { color: #86efac; }
+    .seat-stat-lbl { font-size: 11px; color: rgba(255,255,255,0.38); letter-spacing: 0.05em; text-transform: uppercase; }
+    .header-dots { display: flex; flex-wrap: wrap; gap: 8px; max-width: 300px; }
+    .seat-dot-hdr { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; cursor: default; transition: transform 0.1s; }
+    .seat-dot-hdr:hover { transform: scale(1.3); }
+    .seat-dot-hdr.red    { background: #dc2626; }
+    .seat-dot-hdr.yellow { background: #d97706; }
+    .seat-dot-hdr.green  { background: #15803d; }
+    .dot-legend { display: flex; gap: 18px; margin-top: 12px; }
+    .dl-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.42); letter-spacing: 0.03em; }
+    .dl-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .dl-dot.red    { background: #dc2626; }
+    .dl-dot.yellow { background: #d97706; }
+    .dl-dot.green  { background: #15803d; }
+
+    /* ── GOVERNANCE STRIP ── */
+    .gov-strip { background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .gov-inner { max-width: 1400px; margin: 0 auto; display: flex; }
+    .gov-item { flex: 1; text-align: center; padding: 20px 16px; border-right: 1px solid rgba(255,255,255,0.08); }
+    .gov-item:last-child { border-right: none; }
+    .gov-value { font-size: 20px; font-weight: 700; color: var(--gold-lt); margin-bottom: 4px; line-height: 1.2; }
+    .gov-label { font-size: 12px; color: rgba(255,255,255,0.42); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ── MAIN TWO-COLUMN BODY ── */
+    .board-body { max-width: 1400px; margin: 0 auto; padding: 48px 40px 0; display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: start; }
+
+    /* ── ACCORDION ── */
+    .accordion { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .acc-item { border-bottom: 1px solid var(--border); }
+    .acc-item:last-child { border-bottom: none; }
+    .acc-trigger { width: 100%; background: var(--white); border: none; padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: 'IBM Plex Sans', sans-serif; font-size: 18px; font-weight: 600; color: var(--navy); cursor: pointer; text-align: left; transition: background 0.15s, color 0.15s; }
+    .acc-trigger:hover { background: var(--cream); }
+    .acc-trigger[aria-expanded="true"] { background: var(--cream-dk); border-bottom: 1px solid var(--border); }
+    .acc-chevron { flex-shrink: 0; transition: transform 0.22s ease; color: var(--muted); }
+    .acc-trigger[aria-expanded="true"] .acc-chevron { transform: rotate(180deg); color: var(--gold); }
+    .acc-panel[hidden] { display: none; }
+    .acc-panel-inner { padding: 26px 22px; }
+    .acc-panel-inner p { font-size: 18px; color: var(--body); line-height: 1.75; margin-bottom: 14px; }
+    .acc-panel-inner p:last-child { margin-bottom: 0; }
+    .acc-panel-inner ul { margin: 0 0 14px 22px; }
+    .acc-panel-inner ul:last-child { margin-bottom: 0; }
+    .acc-panel-inner li { font-size: 18px; color: var(--body); line-height: 1.7; margin-bottom: 8px; }
+    .acc-panel-inner li:last-child { margin-bottom: 0; }
+    .acc-panel-inner a { color: var(--navy-light); }
+    .acc-panel-inner a:hover { color: var(--gold); text-decoration: underline; }
+
+    .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+    .req-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--navy-light); border-radius: 3px; padding: 16px 18px; }
+    .req-card-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .req-card-value { font-size: 16px; color: var(--body); line-height: 1.55; }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 22px; }
+    .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .sidebar-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+    .sidebar-card-body { padding: 20px; }
+
+    /* Meetings */
+    .meeting-item { padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); }
+    .meeting-item:last-of-type { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .meeting-badges { display: flex; gap: 6px; align-items: center; margin-bottom: 5px; flex-wrap: wrap; }
+    .next-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+    .special-badge { display: inline-block; background: var(--navy-light); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+    .meeting-date { font-size: 17px; font-weight: 600; color: var(--navy); line-height: 1.4; }
+    .meeting-time { font-size: 15px; color: var(--muted); margin-top: 2px; }
+    .meeting-note { font-size: 14px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
+    .meeting-location { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-lt); }
+    .location-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+    .location-addr { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; color: var(--navy-light); text-decoration: none; }
+    .map-link:hover { text-decoration: underline; }
+
+    /* ── BOTTOM CARDS (3-col with recordings) ── */
+    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: 40px 40px 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+    .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+    .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .bottom-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+
+    /* Grid placement */
+    .card-key-docs    { grid-column: 1/3; grid-row: 1/2; }
+    .card-recordings  { grid-column: 3/4; grid-row: 1/3; }
+    .card-apply-serve { grid-column: 1/3; grid-row: 2/3; border-left: 4px solid var(--gold); }
+
+    /* Documents */
+    .doc-link { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: var(--navy-light); font-size: 16px; transition: color 0.15s; }
+    .doc-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .doc-link:hover { color: var(--gold); }
+    .doc-link svg { flex-shrink: 0; color: var(--muted); }
+    .doc-link:hover svg { color: var(--gold); }
+
+    /* Recordings */
+    .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
+    .recording-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .rec-thumb { position: relative; flex-shrink: 0; width: 100px; border-radius: 3px; overflow: hidden; }
+    .rec-thumb img { width: 100%; display: block; }
+    .rec-play { position: absolute; inset: 0; background: rgba(0,0,0,0.38); display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+    .recording-item:hover .rec-play { background: rgba(0,0,0,0.18); }
+    .rec-info { flex: 1; }
+    .rec-date { font-size: 15px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 3px; }
+    .rec-sublabel { font-size: 13px; color: var(--muted); }
+    .rec-watch { font-size: 14px; color: var(--navy-light); margin-top: 6px; display: flex; align-items: center; gap: 5px; }
+    .recording-item:hover .rec-date { color: var(--gold); }
+    .recording-item:hover .rec-watch { color: var(--gold); }
+
+    /* Apply to Serve */
+    .apply-standalone-inner { padding: 30px 36px; display: flex; align-items: center; gap: 48px; height: 100%; }
+    .apply-standalone-text { flex: 1; }
+    .apply-standalone-heading { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+    .apply-standalone-desc { font-size: 16px; color: var(--body); line-height: 1.65; }
+    .apply-standalone-action { flex-shrink: 0; }
+    .apply-standalone-btn { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 17px; font-weight: 700; padding: 16px 40px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
+    .apply-standalone-btn:hover { background: var(--navy-mid); color: white; }
+
+    /* ── APPLY FOR HEARING CTA ── */
+    .hearing-cta { background: var(--navy); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); margin-top: 40px; }
+    .hearing-cta-inner { max-width: 1400px; margin: 0 auto; padding: 40px; display: flex; align-items: center; gap: 56px; }
+    .hearing-cta-text { flex: 1; }
+    .hearing-cta-label { font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .hearing-cta-heading { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: white; margin-bottom: 10px; line-height: 1.25; }
+    .hearing-cta-desc { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 680px; }
+    .hearing-cta-action { flex-shrink: 0; }
+    .hearing-cta-btn { display: inline-block; background: var(--gold); color: var(--navy); text-decoration: none; font-size: 17px; font-weight: 700; padding: 16px 40px; border-radius: 3px; white-space: nowrap; transition: background 0.15s; }
+    .hearing-cta-btn:hover { background: var(--gold-lt); }
+
+    /* ── MEMBERS SECTION ── */
+    .members-section { background: var(--white); border-top: 1px solid var(--border); padding: 56px 40px 72px; }
+    .members-inner { max-width: 1400px; margin: 0 auto; }
+    .members-heading { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .members-subhead { font-size: 17px; color: var(--muted); margin-bottom: 32px; }
+    .members-table { width: 100%; border-collapse: collapse; }
+    .members-table thead { background: var(--navy); }
+    .members-table th { padding: 13px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.05em; text-align: left; }
+    .members-table th:first-child { width: 48px; text-align: center; }
+    .members-table td { padding: 15px 18px; font-size: 17px; border-bottom: 1px solid var(--border-lt); vertical-align: middle; color: var(--body); }
+    .members-table tr:last-child td { border-bottom: none; }
+    .members-table tbody tr:hover td { background: var(--cream); }
+    .member-dot { width: 18px; height: 18px; border-radius: 50%; display: inline-block; }
+    .member-dot.red    { background: #dc2626; }
+    .member-dot.yellow { background: #d97706; }
+    .member-dot.green  { background: #15803d; }
+    .member-name { font-weight: 600; color: var(--navy); font-size: 17px; }
+    .member-role-sub { font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+    .type-badge { display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 2px; border: 1px solid var(--border); color: var(--muted); background: var(--cream); white-space: nowrap; }
+    .status-badge { display: inline-block; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 2px; white-space: nowrap; }
+    .status-badge.open          { background: #fee2e2; color: #991b1b; }
+    .status-badge.transitioning { background: #fef3c7; color: #92400e; }
+    .status-badge.seated        { background: #dcfce7; color: #166534; }
+
+    /* Staff note */
+    .staff-note-wrap { max-width: 1400px; margin: 0 auto; padding: 0 40px 48px; display: flex; flex-direction: column; gap: 10px; }
+    .staff-note { background: var(--cream-dk); border: 1px solid var(--border); border-radius: 3px; padding: 14px 18px; font-size: 15px; color: var(--muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
+    .staff-note strong { color: var(--body); }
+
+    /* ── TOOLTIP ── */
+    .tooltip { position: fixed; background: var(--navy); color: white; padding: 13px 17px; border-radius: 4px; font-size: 15px; line-height: 1.55; pointer-events: none; z-index: 9999; max-width: 300px; box-shadow: 0 6px 28px rgba(0,0,0,0.4); display: none; }
+    .tooltip.visible { display: block; }
+    .tt-name { font-weight: 600; font-size: 17px; margin-bottom: 2px; }
+    .tt-role { color: var(--gold-lt); font-size: 14px; margin-bottom: 5px; }
+    .tt-term { font-size: 15px; }
+    .tt-term.open          { color: #f87171; font-weight: 600; }
+    .tt-term.transitioning { color: var(--gold-lt); }
+    .tt-term.seated        { color: #86efac; }
+    .tt-res { color: rgba(255,255,255,0.45); font-size: 13px; margin-top: 4px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 32px 40px; text-align: center; font-size: 16px; color: rgba(255,255,255,0.4); }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--gold-lt); }
+
+    @media (max-width: 1024px) {
+      .board-body { grid-template-columns: 1fr; }
+      .page-header-inner { grid-template-columns: 1fr; gap: 32px; }
+      .req-grid { grid-template-columns: 1fr; }
+      .gov-inner { flex-wrap: wrap; }
+      .gov-item { min-width: 25%; }
+      .bottom-cards { grid-template-columns: 1fr; }
+      .card-key-docs, .card-recordings, .card-apply-serve { grid-column: 1; grid-row: auto; }
+      .card-apply-serve { border-left: 4px solid var(--gold); }
+      .apply-standalone-inner { flex-direction: column; gap: 24px; }
+      .hearing-cta-inner { flex-direction: column; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>City of Kalamazoo — Official Site</span>
+    <div class="topbar-links">
+      <a href="#">City Services</a>
+      <a href="#">Government</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-seal">CoK</div>
+      <div>
+        <span class="nav-title-main">City of Kalamazoo</span>
+        <span class="nav-title-sub">Boards &amp; Commissions</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <a class="nav-link" href="boards.html">All Boards</a>
+      <a class="nav-link" href="#">Calendar</a>
+      <a class="nav-link" href="#">Minutes</a>
+      <a class="nav-apply" href="#">Apply to Serve</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a>
+    <span class="bc-sep">›</span>
+    <a href="boards.html">Boards &amp; Commissions</a>
+    <span class="bc-sep">›</span>
+    <span>Planning Commission</span>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <div class="board-badge">
+        <span class="board-abbr-large">PC</span>
+      </div>
+      <h1>Planning Commission</h1>
+      <p class="page-header-desc">Develops the city's master plan for current and future land use, and provides recommendations to the City Commission on rezoning requests, zoning ordinance amendments, Special Use Permits, and site plans within WMU's Business, Technology and Research Park.</p>
+    </div>
+    <div class="header-seat-block">
+      <div class="seat-stat-row">
+        <div class="seat-stat"><div class="seat-stat-n" id="stat-total">—</div><div class="seat-stat-lbl">Seats</div></div>
+        <div class="seat-stat"><div class="seat-stat-n red"    id="stat-open">—</div><div class="seat-stat-lbl">Open</div></div>
+        <div class="seat-stat"><div class="seat-stat-n yellow" id="stat-trans">—</div><div class="seat-stat-lbl">Trans.</div></div>
+        <div class="seat-stat"><div class="seat-stat-n green"  id="stat-seated">—</div><div class="seat-stat-lbl">Seated</div></div>
+      </div>
+      <div class="header-dots" id="header-dots"></div>
+      <div class="dot-legend">
+        <span class="dl-item"><span class="dl-dot red"></span> Open</span>
+        <span class="dl-item"><span class="dl-dot yellow"></span> Transitioning</span>
+        <span class="dl-item"><span class="dl-dot green"></span> Seated</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GOVERNANCE QUICK FACTS -->
+<div class="gov-strip">
+  <div class="gov-inner">
+    <div class="gov-item">
+      <div class="gov-value">9 Members</div>
+      <div class="gov-label">Board Size</div>
+    </div>
+    <div class="gov-item">
+      <div class="gov-value">3 Years</div>
+      <div class="gov-label">Term Length</div>
+    </div>
+    <div class="gov-item">
+      <div class="gov-value">5 of 9</div>
+      <div class="gov-label">Quorum</div>
+    </div>
+    <div class="gov-item">
+      <div class="gov-value">Monthly</div>
+      <div class="gov-label">Meeting Frequency</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN BODY: Accordion + Sidebar -->
+<div class="board-body">
+
+  <!-- LEFT: ACCORDION -->
+  <div>
+    <div class="accordion">
+
+      <!-- About & Mission — OPEN BY DEFAULT -->
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="true">
+          About &amp; Mission
+          <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-panel">
+          <div class="acc-panel-inner">
+            <p>The Kalamazoo City Planning Commission develops the city's master plan for current and future land use. It provides recommendations to the City Commission on rezoning requests and changes to the Zoning Ordinance text. The Planning Commission also approves Special Use Permits and site plans for buildings within Western Michigan University's Business, Technology and Research Park.</p>
+            <p>The Commission is established under Public Act 33 of 2008 and Ordinance No. 1884, adopted June 20, 2011. It operates in accordance with its bylaws, adopted March 3, 2022.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Board Composition -->
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          Board Composition
+          <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-panel" hidden>
+          <div class="acc-panel-inner">
+            <div class="req-grid">
+              <div class="req-card">
+                <div class="req-card-label">Board Size</div>
+                <div class="req-card-value">Nine members appointed by the Mayor with the approval of the City Commission.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Term Length</div>
+                <div class="req-card-value">Three-year terms, staggered so that three members may be replaced each year.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Residency</div>
+                <div class="req-card-value">Members must be residents of the City of Kalamazoo.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Appointment</div>
+                <div class="req-card-value">Appointed by the Mayor with approval of the City Commission.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Ineligibility</div>
+                <div class="req-card-value">No voting member may hold any salaried position in municipal service or be a member of the City Commission.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Land Use Votes</div>
+                <div class="req-card-value">Adoption or recommendation of any land use plan or amendment requires an affirmative vote of 6 members.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Powers & Responsibilities -->
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          Powers &amp; Responsibilities
+          <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-panel" hidden>
+          <div class="acc-panel-inner">
+            <ul>
+              <li>Develop and maintain the city's master plan for current and future land use, and review it at least every five years.</li>
+              <li>Provide recommendations to the City Commission on rezoning requests and proposed amendments to the Zoning Ordinance text.</li>
+              <li>Review and approve Special Use Permits.</li>
+              <li>Review and approve site plans for buildings located within WMU's Business, Technology and Research Park.</li>
+              <li>Hold public hearings on land use amendments, rezonings, and other matters as required by law.</li>
+              <li>Prepare and submit an annual report to the City Commission by December 1 of each year.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT: Sidebar -->
+  <aside class="sidebar">
+
+    <!-- Meetings -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Upcoming Meetings
+      </div>
+      <div class="sidebar-card-body">
+
+        <div class="meeting-item" data-date="2026-03-25">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+            <span class="special-badge">Special</span>
+          </div>
+          <div class="meeting-date">Wednesday, March 25, 2026</div>
+          <div class="meeting-time">6:00 PM – 8:00 PM</div>
+        </div>
+        <div class="meeting-item" data-date="2026-04-08">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+          </div>
+          <div class="meeting-date">Wednesday, April 8, 2026</div>
+          <div class="meeting-time">7:00 PM – 9:00 PM</div>
+        </div>
+        <div class="meeting-item" data-date="2026-05-07">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+          </div>
+          <div class="meeting-date">Thursday, May 7, 2026</div>
+          <div class="meeting-time">7:00 PM – 9:00 PM</div>
+        </div>
+        <div class="meeting-item" data-date="2026-06-04">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+          </div>
+          <div class="meeting-date">Thursday, June 4, 2026</div>
+          <div class="meeting-time">7:00 PM – 9:00 PM</div>
+        </div>
+        <div class="meeting-item" data-date="2026-07-02">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+          </div>
+          <div class="meeting-date">Thursday, July 2, 2026</div>
+          <div class="meeting-time">7:00 PM – 9:00 PM</div>
+        </div>
+
+        <p class="meeting-note">Regular meetings are held the first Thursday of each month at 7:00 PM. Special meetings may be called as needed.</p>
+        <div class="meeting-location">
+          <div class="location-name">City Commission Chambers</div>
+          <div class="location-addr">Kalamazoo City Hall, Second Floor<br>241 W South Street<br>Kalamazoo, MI 49007</div>
+          <a class="map-link" href="https://maps.google.com/?q=241+W+South+Street,+Kalamazoo,+MI+49007" target="_blank" rel="noopener">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View on Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- BOTTOM CARDS: Key Documents | Recordings | Apply to Serve -->
+<div class="bottom-cards">
+
+  <!-- Key Documents -->
+  <div class="bottom-card card-key-docs">
+    <div class="bottom-card-header">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Key Documents
+    </div>
+    <div class="bottom-card-body">
+      <a class="doc-link" href="https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/pc-bylaws.pdf" target="_blank" rel="noopener">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Planning Commission Bylaws (PDF)
+      </a>
+      <a class="doc-link" href="https://kalamazoomi.portal.civicclerk.com/?category_id=29" target="_blank" rel="noopener">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Minutes &amp; Agendas
+      </a>
+    </div>
+  </div>
+
+  <!-- Recordings -->
+  <div class="bottom-card card-recordings">
+    <div class="bottom-card-header">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      Recordings
+    </div>
+    <div class="bottom-card-body">
+
+      <a class="recording-item" href="https://www.youtube.com/watch?v=Ll2NxzysY0c" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/Ll2NxzysY0c/mqdefault.jpg" alt="February 5, 2026 Planning Commission">
+          <div class="rec-play">
+            <svg width="22" height="22" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">February 5, 2026</div>
+          <div class="rec-sublabel">Planning Commission</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
+      </a>
+
+      <a class="recording-item" href="https://www.youtube.com/watch?v=pEsDkjNXzw4" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/pEsDkjNXzw4/mqdefault.jpg" alt="December 4, 2025 Planning Commission">
+          <div class="rec-play">
+            <svg width="22" height="22" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">December 4, 2025</div>
+          <div class="rec-sublabel">Planning Commission</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
+      </a>
+
+      <a class="recording-item" href="https://www.youtube.com/watch?v=lgMu6DyquaA" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/lgMu6DyquaA/mqdefault.jpg" alt="November 6, 2025 Planning Commission">
+          <div class="rec-play">
+            <svg width="22" height="22" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">November 6, 2025</div>
+          <div class="rec-sublabel">Planning Commission</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
+      </a>
+
+      <a class="recording-item" href="https://www.youtube.com/watch?v=mrL1OtBoMGg" target="_blank" rel="noopener">
+        <div class="rec-thumb">
+          <img src="https://img.youtube.com/vi/mrL1OtBoMGg/mqdefault.jpg" alt="September 4, 2025 Planning Commission">
+          <div class="rec-play">
+            <svg width="22" height="22" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-date">September 4, 2025</div>
+          <div class="rec-sublabel">Planning Commission</div>
+          <div class="rec-watch">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            Watch on YouTube
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Apply to Serve -->
+  <div class="bottom-card card-apply-serve">
+    <div class="apply-standalone-inner">
+      <div class="apply-standalone-text">
+        <div class="apply-standalone-heading">Serve on the Planning Commission</div>
+        <p class="apply-standalone-desc">The Planning Commission seeks residents with knowledge of land use, urban planning, architecture, or community development. Members are appointed by the Mayor with City Commission approval. No member may hold a salaried municipal position or serve on the City Commission.</p>
+      </div>
+      <div class="apply-standalone-action">
+        <a class="apply-standalone-btn" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- APPLY FOR HEARING CTA -->
+<div class="hearing-cta">
+  <div class="hearing-cta-inner">
+    <div class="hearing-cta-text">
+      <div class="hearing-cta-label">Planning Commission Hearings</div>
+      <div class="hearing-cta-heading">Apply for a Planning Commission Hearing</div>
+      <p class="hearing-cta-desc">The Planning Commission reviews rezoning requests, amendments to the Zoning Ordinance, Special Use Permits, subdivision layouts, and site plans within WMU's Business, Technology and Research Park. Submit an application to request a hearing before the Commission.</p>
+    </div>
+    <div class="hearing-cta-action">
+      <a class="hearing-cta-btn" href="https://www.kalamazoocity.org/Business-Development/Real-Estate-Development/Apply-for-Board-or-Commission-Review/Apply-for-a-Planning-Commission-Hearing" target="_blank" rel="noopener">Apply for a Hearing →</a>
+    </div>
+  </div>
+</div>
+
+<!-- MEMBERS SECTION -->
+<div class="members-section">
+  <div class="members-inner">
+    <div class="members-heading">Current Members</div>
+    <p class="members-subhead">9 members</p>
+    <table class="members-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Residency</th>
+          <th>Term End</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="members-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- STAFF LIAISON NOTES -->
+<div class="staff-note-wrap">
+  <div class="staff-note">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span><strong>Staff Liaison:</strong> Christina Anderson, Deputy CPED Director, City Planner, City of Kalamazoo.</span>
+  </div>
+  <div class="staff-note">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span><strong>Staff Liaison:</strong> Bobby Durkee, Assistant City Planner, City of Kalamazoo.</span>
+  </div>
+</div>
+
+<!-- TOOLTIP -->
+<div class="tooltip" id="tooltip">
+  <div class="tt-name" id="tt-name"></div>
+  <div class="tt-role" id="tt-role"></div>
+  <div class="tt-term" id="tt-term"></div>
+  <div class="tt-res"  id="tt-res"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>City of Kalamazoo — Boards &amp; Commissions Office &nbsp;|&nbsp;
+    <a href="tel:+12693376200">(269) 337-6200</a> &nbsp;|&nbsp;
+    <a href="#">City Clerk's Office</a>
+  </p>
+</footer>
+
+<script>
+const TODAY  = new Date();
+const SIX_MO = new Date(TODAY);
+SIX_MO.setMonth(SIX_MO.getMonth() + 6);
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function seatStatus(m) {
+  if (m.isVacant) return 'vacant';
+  if (!m.termEnd || m.termEnd === '2100-01-01') return 'permanent';
+  const end = new Date(m.termEnd);
+  if (end < TODAY)   return 'expired';
+  if (end < SIX_MO)  return 'expiring';
+  return 'stable';
+}
+
+function displayStatus(st) {
+  if (st === 'vacant')                       return 'open';
+  if (st === 'expired' || st === 'expiring') return 'transitioning';
+  return 'seated';
+}
+
+function fmtDate(iso) {
+  if (!iso || iso === '2100-01-01') return null;
+  const [y, m, d] = iso.split('-');
+  return `${MONTHS[+m - 1]} ${+d}, ${y}`;
+}
+
+function memberType(m) {
+  return 'Voting';
+}
+
+function termText(m) {
+  const st = seatStatus(m);
+  if (st === 'vacant')   return 'Open seat';
+  if (st === 'expired')  return `Term expired ${fmtDate(m.termEnd)} — serving as holdover`;
+  if (st === 'expiring') return `Term ends ${fmtDate(m.termEnd)}`;
+  return `Term ends ${fmtDate(m.termEnd)}`;
+}
+
+fetch('boards.json')
+  .then(r => r.json())
+  .then(boards => {
+    const board = boards.find(b => b.abbr === 'PC');
+    if (!board) return;
+
+    const members = board.members;
+
+    // ── Seat stats ───────────────────────────────────────
+    let nO = 0, nT = 0, nS = 0;
+    members.forEach(m => {
+      const ds = displayStatus(seatStatus(m));
+      if (ds === 'open')               nO++;
+      else if (ds === 'transitioning') nT++;
+      else                             nS++;
+    });
+    document.getElementById('stat-total').textContent  = members.length;
+    document.getElementById('stat-open').textContent   = nO;
+    document.getElementById('stat-trans').textContent  = nT;
+    document.getElementById('stat-seated').textContent = nS;
+
+    // ── Header dots ──────────────────────────────────────
+    const dotsEl = document.getElementById('header-dots');
+    members.forEach(m => {
+      const ds  = displayStatus(seatStatus(m));
+      const col = ds === 'open' ? 'red' : ds === 'transitioning' ? 'yellow' : 'green';
+      const dot = document.createElement('div');
+      dot.className = `seat-dot-hdr ${col}`;
+      dot.dataset.name    = m.isVacant ? 'Open Seat' : `${m.firstName} ${m.lastName}`.trim();
+      dot.dataset.role    = memberType(m);
+      dot.dataset.term    = termText(m);
+      dot.dataset.termcls = ds;
+      dot.dataset.res     = m.residency || '';
+      dotsEl.appendChild(dot);
+    });
+
+    // ── Members table ─────────────────────────────────────
+    const tbody = document.getElementById('members-tbody');
+    members.forEach(m => {
+      const st  = seatStatus(m);
+      const ds  = displayStatus(st);
+      const col = ds === 'open' ? 'red' : ds === 'transitioning' ? 'yellow' : 'green';
+      const name        = m.isVacant ? 'Open Seat' : `${m.firstName} ${m.lastName}`.trim();
+      const typeLabel   = memberType(m);
+      const termDisplay = m.termEnd ? fmtDate(m.termEnd) : '—';
+      const resDisplay  = m.isVacant ? '—' : (m.residency || '—');
+      const dsLabel     = ds.charAt(0).toUpperCase() + ds.slice(1);
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="text-align:center">
+          <span class="member-dot ${col}"></span>
+        </td>
+        <td>
+          <div class="member-name">${name}</div>
+        </td>
+        <td><span class="type-badge">${typeLabel}</span></td>
+        <td>${resDisplay}</td>
+        <td>${termDisplay}</td>
+        <td><span class="status-badge ${ds}">${dsLabel}</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    // ── Tooltip ──────────────────────────────────────────
+    const tooltip = document.getElementById('tooltip');
+    const ttName  = document.getElementById('tt-name');
+    const ttRole  = document.getElementById('tt-role');
+    const ttTerm  = document.getElementById('tt-term');
+    const ttRes   = document.getElementById('tt-res');
+    let lastDot   = null;
+
+    document.addEventListener('mousemove', e => {
+      const isDot = e.target.classList && e.target.classList.contains('seat-dot-hdr');
+      if (!isDot) { tooltip.classList.remove('visible'); lastDot = null; return; }
+      const el = e.target;
+      if (el !== lastDot) {
+        lastDot = el;
+        ttName.textContent = el.dataset.name;
+        ttRole.textContent = el.dataset.role;
+        ttTerm.textContent = el.dataset.term;
+        ttTerm.className   = `tt-term ${el.dataset.termcls}`;
+        ttRes.textContent  = el.dataset.res ? `Residency: ${el.dataset.res}` : '';
+        ttRole.style.display = el.dataset.role ? '' : 'none';
+        ttRes.style.display  = el.dataset.res  ? '' : 'none';
+      }
+      tooltip.classList.add('visible');
+      const pad = 16;
+      let x = e.clientX + pad, y = e.clientY + pad;
+      const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+      if (x + tw > window.innerWidth  - 8) x = e.clientX - tw - pad;
+      if (y + th > window.innerHeight - 8) y = e.clientY - th - pad;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('visible');
+      lastDot = null;
+    });
+  })
+  .catch(err => console.error('Could not load boards.json:', err));
+
+// ── Accordion ────────────────────────────────────────
+document.querySelectorAll('.acc-trigger').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    btn.nextElementSibling.hidden = expanded;
+  });
+});
+
+// ── Dynamic "Next" meeting badge ─────────────────────
+(function () {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  let found = false;
+  document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
+    const d = new Date(item.dataset.date + 'T00:00:00');
+    if (!found && d >= today) {
+      item.querySelector('.next-badge').style.display = '';
+      found = true;
+    }
+  });
+})();
+</script>
+</body>
+</html>
