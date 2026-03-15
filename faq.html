@@ -381,8 +381,9 @@
     .ul-arrow { color: var(--border); }
 
     /* ── FOOTER ── */
-    footer { background: var(--navy); border-top: 3px solid var(--gold); padding: 32px 40px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+    footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 32px 40px; text-align: center; font-size: 16px; color: rgba(255,255,255,0.4); }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--gold-lt); }
     .fc h4 { font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
     .fc p, .fc a { font-size: 16px; color: rgba(255,255,255,0.4); line-height: 1.8; text-decoration: none; display: block; }
     .fc a:hover { color: var(--gold-lt); }
@@ -693,33 +694,10 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="fc">
-      <h4>City of Kalamazoo</h4>
-      <p>241 W South Street<br>Kalamazoo, MI 49007</p>
-      <a href="tel:311" style="margin-top:6px;">311 or (269) 337-8000</a>
-      <a href="mailto:311@kalamazoocity.org">311@kalamazoocity.org</a>
-    </div>
-    <div class="fc">
-      <h4>Boards &amp; Commissions</h4>
-      <a href="index.html">All Boards</a>
-      <a href="index.html">Current Vacancies</a>
-      <a href="#">Calendar</a>
-      <a href="#">Minutes &amp; Agendas</a>
-      <a href="#">Apply to Serve</a>
-    </div>
-    <div class="fc">
-      <h4>Government</h4>
-      <a href="#">City Commission</a>
-      <a href="#">City Charter</a>
-      <a href="#">Code of Ordinances</a>
-      <a href="#">Departments</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 City of Kalamazoo · Data sourced from the City Clerk's Office</span>
-    <span><a href="#">Disclaimer</a> · <a href="#">Privacy Policy</a></span>
-  </div>
+  <p>City of Kalamazoo — Boards &amp; Commissions Office &nbsp;|&nbsp;
+    <a href="tel:+12693376200">(269) 337-6200</a> &nbsp;|&nbsp;
+    <a href="mailto:311@kalamazoocity.org">311@kalamazoocity.org</a>
+  </p>
 </footer>
 
 <script>
