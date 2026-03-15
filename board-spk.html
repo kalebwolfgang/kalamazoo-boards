@@ -129,12 +129,6 @@
     .sidebar-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
     .sidebar-card-body { padding: 20px; }
 
-    /* About SPK card */
-    .spk-about-desc { font-size: 15px; color: var(--body); line-height: 1.65; margin-bottom: 14px; }
-    .spk-learn-link { display: inline-flex; align-items: center; gap: 7px; font-size: 15px; font-weight: 600; color: var(--navy-light); text-decoration: none; transition: color 0.15s; }
-    .spk-learn-link:hover { color: var(--gold); }
-    .spk-learn-link:hover svg { color: var(--gold); }
-
     /* Meetings */
     .meeting-item { padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); }
     .meeting-item:last-of-type { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
@@ -401,21 +395,6 @@
   <!-- RIGHT: Sidebar -->
   <aside class="sidebar">
 
-    <!-- About SPK -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        About SPK
-      </div>
-      <div class="sidebar-card-body">
-        <p class="spk-about-desc">Shared Prosperity Kalamazoo is a bold and ambitious plan to transform our community into a place where every adult and every child thrives and prospers.</p>
-        <a class="spk-learn-link" href="https://www.kalamazoocity.org/Government/Programs-Initiatives/Shared-Prosperity-Kalamazoo" target="_blank" rel="noopener">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Learn More About SPK
-        </a>
-      </div>
-    </div>
-
     <!-- Meetings -->
     <div class="sidebar-card">
       <div class="sidebar-card-header">
@@ -458,8 +437,24 @@
   </aside>
 </div>
 
-<!-- BOTTOM CARDS: Key Documents | Apply to Serve -->
+<!-- BOTTOM CARDS: Learn More | Key Documents | Apply to Serve -->
 <div class="bottom-cards">
+
+  <!-- Learn More About Shared Prosperity Kalamazoo -->
+  <div class="bottom-card">
+    <div class="bottom-card-header">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Learn More About Shared Prosperity Kalamazoo
+    </div>
+    <div class="apply-standalone-inner">
+      <div class="apply-standalone-text">
+        <p class="apply-standalone-desc">Shared Prosperity Kalamazoo is a bold and ambitious plan to transform our community into a place where every adult and every child thrives and prospers.</p>
+      </div>
+      <div class="apply-standalone-action">
+        <a class="apply-standalone-btn" href="https://www.kalamazoocity.org/Government/Programs-Initiatives/Shared-Prosperity-Kalamazoo" target="_blank" rel="noopener">Visit the SPK Website →</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Key Documents -->
   <div class="bottom-card">
