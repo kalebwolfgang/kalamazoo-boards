@@ -439,23 +439,6 @@
     ]
   },
   {
-    "abbr": "WAC",
-    "name": "Water System Advisory Council",
-    "category": "Environment & Parks",
-    "meetingSchedule": "",
-    "description": "",
-    "members": [
-      {"position":1,"firstName":"Sarah O","lastName":"Joshi","role":"Member","positionRequirement":"","termStart":"2025-12-01","termEnd":"2026-12-31","residency":"Non-Resident","isVacant":false},
-      {"position":2,"firstName":"Sidney","lastName":"Ellis","role":"Member","positionRequirement":"Local Resident","termStart":"2024-01-01","termEnd":"2026-12-31","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Gillian","lastName":"Stoltman","role":"Member","positionRequirement":"","termStart":"2023-08-07","termEnd":"2026-12-31","residency":"Non-Resident","isVacant":false},
-      {"position":4,"firstName":"Terrell","lastName":"Cole","role":"Member","positionRequirement":"","termStart":"2023-11-20","termEnd":"2025-12-31","residency":"Non-Resident","isVacant":false},
-      {"position":5,"firstName":"Michael","lastName":"Evans","role":"Member","positionRequirement":"","termStart":"2023-11-20","termEnd":"2025-12-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Lucus","lastName":"Pols","role":"Member","positionRequirement":"","termStart":"2023-11-20","termEnd":"2024-12-31","residency":"Non-Resident","isVacant":false},
-      {"position":7,"firstName":"Thomas","lastName":"Wheat","role":"Chair","positionRequirement":"","termStart":"2023-11-20","termEnd":"2024-12-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"James","lastName":"Baker","role":"Member","positionRequirement":"Public Services Director","termStart":"2021-12-31","termEnd":"2100-01-01","residency":"","isVacant":false}
-    ]
-  },
-  {
     "abbr": "ZBA",
     "name": "Zoning Board of Appeals",
     "category": "Land Use & Planning",
