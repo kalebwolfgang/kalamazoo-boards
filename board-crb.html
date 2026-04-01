@@ -263,7 +263,31 @@
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
 
     /* Table scrolls horizontally on small screens */
-    .members-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .members-table-wrap {
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      position: relative;
+    }
+    /* Fade gradient on right edge — only on mobile */
+    .members-table-wrap::after {
+      content: '';
+      position: absolute; top: 0; right: 0; bottom: 0;
+      width: 48px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.92));
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .members-table-wrap.scrolled-end::after { opacity: 0; }
+    @media (min-width: 900px) {
+      .members-table-wrap::after { display: none; }
+    }
+    /* Scroll hint label */
+    .table-scroll-hint {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--muted); margin-bottom: 8px;
+      transition: opacity 0.3s;
+    }
+    .table-scroll-hint.hidden { opacity: 0; pointer-events: none; }
+    @media (min-width: 900px) { .table-scroll-hint { display: none; } }
     .members-table { width: 100%; border-collapse: collapse; min-width: 580px; }
     .members-table thead { background: var(--navy); }
     .members-table th { padding: 12px 16px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.05em; text-align: left; white-space: nowrap; }
@@ -397,10 +421,6 @@
     <div class="gov-item">
       <div class="gov-value">2 Consecutive</div>
       <div class="gov-label">Max Terms</div>
-    </div>
-    <div class="gov-item">
-      <div class="gov-value">5 of 9</div>
-      <div class="gov-label">Quorum</div>
     </div>
     <div class="gov-item">
       <div class="gov-value">Bimonthly</div>
@@ -642,7 +662,11 @@
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
     <p class="members-subhead">9 total seats — 7 voting members and 2 non-voting ex-officio members</p>
-    <div class="members-table-wrap">
+    <div class="table-scroll-hint" id="table-scroll-hint">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+      Scroll to see all columns
+    </div>
+    <div class="members-table-wrap" id="members-table-wrap">
       <table class="members-table">
         <thead>
           <tr>
@@ -858,6 +882,21 @@ fetch('boards.json')
     ttClose.addEventListener('click', () => tooltip.classList.remove('visible'));
   })
   .catch(err => console.error('Could not load boards.json:', err));
+
+// Table scroll hint
+(function () {
+  const wrap = document.getElementById('members-table-wrap');
+  const hint = document.getElementById('table-scroll-hint');
+  if (!wrap || !hint) return;
+  function checkScroll() {
+    const atEnd = wrap.scrollLeft + wrap.clientWidth >= wrap.scrollWidth - 4;
+    wrap.classList.toggle('scrolled-end', atEnd);
+    hint.classList.toggle('hidden', atEnd);
+  }
+  wrap.addEventListener('scroll', checkScroll, { passive: true });
+  // Run once on load in case table fits without scrolling
+  checkScroll();
+})();
 
 // Accordion
 document.querySelectorAll('.acc-trigger').forEach(btn => {
