@@ -23,6 +23,7 @@
       --muted:      #6b7280;
       --border:     #ddd8ce;
       --border-lt:  #eee9e0;
+      --pad-x: clamp(16px, 4vw, 40px);
     }
 
     html { scroll-behavior: smooth; }
@@ -30,51 +31,121 @@
       font-family: 'IBM Plex Sans', sans-serif;
       background: var(--cream);
       color: var(--text);
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.6;
     }
 
     /* ── TOPBAR ── */
-    .topbar { background: var(--navy-mid); padding: 6px 40px; font-size: 15px; color: rgba(255,255,255,0.5); }
-    .topbar-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .topbar {
+      background: var(--navy-mid);
+      padding: 6px var(--pad-x);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+    .topbar-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
     .topbar a { color: rgba(255,255,255,0.5); text-decoration: none; }
     .topbar a:hover { color: var(--gold-lt); }
     .topbar-links { display: flex; gap: 20px; }
 
     /* ── NAV ── */
     nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 200; }
-    .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-seal { width: 36px; height: 36px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--navy); letter-spacing: 0.03em; }
-    .nav-title-main { color: white; font-size: 19px; font-weight: 500; display: block; line-height: 1.2; }
-    .nav-title-sub  { color: rgba(255,255,255,0.4); font-size: 15px; display: block; }
-    .nav-right { display: flex; align-items: center; gap: 24px; }
-    .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 17px; transition: color 0.15s; }
+    .nav-inner {
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 var(--pad-x);
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+    .nav-seal {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--gold); display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--navy); letter-spacing: 0.03em;
+      flex-shrink: 0;
+    }
+    .nav-title-wrap { min-width: 0; }
+    .nav-title-main { color: white; font-size: 16px; font-weight: 500; display: block; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nav-title-sub  { color: rgba(255,255,255,0.4); font-size: 13px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nav-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 15px; transition: color 0.15s; white-space: nowrap; }
     .nav-link:hover { color: var(--gold-lt); }
-    .nav-apply { background: var(--gold); color: var(--navy); text-decoration: none; font-weight: 600; font-size: 17px; padding: 8px 18px; border-radius: 2px; transition: background 0.15s; }
+    /* Hide secondary nav links on small screens, keep Apply button */
+    @media (max-width: 600px) {
+      .nav-link { display: none; }
+    }
+    .nav-apply {
+      background: var(--gold); color: var(--navy); text-decoration: none;
+      font-weight: 600; font-size: 14px; padding: 7px 14px;
+      border-radius: 2px; transition: background 0.15s; white-space: nowrap;
+    }
     .nav-apply:hover { background: var(--gold-lt); }
 
     /* ── PAGE HEADER ── */
-    .page-header { background: var(--navy); padding: 48px 40px 44px; }
-    .page-header-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: end; }
-    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3vw, 44px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 10px; }
-    .page-header p { color: rgba(255,255,255,0.5); font-size: 19px; font-weight: 300; max-width: 540px; }
-    .header-stats { display: flex; gap: 2px; flex-shrink: 0; }
-    .hstat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: 18px 24px; text-align: center; min-width: 100px; }
+    .page-header { background: var(--navy); padding: clamp(28px, 5vw, 48px) var(--pad-x) clamp(24px, 4vw, 44px); }
+    .page-header-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+    @media (min-width: 800px) {
+      .page-header-inner {
+        display: grid; grid-template-columns: 1fr auto;
+        gap: 48px; align-items: end;
+      }
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 5vw, 44px);
+      font-weight: 600; color: white; line-height: 1.15; margin-bottom: 8px;
+    }
+    .page-header p {
+      color: rgba(255,255,255,0.5); font-size: clamp(15px, 2.5vw, 19px);
+      font-weight: 300; max-width: 540px;
+    }
+    .header-stats { display: flex; gap: 2px; }
+    .hstat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      padding: clamp(12px, 3vw, 18px) clamp(14px, 3vw, 24px);
+      text-align: center; flex: 1;
+    }
     .hstat:first-child { border-radius: 4px 0 0 4px; }
     .hstat:last-child  { border-radius: 0 4px 4px 0; }
-    .hstat-n { font-family: 'Playfair Display', serif; font-size: 43px; font-weight: 600; color: white; line-height: 1; margin-bottom: 4px; }
+    .hstat-n {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 6vw, 43px);
+      font-weight: 600; color: white; line-height: 1; margin-bottom: 4px;
+    }
     .hstat-n.red    { color: #f87171; }
     .hstat-n.yellow { color: var(--gold-lt); }
     .hstat-n.green  { color: #86efac; }
-    .hstat-lbl { font-size: 13px; color: rgba(255,255,255,0.38); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.4; }
+    .hstat-lbl {
+      font-size: clamp(10px, 2vw, 13px);
+      color: rgba(255,255,255,0.38); letter-spacing: 0.04em;
+      text-transform: uppercase; line-height: 1.4;
+    }
 
     /* ── LEGEND ── */
-    .legend-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 40px; }
-    .legend-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
-    .legend-label { font-size: 15px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
-    .legend-item { display: flex; align-items: center; gap: 10px; font-size: 17px; color: var(--body); }
-    .legend-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; }
+    .legend-strip {
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 12px var(--pad-x); overflow-x: auto;
+    }
+    .legend-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      min-width: min-content;
+    }
+    .legend-label {
+      font-size: 13px; font-weight: 600; color: var(--muted);
+      letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: clamp(13px, 2.5vw, 16px); color: var(--body); white-space: nowrap;
+    }
+    .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
     .legend-dot.red    { background: #dc2626; }
     .legend-dot.yellow { background: #d97706; }
     .legend-dot.green  { background: #15803d; }
@@ -83,89 +154,85 @@
     .search-bar {
       background: var(--cream-dk);
       border-bottom: 1px solid var(--border);
-      padding: 16px 40px;
-      position: sticky; top: 63px; z-index: 100;
+      padding: 12px var(--pad-x);
+      position: sticky; top: 59px; z-index: 100;
     }
     .search-bar-inner {
       max-width: 1400px; margin: 0 auto;
-      display: flex; align-items: center; gap: 20px;
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
     }
-    .search-input-wrap {
-      position: relative; flex: 1; max-width: 520px;
-    }
+    .search-input-wrap { position: relative; flex: 1; min-width: 200px; }
     .search-input-wrap svg {
-      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
       color: var(--muted); pointer-events: none;
     }
     .search-input {
-      width: 100%; padding: 11px 16px 11px 44px;
+      width: 100%; padding: 10px 14px 10px 40px;
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 18px; color: var(--text);
+      font-size: 16px; color: var(--text);
       background: var(--white); border: 1px solid var(--border);
       border-radius: 3px; outline: none;
       transition: border-color 0.15s, box-shadow 0.15s;
+      -webkit-appearance: none;
     }
     .search-input:focus {
       border-color: var(--navy-light);
       box-shadow: 0 0 0 3px rgba(44,82,126,0.15);
     }
     .search-input::placeholder { color: var(--muted); }
-    .search-count { font-size: 17px; color: var(--muted); white-space: nowrap; }
+    .search-count { font-size: 15px; color: var(--muted); white-space: nowrap; }
     .search-count strong { color: var(--navy); font-weight: 600; }
 
     /* ── MAIN ── */
-    .main-wrap { max-width: 1400px; margin: 0 auto; padding: 40px 40px 120px; }
+    .main-wrap {
+      max-width: 1400px; margin: 0 auto;
+      padding: clamp(20px, 4vw, 40px) var(--pad-x) 80px;
+    }
 
     /* ── BOARD PANEL ── */
     .board-panel {
       border: 1px solid var(--border);
-      border-left: 5px solid var(--navy-light);
+      border-left: 4px solid var(--navy-light);
       border-radius: 4px;
-      margin-bottom: 48px;
+      margin-bottom: clamp(24px, 4vw, 48px);
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
       transition: box-shadow 0.15s;
     }
     .board-panel:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); }
 
-    /* 2-color alternating backgrounds */
     .board-panel.bg-0 { background: #ffffff; }
     .board-panel.bg-1 { background: #edeae4; }
-    .board-panel.has-vacant      { border-left-color: #dc2626; }
-    .board-panel.has-transitioning { border-left-color: #d97706; }
-    .board-panel.all-seated      { border-left-color: #15803d; }
-    .board-panel.hidden          { display: none; }
+    .board-panel.has-vacant         { border-left-color: #dc2626; }
+    .board-panel.has-transitioning  { border-left-color: #d97706; }
+    .board-panel.all-seated         { border-left-color: #15803d; }
+    .board-panel.hidden             { display: none; }
 
-    /* Stacked layout: everything in one column */
     .board-panel-inner {
-      display: flex;
-      flex-direction: column;
-      padding: 24px 28px;
+      display: flex; flex-direction: column;
+      padding: clamp(16px, 3vw, 24px) clamp(16px, 3vw, 28px);
     }
 
-    /* ── TOP ROW: title left, stats right ── */
+    /* ── TOP ROW ── */
     .board-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 24px;
-      flex-wrap: wrap;
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 16px; flex-wrap: wrap;
     }
 
     .board-title { flex: 1; min-width: 0; }
 
     .board-abbr {
-      font-size: 34px; font-weight: 700;
+      font-size: clamp(22px, 5vw, 34px); font-weight: 700;
       color: var(--gold); letter-spacing: -0.01em; line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .board-name {
-      font-size: 19px; font-weight: 600;
+      font-size: clamp(15px, 2.5vw, 19px); font-weight: 600;
       color: var(--navy); line-height: 1.3;
     }
     .board-detail-link {
       display: inline-flex; align-items: center; gap: 5px;
-      margin-top: 8px; font-size: 15px; font-weight: 600;
+      margin-top: 8px; font-size: 14px; font-weight: 600;
       color: var(--navy-light); text-decoration: none;
       transition: color 0.15s;
     }
@@ -173,92 +240,115 @@
     .board-detail-link svg { transition: transform 0.15s; }
     .board-detail-link:hover svg { transform: translateX(3px); }
 
-    /* Stats (sit to the right of the title) */
     .board-stats {
-      display: flex; flex-wrap: wrap; gap: 20px;
+      display: flex; flex-wrap: wrap; gap: 12px;
       align-items: baseline; flex-shrink: 0;
-      padding-top: 6px;
+      padding-top: 4px;
     }
-    .board-stat { display: flex; align-items: baseline; gap: 5px; font-size: 17px; color: var(--muted); }
-    .board-stat-n { font-size: 22px; font-weight: 700; line-height: 1; }
+    .board-stat { display: flex; align-items: baseline; gap: 4px; font-size: 15px; color: var(--muted); }
+    .board-stat-n { font-size: clamp(17px, 3vw, 22px); font-weight: 700; line-height: 1; }
     .board-stat-n.total  { color: var(--navy); }
     .board-stat-n.red    { color: #dc2626; }
     .board-stat-n.yellow { color: #d97706; }
     .board-stat-n.green  { color: #15803d; }
 
-    /* Divider */
-    .board-divider { height: 1px; background: var(--border-lt); margin: 16px 0 14px; }
+    .board-divider { height: 1px; background: var(--border-lt); margin: 14px 0 12px; }
 
-    /* Detail rows (Includes / Residency) */
-    .board-details { margin-bottom: 14px; }
+    .board-details { margin-bottom: 12px; }
     .board-detail {
-      font-size: 16px; color: var(--muted);
+      font-size: 14px; color: var(--muted);
       display: flex; align-items: flex-start; gap: 8px;
-      margin-bottom: 6px; line-height: 1.45;
+      margin-bottom: 5px; line-height: 1.45;
     }
     .board-detail:last-child { margin-bottom: 0; }
-    .board-detail-label {
-      font-weight: 600; color: var(--body);
-      white-space: nowrap; flex-shrink: 0;
-    }
+    .board-detail-label { font-weight: 600; color: var(--body); white-space: nowrap; flex-shrink: 0; }
 
-    /* ── SEATS — full width, evenly distributed ── */
+    /* ── SEATS ── */
     .board-seats {
-      display: flex;
-      flex-wrap: wrap;
+      display: flex; flex-wrap: wrap;
       justify-content: space-evenly;
-      gap: 8px 0;
+      gap: 8px 4px;
       align-content: flex-start;
     }
 
-    /* Full circle dots */
     .seat-dot {
-      width: 30px; height: 30px;
-      border-radius: 50%;
-      cursor: default;
-      flex-shrink: 0;
+      width: clamp(22px, 4vw, 30px); height: clamp(22px, 4vw, 30px);
+      border-radius: 50%; cursor: default; flex-shrink: 0;
       transition: transform 0.1s, filter 0.1s;
+      /* larger touch target */
+      position: relative;
     }
-    .seat-dot:hover { transform: scale(1.25); filter: brightness(1.15) drop-shadow(0 2px 5px rgba(0,0,0,0.3)); }
+    /* Expanded touch target without affecting layout */
+    .seat-dot::after {
+      content: ''; position: absolute;
+      inset: -6px; border-radius: 50%;
+    }
+    @media (hover: hover) {
+      .seat-dot:hover { transform: scale(1.25); filter: brightness(1.15) drop-shadow(0 2px 5px rgba(0,0,0,0.3)); }
+    }
     .seat-dot.red    { background: #dc2626; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
     .seat-dot.yellow { background: #d97706; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
     .seat-dot.green  { background: #15803d; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
     .seat-dot.expandable { background: transparent; border: 2px dashed var(--muted); opacity: 0.55; }
-    .seat-dot.expandable:hover { filter: none; opacity: 0.85; }
+    @media (hover: hover) {
+      .seat-dot.expandable:hover { filter: none; opacity: 0.85; }
+    }
+
+    /* ── MOBILE TOOLTIP (tap-based) ── */
+    .seat-dot:focus { outline: 2px solid var(--gold-lt); outline-offset: 2px; }
 
     /* ── NO RESULTS ── */
     .no-results {
-      text-align: center; padding: 80px 40px;
-      color: var(--muted); font-size: 20px; display: none;
+      text-align: center; padding: 60px 20px;
+      color: var(--muted); font-size: 18px; display: none;
     }
     .no-results strong { color: var(--navy); }
 
     /* ── TOOLTIP ── */
     .tooltip {
       position: fixed; background: var(--navy); color: white;
-      padding: 13px 17px; border-radius: 4px; font-size: 16px; line-height: 1.5;
-      pointer-events: none; z-index: 9999; max-width: 310px;
+      padding: 12px 16px; border-radius: 4px; font-size: 15px; line-height: 1.5;
+      pointer-events: none; z-index: 9999; max-width: min(310px, 90vw);
       box-shadow: 0 6px 28px rgba(0,0,0,0.4); display: none;
     }
     .tooltip.visible { display: block; }
-    .tooltip-name { font-weight: 600; font-size: 19px; margin-bottom: 2px; }
-    .tooltip-role { color: var(--gold-lt); font-size: 15px; margin-bottom: 3px; }
-    .tooltip-req  { color: rgba(255,255,255,0.55); font-size: 14px; margin-bottom: 6px; font-style: italic; }
-    .tooltip-term { font-size: 16px; }
-    .tooltip-term.open         { color: #f87171; font-weight: 600; font-size: 17px; }
+    .tooltip-name { font-weight: 600; font-size: 17px; margin-bottom: 2px; }
+    .tooltip-role { color: var(--gold-lt); font-size: 14px; margin-bottom: 3px; }
+    .tooltip-req  { color: rgba(255,255,255,0.55); font-size: 13px; margin-bottom: 6px; font-style: italic; }
+    .tooltip-term { font-size: 15px; }
+    .tooltip-term.open          { color: #f87171; font-weight: 600; font-size: 16px; }
     .tooltip-term.transitioning { color: var(--gold-lt); }
-    .tooltip-term.seated       { color: #86efac; }
-    .tooltip-res  { color: rgba(255,255,255,0.45); font-size: 14px; margin-top: 5px; }
+    .tooltip-term.seated        { color: #86efac; }
+    .tooltip-res  { color: rgba(255,255,255,0.45); font-size: 13px; margin-top: 5px; }
+
+    /* Mobile tooltip appears at bottom of screen as a sheet */
+    @media (max-width: 600px) {
+      .tooltip {
+        position: fixed; bottom: 0; left: 0; right: 0;
+        max-width: 100%; border-radius: 12px 12px 0 0;
+        padding: 18px 20px; transform: translateY(100%);
+        transition: transform 0.25s ease; display: block;
+        pointer-events: auto;
+      }
+      .tooltip.visible { transform: translateY(0); }
+      .tooltip-close {
+        float: right; cursor: pointer;
+        color: rgba(255,255,255,0.5); font-size: 20px;
+        line-height: 1; padding: 0 0 4px 12px;
+      }
+    }
+    @media (min-width: 601px) {
+      .tooltip-close { display: none; }
+    }
 
     /* ── FOOTER ── */
-    footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 32px 40px; text-align: center; font-size: 16px; color: rgba(255,255,255,0.4); }
+    footer {
+      background: var(--navy-mid); border-top: 3px solid var(--gold);
+      padding: 24px var(--pad-x); text-align: center;
+      font-size: 14px; color: rgba(255,255,255,0.4);
+    }
     footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
     footer a:hover { color: var(--gold-lt); }
-
-    @media (max-width: 900px) {
-      .page-header-inner { grid-template-columns: 1fr; gap: 28px; }
-      .board-top { flex-direction: column; gap: 12px; }
-    }
   </style>
 </head>
 <body>
@@ -273,7 +363,7 @@
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
       <div class="nav-seal">CoK</div>
-      <div>
+      <div class="nav-title-wrap">
         <span class="nav-title-main">City of Kalamazoo</span>
         <span class="nav-title-sub">Boards &amp; Commissions</span>
       </div>
@@ -290,12 +380,12 @@
   <div class="page-header-inner">
     <div>
       <h1>Boards &amp; Commissions</h1>
-      <p>Every seat on every board — hover any dot to see who holds it and when it opens up.</p>
+      <p>Every seat on every board — tap any dot to see who holds it and when it opens up.</p>
     </div>
     <div class="header-stats">
       <div class="hstat"><div class="hstat-n"        id="stat-boards">—</div><div class="hstat-lbl">Boards</div></div>
       <div class="hstat"><div class="hstat-n red"    id="stat-open">—</div><div class="hstat-lbl">Open Now</div></div>
-      <div class="hstat"><div class="hstat-n yellow" id="stat-transitioning">—</div><div class="hstat-lbl">Transitioning</div></div>
+      <div class="hstat"><div class="hstat-n yellow" id="stat-transitioning">—</div><div class="hstat-lbl">Trans&shy;itioning</div></div>
       <div class="hstat"><div class="hstat-n green"  id="stat-seated">—</div><div class="hstat-lbl">Seated</div></div>
     </div>
   </div>
@@ -304,19 +394,19 @@
 <div class="legend-strip">
   <div class="legend-inner">
     <span class="legend-label">Seat Key</span>
-    <div class="legend-item"><div class="legend-dot red"></div>   Open — seat is currently unfilled</div>
-    <div class="legend-item"><div class="legend-dot yellow"></div> Transitioning — term ends within 6 months or has lapsed (holdover)</div>
-    <div class="legend-item"><div class="legend-dot green"></div>  Seated — 6+ months remaining or permanent appointment</div>
+    <div class="legend-item"><div class="legend-dot red"></div>Open — unfilled</div>
+    <div class="legend-item"><div class="legend-dot yellow"></div>Transitioning — ends &lt;6 mo.</div>
+    <div class="legend-item"><div class="legend-dot green"></div>Seated — 6+ months</div>
   </div>
 </div>
 
 <div class="search-bar">
   <div class="search-bar-inner">
     <div class="search-input-wrap">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
-      <input class="search-input" id="search-input" type="text" placeholder="Search by board name or abbreviation…" autocomplete="off">
+      <input class="search-input" id="search-input" type="text" placeholder="Search boards…" autocomplete="off" inputmode="search">
     </div>
     <div class="search-count" id="search-count"></div>
   </div>
@@ -327,7 +417,9 @@
   <div class="no-results" id="no-results">No boards match <strong id="no-results-term"></strong></div>
 </div>
 
+<!-- Tooltip (doubles as bottom sheet on mobile) -->
 <div class="tooltip" id="tooltip">
+  <span class="tooltip-close" id="tooltip-close" aria-label="Close">&#x2715;</span>
   <div class="tooltip-name" id="tt-name"></div>
   <div class="tooltip-role" id="tt-role"></div>
   <div class="tooltip-req"  id="tt-req"></div>
@@ -357,11 +449,10 @@ function seatStatus(m) {
   return 'stable';
 }
 
-// Maps internal status to display category
 function displayStatus(st) {
-  if (st === 'vacant')               return 'open';
-  if (st === 'expired' || st === 'expiring') return 'transitioning';
-  return 'seated'; // stable or permanent
+  if (st === 'vacant')                        return 'open';
+  if (st === 'expired' || st === 'expiring')  return 'transitioning';
+  return 'seated';
 }
 
 function fmtDate(iso) {
@@ -383,11 +474,13 @@ function esc(s) {
   return String(s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+// Detect touch capability
+const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
+
 fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
 
-    // Detail pages — add abbr here as each board page is built
     const detailPages = {
       'BBA':    'board-bba.html',
       'BOR':    'board-bor.html',
@@ -417,19 +510,15 @@ fetch('boards.json')
       'PCIC':         'board-ric.html'
     };
 
-    // Sort alphabetically by board name
     boards.sort((a, b) => a.name.localeCompare(b.name));
-
-    // PCIC shares a page with RIC — remove from rendered set to avoid double-counting
     boards = boards.filter(b => b.abbr !== 'PCIC');
 
-    // Header stats
     let nO = 0, nT = 0, nS = 0;
     boards.forEach(b => b.members.forEach(m => {
       const ds = displayStatus(seatStatus(m));
-      if (ds === 'open')          nO++;
+      if (ds === 'open')               nO++;
       else if (ds === 'transitioning') nT++;
-      else                        nS++;
+      else                             nS++;
     }));
     document.getElementById('stat-boards').textContent        = boards.length;
     document.getElementById('stat-open').textContent          = nO;
@@ -438,22 +527,19 @@ fetch('boards.json')
     document.getElementById('search-count').innerHTML =
       `Showing <strong>${boards.length}</strong> boards`;
 
-    // Build board panels
     const list = document.getElementById('boards-list');
 
     boards.forEach((board, i) => {
-      // RIC + PCIC share a page — override display name / abbr for the RIC card
       const displayName = board.abbr === 'RIC'
         ? 'Investment Committee of the Retirement System & Perpetual Care Investment Committee'
         : board.name;
       const displayAbbr = board.abbr === 'RIC' ? 'RIC / PCIC' : board.abbr;
 
-      const nVac  = board.members.filter(m => displayStatus(seatStatus(m)) === 'open').length;
+      const nVac   = board.members.filter(m => displayStatus(seatStatus(m)) === 'open').length;
       const nTrans = board.members.filter(m => displayStatus(seatStatus(m)) === 'transitioning').length;
-      const nSeat = board.members.filter(m => displayStatus(seatStatus(m)) === 'seated').length;
+      const nSeat  = board.members.filter(m => displayStatus(seatStatus(m)) === 'seated').length;
       const borderCls = nVac > 0 ? 'has-vacant' : nTrans > 0 ? 'has-transitioning' : 'all-seated';
 
-      // Stats HTML
       const seatsLabel = board.maxMembers
         ? `${board.members.length}&nbsp;of up to ${board.maxMembers}`
         : board.members.length;
@@ -466,7 +552,6 @@ fetch('boards.json')
       if (nSeat  > 0) statsHtml +=
         `<span class="board-stat"><span class="board-stat-n green">${nSeat}</span>&nbsp;seated</span>`;
 
-      // Notable position requirements (unique, non-generic values)
       const genericReqs = new Set(['at-large', 'member', '', 'resident', 'non-resident']);
       const reqs = [...new Set(
         board.members
@@ -474,7 +559,6 @@ fetch('boards.json')
           .filter(r => r && !genericReqs.has(r.toLowerCase()))
       )];
 
-      // Residency note
       const residentSeats = board.members.filter(m => !m.isVacant && m.residency === 'Resident').length;
       const filledSeats   = board.members.filter(m => !m.isVacant).length;
       let resNote = '';
@@ -486,7 +570,6 @@ fetch('boards.json')
         }
       }
 
-      // Build detail rows (Includes, Residency)
       let detailsHtml = '';
       if (reqs.length) {
         detailsHtml +=
@@ -503,7 +586,6 @@ fetch('boards.json')
           `</div>`;
       }
 
-      // Build seat dots
       const seatsRow = document.createElement('div');
       seatsRow.className = 'board-seats';
 
@@ -513,6 +595,8 @@ fetch('boards.json')
         const col = ds === 'open' ? 'red' : ds === 'transitioning' ? 'yellow' : 'green';
         const dot = document.createElement('div');
         dot.className = `seat-dot ${col}`;
+        dot.setAttribute('role', 'button');
+        dot.setAttribute('tabindex', '0');
         const name = m.isVacant ? '' : `${m.firstName} ${m.lastName}`.trim();
         dot.dataset.name    = name;
         dot.dataset.role    = m.role || '';
@@ -528,12 +612,13 @@ fetch('boards.json')
         seatsRow.appendChild(dot);
       });
 
-      // Expandable dots for flexible-membership boards
       if (board.maxMembers && board.maxMembers > board.members.length) {
         const available = board.maxMembers - board.members.length;
         for (let x = 0; x < available; x++) {
           const xdot = document.createElement('div');
           xdot.className = 'seat-dot expandable';
+          xdot.setAttribute('role', 'button');
+          xdot.setAttribute('tabindex', '0');
           xdot.dataset.name    = 'Available seat';
           xdot.dataset.role    = '';
           xdot.dataset.term    = `Board may expand to up to ${board.maxMembers} members`;
@@ -544,7 +629,6 @@ fetch('boards.json')
         }
       }
 
-      // Assemble panel
       const panel = document.createElement('div');
       panel.className = `board-panel ${borderCls} bg-${i % 2}`;
       panel.dataset.name = displayName.toLowerCase();
@@ -553,11 +637,10 @@ fetch('boards.json')
       const inner = document.createElement('div');
       inner.className = 'board-panel-inner';
 
-      // Top row: ABBR + name on left, stats on right
       const topRow = document.createElement('div');
       topRow.className = 'board-top';
       const detailLink = detailPages[board.abbr]
-        ? `<a class="board-detail-link" href="${detailPages[board.abbr]}">View Details <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>`
+        ? `<a class="board-detail-link" href="${detailPages[board.abbr]}">View Details <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>`
         : '';
 
       topRow.innerHTML =
@@ -569,12 +652,10 @@ fetch('boards.json')
         `<div class="board-stats">${statsHtml}</div>`;
       inner.appendChild(topRow);
 
-      // Divider
       const divider = document.createElement('div');
       divider.className = 'board-divider';
       inner.appendChild(divider);
 
-      // Details (only rendered if present)
       if (detailsHtml) {
         const details = document.createElement('div');
         details.className = 'board-details';
@@ -582,14 +663,12 @@ fetch('boards.json')
         inner.appendChild(details);
       }
 
-      // Dots — full width, wraps naturally
       inner.appendChild(seatsRow);
-
       panel.appendChild(inner);
       list.appendChild(panel);
     });
 
-    // ── Live search ─────────────────────────────────────────────────────
+    // ── Live search ──────────────────────────────────────────────────────
     const searchInput   = document.getElementById('search-input');
     const searchCount   = document.getElementById('search-count');
     const noResults     = document.getElementById('no-results');
@@ -614,16 +693,31 @@ fetch('boards.json')
       }
     });
 
-    // ── Tooltip ──────────────────────────────────────────────────────────
+    // ── Tooltip / Bottom Sheet ────────────────────────────────────────────
     const tooltip = document.getElementById('tooltip');
     const ttName  = document.getElementById('tt-name');
     const ttRole  = document.getElementById('tt-role');
     const ttReq   = document.getElementById('tt-req');
     const ttTerm  = document.getElementById('tt-term');
     const ttRes   = document.getElementById('tt-res');
+    const ttClose = document.getElementById('tooltip-close');
     let lastDot   = null;
 
+    function populateTooltip(el) {
+      ttName.textContent = el.dataset.name  || 'Open Seat';
+      ttRole.textContent = el.dataset.role  || '';
+      ttReq.textContent  = el.dataset.req   || '';
+      ttTerm.textContent = el.dataset.term  || '';
+      ttTerm.className   = `tooltip-term ${el.dataset.termcls}`;
+      ttRes.textContent  = el.dataset.res ? `Residency: ${el.dataset.res}` : '';
+      ttRole.style.display = el.dataset.role ? '' : 'none';
+      ttReq.style.display  = el.dataset.req  ? '' : 'none';
+      ttRes.style.display  = el.dataset.res  ? '' : 'none';
+    }
+
+    // Mouse (desktop)
     document.addEventListener('mousemove', e => {
+      if (isTouchDevice()) return;
       const isDot = e.target.classList && e.target.classList.contains('seat-dot');
       if (!isDot) {
         tooltip.classList.remove('visible');
@@ -631,18 +725,7 @@ fetch('boards.json')
         return;
       }
       const el = e.target;
-      if (el !== lastDot) {
-        lastDot = el;
-        ttName.textContent = el.dataset.name  || 'Open Seat';
-        ttRole.textContent = el.dataset.role  || '';
-        ttReq.textContent  = el.dataset.req   || '';
-        ttTerm.textContent = el.dataset.term  || '';
-        ttTerm.className   = `tooltip-term ${el.dataset.termcls}`;
-        ttRes.textContent  = el.dataset.res ? `Residency: ${el.dataset.res}` : '';
-        ttRole.style.display = el.dataset.role ? '' : 'none';
-        ttReq.style.display  = el.dataset.req  ? '' : 'none';
-        ttRes.style.display  = el.dataset.res  ? '' : 'none';
-      }
+      if (el !== lastDot) { lastDot = el; populateTooltip(el); }
       tooltip.classList.add('visible');
       const pad = 16;
       let x = e.clientX + pad, y = e.clientY + pad;
@@ -654,9 +737,36 @@ fetch('boards.json')
     });
 
     document.addEventListener('mouseleave', () => {
+      if (isTouchDevice()) return;
       tooltip.classList.remove('visible');
       lastDot = null;
     });
+
+    // Touch (mobile) — tap to open bottom sheet
+    document.addEventListener('click', e => {
+      if (!isTouchDevice()) return;
+      const isDot = e.target.classList && e.target.classList.contains('seat-dot');
+      if (isDot) {
+        populateTooltip(e.target);
+        tooltip.classList.add('visible');
+        e.stopPropagation();
+      } else if (!tooltip.contains(e.target)) {
+        tooltip.classList.remove('visible');
+      }
+    });
+
+    // Keyboard accessibility for dots
+    document.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('seat-dot')) {
+        e.preventDefault();
+        populateTooltip(e.target);
+        tooltip.classList.add('visible');
+      }
+      if (e.key === 'Escape') tooltip.classList.remove('visible');
+    });
+
+    // Close button (mobile bottom sheet)
+    ttClose.addEventListener('click', () => tooltip.classList.remove('visible'));
 
   })
   .catch(err => {
