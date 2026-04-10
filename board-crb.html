@@ -53,9 +53,35 @@
     .nav-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
     .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 15px; transition: color 0.15s; white-space: nowrap; }
     .nav-link:hover { color: var(--gold-lt); }
-    @media (max-width: 600px) { .nav-link { display: none; } }
     .nav-apply { background: var(--gold); color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; padding: 7px 14px; border-radius: 2px; transition: background 0.15s; white-space: nowrap; }
     .nav-apply:hover { background: var(--gold-lt); }
+
+    /* ── MOBILE NAV SECONDARY STRIP ── */
+    .nav-secondary { display: none; }
+    @media (max-width: 600px) {
+      .nav-inner .nav-link { display: none; }
+      .nav-secondary {
+        display: flex;
+        background: rgba(0,0,0,0.18);
+        border-top: 1px solid rgba(255,255,255,0.07);
+      }
+      .nav-secondary-inner {
+        max-width: 1400px; margin: 0 auto; width: 100%;
+        padding: 0 var(--pad-x); display: flex;
+      }
+      .nav-secondary-link {
+        flex: 1; display: flex; align-items: center; justify-content: center;
+        padding: 9px 12px; color: rgba(255,255,255,0.65);
+        text-decoration: none; font-size: 13px; font-weight: 500;
+        letter-spacing: 0.02em;
+        border-right: 1px solid rgba(255,255,255,0.07);
+        transition: background 0.15s, color 0.15s;
+      }
+      .nav-secondary-link:last-child { border-right: none; }
+      .nav-secondary-link:hover,
+      .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
+      .nav-secondary-link.active { color: var(--gold-lt); }
+    }
 
     /* ── BREADCRUMB ── */
     .breadcrumb { background: var(--white); border-bottom: 1px solid var(--border); padding: 9px var(--pad-x); font-size: 14px; color: var(--muted); overflow-x: auto; white-space: nowrap; }
@@ -80,14 +106,9 @@
     .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 38px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 12px; }
     .page-header-desc { color: rgba(255,255,255,0.58); font-size: clamp(15px, 2.5vw, 18px); font-weight: 300; max-width: 620px; line-height: 1.65; }
 
-    /* Seat block */
     .header-seat-block { flex-shrink: 0; }
     .seat-stat-row { display: flex; gap: 2px; margin-bottom: 16px; }
-    .seat-stat {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09);
-      padding: clamp(10px, 2.5vw, 14px) clamp(12px, 3vw, 20px);
-      text-align: center; flex: 1;
-    }
+    .seat-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: clamp(10px, 2.5vw, 14px) clamp(12px, 3vw, 20px); text-align: center; flex: 1; }
     .seat-stat:first-child { border-radius: 4px 0 0 4px; }
     .seat-stat:last-child  { border-radius: 0 4px 4px 0; }
     .seat-stat-n { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 34px); font-weight: 600; color: white; line-height: 1; margin-bottom: 4px; }
@@ -96,12 +117,7 @@
     .seat-stat-n.green  { color: #86efac; }
     .seat-stat-lbl { font-size: clamp(9px, 2vw, 11px); color: rgba(255,255,255,0.38); letter-spacing: 0.05em; text-transform: uppercase; }
     .header-dots { display: flex; flex-wrap: wrap; gap: 8px; max-width: 300px; }
-    .seat-dot-hdr {
-      width: clamp(16px, 3vw, 20px); height: clamp(16px, 3vw, 20px);
-      border-radius: 50%; flex-shrink: 0; cursor: default;
-      transition: transform 0.1s;
-      position: relative;
-    }
+    .seat-dot-hdr { width: clamp(16px, 3vw, 20px); height: clamp(16px, 3vw, 20px); border-radius: 50%; flex-shrink: 0; cursor: default; transition: transform 0.1s; position: relative; }
     .seat-dot-hdr::after { content: ''; position: absolute; inset: -6px; border-radius: 50%; }
     @media (hover: hover) { .seat-dot-hdr:hover { transform: scale(1.3); } }
     .seat-dot-hdr.red    { background: #dc2626; }
@@ -117,26 +133,14 @@
     /* ── GOVERNANCE STRIP ── */
     .gov-strip { background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.07); overflow-x: auto; }
     .gov-inner { max-width: 1400px; margin: 0 auto; display: flex; min-width: min-content; }
-    .gov-item {
-      flex: 1; text-align: center;
-      padding: clamp(14px, 3vw, 20px) clamp(12px, 2.5vw, 16px);
-      border-right: 1px solid rgba(255,255,255,0.08);
-      min-width: 110px;
-    }
+    .gov-item { flex: 1; text-align: center; padding: clamp(14px, 3vw, 20px) clamp(12px, 2.5vw, 16px); border-right: 1px solid rgba(255,255,255,0.08); min-width: 110px; }
     .gov-item:last-child { border-right: none; }
     .gov-value { font-size: clamp(15px, 2.5vw, 20px); font-weight: 700; color: var(--gold-lt); margin-bottom: 4px; line-height: 1.2; }
     .gov-label { font-size: clamp(10px, 1.8vw, 12px); color: rgba(255,255,255,0.42); text-transform: uppercase; letter-spacing: 0.06em; }
 
     /* ── MAIN TWO-COLUMN BODY ── */
-    .board-body {
-      max-width: 1400px; margin: 0 auto;
-      padding: clamp(24px, 4vw, 48px) var(--pad-x) 0;
-      display: grid; grid-template-columns: 1fr;
-      gap: 32px; align-items: start;
-    }
-    @media (min-width: 900px) {
-      .board-body { grid-template-columns: 1fr 340px; gap: 48px; }
-    }
+    .board-body { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--pad-x) 0; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+    @media (min-width: 900px) { .board-body { grid-template-columns: 1fr 340px; gap: 48px; } }
 
     /* ── ACCORDION ── */
     .accordion { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
@@ -184,12 +188,8 @@
     /* ── COMPLAINT CTA ── */
     .complaint-cta-wrap { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x) clamp(32px, 5vw, 48px); }
     .complaint-cta { background: var(--red-mid); border-radius: 4px; padding: clamp(24px, 5vw, 44px) clamp(20px, 5vw, 48px); }
-    .complaint-cta-inner {
-      display: flex; flex-direction: column; gap: 28px;
-    }
-    @media (min-width: 800px) {
-      .complaint-cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
-    }
+    .complaint-cta-inner { display: flex; flex-direction: column; gap: 28px; }
+    @media (min-width: 800px) { .complaint-cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; } }
     .complaint-cta-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
     .complaint-cta-heading { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 40px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 16px; }
     .complaint-cta-desc { font-size: clamp(15px, 2.5vw, 18px); color: rgba(255,255,255,0.72); line-height: 1.7; }
@@ -201,18 +201,10 @@
     .complaint-cta-note { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
 
     /* ── BOTTOM CARDS ── */
-    .bottom-cards {
-      max-width: 1400px; margin: 0 auto;
-      padding: clamp(24px, 4vw, 40px) var(--pad-x) clamp(48px, 8vw, 80px);
-      display: grid; grid-template-columns: 1fr; gap: 20px;
-    }
+    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 40px) var(--pad-x) clamp(48px, 8vw, 80px); display: grid; grid-template-columns: 1fr; gap: 20px; }
     @media (min-width: 700px) { .bottom-cards { grid-template-columns: 1fr 1fr; } }
     @media (min-width: 1100px) {
-      .bottom-cards {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 28px;
-      }
+      .bottom-cards { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 28px; }
       .bottom-card:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 3; }
       .bottom-card:nth-child(4) { grid-column: 1 / 3; grid-row: 2 / 3; }
     }
@@ -222,25 +214,26 @@
     .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .bottom-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
 
+    /* Minutes items — styled like recording items but with a doc icon instead of thumbnail */
+    .minutes-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; transition: color 0.15s; }
+    .minutes-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .minutes-icon { flex-shrink: 0; width: 36px; height: 36px; background: var(--cream); border: 1px solid var(--border); border-radius: 3px; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
+    .minutes-item:hover .minutes-icon { background: var(--cream-dk); border-color: var(--navy-light); }
+    .minutes-info { flex: 1; }
+    .minutes-date { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 2px; }
+    .minutes-item:hover .minutes-date { color: var(--gold); }
+    .minutes-sublabel { font-size: 12px; color: var(--muted); }
+    .minutes-action { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
+    .minutes-item:hover .minutes-action { color: var(--gold); }
+
     /* Apply to Serve */
-    .apply-standalone-inner {
-      padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px);
-      display: flex; flex-direction: column; gap: 20px; height: 100%;
-    }
+    .apply-standalone-inner { padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px); display: flex; flex-direction: column; gap: 20px; height: 100%; }
     @media (min-width: 600px) { .apply-standalone-inner { flex-direction: row; align-items: center; gap: 48px; } }
     .apply-standalone-text { flex: 1; }
     .apply-standalone-heading { font-family: 'Playfair Display', serif; font-size: clamp(18px, 3vw, 22px); font-weight: 600; color: var(--navy); margin-bottom: 10px; }
     .apply-standalone-desc { font-size: clamp(14px, 2.5vw, 16px); color: var(--body); line-height: 1.65; }
     .apply-standalone-btn { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
     .apply-standalone-btn:hover { background: var(--navy-mid); color: white; }
-
-    /* Documents */
-    .doc-link { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: var(--navy-light); font-size: 15px; transition: color 0.15s; }
-    .doc-link:last-child { border-bottom: none; padding-bottom: 0; }
-    .doc-link:hover { color: var(--gold); }
-    .doc-link svg { flex-shrink: 0; color: var(--muted); }
-    .doc-link:hover svg { color: var(--gold); }
-    .pdf-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 2px; margin-left: auto; flex-shrink: 0; }
 
     /* Recordings */
     .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
@@ -262,30 +255,11 @@
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
 
-    /* Table scrolls horizontally on small screens */
-    .members-table-wrap {
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
-      position: relative;
-    }
-    /* Fade gradient on right edge — only on mobile */
-    .members-table-wrap::after {
-      content: '';
-      position: absolute; top: 0; right: 0; bottom: 0;
-      width: 48px;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.92));
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
+    .members-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; position: relative; }
+    .members-table-wrap::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 48px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.92)); pointer-events: none; transition: opacity 0.3s; }
     .members-table-wrap.scrolled-end::after { opacity: 0; }
-    @media (min-width: 900px) {
-      .members-table-wrap::after { display: none; }
-    }
-    /* Scroll hint label */
-    .table-scroll-hint {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 12px; color: var(--muted); margin-bottom: 8px;
-      transition: opacity 0.3s;
-    }
+    @media (min-width: 900px) { .members-table-wrap::after { display: none; } }
+    .table-scroll-hint { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); margin-bottom: 8px; transition: opacity 0.3s; }
     .table-scroll-hint.hidden { opacity: 0; pointer-events: none; }
     @media (min-width: 900px) { .table-scroll-hint { display: none; } }
     .members-table { width: 100%; border-collapse: collapse; min-width: 580px; }
@@ -314,12 +288,7 @@
     .staff-note strong { color: var(--body); }
 
     /* ── TOOLTIP / MOBILE BOTTOM SHEET ── */
-    .tooltip {
-      position: fixed; background: var(--navy); color: white;
-      padding: 12px 16px; border-radius: 4px; font-size: 14px; line-height: 1.55;
-      pointer-events: none; z-index: 9999; max-width: min(300px, 90vw);
-      box-shadow: 0 6px 28px rgba(0,0,0,0.4); display: none;
-    }
+    .tooltip { position: fixed; background: var(--navy); color: white; padding: 12px 16px; border-radius: 4px; font-size: 14px; line-height: 1.55; pointer-events: none; z-index: 9999; max-width: min(300px, 90vw); box-shadow: 0 6px 28px rgba(0,0,0,0.4); display: none; }
     .tooltip.visible { display: block; }
     .tt-name { font-weight: 600; font-size: 16px; margin-bottom: 2px; }
     .tt-role { color: var(--gold-lt); font-size: 13px; margin-bottom: 5px; }
@@ -330,13 +299,7 @@
     .tt-res { color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 4px; }
 
     @media (max-width: 600px) {
-      .tooltip {
-        position: fixed; bottom: 0; left: 0; right: 0;
-        max-width: 100%; border-radius: 12px 12px 0 0;
-        padding: 18px 20px; transform: translateY(100%);
-        transition: transform 0.25s ease; display: block;
-        pointer-events: auto;
-      }
+      .tooltip { position: fixed; bottom: 0; left: 0; right: 0; max-width: 100%; border-radius: 12px 12px 0 0; padding: 18px 20px; transform: translateY(100%); transition: transform 0.25s ease; display: block; pointer-events: auto; }
       .tooltip.visible { transform: translateY(0); }
       .tooltip-close { float: right; cursor: pointer; color: rgba(255,255,255,0.5); font-size: 20px; line-height: 1; padding: 0 0 4px 12px; }
     }
@@ -371,6 +334,13 @@
       <a class="nav-link" href="index.html">All Boards</a>
       <a class="nav-link" href="faq.html">FAQ</a>
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
+    </div>
+  </div>
+  <!-- Mobile-only secondary nav strip -->
+  <div class="nav-secondary">
+    <div class="nav-secondary-inner">
+      <a class="nav-secondary-link active" href="index.html">All Boards</a>
+      <a class="nav-secondary-link" href="faq.html">FAQ</a>
     </div>
   </div>
 </nav>
@@ -414,26 +384,14 @@
 <!-- GOVERNANCE QUICK FACTS -->
 <div class="gov-strip">
   <div class="gov-inner">
-    <div class="gov-item">
-      <div class="gov-value">3 Years</div>
-      <div class="gov-label">Term Length</div>
-    </div>
-    <div class="gov-item">
-      <div class="gov-value">2 Consecutive</div>
-      <div class="gov-label">Max Terms</div>
-    </div>
-    <div class="gov-item">
-      <div class="gov-value">Bimonthly</div>
-      <div class="gov-label">Meeting Frequency</div>
-    </div>
-    <div class="gov-item">
-      <div class="gov-value">4 Minutes</div>
-      <div class="gov-label">Public Comment Limit</div>
-    </div>
+    <div class="gov-item"><div class="gov-value">3 Years</div><div class="gov-label">Term Length</div></div>
+    <div class="gov-item"><div class="gov-value">2 Consecutive</div><div class="gov-label">Max Terms</div></div>
+    <div class="gov-item"><div class="gov-value">Bimonthly</div><div class="gov-label">Meeting Frequency</div></div>
+    <div class="gov-item"><div class="gov-value">4 Minutes</div><div class="gov-label">Public Comment Limit</div></div>
   </div>
 </div>
 
-<!-- MAIN BODY: Accordion + Meetings sidebar -->
+<!-- MAIN BODY -->
 <div class="board-body">
 
   <!-- LEFT: ACCORDION -->
@@ -512,7 +470,7 @@
             <p>Civil Rights Board meetings are open to the public — no registration required. Meetings are held the first Wednesday of every other month at <strong>5:00 PM</strong> in City Commission Chambers at Kalamazoo City Hall, 241 W South Street.</p>
             <p><strong>Public Comment:</strong> Citizens may address the Board for up to 4 minutes. Sign in at the start of the meeting before 5:00 PM. Written comments may also be submitted to the staff liaison in advance of a meeting.</p>
             <p><strong>Minutes &amp; Agendas:</strong> Meeting records are published on the City's <a href="https://kalamazoomi.portal.civicclerk.com/?category_id=32" target="_blank" rel="noopener">Civic Clerk portal</a>. Scroll up on the portal page to browse past meeting agendas, minutes, and supporting documents.</p>
-            <p><strong>Interested in Serving?</strong> Board seats are filled through mayoral appointment with City Commission approval. Use the <a href="#" target="_blank" rel="noopener">Apply to Serve</a> page to submit an interest form or learn more about the application process.</p>
+            <p><strong>Interested in Serving?</strong> Board seats are filled through mayoral appointment with City Commission approval. Use the <a href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve</a> page to submit an interest form or learn more about the application process.</p>
           </div>
         </div>
       </div>
@@ -528,11 +486,6 @@
         Upcoming Meetings
       </div>
       <div class="sidebar-card-body">
-        <div class="meeting-item" data-date="2026-04-01">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Wednesday, April 1, 2026</div>
-          <div class="meeting-time">5:00 PM – 7:00 PM</div>
-        </div>
         <div class="meeting-item" data-date="2026-06-03">
           <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">Wednesday, June 3, 2026</div>
@@ -541,6 +494,11 @@
         <div class="meeting-item" data-date="2026-08-05">
           <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">Wednesday, August 5, 2026</div>
+          <div class="meeting-time">5:00 PM – 7:00 PM</div>
+        </div>
+        <div class="meeting-item" data-date="2026-10-07">
+          <div class="next-badge" style="display:none">Next</div>
+          <div class="meeting-date">Wednesday, October 7, 2026</div>
           <div class="meeting-time">5:00 PM – 7:00 PM</div>
         </div>
         <p class="meeting-note">Meets the 1st Wednesday of every other month. All meetings open to the public — citizens may address the Board for up to 4 minutes.</p>
@@ -560,48 +518,144 @@
 <!-- BOTTOM CARDS -->
 <div class="bottom-cards">
 
+  <!-- Minutes & Agendas — individual meeting links -->
   <div class="bottom-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       Minutes &amp; Agendas
     </div>
     <div class="bottom-card-body">
-      <a class="doc-link" href="https://kalamazoomi.portal.civicclerk.com/?category_id=32" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Civic Clerk Meeting Portal
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905" target="_blank" rel="noopener">
+        <div class="minutes-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="minutes-info">
+          <div class="minutes-date">April 1, 2026</div>
+          <div class="minutes-sublabel">Civil Rights Board</div>
+          <div class="minutes-action">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Agenda &amp; Minutes
+          </div>
+        </div>
       </a>
-      <p style="font-size:13px;color:var(--muted);margin-top:12px;line-height:1.55;">Agendas, minutes, and supporting documents are archived on the City's Civic Clerk portal. Scroll up on the portal page to view past meetings.</p>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4680" target="_blank" rel="noopener">
+        <div class="minutes-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="minutes-info">
+          <div class="minutes-date">February 4, 2026</div>
+          <div class="minutes-sublabel">Civil Rights Board</div>
+          <div class="minutes-action">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Agenda &amp; Minutes
+          </div>
+        </div>
+      </a>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4496" target="_blank" rel="noopener">
+        <div class="minutes-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="minutes-info">
+          <div class="minutes-date">December 3, 2025</div>
+          <div class="minutes-sublabel">Civil Rights Board</div>
+          <div class="minutes-action">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Agenda &amp; Minutes
+          </div>
+        </div>
+      </a>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300" target="_blank" rel="noopener">
+        <div class="minutes-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="minutes-info">
+          <div class="minutes-date">October 1, 2025</div>
+          <div class="minutes-sublabel">Civil Rights Board</div>
+          <div class="minutes-action">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Agenda &amp; Minutes
+          </div>
+        </div>
+      </a>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4116" target="_blank" rel="noopener">
+        <div class="minutes-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="minutes-info">
+          <div class="minutes-date">August 6, 2025</div>
+          <div class="minutes-sublabel">Civil Rights Board</div>
+          <div class="minutes-action">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Agenda &amp; Minutes
+          </div>
+        </div>
+      </a>
+
     </div>
   </div>
 
+  <!-- Key Documents -->
   <div class="bottom-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       Key Documents
     </div>
     <div class="bottom-card-body">
-      <a class="doc-link" href="https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/kcrb-comm-bylaws-final.pdf" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Civil Rights Board Bylaws
-        <span class="pdf-badge">PDF</span>
+      <a class="minutes-item" href="https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/kcrb-comm-bylaws-final.pdf" target="_blank" rel="noopener">
+        <div class="minutes-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--red)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div class="minutes-info">
+          <div class="minutes-date">Civil Rights Board Bylaws</div>
+          <div class="minutes-action" style="margin-top:3px">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Download PDF
+          </div>
+        </div>
       </a>
-      <a class="doc-link" href="https://ecode360.com/9695185#9695185" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        Chapter 18: Nondiscrimination
+      <a class="minutes-item" href="https://ecode360.com/9695185#9695185" target="_blank" rel="noopener">
+        <div class="minutes-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="minutes-info">
+          <div class="minutes-date">Chapter 18: Nondiscrimination</div>
+          <div class="minutes-action" style="margin-top:3px">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Ordinance
+          </div>
+        </div>
       </a>
-      <a class="doc-link" href="https://ecode360.com/9695230#9695230" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        Chapter 18A: Fair Housing
+      <a class="minutes-item" href="https://ecode360.com/9695230#9695230" target="_blank" rel="noopener">
+        <div class="minutes-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="minutes-info">
+          <div class="minutes-date">Chapter 18A: Fair Housing</div>
+          <div class="minutes-action" style="margin-top:3px">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Ordinance
+          </div>
+        </div>
       </a>
     </div>
   </div>
 
+  <!-- Past Meeting Recordings -->
   <div class="bottom-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
       Past Meeting Recordings
     </div>
     <div class="bottom-card-body">
+      <a class="recording-item" href="https://www.youtube.com/watch?v=EHLmMUNh2ic" target="_blank" rel="noopener">
+        <div class="rec-thumb"><img src="https://img.youtube.com/vi/EHLmMUNh2ic/mqdefault.jpg" alt="April 1, 2026 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+        <div class="rec-info"><div class="rec-date">April 1, 2026</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
+      </a>
       <a class="recording-item" href="https://www.youtube.com/watch?v=AyZ7Xlchn0g" target="_blank" rel="noopener">
         <div class="rec-thumb"><img src="https://img.youtube.com/vi/AyZ7Xlchn0g/mqdefault.jpg" alt="February 4, 2026 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         <div class="rec-info"><div class="rec-date">February 4, 2026</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
@@ -621,6 +675,7 @@
     </div>
   </div>
 
+  <!-- Apply to Serve -->
   <div class="bottom-card">
     <div class="apply-standalone-inner">
       <div class="apply-standalone-text">
@@ -767,7 +822,6 @@ fetch('boards.json')
     document.getElementById('stat-trans').textContent  = nT;
     document.getElementById('stat-seated').textContent = nS;
 
-    // Header dots
     const dotsEl = document.getElementById('header-dots');
     members.forEach(m => {
       const ds  = displayStatus(seatStatus(m));
@@ -784,7 +838,6 @@ fetch('boards.json')
       dotsEl.appendChild(dot);
     });
 
-    // Members table
     const tbody = document.getElementById('members-tbody');
     members.forEach(m => {
       const st  = seatStatus(m);
@@ -793,12 +846,9 @@ fetch('boards.json')
       const name = m.isVacant ? 'Open Seat' : `${m.firstName} ${m.lastName}`.trim();
       const isExOfficio = m.role.toLowerCase().includes('ex-officio');
       const typeLabel   = isExOfficio ? 'Ex-Officio' : 'Voting';
-      const termDisplay = !m.termEnd ? '—'
-                        : m.termEnd === '2100-01-01' ? 'Permanent'
-                        : fmtDate(m.termEnd);
+      const termDisplay = !m.termEnd ? '—' : m.termEnd === '2100-01-01' ? 'Permanent' : fmtDate(m.termEnd);
       const resDisplay  = m.isVacant ? '—' : (m.residency || '—');
       const dsLabel     = ds.charAt(0).toUpperCase() + ds.slice(1);
-
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td style="text-align:center"><span class="member-dot ${col}"></span></td>
@@ -814,7 +864,6 @@ fetch('boards.json')
       tbody.appendChild(tr);
     });
 
-    // Tooltip / Bottom Sheet
     const tooltip = document.getElementById('tooltip');
     const ttName  = document.getElementById('tt-name');
     const ttRole  = document.getElementById('tt-role');
@@ -833,7 +882,6 @@ fetch('boards.json')
       ttRes.style.display  = el.dataset.res  ? '' : 'none';
     }
 
-    // Mouse (desktop)
     document.addEventListener('mousemove', e => {
       if (isTouchDevice()) return;
       const isDot = e.target.classList && e.target.classList.contains('seat-dot-hdr');
@@ -856,7 +904,6 @@ fetch('boards.json')
       lastDot = null;
     });
 
-    // Touch (mobile)
     document.addEventListener('click', e => {
       if (!isTouchDevice()) return;
       const isDot = e.target.classList && e.target.classList.contains('seat-dot-hdr');
@@ -869,7 +916,6 @@ fetch('boards.json')
       }
     });
 
-    // Keyboard
     document.addEventListener('keydown', e => {
       if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('seat-dot-hdr')) {
         e.preventDefault();
@@ -883,7 +929,6 @@ fetch('boards.json')
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-// Table scroll hint
 (function () {
   const wrap = document.getElementById('members-table-wrap');
   const hint = document.getElementById('table-scroll-hint');
@@ -894,11 +939,9 @@ fetch('boards.json')
     hint.classList.toggle('hidden', atEnd);
   }
   wrap.addEventListener('scroll', checkScroll, { passive: true });
-  // Run once on load in case table fits without scrolling
   checkScroll();
 })();
 
-// Accordion
 document.querySelectorAll('.acc-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -907,7 +950,6 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
   });
 });
 
-// "Next" meeting badge
 (function () {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
