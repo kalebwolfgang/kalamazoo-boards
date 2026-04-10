@@ -265,9 +265,9 @@
       white-space: nowrap;
     }
 
-    /* The card itself must be a flex column that fills its grid cell */
+    /* Scrollable cards fill their grid cell */
     .bottom-card.scrollable-card {
-      overflow: visible; /* let inner scroll handle overflow */
+      overflow: hidden;
     }
 
     .scrollable-wrap {
@@ -277,13 +277,12 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      border-radius: 0 0 4px 4px;
     }
-    /* Fade gradient — covers bottom half of last partial item */
+    /* Fade gradient over the last partial item */
     .scrollable-wrap::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 6px; /* leave scrollbar visible */
+      bottom: 0; left: 0; right: 7px; /* leave scrollbar track visible */
       height: 64px;
       background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.97));
       pointer-events: none;
@@ -296,22 +295,23 @@
       flex: 1;
       min-height: 0;
       padding: 0;
-      /* always-visible scrollbar */
       overflow-y: scroll;
+      /* Firefox */
       scrollbar-width: thin;
-      scrollbar-color: var(--border-lt) var(--cream);
+      scrollbar-color: #1c2333 #e8e4dc;
     }
-    .scrollable-card-body::-webkit-scrollbar { width: 6px; }
+    /* Webkit — prominent black scrollbar */
+    .scrollable-card-body::-webkit-scrollbar { width: 7px; }
     .scrollable-card-body::-webkit-scrollbar-track {
-      background: var(--cream);
-      border-left: 1px solid var(--border-lt);
+      background: #e8e4dc;
+      border-left: 1px solid var(--border);
     }
     .scrollable-card-body::-webkit-scrollbar-thumb {
-      background: var(--border);
+      background: #1c2333;
       border-radius: 3px;
     }
     .scrollable-card-body::-webkit-scrollbar-thumb:hover {
-      background: var(--muted);
+      background: #000;
     }
 
     .scrollable-card-body .minutes-item,
@@ -324,11 +324,10 @@
     .scrollable-card-body .minutes-item:last-child,
     .scrollable-card-body .recording-item:last-child { border-bottom: none !important; }
 
-    /* Fixed heights: n full items + exactly half of the next one */
-    /* Minutes item height ≈ 74px. 3.5 items = 259px */
+    /* Minutes card sits in a single grid row — cap it so it doesn't balloon.
+       ~74px per item × 3.5 = 259px shows 3 full + half of 4th */
     .scrollable-minutes { max-height: 259px; }
-    /* Recording item height ≈ 86px. 4.5 items = 387px */
-    .scrollable-recordings { max-height: 387px; }
+    /* Recordings spans 2 grid rows — no max-height, fills the full card */
 
     /* ── MEMBERS SECTION ── */
     .members-section { background: var(--white); border-top: 1px solid var(--border); padding: clamp(32px, 6vw, 56px) var(--pad-x) clamp(40px, 7vw, 72px); }
