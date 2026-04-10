@@ -211,6 +211,8 @@
 
     .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
     .bottom-card:nth-child(4) { border-left: 4px solid var(--gold); }
+    /* Scrollable cards need overflow visible so the inner scroll container handles it */
+    .bottom-card.scrollable-card { overflow: hidden; }
     .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .bottom-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
 
@@ -250,30 +252,68 @@
     .recording-item:hover .rec-watch { color: var(--gold); }
 
     /* Scrollable card bodies for minutes and recordings */
+
+    /* Count pill in card header */
+    .card-count-pill {
+      margin-left: auto;
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.55);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 2px 8px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      white-space: nowrap;
+    }
+
+    /* The card itself must be a flex column that fills its grid cell */
+    .bottom-card.scrollable-card {
+      overflow: visible; /* let inner scroll handle overflow */
+    }
+
     .scrollable-wrap {
       position: relative;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 0 0 4px 4px;
     }
+    /* Fade gradient — covers bottom half of last partial item */
     .scrollable-wrap::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 56px;
-      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.96));
+      bottom: 0; left: 0; right: 6px; /* leave scrollbar visible */
+      height: 64px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.97));
       pointer-events: none;
-      border-radius: 0 0 4px 4px;
       transition: opacity 0.2s;
       z-index: 1;
     }
     .scrollable-wrap.at-end::after { opacity: 0; }
+
     .scrollable-card-body {
+      flex: 1;
+      min-height: 0;
       padding: 0;
-      overflow-y: auto;
+      /* always-visible scrollbar */
+      overflow-y: scroll;
       scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
+      scrollbar-color: var(--border-lt) var(--cream);
     }
-    .scrollable-card-body::-webkit-scrollbar { width: 4px; }
-    .scrollable-card-body::-webkit-scrollbar-track { background: transparent; }
-    .scrollable-card-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .scrollable-card-body::-webkit-scrollbar { width: 6px; }
+    .scrollable-card-body::-webkit-scrollbar-track {
+      background: var(--cream);
+      border-left: 1px solid var(--border-lt);
+    }
+    .scrollable-card-body::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+    .scrollable-card-body::-webkit-scrollbar-thumb:hover {
+      background: var(--muted);
+    }
+
     .scrollable-card-body .minutes-item,
     .scrollable-card-body .recording-item {
       margin: 0;
@@ -283,10 +323,12 @@
     }
     .scrollable-card-body .minutes-item:last-child,
     .scrollable-card-body .recording-item:last-child { border-bottom: none !important; }
-    /* Minutes: ~74px per item, show 4 */
-    .scrollable-minutes { max-height: 296px; }
-    /* Recordings: ~86px per item, show 5 full + peek of 6th */
-    .scrollable-recordings { max-height: 475px; }
+
+    /* Fixed heights: n full items + exactly half of the next one */
+    /* Minutes item height ≈ 74px. 3.5 items = 259px */
+    .scrollable-minutes { max-height: 259px; }
+    /* Recording item height ≈ 86px. 4.5 items = 387px */
+    .scrollable-recordings { max-height: 387px; }
 
     /* ── MEMBERS SECTION ── */
     .members-section { background: var(--white); border-top: 1px solid var(--border); padding: clamp(32px, 6vw, 56px) var(--pad-x) clamp(40px, 7vw, 72px); }
@@ -558,10 +600,11 @@
 <div class="bottom-cards">
 
   <!-- Minutes & Agendas — individual meeting links -->
-  <div class="bottom-card">
+  <div class="bottom-card scrollable-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       Minutes &amp; Agendas
+      <span class="card-count-pill">12 meetings</span>
     </div>
     <div class="scrollable-wrap" id="wrap-minutes">
     <div class="scrollable-card-body scrollable-minutes" id="scroll-minutes">
@@ -785,10 +828,11 @@
   </div>
 
   <!-- Past Meeting Recordings -->
-  <div class="bottom-card">
+  <div class="bottom-card scrollable-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
       Past Meeting Recordings
+      <span class="card-count-pill">11 recordings</span>
     </div>
     <div class="scrollable-wrap" id="wrap-recordings">
     <div class="scrollable-card-body scrollable-recordings" id="scroll-recordings">
