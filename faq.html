@@ -82,6 +82,37 @@
     }
     .nav-apply:hover { background: var(--gold-lt); }
 
+    /* ── MOBILE NAV SECONDARY STRIP ── */
+    .nav-secondary { display: none; }
+    @media (max-width: 600px) {
+      .nav-inner .nav-link { display: none; }
+      .nav-secondary {
+        display: flex;
+        background: rgba(0,0,0,0.18);
+        border-top: 1px solid rgba(255,255,255,0.07);
+      }
+      .nav-secondary-inner {
+        max-width: 1400px; margin: 0 auto; width: 100%;
+        padding: 0 var(--pad-x);
+        display: flex;
+      }
+      .nav-secondary-link {
+        flex: 1;
+        display: flex; align-items: center; justify-content: center;
+        padding: 9px 12px;
+        color: rgba(255,255,255,0.65);
+        text-decoration: none;
+        font-size: 13px; font-weight: 500;
+        letter-spacing: 0.02em;
+        border-right: 1px solid rgba(255,255,255,0.07);
+        transition: background 0.15s, color 0.15s;
+      }
+      .nav-secondary-link:last-child { border-right: none; }
+      .nav-secondary-link:hover,
+      .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
+      .nav-secondary-link.active { color: var(--gold-lt); }
+    }
+
     /* ── BREADCRUMB ── */
     .breadcrumb {
       background: var(--white); border-bottom: 1px solid var(--border);
@@ -343,6 +374,13 @@
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
     </div>
   </div>
+  <!-- Mobile-only secondary nav strip -->
+  <div class="nav-secondary">
+    <div class="nav-secondary-inner">
+      <a class="nav-secondary-link" href="index.html">All Boards</a>
+      <a class="nav-secondary-link active" href="faq.html">FAQ</a>
+    </div>
+  </div>
 </nav>
 
 <!-- BREADCRUMB -->
@@ -365,32 +403,7 @@
 <!-- MAIN -->
 <div class="main-wrap">
 
-  <!-- 1. CURRENT VACANCIES -->
-  <div class="vac-section">
-    <div class="vac-section-head">
-      <h2>Current Vacancies</h2>
-      <a href="index.html">View all boards &rarr;</a>
-    </div>
-    <div class="vac-grid">
-      <a class="vac-cell" href="board-ecc.html">
-        <div class="vac-cell-abbr">ECC</div>
-        <div class="vac-cell-name">Ethics &amp; Civil Rights Commission</div>
-        <span class="vac-cell-badge">4 open</span>
-      </a>
-      <a class="vac-cell" href="board-hdc.html">
-        <div class="vac-cell-abbr">HDC</div>
-        <div class="vac-cell-name">Historic District Commission</div>
-        <span class="vac-cell-badge">2 open</span>
-      </a>
-      <a class="vac-cell" href="board-dda.html">
-        <div class="vac-cell-abbr">DDA</div>
-        <div class="vac-cell-name">Downtown Development Authority</div>
-        <span class="vac-cell-badge">2 open</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- 2. ACCORDION -->
+  <!-- 1. ACCORDION -->
   <div class="accordion">
 
     <!-- About -->
@@ -563,6 +576,31 @@
     </div>
 
   </div><!-- /accordion -->
+
+  <!-- 2. CURRENT VACANCIES -->
+  <div class="vac-section">
+    <div class="vac-section-head">
+      <h2>Current Vacancies</h2>
+      <a href="index.html">View all boards &rarr;</a>
+    </div>
+    <div class="vac-grid">
+      <a class="vac-cell" href="board-ecc.html">
+        <div class="vac-cell-abbr">ECC</div>
+        <div class="vac-cell-name">Ethics &amp; Civil Rights Commission</div>
+        <span class="vac-cell-badge">4 open</span>
+      </a>
+      <a class="vac-cell" href="board-hdc.html">
+        <div class="vac-cell-abbr">HDC</div>
+        <div class="vac-cell-name">Historic District Commission</div>
+        <span class="vac-cell-badge">2 open</span>
+      </a>
+      <a class="vac-cell" href="board-dda.html">
+        <div class="vac-cell-abbr">DDA</div>
+        <div class="vac-cell-name">Downtown Development Authority</div>
+        <span class="vac-cell-badge">2 open</span>
+      </a>
+    </div>
+  </div>
 
   <!-- 3. APPLY + CLERK ROW -->
   <div class="bottom-row">
