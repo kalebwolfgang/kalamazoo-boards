@@ -282,7 +282,7 @@
     .scrollable-wrap::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 7px; /* leave scrollbar track visible */
+      bottom: 0; left: 0; right: 7px; /* leave custom track visible */
       height: 64px;
       background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.97));
       pointer-events: none;
@@ -317,17 +317,39 @@
     .scrollable-card-body .minutes-item,
     .scrollable-card-body .recording-item {
       margin: 0;
-      padding: 14px 18px;
+      padding: 14px 24px 14px 18px; /* extra right padding clears the 6px track */
       border-bottom: 1px solid var(--border-lt) !important;
       border-radius: 0;
     }
     .scrollable-card-body .minutes-item:last-child,
     .scrollable-card-body .recording-item:last-child { border-bottom: none !important; }
 
-    /* Minutes card sits in a single grid row — cap it so it doesn't balloon.
-       ~74px per item × 3.5 = 259px shows 3 full + half of 4th */
-    .scrollable-minutes { max-height: 259px; }
-    /* Recordings spans 2 grid rows — no max-height, fills the full card */
+    /* Custom always-visible scroll indicator (cross-platform, mobile-safe) */
+    .scroll-track {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 6px;
+      background: #e0dbd2;
+      border-left: 1px solid var(--border);
+      z-index: 2;
+      pointer-events: none;
+      border-radius: 0 0 4px 0;
+    }
+    .scroll-thumb {
+      position: absolute;
+      right: 0;
+      width: 6px;
+      background: #1c2333;
+      border-radius: 3px;
+      min-height: 24px;
+      transition: background 0.15s;
+    }
+    /* Hide the native scrollbar — custom one handles it */
+    .scrollable-card-body {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .scrollable-card-body::-webkit-scrollbar { display: none; }
 
     /* ── MEMBERS SECTION ── */
     .members-section { background: var(--white); border-top: 1px solid var(--border); padding: clamp(32px, 6vw, 56px) var(--pad-x) clamp(40px, 7vw, 72px); }
@@ -1137,7 +1159,7 @@ fetch('boards.json')
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-// Scroll fade indicators for minutes and recordings
+// Custom always-visible scroll indicators (works on mobile, overrides OS scrollbar)
 (function () {
   [
     { scroll: 'scroll-minutes',    wrap: 'wrap-minutes' },
@@ -1146,12 +1168,43 @@ fetch('boards.json')
     const el  = document.getElementById(scroll);
     const wEl = document.getElementById(wrap);
     if (!el || !wEl) return;
-    function check() {
-      const atEnd = el.scrollTop + el.clientHeight >= el.scrollHeight - 4;
+
+    // Build track + thumb
+    const track = document.createElement('div');
+    track.className = 'scroll-track';
+    const thumb = document.createElement('div');
+    thumb.className = 'scroll-thumb';
+    track.appendChild(thumb);
+    wEl.appendChild(track);
+
+    function update() {
+      const { scrollTop, scrollHeight, clientHeight } = el;
+      const scrollable = scrollHeight - clientHeight;
+
+      // Thumb size: proportional to visible ratio, min 24px
+      const thumbPct = clientHeight / scrollHeight;
+      const trackH   = track.offsetHeight;
+      const thumbH   = Math.max(24, Math.round(thumbPct * trackH));
+      thumb.style.height = thumbH + 'px';
+
+      // Thumb position
+      const maxThumbTop = trackH - thumbH;
+      const thumbTop    = scrollable > 0
+        ? Math.round((scrollTop / scrollable) * maxThumbTop)
+        : 0;
+      thumb.style.top = thumbTop + 'px';
+
+      // Fade gradient
+      const atEnd = scrollTop + clientHeight >= scrollHeight - 4;
       wEl.classList.toggle('at-end', atEnd);
     }
-    el.addEventListener('scroll', check, { passive: true });
-    check();
+
+    el.addEventListener('scroll', update, { passive: true });
+
+    // Re-run on resize (grid reflow changes card height)
+    new ResizeObserver(update).observe(el);
+
+    update();
   });
 })();
 
