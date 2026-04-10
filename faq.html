@@ -23,6 +23,7 @@
       --muted:      #6b7280;
       --border:     #ddd8ce;
       --border-lt:  #eee9e0;
+      --pad-x: clamp(16px, 4vw, 40px);
     }
 
     html { scroll-behavior: smooth; }
@@ -30,228 +31,184 @@
       font-family: 'IBM Plex Sans', sans-serif;
       background: var(--cream);
       color: var(--text);
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.6;
     }
 
     /* ── TOPBAR ── */
     .topbar {
       background: var(--navy-mid);
-      padding: 6px 40px;
-      font-size: 15px;
+      padding: 6px var(--pad-x);
+      font-size: 13px;
       color: rgba(255,255,255,0.5);
     }
     .topbar-inner {
-      max-width: 1100px; margin: 0 auto;
+      max-width: 1400px; margin: 0 auto;
       display: flex; justify-content: space-between; align-items: center;
     }
     .topbar a { color: rgba(255,255,255,0.5); text-decoration: none; }
     .topbar a:hover { color: var(--gold-lt); }
-    .topbar-links { display: flex; gap: 20px; }
 
     /* ── NAV ── */
     nav {
       background: var(--navy);
       border-bottom: 3px solid var(--gold);
-      position: sticky; top: 0; z-index: 100;
+      position: sticky; top: 0; z-index: 200;
     }
     .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 40px;
-      height: 60px; display: flex; align-items: center; justify-content: space-between;
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 var(--pad-x);
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px;
     }
-    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
     .nav-seal {
-      width: 36px; height: 36px; border-radius: 50%;
+      width: 32px; height: 32px; border-radius: 50%;
       background: var(--gold); display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700; color: var(--navy); letter-spacing: 0.03em;
+      font-size: 11px; font-weight: 700; color: var(--navy); flex-shrink: 0;
     }
-    .nav-title-main { color: white; font-size: 19px; font-weight: 500; display: block; line-height: 1.2; }
-    .nav-title-sub  { color: rgba(255,255,255,0.4); font-size: 15px; display: block; }
-    .nav-right { display: flex; align-items: center; gap: 24px; }
-    .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 17px; transition: color 0.15s; }
+    .nav-title-wrap { min-width: 0; }
+    .nav-title-main { color: white; font-size: 16px; font-weight: 500; display: block; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nav-title-sub  { color: rgba(255,255,255,0.4); font-size: 13px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nav-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 15px; transition: color 0.15s; white-space: nowrap; }
     .nav-link:hover { color: var(--gold-lt); }
+    @media (max-width: 600px) { .nav-link { display: none; } }
     .nav-apply {
       background: var(--gold); color: var(--navy);
-      text-decoration: none; font-weight: 600; font-size: 17px;
-      padding: 8px 18px; border-radius: 2px; transition: background 0.15s;
+      text-decoration: none; font-weight: 600; font-size: 14px;
+      padding: 7px 14px; border-radius: 2px; transition: background 0.15s; white-space: nowrap;
     }
     .nav-apply:hover { background: var(--gold-lt); }
 
     /* ── BREADCRUMB ── */
     .breadcrumb {
       background: var(--white); border-bottom: 1px solid var(--border);
-      padding: 9px 40px; font-size: 16px; color: var(--muted);
+      padding: 9px var(--pad-x); font-size: 14px; color: var(--muted);
+      overflow-x: auto; white-space: nowrap;
     }
-    .breadcrumb-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 8px; align-items: center; }
+    .breadcrumb-inner { max-width: 1400px; margin: 0 auto; display: flex; gap: 8px; align-items: center; }
     .breadcrumb a { color: var(--navy-light); text-decoration: none; }
     .breadcrumb a:hover { text-decoration: underline; }
     .bc-sep { color: var(--border); }
 
     /* ── PAGE HEADER ── */
-    .page-header { background: var(--navy); padding: 48px 40px 44px; }
-    .page-header-inner {
-      max-width: 1100px; margin: 0 auto;
-    }
+    .page-header { background: var(--navy); padding: clamp(28px, 5vw, 48px) var(--pad-x) clamp(24px, 4vw, 44px); }
+    .page-header-inner { max-width: 1400px; margin: 0 auto; }
     .page-header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 3vw, 38px); font-weight: 600;
-      color: white; line-height: 1.2; margin-bottom: 10px;
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 600; color: white; line-height: 1.2; margin-bottom: 10px;
     }
     .page-header p {
       color: rgba(255,255,255,0.5);
-      font-size: 19px; font-weight: 300; line-height: 1.7; max-width: 560px;
+      font-size: clamp(15px, 2.5vw, 18px); font-weight: 300; max-width: 560px; line-height: 1.7;
     }
 
     /* ── MAIN LAYOUT ── */
     .main-wrap {
-      max-width: 1100px; margin: 0 auto;
-      padding: 72px 40px 120px;
-      display: flex; flex-direction: column; gap: 72px;
+      max-width: 1400px; margin: 0 auto;
+      padding: clamp(28px, 5vw, 72px) var(--pad-x) clamp(48px, 8vw, 120px);
+      display: flex; flex-direction: column; gap: clamp(32px, 5vw, 72px);
     }
 
-    /* ── VACANCIES FULL WIDTH ── */
-    .vac-section { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-    .vac-section-head {
-      padding: 16px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--navy);
+    /* ── VACANCIES ── */
+    .vac-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid #dc2626;
+      border-radius: 4px; overflow: hidden;
     }
-    .vac-section-head h2 { font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: white; }
-    .vac-section-head a { font-size: 16px; color: var(--gold-lt); text-decoration: none; }
+    .vac-section-head {
+      padding: 14px clamp(16px, 3vw, 24px);
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--navy); gap: 12px;
+    }
+    .vac-section-head h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: white; }
+    .vac-section-head a { font-size: 14px; color: var(--gold-lt); text-decoration: none; white-space: nowrap; }
     .vac-section-head a:hover { text-decoration: underline; }
-    .vac-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .vac-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 640px) {
+      .vac-grid { grid-template-columns: 1fr; }
+      .vac-cell { border-right: none !important; border-bottom: 1px solid var(--border-lt); }
+      .vac-cell:last-child { border-bottom: none; }
+    }
+    @media (min-width: 641px) and (max-width: 900px) {
+      .vac-grid { grid-template-columns: 1fr 1fr; }
+      .vac-cell:nth-child(even) { border-right: none; }
+      .vac-cell:nth-child(1),
+      .vac-cell:nth-child(2) { border-bottom: 1px solid var(--border-lt); }
+    }
     .vac-cell {
       display: flex; flex-direction: column;
-      padding: 24px 22px;
+      padding: clamp(16px, 3vw, 24px) clamp(14px, 3vw, 22px);
       border-right: 1px solid var(--border-lt);
       text-decoration: none; color: inherit;
       transition: background 0.15s;
     }
     .vac-cell:last-child { border-right: none; }
     .vac-cell:hover { background: var(--cream); }
-    .vac-cell-abbr { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
-    .vac-cell-name { font-size: 15px; color: var(--muted); line-height: 1.4; margin-bottom: 12px; flex: 1; }
+    .vac-cell-abbr { font-size: clamp(18px, 3vw, 22px); font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .vac-cell-name { font-size: clamp(13px, 2vw, 15px); color: var(--muted); line-height: 1.4; margin-bottom: 12px; flex: 1; }
     .vac-cell-badge {
-      display: inline-block; font-size: 15px; font-weight: 600;
+      display: inline-block; font-size: 13px; font-weight: 600;
       padding: 3px 9px; border-radius: 10px;
       background: #fef2f2; color: #dc2626; align-self: flex-start;
     }
 
-    /* ── BOTTOM ROW: Apply + Clerk side by side ── */
-    .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    @media (max-width: 700px) { .bottom-row { grid-template-columns: 1fr; } }
-
-    /* ── RELATED PAGES FULL WIDTH ── */
-    .related-section { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-    .related-head {
-      padding: 12px 20px; background: var(--navy);
-      font-size: 15px; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: white;
-    }
-    .related-links { display: grid; grid-template-columns: repeat(5, 1fr); }
-    .related-link {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 22px 24px; border-right: 1px solid var(--border-lt);
-      text-decoration: none; color: var(--navy-light);
-      font-size: 17px; font-weight: 500;
-      transition: background 0.15s, color 0.15s;
-    }
-    .related-link:last-child { border-right: none; }
-    .related-link:hover { background: var(--cream); color: var(--navy); }
-    .related-link-arrow { color: var(--border); }
-
     /* ── ACCORDION ── */
     .accordion {
-      display: flex;
-      flex-direction: column;
       border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
+      border-left: 4px solid var(--navy);
+      border-radius: 4px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-
-    /* Each item = trigger bar + collapsible body */
-    .acc-item {
-      border-bottom: 1px solid var(--border);
-    }
+    .acc-item { border-bottom: 1px solid var(--border); }
     .acc-item:last-child { border-bottom: none; }
-
     .acc-trigger {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-      height: 72px;
-      background: var(--white);
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      transition: background 0.15s;
-      gap: 12px;
+      width: 100%; background: var(--white); border: none;
+      padding: clamp(14px, 3vw, 20px) clamp(16px, 3vw, 22px);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; font-family: 'IBM Plex Sans', sans-serif;
+      font-size: clamp(15px, 2.5vw, 17px); font-weight: 600;
+      color: var(--navy); cursor: pointer; text-align: left;
+      transition: background 0.15s, color 0.15s;
     }
     .acc-trigger:hover { background: var(--cream); }
-    .acc-trigger.active {
-      background: var(--navy);
-    }
-    .acc-trigger.active:hover { background: var(--navy-mid); }
-
-    .acc-trigger-left {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .acc-icon { font-size: 20px; flex-shrink: 0; }
-    .acc-label {
-      font-size: 17px; font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--text);
-    }
-    .acc-trigger.active .acc-label { color: white; }
-
+    .acc-trigger[aria-expanded="true"] { background: var(--cream-dk); border-bottom: 1px solid var(--border); }
+    .acc-trigger-left { display: flex; align-items: center; gap: 10px; }
+    .acc-icon { font-size: clamp(16px, 2.5vw, 20px); flex-shrink: 0; }
     .acc-meta {
-      font-size: 15px; color: var(--muted);
-      font-weight: 400; margin-left: auto;
+      font-size: clamp(12px, 2vw, 14px); color: var(--muted);
+      font-weight: 400; margin-left: auto; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
     }
-    .acc-trigger.active .acc-meta { color: rgba(255,255,255,0.45); }
-
+    @media (max-width: 480px) { .acc-meta { display: none; } }
     .acc-chevron {
-      font-size: 15px;
-      color: var(--muted);
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
+      flex-shrink: 0; transition: transform 0.22s ease; color: var(--muted);
     }
-    .acc-trigger.active .acc-chevron {
-      transform: rotate(180deg);
-      color: rgba(255,255,255,0.6);
-    }
+    .acc-trigger[aria-expanded="true"] .acc-chevron { transform: rotate(180deg); color: var(--gold); }
+    .acc-panel[hidden] { display: none; }
+    .acc-panel-inner { padding: clamp(20px, 4vw, 36px) clamp(16px, 4vw, 36px); }
 
-    /* Collapsible body */
-    .acc-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
-      background: var(--white);
-      border-top: 1px solid transparent;
-    }
-    .acc-body.open {
-      max-height: 800px;
-      border-top-color: var(--border-lt);
-    }
-    .acc-body-inner {
-      padding: 36px 36px;
-    }
-
-    /* ── PANEL CONTENT STYLES ── */
+    /* ── PANEL CONTENT ── */
 
     /* About */
-    .about-text p { font-size: 18px; color: var(--body); line-height: 1.75; margin-bottom: 12px; }
+    .about-text p { font-size: clamp(15px, 2.5vw, 18px); color: var(--body); line-height: 1.75; margin-bottom: 12px; }
     .about-text p:last-child { margin-bottom: 0; }
     .type-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
     @media (max-width: 600px) { .type-chips { grid-template-columns: 1fr; } }
     .type-chip {
-      padding: 14px 16px; border-radius: 3px;
-      border: 1px solid var(--border); font-size: 17px; color: var(--body); line-height: 1.6;
+      padding: clamp(12px, 2.5vw, 14px) clamp(12px, 2.5vw, 16px);
+      border-radius: 3px; border: 1px solid var(--border);
+      font-size: clamp(14px, 2.5vw, 17px); color: var(--body); line-height: 1.6;
     }
     .type-chip strong {
-      display: block; font-size: 14px; font-weight: 700;
+      display: block; font-size: clamp(11px, 1.8vw, 13px); font-weight: 700;
       letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 5px;
     }
     .type-chip.advisory { border-left: 3px solid #1d4ed8; }
@@ -260,48 +217,38 @@
     .type-chip.quasi strong    { color: #92400e; }
 
     /* Eligibility */
-    .elig-table { width: 100%; border-collapse: collapse; font-size: 17px; }
+    .elig-table { width: 100%; border-collapse: collapse; font-size: clamp(14px, 2.5vw, 17px); }
     .elig-table tr { border-bottom: 1px solid var(--border-lt); }
     .elig-table tr:last-child { border-bottom: none; }
     .elig-table td { padding: 11px 12px; vertical-align: top; line-height: 1.65; }
     .elig-table td:first-child {
-      font-size: 15px; font-weight: 600; color: var(--navy-light);
-      white-space: nowrap; width: 130px; padding-right: 20px;
+      font-size: clamp(12px, 2vw, 14px); font-weight: 600; color: var(--navy-light);
+      white-space: nowrap; padding-right: 16px;
     }
     .elig-table td:last-child { color: var(--body); }
+    /* Stack on very small screens */
+    @media (max-width: 480px) {
+      .elig-table, .elig-table tbody, .elig-table tr, .elig-table td { display: block; width: 100%; }
+      .elig-table td:first-child { padding-bottom: 2px; padding-right: 12px; }
+      .elig-table td:last-child  { padding-top: 0; }
+      .elig-table tr { padding: 10px 0; }
+    }
 
     /* Commitment */
     .commit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 600px) { .commit-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .commit-grid { grid-template-columns: 1fr; } }
     .cg {
       display: flex; gap: 14px; align-items: flex-start;
-      padding: 16px; background: var(--cream); border-radius: 3px;
-      border: 1px solid var(--border);
+      padding: clamp(12px, 2.5vw, 16px); background: var(--cream);
+      border-radius: 3px; border: 1px solid var(--border);
     }
     .cg-n {
       font-family: 'Playfair Display', serif;
-      font-size: 35px; font-weight: 600; color: var(--navy);
-      min-width: 56px; line-height: 1; flex-shrink: 0;
+      font-size: clamp(26px, 5vw, 35px); font-weight: 600; color: var(--navy);
+      min-width: 52px; line-height: 1; flex-shrink: 0;
     }
-    .cg h4 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-    .cg p  { font-size: 16px; color: var(--muted); line-height: 1.55; }
-
-    /* Browse by area */
-    .area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    @media (max-width: 680px) { .area-grid { grid-template-columns: 1fr 1fr; } }
-    .area-card {
-      background: var(--cream); border: 1px solid var(--border);
-      padding: 14px; border-radius: 2px; text-decoration: none; color: inherit;
-      display: flex; flex-direction: column; gap: 8px;
-      transition: border-color 0.15s, background 0.15s;
-    }
-    .area-card:hover { border-color: var(--navy-light); background: var(--cream-dk); }
-    .area-card-top { display: flex; align-items: center; gap: 8px; }
-    .area-card-icon { font-size: 21px; }
-    .area-card-name { font-size: 17px; font-weight: 600; color: var(--text); line-height: 1.3; }
-    .area-card-meta { display: flex; justify-content: space-between; font-size: 15px; color: var(--muted); }
-    .area-card-vac { font-weight: 600; color: #dc2626; }
-    .area-all { margin-top: 12px; text-align: center; font-size: 17px; color: var(--navy-light); text-decoration: underline; }
+    .cg h4 { font-size: clamp(14px, 2.5vw, 17px); font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .cg p  { font-size: clamp(13px, 2vw, 16px); color: var(--muted); line-height: 1.55; }
 
     /* How to apply */
     .steps { display: flex; flex-direction: column; }
@@ -313,94 +260,62 @@
     .step:last-child { border-bottom: none; }
     .step-n {
       width: 28px; height: 28px; border-radius: 50%;
-      background: var(--navy); color: white; font-size: 16px; font-weight: 600;
+      background: var(--navy); color: white; font-size: 14px; font-weight: 600;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .step h4 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-    .step p  { font-size: 17px; color: var(--muted); line-height: 1.6; }
+    .step h4 { font-size: clamp(14px, 2.5vw, 17px); font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .step p  { font-size: clamp(14px, 2.5vw, 17px); color: var(--muted); line-height: 1.6; }
     .step-note {
       display: inline-block; margin-top: 5px;
-      font-size: 15px; color: var(--gold); background: #fdf3e0;
+      font-size: 13px; color: var(--gold); background: #fdf3e0;
       padding: 2px 8px; border-radius: 2px;
     }
 
-    /* ── SIDEBAR ── */
-    .sidebar { display: flex; flex-direction: column; gap: 18px; }
-    .sc { background: var(--white); border: 1px solid var(--border); overflow: hidden; border-radius: 2px; }
+    /* ── BOTTOM ROW ── */
+    .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .bottom-row { grid-template-columns: 1fr; } }
+
+    .sc {
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 4px solid #475569;
+      overflow: hidden; border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .sc.apply-sc { border-left-color: var(--gold); }
     .sc-head {
-      padding: 11px 16px;
-      font-size: 15px; font-weight: 600; letter-spacing: 0.08em;
+      padding: 11px clamp(14px, 3vw, 18px);
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
       text-transform: uppercase; color: white; background: var(--navy);
     }
-    .sc-body { padding: 24px; }
-
     .apply-sc .sc-head { background: var(--gold); color: var(--navy); }
-    .apply-sc .sc-body p { font-size: 17px; color: var(--body); line-height: 1.65; margin-bottom: 14px; }
+    .sc-body { padding: clamp(16px, 3vw, 24px); }
+
+    .apply-sc .sc-body p { font-size: clamp(14px, 2.5vw, 17px); color: var(--body); line-height: 1.65; margin-bottom: 14px; }
     .btn-sb {
       display: block; width: 100%;
       background: var(--navy); color: white;
       text-decoration: none; text-align: center;
-      font-size: 17px; font-weight: 600;
+      font-size: clamp(14px, 2.5vw, 17px); font-weight: 600;
       padding: 10px 0; border-radius: 2px; transition: background 0.15s;
     }
     .btn-sb:hover { background: var(--navy-mid); }
 
-    .vac-list { display: flex; flex-direction: column; gap: 6px; }
-    .vac-item {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 8px 10px; background: var(--cream); border-radius: 2px;
-      text-decoration: none; color: inherit; font-size: 16px;
-      border: 1px solid var(--border-lt); transition: border-color 0.15s;
-    }
-    .vac-item:hover { border-color: var(--navy-light); }
-    .vac-item-name { font-weight: 500; color: var(--text); }
-    .vac-badge { font-size: 14px; font-weight: 600; padding: 2px 7px; border-radius: 10px; background: #fef2f2; color: #dc2626; }
-    .vac-more {
-      font-size: 16px; color: var(--navy-light); text-align: center;
-      padding: 8px 0; border-top: 1px solid var(--border-lt);
-      margin-top: 6px; display: block; text-decoration: none;
-    }
-    .vac-more:hover { text-decoration: underline; }
-
-    .cr-row { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--border-lt); font-size: 17px; }
+    .cr-row { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--border-lt); font-size: clamp(14px, 2.5vw, 17px); }
     .cr-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .cr-row-icon { font-size: 19px; flex-shrink: 0; margin-top: 1px; }
+    .cr-row-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
     .cr-row-body { color: var(--body); line-height: 1.5; }
-    .cr-row-lbl  { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+    .cr-row-lbl  { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
     .cr-row-body a { color: var(--navy-light); text-decoration: none; }
     .cr-row-body a:hover { text-decoration: underline; }
 
-    .ul-links { list-style: none; }
-    .ul-links li a {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 9px 0; border-bottom: 1px solid var(--border-lt);
-      color: var(--navy-light); text-decoration: none; font-size: 17px;
-    }
-    .ul-links li:last-child a { border-bottom: none; }
-    .ul-links li a:hover { color: var(--navy); }
-    .ul-arrow { color: var(--border); }
-
     /* ── FOOTER ── */
-    footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 32px 40px; text-align: center; font-size: 16px; color: rgba(255,255,255,0.4); }
+    footer {
+      background: var(--navy-mid); border-top: 3px solid var(--gold);
+      padding: 24px var(--pad-x); text-align: center;
+      font-size: 14px; color: rgba(255,255,255,0.4);
+    }
     footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
     footer a:hover { color: var(--gold-lt); }
-    .fc h4 { font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .fc p, .fc a { font-size: 16px; color: rgba(255,255,255,0.4); line-height: 1.8; text-decoration: none; display: block; }
-    .fc a:hover { color: var(--gold-lt); }
-    .footer-bottom {
-      max-width: 1100px; margin: 20px auto 0; padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 15px; color: rgba(255,255,255,0.2);
-      display: flex; justify-content: space-between;
-    }
-    .footer-bottom a { color: rgba(255,255,255,0.25); text-decoration: none; }
-
-    /* ── SECTION ACCENTS ── */
-    .vac-section    { border-left: 4px solid #dc2626; }
-    .accordion      { border-left: 4px solid var(--navy); }
-    .bottom-row .sc.apply-sc { border-left: 4px solid var(--gold); }
-    .bottom-row .sc:not(.apply-sc) { border-left: 4px solid #475569; }
-    .related-section { border-left: 4px solid #64748b; }
   </style>
 </head>
 <body>
@@ -417,7 +332,7 @@
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
       <div class="nav-seal">CoK</div>
-      <div>
+      <div class="nav-title-wrap">
         <span class="nav-title-main">City of Kalamazoo</span>
         <span class="nav-title-sub">Boards &amp; Commissions</span>
       </div>
@@ -442,10 +357,8 @@
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
-    <div>
-      <h1>Frequently Asked Questions</h1>
-      <p>Common questions about Kalamazoo's boards and commissions — what they are, who can serve, and how to apply.</p>
-    </div>
+    <h1>Frequently Asked Questions</h1>
+    <p>Common questions about Kalamazoo's boards and commissions — what they are, who can serve, and how to apply.</p>
   </div>
 </div>
 
@@ -480,176 +393,176 @@
   <!-- 2. ACCORDION -->
   <div class="accordion">
 
-      <!-- 1. About -->
-      <div class="acc-item">
-        <button class="acc-trigger" data-target="about">
-          <div class="acc-trigger-left">
-            <span class="acc-icon">📋</span>
-            <span class="acc-label">About Boards &amp; Commissions</span>
-          </div>
-          <span class="acc-meta">What they are &amp; what they do</span>
-          <span class="acc-chevron">▼</span>
-        </button>
-        <div class="acc-body" id="about">
-          <div class="acc-body-inner">
-            <div class="about-text">
-              <p>Boards and commissions are citizen bodies created by the City Commission to assist in the administration of city government. Members are Kalamazoo residents appointed to serve on a volunteer basis.</p>
-              <p>Membership requirements, term lengths, and appointment authority vary by board. All appointments are made by the Mayor or City Commission. Interested residents may apply online or contact the City Clerk's Office.</p>
-            </div>
-            <div class="type-chips">
-              <div class="type-chip advisory">
-                <strong>Advisory Boards</strong>
-                Most boards make formal recommendations to the City Commission or City Manager. The Commission retains final decision-making authority.
-              </div>
-              <div class="type-chip quasi">
-                <strong>Quasi-Judicial Boards</strong>
-                Some boards — including the Zoning Board of Appeals and Building Board of Appeals — make binding decisions on appeals and variances.
-              </div>
-            </div>
-          </div>
+    <!-- About -->
+    <div class="acc-item">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-trigger-left">
+          <span class="acc-icon">📋</span>
+          <span>About Boards &amp; Commissions</span>
         </div>
-      </div>
-
-      <!-- 2. Eligibility -->
-      <div class="acc-item">
-        <button class="acc-trigger" data-target="eligibility">
-          <div class="acc-trigger-left">
-            <span class="acc-icon">✅</span>
-            <span class="acc-label">Member Eligibility</span>
+        <span class="acc-meta">What they are &amp; what they do</span>
+        <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-panel-inner">
+          <div class="about-text">
+            <p>Boards and commissions are citizen bodies created by the City Commission to assist in the administration of city government. Members are Kalamazoo residents appointed to serve on a volunteer basis.</p>
+            <p>Membership requirements, term lengths, and appointment authority vary by board. All appointments are made by the Mayor or City Commission. Interested residents may apply online or contact the City Clerk's Office.</p>
           </div>
-          <span class="acc-meta">Residency, qualifications &amp; term limits</span>
-          <span class="acc-chevron">▼</span>
-        </button>
-        <div class="acc-body" id="eligibility">
-          <div class="acc-body-inner">
-            <table class="elig-table">
-              <tr>
-                <td>Residency</td>
-                <td>Most boards require City of Kalamazoo residency. Some permit non-residents where specific expertise is needed. Requirements are listed on each board's page.</td>
-              </tr>
-              <tr>
-                <td>Expertise</td>
-                <td>No professional credentials are required for most boards. Several boards seek members with both subject matter expertise and lived community experience.</td>
-              </tr>
-              <tr>
-                <td>Conflicts</td>
-                <td>Members must disclose conflicts on individual agenda items. Certain boards have specific disqualifying conditions listed in their bylaws.</td>
-              </tr>
-              <tr>
-                <td>Term Limits</td>
-                <td>Most boards allow up to two consecutive terms. Members who complete two terms are typically eligible to reapply after a waiting period of one to three years.</td>
-              </tr>
-              <tr>
-                <td>Compensation</td>
-                <td>Board and commission members serve on a volunteer basis and receive no compensation.</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. Time Commitment -->
-      <div class="acc-item">
-        <button class="acc-trigger" data-target="commitment">
-          <div class="acc-trigger-left">
-            <span class="acc-icon">📅</span>
-            <span class="acc-label">Time Commitment</span>
-          </div>
-          <span class="acc-meta">Meeting frequency, length &amp; format</span>
-          <span class="acc-chevron">▼</span>
-        </button>
-        <div class="acc-body" id="commitment">
-          <div class="acc-body-inner">
-            <div class="commit-grid">
-              <div class="cg">
-                <div class="cg-n">1×</div>
-                <div>
-                  <h4>Meeting frequency</h4>
-                  <p>Most boards meet once per month. Some meet quarterly. Specific schedules are on each board's page.</p>
-                </div>
-              </div>
-              <div class="cg">
-                <div class="cg-n">1–2h</div>
-                <div>
-                  <h4>Typical meeting length</h4>
-                  <p>Most regular meetings run one to two hours. Hearings may run longer depending on the agenda.</p>
-                </div>
-              </div>
-              <div class="cg">
-                <div class="cg-n">3 yr</div>
-                <div>
-                  <h4>Standard term length</h4>
-                  <p>Most appointments are for three-year terms. Partial terms are sometimes available mid-cycle.</p>
-                </div>
-              </div>
-              <div class="cg">
-                <div class="cg-n">↔</div>
-                <div>
-                  <h4>Meeting format</h4>
-                  <p>Most meetings are in person at City Hall. Some boards permit remote participation. Format is noted on each board's page.</p>
-                </div>
-              </div>
+          <div class="type-chips">
+            <div class="type-chip advisory">
+              <strong>Advisory Boards</strong>
+              Most boards make formal recommendations to the City Commission or City Manager. The Commission retains final decision-making authority.
+            </div>
+            <div class="type-chip quasi">
+              <strong>Quasi-Judicial Boards</strong>
+              Some boards — including the Zoning Board of Appeals and Building Board of Appeals — make binding decisions on appeals and variances.
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- 4. How to Apply -->
-      <div class="acc-item">
-        <button class="acc-trigger" data-target="apply">
-          <div class="acc-trigger-left">
-            <span class="acc-icon">📝</span>
-            <span class="acc-label">How to Apply</span>
-          </div>
-          <span class="acc-meta">Application &amp; appointment process</span>
-          <span class="acc-chevron">▼</span>
-        </button>
-        <div class="acc-body" id="apply">
-          <div class="acc-body-inner">
-            <div class="steps">
-              <div class="step">
-                <div class="step-n">1</div>
-                <div>
-                  <h4>Review open boards</h4>
-                  <p>Use the board directory to find boards with current vacancies or upcoming term expirations. Each board page lists availability, residency requirements, and meeting details.</p>
-                </div>
+    <!-- Eligibility -->
+    <div class="acc-item">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-trigger-left">
+          <span class="acc-icon">✅</span>
+          <span>Member Eligibility</span>
+        </div>
+        <span class="acc-meta">Residency, qualifications &amp; term limits</span>
+        <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-panel-inner">
+          <table class="elig-table">
+            <tr>
+              <td>Residency</td>
+              <td>Most boards require City of Kalamazoo residency. Some permit non-residents where specific expertise is needed. Requirements are listed on each board's page.</td>
+            </tr>
+            <tr>
+              <td>Expertise</td>
+              <td>No professional credentials are required for most boards. Several boards seek members with both subject matter expertise and lived community experience.</td>
+            </tr>
+            <tr>
+              <td>Conflicts</td>
+              <td>Members must disclose conflicts on individual agenda items. Certain boards have specific disqualifying conditions listed in their bylaws.</td>
+            </tr>
+            <tr>
+              <td>Term Limits</td>
+              <td>Most boards allow up to two consecutive terms. Members who complete two terms are typically eligible to reapply after a waiting period of one to three years.</td>
+            </tr>
+            <tr>
+              <td>Compensation</td>
+              <td>Board and commission members serve on a volunteer basis and receive no compensation.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Time Commitment -->
+    <div class="acc-item">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-trigger-left">
+          <span class="acc-icon">📅</span>
+          <span>Time Commitment</span>
+        </div>
+        <span class="acc-meta">Meeting frequency, length &amp; format</span>
+        <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-panel-inner">
+          <div class="commit-grid">
+            <div class="cg">
+              <div class="cg-n">1×</div>
+              <div>
+                <h4>Meeting frequency</h4>
+                <p>Most boards meet once per month. Some meet quarterly. Specific schedules are on each board's page.</p>
               </div>
-              <div class="step">
-                <div class="step-n">2</div>
-                <div>
-                  <h4>Submit an application</h4>
-                  <p>Applications are submitted online through the City Clerk's Office. You may indicate interest in multiple boards on a single application.</p>
-                  <span class="step-note">Applications are kept on file for any matching vacancy</span>
-                </div>
+            </div>
+            <div class="cg">
+              <div class="cg-n">1–2h</div>
+              <div>
+                <h4>Typical meeting length</h4>
+                <p>Most regular meetings run one to two hours. Hearings may run longer depending on the agenda.</p>
               </div>
-              <div class="step">
-                <div class="step-n">3</div>
-                <div>
-                  <h4>Clerk's Office review</h4>
-                  <p>Staff review applications for eligibility and forward qualified applications to the Mayor's office or, for some boards, directly to the City Manager.</p>
-                </div>
+            </div>
+            <div class="cg">
+              <div class="cg-n">3 yr</div>
+              <div>
+                <h4>Standard term length</h4>
+                <p>Most appointments are for three-year terms. Partial terms are sometimes available mid-cycle.</p>
               </div>
-              <div class="step">
-                <div class="step-n">4</div>
-                <div>
-                  <h4>Mayor's recommendation &amp; Commission vote</h4>
-                  <p>The Mayor recommends a candidate and the City Commission votes at a public meeting, which is open to attend.</p>
-                  <span class="step-note">If appointed, your name is read at the meeting</span>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-n">5</div>
-                <div>
-                  <h4>Notification &amp; onboarding</h4>
-                  <p>Appointed members are contacted by the Clerk's Office and connected with their board's staff liaison for scheduling and orientation materials.</p>
-                </div>
+            </div>
+            <div class="cg">
+              <div class="cg-n">↔</div>
+              <div>
+                <h4>Meeting format</h4>
+                <p>Most meetings are in person at City Hall. Some boards permit remote participation. Format is noted on each board's page.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-    </div><!-- /accordion -->
+    <!-- How to Apply -->
+    <div class="acc-item">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-trigger-left">
+          <span class="acc-icon">📝</span>
+          <span>How to Apply</span>
+        </div>
+        <span class="acc-meta">Application &amp; appointment process</span>
+        <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-panel-inner">
+          <div class="steps">
+            <div class="step">
+              <div class="step-n">1</div>
+              <div>
+                <h4>Review open boards</h4>
+                <p>Use the board directory to find boards with current vacancies or upcoming term expirations. Each board page lists availability, residency requirements, and meeting details.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-n">2</div>
+              <div>
+                <h4>Submit an application</h4>
+                <p>Applications are submitted online through the City Clerk's Office. You may indicate interest in multiple boards on a single application.</p>
+                <span class="step-note">Applications are kept on file for any matching vacancy</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-n">3</div>
+              <div>
+                <h4>Clerk's Office review</h4>
+                <p>Staff review applications for eligibility and forward qualified applications to the Mayor's office or, for some boards, directly to the City Manager.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-n">4</div>
+              <div>
+                <h4>Mayor's recommendation &amp; Commission vote</h4>
+                <p>The Mayor recommends a candidate and the City Commission votes at a public meeting, which is open to attend.</p>
+                <span class="step-note">If appointed, your name is read at the meeting</span>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-n">5</div>
+              <div>
+                <h4>Notification &amp; onboarding</h4>
+                <p>Appointed members are contacted by the Clerk's Office and connected with their board's staff liaison for scheduling and orientation materials.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /accordion -->
 
   <!-- 3. APPLY + CLERK ROW -->
   <div class="bottom-row">
@@ -688,7 +601,6 @@
     </div>
   </div>
 
-
 </div>
 
 <!-- FOOTER -->
@@ -700,15 +612,11 @@
 </footer>
 
 <script>
-  document.querySelectorAll('.acc-trigger').forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const body = document.getElementById(trigger.dataset.target);
-      const isOpen = body.classList.contains('open');
-
-      // toggle just this panel independently
-      body.classList.toggle('open');
-      trigger.classList.toggle('active');
-      trigger.querySelector('.acc-chevron').textContent = isOpen ? '▼' : '▲';
+  document.querySelectorAll('.acc-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.nextElementSibling.hidden = expanded;
     });
   });
 </script>
