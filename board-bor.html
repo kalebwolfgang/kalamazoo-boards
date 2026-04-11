@@ -271,32 +271,30 @@
 
     .members-table-wrap {
       overflow-x: auto; -webkit-overflow-scrolling: touch;
-      touch-action: pan-x;
       scrollbar-width: none; -ms-overflow-style: none;
     }
     .members-table-wrap::-webkit-scrollbar { display: none; }
 
-    .members-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    .members-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 560px; }
     .members-table thead { background: var(--navy); }
     .members-table th { padding: 12px 16px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.05em; text-align: left; white-space: nowrap; }
     .members-table th:first-child { width: 44px; text-align: center; }
-    .members-table td { padding: 14px 16px; font-size: 15px; border-bottom: 1px solid var(--border-lt); vertical-align: middle; color: var(--body); }
+    .members-table td { padding: 14px 16px; font-size: 15px; border-bottom: 1px solid var(--border-lt); vertical-align: middle; color: var(--body); background: var(--white); }
     .members-table tr:last-child td { border-bottom: none; }
     .members-table tbody tr:hover td { background: var(--cream); }
 
-    /* Sticky dot + name columns */
+    /* Sticky dot + name columns — border-separate required for sticky to work on mobile */
     .members-table th:first-child,
     .members-table td:first-child { position: sticky; left: 0; z-index: 3; }
     .members-table th:nth-child(2),
     .members-table td:nth-child(2) { position: sticky; left: 44px; z-index: 3; }
     .members-table thead th:first-child,
     .members-table thead th:nth-child(2) { background: var(--navy); }
-    .members-table tbody td:first-child,
-    .members-table tbody td:nth-child(2) { background: var(--white); }
     .members-table tbody tr:hover td:first-child,
     .members-table tbody tr:hover td:nth-child(2) { background: var(--cream); }
+    /* Shadow on name column shows content scrolling behind it */
     .members-table td:nth-child(2),
-    .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.08); }
+    .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.1); }
 
     .member-dot { width: 16px; height: 16px; border-radius: 50%; display: inline-block; }
     .member-dot.red    { background: #dc2626; }
