@@ -370,65 +370,53 @@
     /* Text hint removed — replaced by visual affordances */
     .table-scroll-hint { display: none !important; }
 
-    /* Outer wrapper holds the fade overlays */
-    .members-table-outer { position: relative; margin-bottom: 8px; }
+    /* Outer wrapper */
+    .members-table-outer { position: relative; }
 
-    /* Bidirectional fade overlays — injected via JS */
-    .h-fade {
-      position: absolute; top: 0; bottom: 0; width: 80px;
-      pointer-events: none; z-index: 4;
-      transition: opacity 0.2s;
-    }
-    .h-fade-left  { left: 0;  background: linear-gradient(to right, rgba(255,255,255,0.97), transparent); opacity: 0; }
-    .h-fade-right { right: 0; background: linear-gradient(to left,  rgba(255,255,255,0.97), transparent); }
-    .h-fade-left.visible  { opacity: 1; }
-    .h-fade-right.hidden  { opacity: 0; }
-
-    /* Horizontal scroll track — injected via JS, sits below the table */
+    /* Horizontal scroll track — injected via JS, sits ABOVE the table */
     .h-scroll-track {
       height: 6px; background: #e0dbd2;
       border: 1px solid var(--border); border-radius: 3px;
-      position: relative; margin-top: 6px;
+      position: relative; margin-bottom: 8px;
     }
     .h-scroll-thumb {
       position: absolute; top: 0; height: 6px;
       background: #1c2333; border-radius: 3px;
-      min-width: 32px; transition: background 0.15s;
+      min-width: 32px;
     }
-    /* Hide track on desktop where table fits without scrolling */
     @media (min-width: 900px) {
       .h-scroll-track { display: none; }
-      .h-fade { display: none; }
     }
 
-    .members-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+    .members-table-wrap {
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: none;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
     .members-table-wrap::-webkit-scrollbar { display: none; }
 
-    .members-table { width: 100%; border-collapse: collapse; min-width: 580px; }
+    .members-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 580px; }
     .members-table thead { background: var(--navy); }
     .members-table th { padding: 12px 16px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.05em; text-align: left; white-space: nowrap; }
     .members-table th:first-child { width: 44px; text-align: center; }
-    .members-table td { padding: 14px 16px; font-size: 15px; border-bottom: 1px solid var(--border-lt); vertical-align: middle; color: var(--body); }
+    .members-table td { padding: 14px 16px; font-size: 15px; border-bottom: 1px solid var(--border-lt); vertical-align: middle; color: var(--body); background: var(--white); }
     .members-table tr:last-child td { border-bottom: none; }
-    .members-table tbody tr:hover td { background: var(--cream); }
+    @media (hover: hover) {
+      .members-table tbody tr:hover td { background: var(--cream); }
+      .members-table tbody tr:hover td:first-child,
+      .members-table tbody tr:hover td:nth-child(2) { background: var(--cream); }
+    }
 
-    /* Sticky dot + name columns */
+    /* Sticky dot + name columns — border-separate required for sticky to work on mobile */
     .members-table th:first-child,
     .members-table td:first-child { position: sticky; left: 0; z-index: 3; }
     .members-table th:nth-child(2),
     .members-table td:nth-child(2) { position: sticky; left: 44px; z-index: 3; }
-    /* Explicit backgrounds so content doesn't show through */
     .members-table thead th:first-child,
     .members-table thead th:nth-child(2) { background: var(--navy); }
-    .members-table tbody td:first-child,
-    .members-table tbody td:nth-child(2) { background: var(--white); }
-    .members-table tbody tr:hover td:first-child,
-    .members-table tbody tr:hover td:nth-child(2) { background: var(--cream); }
-    /* Subtle right shadow on name column to show content scrolling behind */
+    /* Shadow on name column shows content scrolling behind it */
     .members-table td:nth-child(2),
-    .members-table th:nth-child(2) {
-      box-shadow: 4px 0 8px -2px rgba(0,0,0,0.08);
-    }
+    .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.08); }
 
     .member-dot { width: 16px; height: 16px; border-radius: 50%; display: inline-block; }
     .member-dot.red    { background: #dc2626; }
@@ -1265,53 +1253,73 @@ fetch('boards.json')
   });
 })();
 
-// Horizontal scroll system for members table
-// Injects: left fade, right fade, horizontal track+thumb. Sticky columns handle the rest.
+// Horizontal scroll track for members table
 (function () {
   const wrap  = document.getElementById('members-table-wrap');
   const outer = document.getElementById('members-table-outer');
   if (!wrap || !outer) return;
 
-  // Inject fade overlays into outer
-  const fadeL = document.createElement('div');
-  fadeL.className = 'h-fade h-fade-left';
-  const fadeR = document.createElement('div');
-  fadeR.className = 'h-fade h-fade-right';
-  outer.appendChild(fadeL);
-  outer.appendChild(fadeR);
-
-  // Inject horizontal track + thumb after outer
+  // Inject track BEFORE the outer wrapper so it appears above the table
   const track = document.createElement('div');
   track.className = 'h-scroll-track';
   const thumb = document.createElement('div');
   thumb.className = 'h-scroll-thumb';
   track.appendChild(thumb);
-  outer.after(track);
+  outer.before(track);
 
   function update() {
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
     const maxScroll = scrollWidth - clientWidth;
 
-    // Fades
-    fadeL.classList.toggle('visible', scrollLeft > 4);
-    fadeR.classList.toggle('hidden',  scrollLeft >= maxScroll - 4);
+    // Clamp
+    if (scrollLeft < 0) { wrap.scrollLeft = 0; return; }
+    if (scrollLeft > maxScroll) { wrap.scrollLeft = maxScroll; return; }
 
-    // Thumb size: proportional, min 32px
-    const thumbPct  = clientWidth / scrollWidth;
-    const trackW    = track.offsetWidth;
-    const thumbW    = Math.max(32, Math.round(thumbPct * trackW));
+    const thumbPct = clientWidth / scrollWidth;
+    const trackW   = track.offsetWidth;
+    const thumbW   = Math.max(32, Math.round(thumbPct * trackW));
     thumb.style.width = thumbW + 'px';
-
-    // Thumb position
-    const maxThumbLeft = trackW - thumbW;
-    thumb.style.left   = maxScroll > 0
-      ? Math.round((scrollLeft / maxScroll) * maxThumbLeft) + 'px'
+    thumb.style.left  = maxScroll > 0
+      ? Math.round((scrollLeft / maxScroll) * (trackW - thumbW)) + 'px'
       : '0px';
   }
 
   wrap.addEventListener('scroll', update, { passive: true });
   new ResizeObserver(update).observe(wrap);
   update();
+})();
+
+// Prevent rubber-band overscroll at horizontal boundaries (older iOS Safari fallback)
+(function () {
+  const wrap = document.getElementById('members-table-wrap');
+  if (!wrap) return;
+
+  let startX = 0, startY = 0, isHorizontal = null;
+
+  wrap.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isHorizontal = null;
+  }, { passive: true });
+
+  wrap.addEventListener('touchmove', e => {
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
+
+    if (isHorizontal === null && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
+      isHorizontal = Math.abs(dx) > Math.abs(dy);
+    }
+
+    if (!isHorizontal) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = wrap;
+    const atLeft  = scrollLeft <= 0;
+    const atRight = scrollLeft >= scrollWidth - clientWidth - 1;
+
+    if ((atLeft && dx > 0) || (atRight && dx < 0)) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 })();
 
 document.querySelectorAll('.acc-trigger').forEach(btn => {
