@@ -248,22 +248,41 @@
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
 
-    .table-scroll-hint {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 12px; color: var(--muted); margin-bottom: 8px;
-      transition: opacity 0.3s;
-    }
-    .table-scroll-hint.hidden { opacity: 0; pointer-events: none; }
-    @media (min-width: 900px) { .table-scroll-hint { display: none; } }
+    /* Text hint removed — replaced by visual affordances */
+    .table-scroll-hint { display: none !important; }
 
-    .members-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; position: relative; }
-    .members-table-wrap::after {
-      content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 48px;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.92));
-      pointer-events: none; transition: opacity 0.3s;
+    /* Outer wrapper holds the fade overlays */
+    .members-table-outer { position: relative; margin-bottom: 8px; }
+
+    /* Bidirectional fade overlays — injected via JS */
+    .h-fade {
+      position: absolute; top: 0; bottom: 0; width: 80px;
+      pointer-events: none; z-index: 4;
+      transition: opacity 0.2s;
     }
-    .members-table-wrap.scrolled-end::after { opacity: 0; }
-    @media (min-width: 900px) { .members-table-wrap::after { display: none; } }
+    .h-fade-left  { left: 0;  background: linear-gradient(to right, rgba(255,255,255,0.97), transparent); opacity: 0; }
+    .h-fade-right { right: 0; background: linear-gradient(to left,  rgba(255,255,255,0.97), transparent); }
+    .h-fade-left.visible  { opacity: 1; }
+    .h-fade-right.hidden  { opacity: 0; }
+
+    /* Horizontal scroll track — injected via JS, sits below the table */
+    .h-scroll-track {
+      height: 6px; background: #e0dbd2;
+      border: 1px solid var(--border); border-radius: 3px;
+      position: relative; margin-top: 6px;
+    }
+    .h-scroll-thumb {
+      position: absolute; top: 0; height: 6px;
+      background: #1c2333; border-radius: 3px;
+      min-width: 32px; transition: background 0.15s;
+    }
+    @media (min-width: 900px) {
+      .h-scroll-track { display: none; }
+      .h-fade { display: none; }
+    }
+
+    .members-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+    .members-table-wrap::-webkit-scrollbar { display: none; }
 
     .members-table { width: 100%; border-collapse: collapse; min-width: 560px; }
     .members-table thead { background: var(--navy); }
@@ -272,6 +291,21 @@
     .members-table td { padding: 14px 16px; font-size: 15px; border-bottom: 1px solid var(--border-lt); vertical-align: middle; color: var(--body); }
     .members-table tr:last-child td { border-bottom: none; }
     .members-table tbody tr:hover td { background: var(--cream); }
+
+    /* Sticky dot + name columns */
+    .members-table th:first-child,
+    .members-table td:first-child { position: sticky; left: 0; z-index: 3; }
+    .members-table th:nth-child(2),
+    .members-table td:nth-child(2) { position: sticky; left: 44px; z-index: 3; }
+    .members-table thead th:first-child,
+    .members-table thead th:nth-child(2) { background: var(--navy); }
+    .members-table tbody td:first-child,
+    .members-table tbody td:nth-child(2) { background: var(--white); }
+    .members-table tbody tr:hover td:first-child,
+    .members-table tbody tr:hover td:nth-child(2) { background: var(--cream); }
+    .members-table td:nth-child(2),
+    .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.08); }
+
     .member-dot { width: 16px; height: 16px; border-radius: 50%; display: inline-block; }
     .member-dot.red    { background: #dc2626; }
     .member-dot.yellow { background: #d97706; }
@@ -495,11 +529,11 @@
             <p><strong>Written Protests</strong> are accepted from both residents and non-residents. Submit a signed letter with a completed <a href="https://www.michigan.gov/-/media/Project/Websites/treasury/Forms/Local-Government/0618.pdf?rev=ac8af909553e4a069be611a601710830" target="_blank" rel="noopener">Form L-4035</a> and any supporting documents via:</p>
             <ul>
               <li><strong>Mail:</strong> City Assessor, 241 West South St, Kalamazoo, MI 49007</li>
-              <li><strong>Email:</strong> <a href="mailto:cokassessor@kalamazoocity.org">cokassessor@kalamazoocity.org</a></li>
+              <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#4a2925212b39392f393925380a212b262b272b30252529233e336425382d"><span class="__cf_email__" data-cfemail="40232f2b2133332533332f32002b212c212d213a2f2f232934396e2f3227">[email&#160;protected]</span></a></li>
               <li><strong>Drop Box:</strong> 24-hour drop box at Kalamazoo City Hall</li>
             </ul>
             <p>Written appeals must be received by the City Assessor no later than 12:00 PM on the final session date. Postmarks are not acceptable. If representing a property owner, written authorization must be provided.</p>
-            <p><strong>Accommodations:</strong> Persons with disabilities should contact the City Assessor's office at <a href="mailto:cokassessor@kalamazoocity.org">cokassessor@kalamazoocity.org</a> or <a href="tel:+12693378636">(269) 337-8636</a> by 4:00 PM the day prior to the meeting.</p>
+            <p><strong>Accommodations:</strong> Persons with disabilities should contact the City Assessor's office at <a href="/cdn-cgi/l/email-protection#4c2f23272d3f3f293f3f233e0c272d202d212d3623232f25383562233e2b"><span class="__cf_email__" data-cfemail="e5868a8e8496968096968a97a58e84898488849f8a8a868c919ccb8a9782">[email&#160;protected]</span></a> or <a href="tel:+12693378636">(269) 337-8636</a> by 4:00 PM the day prior to the meeting.</p>
             <p><strong>Minutes &amp; Agendas:</strong> Meeting records are published on the City's <a href="https://kalamazoomi.portal.civicclerk.com/" target="_blank" rel="noopener">Civic Clerk portal</a>.</p>
           </div>
         </div>
@@ -606,10 +640,7 @@
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
     <p class="members-subhead">9 seats — members serve 3-year terms</p>
-    <div class="table-scroll-hint" id="table-scroll-hint">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-      Scroll to see all columns
-    </div>
+    <div class="members-table-outer" id="members-table-outer">
     <div class="members-table-wrap" id="members-table-wrap">
       <table class="members-table">
         <thead>
@@ -624,7 +655,8 @@
         </thead>
         <tbody id="members-tbody"></tbody>
       </table>
-    </div>
+    </div><!-- /members-table-wrap -->
+    </div><!-- /members-table-outer -->
   </div>
 </div>
 
@@ -653,7 +685,7 @@
   </p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const TODAY  = new Date();
 const SIX_MO = new Date(TODAY);
 SIX_MO.setMonth(SIX_MO.getMonth() + 6);
@@ -821,39 +853,47 @@ fetch('boards.json')
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
+// Horizontal scroll system for members table
 (function () {
-  const wrap = document.getElementById('members-table-wrap');
-  const hint = document.getElementById('table-scroll-hint');
-  if (!wrap || !hint) return;
-  function checkScroll() {
-    const atEnd = wrap.scrollLeft + wrap.clientWidth >= wrap.scrollWidth - 4;
-    wrap.classList.toggle('scrolled-end', atEnd);
-    hint.classList.toggle('hidden', atEnd);
+  const wrap  = document.getElementById('members-table-wrap');
+  const outer = document.getElementById('members-table-outer');
+  if (!wrap || !outer) return;
+
+  const fadeL = document.createElement('div');
+  fadeL.className = 'h-fade h-fade-left';
+  const fadeR = document.createElement('div');
+  fadeR.className = 'h-fade h-fade-right';
+  outer.appendChild(fadeL);
+  outer.appendChild(fadeR);
+
+  const track = document.createElement('div');
+  track.className = 'h-scroll-track';
+  const thumb = document.createElement('div');
+  thumb.className = 'h-scroll-thumb';
+  track.appendChild(thumb);
+  outer.after(track);
+
+  function update() {
+    const { scrollLeft, scrollWidth, clientWidth } = wrap;
+    const maxScroll = scrollWidth - clientWidth;
+    fadeL.classList.toggle('visible', scrollLeft > 4);
+    fadeR.classList.toggle('hidden',  scrollLeft >= maxScroll - 4);
+    const thumbPct  = clientWidth / scrollWidth;
+    const trackW    = track.offsetWidth;
+    const thumbW    = Math.max(32, Math.round(thumbPct * trackW));
+    thumb.style.width = thumbW + 'px';
+    thumb.style.left  = maxScroll > 0
+      ? Math.round((scrollLeft / maxScroll) * (trackW - thumbW)) + 'px'
+      : '0px';
   }
-  wrap.addEventListener('scroll', checkScroll, { passive: true });
-  checkScroll();
+
+  wrap.addEventListener('scroll', update, { passive: true });
+  new ResizeObserver(update).observe(wrap);
+  update();
 })();
 
 document.querySelectorAll('.acc-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
-    btn.nextElementSibling.hidden = expanded;
-  });
-});
-
-(function () {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  let found = false;
-  document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
-    const d = new Date(item.dataset.date + 'T00:00:00');
-    if (!found && d >= today) {
-      item.querySelector('.next-badge').style.display = '';
-      found = true;
-    }
-  });
-})();
-</script>
-</body>
-</html>
+    btn.nextElementS
