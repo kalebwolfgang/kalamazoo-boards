@@ -53,9 +53,35 @@
     .nav-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
     .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 15px; transition: color 0.15s; white-space: nowrap; }
     .nav-link:hover { color: var(--gold-lt); }
-    @media (max-width: 600px) { .nav-link { display: none; } }
     .nav-apply { background: var(--gold); color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; padding: 7px 14px; border-radius: 2px; transition: background 0.15s; white-space: nowrap; }
     .nav-apply:hover { background: var(--gold-lt); }
+
+    /* ── MOBILE NAV SECONDARY STRIP ── */
+    .nav-secondary { display: none; }
+    @media (max-width: 600px) {
+      .nav-inner .nav-link { display: none; }
+      .nav-secondary {
+        display: flex;
+        background: rgba(0,0,0,0.18);
+        border-top: 1px solid rgba(255,255,255,0.07);
+      }
+      .nav-secondary-inner {
+        max-width: 1400px; margin: 0 auto; width: 100%;
+        padding: 0 var(--pad-x); display: flex;
+      }
+      .nav-secondary-link {
+        flex: 1; display: flex; align-items: center; justify-content: center;
+        padding: 9px 12px; color: rgba(255,255,255,0.65);
+        text-decoration: none; font-size: 13px; font-weight: 500;
+        letter-spacing: 0.02em;
+        border-right: 1px solid rgba(255,255,255,0.07);
+        transition: background 0.15s, color 0.15s;
+      }
+      .nav-secondary-link:last-child { border-right: none; }
+      .nav-secondary-link:hover,
+      .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
+      .nav-secondary-link.active { color: var(--gold-lt); }
+    }
 
     /* ── BREADCRUMB ── */
     .breadcrumb { background: var(--white); border-bottom: 1px solid var(--border); padding: 9px var(--pad-x); font-size: 14px; color: var(--muted); overflow-x: auto; white-space: nowrap; }
@@ -222,7 +248,6 @@
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
 
-    /* Table scroll hint */
     .table-scroll-hint {
       display: flex; align-items: center; gap: 6px;
       font-size: 12px; color: var(--muted); margin-bottom: 8px;
@@ -323,6 +348,13 @@
       <a class="nav-link" href="index.html">All Boards</a>
       <a class="nav-link" href="faq.html">FAQ</a>
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
+    </div>
+  </div>
+  <!-- Mobile-only secondary nav strip -->
+  <div class="nav-secondary">
+    <div class="nav-secondary-inner">
+      <a class="nav-secondary-link active" href="index.html">All Boards</a>
+      <a class="nav-secondary-link" href="faq.html">FAQ</a>
     </div>
   </div>
 </nav>
@@ -679,7 +711,6 @@ fetch('boards.json')
     document.getElementById('stat-trans').textContent  = nT;
     document.getElementById('stat-seated').textContent = nS;
 
-    // Header dots
     const dotsEl = document.getElementById('header-dots');
     members.forEach(m => {
       const ds  = displayStatus(seatStatus(m));
@@ -696,7 +727,6 @@ fetch('boards.json')
       dotsEl.appendChild(dot);
     });
 
-    // Members table
     const tbody = document.getElementById('members-tbody');
     members.forEach(m => {
       const st  = seatStatus(m);
@@ -726,7 +756,6 @@ fetch('boards.json')
       tbody.appendChild(tr);
     });
 
-    // Tooltip / Bottom Sheet
     const tooltip = document.getElementById('tooltip');
     const ttName  = document.getElementById('tt-name');
     const ttRole  = document.getElementById('tt-role');
@@ -792,7 +821,6 @@ fetch('boards.json')
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-// Table scroll hint
 (function () {
   const wrap = document.getElementById('members-table-wrap');
   const hint = document.getElementById('table-scroll-hint');
@@ -806,7 +834,6 @@ fetch('boards.json')
   checkScroll();
 })();
 
-// Accordion
 document.querySelectorAll('.acc-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -815,7 +842,6 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
   });
 });
 
-// "Next" meeting badge
 (function () {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
