@@ -251,37 +251,29 @@
     /* Text hint removed — replaced by visual affordances */
     .table-scroll-hint { display: none !important; }
 
-    /* Outer wrapper holds the fade overlays */
-    .members-table-outer { position: relative; margin-bottom: 8px; }
-
-    /* Bidirectional fade overlays — injected via JS */
-    .h-fade {
-      position: absolute; top: 0; bottom: 0; width: 80px;
-      pointer-events: none; z-index: 4;
-      transition: opacity 0.2s;
-    }
-    .h-fade-left  { left: 0;  background: linear-gradient(to right, rgba(255,255,255,0.97), transparent); opacity: 0; }
-    .h-fade-right { right: 0; background: linear-gradient(to left,  rgba(255,255,255,0.97), transparent); }
-    .h-fade-left.visible  { opacity: 1; }
-    .h-fade-right.hidden  { opacity: 0; }
-
-    /* Horizontal scroll track — injected via JS, sits below the table */
+    /* Horizontal scroll track — injected via JS, sits ABOVE the table */
     .h-scroll-track {
       height: 6px; background: #e0dbd2;
       border: 1px solid var(--border); border-radius: 3px;
-      position: relative; margin-top: 6px;
+      position: relative; margin-bottom: 8px;
     }
     .h-scroll-thumb {
       position: absolute; top: 0; height: 6px;
       background: #1c2333; border-radius: 3px;
-      min-width: 32px; transition: background 0.15s;
+      min-width: 32px;
     }
     @media (min-width: 900px) {
       .h-scroll-track { display: none; }
-      .h-fade { display: none; }
     }
 
-    .members-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+    /* Outer wrapper */
+    .members-table-outer { position: relative; }
+
+    .members-table-wrap {
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
     .members-table-wrap::-webkit-scrollbar { display: none; }
 
     .members-table { width: 100%; border-collapse: collapse; min-width: 560px; }
@@ -765,7 +757,7 @@ fetch('boards.json')
       const ds  = displayStatus(st);
       const col = ds === 'open' ? 'red' : ds === 'transitioning' ? 'yellow' : 'green';
       const name = m.isVacant ? 'Open Seat' : `${m.firstName} ${m.lastName}`.trim();
-      const isExOfficio = m.role.toLowerCase().includes('ex-officio');
+      const isExOfficio = (m.role || '').toLowerCase().includes('ex-officio');
       const typeLabel   = isExOfficio ? 'Ex-Officio' : 'Voting';
       const termDisplay = !m.termEnd ? '—'
                         : m.termEnd === '2100-01-01' ? 'Permanent'
@@ -853,31 +845,23 @@ fetch('boards.json')
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-// Horizontal scroll system for members table
+// Horizontal scroll track for members table (above table, no fades)
 (function () {
   const wrap  = document.getElementById('members-table-wrap');
   const outer = document.getElementById('members-table-outer');
   if (!wrap || !outer) return;
 
-  const fadeL = document.createElement('div');
-  fadeL.className = 'h-fade h-fade-left';
-  const fadeR = document.createElement('div');
-  fadeR.className = 'h-fade h-fade-right';
-  outer.appendChild(fadeL);
-  outer.appendChild(fadeR);
-
+  // Inject track BEFORE the outer wrapper so it appears above the table
   const track = document.createElement('div');
   track.className = 'h-scroll-track';
   const thumb = document.createElement('div');
   thumb.className = 'h-scroll-thumb';
   track.appendChild(thumb);
-  outer.after(track);
+  outer.before(track);
 
   function update() {
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
     const maxScroll = scrollWidth - clientWidth;
-    fadeL.classList.toggle('visible', scrollLeft > 4);
-    fadeR.classList.toggle('hidden',  scrollLeft >= maxScroll - 4);
     const thumbPct  = clientWidth / scrollWidth;
     const trackW    = track.offsetWidth;
     const thumbW    = Math.max(32, Math.round(thumbPct * trackW));
