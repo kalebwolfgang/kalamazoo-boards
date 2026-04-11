@@ -271,6 +271,7 @@
 
     .members-table-wrap {
       overflow-x: auto; -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
       scrollbar-width: none; -ms-overflow-style: none;
     }
     .members-table-wrap::-webkit-scrollbar { display: none; }
@@ -860,6 +861,11 @@ fetch('boards.json')
   function update() {
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
     const maxScroll = scrollWidth - clientWidth;
+
+    // Clamp scroll position — prevents rubber-band drift past content edges
+    if (scrollLeft < 0) { wrap.scrollLeft = 0; return; }
+    if (scrollLeft > maxScroll) { wrap.scrollLeft = maxScroll; return; }
+
     const thumbPct  = clientWidth / scrollWidth;
     const trackW    = track.offsetWidth;
     const thumbW    = Math.max(32, Math.round(thumbPct * trackW));
