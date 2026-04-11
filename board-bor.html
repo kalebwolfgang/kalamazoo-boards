@@ -271,7 +271,7 @@
 
     .members-table-wrap {
       overflow-x: auto; -webkit-overflow-scrolling: touch;
-      overscroll-behavior-x: contain;
+      overscroll-behavior-x: none;
       scrollbar-width: none; -ms-overflow-style: none;
     }
     .members-table-wrap::-webkit-scrollbar { display: none; }
@@ -878,6 +878,30 @@ fetch('boards.json')
   wrap.addEventListener('scroll', update, { passive: true });
   new ResizeObserver(update).observe(wrap);
   update();
+})();
+
+// Prevent rubber-band overscroll at horizontal boundaries (older iOS Safari fallback)
+(function () {
+  const wrap = document.getElementById('members-table-wrap');
+  if (!wrap) return;
+
+  let startX = 0;
+
+  wrap.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  wrap.addEventListener('touchmove', e => {
+    const dx = e.touches[0].clientX - startX;
+    const { scrollLeft, scrollWidth, clientWidth } = wrap;
+    const atLeft  = scrollLeft <= 0;
+    const atRight = scrollLeft >= scrollWidth - clientWidth - 1;
+
+    // Block the gesture only when already at a boundary and trying to go further
+    if ((atLeft && dx > 0) || (atRight && dx < 0)) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 })();
 
 document.querySelectorAll('.acc-trigger').forEach(btn => {
