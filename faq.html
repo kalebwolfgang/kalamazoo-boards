@@ -247,7 +247,7 @@
     .type-chip.quasi    { border-left: 3px solid #92400e; }
     .type-chip.quasi strong    { color: #92400e; }
 
-    /* Eligibility */
+    /* Eligibility & Definition Lists */
     .elig-table { width: 100%; border-collapse: collapse; font-size: clamp(14px, 2.5vw, 17px); }
     .elig-table tr { border-bottom: 1px solid var(--border-lt); }
     .elig-table tr:last-child { border-bottom: none; }
@@ -263,6 +263,18 @@
       .elig-table td:first-child { padding-bottom: 2px; padding-right: 12px; }
       .elig-table td:last-child  { padding-top: 0; }
       .elig-table tr { padding: 10px 0; }
+    }
+
+    /* Definition Sections */
+    .def-section { margin-bottom: 28px; }
+    .def-section:last-child { margin-bottom: 0; }
+    .def-section h4 { 
+      font-size: clamp(15px, 2.5vw, 18px); 
+      font-weight: 600; 
+      color: var(--navy); 
+      margin-bottom: 10px; 
+      border-bottom: 1px solid var(--border); 
+      padding-bottom: 8px; 
     }
 
     /* Commitment */
@@ -351,14 +363,12 @@
 </head>
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-inner">
     <span>Informational resource — not an official City of Kalamazoo website</span>
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
@@ -374,7 +384,6 @@
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
     </div>
   </div>
-  <!-- Mobile-only secondary nav strip -->
   <div class="nav-secondary">
     <div class="nav-secondary-inner">
       <a class="nav-secondary-link" href="index.html">All Boards</a>
@@ -383,7 +392,6 @@
   </div>
 </nav>
 
-<!-- BREADCRUMB -->
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
     <a href="index.html">Boards &amp; Commissions</a>
@@ -392,7 +400,6 @@
   </div>
 </div>
 
-<!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
     <h1>Frequently Asked Questions</h1>
@@ -400,13 +407,10 @@
   </div>
 </div>
 
-<!-- MAIN -->
 <div class="main-wrap">
 
-  <!-- 1. ACCORDION -->
   <div class="accordion">
 
-    <!-- About -->
     <div class="acc-item">
       <button class="acc-trigger" aria-expanded="false">
         <div class="acc-trigger-left">
@@ -436,7 +440,6 @@
       </div>
     </div>
 
-    <!-- Eligibility -->
     <div class="acc-item">
       <button class="acc-trigger" aria-expanded="false">
         <div class="acc-trigger-left">
@@ -474,7 +477,6 @@
       </div>
     </div>
 
-    <!-- Time Commitment -->
     <div class="acc-item">
       <button class="acc-trigger" aria-expanded="false">
         <div class="acc-trigger-left">
@@ -520,7 +522,6 @@
       </div>
     </div>
 
-    <!-- How to Apply -->
     <div class="acc-item">
       <button class="acc-trigger" aria-expanded="false">
         <div class="acc-trigger-left">
@@ -575,10 +576,93 @@
       </div>
     </div>
 
-  </div><!-- /accordion -->
+    <div class="acc-item" id="members-table">
+      <button class="acc-trigger" aria-expanded="false">
+        <div class="acc-trigger-left">
+          <span class="acc-icon">🏛️</span>
+          <span>Understanding Board Member Listings</span>
+        </div>
+        <span class="acc-meta">Columns, statuses &amp; terminology explained</span>
+        <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="acc-panel" hidden>
+        <div class="acc-panel-inner">
+          
+          <div class="def-section">
+            <h4>The members table columns</h4>
+            <table class="elig-table">
+              <tr>
+                <td>Dot</td>
+                <td>A colored circle representing the seat's current status (open, transitioning, or seated).</td>
+              </tr>
+              <tr>
+                <td>Name</td>
+                <td>The appointed member's name. It may include a role subtitle (like Chair or Vice Chair) when relevant.</td>
+              </tr>
+              <tr>
+                <td>Type</td>
+                <td>Specifies the seat category, such as Voting, Ex-Officio, At-Large, Neighborhood Rep, or City Commissioner.</td>
+              </tr>
+              <tr>
+                <td>Residency</td>
+                <td>Indicates what residency status is being tracked for the seat (e.g., City resident vs. Non-resident).</td>
+              </tr>
+              <tr>
+                <td>Term End</td>
+                <td>The specific date an active term concludes. "Permanent" indicates no term limit, and "By office held" means the term is tied directly to another position.</td>
+              </tr>
+              <tr>
+                <td>Status Badge</td>
+                <td>A quick visual indicator defining if the seat is Open, Transitioning, or Seated.</td>
+              </tr>
+            </table>
+          </div>
 
-  <!-- 2. CURRENT VACANCIES -->
-  <div class="vac-section">
+          <div class="def-section">
+            <h4>Seat status explained</h4>
+            <table class="elig-table">
+              <tr>
+                <td>Open</td>
+                <td>The seat is entirely vacant with no current member serving in that capacity.</td>
+              </tr>
+              <tr>
+                <td>Transitioning</td>
+                <td>The member's term has either expired or ends within 6 months. They are typically still serving as a holdover pending reappointment or replacement.</td>
+              </tr>
+              <tr>
+                <td>Seated</td>
+                <td>The member is currently active and serving securely within their appointed term dates.</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="def-section">
+            <h4>Key terminology</h4>
+            <table class="elig-table">
+              <tr>
+                <td>Holdover</td>
+                <td>A member whose official term has expired but continues to legally serve and vote because the vacancy process takes time and a successor hasn't been appointed yet.</td>
+              </tr>
+              <tr>
+                <td>Ex-officio</td>
+                <td>A member who serves on a board by virtue of holding another specific office, rather than by direct appointment to the board itself.</td>
+              </tr>
+              <tr>
+                <td>Term limit vs. term end</td>
+                <td>The "term end" is the exact date a specific term expires. The "term limit" is the maximum number of consecutive terms a member is legally allowed to serve.</td>
+              </tr>
+              <tr>
+                <td>Permanent appointment</td>
+                <td>An appointment with no fixed expiration date; the member serves indefinitely (often applied to certain ex-officio seats).</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><div class="vac-section">
     <div class="vac-section-head">
       <h2>Current Vacancies</h2>
       <a href="index.html">View all boards &rarr;</a>
@@ -602,7 +686,6 @@
     </div>
   </div>
 
-  <!-- 3. APPLY + CLERK ROW -->
   <div class="bottom-row">
     <div class="sc apply-sc">
       <div class="sc-head">Apply to Serve</div>
@@ -641,7 +724,6 @@
 
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>City of Kalamazoo — Boards &amp; Commissions Office &nbsp;|&nbsp;
     <a href="tel:+12693376200">(269) 337-6200</a> &nbsp;|&nbsp;
@@ -650,12 +732,37 @@
 </footer>
 
 <script>
+  // Standard accordion toggle functionality
   document.querySelectorAll('.acc-trigger').forEach(btn => {
     btn.addEventListener('click', () => {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!expanded));
       btn.nextElementSibling.hidden = expanded;
     });
+  });
+
+  // Deep-linking functionality to open specific accordions based on URL hash
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash) {
+      const targetId = window.location.hash.substring(1); // remove '#'
+      const targetItem = document.getElementById(targetId);
+      
+      if (targetItem) {
+        const triggerBtn = targetItem.querySelector('.acc-trigger');
+        const panel = targetItem.querySelector('.acc-panel');
+        
+        if (triggerBtn && panel) {
+          // Open the panel
+          triggerBtn.setAttribute('aria-expanded', 'true');
+          panel.hidden = false;
+          
+          // Scroll slightly down to make sure it's in full view 
+          setTimeout(() => {
+            targetItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 150);
+        }
+      }
+    }
   });
 </script>
 
