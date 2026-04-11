@@ -880,4 +880,22 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
-    btn.nextElementS
+    btn.nextElementSibling.hidden = expanded;
+  });
+});
+
+(function () {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  let found = false;
+  document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
+    const d = new Date(item.dataset.date + 'T00:00:00');
+    if (!found && d >= today) {
+      item.querySelector('.next-badge').style.display = '';
+      found = true;
+    }
+  });
+})();
+</script>
+</body>
+</html>
