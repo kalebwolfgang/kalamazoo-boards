@@ -226,6 +226,9 @@
     .scrollable-card-body { flex: 1; min-height: 0; padding: 0; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }
     .scrollable-card-body::-webkit-scrollbar { display: none; }
     .scrollable-minutes { max-height: 300px; }
+    .scrollable-recordings { max-height: 300px; }
+    .scrollable-card-body .recording-item { margin: 0; padding: 14px 24px 14px 18px; border-bottom: 1px solid var(--border-lt) !important; border-radius: 0; }
+    .scrollable-card-body .recording-item:last-child { border-bottom: none !important; }
     .scroll-track { position: absolute; top: 0; right: 0; bottom: 0; width: 6px; background: #e0dbd2; border-left: 1px solid var(--border); z-index: 2; pointer-events: none; border-radius: 0 0 4px 0; }
     .scroll-thumb { position: absolute; right: 0; width: 6px; background: #1c2333; border-radius: 3px; min-height: 24px; }
 
@@ -550,7 +553,7 @@
           ECC Bylaws
           <span class="pdf-badge">PDF</span>
         </a>
-        <a class="doc-link" href="mailto:environmental@kalamazoocity.org">
+        <a class="doc-link" href="/cdn-cgi/l/email-protection#a2c7ccd4cbd0cdcccfc7ccd6c3cee2c9c3cec3cfc3d8cdcdc1cbd6db8ccdd0c5">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
           Contact ECC Chairs
         </a>
@@ -648,13 +651,15 @@
     </div><!-- /scrollable-wrap -->
   </div>
 
-  <!-- Meeting Recordings -->
-  <div class="bottom-card">
+  <!-- Meeting Recordings — scrollable card -->
+  <div class="bottom-card scrollable-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
       Meeting Recordings
+      <span class="card-count-pill">5 recordings</span>
     </div>
-    <div class="bottom-card-body">
+    <div class="scrollable-wrap" id="wrap-recordings">
+    <div class="scrollable-card-body scrollable-recordings" id="scroll-recordings">
       <a class="recording-item" href="https://www.youtube.com/watch?v=fAIolW2GqoI" target="_blank" rel="noopener">
         <div class="rec-thumb"><img src="https://img.youtube.com/vi/fAIolW2GqoI/mqdefault.jpg" alt="March 18, 2026 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         <div class="rec-info"><div class="rec-date">March 18, 2026</div><div class="rec-sublabel">Environmental Concerns Committee</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
@@ -675,6 +680,7 @@
         <div class="rec-thumb"><img src="https://img.youtube.com/vi/cF5HDJvdy6I/mqdefault.jpg" alt="September 17, 2025 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         <div class="rec-info"><div class="rec-date">September 17, 2025</div><div class="rec-sublabel">Environmental Concerns Committee</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
       </a>
+    </div>
     </div>
   </div>
 
@@ -748,7 +754,7 @@
   </p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const TODAY  = new Date();
 const SIX_MO = new Date(TODAY);
 SIX_MO.setMonth(SIX_MO.getMonth() + 6);
@@ -915,6 +921,8 @@ fetch('boards.json')
   update();
 })();
 
+(function(){const el=document.getElementById('scroll-recordings'),wEl=document.getElementById('wrap-recordings');if(!el||!wEl)return;const track=document.createElement('div');track.className='scroll-track';const thumb=document.createElement('div');thumb.className='scroll-thumb';track.appendChild(thumb);wEl.appendChild(track);function update(){const{scrollTop,scrollHeight,clientHeight}=el;const scrollable=scrollHeight-clientHeight;const thumbH=Math.max(24,Math.round((clientHeight/scrollHeight)*track.offsetHeight));thumb.style.height=thumbH+'px';thumb.style.top=scrollable>0?Math.round((scrollTop/scrollable)*(track.offsetHeight-thumbH))+'px':'0px';wEl.classList.toggle('at-end',scrollTop+clientHeight>=scrollHeight-4);}el.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(el);update();})();
+
 // Horizontal scroll track for members table
 (function () {
   const wrap  = document.getElementById('members-table-wrap');
@@ -965,10 +973,4 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
   const today = new Date(); today.setHours(0, 0, 0, 0);
   let found = false;
   document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
-    const d = new Date(item.dataset.date + 'T00:00:00');
-    if (!found && d >= today) { item.querySelector('.next-badge').style.display = ''; found = true; }
-  });
-})();
-</script>
-</body>
-</html>
+    const d = new Date(item.dataset
