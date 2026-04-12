@@ -202,6 +202,10 @@
     .members-inner { max-width: 1400px; margin: 0 auto; }
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+    
+    .members-table-guide-link { font-size: 13px; color: var(--muted); margin-top: -8px; margin-bottom: 12px; }
+    .members-table-guide-link a { color: var(--navy-light); text-decoration: none; }
+    .members-table-guide-link a:hover { text-decoration: underline; }
 
     /* Text hint removed */
     .table-scroll-hint { display: none !important; }
@@ -304,14 +308,12 @@
 </head>
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-inner">
     <span>Informational resource — not an official City of Kalamazoo website</span>
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
@@ -327,7 +329,6 @@
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
     </div>
   </div>
-  <!-- Mobile-only secondary nav strip -->
   <div class="nav-secondary">
     <div class="nav-secondary-inner">
       <a class="nav-secondary-link active" href="index.html">All Boards</a>
@@ -336,7 +337,6 @@
   </div>
 </nav>
 
-<!-- BREADCRUMB -->
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
     <a href="index.html">Boards &amp; Commissions</a>
@@ -345,7 +345,6 @@
   </div>
 </div>
 
-<!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
     <div>
@@ -370,7 +369,6 @@
   </div>
 </div>
 
-<!-- GOVERNANCE QUICK FACTS -->
 <div class="gov-strip">
   <div class="gov-inner">
     <div class="gov-item"><div class="gov-value">3 Members</div><div class="gov-label">Board Size</div></div>
@@ -380,7 +378,6 @@
   </div>
 </div>
 
-<!-- MAIN BODY -->
 <div class="board-body">
 
   <div>
@@ -509,10 +506,8 @@
   </aside>
 </div>
 
-<!-- BOTTOM CARDS -->
 <div class="bottom-cards">
 
-  <!-- Minutes & Agendas -->
   <div class="bottom-card scrollable-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
@@ -594,9 +589,7 @@
         </div>
       </a>
 
-    </div><!-- /scrollable-card-body -->
-    </div><!-- /scrollable-wrap -->
-  </div>
+    </div></div></div>
 
   <div class="bottom-card">
     <div class="bottom-card-header">
@@ -617,7 +610,6 @@
   </div>
 </div>
 
-<!-- ELECTIONS CTA -->
 <div class="elections-cta">
   <div class="elections-cta-inner">
     <div>
@@ -629,11 +621,15 @@
   </div>
 </div>
 
-<!-- MEMBERS SECTION -->
 <div class="members-section">
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
     <p class="members-subhead">3 seats — members serve by virtue of the city office they hold; no term limits or application process</p>
+    
+    <p class="members-table-guide-link">
+      New to these terms? <a href="faq.html#members-table">See definitions and learn more →</a>
+    </p>
+
     <div class="members-table-outer" id="members-table-outer">
     <div class="members-table-wrap" id="members-table-wrap">
       <table class="members-table">
@@ -649,12 +645,9 @@
         </thead>
         <tbody id="members-tbody"></tbody>
       </table>
-    </div><!-- /members-table-wrap -->
-    </div><!-- /members-table-outer -->
-  </div>
+    </div></div></div>
 </div>
 
-<!-- STAFF NOTE -->
 <div class="staff-note-wrap">
   <div class="staff-note">
     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -662,7 +655,6 @@
   </div>
 </div>
 
-<!-- TOOLTIP / MOBILE BOTTOM SHEET -->
 <div class="tooltip" id="tooltip">
   <span class="tooltip-close" id="tooltip-close" aria-label="Close">&#x2715;</span>
   <div class="tt-name" id="tt-name"></div>
@@ -671,7 +663,6 @@
   <div class="tt-res"  id="tt-res"></div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>City of Kalamazoo — Boards &amp; Commissions Office &nbsp;|&nbsp;
     <a href="tel:+12693376200">(269) 337-6200</a> &nbsp;|&nbsp;
