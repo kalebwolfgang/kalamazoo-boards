@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SPK Organizing Committee — City of Kalamazoo</title>
+  <title>Planning Commission — City of Kalamazoo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -98,7 +98,7 @@
     }
 
     .board-badge { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
-    .board-abbr-large { font-family: 'Playfair Display', serif; font-size: clamp(36px, 7vw, 52px); font-weight: 600; color: var(--gold); line-height: 1; }
+    .board-abbr-large { font-family: 'Playfair Display', serif; font-size: clamp(36px, 7vw, 54px); font-weight: 600; color: var(--gold); line-height: 1; }
 
     .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 38px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 12px; }
     .page-header-desc { color: rgba(255,255,255,0.58); font-size: clamp(15px, 2.5vw, 18px); font-weight: 300; max-width: 620px; line-height: 1.65; }
@@ -177,17 +177,12 @@
     .acc-panel-inner ul:last-child { margin-bottom: 0; }
     .acc-panel-inner li { font-size: clamp(15px, 2.5vw, 18px); color: var(--body); line-height: 1.7; margin-bottom: 8px; }
     .acc-panel-inner li:last-child { margin-bottom: 0; }
-    .acc-panel-inner a { color: var(--navy-light); }
-    .acc-panel-inner a:hover { color: var(--gold); text-decoration: underline; }
 
     .req-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
     @media (min-width: 600px) { .req-grid { grid-template-columns: 1fr 1fr; } }
     .req-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--navy-light); border-radius: 3px; padding: 14px 16px; }
     .req-card-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
     .req-card-value { font-size: 15px; color: var(--body); line-height: 1.55; }
-    
-    .nbhd-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-    .nbhd-tag { display: inline-block; font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 2px; background: var(--navy); color: var(--gold-lt); letter-spacing: 0.03em; }
 
     /* ── SIDEBAR ── */
     .sidebar { display: flex; flex-direction: column; gap: 22px; }
@@ -197,7 +192,9 @@
 
     .meeting-item { padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); }
     .meeting-item:last-of-type { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-    .next-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-bottom: 5px; }
+    .meeting-badges { display: flex; gap: 6px; align-items: center; margin-bottom: 5px; flex-wrap: wrap; }
+    .next-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+    .special-badge { display: inline-block; background: var(--navy-light); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
     .meeting-date { font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.4; }
     .meeting-time { font-size: 14px; color: var(--muted); margin-top: 2px; }
     .meeting-note { font-size: 13px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
@@ -221,7 +218,7 @@
     .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .bottom-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
 
-    /* Apply to Serve */
+    /* Apply to Serve / Full Width Cards */
     .card-apply-serve { border-left: 4px solid var(--gold); }
     .apply-standalone-inner {
       padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px);
@@ -234,25 +231,21 @@
     .apply-standalone-btn { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
     .apply-standalone-btn:hover { background: var(--navy-mid); color: white; }
 
-    /* Documents & Text Cards */
+    /* Documents */
     .doc-link { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: var(--navy-light); font-size: 15px; transition: color 0.15s; }
     .doc-link:last-child { border-bottom: none; padding-bottom: 0; }
     .doc-link:hover { color: var(--gold); }
     .doc-link svg { flex-shrink: 0; color: var(--muted); }
     .doc-link:hover svg { color: var(--gold); }
     .pdf-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 2px; margin-left: auto; flex-shrink: 0; }
-    
-    .text-card-content { flex: 1; font-size: 15px; color: var(--body); line-height: 1.6; margin-bottom: 16px; }
-    .text-card-link { display: inline-flex; align-items: center; font-weight: 600; color: var(--navy-light); text-decoration: none; transition: color 0.15s; margin-top: auto; }
-    .text-card-link:hover { color: var(--gold); }
 
-    /* ── SCROLLABLE CARDS ── */
+    /* ── SCROLLABLE CARDS (Minutes & Recordings) ── */
     .bottom-card.scrollable-card { overflow: hidden; }
     .card-count-pill { margin-left: auto; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); white-space: nowrap; }
     .scrollable-wrap { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
     .scrollable-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 7px; height: 64px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.97)); pointer-events: none; transition: opacity 0.2s; z-index: 1; }
     .scrollable-wrap.at-end::after { opacity: 0; }
-    .scrollable-card-body { flex: 1; min-height: 0; padding: 0; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; max-height: 300px; }
+    .scrollable-card-body { flex: 1; min-height: 0; padding: 0; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; max-height: 380px; }
     .scrollable-card-body::-webkit-scrollbar { display: none; }
     .scroll-track { position: absolute; top: 0; right: 0; bottom: 0; width: 6px; background: #e0dbd2; border-left: 1px solid var(--border); z-index: 2; pointer-events: none; border-radius: 0 0 4px 0; }
     .scroll-thumb { position: absolute; right: 0; width: 6px; background: #1c2333; border-radius: 3px; min-height: 24px; transition: background 0.15s; }
@@ -268,18 +261,36 @@
     .minutes-sublabel { font-size: 12px; color: var(--muted); }
     .minutes-action { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
     .minutes-item:hover .minutes-action { color: var(--gold); }
-    
+
     /* Recordings Items */
     .rec-item { display: flex; gap: 12px; align-items: flex-start; text-decoration: none; padding: 14px 24px 14px 18px; border-bottom: 1px solid var(--border-lt); }
     .scrollable-card-body .rec-item:last-child { border-bottom: none; }
-    .rec-thumb { width: 88px; height: 50px; object-fit: cover; border-radius: 2px; flex-shrink: 0; background: #1a1a2e; }
+    .rec-thumb { position: relative; width: 88px; height: 50px; border-radius: 2px; flex-shrink: 0; background: #1a1a2e; overflow: hidden; }
+    .rec-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; transition: opacity 0.15s; }
+    .rec-item:hover .rec-thumb img { opacity: 1; }
+    .rec-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.15s; }
+    .rec-item:hover .rec-play { transform: scale(1.15); }
     .rec-info { flex: 1; }
-    .rec-title { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.35; transition: color 0.15s; }
-    .rec-date { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .rec-title { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.35; transition: color 0.15s; margin-bottom: 2px; }
+    .rec-date { font-size: 12px; color: var(--muted); }
     .rec-item:hover .rec-title { color: var(--gold); }
+    .rec-watch { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
+    .rec-item:hover .rec-watch { color: var(--gold); }
+
+    /* ── APPLY FOR HEARING CTA ── */
+    .hearing-cta { background: var(--navy); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); margin-top: clamp(32px, 5vw, 48px); }
+    .hearing-cta-inner { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 40px) var(--pad-x); display: flex; align-items: center; gap: 56px; }
+    @media (max-width: 900px) { .hearing-cta-inner { flex-direction: column; gap: 24px; align-items: flex-start; } }
+    .hearing-cta-text { flex: 1; }
+    .hearing-cta-label { font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .hearing-cta-heading { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 26px); font-weight: 600; color: white; margin-bottom: 10px; line-height: 1.25; }
+    .hearing-cta-desc { font-size: clamp(15px, 2.5vw, 17px); color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 680px; }
+    .hearing-cta-action { flex-shrink: 0; }
+    .hearing-cta-btn { display: inline-block; background: var(--gold); color: var(--navy); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; white-space: nowrap; transition: background 0.15s; }
+    .hearing-cta-btn:hover { background: var(--gold-lt); }
 
     /* ── MEMBERS SECTION ── */
-    .members-section { background: var(--white); border-top: 1px solid var(--border); padding: clamp(32px, 6vw, 56px) var(--pad-x) clamp(40px, 7vw, 72px); margin-top: clamp(32px, 5vw, 48px); }
+    .members-section { background: var(--white); border-top: 1px solid var(--border); padding: clamp(32px, 6vw, 56px) var(--pad-x) clamp(40px, 7vw, 72px); }
     .members-inner { max-width: 1400px; margin: 0 auto; }
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
@@ -413,7 +424,7 @@
   <div class="breadcrumb-inner">
     <a href="index.html">Boards & Commissions</a>
     <span class="bc-sep">›</span>
-    <span>SPK Organizing Committee</span>
+    <span>Planning Commission</span>
   </div>
 </div>
 
@@ -421,10 +432,10 @@
   <div class="page-header-inner">
     <div>
       <div class="board-badge">
-        <span class="board-abbr-large">SPK</span>
+        <span class="board-abbr-large">PC</span>
       </div>
-      <h1>Shared Prosperity Kalamazoo Organizing Committee</h1>
-      <p class="page-header-desc">Convenes stakeholders for conversations and accountability around the recommendations of the SPK plan, and leads discussions about the systemic changes needed to shift conditions for families and the broader community.</p>
+      <h1>Planning Commission</h1>
+      <p class="page-header-desc">Develops the city's master plan for current and future land use, and provides recommendations to the City Commission on rezoning requests, zoning ordinance amendments, Special Use Permits, and site plans within WMU's Business, Technology and Research Park.</p>
     </div>
     <div class="header-seat-block">
       <div class="seat-stat-row">
@@ -446,7 +457,7 @@
 <div class="gov-strip">
   <div class="gov-inner">
     <div class="gov-item">
-      <div class="gov-value">11 Members</div>
+      <div class="gov-value">9 Members</div>
       <div class="gov-label">Board Size</div>
     </div>
     <div class="gov-item">
@@ -454,11 +465,11 @@
       <div class="gov-label">Term Length</div>
     </div>
     <div class="gov-item">
-      <div class="gov-value">6 of 11</div>
+      <div class="gov-value">5 of 9</div>
       <div class="gov-label">Quorum</div>
     </div>
     <div class="gov-item">
-      <div class="gov-value">Every 2 Months</div>
+      <div class="gov-value">Monthly</div>
       <div class="gov-label">Meeting Frequency</div>
     </div>
   </div>
@@ -476,8 +487,8 @@
         </button>
         <div class="acc-panel">
           <div class="acc-panel-inner">
-            <p>The Shared Prosperity Kalamazoo (SPK) Organizing Committee convenes stakeholders for conversations and accountability around the recommendations and core principles listed in the SPK plan. The Organizing Committee also leads conversations about the deeper systemic changes that are needed to shift conditions for families and the community.</p>
-            <p>The Committee is supported by the City of Kalamazoo's SPK team and serves in an advisory capacity to the City Commission. It works alongside Community Planning and Economic Development staff and coordinates Goal Teams in the areas of Youth, Jobs, and Family to advance long-term poverty reduction and community prosperity.</p>
+            <p>The Kalamazoo City Planning Commission develops the city's master plan for current and future land use. It provides recommendations to the City Commission on rezoning requests and changes to the Zoning Ordinance text. The Planning Commission also approves Special Use Permits and site plans for buildings within Western Michigan University's Business, Technology and Research Park.</p>
+            <p>The Commission is established under Public Act 33 of 2008 and Ordinance No. 1884, adopted June 20, 2011. It operates in accordance with its bylaws, adopted March 3, 2022.</p>
           </div>
         </div>
       </div>
@@ -492,27 +503,27 @@
             <div class="req-grid">
               <div class="req-card">
                 <div class="req-card-label">Board Size</div>
-                <div class="req-card-value">Eleven members appointed by the City Commission.</div>
+                <div class="req-card-value">Nine members appointed by the Mayor with the approval of the City Commission.</div>
               </div>
               <div class="req-card">
                 <div class="req-card-label">Term Length</div>
-                <div class="req-card-value">Three-year terms. Members may serve up to two consecutive terms with Committee recommendation and City Commission approval.</div>
+                <div class="req-card-value">Three-year terms, staggered so that three members may be replaced each year.</div>
               </div>
               <div class="req-card">
                 <div class="req-card-label">Residency</div>
-                <div class="req-card-value">A majority of members must be City of Kalamazoo residents.</div>
-              </div>
-              <div class="req-card">
-                <div class="req-card-label">Neighborhood Representation</div>
-                <div class="req-card-value">One representative from each SPK neighborhood: Eastside, Edison, and Northside. Each must have an active neighborhood association with 501(c)(3) status.</div>
-              </div>
-              <div class="req-card">
-                <div class="req-card-label">At-Large Seats</div>
-                <div class="req-card-value">Remaining seats are at-large. Members are selected for expertise in finance, real estate, housing, workforce development, community economic development, philanthropy, and youth development.</div>
+                <div class="req-card-value">Members must be residents of the City of Kalamazoo.</div>
               </div>
               <div class="req-card">
                 <div class="req-card-label">Appointment</div>
-                <div class="req-card-value">All members appointed by the City Commission. The Nominating Committee reviews applications annually and makes recommendations prior to the February meeting.</div>
+                <div class="req-card-value">Appointed by the Mayor with approval of the City Commission.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Ineligibility</div>
+                <div class="req-card-value">No voting member may hold any salaried position in municipal service or be a member of the City Commission.</div>
+              </div>
+              <div class="req-card">
+                <div class="req-card-label">Land Use Votes</div>
+                <div class="req-card-value">Adoption or recommendation of any land use plan or amendment requires an affirmative vote of 6 members.</div>
               </div>
             </div>
           </div>
@@ -527,11 +538,12 @@
         <div class="acc-panel" hidden>
           <div class="acc-panel-inner">
             <ul>
-              <li>Advise the City Commission on matters pertaining to prosperity within the City of Kalamazoo, working in partnership with Community Planning and Economic Development staff.</li>
-              <li>Manage the process established by the City to allocate SPK High Impact funds and stay informed of projects and activities related to SPK.</li>
-              <li>Oversee Goal Teams in the areas of Youth, Jobs, and Family, which identify strategies, research best practices, and promote SPK initiatives.</li>
-              <li>Convene stakeholders for accountability conversations around the SPK plan's recommendations and core principles.</li>
-              <li>Lead discussions on the systemic changes needed to reduce poverty and improve conditions for families and the broader Kalamazoo community.</li>
+              <li>Develop and maintain the city's master plan for current and future land use, and review it at least every five years.</li>
+              <li>Provide recommendations to the City Commission on rezoning requests and proposed amendments to the Zoning Ordinance text.</li>
+              <li>Review and approve Special Use Permits.</li>
+              <li>Review and approve site plans for buildings located within WMU's Business, Technology and Research Park.</li>
+              <li>Hold public hearings on land use amendments, rezonings, and other matters as required by law.</li>
+              <li>Prepare and submit an annual report to the City Commission by December 1 of each year.</li>
             </ul>
           </div>
         </div>
@@ -548,30 +560,48 @@
         Upcoming Meetings
       </div>
       <div class="sidebar-card-body">
-        <div class="meeting-item" data-date="2026-05-11">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Monday, May 11, 2026</div>
-          <div class="meeting-time">12:30 PM – 2:00 PM</div>
+
+        <div class="meeting-item" data-date="2026-03-25">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+            <span class="special-badge">Special</span>
+          </div>
+          <div class="meeting-date">Wednesday, March 25, 2026</div>
+          <div class="meeting-time">6:00 PM – 8:00 PM</div>
         </div>
-        <div class="meeting-item" data-date="2026-07-13">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Monday, July 13, 2026</div>
-          <div class="meeting-time">12:30 PM – 2:00 PM</div>
+        <div class="meeting-item" data-date="2026-04-08">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+          </div>
+          <div class="meeting-date">Wednesday, April 8, 2026</div>
+          <div class="meeting-time">7:00 PM – 9:00 PM</div>
         </div>
-        <div class="meeting-item" data-date="2026-09-14">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Monday, September 14, 2026</div>
-          <div class="meeting-time">12:30 PM – 2:00 PM</div>
+        <div class="meeting-item" data-date="2026-05-07">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+          </div>
+          <div class="meeting-date">Thursday, May 7, 2026</div>
+          <div class="meeting-time">7:00 PM – 9:00 PM</div>
         </div>
-        <div class="meeting-item" data-date="2026-11-09">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Monday, November 9, 2026</div>
-          <div class="meeting-time">12:30 PM – 2:00 PM</div>
+        <div class="meeting-item" data-date="2026-06-04">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+          </div>
+          <div class="meeting-date">Thursday, June 4, 2026</div>
+          <div class="meeting-time">7:00 PM – 9:00 PM</div>
         </div>
-        <p class="meeting-note">Meets the first Monday every other month at 12:30 PM. All 2026 meetings held at City Hall.</p>
+        <div class="meeting-item" data-date="2026-07-02">
+          <div class="meeting-badges">
+            <span class="next-badge" style="display:none">Next</span>
+          </div>
+          <div class="meeting-date">Thursday, July 2, 2026</div>
+          <div class="meeting-time">7:00 PM – 9:00 PM</div>
+        </div>
+
+        <p class="meeting-note">Regular meetings are held the first Thursday of each month at 7:00 PM. Special meetings may be called as needed.</p>
         <div class="meeting-location">
-          <div class="location-name">Kalamazoo City Hall</div>
-          <div class="location-addr">241 W South Street<br>Kalamazoo, MI 49007</div>
+          <div class="location-name">City Commission Chambers</div>
+          <div class="location-addr">Kalamazoo City Hall, Second Floor<br>241 W South Street<br>Kalamazoo, MI 49007</div>
           <a class="map-link" href="https://maps.google.com/?q=241+W+South+Street,+Kalamazoo,+MI+49007" target="_blank" rel="noopener">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             View on Google Maps
@@ -587,31 +617,16 @@
 
   <div class="bottom-card">
     <div class="bottom-card-header">
-      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      Learn More About Shared Prosperity Kalamazoo
-    </div>
-    <div class="apply-standalone-inner">
-      <div class="apply-standalone-text">
-        <p class="apply-standalone-desc">Shared Prosperity Kalamazoo is a bold and ambitious plan to transform our community into a place where every adult and every child thrives and prospers.</p>
-      </div>
-      <div class="apply-standalone-action">
-        <a class="apply-standalone-btn" href="https://www.kalamazoocity.org/Government/Programs-Initiatives/Shared-Prosperity-Kalamazoo" target="_blank" rel="noopener">Visit the SPK Website →</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="bottom-card">
-    <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       Key Documents
     </div>
     <div class="bottom-card-body">
-      <a class="doc-link" href="https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/spk-bylaws.pdf" target="_blank" rel="noopener">
+      <a class="doc-link" href="https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/pc-bylaws.pdf" target="_blank" rel="noopener">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        SPK Organizing Committee Bylaws
+        Planning Commission Bylaws
         <span class="pdf-badge">PDF</span>
       </a>
-      <a class="doc-link" href="https://kalamazoomi.portal.civicclerk.com/?category_id=44" target="_blank" rel="noopener">
+      <a class="doc-link" href="https://kalamazoomi.portal.civicclerk.com/?category_id=29" target="_blank" rel="noopener">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         Minutes & Agendas Portal
       </a>
@@ -622,62 +637,162 @@
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       Recent Meetings
-      <span class="card-count-pill">6 meetings</span>
+      <span class="card-count-pill">9 meetings</span>
     </div>
     <div class="scrollable-wrap" id="wrap-minutes">
       <div class="scrollable-card-body" id="scroll-minutes">
 
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2514/files/agenda/4414" target="_blank" rel="noopener">
+        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2586/files/agenda/4912" target="_blank" rel="noopener">
           <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
           <div class="minutes-info">
-            <div class="minutes-date">November 10, 2025</div>
-            <div class="minutes-sublabel">SPK Organizing Committee</div>
+            <div class="minutes-date">April 08, 2026</div>
+            <div class="minutes-sublabel">Planning Commission • Regular Meeting</div>
             <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
           </div>
         </a>
 
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2513/files/agenda/4246" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">September 08, 2025</div>
-            <div class="minutes-sublabel">SPK Organizing Committee</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2512/files/agenda/4067" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">July 14, 2025</div>
-            <div class="minutes-sublabel">SPK Organizing Committee</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2511/files" target="_blank" rel="noopener">
+        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2585/files/agenda/4817" target="_blank" rel="noopener">
           <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--muted)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
           <div class="minutes-info">
-            <div class="minutes-date" style="color:var(--muted);font-weight:400">May 12, 2025 <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle">CANCELLED</span></div>
-            <div class="minutes-sublabel">SPK Organizing Committee</div>
+            <div class="minutes-date" style="color:var(--muted);font-weight:400">March 05, 2026 <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle">CANCELLED</span></div>
+            <div class="minutes-sublabel">Planning Commission • Regular Meeting</div>
             <div class="minutes-action" style="color:var(--muted)"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Notice</div>
           </div>
         </a>
 
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2505/files/agenda/3680" target="_blank" rel="noopener">
+        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/4676" target="_blank" rel="noopener">
           <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
           <div class="minutes-info">
-            <div class="minutes-date">March 10, 2025</div>
-            <div class="minutes-sublabel">SPK Organizing Committee</div>
+            <div class="minutes-date">February 05, 2026</div>
+            <div class="minutes-sublabel">Planning Commission • Regular Meeting</div>
             <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
           </div>
         </a>
 
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2461/files/agenda/3525" target="_blank" rel="noopener">
+        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1445/files" target="_blank" rel="noopener">
+          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--muted)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="minutes-info">
+            <div class="minutes-date" style="color:var(--muted);font-weight:400">January 07, 2026 <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle">CANCELLED</span></div>
+            <div class="minutes-sublabel">Planning Commission • Regular Meeting</div>
+            <div class="minutes-action" style="color:var(--muted)"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Notice</div>
+          </div>
+        </a>
+
+        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4476" target="_blank" rel="noopener">
           <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
           <div class="minutes-info">
-            <div class="minutes-date">January 13, 2025</div>
-            <div class="minutes-sublabel">SPK Organizing Committee</div>
+            <div class="minutes-date">December 04, 2025</div>
+            <div class="minutes-sublabel">Planning Commission • Regular Meeting</div>
             <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+          </div>
+        </a>
+
+        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2525/files" target="_blank" rel="noopener">
+          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="minutes-info">
+            <div class="minutes-date">November 12, 2025</div>
+            <div class="minutes-sublabel">Planning Commission • Special Meeting</div>
+            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Notice</div>
+          </div>
+        </a>
+
+        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1442/files/agenda/4286" target="_blank" rel="noopener">
+          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--muted)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="minutes-info">
+            <div class="minutes-date" style="color:var(--muted);font-weight:400">October 02, 2025 <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle">CANCELLED</span></div>
+            <div class="minutes-sublabel">Planning Commission • Regular Meeting</div>
+            <div class="minutes-action" style="color:var(--muted)"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Notice</div>
+          </div>
+        </a>
+
+        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1441/files/agenda/4228" target="_blank" rel="noopener">
+          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="minutes-info">
+            <div class="minutes-date">September 04, 2025</div>
+            <div class="minutes-sublabel">Planning Commission • Regular Meeting</div>
+            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+          </div>
+        </a>
+
+        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1440/files/agenda/4105" target="_blank" rel="noopener">
+          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--muted)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="minutes-info">
+            <div class="minutes-date" style="color:var(--muted);font-weight:400">August 07, 2025 <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle">CANCELLED</span></div>
+            <div class="minutes-sublabel">Planning Commission • Regular Meeting</div>
+            <div class="minutes-action" style="color:var(--muted)"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Notice</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-card scrollable-card">
+    <div class="bottom-card-header">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      Recordings
+      <span class="card-count-pill">5 recordings</span>
+    </div>
+    <div class="scrollable-wrap" id="wrap-recordings">
+      <div class="scrollable-card-body" id="scroll-recordings">
+
+        <a class="rec-item" href="https://www.youtube.com/watch?v=nYZIdSr5HiE" target="_blank" rel="noopener">
+          <div class="rec-thumb">
+            <img src="https://img.youtube.com/vi/nYZIdSr5HiE/mqdefault.jpg" alt="April 8, 2026 Planning Commission">
+            <div class="rec-play"><svg width="22" height="22" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+          <div class="rec-info">
+            <div class="rec-title">Planning Commission</div>
+            <div class="rec-date">April 8, 2026</div>
+            <div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="rec-item" href="https://www.youtube.com/watch?v=Ll2NxzysY0c" target="_blank" rel="noopener">
+          <div class="rec-thumb">
+            <img src="https://img.youtube.com/vi/Ll2NxzysY0c/mqdefault.jpg" alt="February 5, 2026 Planning Commission">
+            <div class="rec-play"><svg width="22" height="22" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+          <div class="rec-info">
+            <div class="rec-title">Planning Commission</div>
+            <div class="rec-date">February 5, 2026</div>
+            <div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="rec-item" href="https://www.youtube.com/watch?v=pEsDkjNXzw4" target="_blank" rel="noopener">
+          <div class="rec-thumb">
+            <img src="https://img.youtube.com/vi/pEsDkjNXzw4/mqdefault.jpg" alt="December 4, 2025 Planning Commission">
+            <div class="rec-play"><svg width="22" height="22" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+          <div class="rec-info">
+            <div class="rec-title">Planning Commission</div>
+            <div class="rec-date">December 4, 2025</div>
+            <div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="rec-item" href="https://www.youtube.com/watch?v=lgMu6DyquaA" target="_blank" rel="noopener">
+          <div class="rec-thumb">
+            <img src="https://img.youtube.com/vi/lgMu6DyquaA/mqdefault.jpg" alt="November 6, 2025 Planning Commission">
+            <div class="rec-play"><svg width="22" height="22" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+          <div class="rec-info">
+            <div class="rec-title">Planning Commission</div>
+            <div class="rec-date">November 6, 2025</div>
+            <div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="rec-item" href="https://www.youtube.com/watch?v=mrL1OtBoMGg" target="_blank" rel="noopener">
+          <div class="rec-thumb">
+            <img src="https://img.youtube.com/vi/mrL1OtBoMGg/mqdefault.jpg" alt="September 4, 2025 Planning Commission">
+            <div class="rec-play"><svg width="22" height="22" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+          <div class="rec-info">
+            <div class="rec-title">Planning Commission</div>
+            <div class="rec-date">September 4, 2025</div>
+            <div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Watch on YouTube</div>
           </div>
         </a>
 
@@ -688,8 +803,8 @@
   <div class="bottom-card card-apply-serve">
     <div class="apply-standalone-inner">
       <div class="apply-standalone-text">
-        <div class="apply-standalone-heading">Serve on the SPK Organizing Committee</div>
-        <p class="apply-standalone-desc">The Committee seeks members with expertise in community economic development, housing, workforce development, education, philanthropy, and lived experience in Kalamazoo neighborhoods. A majority of members must be City residents. Neighborhood representative seats are reserved for the Eastside, Edison, and Northside neighborhoods.</p>
+        <div class="apply-standalone-heading">Serve on the Planning Commission</div>
+        <p class="apply-standalone-desc">The Planning Commission seeks residents with knowledge of land use, urban planning, architecture, or community development. Members are appointed by the Mayor with City Commission approval. No member may hold a salaried municipal position or serve on the City Commission.</p>
       </div>
       <div class="apply-standalone-action">
         <a class="apply-standalone-btn" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve →</a>
@@ -699,10 +814,23 @@
 
 </div>
 
+<div class="hearing-cta">
+  <div class="hearing-cta-inner">
+    <div class="hearing-cta-text">
+      <div class="hearing-cta-label">Planning Commission Hearings</div>
+      <div class="hearing-cta-heading">Apply for a Planning Commission Hearing</div>
+      <p class="hearing-cta-desc">The Planning Commission reviews rezoning requests, amendments to the Zoning Ordinance, Special Use Permits, subdivision layouts, and site plans within WMU's Business, Technology and Research Park. Submit an application to request a hearing before the Commission.</p>
+    </div>
+    <div class="hearing-cta-action">
+      <a class="hearing-cta-btn" href="https://www.kalamazoocity.org/Business-Development/Real-Estate-Development/Apply-for-Board-or-Commission-Review/Apply-for-a-Planning-Commission-Hearing" target="_blank" rel="noopener">Apply for a Hearing →</a>
+    </div>
+  </div>
+</div>
+
 <div class="members-section">
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
-    <p class="members-subhead">11 seats</p>
+    <p class="members-subhead">9 seats</p>
     
     <p class="members-table-guide-link">
       New to these terms? <a href="faq.html#members-table">See definitions and learn more →</a>
@@ -729,7 +857,11 @@
 <div class="staff-note-wrap">
   <div class="staff-note">
     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    <span><strong>Staff Liaison:</strong> Kevin Ford, Shared Prosperity Kalamazoo Coordinator, City of Kalamazoo.</span>
+    <span><strong>Staff Liaison:</strong> Christina Anderson, Deputy CPED Director, City Planner, City of Kalamazoo.</span>
+  </div>
+  <div class="staff-note">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span><strong>Staff Liaison:</strong> Bobby Durkee, Assistant City Planner, City of Kalamazoo.</span>
   </div>
 </div>
 
@@ -798,7 +930,7 @@ const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
-    const board = boards.find(b => b.abbr === 'SPK');
+    const board = boards.find(b => b.abbr === 'PC');
     if (!board) return;
 
     const members = board.members;
@@ -928,7 +1060,7 @@ fetch('boards.json')
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-// ── Vertical Scroll Track (Minutes) ──────────────────
+// ── Vertical Scroll Tracks (Minutes & Recordings) ────
 function setupVerticalScroll(contentId, wrapId) {
   const el  = document.getElementById(contentId);
   const wEl = document.getElementById(wrapId);
@@ -966,6 +1098,7 @@ function setupVerticalScroll(contentId, wrapId) {
 }
 
 setupVerticalScroll('scroll-minutes', 'wrap-minutes');
+setupVerticalScroll('scroll-recordings', 'wrap-recordings');
 
 // ── Horizontal scroll track for members table ────────
 (function () {
