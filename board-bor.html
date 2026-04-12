@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Board of Review for Assessments — City of Kalamazoo</title>
+  <title>Brownfield Redevelopment Authority Board — City of Kalamazoo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -24,8 +24,6 @@
       --border:     #ddd8ce;
       --border-lt:  #eee9e0;
       --red:        #991b1b;
-      --red-mid:    #7f1d1d;
-      --red-dk:     #450a0a;
       --pad-x: clamp(16px, 4vw, 40px);
     }
 
@@ -40,11 +38,7 @@
 
     /* ── NAV ── */
     nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 200; }
-    .nav-inner {
-      max-width: 1400px; margin: 0 auto;
-      padding: 0 var(--pad-x); height: 56px;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    }
+    .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x); height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
     .nav-seal { width: 32px; height: 32px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--navy); flex-shrink: 0; }
     .nav-title-wrap { min-width: 0; }
@@ -60,26 +54,11 @@
     .nav-secondary { display: none; }
     @media (max-width: 600px) {
       .nav-inner .nav-link { display: none; }
-      .nav-secondary {
-        display: flex;
-        background: rgba(0,0,0,0.18);
-        border-top: 1px solid rgba(255,255,255,0.07);
-      }
-      .nav-secondary-inner {
-        max-width: 1400px; margin: 0 auto; width: 100%;
-        padding: 0 var(--pad-x); display: flex;
-      }
-      .nav-secondary-link {
-        flex: 1; display: flex; align-items: center; justify-content: center;
-        padding: 9px 12px; color: rgba(255,255,255,0.65);
-        text-decoration: none; font-size: 13px; font-weight: 500;
-        letter-spacing: 0.02em;
-        border-right: 1px solid rgba(255,255,255,0.07);
-        transition: background 0.15s, color 0.15s;
-      }
+      .nav-secondary { display: flex; background: rgba(0,0,0,0.18); border-top: 1px solid rgba(255,255,255,0.07); }
+      .nav-secondary-inner { max-width: 1400px; margin: 0 auto; width: 100%; padding: 0 var(--pad-x); display: flex; }
+      .nav-secondary-link { flex: 1; display: flex; align-items: center; justify-content: center; padding: 9px 12px; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; border-right: 1px solid rgba(255,255,255,0.07); transition: background 0.15s, color 0.15s; }
       .nav-secondary-link:last-child { border-right: none; }
-      .nav-secondary-link:hover,
-      .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
+      .nav-secondary-link:hover, .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
       .nav-secondary-link.active { color: var(--gold-lt); }
     }
 
@@ -92,28 +71,17 @@
 
     /* ── PAGE HEADER ── */
     .page-header { background: var(--navy); padding: clamp(28px, 5vw, 48px) var(--pad-x) clamp(24px, 4vw, 44px); border-bottom: 3px solid var(--gold); }
-    .page-header-inner {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 28px;
-    }
-    @media (min-width: 900px) {
-      .page-header-inner { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; }
-    }
+    .page-header-inner { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+    @media (min-width: 900px) { .page-header-inner { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; } }
 
     .board-badge { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
     .board-abbr-large { font-family: 'Playfair Display', serif; font-size: clamp(36px, 7vw, 52px); font-weight: 600; color: var(--gold); line-height: 1; }
-
     .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 38px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 12px; }
     .page-header-desc { color: rgba(255,255,255,0.58); font-size: clamp(15px, 2.5vw, 18px); font-weight: 300; max-width: 620px; line-height: 1.65; }
 
-    /* Seat block */
     .header-seat-block { flex-shrink: 0; }
     .seat-stat-row { display: flex; gap: 2px; margin-bottom: 16px; }
-    .seat-stat {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09);
-      padding: clamp(10px, 2.5vw, 14px) clamp(12px, 3vw, 20px);
-      text-align: center; flex: 1;
-    }
+    .seat-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: clamp(10px, 2.5vw, 14px) clamp(12px, 3vw, 20px); text-align: center; flex: 1; }
     .seat-stat:first-child { border-radius: 4px 0 0 4px; }
     .seat-stat:last-child  { border-radius: 0 4px 4px 0; }
     .seat-stat-n { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 34px); font-weight: 600; color: white; line-height: 1; margin-bottom: 4px; }
@@ -122,16 +90,14 @@
     .seat-stat-n.green  { color: #86efac; }
     .seat-stat-lbl { font-size: clamp(9px, 2vw, 11px); color: rgba(255,255,255,0.38); letter-spacing: 0.05em; text-transform: uppercase; }
     .header-dots { display: flex; flex-wrap: wrap; gap: 8px; max-width: 300px; }
-    .seat-dot-hdr {
-      width: clamp(16px, 3vw, 20px); height: clamp(16px, 3vw, 20px);
-      border-radius: 50%; flex-shrink: 0; cursor: default;
-      transition: transform 0.1s; position: relative;
-    }
+    .seat-dot-hdr { width: clamp(16px, 3vw, 20px); height: clamp(16px, 3vw, 20px); border-radius: 50%; flex-shrink: 0; cursor: default; transition: transform 0.1s; position: relative; }
     .seat-dot-hdr::after { content: ''; position: absolute; inset: -6px; border-radius: 50%; }
     @media (hover: hover) { .seat-dot-hdr:hover { transform: scale(1.3); } }
     .seat-dot-hdr.red    { background: #dc2626; }
     .seat-dot-hdr.yellow { background: #d97706; }
     .seat-dot-hdr.green  { background: #15803d; }
+    .seat-dot-hdr.expandable { background: transparent; border: 2px dashed rgba(255,255,255,0.3); opacity: 0.55; }
+    @media (hover: hover) { .seat-dot-hdr.expandable:hover { opacity: 0.85; } }
     .dot-legend { display: flex; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
     .dl-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.42); letter-spacing: 0.03em; }
     .dl-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
@@ -142,26 +108,14 @@
     /* ── GOVERNANCE STRIP ── */
     .gov-strip { background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.07); overflow-x: auto; }
     .gov-inner { max-width: 1400px; margin: 0 auto; display: flex; min-width: min-content; }
-    .gov-item {
-      flex: 1; text-align: center;
-      padding: clamp(14px, 3vw, 20px) clamp(12px, 2.5vw, 16px);
-      border-right: 1px solid rgba(255,255,255,0.08);
-      min-width: 110px;
-    }
+    .gov-item { flex: 1; text-align: center; padding: clamp(14px, 3vw, 20px) clamp(12px, 2.5vw, 16px); border-right: 1px solid rgba(255,255,255,0.08); min-width: 110px; }
     .gov-item:last-child { border-right: none; }
     .gov-value { font-size: clamp(15px, 2.5vw, 20px); font-weight: 700; color: var(--gold-lt); margin-bottom: 4px; line-height: 1.2; }
     .gov-label { font-size: clamp(10px, 1.8vw, 12px); color: rgba(255,255,255,0.42); text-transform: uppercase; letter-spacing: 0.06em; }
 
     /* ── MAIN TWO-COLUMN BODY ── */
-    .board-body {
-      max-width: 1400px; margin: 0 auto;
-      padding: clamp(24px, 4vw, 48px) var(--pad-x) 0;
-      display: grid; grid-template-columns: 1fr;
-      gap: 32px; align-items: start;
-    }
-    @media (min-width: 900px) {
-      .board-body { grid-template-columns: 1fr 340px; gap: 48px; }
-    }
+    .board-body { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--pad-x) 0; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+    @media (min-width: 900px) { .board-body { grid-template-columns: 1fr 340px; gap: 48px; } }
 
     /* ── ACCORDION ── */
     .accordion { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
@@ -207,26 +161,17 @@
     .map-link:hover { text-decoration: underline; }
 
     /* ── BOTTOM CARDS ── */
-    .bottom-cards {
-      max-width: 1400px; margin: 0 auto;
-      padding: clamp(24px, 4vw, 40px) var(--pad-x) clamp(48px, 8vw, 80px);
-      display: grid; grid-template-columns: 1fr; gap: 20px;
-    }
+    .bottom-cards { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 40px) var(--pad-x) clamp(48px, 8vw, 80px); display: grid; grid-template-columns: 1fr; gap: 20px; }
     @media (min-width: 700px) { .bottom-cards { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 700px) {
-      .bottom-card:nth-child(3) { grid-column: 1 / 3; }
-    }
+    @media (min-width: 700px) { .bottom-card:nth-child(4) { grid-column: 1 / 3; } }
 
     .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
-    .bottom-card:nth-child(3) { border-left: 4px solid var(--gold); }
+    .bottom-card:nth-child(4) { border-left: 4px solid var(--gold); }
     .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .bottom-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
 
     /* Apply to Serve */
-    .apply-standalone-inner {
-      padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px);
-      display: flex; flex-direction: column; gap: 20px; height: 100%;
-    }
+    .apply-standalone-inner { padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px); display: flex; flex-direction: column; gap: 20px; height: 100%; }
     @media (min-width: 600px) { .apply-standalone-inner { flex-direction: row; align-items: center; gap: 48px; } }
     .apply-standalone-text { flex: 1; }
     .apply-standalone-heading { font-family: 'Playfair Display', serif; font-size: clamp(18px, 3vw, 22px); font-weight: 600; color: var(--navy); margin-bottom: 10px; }
@@ -242,6 +187,31 @@
     .doc-link:hover svg { color: var(--gold); }
     .pdf-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 2px; margin-left: auto; flex-shrink: 0; }
 
+    /* ── SCROLLABLE MINUTES CARD ── */
+    .bottom-card.scrollable-card { overflow: hidden; }
+    .card-count-pill { margin-left: auto; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); white-space: nowrap; }
+    .scrollable-wrap { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+    .scrollable-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 7px; height: 64px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.97)); pointer-events: none; transition: opacity 0.2s; z-index: 1; }
+    .scrollable-wrap.at-end::after { opacity: 0; }
+    .scrollable-card-body { flex: 1; min-height: 0; padding: 0; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }
+    .scrollable-card-body::-webkit-scrollbar { display: none; }
+    .scrollable-minutes { max-height: 300px; }
+    .scroll-track { position: absolute; top: 0; right: 0; bottom: 0; width: 6px; background: #e0dbd2; border-left: 1px solid var(--border); z-index: 2; pointer-events: none; border-radius: 0 0 4px 0; }
+    .scroll-thumb { position: absolute; right: 0; width: 6px; background: #1c2333; border-radius: 3px; min-height: 24px; }
+
+    .minutes-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; transition: color 0.15s; }
+    .minutes-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .minutes-icon { flex-shrink: 0; width: 36px; height: 36px; background: var(--cream); border: 1px solid var(--border); border-radius: 3px; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
+    .minutes-item:hover .minutes-icon { background: var(--cream-dk); border-color: var(--navy-light); }
+    .minutes-info { flex: 1; }
+    .minutes-date { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 2px; }
+    .minutes-item:hover .minutes-date { color: var(--gold); }
+    .minutes-sublabel { font-size: 12px; color: var(--muted); }
+    .minutes-action { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
+    .minutes-item:hover .minutes-action { color: var(--gold); }
+    .scrollable-card-body .minutes-item { margin: 0; padding: 14px 24px 14px 18px; border-bottom: 1px solid var(--border-lt) !important; border-radius: 0; }
+    .scrollable-card-body .minutes-item:last-child { border-bottom: none !important; }
+
     /* ── MEMBERS SECTION ── */
     .members-section { background: var(--white); border-top: 1px solid var(--border); padding: clamp(32px, 6vw, 56px) var(--pad-x) clamp(40px, 7vw, 72px); }
     .members-inner { max-width: 1400px; margin: 0 auto; }
@@ -252,32 +222,14 @@
     .members-table-guide-link a { color: var(--navy-light); text-decoration: none; }
     .members-table-guide-link a:hover { text-decoration: underline; }
 
-    /* Text hint removed — replaced by visual affordances */
     .table-scroll-hint { display: none !important; }
-
-    /* Horizontal scroll track — injected via JS, sits ABOVE the table */
-    .h-scroll-track {
-      height: 6px; background: #e0dbd2;
-      border: 1px solid var(--border); border-radius: 3px;
-      position: relative; margin-bottom: 8px;
-    }
-    .h-scroll-thumb {
-      position: absolute; top: 0; height: 6px;
-      background: #1c2333; border-radius: 3px;
-      min-width: 32px;
-    }
-    @media (min-width: 900px) {
-      .h-scroll-track { display: none; }
-    }
-
-    /* Outer wrapper */
     .members-table-outer { position: relative; }
 
-    .members-table-wrap {
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
-      overscroll-behavior-x: none;
-      scrollbar-width: none; -ms-overflow-style: none;
-    }
+    .h-scroll-track { height: 6px; background: #e0dbd2; border: 1px solid var(--border); border-radius: 3px; position: relative; margin-bottom: 8px; }
+    .h-scroll-thumb { position: absolute; top: 0; height: 6px; background: #1c2333; border-radius: 3px; min-width: 32px; }
+    @media (min-width: 900px) { .h-scroll-track { display: none; } }
+
+    .members-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: none; scrollbar-width: none; -ms-overflow-style: none; }
     .members-table-wrap::-webkit-scrollbar { display: none; }
 
     .members-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 560px; }
@@ -291,15 +243,11 @@
       .members-table tbody tr:hover td:first-child,
       .members-table tbody tr:hover td:nth-child(2) { background: var(--cream); }
     }
-    .members-table th:first-child,
-    .members-table td:first-child { position: sticky; left: 0; z-index: 3; }
-    .members-table th:nth-child(2),
-    .members-table td:nth-child(2) { position: sticky; left: 44px; z-index: 3; }
-    .members-table thead th:first-child,
-    .members-table thead th:nth-child(2) { background: var(--navy); }
-    /* Shadow on name column shows content scrolling behind it */
-    .members-table td:nth-child(2),
-    .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.1); }
+
+    .members-table th:first-child, .members-table td:first-child { position: sticky; left: 0; z-index: 3; }
+    .members-table th:nth-child(2), .members-table td:nth-child(2) { position: sticky; left: 44px; z-index: 3; }
+    .members-table thead th:first-child, .members-table thead th:nth-child(2) { background: var(--navy); }
+    .members-table td:nth-child(2), .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.1); }
 
     .member-dot { width: 16px; height: 16px; border-radius: 50%; display: inline-block; }
     .member-dot.red    { background: #dc2626; }
@@ -314,18 +262,12 @@
     .status-badge.transitioning { background: #fef3c7; color: #92400e; }
     .status-badge.seated        { background: #dcfce7; color: #166534; }
 
-    /* Staff note */
     .staff-note-wrap { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x) clamp(32px, 5vw, 48px); }
     .staff-note { background: var(--cream-dk); border: 1px solid var(--border); border-radius: 3px; padding: 14px 18px; font-size: 14px; color: var(--muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
     .staff-note strong { color: var(--body); }
 
     /* ── TOOLTIP / MOBILE BOTTOM SHEET ── */
-    .tooltip {
-      position: fixed; background: var(--navy); color: white;
-      padding: 12px 16px; border-radius: 4px; font-size: 14px; line-height: 1.55;
-      pointer-events: none; z-index: 9999; max-width: min(300px, 90vw);
-      box-shadow: 0 6px 28px rgba(0,0,0,0.4); display: none;
-    }
+    .tooltip { position: fixed; background: var(--navy); color: white; padding: 12px 16px; border-radius: 4px; font-size: 14px; line-height: 1.55; pointer-events: none; z-index: 9999; max-width: min(300px, 90vw); box-shadow: 0 6px 28px rgba(0,0,0,0.4); display: none; }
     .tooltip.visible { display: block; }
     .tt-name { font-weight: 600; font-size: 16px; margin-bottom: 2px; }
     .tt-role { color: var(--gold-lt); font-size: 13px; margin-bottom: 5px; }
@@ -336,19 +278,12 @@
     .tt-res { color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 4px; }
 
     @media (max-width: 600px) {
-      .tooltip {
-        position: fixed; bottom: 0; left: 0; right: 0;
-        max-width: 100%; border-radius: 12px 12px 0 0;
-        padding: 18px 20px; transform: translateY(100%);
-        transition: transform 0.25s ease; display: block;
-        pointer-events: auto;
-      }
+      .tooltip { position: fixed; bottom: 0; left: 0; right: 0; max-width: 100%; border-radius: 12px 12px 0 0; padding: 18px 20px; transform: translateY(100%); transition: transform 0.25s ease; display: block; pointer-events: auto; }
       .tooltip.visible { transform: translateY(0); }
       .tooltip-close { float: right; cursor: pointer; color: rgba(255,255,255,0.5); font-size: 20px; line-height: 1; padding: 0 0 4px 12px; }
     }
     @media (min-width: 601px) { .tooltip-close { display: none; } }
 
-    /* ── FOOTER ── */
     footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 24px var(--pad-x); text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
     footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
     footer a:hover { color: var(--gold-lt); }
@@ -389,18 +324,16 @@
   <div class="breadcrumb-inner">
     <a href="index.html">Boards & Commissions</a>
     <span class="bc-sep">›</span>
-    <span>Board of Review for Assessments</span>
+    <span>Brownfield Redevelopment Authority Board</span>
   </div>
 </div>
 
 <div class="page-header">
   <div class="page-header-inner">
     <div>
-      <div class="board-badge">
-        <span class="board-abbr-large">BOR</span>
-      </div>
-      <h1>Board of Review for Assessments</h1>
-      <p class="page-header-desc">Hears citizen appeals regarding property assessments. Has authority to raise or lower assessed values in accordance with state law and evidence presented. Meets in March for appeal hearings, and in July and December to approve corrections to the Assessment Roll.</p>
+      <div class="board-badge"><span class="board-abbr-large">BRA</span></div>
+      <h1>Brownfield Redevelopment Authority Board</h1>
+      <p class="page-header-desc">Promotes the revitalization of environmentally distressed, contaminated, or blighted areas in the city. Develops and implements brownfield plans using tax increment financing (TIF) to redevelop distressed properties and benefit the community.</p>
     </div>
     <div class="header-seat-block">
       <div class="seat-stat-row">
@@ -421,23 +354,14 @@
 
 <div class="gov-strip">
   <div class="gov-inner">
-    <div class="gov-item">
-      <div class="gov-value">3 Years</div>
-      <div class="gov-label">Term Length</div>
-    </div>
-    <div class="gov-item">
-      <div class="gov-value">March / July / Dec</div>
-      <div class="gov-label">Meeting Sessions</div>
-    </div>
-    <div class="gov-item">
-      <div class="gov-value">By Appointment</div>
-      <div class="gov-label">March Hearings</div>
-    </div>
+    <div class="gov-item"><div class="gov-value">6 Years</div><div class="gov-label">Term Length</div></div>
+    <div class="gov-item"><div class="gov-value">3rd Thursday Monthly</div><div class="gov-label">Meeting Frequency</div></div>
+    <div class="gov-item"><div class="gov-value">Majority City Residents</div><div class="gov-label">Residency Rule</div></div>
+    <div class="gov-item"><div class="gov-value">9–13 Members</div><div class="gov-label">Board Size</div></div>
   </div>
 </div>
 
 <div class="board-body">
-
   <div>
     <div class="accordion">
 
@@ -448,9 +372,9 @@
         </button>
         <div class="acc-panel">
           <div class="acc-panel-inner">
-            <p>The Board of Review for Assessments hears citizen appeals regarding property assessments made by the City Assessor's office. The Board has the authority to raise or lower the assessed value of properties based on evidence presented and in accordance with the Michigan General Property Tax Act.</p>
-            <p>Each year prior to the March sessions, the City Assessor mails a "Notice of Assessment, Taxable Valuation, and Property Classification" to property owners. This notice includes the State Equalized Value, any Principal Residence or Qualified Agricultural Property exemption percentage, and ownership transfer information.</p>
-            <p>The Board meets for several weeks in March to hear property assessment appeals, beginning on the first Tuesday after the first Monday of March. It also convenes in July and December to approve corrections to the Assessment Roll.</p>
+            <p>The Brownfield Redevelopment Authority (BRA) promotes the revitalization of environmentally distressed, contaminated, or blighted areas within the City of Kalamazoo. The BRA develops and implements brownfield plans that use tax increment financing (TIF) to fund the remediation and redevelopment of distressed or contaminated properties for community benefit.</p>
+            <p>The BRA is established under Michigan's Brownfield Redevelopment Financing Act (Act 381 of 1996), which authorizes local units of government to create brownfield redevelopment authorities to facilitate the cleanup and reuse of contaminated or underutilized properties.</p>
+            <p>The BRA shares its membership with the City's Economic Development Corporation (EDC). The two bodies hold joint meetings on the third Thursday of each month — the EDC meeting begins at 7:45 a.m., with the BRA convening immediately following.</p>
           </div>
         </div>
       </div>
@@ -462,15 +386,15 @@
         </button>
         <div class="acc-panel" hidden>
           <div class="acc-panel-inner">
-            <p>Pursuant to the City of Kalamazoo Charter and Code of Ordinances and the Michigan General Property Tax Act, the Board of Review meets in March to consider:</p>
             <ul>
-              <li>Review and hear protests on the Assessment Roll as prepared by the City Assessor, including protests as to Assessed Value (SEV), Tentative Taxable Value, and Assessment Classification</li>
-              <li>Receive and consider homestead poverty exemption claims</li>
-              <li>Hear appeals related to property valuation and assessment roll classification changes</li>
-              <li>Approve corrections to the Assessment Roll during July and December sessions</li>
-              <li>Any other business that may properly come before the Board</li>
+              <li>Develop and approve brownfield plans for eligible contaminated, blighted, or functionally obsolete properties within the City</li>
+              <li>Authorize the capture of tax increment revenues (TIF) to finance eligible brownfield activities including environmental remediation, demolition, and infrastructure improvements</li>
+              <li>Review and approve brownfield plan amendments and modifications</li>
+              <li>Oversee implementation of approved brownfield plans and monitor compliance</li>
+              <li>Apply for and administer state and federal brownfield grants and loans on behalf of the City</li>
+              <li>Issue bonds or notes payable from tax increment revenues when authorized</li>
+              <li>Promote brownfield redevelopment opportunities that provide community benefit and economic development</li>
             </ul>
-            <p>Note: Taxable value changes resulting solely from Proposal A are generally not appealable before the Board of Review unless there has been new construction or a transfer of ownership.</p>
           </div>
         </div>
       </div>
@@ -482,7 +406,7 @@
         </button>
         <div class="acc-panel" hidden>
           <div class="acc-panel-inner">
-            <p>The Board consists of <strong>9 members</strong> appointed by the Mayor and approved by the City Commission.</p>
+            <p>The Board consists of <strong>between 9 and 13 members</strong> appointed by the Mayor and approved by the City Commission, serving 6-year terms. The board currently has 11 members, and additional appointments may be made up to the maximum of 13.</p>
             <div class="req-grid">
               <div class="req-card">
                 <div class="req-card-label">Appointment</div>
@@ -490,15 +414,15 @@
               </div>
               <div class="req-card">
                 <div class="req-card-label">Term Length</div>
-                <div class="req-card-value">Members serve 3-year terms.</div>
+                <div class="req-card-value">Members serve 6-year terms.</div>
               </div>
               <div class="req-card">
                 <div class="req-card-label">Residency</div>
-                <div class="req-card-value">All members must be City Residents.</div>
+                <div class="req-card-value">A majority of members must be City residents. Non-residents are eligible if employed by or affiliated with a business organization or entity that operates in the city or has significant economic impact on it.</div>
               </div>
               <div class="req-card">
-                <div class="req-card-label">Alternates</div>
-                <div class="req-card-value">The Board includes one Alternate member who may serve in place of a regular member when needed.</div>
+                <div class="req-card-label">City Commission Liaison</div>
+                <div class="req-card-value">One City Commission member serves as a liaison to the Board. All BRA members also serve on the Economic Development Corporation (EDC).</div>
               </div>
             </div>
           </div>
@@ -507,21 +431,13 @@
 
       <div class="acc-item">
         <button class="acc-trigger" aria-expanded="false">
-          Submit an Appeal
+          Attend a Meeting
           <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="acc-panel" hidden>
           <div class="acc-panel-inner">
-            <p><strong>In-Person Hearings — By Appointment Only.</strong> Walk-ins are not permitted for the March appeal sessions. To schedule an in-person appointment, call <a href="tel:+12693378845">269-337-8845</a> before 5:00 PM on the scheduling deadline.</p>
-            <p><strong>Written Protests</strong> are accepted from both residents and non-residents. Submit a signed letter with a completed <a href="https://www.michigan.gov/-/media/Project/Websites/treasury/Forms/Local-Government/0618.pdf?rev=ac8af909553e4a069be611a601710830" target="_blank" rel="noopener">Form L-4035</a> and any supporting documents via:</p>
-            <ul>
-              <li><strong>Mail:</strong> City Assessor, 241 West South St, Kalamazoo, MI 49007</li>
-              <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#4a2925212b39392f393925380a212b262b272b30252529233e336425382d"><span class="__cf_email__" data-cfemail="40232f2b2133332533332f32002b212c212d213a2f2f232934396e2f3227">[email protected]</span></a></li>
-              <li><strong>Drop Box:</strong> 24-hour drop box at Kalamazoo City Hall</li>
-            </ul>
-            <p>Written appeals must be received by the City Assessor no later than 12:00 PM on the final session date. Postmarks are not acceptable. If representing a property owner, written authorization must be provided.</p>
-            <p><strong>Accommodations:</strong> Persons with disabilities should contact the City Assessor's office at <a href="/cdn-cgi/l/email-protection#4c2f23272d3f3f293f3f233e0c272d202d212d3623232f25383562233e2b"><span class="__cf_email__" data-cfemail="e5868a8e8496968096968a97a58e84898488849f8a8a868c919ccb8a9782">[email protected]</span></a> or <a href="tel:+12693378636">(269) 337-8636</a> by 4:00 PM the day prior to the meeting.</p>
-            <p><strong>Minutes & Agendas:</strong> Meeting records are published on the City's <a href="https://kalamazoomi.portal.civicclerk.com/" target="_blank" rel="noopener">Civic Clerk portal</a>.</p>
+            <p>BRA meetings are held on the <strong>third Thursday of each month at 7:45 a.m.</strong> at the City's Community Planning & Economic Development (CPED) Offices, 245 N Rose Street, Suite 100. The EDC meeting begins first; the BRA convenes immediately following. The public is welcome to attend both sessions.</p>
+            <p><strong>Interested in Serving?</strong> Board seats are filled through mayoral appointment with City Commission approval. Use the <a href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve</a> page to submit an interest form or learn more about the application process.</p>
           </div>
         </div>
       </div>
@@ -536,27 +452,26 @@
         Upcoming Meetings
       </div>
       <div class="sidebar-card-body">
-        <div class="meeting-item" data-date="2026-03-13">
+        <div class="meeting-item" data-date="2026-04-16">
           <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Friday, March 13, 2026</div>
-          <div class="meeting-time">9:00 AM – 12:00 PM</div>
+          <div class="meeting-date">Thursday, April 16, 2026</div>
+          <div class="meeting-time">7:45 AM – 9:30 AM</div>
         </div>
-        <div class="meeting-item" data-date="2026-03-13">
+        <div class="meeting-item" data-date="2026-05-21">
           <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Friday, March 13, 2026</div>
-          <div class="meeting-time">1:20 PM – 4:40 PM</div>
+          <div class="meeting-date">Thursday, May 21, 2026</div>
+          <div class="meeting-time">7:45 AM – 9:30 AM</div>
         </div>
-        <div class="meeting-item" data-date="2026-03-18">
+        <div class="meeting-item" data-date="2026-06-18">
           <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Wednesday, March 18, 2026</div>
-          <div class="meeting-time">10:00 AM – 11:00 AM</div>
-          <div style="font-size:13px;color:var(--muted);margin-top:3px;">Final session — no hearings</div>
+          <div class="meeting-date">Thursday, June 18, 2026</div>
+          <div class="meeting-time">7:45 AM – 9:30 AM</div>
         </div>
-        <p class="meeting-note">March sessions are by appointment only — in-person hearings require a scheduled appointment. The Board also meets in July and December for Assessment Roll corrections.</p>
+        <p class="meeting-note">Meets the 3rd Thursday of each month. BRA convenes immediately following the EDC meeting. All meetings open to the public.</p>
         <div class="meeting-location">
-          <div class="location-name">Third Floor Conference Room</div>
-          <div class="location-addr">Kalamazoo City Hall<br>241 W South Street, Kalamazoo, MI 49007</div>
-          <a class="map-link" href="https://maps.google.com/?q=241+W+South+Street,+Kalamazoo,+MI+49007" target="_blank" rel="noopener">
+          <div class="location-name">CPED Offices — Main Conference Room</div>
+          <div class="location-addr">Community Planning & Economic Development<br>245 N Rose Street, Suite 100, Kalamazoo, MI 49007</div>
+          <a class="map-link" href="https://maps.google.com/?q=245+N+Rose+Street,+Kalamazoo,+MI+49007" target="_blank" rel="noopener">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             View on Google Maps
           </a>
@@ -568,19 +483,88 @@
 
 <div class="bottom-cards">
 
-  <div class="bottom-card">
+  <div class="bottom-card scrollable-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       Minutes & Agendas
+      <span class="card-count-pill">8 meetings</span>
     </div>
-    <div class="bottom-card-body">
-      <a class="doc-link" href="https://kalamazoomi.portal.civicclerk.com/" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Civic Clerk Meeting Portal
+    <div class="scrollable-wrap" id="wrap-minutes">
+    <div class="scrollable-card-body scrollable-minutes" id="scroll-minutes">
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2700/files/agenda/4888" target="_blank" rel="noopener">
+        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="minutes-info">
+          <div class="minutes-date">March 19, 2026</div>
+          <div class="minutes-sublabel">Brownfield Redevelopment Authority</div>
+          <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+        </div>
       </a>
-      <p style="font-size:13px;color:var(--muted);margin-top:12px;line-height:1.55;">Agendas, minutes, and supporting documents are archived on the City's Civic Clerk portal. Scroll up on the portal page to view past meetings.</p>
-    </div>
-  </div>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2699/files/agenda/4769" target="_blank" rel="noopener">
+        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="minutes-info">
+          <div class="minutes-date">February 19, 2026</div>
+          <div class="minutes-sublabel">Brownfield Redevelopment Authority</div>
+          <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+        </div>
+      </a>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2698/files/agenda/4636" target="_blank" rel="noopener">
+        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="minutes-info">
+          <div class="minutes-date">January 15, 2026</div>
+          <div class="minutes-sublabel">Brownfield Redevelopment Authority</div>
+          <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+        </div>
+      </a>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1325/files/agenda/4590" target="_blank" rel="noopener">
+        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="minutes-info">
+          <div class="minutes-date">December 18, 2025</div>
+          <div class="minutes-sublabel">Brownfield Redevelopment Authority</div>
+          <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+        </div>
+      </a>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1324/files/agenda/4458" target="_blank" rel="noopener">
+        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="minutes-info">
+          <div class="minutes-date">November 20, 2025</div>
+          <div class="minutes-sublabel">Brownfield Redevelopment Authority</div>
+          <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+        </div>
+      </a>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1323/files/agenda/4354" target="_blank" rel="noopener">
+        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="minutes-info">
+          <div class="minutes-date">October 16, 2025</div>
+          <div class="minutes-sublabel">Brownfield Redevelopment Authority</div>
+          <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+        </div>
+      </a>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2523/files/agenda/4338" target="_blank" rel="noopener">
+        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="minutes-info">
+          <div class="minutes-date">October 9, 2025</div>
+          <div class="minutes-sublabel">Special Meeting</div>
+          <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+        </div>
+      </a>
+
+      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2521/files/agenda/4307" target="_blank" rel="noopener">
+        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="minutes-info">
+          <div class="minutes-date">October 2, 2025</div>
+          <div class="minutes-sublabel">Special Meeting</div>
+          <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
+        </div>
+      </a>
+
+    </div></div></div>
 
   <div class="bottom-card">
     <div class="bottom-card-header">
@@ -588,19 +572,18 @@
       Key Documents
     </div>
     <div class="bottom-card-body">
-      <a class="doc-link" href="https://www.michigan.gov/-/media/Project/Websites/treasury/Forms/Local-Government/0618.pdf?rev=ac8af909553e4a069be611a601710830" target="_blank" rel="noopener">
+      <a class="doc-link" href="https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/bra-bylaws.pdf" target="_blank" rel="noopener">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Petition to Board of Review — Form L-4035
+        BRA Bylaws
         <span class="pdf-badge">PDF</span>
       </a>
-      <a class="doc-link" href="https://www.michigan.gov/treasury/-/media/Project/Websites/treasury/BLGSS/PSD_CSD/State-Tax-Commission/STC-Misc/Board-of-Review-Q--A.pdf" target="_blank" rel="noopener">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Board of Review Questions & Answers
-        <span class="pdf-badge">PDF</span>
-      </a>
-      <a class="doc-link" href="https://www.kalamazoocity.org/Residents/Taxes-Assessing/Sales-Listings-and-Maps-for-Assessments" target="_blank" rel="noopener">
+      <a class="doc-link" href="https://www.kalamazoocity.org/Business-Development/Apply-for-Brownfield-Plan" target="_blank" rel="noopener">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        View Sales Listings & Maps for Assessments
+        Apply for a Brownfield Plan
+      </a>
+      <a class="doc-link" href="https://www.kalamazoocity.org/Business-Development/View-Brownfield-Plans" target="_blank" rel="noopener">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        View Current Brownfield Plans
       </a>
     </div>
   </div>
@@ -608,8 +591,8 @@
   <div class="bottom-card">
     <div class="apply-standalone-inner">
       <div class="apply-standalone-text">
-        <div class="apply-standalone-heading">Serve on the Board of Review for Assessments</div>
-        <p class="apply-standalone-desc">The Board of Review for Assessments needs City residents with knowledge of property valuation, real estate assessment, or local tax law. Members are appointed by the Mayor and approved by the City Commission to serve 3-year terms. Submit an interest form through the City's application portal to be considered for open or upcoming vacancies.</p>
+        <div class="apply-standalone-heading">Serve on the Brownfield Redevelopment Authority</div>
+        <p class="apply-standalone-desc">The BRA seeks members with experience in economic development, environmental remediation, real estate, construction, or business development. City residents are preferred, but qualified non-residents affiliated with businesses operating in or economically connected to Kalamazoo are also eligible. Members are appointed by the Mayor and approved by the City Commission to serve 6-year terms.</p>
       </div>
       <div>
         <a class="apply-standalone-btn" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank" rel="noopener">Apply to Serve →</a>
@@ -622,10 +605,10 @@
 <div class="members-section">
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
-    <p class="members-subhead">9 seats — members serve 3-year terms</p>
+    <p class="members-subhead">9–13 seats (currently 11) — 6-year terms; City residents and qualified non-residents eligible</p>
 
     <p class="members-table-guide-link">
-      New to these terms? <a href="faq.html#members-table">See definitions and learn more &rarr;</a>
+      New to these terms? <a href="faq.html#members-table">See definitions and learn more →</a>
     </p>
 
     <div class="members-table-outer" id="members-table-outer">
@@ -649,7 +632,7 @@
 <div class="staff-note-wrap">
   <div class="staff-note">
     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    <span><strong>Staff Liaison:</strong> Aaron Powers, City Assessor, City of Kalamazoo. The staff liaison supports the Board's administrative operations and is not a voting board member.</span>
+    <span><strong>Staff Liaison:</strong> Jamie McCarthy, Sustainable Development Coordinator, City of Kalamazoo. The staff liaison supports the Board's administrative operations and is not a voting board member.</span>
   </div>
 </div>
 
@@ -668,7 +651,7 @@
   </p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const TODAY  = new Date();
 const SIX_MO = new Date(TODAY);
 SIX_MO.setMonth(SIX_MO.getMonth() + 6);
@@ -682,19 +665,16 @@ function seatStatus(m) {
   if (end < SIX_MO) return 'expiring';
   return 'stable';
 }
-
 function displayStatus(st) {
   if (st === 'vacant')                       return 'open';
   if (st === 'expired' || st === 'expiring') return 'transitioning';
   return 'seated';
 }
-
 function fmtDate(iso) {
   if (!iso || iso === '2100-01-01') return null;
   const [y, m, d] = iso.split('-');
   return `${MONTHS[+m - 1]} ${+d}, ${y}`;
 }
-
 function termText(m) {
   const st = seatStatus(m);
   if (st === 'vacant')    return 'Open seat';
@@ -709,9 +689,8 @@ const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
-    const board = boards.find(b => b.abbr === 'BOR');
+    const board = boards.find(b => b.abbr === 'BRA');
     if (!board) return;
-
     const members = board.members;
 
     let nO = 0, nT = 0, nS = 0;
@@ -735,12 +714,28 @@ fetch('boards.json')
       dot.setAttribute('role', 'button');
       dot.setAttribute('tabindex', '0');
       dot.dataset.name    = m.isVacant ? 'Open Seat' : `${m.firstName} ${m.lastName}`.trim();
-      dot.dataset.role    = m.role || '';
+      dot.dataset.role    = m.positionRequirement || m.role || '';
       dot.dataset.term    = termText(m);
       dot.dataset.termcls = ds;
       dot.dataset.res     = m.residency || '';
       dotsEl.appendChild(dot);
     });
+
+    const maxMembers = 13;
+    if (maxMembers > members.length) {
+      for (let x = 0; x < maxMembers - members.length; x++) {
+        const xdot = document.createElement('div');
+        xdot.className = 'seat-dot-hdr expandable';
+        xdot.setAttribute('role', 'button');
+        xdot.setAttribute('tabindex', '0');
+        xdot.dataset.name    = 'Available seat';
+        xdot.dataset.role    = '';
+        xdot.dataset.term    = `Board may expand to up to ${maxMembers} members`;
+        xdot.dataset.termcls = 'open';
+        xdot.dataset.res     = '';
+        dotsEl.appendChild(xdot);
+      }
+    }
 
     const tbody = document.getElementById('members-tbody');
     members.forEach(m => {
@@ -755,13 +750,14 @@ fetch('boards.json')
                         : fmtDate(m.termEnd);
       const resDisplay  = m.isVacant ? '—' : (m.residency || '—');
       const dsLabel     = ds.charAt(0).toUpperCase() + ds.slice(1);
+      const roleDisplay = m.positionRequirement || m.role || '';
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td style="text-align:center"><span class="member-dot ${col}"></span></td>
         <td>
           <div class="member-name ${m.isVacant ? 'vacant' : ''}">${name}</div>
-          <div class="member-role-sub">${m.role}</div>
+          <div class="member-role-sub">${roleDisplay}</div>
         </td>
         <td><span class="type-badge">${typeLabel}</span></td>
         <td>${resDisplay}</td>
@@ -804,107 +800,77 @@ fetch('boards.json')
       tooltip.style.left = x + 'px';
       tooltip.style.top  = y + 'px';
     });
-
-    document.addEventListener('mouseleave', () => {
-      if (isTouchDevice()) return;
-      tooltip.classList.remove('visible');
-      lastDot = null;
-    });
-
+    document.addEventListener('mouseleave', () => { if (isTouchDevice()) return; tooltip.classList.remove('visible'); lastDot = null; });
     document.addEventListener('click', e => {
       if (!isTouchDevice()) return;
       const isDot = e.target.classList && e.target.classList.contains('seat-dot-hdr');
-      if (isDot) {
-        populateTooltip(e.target);
-        tooltip.classList.add('visible');
-        e.stopPropagation();
-      } else if (!tooltip.contains(e.target)) {
-        tooltip.classList.remove('visible');
-      }
+      if (isDot) { populateTooltip(e.target); tooltip.classList.add('visible'); e.stopPropagation(); }
+      else if (!tooltip.contains(e.target)) { tooltip.classList.remove('visible'); }
     });
-
     document.addEventListener('keydown', e => {
-      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('seat-dot-hdr')) {
-        e.preventDefault();
-        populateTooltip(e.target);
-        tooltip.classList.add('visible');
-      }
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('seat-dot-hdr')) { e.preventDefault(); populateTooltip(e.target); tooltip.classList.add('visible'); }
       if (e.key === 'Escape') tooltip.classList.remove('visible');
     });
-
     ttClose.addEventListener('click', () => tooltip.classList.remove('visible'));
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-// Horizontal scroll track for members table (above table, no fades)
+// Vertical scroll track for minutes card
+(function () {
+  const el  = document.getElementById('scroll-minutes');
+  const wEl = document.getElementById('wrap-minutes');
+  if (!el || !wEl) return;
+  const track = document.createElement('div'); track.className = 'scroll-track';
+  const thumb = document.createElement('div'); thumb.className = 'scroll-thumb';
+  track.appendChild(thumb); wEl.appendChild(track);
+  function update() {
+    const { scrollTop, scrollHeight, clientHeight } = el;
+    const scrollable = scrollHeight - clientHeight;
+    const thumbH = Math.max(24, Math.round((clientHeight / scrollHeight) * track.offsetHeight));
+    thumb.style.height = thumbH + 'px';
+    thumb.style.top    = scrollable > 0 ? Math.round((scrollTop / scrollable) * (track.offsetHeight - thumbH)) + 'px' : '0px';
+    wEl.classList.toggle('at-end', scrollTop + clientHeight >= scrollHeight - 4);
+  }
+  el.addEventListener('scroll', update, { passive: true });
+  new ResizeObserver(update).observe(el);
+  update();
+})();
+
+// Horizontal scroll track for members table
 (function () {
   const wrap  = document.getElementById('members-table-wrap');
   const outer = document.getElementById('members-table-outer');
   if (!wrap || !outer) return;
-
-  // Inject track BEFORE the outer wrapper so it appears above the table
-  const track = document.createElement('div');
-  track.className = 'h-scroll-track';
-  const thumb = document.createElement('div');
-  thumb.className = 'h-scroll-thumb';
-  track.appendChild(thumb);
-  outer.before(track);
-
+  const track = document.createElement('div'); track.className = 'h-scroll-track';
+  const thumb = document.createElement('div'); thumb.className = 'h-scroll-thumb';
+  track.appendChild(thumb); outer.before(track);
   function update() {
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
     const maxScroll = scrollWidth - clientWidth;
-
-    // Clamp scroll position — prevents rubber-band drift past content edges
     if (scrollLeft < 0) { wrap.scrollLeft = 0; return; }
     if (scrollLeft > maxScroll) { wrap.scrollLeft = maxScroll; return; }
-
-    const thumbPct  = clientWidth / scrollWidth;
-    const trackW    = track.offsetWidth;
-    const thumbW    = Math.max(32, Math.round(thumbPct * trackW));
+    const thumbW = Math.max(32, Math.round((clientWidth / scrollWidth) * track.offsetWidth));
     thumb.style.width = thumbW + 'px';
-    thumb.style.left  = maxScroll > 0
-      ? Math.round((scrollLeft / maxScroll) * (trackW - thumbW)) + 'px'
-      : '0px';
+    thumb.style.left  = maxScroll > 0 ? Math.round((scrollLeft / maxScroll) * (track.offsetWidth - thumbW)) + 'px' : '0px';
   }
-
   wrap.addEventListener('scroll', update, { passive: true });
   new ResizeObserver(update).observe(wrap);
   update();
 })();
 
-// Prevent rubber-band overscroll at horizontal boundaries (older iOS Safari fallback)
+// Prevent rubber-band overscroll at horizontal boundaries (older iOS Safari)
 (function () {
   const wrap = document.getElementById('members-table-wrap');
   if (!wrap) return;
-
   let startX = 0, startY = 0, isHorizontal = null;
-
-  wrap.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    isHorizontal = null; // reset direction each new gesture
-  }, { passive: true });
-
+  wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; startY = e.touches[0].clientY; isHorizontal = null; }, { passive: true });
   wrap.addEventListener('touchmove', e => {
     const dx = e.touches[0].clientX - startX;
     const dy = e.touches[0].clientY - startY;
-
-    // Determine gesture direction on first meaningful movement
-    if (isHorizontal === null && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
-      isHorizontal = Math.abs(dx) > Math.abs(dy);
-    }
-
-    // Vertical gesture — return immediately, let browser scroll the page normally
+    if (isHorizontal === null && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) { isHorizontal = Math.abs(dx) > Math.abs(dy); }
     if (!isHorizontal) return;
-
-    // Horizontal gesture — only block at the scroll boundaries
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
-    const atLeft  = scrollLeft <= 0;
-    const atRight = scrollLeft >= scrollWidth - clientWidth - 1;
-
-    if ((atLeft && dx > 0) || (atRight && dx < 0)) {
-      e.preventDefault();
-    }
+    if ((scrollLeft <= 0 && dx > 0) || (scrollLeft >= scrollWidth - clientWidth - 1 && dx < 0)) { e.preventDefault(); }
   }, { passive: false });
 })();
 
@@ -917,15 +883,11 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
 });
 
 (function () {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const today = new Date(); today.setHours(0, 0, 0, 0);
   let found = false;
   document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
     const d = new Date(item.dataset.date + 'T00:00:00');
-    if (!found && d >= today) {
-      item.querySelector('.next-badge').style.display = '';
-      found = true;
-    }
+    if (!found && d >= today) { item.querySelector('.next-badge').style.display = ''; found = true; }
   });
 })();
 </script>
