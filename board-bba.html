@@ -225,6 +225,10 @@
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
 
+    .members-table-guide-link { font-size: 13px; color: var(--muted); margin-top: -8px; margin-bottom: 12px; }
+    .members-table-guide-link a { color: var(--navy-light); text-decoration: none; }
+    .members-table-guide-link a:hover { text-decoration: underline; }
+
     /* Text hint removed — replaced by visual affordances */
     .table-scroll-hint { display: none !important; }
 
@@ -318,21 +322,19 @@
 </head>
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-inner">
     <span>Informational resource — not an official City of Kalamazoo website</span>
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
       <div class="nav-seal">CoK</div>
       <div class="nav-title-wrap">
         <span class="nav-title-main">City of Kalamazoo</span>
-        <span class="nav-title-sub">Boards &amp; Commissions</span>
+        <span class="nav-title-sub">Boards & Commissions</span>
       </div>
     </a>
     <div class="nav-right">
@@ -341,7 +343,6 @@
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
     </div>
   </div>
-  <!-- Mobile-only secondary nav strip -->
   <div class="nav-secondary">
     <div class="nav-secondary-inner">
       <a class="nav-secondary-link active" href="index.html">All Boards</a>
@@ -350,16 +351,14 @@
   </div>
 </nav>
 
-<!-- BREADCRUMB -->
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
-    <a href="index.html">Boards &amp; Commissions</a>
+    <a href="index.html">Boards & Commissions</a>
     <span class="bc-sep">›</span>
     <span>Building Board of Appeals</span>
   </div>
 </div>
 
-<!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
     <div>
@@ -386,7 +385,6 @@
   </div>
 </div>
 
-<!-- GOVERNANCE QUICK FACTS -->
 <div class="gov-strip">
   <div class="gov-inner">
     <div class="gov-item"><div class="gov-value">3 Years</div><div class="gov-label">Term Length</div></div>
@@ -396,7 +394,6 @@
   </div>
 </div>
 
-<!-- MAIN BODY -->
 <div class="board-body">
 
   <div>
@@ -404,7 +401,7 @@
 
       <div class="acc-item">
         <button class="acc-trigger" aria-expanded="true">
-          About &amp; Mission
+          About & Mission
           <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="acc-panel">
@@ -418,7 +415,7 @@
 
       <div class="acc-item">
         <button class="acc-trigger" aria-expanded="false">
-          Powers &amp; Responsibilities
+          Powers & Responsibilities
           <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="acc-panel" hidden>
@@ -453,7 +450,7 @@
                 <div class="req-card-value">Members serve 3-year terms, limited to 2 consecutive terms. After 2 consecutive terms, members must take a 3-year break before being eligible for reappointment.</div>
               </div>
               <div class="req-card">
-                <div class="req-card-label">Residency &amp; Eligibility</div>
+                <div class="req-card-label">Residency & Eligibility</div>
                 <div class="req-card-value">Members must be residents of the City of Kalamazoo or owners or employees of a business located in the City. A majority of members must be City residents. Members cannot serve on another board.</div>
               </div>
               <div class="req-card">
@@ -527,7 +524,6 @@
   </aside>
 </div>
 
-<!-- BOTTOM CARDS -->
 <div class="bottom-cards">
 
   <div class="bottom-card">
@@ -562,11 +558,10 @@
 
 </div>
 
-<!-- HEARING CTA -->
 <div class="hearing-cta">
   <div class="hearing-cta-inner">
     <div>
-      <div class="hearing-cta-eyebrow">Property Owners &amp; Residents</div>
+      <div class="hearing-cta-eyebrow">Property Owners & Residents</div>
       <div class="hearing-cta-heading">Apply for a Building Board of Appeals Hearing</div>
       <p class="hearing-cta-desc">If your property has been cited as a "dangerous building" under the Building Code, or if you wish to appeal a decision made by a City housing or building inspector, you may submit a request for a BBA hearing. Hearings are conducted monthly in City Commission Chambers.</p>
     </div>
@@ -574,11 +569,15 @@
   </div>
 </div>
 
-<!-- MEMBERS SECTION -->
 <div class="members-section">
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
     <p class="members-subhead">7 voting seats + 2 ex-officio — 3-year terms, max 2 consecutive (3-year break required)</p>
+    
+    <p class="members-table-guide-link">
+      Unfamiliar with these columns? <a href="faq.html#members-table">See definitions and learn more →</a>
+    </p>
+
     <div class="members-table-outer" id="members-table-outer">
     <div class="members-table-wrap" id="members-table-wrap">
       <table class="members-table">
@@ -594,12 +593,9 @@
         </thead>
         <tbody id="members-tbody"></tbody>
       </table>
-    </div><!-- /members-table-wrap -->
-    </div><!-- /members-table-outer -->
-  </div>
+    </div></div></div>
 </div>
 
-<!-- STAFF LIAISON NOTE -->
 <div class="staff-note-wrap">
   <div class="staff-note">
     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -607,19 +603,17 @@
   </div>
 </div>
 
-<!-- TOOLTIP / MOBILE BOTTOM SHEET -->
 <div class="tooltip" id="tooltip">
-  <span class="tooltip-close" id="tooltip-close" aria-label="Close">&#x2715;</span>
+  <span class="tooltip-close" id="tooltip-close" aria-label="Close">✕</span>
   <div class="tt-name" id="tt-name"></div>
   <div class="tt-role" id="tt-role"></div>
   <div class="tt-term" id="tt-term"></div>
   <div class="tt-res"  id="tt-res"></div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <p>City of Kalamazoo — Boards &amp; Commissions Office &nbsp;|&nbsp;
-    <a href="tel:+12693376200">(269) 337-6200</a> &nbsp;|&nbsp;
+  <p>City of Kalamazoo — Boards & Commissions Office  | 
+    <a href="tel:+12693376200">(269) 337-6200</a>  | 
     <a href="#">City Clerk's Office</a>
   </p>
 </footer>
