@@ -54,6 +54,32 @@
     .nav-apply { background: var(--gold); color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; padding: 7px 14px; border-radius: 2px; transition: background 0.15s; white-space: nowrap; }
     .nav-apply:hover { background: var(--gold-lt); }
 
+    /* ── MOBILE NAV SECONDARY STRIP ── */
+    .nav-secondary { display: none; }
+    @media (max-width: 600px) {
+      .nav-secondary {
+        display: flex;
+        background: rgba(0,0,0,0.18);
+        border-top: 1px solid rgba(255,255,255,0.07);
+      }
+      .nav-secondary-inner {
+        max-width: 1400px; margin: 0 auto; width: 100%;
+        padding: 0 var(--pad-x); display: flex;
+      }
+      .nav-secondary-link {
+        flex: 1; display: flex; align-items: center; justify-content: center;
+        padding: 9px 12px; color: rgba(255,255,255,0.65);
+        text-decoration: none; font-size: 13px; font-weight: 500;
+        letter-spacing: 0.02em;
+        border-right: 1px solid rgba(255,255,255,0.07);
+        transition: background 0.15s, color 0.15s;
+      }
+      .nav-secondary-link:last-child { border-right: none; }
+      .nav-secondary-link:hover,
+      .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
+      .nav-secondary-link.active { color: var(--gold-lt); }
+    }
+
     /* ── BREADCRUMB ── */
     .breadcrumb { background: var(--white); border-bottom: 1px solid var(--border); padding: 9px var(--pad-x); font-size: 14px; color: var(--muted); overflow-x: auto; white-space: nowrap; }
     .breadcrumb-inner { max-width: 1400px; margin: 0 auto; display: flex; gap: 8px; align-items: center; }
@@ -374,6 +400,12 @@
       <a class="nav-link" href="index.html">All Boards</a>
       <a class="nav-link" href="faq.html">FAQ</a>
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
+    </div>
+  </div>
+  <div class="nav-secondary">
+    <div class="nav-secondary-inner">
+      <a class="nav-secondary-link active" href="index.html">All Boards</a>
+      <a class="nav-secondary-link" href="faq.html">FAQ</a>
     </div>
   </div>
 </nav>
