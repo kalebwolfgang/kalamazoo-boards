@@ -197,6 +197,9 @@
     .scrollable-card-body { flex: 1; min-height: 0; padding: 0; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }
     .scrollable-card-body::-webkit-scrollbar { display: none; }
     .scrollable-minutes { max-height: 300px; }
+    .scrollable-recordings { max-height: 300px; }
+    .scrollable-card-body .recording-item { margin: 0; padding: 14px 24px 14px 18px; border-bottom: 1px solid var(--border-lt) !important; border-radius: 0; }
+    .scrollable-card-body .recording-item:last-child { border-bottom: none !important; }
     .scroll-track { position: absolute; top: 0; right: 0; bottom: 0; width: 6px; background: #e0dbd2; border-left: 1px solid var(--border); z-index: 2; pointer-events: none; border-radius: 0 0 4px 0; }
     .scroll-thumb { position: absolute; right: 0; width: 6px; background: #1c2333; border-radius: 3px; min-height: 24px; }
 
@@ -576,12 +579,14 @@
     </div>
   </div>
 
-  <div class="bottom-card">
+  <div class="bottom-card scrollable-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
       Meeting Recordings
+      <span class="card-count-pill">5 recordings</span>
     </div>
-    <div class="bottom-card-body">
+    <div class="scrollable-wrap" id="wrap-recordings">
+    <div class="scrollable-card-body scrollable-recordings" id="scroll-recordings">
       <a class="recording-item" href="https://www.youtube.com/live/Hdp1U0Q79-0" target="_blank" rel="noopener">
         <div class="rec-thumb"><img src="https://img.youtube.com/vi/Hdp1U0Q79-0/mqdefault.jpg" alt="March 17, 2026"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         <div class="rec-info"><div class="rec-date">March 17, 2026</div><div class="rec-sublabel">Historic District Commission</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
@@ -602,6 +607,7 @@
         <div class="rec-thumb"><img src="https://img.youtube.com/vi/o685bhEMwJQ/mqdefault.jpg" alt="July 15, 2025"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
         <div class="rec-info"><div class="rec-date">July 15, 2025</div><div class="rec-sublabel">Historic District Commission</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
       </a>
+    </div>
     </div>
   </div>
 
@@ -711,6 +717,8 @@ fetch('boards.json').then(r=>r.json()).then(boards=>{
 }).catch(err=>console.error('Could not load boards.json:',err));
 
 (function(){const el=document.getElementById('scroll-minutes'),wEl=document.getElementById('wrap-minutes');if(!el||!wEl)return;const track=document.createElement('div');track.className='scroll-track';const thumb=document.createElement('div');thumb.className='scroll-thumb';track.appendChild(thumb);wEl.appendChild(track);function update(){const{scrollTop,scrollHeight,clientHeight}=el;const scrollable=scrollHeight-clientHeight;const thumbH=Math.max(24,Math.round((clientHeight/scrollHeight)*track.offsetHeight));thumb.style.height=thumbH+'px';thumb.style.top=scrollable>0?Math.round((scrollTop/scrollable)*(track.offsetHeight-thumbH))+'px':'0px';wEl.classList.toggle('at-end',scrollTop+clientHeight>=scrollHeight-4);}el.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(el);update();})();
+
+(function(){const el=document.getElementById('scroll-recordings'),wEl=document.getElementById('wrap-recordings');if(!el||!wEl)return;const track=document.createElement('div');track.className='scroll-track';const thumb=document.createElement('div');thumb.className='scroll-thumb';track.appendChild(thumb);wEl.appendChild(track);function update(){const{scrollTop,scrollHeight,clientHeight}=el;const scrollable=scrollHeight-clientHeight;const thumbH=Math.max(24,Math.round((clientHeight/scrollHeight)*track.offsetHeight));thumb.style.height=thumbH+'px';thumb.style.top=scrollable>0?Math.round((scrollTop/scrollable)*(track.offsetHeight-thumbH))+'px':'0px';wEl.classList.toggle('at-end',scrollTop+clientHeight>=scrollHeight-4);}el.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(el);update();})();
 
 (function(){const wrap=document.getElementById('members-table-wrap'),outer=document.getElementById('members-table-outer');if(!wrap||!outer)return;const track=document.createElement('div');track.className='h-scroll-track';const thumb=document.createElement('div');thumb.className='h-scroll-thumb';track.appendChild(thumb);outer.before(track);function update(){const{scrollLeft,scrollWidth,clientWidth}=wrap;const max=scrollWidth-clientWidth;if(scrollLeft<0){wrap.scrollLeft=0;return;}if(scrollLeft>max){wrap.scrollLeft=max;return;}const tw=Math.max(32,Math.round((clientWidth/scrollWidth)*track.offsetWidth));thumb.style.width=tw+'px';thumb.style.left=max>0?Math.round((scrollLeft/max)*(track.offsetWidth-tw))+'px':'0px';}wrap.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(wrap);update();})();
 
