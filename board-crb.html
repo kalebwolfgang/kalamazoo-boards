@@ -186,7 +186,7 @@
     .map-link:hover { text-decoration: underline; }
 
     /* ── COMPLAINT CTA ── */
-    .complaint-cta-wrap { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x) clamp(32px, 5vw, 48px); }
+    .complaint-cta-wrap { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--pad-x) 0; }
     .complaint-cta { background: var(--red-mid); border-radius: 4px; padding: clamp(24px, 5vw, 44px) clamp(20px, 5vw, 48px); }
     .complaint-cta-inner { display: flex; flex-direction: column; gap: 28px; }
     @media (min-width: 800px) { .complaint-cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; } }
@@ -211,12 +211,10 @@
 
     .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
     .bottom-card:nth-child(4) { border-left: 4px solid var(--gold); }
-    /* Scrollable cards need overflow visible so the inner scroll container handles it */
     .bottom-card.scrollable-card { overflow: hidden; }
     .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .bottom-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
 
-    /* Minutes items — styled like recording items but with a doc icon instead of thumbnail */
     .minutes-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; transition: color 0.15s; }
     .minutes-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
     .minutes-icon { flex-shrink: 0; width: 36px; height: 36px; background: var(--cream); border: 1px solid var(--border); border-radius: 3px; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
@@ -228,7 +226,6 @@
     .minutes-action { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
     .minutes-item:hover .minutes-action { color: var(--gold); }
 
-    /* Apply to Serve */
     .apply-standalone-inner { padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px); display: flex; flex-direction: column; gap: 20px; height: 100%; }
     @media (min-width: 600px) { .apply-standalone-inner { flex-direction: row; align-items: center; gap: 48px; } }
     .apply-standalone-text { flex: 1; }
@@ -237,7 +234,6 @@
     .apply-standalone-btn { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
     .apply-standalone-btn:hover { background: var(--navy-mid); color: white; }
 
-    /* Recordings */
     .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
     .recording-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
     .rec-thumb { position: relative; flex-shrink: 0; width: 90px; border-radius: 3px; overflow: hidden; }
@@ -251,9 +247,6 @@
     .recording-item:hover .rec-date { color: var(--gold); }
     .recording-item:hover .rec-watch { color: var(--gold); }
 
-    /* Scrollable card bodies for minutes and recordings */
-
-    /* Count pill in card header */
     .card-count-pill {
       margin-left: auto;
       background: rgba(255,255,255,0.12);
@@ -265,11 +258,6 @@
       white-space: nowrap;
     }
 
-    /* Scrollable cards fill their grid cell */
-    .bottom-card.scrollable-card {
-      overflow: hidden;
-    }
-
     .scrollable-wrap {
       position: relative;
       flex: 1;
@@ -278,11 +266,10 @@
       flex-direction: column;
       overflow: hidden;
     }
-    /* Fade gradient over the last partial item */
     .scrollable-wrap::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 7px; /* leave custom track visible */
+      bottom: 0; left: 0; right: 7px;
       height: 64px;
       background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.97));
       pointer-events: none;
@@ -296,45 +283,27 @@
       min-height: 0;
       padding: 0;
       overflow-y: scroll;
-      /* Firefox */
-      scrollbar-width: thin;
-      scrollbar-color: #1c2333 #e8e4dc;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
-    /* Webkit — prominent black scrollbar */
-    .scrollable-card-body::-webkit-scrollbar { width: 7px; }
-    .scrollable-card-body::-webkit-scrollbar-track {
-      background: #e8e4dc;
-      border-left: 1px solid var(--border);
-    }
-    .scrollable-card-body::-webkit-scrollbar-thumb {
-      background: #1c2333;
-      border-radius: 3px;
-    }
-    .scrollable-card-body::-webkit-scrollbar-thumb:hover {
-      background: #000;
-    }
+    .scrollable-card-body::-webkit-scrollbar { display: none; }
 
     .scrollable-card-body .minutes-item,
     .scrollable-card-body .recording-item {
       margin: 0;
-      padding: 14px 24px 14px 18px; /* extra right padding clears the 6px track */
+      padding: 14px 24px 14px 18px;
       border-bottom: 1px solid var(--border-lt) !important;
       border-radius: 0;
     }
     .scrollable-card-body .minutes-item:last-child,
     .scrollable-card-body .recording-item:last-child { border-bottom: none !important; }
 
-    /* On narrow layouts (no spanning grid), cap heights so they scroll */
-    /* Minutes: ~74px × 3.5 items = 259px */
     .scrollable-minutes { max-height: 259px; }
-    /* Recordings: ~86px × 5.5 items = 473px */
     .scrollable-recordings { max-height: 473px; }
-    /* At wide layout, recordings card has fixed height so max-height is removed */
     @media (min-width: 1100px) {
       .scrollable-recordings { max-height: none; }
     }
 
-    /* Custom always-visible scroll indicator (cross-platform, mobile-safe) */
     .scroll-track {
       position: absolute;
       top: 0; right: 0; bottom: 0;
@@ -354,12 +323,6 @@
       min-height: 24px;
       transition: background 0.15s;
     }
-    /* Hide the native scrollbar — custom one handles it */
-    .scrollable-card-body {
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .scrollable-card-body::-webkit-scrollbar { display: none; }
 
     /* ── MEMBERS ── */
     .members-section{background:var(--white);border-top:1px solid var(--border);padding:clamp(32px,6vw,56px) var(--pad-x) clamp(40px,7vw,72px);}
@@ -400,6 +363,12 @@
     .staff-note-wrap{max-width:1400px;margin:0 auto;padding:0 var(--pad-x) clamp(32px,5vw,48px);}
     .staff-note{background:var(--cream-dk);border:1px solid var(--border);border-radius:3px;padding:14px 18px;font-size:14px;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.55;}
     .staff-note strong{color:var(--body);}
+    .staff-liaisons { display: flex; flex-direction: column; gap: 8px; }
+    .staff-liaison-row { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+    .staff-liaison-name { font-weight: 600; color: var(--body); }
+    .staff-liaison-role { color: var(--muted); font-size: 13px; }
+    .staff-liaison-email { font-size: 13px; color: var(--muted); }
+    .staff-liaison-email a { color: var(--navy-light); }
     .tooltip{position:fixed;background:var(--navy);color:white;padding:12px 16px;border-radius:4px;font-size:14px;line-height:1.55;pointer-events:none;z-index:9999;max-width:min(300px,90vw);box-shadow:0 6px 28px rgba(0,0,0,0.4);display:none;}
     .tooltip.visible{display:block;}.tt-name{font-weight:600;font-size:16px;margin-bottom:2px;}.tt-role{color:var(--gold-lt);font-size:13px;margin-bottom:5px;}.tt-term{font-size:14px;}
     .tt-term.open{color:#f87171;font-weight:600;}.tt-term.transitioning{color:var(--gold-lt);}.tt-term.seated{color:#86efac;}
@@ -597,17 +566,17 @@
         <div class="meeting-item" data-date="2026-06-03">
           <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">Wednesday, June 3, 2026</div>
-          <div class="meeting-time">5:00 PM – 7:00 PM</div>
+          <div class="meeting-time">5:00 PM</div>
         </div>
         <div class="meeting-item" data-date="2026-08-05">
           <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">Wednesday, August 5, 2026</div>
-          <div class="meeting-time">5:00 PM – 7:00 PM</div>
+          <div class="meeting-time">5:00 PM</div>
         </div>
         <div class="meeting-item" data-date="2026-10-07">
           <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">Wednesday, October 7, 2026</div>
-          <div class="meeting-time">5:00 PM – 7:00 PM</div>
+          <div class="meeting-time">5:00 PM</div>
         </div>
         <p class="meeting-note">Meets the 1st Wednesday of every other month. All meetings open to the public — citizens may address the Board for up to 4 minutes.</p>
         <div class="meeting-location">
@@ -621,6 +590,28 @@
       </div>
     </div>
   </aside>
+</div>
+
+<!-- ── COMPLAINT CTA — moved above bottom cards ── -->
+<div class="complaint-cta-wrap">
+  <div class="complaint-cta">
+    <div class="complaint-cta-inner">
+      <div>
+        <div class="complaint-cta-eyebrow">Civil Rights Board — Complaint Process</div>
+        <div class="complaint-cta-heading">Experienced discrimination in Kalamazoo?</div>
+        <p class="complaint-cta-desc">
+          The Civil Rights Board directly reviews complaints filed under the City's Non-Discrimination and Fair Housing Ordinances.
+          <strong>This Board reviews your complaint.</strong> Following investigation by the City Manager's office, the Board reviews findings and makes recommendations for resolution — giving residents a direct path to accountability.
+        </p>
+      </div>
+      <div class="complaint-cta-action">
+        <a class="complaint-cta-btn" href="https://www.kalamazoocity.org/Residents/Solve-a-Problem-with-311/Report-Civil-Rights-Complaint" target="_blank" rel="noopener">
+          Report a Complaint →
+        </a>
+        <div class="complaint-cta-note">Violations of the Civil Rights Ordinance<br>or Fair Housing Ordinance</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="bottom-cards">
@@ -917,27 +908,6 @@
 
 </div>
 
-<div class="complaint-cta-wrap">
-  <div class="complaint-cta">
-    <div class="complaint-cta-inner">
-      <div>
-        <div class="complaint-cta-eyebrow">Civil Rights Board — Complaint Process</div>
-        <div class="complaint-cta-heading">Experienced discrimination in Kalamazoo?</div>
-        <p class="complaint-cta-desc">
-          The Civil Rights Board directly reviews complaints filed under the City's Non-Discrimination and Fair Housing Ordinances.
-          <strong>This Board hears your case.</strong> Following investigation by the City Manager's office, the Board reviews findings and makes recommendations for resolution — giving residents a direct path to accountability.
-        </p>
-      </div>
-      <div class="complaint-cta-action">
-        <a class="complaint-cta-btn" href="https://www.kalamazoocity.org/Residents/Solve-a-Problem-with-311/Report-Civil-Rights-Complaint" target="_blank" rel="noopener">
-          Report a Complaint →
-        </a>
-        <div class="complaint-cta-note">Violations of the Civil Rights Ordinance<br>or Fair Housing Ordinance</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="members-section">
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
@@ -967,8 +937,22 @@
 
 <div class="staff-note-wrap">
   <div class="staff-note">
-    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    <span><strong>Staff Liaison:</strong> Lal Tluangi, Diversity, Equity, and Inclusion Coordinator, City of Kalamazoo. The staff liaison supports the Board's administrative operations and is not a voting or ex-officio board member. Contact: <a href="mailto:tluangil@kalamazoocity.org">tluangil@kalamazoocity.org</a> | <a href="mailto:hewittt@kalamazoocity.org">hewittt@kalamazoocity.org</a></span>
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:3px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div>
+      <strong>Staff Liaisons</strong>
+      <div class="staff-liaisons" style="margin-top:6px">
+        <div class="staff-liaison-row">
+          <span class="staff-liaison-name">Lal Tluangi</span>
+          <span class="staff-liaison-role">Diversity, Equity, and Inclusion Coordinator, City of Kalamazoo</span>
+          <span class="staff-liaison-email"><a href="mailto:tluangil@kalamazoocity.org">tluangil@kalamazoocity.org</a></span>
+        </div>
+        <div class="staff-liaison-row">
+          <span class="staff-liaison-name">T. Hewitt</span>
+          <span class="staff-liaison-role">City of Kalamazoo</span>
+          <span class="staff-liaison-email"><a href="mailto:hewittt@kalamazoocity.org">hewittt@kalamazoocity.org</a></span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1152,7 +1136,7 @@ fetch('boards.json')
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-// Custom always-visible scroll indicators (works on mobile, overrides OS scrollbar)
+// Custom always-visible scroll indicators
 (function () {
   [
     { scroll: 'scroll-minutes',    wrap: 'wrap-minutes' },
@@ -1162,7 +1146,6 @@ fetch('boards.json')
     const wEl = document.getElementById(wrap);
     if (!el || !wEl) return;
 
-    // Build track + thumb
     const track = document.createElement('div');
     track.className = 'scroll-track';
     const thumb = document.createElement('div');
@@ -1173,30 +1156,21 @@ fetch('boards.json')
     function update() {
       const { scrollTop, scrollHeight, clientHeight } = el;
       const scrollable = scrollHeight - clientHeight;
-
-      // Thumb size: proportional to visible ratio, min 24px
       const thumbPct = clientHeight / scrollHeight;
       const trackH   = track.offsetHeight;
       const thumbH   = Math.max(24, Math.round(thumbPct * trackH));
       thumb.style.height = thumbH + 'px';
-
-      // Thumb position
       const maxThumbTop = trackH - thumbH;
       const thumbTop    = scrollable > 0
         ? Math.round((scrollTop / scrollable) * maxThumbTop)
         : 0;
       thumb.style.top = thumbTop + 'px';
-
-      // Fade gradient
       const atEnd = scrollTop + clientHeight >= scrollHeight - 4;
       wEl.classList.toggle('at-end', atEnd);
     }
 
     el.addEventListener('scroll', update, { passive: true });
-
-    // Re-run on resize (grid reflow changes card height)
     new ResizeObserver(update).observe(el);
-
     update();
   });
 })();
@@ -1207,7 +1181,6 @@ fetch('boards.json')
   const outer = document.getElementById('members-table-outer');
   if (!wrap || !outer) return;
 
-  // Inject track BEFORE the outer wrapper so it appears above the table
   const track = document.createElement('div');
   track.className = 'h-scroll-track';
   const thumb = document.createElement('div');
@@ -1218,11 +1191,8 @@ fetch('boards.json')
   function update() {
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
     const maxScroll = scrollWidth - clientWidth;
-
-    // Clamp
     if (scrollLeft < 0) { wrap.scrollLeft = 0; return; }
     if (scrollLeft > maxScroll) { wrap.scrollLeft = maxScroll; return; }
-
     const thumbPct = clientWidth / scrollWidth;
     const trackW   = track.offsetWidth;
     const thumbW   = Math.max(32, Math.round(thumbPct * trackW));
@@ -1237,7 +1207,7 @@ fetch('boards.json')
   update();
 })();
 
-// Prevent rubber-band overscroll at horizontal boundaries (older iOS Safari fallback)
+// Prevent rubber-band overscroll at horizontal boundaries
 (function () {
   const wrap = document.getElementById('members-table-wrap');
   if (!wrap) return;
