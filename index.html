@@ -500,6 +500,7 @@
       <button class="sort-pill" data-sort="vacant">Most Vacant</button>
       <button class="sort-pill" data-sort="urgent">Most Urgent</button>
       <button class="sort-pill" data-sort="size">Board Size</button>
+      <button class="sort-pill" data-sort="residency">Residency</button>
       <button class="sort-pill" data-sort="classification">Legal Classification</button>
     </div>
     <div class="sort-select-wrap">
@@ -508,6 +509,7 @@
         <option value="vacant">Most Vacant</option>
         <option value="urgent">Most Urgent</option>
         <option value="size">Board Size</option>
+        <option value="residency">Residency</option>
         <option value="classification">Legal Classification</option>
       </select>
     </div>
@@ -817,6 +819,8 @@ fetch('boards.json')
 
       if (sortMode === 'classification') {
         renderClassification();
+      } else if (sortMode === 'residency') {
+        renderResidency();
       } else {
         renderFlat(sortMode);
       }
@@ -888,6 +892,67 @@ fetch('boards.json')
         boardsContainer.className = 'category-boards';
 
         categoryBoards.forEach((board, i) => {
+          boardsContainer.appendChild(buildBoardPanel(board, i));
+        });
+
+        section.appendChild(boardsContainer);
+        list.appendChild(section);
+      });
+    }
+
+    /* grouped by residency requirement */
+    function renderResidency() {
+      const residencyGroups = [
+        {
+          key: 'required',
+          title: 'City Residency Required',
+          desc: 'All seats on these boards require the member to be a resident of the City of Kalamazoo.'
+        },
+        {
+          key: 'open',
+          title: 'Open to Non-Residents',
+          desc: 'These boards have at least some seats that do not require City of Kalamazoo residency, making them accessible to residents of the broader Kalamazoo area.'
+        }
+      ];
+
+      residencyGroups.forEach((group, groupIndex) => {
+        const groupBoards = boards.filter(board => {
+          const filledMembers = board.members.filter(m => !m.isVacant);
+          if (filledMembers.length === 0) {
+            /* if no filled seats, check vacant seat residency data or default to open */
+            const residentSeats = board.members.filter(m => m.residency === 'Resident').length;
+            return group.key === 'required'
+              ? residentSeats === board.members.length && board.members.length > 0
+              : residentSeats < board.members.length || board.members.length === 0;
+          }
+          const residentCount = filledMembers.filter(m => m.residency === 'Resident').length;
+          const allResident = residentCount === filledMembers.length;
+          return group.key === 'required' ? allResident : !allResident;
+        });
+
+        groupBoards.sort((a, b) => a.name.localeCompare(b.name));
+
+        if (groupBoards.length === 0) return;
+
+        const section = document.createElement('div');
+        section.className = 'category-section';
+
+        const header = document.createElement('div');
+        header.className = 'category-header';
+        header.innerHTML = `
+          <div class="ch-top">
+            <span class="ch-eyebrow">Residency &mdash; 0${groupIndex + 1}</span>
+            <span class="ch-count">${groupBoards.length} board${groupBoards.length !== 1 ? 's' : ''}</span>
+          </div>
+          <h2>${group.title}</h2>
+          <p class="ch-desc">${group.desc}</p>
+        `;
+        section.appendChild(header);
+
+        const boardsContainer = document.createElement('div');
+        boardsContainer.className = 'category-boards';
+
+        groupBoards.forEach((board, i) => {
           boardsContainer.appendChild(buildBoardPanel(board, i));
         });
 
