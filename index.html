@@ -48,7 +48,6 @@
     }
     .topbar a { color: rgba(255,255,255,0.5); text-decoration: none; }
     .topbar a:hover { color: var(--gold-lt); }
-    .topbar-links { display: flex; gap: 20px; }
 
     /* ── NAV ── */
     nav {
@@ -84,89 +83,61 @@
     .nav-apply:hover { background: var(--gold-lt); }
 
     /* ── MOBILE NAV SECONDARY STRIP ── */
-    /* Hidden on desktop — shown below the main bar on mobile */
-    .nav-secondary {
-      display: none;
-    }
+    .nav-secondary { display: none; }
     @media (max-width: 600px) {
-      /* Hide inline nav links in the main bar */
       .nav-inner .nav-link { display: none; }
-
-      /* Show the secondary strip */
       .nav-secondary {
-        display: flex;
-        background: rgba(0,0,0,0.18);
-        border-top: 1px solid rgba(255,255,255,0.07);
+        display: flex; background: rgba(0,0,0,0.18); border-top: 1px solid rgba(255,255,255,0.07);
       }
       .nav-secondary-inner {
-        max-width: 1400px; margin: 0 auto; width: 100%;
-        padding: 0 var(--pad-x);
-        display: flex;
+        max-width: 1400px; margin: 0 auto; width: 100%; padding: 0 var(--pad-x); display: flex;
       }
       .nav-secondary-link {
-        flex: 1;
-        display: flex; align-items: center; justify-content: center;
-        padding: 9px 12px;
-        color: rgba(255,255,255,0.65);
-        text-decoration: none;
-        font-size: 13px; font-weight: 500;
-        letter-spacing: 0.02em;
-        border-right: 1px solid rgba(255,255,255,0.07);
-        transition: background 0.15s, color 0.15s;
+        flex: 1; display: flex; align-items: center; justify-content: center;
+        padding: 9px 12px; color: rgba(255,255,255,0.65); text-decoration: none;
+        font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
+        border-right: 1px solid rgba(255,255,255,0.07); transition: background 0.15s, color 0.15s;
       }
       .nav-secondary-link:last-child { border-right: none; }
-      .nav-secondary-link:hover,
-      .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
+      .nav-secondary-link:hover, .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
       .nav-secondary-link.active { color: var(--gold-lt); }
     }
-
-    /* Adjust sticky offset for search bar — accounts for taller nav on mobile */
     @media (max-width: 600px) {
-      .search-bar { top: 94px; } /* 56px nav + 38px secondary strip */
+      .search-bar { top: 94px; }
     }
 
     /* ── PAGE HEADER ── */
     .page-header { background: var(--navy); padding: clamp(28px, 5vw, 48px) var(--pad-x) clamp(24px, 4vw, 44px); }
     .page-header-inner {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 24px;
+      max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;
     }
     @media (min-width: 800px) {
-      .page-header-inner {
-        display: grid; grid-template-columns: 1fr auto;
-        gap: 48px; align-items: end;
-      }
+      .page-header-inner { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end; }
     }
     .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 5vw, 44px);
+      font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 44px);
       font-weight: 600; color: white; line-height: 1.15; margin-bottom: 8px;
     }
     .page-header p {
-      color: rgba(255,255,255,0.5); font-size: clamp(15px, 2.5vw, 19px);
-      font-weight: 300; max-width: 540px;
+      color: rgba(255,255,255,0.5); font-size: clamp(15px, 2.5vw, 19px); font-weight: 300; max-width: 540px;
     }
     .header-stats { display: flex; gap: 2px; }
     .hstat {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.09);
-      padding: clamp(12px, 3vw, 18px) clamp(14px, 3vw, 24px);
-      text-align: center; flex: 1;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09);
+      padding: clamp(12px, 3vw, 18px) clamp(14px, 3vw, 24px); text-align: center; flex: 1;
     }
     .hstat:first-child { border-radius: 4px 0 0 4px; }
     .hstat:last-child  { border-radius: 0 4px 4px 0; }
     .hstat-n {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 6vw, 43px);
+      font-family: 'Playfair Display', serif; font-size: clamp(28px, 6vw, 43px);
       font-weight: 600; color: white; line-height: 1; margin-bottom: 4px;
     }
     .hstat-n.red    { color: #f87171; }
     .hstat-n.yellow { color: var(--gold-lt); }
     .hstat-n.green  { color: #86efac; }
     .hstat-lbl {
-      font-size: clamp(10px, 2vw, 13px);
-      color: rgba(255,255,255,0.38); letter-spacing: 0.04em;
-      text-transform: uppercase; line-height: 1.4;
+      font-size: clamp(10px, 2vw, 13px); color: rgba(255,255,255,0.38);
+      letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.4;
     }
 
     /* ── LEGEND ── */
@@ -175,17 +146,14 @@
       padding: 12px var(--pad-x); overflow-x: auto;
     }
     .legend-inner {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-      min-width: min-content;
+      max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; min-width: min-content;
     }
     .legend-label {
       font-size: 13px; font-weight: 600; color: var(--muted);
       letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
     }
     .legend-item {
-      display: flex; align-items: center; gap: 8px;
-      font-size: clamp(13px, 2.5vw, 16px); color: var(--body); white-space: nowrap;
+      display: flex; align-items: center; gap: 8px; font-size: clamp(13px, 2.5vw, 16px); color: var(--body); white-space: nowrap;
     }
     .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
     .legend-dot.red    { background: #dc2626; }
@@ -194,54 +162,77 @@
 
     /* ── SEARCH BAR ── */
     .search-bar {
-      background: var(--cream-dk);
-      border-bottom: 1px solid var(--border);
-      padding: 12px var(--pad-x);
-      position: sticky; top: 59px; z-index: 100;
+      background: var(--cream-dk); border-bottom: 1px solid var(--border);
+      padding: 12px var(--pad-x); position: sticky; top: 59px; z-index: 100;
     }
     .search-bar-inner {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
     }
     .search-input-wrap { position: relative; flex: 1; min-width: 200px; }
     .search-input-wrap svg {
-      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
-      color: var(--muted); pointer-events: none;
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none;
     }
     .search-input {
-      width: 100%; padding: 10px 14px 10px 40px;
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 16px; color: var(--text);
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 3px; outline: none;
-      transition: border-color 0.15s, box-shadow 0.15s;
-      -webkit-appearance: none;
+      width: 100%; padding: 10px 14px 10px 40px; font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 16px; color: var(--text); background: var(--white); border: 1px solid var(--border);
+      border-radius: 3px; outline: none; transition: border-color 0.15s, box-shadow 0.15s; -webkit-appearance: none;
     }
-    .search-input:focus {
-      border-color: var(--navy-light);
-      box-shadow: 0 0 0 3px rgba(44,82,126,0.15);
-    }
+    .search-input:focus { border-color: var(--navy-light); box-shadow: 0 0 0 3px rgba(44,82,126,0.15); }
     .search-input::placeholder { color: var(--muted); }
     .search-count { font-size: 15px; color: var(--muted); white-space: nowrap; }
     .search-count strong { color: var(--navy); font-weight: 600; }
 
-    /* ── MAIN ── */
+    /* ── MAIN & CATEGORIES ── */
     .main-wrap {
-      max-width: 1400px; margin: 0 auto;
-      padding: clamp(20px, 4vw, 40px) var(--pad-x) 80px;
+      max-width: 1400px; margin: 0 auto; padding: clamp(20px, 4vw, 40px) var(--pad-x) 80px;
+    }
+
+    .category-section { margin-bottom: clamp(48px, 6vw, 72px); }
+    .category-section.hidden { display: none; }
+    
+    .category-header {
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .category-header-text { display: flex; flex-direction: column; gap: 4px; }
+    .category-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    .category-faq-link {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+      margin-top: 2px;
+    }
+    .category-faq-link:hover { color: var(--navy-light); text-decoration: underline; }
+    .category-count {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-left: 16px;
+      padding-bottom: 4px;
     }
 
     /* ── BOARD PANEL ── */
     .board-panel {
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--navy-light);
-      border-radius: 4px;
-      margin-bottom: clamp(24px, 4vw, 48px);
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      transition: box-shadow 0.15s;
+      border: 1px solid var(--border); border-left: 4px solid var(--navy-light);
+      border-radius: 4px; margin-bottom: clamp(20px, 3vw, 24px); overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07); transition: box-shadow 0.15s;
     }
     .board-panel:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); }
+    .board-panel:last-child { margin-bottom: 0; }
 
     .board-panel.bg-0 { background: #ffffff; }
     .board-panel.bg-1 { background: #edeae4; }
@@ -250,49 +241,28 @@
     .board-panel.all-seated         { border-left-color: #15803d; }
     .board-panel.hidden             { display: none; }
 
-    .board-panel-inner {
-      display: flex; flex-direction: column;
-      padding: clamp(16px, 3vw, 24px) clamp(16px, 3vw, 28px);
-    }
+    .board-panel-inner { display: flex; flex-direction: column; padding: clamp(16px, 3vw, 24px) clamp(16px, 3vw, 28px); }
 
     /* ── TOP ROW ── */
-    .board-top {
-      display: flex; flex-direction: column;
-      align-items: flex-start; gap: 8px;
-    }
+    .board-top { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
     @media (min-width: 560px) {
-      .board-top {
-        flex-direction: row; justify-content: space-between;
-        align-items: flex-start; gap: 16px;
-      }
+      .board-top { flex-direction: row; justify-content: space-between; align-items: flex-start; gap: 16px; }
     }
-
     .board-title { flex: 1; min-width: 0; }
-
     .board-abbr {
-      font-size: clamp(22px, 5vw, 34px); font-weight: 700;
-      color: var(--gold); letter-spacing: -0.01em; line-height: 1;
-      margin-bottom: 4px;
+      font-size: clamp(22px, 5vw, 34px); font-weight: 700; color: var(--gold);
+      letter-spacing: -0.01em; line-height: 1; margin-bottom: 4px;
     }
-    .board-name {
-      font-size: clamp(15px, 2.5vw, 19px); font-weight: 600;
-      color: var(--navy); line-height: 1.3;
-    }
+    .board-name { font-size: clamp(15px, 2.5vw, 19px); font-weight: 600; color: var(--navy); line-height: 1.3; }
     .board-detail-link {
-      display: inline-flex; align-items: center; gap: 5px;
-      margin-top: 8px; font-size: 14px; font-weight: 600;
-      color: var(--navy-light); text-decoration: none;
-      transition: color 0.15s;
+      display: inline-flex; align-items: center; gap: 5px; margin-top: 8px;
+      font-size: 14px; font-weight: 600; color: var(--navy-light); text-decoration: none; transition: color 0.15s;
     }
     .board-detail-link:hover { color: var(--gold); }
     .board-detail-link svg { transition: transform 0.15s; }
     .board-detail-link:hover svg { transform: translateX(3px); }
 
-    .board-stats {
-      display: flex; flex-wrap: wrap; gap: 12px;
-      align-items: baseline;
-      padding-top: 0;
-    }
+    .board-stats { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; padding-top: 0; }
     .board-stat { display: flex; align-items: baseline; gap: 4px; font-size: 15px; color: var(--muted); }
     .board-stat-n { font-size: clamp(17px, 3vw, 22px); font-weight: 700; line-height: 1; }
     .board-stat-n.total  { color: var(--navy); }
@@ -304,55 +274,35 @@
 
     .board-details { margin-bottom: 12px; }
     .board-detail {
-      font-size: 14px; color: var(--muted);
-      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 14px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px;
       margin-bottom: 5px; line-height: 1.45;
     }
     .board-detail:last-child { margin-bottom: 0; }
     .board-detail-label { font-weight: 600; color: var(--body); white-space: nowrap; flex-shrink: 0; }
 
     /* ── SEATS ── */
-    .board-seats {
-      display: flex; flex-wrap: wrap;
-      justify-content: space-evenly;
-      gap: 8px 4px;
-      align-content: flex-start;
-    }
-
+    .board-seats { display: flex; flex-wrap: wrap; justify-content: space-evenly; gap: 8px 4px; align-content: flex-start; }
     .seat-dot {
-      width: clamp(22px, 4vw, 30px); height: clamp(22px, 4vw, 30px);
-      border-radius: 50%; cursor: default; flex-shrink: 0;
-      transition: transform 0.1s, filter 0.1s;
-      position: relative;
+      width: clamp(22px, 4vw, 30px); height: clamp(22px, 4vw, 30px); border-radius: 50%; cursor: default;
+      flex-shrink: 0; transition: transform 0.1s, filter 0.1s; position: relative;
     }
-    .seat-dot::after {
-      content: ''; position: absolute;
-      inset: -6px; border-radius: 50%;
-    }
-    @media (hover: hover) {
-      .seat-dot:hover { transform: scale(1.25); filter: brightness(1.15) drop-shadow(0 2px 5px rgba(0,0,0,0.3)); }
-    }
+    .seat-dot::after { content: ''; position: absolute; inset: -6px; border-radius: 50%; }
+    @media (hover: hover) { .seat-dot:hover { transform: scale(1.25); filter: brightness(1.15) drop-shadow(0 2px 5px rgba(0,0,0,0.3)); } }
     .seat-dot.red    { background: #dc2626; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
     .seat-dot.yellow { background: #d97706; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
     .seat-dot.green  { background: #15803d; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
     .seat-dot.expandable { background: transparent; border: 2px dashed var(--muted); opacity: 0.55; }
-    @media (hover: hover) {
-      .seat-dot.expandable:hover { filter: none; opacity: 0.85; }
-    }
+    @media (hover: hover) { .seat-dot.expandable:hover { filter: none; opacity: 0.85; } }
     .seat-dot:focus { outline: 2px solid var(--gold-lt); outline-offset: 2px; }
 
     /* ── NO RESULTS ── */
-    .no-results {
-      text-align: center; padding: 60px 20px;
-      color: var(--muted); font-size: 18px; display: none;
-    }
+    .no-results { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 18px; display: none; }
     .no-results strong { color: var(--navy); }
 
     /* ── TOOLTIP ── */
     .tooltip {
-      position: fixed; background: var(--navy); color: white;
-      padding: 12px 16px; border-radius: 4px; font-size: 15px; line-height: 1.5;
-      pointer-events: none; z-index: 9999; max-width: min(310px, 90vw);
+      position: fixed; background: var(--navy); color: white; padding: 12px 16px; border-radius: 4px;
+      font-size: 15px; line-height: 1.5; pointer-events: none; z-index: 9999; max-width: min(310px, 90vw);
       box-shadow: 0 6px 28px rgba(0,0,0,0.4); display: none;
     }
     .tooltip.visible { display: block; }
@@ -367,28 +317,19 @@
 
     @media (max-width: 600px) {
       .tooltip {
-        position: fixed; bottom: 0; left: 0; right: 0;
-        max-width: 100%; border-radius: 12px 12px 0 0;
-        padding: 18px 20px; transform: translateY(100%);
-        transition: transform 0.25s ease; display: block;
-        pointer-events: auto;
+        position: fixed; bottom: 0; left: 0; right: 0; max-width: 100%; border-radius: 12px 12px 0 0;
+        padding: 18px 20px; transform: translateY(100%); transition: transform 0.25s ease;
+        display: block; pointer-events: auto;
       }
       .tooltip.visible { transform: translateY(0); }
-      .tooltip-close {
-        float: right; cursor: pointer;
-        color: rgba(255,255,255,0.5); font-size: 20px;
-        line-height: 1; padding: 0 0 4px 12px;
-      }
+      .tooltip-close { float: right; cursor: pointer; color: rgba(255,255,255,0.5); font-size: 20px; line-height: 1; padding: 0 0 4px 12px; }
     }
-    @media (min-width: 601px) {
-      .tooltip-close { display: none; }
-    }
+    @media (min-width: 601px) { .tooltip-close { display: none; } }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--navy-mid); border-top: 3px solid var(--gold);
-      padding: 24px var(--pad-x); text-align: center;
-      font-size: 14px; color: rgba(255,255,255,0.4);
+      background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 24px var(--pad-x);
+      text-align: center; font-size: 14px; color: rgba(255,255,255,0.4);
     }
     footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
     footer a:hover { color: var(--gold-lt); }
@@ -417,7 +358,6 @@
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
     </div>
   </div>
-  <!-- Mobile-only secondary nav strip -->
   <div class="nav-secondary">
     <div class="nav-secondary-inner">
       <a class="nav-secondary-link active" href="index.html">All Boards</a>
@@ -489,6 +429,21 @@ const SIX_MO = new Date(TODAY);
 SIX_MO.setMonth(SIX_MO.getMonth() + 6);
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
+// Master Mapping for the 25 Boards (CSAC explicitly excluded)
+const categoryMap = {
+  'Authorities': ['BRA', 'DDA', 'DEGA', 'EDC', 'NCBDA'],
+  'Quasi-Judicial Commissions': ['BOR', 'BBA', 'ZBA'],
+  'Type 2 Advisory Boards': ['PC', 'Pension Board', 'RIC', 'EC', 'HDC', 'KMGA', 'LOCC', 'NFP'],
+  'Type 1 Advisory Boards': ['CPSRAB', 'CRB', 'CDAAC', 'ECC', 'HPC', 'PRAB', 'SPK', 'TRB', 'TRE']
+};
+
+const categoryOrder = [
+  'Authorities',
+  'Quasi-Judicial Commissions',
+  'Type 2 Advisory Boards',
+  'Type 1 Advisory Boards'
+];
+
 function seatStatus(m) {
   if (m.isVacant) return 'vacant';
   if (!m.termEnd || m.termEnd === '2100-01-01') return 'permanent';
@@ -517,10 +472,6 @@ function termText(m) {
   if (st === 'expired')   return `Term expired ${fmtDate(m.termEnd)} — serving as holdover`;
   if (st === 'expiring')  return `Term ends ${fmtDate(m.termEnd)}`;
   return `Term ends ${fmtDate(m.termEnd)}`;
-}
-
-function esc(s) {
-  return String(s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
@@ -558,8 +509,8 @@ fetch('boards.json')
       'PCIC':         'board-ric.html'
     };
 
-    boards.sort((a, b) => a.name.localeCompare(b.name));
-    boards = boards.filter(b => b.abbr !== 'PCIC');
+    // Filter out PCIC (combined with RIC) and explicitly filter out CSAC
+    boards = boards.filter(b => b.abbr !== 'PCIC' && b.abbr !== 'CSAC');
 
     let nO = 0, nT = 0, nS = 0;
     boards.forEach(b => b.members.forEach(m => {
@@ -572,168 +523,198 @@ fetch('boards.json')
     document.getElementById('stat-open').textContent          = nO;
     document.getElementById('stat-transitioning').textContent = nT;
     document.getElementById('stat-seated').textContent        = nS;
-    document.getElementById('search-count').innerHTML =
-      `Showing <strong>${boards.length}</strong> boards`;
+    document.getElementById('search-count').innerHTML = `Showing <strong>${boards.length}</strong> boards`;
 
     const list = document.getElementById('boards-list');
 
-    boards.forEach((board, i) => {
-      const displayName = board.abbr === 'RIC'
-        ? 'Investment Committee of the Retirement System & Perpetual Care Investment Committee'
-        : board.name;
-      const displayAbbr = board.abbr === 'RIC' ? 'RIC / PCIC' : board.abbr;
+    // Build the boards by Category
+    categoryOrder.forEach(categoryName => {
+      const allowedAbbrs = categoryMap[categoryName];
+      let categoryBoards = boards.filter(b => allowedAbbrs.includes(b.abbr));
+      
+      // Sort alphabetically within the category
+      categoryBoards.sort((a, b) => a.name.localeCompare(b.name));
+      
+      if (categoryBoards.length === 0) return;
 
-      const nVac   = board.members.filter(m => displayStatus(seatStatus(m)) === 'open').length;
-      const nTrans = board.members.filter(m => displayStatus(seatStatus(m)) === 'transitioning').length;
-      const nSeat  = board.members.filter(m => displayStatus(seatStatus(m)) === 'seated').length;
-      const borderCls = nVac > 0 ? 'has-vacant' : nTrans > 0 ? 'has-transitioning' : 'all-seated';
+      // Build Category Section Wrapper
+      const section = document.createElement('div');
+      section.className = 'category-section';
 
-      const seatsLabel = board.maxMembers
-        ? `${board.members.length}&nbsp;of up to ${board.maxMembers}`
-        : board.members.length;
-      let statsHtml =
-        `<span class="board-stat"><span class="board-stat-n total">${seatsLabel}</span>&nbsp;seats</span>`;
-      if (nVac   > 0) statsHtml +=
-        `<span class="board-stat"><span class="board-stat-n red">${nVac}</span>&nbsp;open</span>`;
-      if (nTrans > 0) statsHtml +=
-        `<span class="board-stat"><span class="board-stat-n yellow">${nTrans}</span>&nbsp;transitioning</span>`;
-      if (nSeat  > 0) statsHtml +=
-        `<span class="board-stat"><span class="board-stat-n green">${nSeat}</span>&nbsp;seated</span>`;
+      // Build Category Header
+      const header = document.createElement('div');
+      header.className = 'category-header';
+      header.innerHTML = `
+        <div class="category-header-text">
+          <h2>${categoryName}</h2>
+          <a href="faq.html" class="category-faq-link">Unfamiliar with these titles? See definitions and learn more &rarr;</a>
+        </div>
+        <span class="category-count">${categoryBoards.length} board${categoryBoards.length !== 1 ? 's' : ''}</span>
+      `;
+      section.appendChild(header);
 
-      const genericReqs = new Set(['at-large', 'member', '', 'resident', 'non-resident']);
-      const reqs = [...new Set(
-        board.members
-          .map(m => m.positionRequirement || '')
-          .filter(r => r && !genericReqs.has(r.toLowerCase()))
-      )];
+      // Build Boards Container
+      const boardsContainer = document.createElement('div');
+      boardsContainer.className = 'category-boards';
 
-      const residentSeats = board.members.filter(m => !m.isVacant && m.residency === 'Resident').length;
-      const filledSeats   = board.members.filter(m => !m.isVacant).length;
-      let resNote = '';
-      if (filledSeats > 0) {
-        if (residentSeats === filledSeats) {
-          resNote = 'All seats require City residency';
-        } else if (residentSeats > 0) {
-          resNote = `${residentSeats} of ${filledSeats} filled seats require City residency`;
+      // Render Panels
+      categoryBoards.forEach((board, i) => {
+        const displayName = board.abbr === 'RIC'
+          ? 'Investment Committee of the Retirement System & Perpetual Care Investment Committee'
+          : board.name;
+        const displayAbbr = board.abbr === 'RIC' ? 'RIC / PCIC' : board.abbr;
+
+        const nVac   = board.members.filter(m => displayStatus(seatStatus(m)) === 'open').length;
+        const nTrans = board.members.filter(m => displayStatus(seatStatus(m)) === 'transitioning').length;
+        const nSeat  = board.members.filter(m => displayStatus(seatStatus(m)) === 'seated').length;
+        const borderCls = nVac > 0 ? 'has-vacant' : nTrans > 0 ? 'has-transitioning' : 'all-seated';
+
+        const seatsLabel = board.maxMembers
+          ? `${board.members.length}&nbsp;of up to ${board.maxMembers}`
+          : board.members.length;
+        let statsHtml = `<span class="board-stat"><span class="board-stat-n total">${seatsLabel}</span>&nbsp;seats</span>`;
+        if (nVac   > 0) statsHtml += `<span class="board-stat"><span class="board-stat-n red">${nVac}</span>&nbsp;open</span>`;
+        if (nTrans > 0) statsHtml += `<span class="board-stat"><span class="board-stat-n yellow">${nTrans}</span>&nbsp;transitioning</span>`;
+        if (nSeat  > 0) statsHtml += `<span class="board-stat"><span class="board-stat-n green">${nSeat}</span>&nbsp;seated</span>`;
+
+        const genericReqs = new Set(['at-large', 'member', '', 'resident', 'non-resident']);
+        const reqs = [...new Set(
+          board.members.map(m => m.positionRequirement || '').filter(r => r && !genericReqs.has(r.toLowerCase()))
+        )];
+
+        const residentSeats = board.members.filter(m => !m.isVacant && m.residency === 'Resident').length;
+        const filledSeats   = board.members.filter(m => !m.isVacant).length;
+        let resNote = '';
+        if (filledSeats > 0) {
+          if (residentSeats === filledSeats) {
+            resNote = 'All seats require City residency';
+          } else if (residentSeats > 0) {
+            resNote = `${residentSeats} of ${filledSeats} filled seats require City residency`;
+          }
         }
-      }
 
-      let detailsHtml = '';
-      if (reqs.length) {
-        detailsHtml +=
-          `<div class="board-detail">` +
-          `<span class="board-detail-label">Includes:</span>` +
-          `<span>${reqs.join(', ')}</span>` +
-          `</div>`;
-      }
-      if (resNote) {
-        detailsHtml +=
-          `<div class="board-detail">` +
-          `<span class="board-detail-label">Residency:</span>` +
-          `<span>${resNote}</span>` +
-          `</div>`;
-      }
+        let detailsHtml = '';
+        if (reqs.length) {
+          detailsHtml += `<div class="board-detail"><span class="board-detail-label">Includes:</span><span>${reqs.join(', ')}</span></div>`;
+        }
+        if (resNote) {
+          detailsHtml += `<div class="board-detail"><span class="board-detail-label">Residency:</span><span>${resNote}</span></div>`;
+        }
 
-      const seatsRow = document.createElement('div');
-      seatsRow.className = 'board-seats';
+        const seatsRow = document.createElement('div');
+        seatsRow.className = 'board-seats';
 
-      board.members.forEach(m => {
-        const st  = seatStatus(m);
-        const ds  = displayStatus(st);
-        const col = ds === 'open' ? 'red' : ds === 'transitioning' ? 'yellow' : 'green';
-        const dot = document.createElement('div');
-        dot.className = `seat-dot ${col}`;
-        dot.setAttribute('role', 'button');
-        dot.setAttribute('tabindex', '0');
-        const name = m.isVacant ? '' : `${m.firstName} ${m.lastName}`.trim();
-        dot.dataset.name    = name;
-        dot.dataset.role    = m.role || '';
-        dot.dataset.req     = m.positionRequirement || '';
-        dot.dataset.term    = termText(m);
-        dot.dataset.termcls = ds;
-        dot.dataset.res     = m.residency || '';
-        dot.setAttribute('aria-label',
-          m.isVacant
-            ? `Position ${m.position}: open seat${m.positionRequirement ? ' — ' + m.positionRequirement : ''}`
-            : `Position ${m.position}: ${name}, ${m.role}`
-        );
-        seatsRow.appendChild(dot);
+        board.members.forEach(m => {
+          const st  = seatStatus(m);
+          const ds  = displayStatus(st);
+          const col = ds === 'open' ? 'red' : ds === 'transitioning' ? 'yellow' : 'green';
+          const dot = document.createElement('div');
+          dot.className = `seat-dot ${col}`;
+          dot.setAttribute('role', 'button');
+          dot.setAttribute('tabindex', '0');
+          const name = m.isVacant ? '' : `${m.firstName} ${m.lastName}`.trim();
+          dot.dataset.name    = name;
+          dot.dataset.role    = m.role || '';
+          dot.dataset.req     = m.positionRequirement || '';
+          dot.dataset.term    = termText(m);
+          dot.dataset.termcls = ds;
+          dot.dataset.res     = m.residency || '';
+          dot.setAttribute('aria-label',
+            m.isVacant
+              ? `Position ${m.position}: open seat${m.positionRequirement ? ' — ' + m.positionRequirement : ''}`
+              : `Position ${m.position}: ${name}, ${m.role}`
+          );
+          seatsRow.appendChild(dot);
+        });
+
+        if (board.maxMembers && board.maxMembers > board.members.length) {
+          const available = board.maxMembers - board.members.length;
+          for (let x = 0; x < available; x++) {
+            const xdot = document.createElement('div');
+            xdot.className = 'seat-dot expandable';
+            xdot.setAttribute('role', 'button');
+            xdot.setAttribute('tabindex', '0');
+            xdot.dataset.name    = 'Available seat';
+            xdot.dataset.role    = '';
+            xdot.dataset.term    = `Board may expand to up to ${board.maxMembers} members`;
+            xdot.dataset.termcls = 'open';
+            xdot.dataset.res     = '';
+            xdot.setAttribute('aria-label', `Available seat — board may expand to ${board.maxMembers} members`);
+            seatsRow.appendChild(xdot);
+          }
+        }
+
+        const panel = document.createElement('div');
+        panel.className = `board-panel ${borderCls} bg-${i % 2}`;
+        panel.dataset.name = displayName.toLowerCase();
+        panel.dataset.abbr = displayAbbr.toLowerCase();
+
+        const inner = document.createElement('div');
+        inner.className = 'board-panel-inner';
+
+        const topRow = document.createElement('div');
+        topRow.className = 'board-top';
+        const detailLink = detailPages[board.abbr]
+          ? `<a class="board-detail-link" href="${detailPages[board.abbr]}">View Details <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>`
+          : '';
+
+        topRow.innerHTML =
+          `<div class="board-title">` +
+            `<div class="board-abbr">${displayAbbr}</div>` +
+            `<div class="board-name">${displayName}</div>` +
+            detailLink +
+          `</div>` +
+          `<div class="board-stats">${statsHtml}</div>`;
+        inner.appendChild(topRow);
+
+        const divider = document.createElement('div');
+        divider.className = 'board-divider';
+        inner.appendChild(divider);
+
+        if (detailsHtml) {
+          const details = document.createElement('div');
+          details.className = 'board-details';
+          details.innerHTML = detailsHtml;
+          inner.appendChild(details);
+        }
+
+        inner.appendChild(seatsRow);
+        panel.appendChild(inner);
+        boardsContainer.appendChild(panel);
       });
 
-      if (board.maxMembers && board.maxMembers > board.members.length) {
-        const available = board.maxMembers - board.members.length;
-        for (let x = 0; x < available; x++) {
-          const xdot = document.createElement('div');
-          xdot.className = 'seat-dot expandable';
-          xdot.setAttribute('role', 'button');
-          xdot.setAttribute('tabindex', '0');
-          xdot.dataset.name    = 'Available seat';
-          xdot.dataset.role    = '';
-          xdot.dataset.term    = `Board may expand to up to ${board.maxMembers} members`;
-          xdot.dataset.termcls = 'open';
-          xdot.dataset.res     = '';
-          xdot.setAttribute('aria-label', `Available seat — board may expand to ${board.maxMembers} members`);
-          seatsRow.appendChild(xdot);
-        }
-      }
-
-      const panel = document.createElement('div');
-      panel.className = `board-panel ${borderCls} bg-${i % 2}`;
-      panel.dataset.name = displayName.toLowerCase();
-      panel.dataset.abbr = displayAbbr.toLowerCase();
-
-      const inner = document.createElement('div');
-      inner.className = 'board-panel-inner';
-
-      const topRow = document.createElement('div');
-      topRow.className = 'board-top';
-      const detailLink = detailPages[board.abbr]
-        ? `<a class="board-detail-link" href="${detailPages[board.abbr]}">View Details <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>`
-        : '';
-
-      topRow.innerHTML =
-        `<div class="board-title">` +
-          `<div class="board-abbr">${displayAbbr}</div>` +
-          `<div class="board-name">${displayName}</div>` +
-          detailLink +
-        `</div>` +
-        `<div class="board-stats">${statsHtml}</div>`;
-      inner.appendChild(topRow);
-
-      const divider = document.createElement('div');
-      divider.className = 'board-divider';
-      inner.appendChild(divider);
-
-      if (detailsHtml) {
-        const details = document.createElement('div');
-        details.className = 'board-details';
-        details.innerHTML = detailsHtml;
-        inner.appendChild(details);
-      }
-
-      inner.appendChild(seatsRow);
-      panel.appendChild(inner);
-      list.appendChild(panel);
+      section.appendChild(boardsContainer);
+      list.appendChild(section);
     });
 
-    // ── Live search ──────────────────────────────────────────────────────
+    // ── Live search with Category Hiding ─────────────────────────────────────────
     const searchInput   = document.getElementById('search-input');
     const searchCount   = document.getElementById('search-count');
     const noResults     = document.getElementById('no-results');
     const noResultsTerm = document.getElementById('no-results-term');
-    const allPanels     = document.querySelectorAll('.board-panel');
+    const allSections   = document.querySelectorAll('.category-section');
 
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.trim().toLowerCase();
-      let visible = 0;
-      allPanels.forEach(p => {
-        const match = !q || p.dataset.name.includes(q) || p.dataset.abbr.includes(q);
-        p.classList.toggle('hidden', !match);
-        if (match) visible++;
+      let totalVisible = 0;
+      
+      allSections.forEach(section => {
+        let visibleInCat = 0;
+        const panels = section.querySelectorAll('.board-panel');
+        
+        panels.forEach(p => {
+          const match = !q || p.dataset.name.includes(q) || p.dataset.abbr.includes(q);
+          p.classList.toggle('hidden', !match);
+          if (match) visibleInCat++;
+        });
+        
+        section.classList.toggle('hidden', visibleInCat === 0);
+        totalVisible += visibleInCat;
       });
+
       if (q) {
-        searchCount.innerHTML = `Showing <strong>${visible}</strong> of ${boards.length} boards`;
-        noResults.style.display   = visible === 0 ? 'block' : 'none';
+        searchCount.innerHTML = `Showing <strong>${totalVisible}</strong> of ${boards.length} boards`;
+        noResults.style.display   = totalVisible === 0 ? 'block' : 'none';
         noResultsTerm.textContent = `"${searchInput.value.trim()}"`;
       } else {
         searchCount.innerHTML = `Showing <strong>${boards.length}</strong> boards`;
