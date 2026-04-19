@@ -166,12 +166,17 @@
     .cr-row-body a:hover { text-decoration: underline; }
 
     /* Language toggle for board type definitions */
-    .lang-toggle-wrap { margin-top: 20px; margin-bottom: 4px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .lang-toggle-lbl { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
-    .lang-toggle { display: inline-flex; background: var(--cream-dk); border: 1px solid var(--border); border-radius: 4px; padding: 3px; gap: 2px; }
-    .lang-btn { background: transparent; border: none; padding: 7px 14px; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 500; color: var(--muted); cursor: pointer; border-radius: 3px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
-    .lang-btn:hover { color: var(--navy); }
-    .lang-btn.active { background: var(--navy); color: white; }
+    .lang-toggle-wrap { margin-top: 24px; margin-bottom: 8px; background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 4px; padding: clamp(14px, 3vw, 18px) clamp(14px, 3vw, 20px); box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+    .lang-toggle-prompt { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .lang-toggle-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--gold); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+    .lang-toggle-lbl { font-size: clamp(14px, 2.3vw, 16px); font-weight: 600; color: var(--navy); line-height: 1.3; }
+    .lang-toggle { display: grid; grid-template-columns: 1fr 1fr; background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 4px; gap: 4px; }
+    .lang-btn { background: var(--white); border: 1px solid var(--border); padding: 11px 14px; font-family: 'IBM Plex Sans', sans-serif; font-size: clamp(14px, 2.3vw, 15px); font-weight: 600; color: var(--navy); cursor: pointer; border-radius: 3px; transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s; text-align: center; line-height: 1.3; }
+    .lang-btn:hover { background: var(--cream-dk); border-color: var(--navy-light); }
+    .lang-btn:active { transform: scale(0.98); }
+    .lang-btn.active { background: var(--navy); color: white; border-color: var(--navy); box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+    .lang-btn.active:hover { background: var(--navy); }
+    .lang-btn-sub { display: block; font-size: 12px; font-weight: 400; opacity: 0.75; margin-top: 2px; }
     .txt-plain[hidden], .txt-legal[hidden] { display: none; }
 
     footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 24px var(--pad-x); text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
@@ -233,33 +238,42 @@
           </div>
           
           <div class="lang-toggle-wrap">
-            <span class="lang-toggle-lbl">Show definitions in</span>
+            <div class="lang-toggle-prompt">
+              <span class="lang-toggle-icon">⇄</span>
+              <span class="lang-toggle-lbl">Choose how you'd like to read these definitions:</span>
+            </div>
             <div class="lang-toggle" role="tablist" aria-label="Language version">
-              <button class="lang-btn active" data-mode="legal" role="tab" aria-selected="true">Official language</button>
-              <button class="lang-btn" data-mode="plain" role="tab" aria-selected="false">Plain language</button>
+              <button class="lang-btn active" data-mode="plain" role="tab" aria-selected="true">
+                Plain language
+                <span class="lang-btn-sub">Everyday wording</span>
+              </button>
+              <button class="lang-btn" data-mode="legal" role="tab" aria-selected="false">
+                Official language
+                <span class="lang-btn-sub">Legal &amp; statutory wording</span>
+              </button>
             </div>
           </div>
 
           <div class="type-chips">
             <div class="type-chip authority">
               <strong>Authorities</strong>
-              <span class="txt-legal">Established under specific State of Michigan Public Acts (such as PA 57 of 2018 or PA 381 of 1996), Authorities are legally distinct corporate entities separate from the general city government. They possess independent statutory powers, including the ability to adopt a corporate seal, acquire, own, and convey real property, enter into binding contracts, and manage dedicated economic funding mechanisms such as Tax Increment Financing (TIF). Their primary mandate is to correct economic deterioration, implement major development plans, and spur commercial growth within defined geographic districts.</span>
-              <span class="txt-plain" hidden>Authorities act almost like mini-governments with their own powers. State law lets them own property, sign contracts, and manage their own budgets, separate from city hall. Their job is to revitalize specific parts of the city by funding development projects and attracting businesses to areas that have fallen behind.</span>
+              <span class="txt-legal" hidden>Established under specific State of Michigan Public Acts (such as PA 57 of 2018 or PA 381 of 1996), Authorities are legally distinct corporate entities separate from the general city government. They possess independent statutory powers, including the ability to adopt a corporate seal, acquire, own, and convey real property, enter into binding contracts, and manage dedicated economic funding mechanisms such as Tax Increment Financing (TIF). Their primary mandate is to correct economic deterioration, implement major development plans, and spur commercial growth within defined geographic districts.</span>
+              <span class="txt-plain">Authorities act almost like mini-governments with their own powers. State law lets them own property, sign contracts, and manage their own budgets, separate from city hall. Their job is to revitalize specific parts of the city by funding development projects and attracting businesses to areas that have fallen behind.</span>
             </div>
             <div class="type-chip quasi">
               <strong>Quasi-Judicial Commissions</strong>
-              <span class="txt-legal">Operating under state enabling legislation (such as the Michigan Zoning Enabling Act), these bodies function in a court-like capacity. They are legally empowered to hold formal public hearings, take evidence, evaluate appeals of administrative decisions, and grant variances from local ordinances. Because their decisions are binding legal rulings that directly affect property rights, members are held to strict conflict-of-interest standards, and their determinations are typically final at the municipal level, appealable only to the State Circuit Court.</span>
-              <span class="txt-plain" hidden>These bodies work like a small courtroom. They hold hearings, review evidence, and make binding rulings on things like zoning appeals and property variances. Because their decisions directly affect what people can do with their own property, members have to follow strict fairness rules. If you disagree with a ruling, your only option is to appeal in state court.</span>
+              <span class="txt-legal" hidden>Operating under state enabling legislation (such as the Michigan Zoning Enabling Act), these bodies function in a court-like capacity. They are legally empowered to hold formal public hearings, take evidence, evaluate appeals of administrative decisions, and grant variances from local ordinances. Because their decisions are binding legal rulings that directly affect property rights, members are held to strict conflict-of-interest standards, and their determinations are typically final at the municipal level, appealable only to the State Circuit Court.</span>
+              <span class="txt-plain">These bodies work like a small courtroom. They hold hearings, review evidence, and make binding rulings on things like zoning appeals and property variances. Because their decisions directly affect what people can do with their own property, members have to follow strict fairness rules. If you disagree with a ruling, your only option is to appeal in state court.</span>
             </div>
             <div class="type-chip type2">
               <strong>Type 2 Advisory Boards</strong>
-              <span class="txt-legal">These boards hold explicit, binding regulatory, operational, or statutory decision-making power over specific municipal processes. Created pursuant to state laws (such as the Planning Enabling Act or Local Historic Districts Act) or the City Charter, they perform critical administrative functions. This includes adopting master plans, reviewing and approving development site plans, issuing certificates of appropriateness for historic structures, or providing direct oversight and management of specific city assets, systems, or fiduciary funds.</span>
-              <span class="txt-plain" hidden>These boards make real decisions, not just suggestions. They approve development plans, sign off on changes to historic buildings, shape the city's long-term master plan, or oversee specific city funds and assets. When they decide something within their scope, it carries legal weight.</span>
+              <span class="txt-legal" hidden>These boards hold explicit, binding regulatory, operational, or statutory decision-making power over specific municipal processes. Created pursuant to state laws (such as the Planning Enabling Act or Local Historic Districts Act) or the City Charter, they perform critical administrative functions. This includes adopting master plans, reviewing and approving development site plans, issuing certificates of appropriateness for historic structures, or providing direct oversight and management of specific city assets, systems, or fiduciary funds.</span>
+              <span class="txt-plain">These boards make real decisions, not just suggestions. They approve development plans, sign off on changes to historic buildings, shape the city's long-term master plan, or oversee specific city funds and assets. When they decide something within their scope, it carries legal weight.</span>
             </div>
             <div class="type-chip type1">
               <strong>Type 1 Advisory Boards</strong>
-              <span class="txt-legal">Created by City Commission resolution or administrative authority, these are volunteer citizen bodies whose legal function is strictly advisory. They do not hold binding regulatory authority or independent financial control. Their mandate is to research specific community issues, facilitate public dialogue, review policy effectiveness, and provide formal, non-binding recommendations to City Administration and the City Commission to help guide broader municipal legislation, strategic planning, and community programs.</span>
-              <span class="txt-plain" hidden>These boards advise but do not decide. They research community issues, gather public input, and send recommendations to city leadership. Their influence comes from the quality of their research and the trust they build with decision-makers, not from any formal power to enforce their recommendations.</span>
+              <span class="txt-legal" hidden>Created by City Commission resolution or administrative authority, these are volunteer citizen bodies whose legal function is strictly advisory. They do not hold binding regulatory authority or independent financial control. Their mandate is to research specific community issues, facilitate public dialogue, review policy effectiveness, and provide formal, non-binding recommendations to City Administration and the City Commission to help guide broader municipal legislation, strategic planning, and community programs.</span>
+              <span class="txt-plain">These boards advise but do not decide. They research community issues, gather public input, and send recommendations to city leadership. Their influence comes from the quality of their research and the trust they build with decision-makers, not from any formal power to enforce their recommendations.</span>
             </div>
           </div>
           </div>
