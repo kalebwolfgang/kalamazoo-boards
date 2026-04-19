@@ -103,19 +103,19 @@
 
     .about-text p { font-size: clamp(15px, 2.5vw, 18px); color: var(--body); line-height: 1.75; margin-bottom: 12px; }
     .about-text p:last-child { margin-bottom: 0; }
-    .type-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
-    @media (max-width: 600px) { .type-chips { grid-template-columns: 1fr; } }
-    .type-chip { padding: clamp(12px, 2.5vw, 14px) clamp(12px, 2.5vw, 16px); border-radius: 3px; border: 1px solid var(--border); font-size: clamp(14px, 2.5vw, 17px); color: var(--body); line-height: 1.6; }
-    .type-chip strong { display: block; font-size: clamp(11px, 1.8vw, 13px); font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 5px; }
+    .type-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    @media (max-width: 768px) { .type-chips { grid-template-columns: 1fr; } }
+    .type-chip { padding: clamp(16px, 3vw, 20px); border-radius: 4px; border: 1px solid var(--border); font-size: clamp(14px, 2.5vw, 16px); color: var(--body); line-height: 1.6; background: var(--white); }
+    .type-chip strong { display: block; font-size: clamp(12px, 2vw, 14px); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
     
     /* Updated Categories CSS */
-    .type-chip.authority { border-left: 3px solid #0f766e; }
+    .type-chip.authority { border-left: 4px solid #0f766e; }
     .type-chip.authority strong { color: #0f766e; }
-    .type-chip.quasi    { border-left: 3px solid #92400e; }
+    .type-chip.quasi    { border-left: 4px solid #92400e; }
     .type-chip.quasi strong { color: #92400e; }
-    .type-chip.type2    { border-left: 3px solid #6d28d9; }
+    .type-chip.type2    { border-left: 4px solid #6d28d9; }
     .type-chip.type2 strong { color: #6d28d9; }
-    .type-chip.type1    { border-left: 3px solid #1d4ed8; }
+    .type-chip.type1    { border-left: 4px solid #1d4ed8; }
     .type-chip.type1 strong { color: #1d4ed8; }
 
     .elig-table { width: 100%; border-collapse: collapse; font-size: clamp(14px, 2.5vw, 17px); }
@@ -226,19 +226,19 @@
           <div class="type-chips">
             <div class="type-chip authority">
               <strong>Authorities</strong>
-              Legally distinct entities with independent statutory power, the ability to acquire property, and dedicated economic or tax-increment financing control.
+              Established under specific State of Michigan Public Acts (such as PA 57 of 2018 or PA 381 of 1996), Authorities are legally distinct corporate entities separate from the general city government. They possess independent statutory powers, including the ability to adopt a corporate seal, acquire, own, and convey real property, enter into binding contracts, and manage dedicated economic funding mechanisms such as Tax Increment Financing (TIF). Their primary mandate is to correct economic deterioration, implement major development plans, and spur commercial growth within defined geographic districts.
             </div>
             <div class="type-chip quasi">
               <strong>Quasi-Judicial Commissions</strong>
-              Bodies that function similarly to a court to hear formal evidence, evaluate appeals, grant variances, and issue binding legal rulings.
+              Operating under state enabling legislation (such as the Michigan Zoning Enabling Act), these bodies function in a court-like capacity. They are legally empowered to hold formal public hearings, take evidence, evaluate appeals of administrative decisions, and grant variances from local ordinances. Because their decisions are binding legal rulings that directly affect property rights, members are held to strict conflict-of-interest standards, and their determinations are typically final at the municipal level, appealable only to the State Circuit Court.
             </div>
             <div class="type-chip type2">
               <strong>Type 2 Advisory Boards</strong>
-              Boards that hold explicit, binding regulatory, operational, statutory, or financial decision-making power over specific city processes or assets.
+              These boards hold explicit, binding regulatory, operational, or statutory decision-making power over specific municipal processes. Created pursuant to state laws (such as the Planning Enabling Act or Local Historic Districts Act) or the City Charter, they perform critical administrative functions. This includes adopting master plans, reviewing and approving development site plans, issuing certificates of appropriateness for historic structures, or providing direct oversight and management of specific city assets, systems, or fiduciary funds.
             </div>
             <div class="type-chip type1">
               <strong>Type 1 Advisory Boards</strong>
-              Volunteer citizen bodies whose legal function is solely to research, advocate, and provide non-binding recommendations to city staff and the City Commission.
+              Created by City Commission resolution or administrative authority, these are volunteer citizen bodies whose legal function is strictly advisory. They do not hold binding regulatory authority or independent financial control. Their mandate is to research specific community issues, facilitate public dialogue, review policy effectiveness, and provide formal, non-binding recommendations to City Administration and the City Commission to help guide broader municipal legislation, strategic planning, and community programs.
             </div>
           </div>
           </div>
