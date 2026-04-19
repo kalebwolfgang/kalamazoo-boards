@@ -165,6 +165,15 @@
     .cr-row-body a { color: var(--navy-light); text-decoration: none; }
     .cr-row-body a:hover { text-decoration: underline; }
 
+    /* Language toggle for board type definitions */
+    .lang-toggle-wrap { margin-top: 20px; margin-bottom: 4px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .lang-toggle-lbl { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .lang-toggle { display: inline-flex; background: var(--cream-dk); border: 1px solid var(--border); border-radius: 4px; padding: 3px; gap: 2px; }
+    .lang-btn { background: transparent; border: none; padding: 7px 14px; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 500; color: var(--muted); cursor: pointer; border-radius: 3px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+    .lang-btn:hover { color: var(--navy); }
+    .lang-btn.active { background: var(--navy); color: white; }
+    .txt-plain[hidden], .txt-legal[hidden] { display: none; }
+
     footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 24px var(--pad-x); text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
     footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
     footer a:hover { color: var(--gold-lt); }
@@ -223,22 +232,34 @@
             <p>Membership requirements, term lengths, and appointment authority vary by board. All appointments are made by the Mayor or City Commission. Interested residents may apply online or contact the City Clerk's Office.</p>
           </div>
           
+          <div class="lang-toggle-wrap">
+            <span class="lang-toggle-lbl">Show definitions in</span>
+            <div class="lang-toggle" role="tablist" aria-label="Language version">
+              <button class="lang-btn active" data-mode="legal" role="tab" aria-selected="true">Official language</button>
+              <button class="lang-btn" data-mode="plain" role="tab" aria-selected="false">Plain language</button>
+            </div>
+          </div>
+
           <div class="type-chips">
             <div class="type-chip authority">
               <strong>Authorities</strong>
-              Established under specific State of Michigan Public Acts (such as PA 57 of 2018 or PA 381 of 1996), Authorities are legally distinct corporate entities separate from the general city government. They possess independent statutory powers, including the ability to adopt a corporate seal, acquire, own, and convey real property, enter into binding contracts, and manage dedicated economic funding mechanisms such as Tax Increment Financing (TIF). Their primary mandate is to correct economic deterioration, implement major development plans, and spur commercial growth within defined geographic districts.
+              <span class="txt-legal">Established under specific State of Michigan Public Acts (such as PA 57 of 2018 or PA 381 of 1996), Authorities are legally distinct corporate entities separate from the general city government. They possess independent statutory powers, including the ability to adopt a corporate seal, acquire, own, and convey real property, enter into binding contracts, and manage dedicated economic funding mechanisms such as Tax Increment Financing (TIF). Their primary mandate is to correct economic deterioration, implement major development plans, and spur commercial growth within defined geographic districts.</span>
+              <span class="txt-plain" hidden>Authorities act almost like mini-governments with their own powers. State law lets them own property, sign contracts, and manage their own budgets, separate from city hall. Their job is to revitalize specific parts of the city by funding development projects and attracting businesses to areas that have fallen behind.</span>
             </div>
             <div class="type-chip quasi">
               <strong>Quasi-Judicial Commissions</strong>
-              Operating under state enabling legislation (such as the Michigan Zoning Enabling Act), these bodies function in a court-like capacity. They are legally empowered to hold formal public hearings, take evidence, evaluate appeals of administrative decisions, and grant variances from local ordinances. Because their decisions are binding legal rulings that directly affect property rights, members are held to strict conflict-of-interest standards, and their determinations are typically final at the municipal level, appealable only to the State Circuit Court.
+              <span class="txt-legal">Operating under state enabling legislation (such as the Michigan Zoning Enabling Act), these bodies function in a court-like capacity. They are legally empowered to hold formal public hearings, take evidence, evaluate appeals of administrative decisions, and grant variances from local ordinances. Because their decisions are binding legal rulings that directly affect property rights, members are held to strict conflict-of-interest standards, and their determinations are typically final at the municipal level, appealable only to the State Circuit Court.</span>
+              <span class="txt-plain" hidden>These bodies work like a small courtroom. They hold hearings, review evidence, and make binding rulings on things like zoning appeals and property variances. Because their decisions directly affect what people can do with their own property, members have to follow strict fairness rules. If you disagree with a ruling, your only option is to appeal in state court.</span>
             </div>
             <div class="type-chip type2">
               <strong>Type 2 Advisory Boards</strong>
-              These boards hold explicit, binding regulatory, operational, or statutory decision-making power over specific municipal processes. Created pursuant to state laws (such as the Planning Enabling Act or Local Historic Districts Act) or the City Charter, they perform critical administrative functions. This includes adopting master plans, reviewing and approving development site plans, issuing certificates of appropriateness for historic structures, or providing direct oversight and management of specific city assets, systems, or fiduciary funds.
+              <span class="txt-legal">These boards hold explicit, binding regulatory, operational, or statutory decision-making power over specific municipal processes. Created pursuant to state laws (such as the Planning Enabling Act or Local Historic Districts Act) or the City Charter, they perform critical administrative functions. This includes adopting master plans, reviewing and approving development site plans, issuing certificates of appropriateness for historic structures, or providing direct oversight and management of specific city assets, systems, or fiduciary funds.</span>
+              <span class="txt-plain" hidden>These boards make real decisions, not just suggestions. They approve development plans, sign off on changes to historic buildings, shape the city's long-term master plan, or oversee specific city funds and assets. When they decide something within their scope, it carries legal weight.</span>
             </div>
             <div class="type-chip type1">
               <strong>Type 1 Advisory Boards</strong>
-              Created by City Commission resolution or administrative authority, these are volunteer citizen bodies whose legal function is strictly advisory. They do not hold binding regulatory authority or independent financial control. Their mandate is to research specific community issues, facilitate public dialogue, review policy effectiveness, and provide formal, non-binding recommendations to City Administration and the City Commission to help guide broader municipal legislation, strategic planning, and community programs.
+              <span class="txt-legal">Created by City Commission resolution or administrative authority, these are volunteer citizen bodies whose legal function is strictly advisory. They do not hold binding regulatory authority or independent financial control. Their mandate is to research specific community issues, facilitate public dialogue, review policy effectiveness, and provide formal, non-binding recommendations to City Administration and the City Commission to help guide broader municipal legislation, strategic planning, and community programs.</span>
+              <span class="txt-plain" hidden>These boards advise but do not decide. They research community issues, gather public input, and send recommendations to city leadership. Their influence comes from the quality of their research and the trust they build with decision-makers, not from any formal power to enforce their recommendations.</span>
             </div>
           </div>
           </div>
@@ -413,6 +434,19 @@
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!expanded));
       btn.nextElementSibling.hidden = expanded;
+    });
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = btn.dataset.mode;
+      document.querySelectorAll('.lang-btn').forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', String(isActive));
+      });
+      document.querySelectorAll('.txt-legal').forEach(el => { el.hidden = mode !== 'legal'; });
+      document.querySelectorAll('.txt-plain').forEach(el => { el.hidden = mode !== 'plain'; });
     });
   });
 
