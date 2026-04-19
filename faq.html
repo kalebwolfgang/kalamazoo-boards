@@ -107,10 +107,16 @@
     @media (max-width: 600px) { .type-chips { grid-template-columns: 1fr; } }
     .type-chip { padding: clamp(12px, 2.5vw, 14px) clamp(12px, 2.5vw, 16px); border-radius: 3px; border: 1px solid var(--border); font-size: clamp(14px, 2.5vw, 17px); color: var(--body); line-height: 1.6; }
     .type-chip strong { display: block; font-size: clamp(11px, 1.8vw, 13px); font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 5px; }
-    .type-chip.advisory { border-left: 3px solid #1d4ed8; }
-    .type-chip.advisory strong { color: #1d4ed8; }
+    
+    /* Updated Categories CSS */
+    .type-chip.authority { border-left: 3px solid #0f766e; }
+    .type-chip.authority strong { color: #0f766e; }
     .type-chip.quasi    { border-left: 3px solid #92400e; }
     .type-chip.quasi strong { color: #92400e; }
+    .type-chip.type2    { border-left: 3px solid #6d28d9; }
+    .type-chip.type2 strong { color: #6d28d9; }
+    .type-chip.type1    { border-left: 3px solid #1d4ed8; }
+    .type-chip.type1 strong { color: #1d4ed8; }
 
     .elig-table { width: 100%; border-collapse: collapse; font-size: clamp(14px, 2.5vw, 17px); }
     .elig-table tr { border-bottom: 1px solid var(--border-lt); }
@@ -216,11 +222,26 @@
             <p>Boards and commissions are citizen bodies created by the City Commission to assist in the administration of city government. Members are Kalamazoo residents appointed to serve on a volunteer basis.</p>
             <p>Membership requirements, term lengths, and appointment authority vary by board. All appointments are made by the Mayor or City Commission. Interested residents may apply online or contact the City Clerk's Office.</p>
           </div>
+          
           <div class="type-chips">
-            <div class="type-chip advisory"><strong>Advisory Boards</strong>Most boards make formal recommendations to the City Commission or City Manager. The Commission retains final decision-making authority.</div>
-            <div class="type-chip quasi"><strong>Quasi-Judicial Boards</strong>Some boards — including the Zoning Board of Appeals and Building Board of Appeals — make binding decisions on appeals and variances.</div>
+            <div class="type-chip authority">
+              <strong>Authorities</strong>
+              Legally distinct entities with independent statutory power, the ability to acquire property, and dedicated economic or tax-increment financing control.
+            </div>
+            <div class="type-chip quasi">
+              <strong>Quasi-Judicial Commissions</strong>
+              Bodies that function similarly to a court to hear formal evidence, evaluate appeals, grant variances, and issue binding legal rulings.
+            </div>
+            <div class="type-chip type2">
+              <strong>Type 2 Advisory Boards</strong>
+              Boards that hold explicit, binding regulatory, operational, statutory, or financial decision-making power over specific city processes or assets.
+            </div>
+            <div class="type-chip type1">
+              <strong>Type 1 Advisory Boards</strong>
+              Volunteer citizen bodies whose legal function is solely to research, advocate, and provide non-binding recommendations to city staff and the City Commission.
+            </div>
           </div>
-        </div>
+          </div>
       </div>
     </div>
 
