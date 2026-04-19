@@ -184,48 +184,70 @@
 
     /* ── MAIN & CATEGORIES ── */
     .main-wrap {
-      max-width: 1400px; margin: 0 auto; padding: clamp(32px, 5vw, 56px) var(--pad-x) 80px;
+      max-width: 1400px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) var(--pad-x) 80px;
     }
 
-    .category-section { margin-bottom: clamp(56px, 8vw, 88px); }
+    .category-section { 
+      margin-bottom: clamp(64px, 8vw, 100px); 
+      border-top: 4px solid var(--navy);
+      padding-top: clamp(24px, 4vw, 32px);
+    }
     .category-section.hidden { display: none; }
     
     .category-header {
-      margin-bottom: 32px;
-      padding-bottom: 16px;
-      border-bottom: 3px solid var(--gold);
+      margin-bottom: clamp(24px, 4vw, 40px);
+    }
+    .ch-top {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: baseline;
+      margin-bottom: 12px;
     }
-    .category-header-text { display: flex; flex-direction: column; gap: 6px; }
-    .category-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 5vw, 42px);
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
+    .ch-eyebrow {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .category-faq-link {
+    .ch-count {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 15px;
-      font-weight: 400;
+      font-weight: 500;
       color: var(--muted);
+      background: var(--cream-dk);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .category-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .ch-desc {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: clamp(15px, 2.5vw, 17px);
+      font-weight: 300;
+      color: var(--body);
+      max-width: 850px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .ch-link {
+      display: inline-block;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy-light);
       text-decoration: none;
       transition: color 0.15s;
     }
-    .category-faq-link:hover { color: var(--navy-light); text-decoration: underline; }
-    
-    .category-count {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--muted);
-      white-space: nowrap;
-      padding-left: 20px;
-      padding-bottom: 6px;
-    }
+    .ch-link:hover { color: var(--navy); text-decoration: underline; }
 
     /* ── BOARD PANEL ── */
     .board-panel {
@@ -438,6 +460,13 @@ const categoryMap = {
   'Type 1 Advisory Boards': ['CPSRAB', 'CRB', 'CDAAC', 'ECC', 'HPC', 'PRAB', 'SPK', 'TRB', 'TRE']
 };
 
+const categoryDefs = {
+  'Authorities': 'Legally distinct entities with independent statutory power, the ability to acquire property, and dedicated economic or tax-increment financing control.',
+  'Quasi-Judicial Commissions': 'Bodies that function similarly to a court to hear formal evidence, evaluate appeals, grant variances, and issue binding legal rulings.',
+  'Type 2 Advisory Boards': 'Boards that hold explicit, binding regulatory, operational, statutory, or financial decision-making power over specific city processes or assets.',
+  'Type 1 Advisory Boards': 'Volunteer citizen bodies whose legal function is solely to research, advocate, and provide non-binding recommendations to city staff and the City Commission.'
+};
+
 const categoryOrder = [
   'Authorities',
   'Quasi-Judicial Commissions',
@@ -527,7 +556,7 @@ fetch('boards.json')
 
     const list = document.getElementById('boards-list');
 
-    categoryOrder.forEach(categoryName => {
+    categoryOrder.forEach((categoryName, catIndex) => {
       const allowedAbbrs = categoryMap[categoryName];
       let categoryBoards = boards.filter(b => allowedAbbrs.includes(b.abbr));
       
@@ -541,11 +570,13 @@ fetch('boards.json')
       const header = document.createElement('div');
       header.className = 'category-header';
       header.innerHTML = `
-        <div class="category-header-text">
-          <h2>${categoryName}</h2>
-          <a href="faq.html#about-boards" class="category-faq-link">Unfamiliar with these titles? See definitions and learn more &rarr;</a>
+        <div class="ch-top">
+          <span class="ch-eyebrow">Legal Classification &mdash; 0${catIndex + 1}</span>
+          <span class="ch-count">${categoryBoards.length} board${categoryBoards.length !== 1 ? 's' : ''}</span>
         </div>
-        <span class="category-count">${categoryBoards.length} board${categoryBoards.length !== 1 ? 's' : ''}</span>
+        <h2>${categoryName}</h2>
+        <p class="ch-desc">${categoryDefs[categoryName]}</p>
+        <a href="faq.html#about-boards" class="ch-link">Read full legal definitions &rarr;</a>
       `;
       section.appendChild(header);
 
