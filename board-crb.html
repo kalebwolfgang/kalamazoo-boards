@@ -563,21 +563,7 @@
         Upcoming Meetings
       </div>
       <div class="sidebar-card-body">
-        <div class="meeting-item" data-date="2026-06-03">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Wednesday, June 3, 2026</div>
-          <div class="meeting-time">5:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-08-05">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Wednesday, August 5, 2026</div>
-          <div class="meeting-time">5:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-10-07">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Wednesday, October 7, 2026</div>
-          <div class="meeting-time">5:00 PM</div>
-        </div>
+        <div id="upcoming-meetings-list"></div>
         <p class="meeting-note">Meets the 1st Wednesday of every other month. All meetings open to the public — citizens may address the Board for up to 4 minutes.</p>
         <div class="meeting-location">
           <div class="location-name">City Commission Chambers</div>
@@ -620,179 +606,10 @@
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       Minutes & Agendas
-      <span class="card-count-pill">12 meetings</span>
+      <span class="card-count-pill" id="pill-meetings">— meetings</span>
     </div>
     <div class="scrollable-wrap" id="wrap-minutes">
     <div class="scrollable-card-body scrollable-minutes" id="scroll-minutes">
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">April 1, 2026</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4680" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">February 4, 2026</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4496" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">December 3, 2025</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">October 1, 2025</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4116" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">August 6, 2025</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/3858" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">April 30, 2025</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2464/files/agenda/3748" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--muted)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date" style="color:var(--muted);font-weight:400">April 2, 2025 <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle">CANCELLED</span></div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2462/files/agenda/3556" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">February 5, 2025</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1052/files/agenda/3398" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">December 4, 2024</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1050/files/agenda/3179" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">October 2, 2024</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1048/overview" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">August 7, 2024</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Meeting Overview
-          </div>
-        </div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1046/files/agenda/2878" target="_blank" rel="noopener">
-        <div class="minutes-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="minutes-info">
-          <div class="minutes-date">June 5, 2024</div>
-          <div class="minutes-sublabel">Civil Rights Board</div>
-          <div class="minutes-action">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Agenda & Minutes
-          </div>
-        </div>
-      </a>
-
     </div></div></div>
 
   <div class="bottom-card">
@@ -844,54 +661,10 @@
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
       Past Meeting Recordings
-      <span class="card-count-pill">11 recordings</span>
+      <span class="card-count-pill" id="pill-recordings">— recordings</span>
     </div>
     <div class="scrollable-wrap" id="wrap-recordings">
     <div class="scrollable-card-body scrollable-recordings" id="scroll-recordings">
-      <a class="recording-item" href="https://www.youtube.com/watch?v=EHLmMUNh2ic" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/EHLmMUNh2ic/mqdefault.jpg" alt="April 1, 2026 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">April 1, 2026</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=AyZ7Xlchn0g" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/AyZ7Xlchn0g/mqdefault.jpg" alt="February 4, 2026 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">February 4, 2026</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=S-fbz2QWogk&t=2s" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/S-fbz2QWogk/mqdefault.jpg" alt="December 3, 2025 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">December 3, 2025</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=tlmv3vpCP7A" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/tlmv3vpCP7A/mqdefault.jpg" alt="October 1, 2025 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">October 1, 2025</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=wyMIZJ_dFrY" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/wyMIZJ_dFrY/mqdefault.jpg" alt="August 6, 2025 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">August 6, 2025</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=OJVi3FyK8YE" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/OJVi3FyK8YE/mqdefault.jpg" alt="June 4, 2025 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">June 4, 2025</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=9QghnWyUTPM" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/9QghnWyUTPM/mqdefault.jpg" alt="April 30, 2025 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">April 30, 2025</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=WEL6x-IqZDM&t=1641s" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/WEL6x-IqZDM/mqdefault.jpg" alt="February 5, 2025 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">February 5, 2025</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=-HHCaV8nAbc" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/-HHCaV8nAbc/mqdefault.jpg" alt="October 2, 2024 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">October 2, 2024</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=sZispkBntfQ&t=408s" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/sZispkBntfQ/mqdefault.jpg" alt="August 7, 2024 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">August 7, 2024</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
-      <a class="recording-item" href="https://www.youtube.com/watch?v=sjBbRZ3C6lA&t=414s" target="_blank" rel="noopener">
-        <div class="rec-thumb"><img src="https://img.youtube.com/vi/sjBbRZ3C6lA/mqdefault.jpg" alt="June 5, 2024 meeting recording"><div class="rec-play"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
-        <div class="rec-info"><div class="rec-date">June 5, 2024</div><div class="rec-sublabel">Civil Rights Board</div><div class="rec-watch"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Watch on YouTube</div></div>
-      </a>
     </div></div></div>
 
   <div class="bottom-card">
@@ -1248,18 +1021,85 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
   });
 });
 
-(function () {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  let found = false;
-  document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
-    const d = new Date(item.dataset.date + 'T00:00:00');
-    if (!found && d >= today) {
-      item.querySelector('.next-badge').style.display = '';
-      found = true;
+// ── Load crb.json → render upcoming meetings, minutes, and recordings
+fetch('data/crb.json')
+  .then(r => r.json())
+  .then(crb => {
+
+    // SVG snippets reused across renders
+    const docIconActive = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
+    const docIconMuted  = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--muted)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
+    const extIcon       = `<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+    const playIcon      = `<svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+
+    // ── Upcoming meetings sidebar
+    const upcomingEl = document.getElementById('upcoming-meetings-list');
+    if (upcomingEl && crb.upcoming_meetings) {
+      upcomingEl.innerHTML = crb.upcoming_meetings.map(m => `
+        <div class="meeting-item" data-date="${m.date}">
+          <div class="next-badge" style="display:none">Next</div>
+          <div class="meeting-date">${m.display}</div>
+          <div class="meeting-time">${m.time}</div>
+        </div>
+      `).join('');
     }
-  });
-})();
+
+    // ── Minutes & Agendas
+    const minutesEl   = document.getElementById('scroll-minutes');
+    const pillMeetings = document.getElementById('pill-meetings');
+    if (minutesEl && crb.meetings) {
+      if (pillMeetings) pillMeetings.textContent = `${crb.meetings.length} meetings`;
+      minutesEl.innerHTML = crb.meetings.map(m => {
+        const dateHtml = m.cancelled
+          ? `<div class="minutes-date" style="color:var(--muted);font-weight:400">${m.display} <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle">CANCELLED</span></div>`
+          : `<div class="minutes-date">${m.display}</div>`;
+        return `
+          <a class="minutes-item" href="${m.url}" target="_blank" rel="noopener">
+            <div class="minutes-icon">${m.cancelled ? docIconMuted : docIconActive}</div>
+            <div class="minutes-info">
+              ${dateHtml}
+              <div class="minutes-sublabel">Civil Rights Board</div>
+              <div class="minutes-action">${extIcon} ${m.link_label}</div>
+            </div>
+          </a>
+        `;
+      }).join('');
+    }
+
+    // ── Past recordings
+    const recordingsEl   = document.getElementById('scroll-recordings');
+    const pillRecordings = document.getElementById('pill-recordings');
+    if (recordingsEl && crb.recordings) {
+      if (pillRecordings) pillRecordings.textContent = `${crb.recordings.length} recordings`;
+      recordingsEl.innerHTML = crb.recordings.map(r => `
+        <a class="recording-item" href="${r.youtube_url}" target="_blank" rel="noopener">
+          <div class="rec-thumb">
+            <img src="https://img.youtube.com/vi/${r.youtube_id}/mqdefault.jpg" alt="${r.display} meeting recording">
+            <div class="rec-play">${playIcon}</div>
+          </div>
+          <div class="rec-info">
+            <div class="rec-date">${r.display}</div>
+            <div class="rec-sublabel">Civil Rights Board</div>
+            <div class="rec-watch">${extIcon}Watch on YouTube</div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    // ── "Next" badge on upcoming meetings (runs after DOM is populated)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    let found = false;
+    document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
+      const d = new Date(item.dataset.date + 'T00:00:00');
+      if (!found && d >= today) {
+        item.querySelector('.next-badge').style.display = '';
+        found = true;
+      }
+    });
+
+  })
+  .catch(err => console.error('Could not load data/crb.json:', err));
 </script>
 </body>
 </html>
