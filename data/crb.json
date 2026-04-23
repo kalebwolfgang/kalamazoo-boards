@@ -36,13 +36,6 @@
     {
       "date": "2026-04-01",
       "display": "April 1, 2026",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
-    },
-    {
-      "date": "2026-04-01",
-      "display": "April 1, 2026",
       "event_id": 2602,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905",
       "link_label": "Agenda",
@@ -51,13 +44,6 @@
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905",
       "youtube_id": "EHLmMUNh2ic",
       "youtube_url": "https://www.youtube.com/watch?v=EHLmMUNh2ic"
-    },
-    {
-      "date": "2026-02-04",
-      "display": "February 4, 2026",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4680",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
     },
     {
       "date": "2026-02-04",
@@ -74,13 +60,6 @@
     {
       "date": "2025-12-03",
       "display": "December 3, 2025",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4496",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
-    },
-    {
-      "date": "2025-12-03",
-      "display": "December 3, 2025",
       "event_id": 2472,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4496",
       "link_label": "Minutes",
@@ -93,13 +72,6 @@
     {
       "date": "2025-10-01",
       "display": "October 1, 2025",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
-    },
-    {
-      "date": "2025-10-01",
-      "display": "October 1, 2025",
       "event_id": 2470,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300",
       "link_label": "Minutes",
@@ -108,13 +80,6 @@
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300",
       "youtube_id": "tlmv3vpCP7A",
       "youtube_url": "https://www.youtube.com/watch?v=tlmv3vpCP7A"
-    },
-    {
-      "date": "2025-08-06",
-      "display": "August 6, 2025",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4116",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
     },
     {
       "date": "2025-08-06",
@@ -143,13 +108,6 @@
     {
       "date": "2025-04-30",
       "display": "April 30, 2025",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/3858",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
-    },
-    {
-      "date": "2025-04-30",
-      "display": "April 30, 2025",
       "event_id": 2510,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/3858",
       "link_label": "Minutes",
@@ -162,26 +120,12 @@
     {
       "date": "2025-04-02",
       "display": "April 2, 2025",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2464/files/agenda/3748",
-      "link_label": "Agenda & Minutes",
-      "cancelled": true
-    },
-    {
-      "date": "2025-04-02",
-      "display": "April 2, 2025",
       "event_id": 2464,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2464/files/agenda/3748",
       "link_label": "Agenda",
       "cancelled": true,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2464/files/agenda/3748"
-    },
-    {
-      "date": "2025-02-05",
-      "display": "February 5, 2025",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2462/files/agenda/3556",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
     },
     {
       "date": "2025-02-05",
@@ -198,26 +142,12 @@
     {
       "date": "2024-12-04",
       "display": "December 4, 2024",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1052/files/agenda/3398",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
-    },
-    {
-      "date": "2024-12-04",
-      "display": "December 4, 2024",
       "event_id": 1052,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1052/files/agenda/3398",
       "link_label": "Agenda",
       "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1052/files/agenda/3398"
-    },
-    {
-      "date": "2024-10-02",
-      "display": "October 2, 2024",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1050/files/agenda/3179",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
     },
     {
       "date": "2024-10-02",
@@ -234,13 +164,6 @@
     {
       "date": "2024-08-07",
       "display": "August 7, 2024",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1048/overview",
-      "link_label": "Meeting Overview",
-      "cancelled": false
-    },
-    {
-      "date": "2024-08-07",
-      "display": "August 7, 2024",
       "event_id": 1048,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1048/files/agenda/3049",
       "link_label": "Minutes",
@@ -249,13 +172,6 @@
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1048/files/agenda/3049",
       "youtube_id": "sZispkBntfQ",
       "youtube_url": "https://www.youtube.com/watch?v=sZispkBntfQ"
-    },
-    {
-      "date": "2024-06-05",
-      "display": "June 5, 2024",
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1046/files/agenda/2878",
-      "link_label": "Agenda & Minutes",
-      "cancelled": false
     },
     {
       "date": "2024-06-05",
@@ -282,16 +198,6 @@
       "youtube_url": "https://www.youtube.com/watch?v=ouv106OKGWA"
     },
     {
-      "date": "2024-03-06",
-      "display": "March 6, 2024",
-      "event_id": 1043,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1043/overview",
-      "link_label": "Meeting Overview",
-      "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": null
-    },
-    {
       "date": "2024-02-07",
       "display": "February 7, 2024",
       "event_id": 1042,
@@ -302,16 +208,6 @@
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1042/files/agenda/2575",
       "youtube_id": "7a_ngfYjjnA",
       "youtube_url": "https://www.youtube.com/watch?v=7a_ngfYjjnA"
-    },
-    {
-      "date": "2024-01-03",
-      "display": "January 3, 2024",
-      "event_id": 1041,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1041/overview",
-      "link_label": "Meeting Overview",
-      "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": null
     },
     {
       "date": "2023-12-06",
@@ -340,24 +236,14 @@
     {
       "date": "2023-10-04",
       "display": "October 4, 2023",
-      "event_id": 880,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/880/overview",
-      "link_label": "Meeting Overview",
-      "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": null,
-      "youtube_id": "ez7bJo5V5NM",
-      "youtube_url": "https://www.youtube.com/watch?v=ez7bJo5V5NM"
-    },
-    {
-      "date": "2023-10-04",
-      "display": "October 4, 2023",
       "event_id": 870,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/2253",
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/3030",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/2253"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/2253",
+      "youtube_id": "ez7bJo5V5NM",
+      "youtube_url": "https://www.youtube.com/watch?v=ez7bJo5V5NM"
     },
     {
       "date": "2023-09-06",
@@ -416,136 +302,15 @@
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/866/files/agenda/1710",
       "youtube_id": "DuCelMA3YXQ",
       "youtube_url": "https://www.youtube.com/watch?v=DuCelMA3YXQ"
-    },
-    {
-      "date": "2022-12-07",
-      "display": "December 7, 2022",
-      "event_id": 631,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/631/overview",
-      "link_label": "Meeting Overview",
-      "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": null,
-      "youtube_id": "y5XKYBXDBjM",
-      "youtube_url": "https://www.youtube.com/watch?v=y5XKYBXDBjM"
-    },
-    {
-      "date": "2022-08-03",
-      "display": "August 3, 2022",
-      "event_id": 629,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/629/overview",
-      "link_label": "Meeting Overview",
-      "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": null,
-      "youtube_id": "fwSVOvQktGU",
-      "youtube_url": "https://www.youtube.com/watch?v=fwSVOvQktGU"
-    },
-    {
-      "date": "2022-06-01",
-      "display": "June 1, 2022",
-      "event_id": 628,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/628/overview",
-      "link_label": "Meeting Overview",
-      "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": null
     }
   ],
   "recordings": [
     {
-      "date": "2026-04-21",
-      "display": "April 21, 2026",
-      "youtube_id": "jnTLBXQYHik",
-      "youtube_url": "https://www.youtube.com/watch?v=jnTLBXQYHik",
-      "title": "April 20, 2026 Regular Business Meeting"
-    },
-    {
-      "date": "2026-04-01",
-      "display": "April 1, 2026",
-      "youtube_id": "EHLmMUNh2ic",
-      "youtube_url": "https://www.youtube.com/watch?v=EHLmMUNh2ic"
-    },
-    {
-      "date": "2026-02-04",
-      "display": "February 4, 2026",
-      "youtube_id": "AyZ7Xlchn0g",
-      "youtube_url": "https://www.youtube.com/watch?v=AyZ7Xlchn0g"
-    },
-    {
-      "date": "2025-12-03",
-      "display": "December 3, 2025",
-      "youtube_id": "S-fbz2QWogk",
-      "youtube_url": "https://www.youtube.com/watch?v=S-fbz2QWogk&t=2s"
-    },
-    {
-      "date": "2025-10-01",
-      "display": "October 1, 2025",
-      "youtube_id": "tlmv3vpCP7A",
-      "youtube_url": "https://www.youtube.com/watch?v=tlmv3vpCP7A"
-    },
-    {
-      "date": "2025-08-06",
-      "display": "August 6, 2025",
-      "youtube_id": "wyMIZJ_dFrY",
-      "youtube_url": "https://www.youtube.com/watch?v=wyMIZJ_dFrY"
-    },
-    {
-      "date": "2025-06-04",
-      "display": "June 4, 2025",
-      "youtube_id": "OJVi3FyK8YE",
-      "youtube_url": "https://www.youtube.com/watch?v=OJVi3FyK8YE"
-    },
-    {
-      "date": "2025-04-30",
-      "display": "April 30, 2025",
-      "youtube_id": "9QghnWyUTPM",
-      "youtube_url": "https://www.youtube.com/watch?v=9QghnWyUTPM"
-    },
-    {
-      "date": "2025-02-05",
-      "display": "February 5, 2025",
-      "youtube_id": "WEL6x-IqZDM",
-      "youtube_url": "https://www.youtube.com/watch?v=WEL6x-IqZDM&t=1641s"
-    },
-    {
-      "date": "2024-10-02",
-      "display": "October 2, 2024",
-      "youtube_id": "-HHCaV8nAbc",
-      "youtube_url": "https://www.youtube.com/watch?v=-HHCaV8nAbc"
-    },
-    {
-      "date": "2024-08-07",
-      "display": "August 7, 2024",
-      "youtube_id": "sZispkBntfQ",
-      "youtube_url": "https://www.youtube.com/watch?v=sZispkBntfQ&t=408s"
-    },
-    {
-      "date": "2024-06-12",
-      "display": "June 12, 2024",
-      "youtube_id": "C_7tML58_iM",
-      "youtube_url": "https://www.youtube.com/watch?v=C_7tML58_iM",
-      "title": "June 11, 2024 City of Kalamazoo Citizens Public Safety Review and Appeal Board"
-    },
-    {
-      "date": "2024-06-05",
-      "display": "June 5, 2024",
-      "youtube_id": "sjBbRZ3C6lA",
-      "youtube_url": "https://www.youtube.com/watch?v=sjBbRZ3C6lA&t=414s"
-    },
-    {
-      "date": "2023-10-17",
-      "display": "October 17, 2023",
-      "youtube_id": "6KD7cenguDo",
-      "youtube_url": "https://www.youtube.com/watch?v=6KD7cenguDo",
-      "title": "October 16, 2023 Kalamazoo City Commission"
-    },
-    {
-      "date": "2023-02-09",
-      "display": "February 9, 2023",
-      "youtube_id": "d6D4gTcwfwY",
-      "youtube_url": "https://www.youtube.com/watch?v=d6D4gTcwfwY",
-      "title": "February 8, 2023 City of Kalamazoo Historic Preservation Commission"
+      "date": "2022-12-08",
+      "display": "December 8, 2022",
+      "youtube_id": "y5XKYBXDBjM",
+      "youtube_url": "https://www.youtube.com/watch?v=y5XKYBXDBjM",
+      "title": "December 7, 2022 Kalamazoo Civil Rights Board"
     },
     {
       "date": "2022-10-06",
@@ -555,20 +320,6 @@
       "title": "October 5, 2022 City of Kalamazoo Civil Rights Board"
     },
     {
-      "date": "2022-10-04",
-      "display": "October 4, 2022",
-      "youtube_id": "Jah2bqIrDtY",
-      "youtube_url": "https://www.youtube.com/watch?v=Jah2bqIrDtY",
-      "title": "October 3, 2022 Kalamazoo City Commission Regular Business Meeting"
-    },
-    {
-      "date": "2022-09-09",
-      "display": "September 9, 2022",
-      "youtube_id": "rwaOV4gJraM",
-      "youtube_url": "https://www.youtube.com/watch?v=rwaOV4gJraM",
-      "title": "September 8, 2022 City of Kalamazoo Zoning Board of Appeals"
-    },
-    {
       "date": "2022-09-08",
       "display": "September 8, 2022",
       "youtube_id": "7fwCUOGLzag",
@@ -576,11 +327,11 @@
       "title": "September 7, 2022 City of Kalamazoo Civil Rights Board"
     },
     {
-      "date": "2022-07-06",
-      "display": "July 6, 2022",
-      "youtube_id": "wOzEIjRXrCA",
-      "youtube_url": "https://www.youtube.com/watch?v=wOzEIjRXrCA",
-      "title": "July 5, 2022 Kalamazoo City Commission"
+      "date": "2022-08-04",
+      "display": "August 4, 2022",
+      "youtube_id": "fwSVOvQktGU",
+      "youtube_url": "https://www.youtube.com/watch?v=fwSVOvQktGU",
+      "title": "August 3, 2022 City of Kalamazoo Civil Rights Board"
     },
     {
       "date": "2022-06-30",
@@ -590,25 +341,11 @@
       "title": "June 30, 2022 City of Kalamazoo Civil Rights Board"
     },
     {
-      "date": "2022-06-07",
-      "display": "June 7, 2022",
-      "youtube_id": "ogCl-mFDg7w",
-      "youtube_url": "https://www.youtube.com/watch?v=ogCl-mFDg7w",
-      "title": "June 6, 2022 Kalamazoo City Commission regular business meeting"
-    },
-    {
       "date": "2022-05-10",
       "display": "May 10, 2022",
       "youtube_id": "xOLgMiv8h9Q",
       "youtube_url": "https://www.youtube.com/watch?v=xOLgMiv8h9Q",
       "title": "May 9, 2022 City of Kalamazoo Civil Rights Board Special Meeting"
-    },
-    {
-      "date": "2021-12-08",
-      "display": "December 8, 2021",
-      "youtube_id": "-_5bZ11Ocms",
-      "youtube_url": "https://www.youtube.com/watch?v=-_5bZ11Ocms",
-      "title": "Citizens Public Safety Review and Appeal Board – December 7, 2021"
     },
     {
       "date": "2021-10-06",
@@ -674,13 +411,6 @@
       "title": "Civil Rights Board - January 6, 2021"
     },
     {
-      "date": "2021-01-06",
-      "display": "January 6, 2021",
-      "youtube_id": "dgW5G-siKpo",
-      "youtube_url": "https://www.youtube.com/watch?v=dgW5G-siKpo",
-      "title": "Parks and Recreation Advisory Board, January 5, 2021"
-    },
-    {
       "date": "2020-12-24",
       "display": "December 24, 2020",
       "youtube_id": "VyEetkzKVHo",
@@ -693,13 +423,6 @@
       "youtube_id": "X6xVr6JK2F0",
       "youtube_url": "https://www.youtube.com/watch?v=X6xVr6JK2F0",
       "title": "Civil Rights Board, November 23, 2020"
-    },
-    {
-      "date": "2020-09-22",
-      "display": "September 22, 2020",
-      "youtube_id": "G6Y4uBc-5MI",
-      "youtube_url": "https://www.youtube.com/watch?v=G6Y4uBc-5MI",
-      "title": "Kalamazoo City Commission, September 21, 2020"
     }
   ]
 }

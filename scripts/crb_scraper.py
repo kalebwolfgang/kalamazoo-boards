@@ -56,6 +56,7 @@ CRB_KEYWORDS            = ["civil rights board", "civil rights"]
 
 YOUTUBE_CHANNEL_ID      = "UCIgXSSXLSDxThVaaiRMsR5Q"   # Kalamazoo City TV
 YOUTUBE_SEARCH_QUERY    = "Civil Rights Board"
+YOUTUBE_TITLE_FILTER    = ["civil rights board", "civil rights"]
 # How many days either side of a meeting date to accept a YouTube match.
 # CRB meets bimonthly and sometimes uploads a day late, so 3 days is safe.
 YOUTUBE_DATE_TOLERANCE  = 3
@@ -132,6 +133,8 @@ def transform_civicclerk_event(event: dict) -> dict:
     # CivicClerk marks cancelled events in the eventName
     name_lower = event.get("eventName", "").lower()
     cancelled  = "cancel" in name_lower
+    if not agenda_file_id and not minutes_file_id:
+        return None 
 
     return {
         "date":        date_only,
@@ -235,6 +238,10 @@ def youtube_items_to_recordings(items: list[dict]) -> list[dict]:
         date_only   = published[:10] if published else None
 
         if not date_only:
+            continue 
+        title_lower = title.lower()
+        if not any(kw in title_lower for kw in YOUTUBE_TITLE_FILTER):
+            print(f"    SKIPPED (wrong board): {title[:60]}")
             continue
 
         recordings.append({
@@ -476,7 +483,7 @@ def main() -> None:
     print(f"  CRB events found: {len(crb_events)}")
     print()
 
-    scraped_meetings = [transform_civicclerk_event(e) for e in crb_events]
+    scraped_meetings = [m for m in (transform_civicclerk_event(e) for e in crb_events) if m is not None]
     for m in scraped_meetings:
         ag = "agenda"    if m["agenda_url"]  else "no agenda"
         mn = "minutes"   if m["minutes_url"] else "no minutes"
