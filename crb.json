@@ -1,0 +1,38 @@
+{
+  "last_updated": "2026-04-22",
+
+  "upcoming_meetings": [
+    { "date": "2026-06-03", "display": "Wednesday, June 3, 2026",    "time": "5:00 PM" },
+    { "date": "2026-08-05", "display": "Wednesday, August 5, 2026",  "time": "5:00 PM" },
+    { "date": "2026-10-07", "display": "Wednesday, October 7, 2026", "time": "5:00 PM" }
+  ],
+
+  "meetings": [
+    { "date": "2026-04-01", "display": "April 1, 2026",     "url": "https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905", "link_label": "Agenda & Minutes",  "cancelled": false },
+    { "date": "2026-02-04", "display": "February 4, 2026",  "url": "https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4680", "link_label": "Agenda & Minutes",  "cancelled": false },
+    { "date": "2025-12-03", "display": "December 3, 2025",  "url": "https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4496", "link_label": "Agenda & Minutes",  "cancelled": false },
+    { "date": "2025-10-01", "display": "October 1, 2025",   "url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300", "link_label": "Agenda & Minutes",  "cancelled": false },
+    { "date": "2025-08-06", "display": "August 6, 2025",    "url": "https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4116", "link_label": "Agenda & Minutes",  "cancelled": false },
+    { "date": "2025-04-30", "display": "April 30, 2025",    "url": "https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/3858", "link_label": "Agenda & Minutes",  "cancelled": false },
+    { "date": "2025-04-02", "display": "April 2, 2025",     "url": "https://kalamazoomi.portal.civicclerk.com/event/2464/files/agenda/3748", "link_label": "Agenda & Minutes",  "cancelled": true  },
+    { "date": "2025-02-05", "display": "February 5, 2025",  "url": "https://kalamazoomi.portal.civicclerk.com/event/2462/files/agenda/3556", "link_label": "Agenda & Minutes",  "cancelled": false },
+    { "date": "2024-12-04", "display": "December 4, 2024",  "url": "https://kalamazoomi.portal.civicclerk.com/event/1052/files/agenda/3398", "link_label": "Agenda & Minutes",  "cancelled": false },
+    { "date": "2024-10-02", "display": "October 2, 2024",   "url": "https://kalamazoomi.portal.civicclerk.com/event/1050/files/agenda/3179", "link_label": "Agenda & Minutes",  "cancelled": false },
+    { "date": "2024-08-07", "display": "August 7, 2024",    "url": "https://kalamazoomi.portal.civicclerk.com/event/1048/overview",          "link_label": "Meeting Overview",   "cancelled": false },
+    { "date": "2024-06-05", "display": "June 5, 2024",      "url": "https://kalamazoomi.portal.civicclerk.com/event/1046/files/agenda/2878", "link_label": "Agenda & Minutes",  "cancelled": false }
+  ],
+
+  "recordings": [
+    { "date": "2026-04-01", "display": "April 1, 2026",     "youtube_id": "EHLmMUNh2ic",  "youtube_url": "https://www.youtube.com/watch?v=EHLmMUNh2ic"          },
+    { "date": "2026-02-04", "display": "February 4, 2026",  "youtube_id": "AyZ7Xlchn0g",  "youtube_url": "https://www.youtube.com/watch?v=AyZ7Xlchn0g"          },
+    { "date": "2025-12-03", "display": "December 3, 2025",  "youtube_id": "S-fbz2QWogk",  "youtube_url": "https://www.youtube.com/watch?v=S-fbz2QWogk&t=2s"     },
+    { "date": "2025-10-01", "display": "October 1, 2025",   "youtube_id": "tlmv3vpCP7A",  "youtube_url": "https://www.youtube.com/watch?v=tlmv3vpCP7A"          },
+    { "date": "2025-08-06", "display": "August 6, 2025",    "youtube_id": "wyMIZJ_dFrY",  "youtube_url": "https://www.youtube.com/watch?v=wyMIZJ_dFrY"          },
+    { "date": "2025-06-04", "display": "June 4, 2025",      "youtube_id": "OJVi3FyK8YE",  "youtube_url": "https://www.youtube.com/watch?v=OJVi3FyK8YE"          },
+    { "date": "2025-04-30", "display": "April 30, 2025",    "youtube_id": "9QghnWyUTPM",  "youtube_url": "https://www.youtube.com/watch?v=9QghnWyUTPM"          },
+    { "date": "2025-02-05", "display": "February 5, 2025",  "youtube_id": "WEL6x-IqZDM",  "youtube_url": "https://www.youtube.com/watch?v=WEL6x-IqZDM&t=1641s"  },
+    { "date": "2024-10-02", "display": "October 2, 2024",   "youtube_id": "-HHCaV8nAbc",  "youtube_url": "https://www.youtube.com/watch?v=-HHCaV8nAbc"          },
+    { "date": "2024-08-07", "display": "August 7, 2024",    "youtube_id": "sZispkBntfQ",  "youtube_url": "https://www.youtube.com/watch?v=sZispkBntfQ&t=408s"   },
+    { "date": "2024-06-05", "display": "June 5, 2024",      "youtube_id": "sjBbRZ3C6lA",  "youtube_url": "https://www.youtube.com/watch?v=sjBbRZ3C6lA&t=414s"   }
+  ]
+}
