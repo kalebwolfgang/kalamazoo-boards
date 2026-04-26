@@ -1035,7 +1035,9 @@ fetch('data/crb.json')
     // ── Upcoming meetings sidebar
     const upcomingEl = document.getElementById('upcoming-meetings-list');
     if (upcomingEl && crb.upcoming_meetings) {
-      upcomingEl.innerHTML = crb.upcoming_meetings.map(m => `
+      const today2 = new Date(); today2.setHours(0,0,0,0);
+      const future = crb.upcoming_meetings.filter(m => new Date(m.date + 'T00:00:00') >= today2);
+      upcomingEl.innerHTML = future.map(m => `
         <div class="meeting-item" data-date="${m.date}">
           <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">${m.display}</div>
@@ -1069,13 +1071,9 @@ fetch('data/crb.json')
     // ── Past recordings
     const recordingsEl   = document.getElementById('scroll-recordings');
     const pillRecordings = document.getElementById('pill-recordings');
-    if (recordingsEl) {
-      const fromMeetings = (crb.meetings || []).filter(m => m.youtube_id);
-      const standalone   = (crb.recordings || []);
-      const allRecordings = [...fromMeetings, ...standalone]
-        .sort((a, b) => b.date.localeCompare(a.date));
-      if (pillRecordings) pillRecordings.textContent = `${allRecordings.length} recordings`;
-      recordingsEl.innerHTML = allRecordings.map(r => `
+    if (recordingsEl && crb.recordings) {
+      if (pillRecordings) pillRecordings.textContent = `${crb.recordings.length} recordings`;
+      recordingsEl.innerHTML = crb.recordings.map(r => `
         <a class="recording-item" href="${r.youtube_url}" target="_blank" rel="noopener">
           <div class="rec-thumb">
             <img src="https://img.youtube.com/vi/${r.youtube_id}/mqdefault.jpg" alt="${r.display} meeting recording">
