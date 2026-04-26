@@ -832,7 +832,9 @@ fetch('data/bra.json')
     // ── Upcoming meetings sidebar
     const upcomingEl = document.getElementById('upcoming-meetings-list');
     if (upcomingEl && bra.upcoming_meetings) {
-      upcomingEl.innerHTML = bra.upcoming_meetings.map(m => `
+      const today2 = new Date(); today2.setHours(0,0,0,0);
+      const future = bra.upcoming_meetings.filter(m => new Date(m.date + 'T00:00:00') >= today2);
+      upcomingEl.innerHTML = future.map(m => `
         <div class="meeting-item" data-date="${m.date}">
           <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">${m.display}</div>
@@ -840,8 +842,6 @@ fetch('data/bra.json')
         </div>
       `).join('');
     }
-
-    // ── Populate year dropdown
     window.allMeetings = bra.meetings || [];
     const years = [...new Set(window.allMeetings.map(m => m.date.slice(0, 4)))].sort((a, b) => b - a);
     const yearSel = document.getElementById('meetings-year-select');
