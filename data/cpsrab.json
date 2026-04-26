@@ -1,0 +1,646 @@
+{
+  "last_updated": "2026-04-26",
+  "upcoming_meetings": [
+    {
+      "date": "2026-05-12",
+      "display": "Tuesday, May 12, 2026",
+      "time": "6:00 PM – 8:00 PM"
+    },
+    {
+      "date": "2026-06-09",
+      "display": "Tuesday, June 9, 2026",
+      "time": "6:00 PM – 8:00 PM"
+    },
+    {
+      "date": "2026-07-14",
+      "display": "Tuesday, July 14, 2026",
+      "time": "6:00 PM – 8:00 PM"
+    },
+    {
+      "date": "2026-08-11",
+      "display": "Tuesday, August 11, 2026",
+      "time": "6:00 PM – 8:00 PM"
+    },
+    {
+      "date": "2026-09-08",
+      "display": "Tuesday, September 8, 2026",
+      "time": "6:00 PM – 8:00 PM"
+    },
+    {
+      "date": "2026-10-13",
+      "display": "Tuesday, October 13, 2026",
+      "time": "6:00 PM – 8:00 PM"
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2026-03-10",
+      "display": "March 10, 2026",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/march-10-2026.pdf"
+    },
+    {
+      "date": "2026-02-10",
+      "display": "February 10, 2026",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/february-10-2026.pdf"
+    },
+    {
+      "date": "2026-01-13",
+      "display": "January 13, 2026",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/january-13-2026.pdf"
+    },
+    {
+      "date": "2025-12-09",
+      "display": "December 9, 2025",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/december-9-2025.pdf"
+    },
+    {
+      "date": "2025-10-14",
+      "display": "October 14, 2025",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/october-14-2025.pdf"
+    },
+    {
+      "date": "2025-08-12",
+      "display": "August 12, 2025",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/august-12-2025.pdf"
+    },
+    {
+      "date": "2025-06-10",
+      "display": "June 10, 2025",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/june-10-2025.pdf"
+    },
+    {
+      "date": "2025-04-08",
+      "display": "April 8, 2025",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/april-8-2025.pdf"
+    },
+    {
+      "date": "2025-03-11",
+      "display": "March 11, 2025",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/march-11-2025.pdf"
+    },
+    {
+      "date": "2025-02-11",
+      "display": "February 11, 2025",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/february-11-2025.pdf"
+    },
+    {
+      "date": "2025-01-14",
+      "display": "January 14, 2025",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/january-14-2025.pdf"
+    },
+    {
+      "date": "2024-12-10",
+      "display": "December 10, 2024",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/2/minutes-amp-agendas/cpsrab/12-10-2024-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/december-10-2024.pdf"
+    },
+    {
+      "date": "2024-09-10",
+      "display": "September 10, 2024",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/9-10-2024-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/september-10-2024.pdf"
+    },
+    {
+      "date": "2024-07-09",
+      "display": "July 9, 2024",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/7-9-2024-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2024-06-11",
+      "display": "June 11, 2024",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/6-11-2024-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2024-04-09",
+      "display": "April 9, 2024",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/4-9-2024-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/april-9-2024.pdf"
+    },
+    {
+      "date": "2024-03-12",
+      "display": "March 12, 2024",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/3-12-2024-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2024-02-13",
+      "display": "February 13, 2024",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/2-13-2024-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2024-01-09",
+      "display": "January 9, 2024",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/1-9-2024-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2023-12-12",
+      "display": "December 12, 2023",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/december-12-2023-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2023-10-10",
+      "display": "October 10, 2023",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/10-10-2023-agenda_1.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/october-10-2023.pdf"
+    },
+    {
+      "date": "2023-09-12",
+      "display": "September 12, 2023",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/9-12-2023-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/september-12-2023.pdf"
+    },
+    {
+      "date": "2023-08-08",
+      "display": "August 8, 2023",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/8-8-2023-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2023-07-11",
+      "display": "July 11, 2023",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/7-11-2023-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/july-11-2023.pdf"
+    },
+    {
+      "date": "2023-06-13",
+      "display": "June 13, 2023",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/6-13-2023-agenda_2.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/june-13-2023.pdf"
+    },
+    {
+      "date": "2023-04-11",
+      "display": "April 11, 2023",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/4-11-2023-agenda_1.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/april-11-2023.pdf"
+    },
+    {
+      "date": "2023-01-10",
+      "display": "January 10, 2023",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/1-10-2023-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/january-10-2023-minutes.pdf"
+    },
+    {
+      "date": "2022-12-13",
+      "display": "December 13, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/12-13-2022-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/december-13-2022.pdf"
+    },
+    {
+      "date": "2022-11-01",
+      "display": "November 1, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/11-1-2022-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2022-10-11",
+      "display": "October 11, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/10-11-2022-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2022-08-09",
+      "display": "August 9, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/8-9-2022-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/august-9-2022.pdf"
+    },
+    {
+      "date": "2022-07-12",
+      "display": "July 12, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/2022-7-12-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/july-12-2022.pdf"
+    },
+    {
+      "date": "2022-06-14",
+      "display": "June 14, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/2022-06-14-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/june-14-2022-minutes.pdf"
+    },
+    {
+      "date": "2022-05-10",
+      "display": "May 10, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/5-10-2022-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/2022-05-10-minutes.pdf"
+    },
+    {
+      "date": "2022-04-12",
+      "display": "April 12, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/4-12-2022-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2022-03-08",
+      "display": "March 8, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/cpsrab-3-8-2022-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/2022-03-08-minutes.pdf"
+    },
+    {
+      "date": "2022-02-08",
+      "display": "February 8, 2022",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/cpsrab-2-8-2022-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/cpsrab-february-8-2022-minutes.pdf"
+    },
+    {
+      "date": "2021-12-07",
+      "display": "December 7, 2021",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/cpsrab-12-7-2021-agenda.pdf",
+      "minutes_url": null
+    },
+    {
+      "date": "2021-11-09",
+      "display": "November 9, 2021",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/11-9-2021-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/cpsrab-november-9-2021-minutes.pdf"
+    },
+    {
+      "date": "2021-10-12",
+      "display": "October 12, 2021",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/10-12-21-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/october-12-2021.pdf"
+    },
+    {
+      "date": "2021-09-14",
+      "display": "September 14, 2021",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/9-14-2021-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/september-14-2021.pdf"
+    },
+    {
+      "date": "2021-08-10",
+      "display": "August 10, 2021",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/8-10-21-cc-cpsrab-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/august-10-2021.pdf"
+    },
+    {
+      "date": "2021-07-13",
+      "display": "July 13, 2021",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/7-13-2021-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/july-13-2021.pdf"
+    },
+    {
+      "date": "2021-05-11",
+      "display": "May 11, 2021",
+      "agenda_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/5-11-2021-agenda.pdf",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/minutes-amp-agendas/cpsrab/may-11-2021.pdf"
+    }
+  ],
+  "recordings": [
+    {
+      "date": "2026-04-15",
+      "display": "April 15, 2026",
+      "youtube_id": "WMzr7id7gY8",
+      "youtube_url": "https://www.youtube.com/watch?v=WMzr7id7gY8",
+      "title": "April 14, 2026 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2026-03-11",
+      "display": "March 11, 2026",
+      "youtube_id": "1vjmTFAeI_E",
+      "youtube_url": "https://www.youtube.com/watch?v=1vjmTFAeI_E",
+      "title": "March 10, 2026 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2026-02-10",
+      "display": "February 10, 2026",
+      "youtube_id": "AnADYTN4GRo",
+      "youtube_url": "https://www.youtube.com/watch?v=AnADYTN4GRo",
+      "title": "February 10, 2026 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2026-01-14",
+      "display": "January 14, 2026",
+      "youtube_id": "8iDMxzfnMqM",
+      "youtube_url": "https://www.youtube.com/watch?v=8iDMxzfnMqM",
+      "title": "January 13, 2026 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2025-12-10",
+      "display": "December 10, 2025",
+      "youtube_id": "yrHpqDmYiTc",
+      "youtube_url": "https://www.youtube.com/watch?v=yrHpqDmYiTc",
+      "title": "December 9, 2025 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2025-10-14",
+      "display": "October 14, 2025",
+      "youtube_id": "QW002AYsCXg",
+      "youtube_url": "https://www.youtube.com/watch?v=QW002AYsCXg",
+      "title": "October 14, 2025 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2025-08-13",
+      "display": "August 13, 2025",
+      "youtube_id": "7RA1vpCBeo0",
+      "youtube_url": "https://www.youtube.com/watch?v=7RA1vpCBeo0",
+      "title": "August 12, 2025 Citizens Public Safety Review &amp; Appeal Board"
+    },
+    {
+      "date": "2025-06-10",
+      "display": "June 10, 2025",
+      "youtube_id": "zckMNIudGgM",
+      "youtube_url": "https://www.youtube.com/watch?v=zckMNIudGgM",
+      "title": "June 10, 2025 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2025-05-14",
+      "display": "May 14, 2025",
+      "youtube_id": "q637BQBi6Hk",
+      "youtube_url": "https://www.youtube.com/watch?v=q637BQBi6Hk",
+      "title": "May 13, 2025 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2025-05-14",
+      "display": "May 14, 2025",
+      "youtube_id": "VBcgBGyTSR8",
+      "youtube_url": "https://www.youtube.com/watch?v=VBcgBGyTSR8",
+      "title": "May 13, 2025 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2025-04-11",
+      "display": "April 11, 2025",
+      "youtube_id": "ji5b4dUyylE",
+      "youtube_url": "https://www.youtube.com/watch?v=ji5b4dUyylE",
+      "title": "April 8, 2025 Citizens Public Safety Review and Appeal Board (Rebroadcast)"
+    },
+    {
+      "date": "2025-04-08",
+      "display": "April 8, 2025",
+      "youtube_id": "qZRZnRGIaF8",
+      "youtube_url": "https://www.youtube.com/watch?v=qZRZnRGIaF8",
+      "title": "April 8, 2025 Citizens Public Safety Review &amp; Appeal Board"
+    },
+    {
+      "date": "2025-04-08",
+      "display": "April 8, 2025",
+      "youtube_id": "9RN43jmGkNE",
+      "youtube_url": "https://www.youtube.com/watch?v=9RN43jmGkNE",
+      "title": "April 8, 2025 Citizens Public Safety Review &amp; Appeal Board"
+    },
+    {
+      "date": "2025-04-08",
+      "display": "April 8, 2025",
+      "youtube_id": "FAbyqOUaQzI",
+      "youtube_url": "https://www.youtube.com/watch?v=FAbyqOUaQzI",
+      "title": "April 8, 2025 Citizens Public Safety Review &amp; Appeal Board"
+    },
+    {
+      "date": "2025-03-12",
+      "display": "March 12, 2025",
+      "youtube_id": "dCnff4HJuzI",
+      "youtube_url": "https://www.youtube.com/watch?v=dCnff4HJuzI",
+      "title": "March 11, 2025 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2025-02-12",
+      "display": "February 12, 2025",
+      "youtube_id": "1yaoa2wcTnk",
+      "youtube_url": "https://www.youtube.com/watch?v=1yaoa2wcTnk",
+      "title": "February 11, 2025 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2025-01-15",
+      "display": "January 15, 2025",
+      "youtube_id": "h-bR-oBou3k",
+      "youtube_url": "https://www.youtube.com/watch?v=h-bR-oBou3k",
+      "title": "January 14, 2025 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2024-12-11",
+      "display": "December 11, 2024",
+      "youtube_id": "9ol7O4qJwTA",
+      "youtube_url": "https://www.youtube.com/watch?v=9ol7O4qJwTA",
+      "title": "December 10, 2024 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2024-09-11",
+      "display": "September 11, 2024",
+      "youtube_id": "QnFo_rBefpE",
+      "youtube_url": "https://www.youtube.com/watch?v=QnFo_rBefpE",
+      "title": "September 10, 2024 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2024-07-10",
+      "display": "July 10, 2024",
+      "youtube_id": "cccIdFe73qA",
+      "youtube_url": "https://www.youtube.com/watch?v=cccIdFe73qA",
+      "title": "July 9, 2024 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2024-06-12",
+      "display": "June 12, 2024",
+      "youtube_id": "C_7tML58_iM",
+      "youtube_url": "https://www.youtube.com/watch?v=C_7tML58_iM",
+      "title": "June 11, 2024 City of Kalamazoo Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2024-04-10",
+      "display": "April 10, 2024",
+      "youtube_id": "nH0E-exXCYk",
+      "youtube_url": "https://www.youtube.com/watch?v=nH0E-exXCYk",
+      "title": "April 9, 2024 City of Kalamazoo Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2024-03-13",
+      "display": "March 13, 2024",
+      "youtube_id": "Q4nIMrgAXOA",
+      "youtube_url": "https://www.youtube.com/watch?v=Q4nIMrgAXOA",
+      "title": "March 12, 2024 Citizens Public Safety Review &amp; Appeal Board"
+    },
+    {
+      "date": "2024-02-14",
+      "display": "February 14, 2024",
+      "youtube_id": "f1z7Sf98DsM",
+      "youtube_url": "https://www.youtube.com/watch?v=f1z7Sf98DsM",
+      "title": "February 13, 2024 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2024-01-09",
+      "display": "January 9, 2024",
+      "youtube_id": "Zruudf7r8Jg",
+      "youtube_url": "https://www.youtube.com/watch?v=Zruudf7r8Jg",
+      "title": "January 9,  2024 - Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2023-12-12",
+      "display": "December 12, 2023",
+      "youtube_id": "5pSVjoe0lDw",
+      "youtube_url": "https://www.youtube.com/watch?v=5pSVjoe0lDw",
+      "title": "December 12, 2023 - Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2023-10-10",
+      "display": "October 10, 2023",
+      "youtube_id": "hQmJlIof8W4",
+      "youtube_url": "https://www.youtube.com/watch?v=hQmJlIof8W4",
+      "title": "October 10, 2023 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2023-09-14",
+      "display": "September 14, 2023",
+      "youtube_id": "Vf5_v8zVHok",
+      "youtube_url": "https://www.youtube.com/watch?v=Vf5_v8zVHok",
+      "title": "REBROADCAST: September 12, 2023 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2023-08-08",
+      "display": "August 8, 2023",
+      "youtube_id": "0mv385_RIP8",
+      "youtube_url": "https://www.youtube.com/watch?v=0mv385_RIP8",
+      "title": "August 8, 2023 City of Kalamazoo Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2023-07-12",
+      "display": "July 12, 2023",
+      "youtube_id": "kILJKDT1R_o",
+      "youtube_url": "https://www.youtube.com/watch?v=kILJKDT1R_o",
+      "title": "July 11, 2023 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2023-06-14",
+      "display": "June 14, 2023",
+      "youtube_id": "_Ch8aq2TSsU",
+      "youtube_url": "https://www.youtube.com/watch?v=_Ch8aq2TSsU",
+      "title": "June 13, 2023 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2023-04-12",
+      "display": "April 12, 2023",
+      "youtube_id": "frdblNrXJoU",
+      "youtube_url": "https://www.youtube.com/watch?v=frdblNrXJoU",
+      "title": "April 11, 2023 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2023-01-10",
+      "display": "January 10, 2023",
+      "youtube_id": "58EK5NDJ9vA",
+      "youtube_url": "https://www.youtube.com/watch?v=58EK5NDJ9vA",
+      "title": "January 10, 2023 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2022-12-13",
+      "display": "December 13, 2022",
+      "youtube_id": "ktautWtHxbY",
+      "youtube_url": "https://www.youtube.com/watch?v=ktautWtHxbY",
+      "title": "December 13, 2022 Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2022-11-02",
+      "display": "November 2, 2022",
+      "youtube_id": "cB6SGlZPEaA",
+      "youtube_url": "https://www.youtube.com/watch?v=cB6SGlZPEaA",
+      "title": "November 1, 2022 Citizens Public Safety Review and Appeals Board (rebroadcast)"
+    },
+    {
+      "date": "2022-10-12",
+      "display": "October 12, 2022",
+      "youtube_id": "YiJJ5fV_Ftk",
+      "youtube_url": "https://www.youtube.com/watch?v=YiJJ5fV_Ftk",
+      "title": "October 11, 2022 Citizens Public Safety Review and Appeals Board"
+    },
+    {
+      "date": "2022-08-09",
+      "display": "August 9, 2022",
+      "youtube_id": "ulnYWuwYLXg",
+      "youtube_url": "https://www.youtube.com/watch?v=ulnYWuwYLXg",
+      "title": "August 4, 2022 City of Kalamazoo Citizens Public Safety Review and Appeals Board"
+    },
+    {
+      "date": "2022-07-12",
+      "display": "July 12, 2022",
+      "youtube_id": "rKVDfgHa_mg",
+      "youtube_url": "https://www.youtube.com/watch?v=rKVDfgHa_mg",
+      "title": "July 12, 2022 Kalamazoo Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2022-06-14",
+      "display": "June 14, 2022",
+      "youtube_id": "1Hy8AYE4aqw",
+      "youtube_url": "https://www.youtube.com/watch?v=1Hy8AYE4aqw",
+      "title": "June 14, 2022 Citizens Public Safety Review and Appeals Board"
+    },
+    {
+      "date": "2022-05-10",
+      "display": "May 10, 2022",
+      "youtube_id": "G-dZVOk_tKY",
+      "youtube_url": "https://www.youtube.com/watch?v=G-dZVOk_tKY",
+      "title": "May 10, 2022 City of Kalamazoo Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2022-04-12",
+      "display": "April 12, 2022",
+      "youtube_id": "EDa2xl1jQ7Q",
+      "youtube_url": "https://www.youtube.com/watch?v=EDa2xl1jQ7Q",
+      "title": "April 12, 2022 Citizens Public Safety Review and Appeals Board Meeting"
+    },
+    {
+      "date": "2022-03-08",
+      "display": "March 8, 2022",
+      "youtube_id": "IlulJSXjumE",
+      "youtube_url": "https://www.youtube.com/watch?v=IlulJSXjumE",
+      "title": "March 8, 2022 Citizens Public Safety Review and Appeal Board meeting"
+    },
+    {
+      "date": "2021-12-08",
+      "display": "December 8, 2021",
+      "youtube_id": "-_5bZ11Ocms",
+      "youtube_url": "https://www.youtube.com/watch?v=-_5bZ11Ocms",
+      "title": "Citizens Public Safety Review and Appeal Board – December 7, 2021"
+    },
+    {
+      "date": "2021-10-12",
+      "display": "October 12, 2021",
+      "youtube_id": "rckurKWJ4ok",
+      "youtube_url": "https://www.youtube.com/watch?v=rckurKWJ4ok",
+      "title": "Citizens Public Safety Review and Appeal Board – October 12, 2021"
+    },
+    {
+      "date": "2021-09-14",
+      "display": "September 14, 2021",
+      "youtube_id": "iNWHtRk4WDQ",
+      "youtube_url": "https://www.youtube.com/watch?v=iNWHtRk4WDQ",
+      "title": "Citizens Public Safety Review and Appeal Board - September 14, 2021"
+    },
+    {
+      "date": "2021-08-11",
+      "display": "August 11, 2021",
+      "youtube_id": "VAabsz8TSGo",
+      "youtube_url": "https://www.youtube.com/watch?v=VAabsz8TSGo",
+      "title": "City Commission / Citizens Public Safety Review and Appeal Board Special Joint Meeting - August 1..."
+    },
+    {
+      "date": "2021-07-13",
+      "display": "July 13, 2021",
+      "youtube_id": "gEwbKEuG6Ww",
+      "youtube_url": "https://www.youtube.com/watch?v=gEwbKEuG6Ww",
+      "title": "Citizens Public Safety Review and Appeal Board - July 13, 2021"
+    },
+    {
+      "date": "2021-05-11",
+      "display": "May 11, 2021",
+      "youtube_id": "_dFNM_uJuJ4",
+      "youtube_url": "https://www.youtube.com/watch?v=_dFNM_uJuJ4",
+      "title": "Citizens Public Safety Review and Appeal Board - May 11, 2021"
+    },
+    {
+      "date": "2021-02-10",
+      "display": "February 10, 2021",
+      "youtube_id": "Q07_7rzdDp4",
+      "youtube_url": "https://www.youtube.com/watch?v=Q07_7rzdDp4",
+      "title": "Citizens Public Safety Review and Appeal Board, February 9, 2021"
+    }
+  ]
+}
