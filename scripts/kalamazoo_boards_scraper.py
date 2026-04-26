@@ -68,6 +68,20 @@ BOARDS = [
         "youtube":     False,
         "schedule":    ("monthly", "thursday", 3, None),
     },
+    {
+        "key":         "cpsrab",
+        "name":        "Citizens Public Safety Review and Appeal Board",
+        "scraper_type": "youtube_only",   # city website blocks scraping; meetings maintained manually
+        "category_id": None,
+        "keywords":    [],
+        "output":      Path("data") / "cpsrab.json",
+        "youtube":     True,
+        "youtube_channel_id":   "UCIgXSSXLSDxThVaaiRMsR5Q",
+        "youtube_search_query": "Citizens Public Safety Review and Appeal Board",
+        "youtube_title_filter": ["citizens public safety", "cpsrab"],
+        "youtube_tolerance":    3,
+        "schedule":    ("monthly", "tuesday", 2, None),
+    },
 ]
 
 
@@ -379,7 +393,49 @@ def merge_recordings(existing: list, new_recs: list) -> list:
 # Per-board run
 # ---------------------------------------------------------------------------
 
+def run_youtube_only_board(board: dict, start_iso: str, end_iso: str, api_key: str) -> None:
+    """For boards where meetings are manually maintained and only YouTube is scraped."""
+    name = board["name"]
+    print(f"\n{'='*60}")
+    print(f"  {name}")
+    print(f"{'='*60}")
+    print("  (meetings manually maintained — scraping YouTube only)")
+
+    # Step 1: YouTube
+    print("  Step 1: Fetching YouTube recordings...")
+    recordings = fetch_youtube_streams(api_key, board, start_iso, end_iso)
+    print(f"    Found {len(recordings)} recordings in window")
+
+    # Step 2: Merge recordings only; preserve meetings untouched
+    print("  Step 2: Merging...")
+    existing          = load_existing(board["output"])
+    merged_recordings = merge_recordings(existing.get("recordings", []), recordings)
+
+    # Step 3: Upcoming
+    upcoming = compute_upcoming(board)
+
+    # Step 4: Write — meetings array preserved exactly as-is
+    output = {
+        "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "upcoming_meetings": upcoming,
+        "meetings":          existing.get("meetings", []),
+        "recordings":        merged_recordings,
+    }
+
+    board["output"].parent.mkdir(parents=True, exist_ok=True)
+    with board["output"].open("w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+    print(f"  Wrote {board['output']}  ({len(existing.get('meetings', []))} meetings preserved, {len(merged_recordings)} recordings)")
+
+
 def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) -> None:
+    # Route youtube_only boards to their own handler
+    if board.get("scraper_type") == "youtube_only":
+        run_youtube_only_board(board, start_iso, end_iso, api_key)
+        return
+
     name = board["name"]
     print(f"\n{'='*60}")
     print(f"  {name}")
@@ -443,8 +499,9 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
 # ---------------------------------------------------------------------------
 
 BOARD_TIMES = {
-    "crb": "5:00 PM",
-    "bra": "7:45 AM \u2013 9:30 AM",
+    "crb":    "5:00 PM",
+    "bra":    "7:45 AM \u2013 9:30 AM",
+    "cpsrab": "6:00 PM \u2013 8:00 PM",
 }
 
 for b in BOARDS:
