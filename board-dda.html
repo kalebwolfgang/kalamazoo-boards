@@ -28,7 +28,6 @@
     .nav-right{display:flex;align-items:center;gap:16px;flex-shrink:0;}
     .nav-link{color:rgba(255,255,255,0.6);text-decoration:none;font-size:15px;transition:color 0.15s;white-space:nowrap;}.nav-link:hover{color:var(--gold-lt);}
     .nav-apply{background:var(--gold);color:var(--navy);text-decoration:none;font-weight:600;font-size:14px;padding:7px 14px;border-radius:2px;transition:background 0.15s;white-space:nowrap;}.nav-apply:hover{background:var(--gold-lt);}
-    /* ── MOBILE NAV SECONDARY STRIP ── */
     .nav-secondary{display:none;}
     @media(max-width:600px){
       .nav-inner .nav-link{display:none;}
@@ -102,7 +101,6 @@
     .meeting-location{margin-top:16px;padding-top:16px;border-top:1px solid var(--border-lt);}
     .location-name{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:4px;}.location-addr{font-size:13px;color:var(--muted);line-height:1.6;}
     .map-link{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:14px;color:var(--navy-light);text-decoration:none;}.map-link:hover{text-decoration:underline;}
-    /* ── BOTTOM CARDS ── */
     .bottom-cards{max-width:1400px;margin:0 auto;padding:clamp(24px,4vw,40px) var(--pad-x) 0;display:grid;grid-template-columns:1fr;gap:20px;}
     @media(min-width:700px){.bottom-cards{grid-template-columns:1fr 1fr;}}
     @media(min-width:700px){.bottom-card:nth-child(3){grid-column:1 / 3;}}
@@ -119,7 +117,6 @@
     .doc-link{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border-lt);text-decoration:none;color:var(--navy-light);font-size:15px;transition:color 0.15s;}.doc-link:last-child{border-bottom:none;padding-bottom:0;}
     .doc-link:hover{color:var(--gold);}.doc-link svg{flex-shrink:0;color:var(--muted);}.doc-link:hover svg{color:var(--gold);}
     .pdf-badge{font-size:11px;font-weight:700;background:#fee2e2;color:#991b1b;padding:2px 6px;border-radius:2px;margin-left:auto;flex-shrink:0;}
-    /* ── SCROLLABLE MINUTES ── */
     .bottom-card.scrollable-card{overflow:hidden;}
     .card-count-pill{margin-left:auto;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.55);font-size:11px;font-weight:600;letter-spacing:0.04em;padding:2px 8px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);white-space:nowrap;}
     .scrollable-wrap{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;}
@@ -138,7 +135,6 @@
     .minutes-action{font-size:13px;color:var(--navy-light);margin-top:5px;display:flex;align-items:center;gap:5px;}.minutes-item:hover .minutes-action{color:var(--gold);}
     .scrollable-card-body .minutes-item{margin:0;padding:14px 24px 14px 18px;border-bottom:1px solid var(--border-lt) !important;border-radius:0;}
     .scrollable-card-body .minutes-item:last-child{border-bottom:none !important;}
-    /* ── SPONSORSHIP CTA ── */
     .sponsor-cta{background:var(--navy);border-top:3px solid var(--gold);margin-top:clamp(32px,5vw,60px);}
     .sponsor-cta-inner{max-width:1400px;margin:0 auto;padding:clamp(24px,4vw,40px) var(--pad-x);display:flex;flex-direction:column;gap:24px;}
     @media(min-width:800px){.sponsor-cta-inner{flex-direction:row;align-items:center;justify-content:space-between;gap:48px;}}
@@ -146,7 +142,6 @@
     .sponsor-cta-heading{font-family:'Playfair Display',serif;font-size:clamp(20px,3.5vw,26px);font-weight:600;color:white;margin-bottom:10px;line-height:1.2;}
     .sponsor-cta-desc{font-size:clamp(15px,2.5vw,17px);color:rgba(255,255,255,0.6);max-width:620px;line-height:1.65;}
     .sponsor-cta-btn{display:inline-block;background:var(--gold);color:var(--navy);text-decoration:none;font-size:16px;font-weight:700;padding:14px 32px;border-radius:3px;transition:background 0.15s;white-space:nowrap;flex-shrink:0;align-self:flex-start;}.sponsor-cta-btn:hover{background:var(--gold-lt);}
-    /* ── MEMBERS ── */
     .members-section{background:var(--white);border-top:1px solid var(--border);padding:clamp(32px,6vw,56px) var(--pad-x) clamp(40px,7vw,72px);}
     .members-inner{max-width:1400px;margin:0 auto;}
     .members-heading{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,30px);font-weight:600;color:var(--navy);margin-bottom:6px;}
@@ -315,10 +310,7 @@
     <div class="sidebar-card">
       <div class="sidebar-card-header"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Upcoming Meetings</div>
       <div class="sidebar-card-body">
-        <div class="meeting-item" data-date="2026-04-20"><div class="next-badge" style="display:none">Next</div><div class="meeting-date">Monday, April 20, 2026</div><div class="meeting-time">3:00 PM – 5:00 PM</div></div>
-        <div class="meeting-item" data-date="2026-05-11"><div class="next-badge" style="display:none">Next</div><div class="meeting-date">Monday, May 11, 2026</div><div class="meeting-time">3:00 PM – 5:00 PM</div></div>
-        <div class="meeting-item" data-date="2026-06-15"><div class="next-badge" style="display:none">Next</div><div class="meeting-date">Monday, June 15, 2026</div><div class="meeting-time">3:00 PM – 5:00 PM</div></div>
-        <div class="meeting-item" data-date="2026-07-13"><div class="next-badge" style="display:none">Next</div><div class="meeting-date">Monday, July 13, 2026</div><div class="meeting-time">3:00 PM – 5:00 PM</div></div>
+        <div id="upcoming-meetings-list"></div>
         <p class="meeting-note">DDA and DEGA meet jointly, generally on the 3rd Monday of each month. Specific dates are set by the Board and may vary.</p>
         <div class="meeting-location">
           <div class="location-name">City Hall</div>
@@ -336,52 +328,10 @@
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       Minutes & Agendas
-      <span class="card-count-pill">8 meetings</span>
+      <span class="card-count-pill" id="pill-meetings">— meetings</span>
     </div>
     <div class="scrollable-wrap" id="wrap-minutes">
-    <div class="scrollable-card-body scrollable-minutes" id="scroll-minutes">
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2662/files/agenda/4843" target="_blank" rel="noopener">
-        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div class="minutes-info"><div class="minutes-date">March 16, 2026</div><div class="minutes-sublabel">Downtown Development Authority</div><div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div></div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2648/files/agenda/4746" target="_blank" rel="noopener">
-        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div class="minutes-info"><div class="minutes-date">February 16, 2026</div><div class="minutes-sublabel">Downtown Development Authority</div><div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div></div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2647/files/agenda/4622" target="_blank" rel="noopener">
-        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div class="minutes-info"><div class="minutes-date">January 12, 2026</div><div class="minutes-sublabel">Downtown Development Authority</div><div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div></div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1340/files/agenda/4557" target="_blank" rel="noopener">
-        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div class="minutes-info"><div class="minutes-date">December 15, 2025</div><div class="minutes-sublabel">Downtown Development Authority</div><div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div></div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1339/files/agenda/4441" target="_blank" rel="noopener">
-        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div class="minutes-info"><div class="minutes-date">November 17, 2025</div><div class="minutes-sublabel">Downtown Development Authority</div><div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div></div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1338/files/agenda/4366" target="_blank" rel="noopener">
-        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div class="minutes-info"><div class="minutes-date">October 20, 2025</div><div class="minutes-sublabel">Downtown Development Authority</div><div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div></div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1337/files/agenda/4265" target="_blank" rel="noopener">
-        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div class="minutes-info"><div class="minutes-date">September 15, 2025</div><div class="minutes-sublabel">Downtown Development Authority</div><div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div></div>
-      </a>
-
-      <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1336/files/agenda/4174" target="_blank" rel="noopener">
-        <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div class="minutes-info"><div class="minutes-date">August 18, 2025</div><div class="minutes-sublabel">Downtown Development Authority</div><div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div></div>
-      </a>
-
-    </div>
+      <div class="scrollable-card-body scrollable-minutes" id="scroll-minutes"></div>
     </div>
   </div>
 
@@ -422,11 +372,9 @@
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
     <p class="members-subhead">11 seats — 4-year terms, max 2 consecutive (then 4-year break); Mayor serves as ex-officio member</p>
-    
     <p class="members-table-guide-link">
       New to these terms? <a href="faq.html#members-table">See definitions and learn more →</a>
     </p>
-
     <div class="members-table-outer" id="members-table-outer">
     <div class="members-table-wrap" id="members-table-wrap">
       <table class="members-table">
@@ -470,6 +418,7 @@ function termText(m){const st=seatStatus(m);if(st==='vacant')return'Open seat';i
 function memberType(m){const role=(m.role||'').toLowerCase();if(role.includes('ex-officio'))return'Ex-Officio';return'Member';}
 const isTouchDevice=()=>window.matchMedia('(pointer: coarse)').matches;
 
+// ── Load boards.json → render members
 fetch('boards.json').then(r=>r.json()).then(boards=>{
   const board=boards.find(b=>b.abbr==='DDA');if(!board)return;
   const members=board.members;
@@ -510,7 +459,61 @@ fetch('boards.json').then(r=>r.json()).then(boards=>{
   ttClose.addEventListener('click',()=>tooltip.classList.remove('visible'));
 }).catch(err=>console.error('Could not load boards.json:',err));
 
-// Vertical scroll track for minutes card
+// ── Load data/dda.json → render upcoming meetings and minutes
+fetch('data/dda.json')
+  .then(r=>r.json())
+  .then(dda=>{
+    const docIconActive=`<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
+    const docIconMuted=`<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--muted)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
+    const extIcon=`<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+
+    // ── Upcoming meetings sidebar
+    const upcomingEl=document.getElementById('upcoming-meetings-list');
+    if(upcomingEl&&dda.upcoming_meetings){
+      const today2=new Date();today2.setHours(0,0,0,0);
+      const future=dda.upcoming_meetings.filter(m=>new Date(m.date+'T00:00:00')>=today2);
+      upcomingEl.innerHTML=future.map(m=>`
+        <div class="meeting-item" data-date="${m.date}">
+          <div class="next-badge" style="display:none">Next</div>
+          <div class="meeting-date">${m.display}</div>
+          <div class="meeting-time">${m.time}</div>
+        </div>
+      `).join('');
+    }
+
+    // ── Minutes & Agendas
+    const minutesEl=document.getElementById('scroll-minutes');
+    const pillMeetings=document.getElementById('pill-meetings');
+    if(minutesEl&&dda.meetings){
+      if(pillMeetings)pillMeetings.textContent=`${dda.meetings.length} meetings`;
+      minutesEl.innerHTML=dda.meetings.map(m=>{
+        const dateHtml=m.cancelled
+          ?`<div class="minutes-date" style="color:var(--muted);font-weight:400">${m.display} <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle">CANCELLED</span></div>`
+          :`<div class="minutes-date">${m.display}</div>`;
+        return`
+          <a class="minutes-item" href="${m.url}" target="_blank" rel="noopener">
+            <div class="minutes-icon">${m.cancelled?docIconMuted:docIconActive}</div>
+            <div class="minutes-info">
+              ${dateHtml}
+              <div class="minutes-sublabel">${m.meeting_type}</div>
+              <div class="minutes-action">${extIcon} ${m.link_label}</div>
+            </div>
+          </a>
+        `;
+      }).join('')||`<div style="padding:18px;font-size:14px;color:var(--muted)">No meetings found.</div>`;
+    }
+
+    // ── "Next" badge on upcoming meetings
+    const today=new Date();today.setHours(0,0,0,0);
+    let found=false;
+    document.querySelectorAll('.meeting-item[data-date]').forEach(item=>{
+      const d=new Date(item.dataset.date+'T00:00:00');
+      if(!found&&d>=today){item.querySelector('.next-badge').style.display='';found=true;}
+    });
+  })
+  .catch(err=>console.error('Could not load data/dda.json:',err));
+
+// ── Vertical scroll track for minutes card
 (function(){
   const el=document.getElementById('scroll-minutes'),wEl=document.getElementById('wrap-minutes');if(!el||!wEl)return;
   const track=document.createElement('div');track.className='scroll-track';
@@ -520,7 +523,7 @@ fetch('boards.json').then(r=>r.json()).then(boards=>{
   el.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(el);update();
 })();
 
-// Horizontal scroll track for members table
+// ── Horizontal scroll track for members table
 (function(){
   const wrap=document.getElementById('members-table-wrap'),outer=document.getElementById('members-table-outer');if(!wrap||!outer)return;
   const track=document.createElement('div');track.className='h-scroll-track';
@@ -530,7 +533,7 @@ fetch('boards.json').then(r=>r.json()).then(boards=>{
   wrap.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(wrap);update();
 })();
 
-// Prevent rubber-band overscroll (older iOS Safari)
+// ── Prevent rubber-band overscroll (older iOS Safari)
 (function(){
   const wrap=document.getElementById('members-table-wrap');if(!wrap)return;
   let startX=0,startY=0,isH=null;
@@ -539,8 +542,6 @@ fetch('boards.json').then(r=>r.json()).then(boards=>{
 })();
 
 document.querySelectorAll('.acc-trigger').forEach(btn=>{btn.addEventListener('click',()=>{const expanded=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!expanded));btn.nextElementSibling.hidden=expanded;});});
-
-(function(){const today=new Date();today.setHours(0,0,0,0);let found=false;document.querySelectorAll('.meeting-item[data-date]').forEach(item=>{const d=new Date(item.dataset.date+'T00:00:00');if(!found&&d>=today){item.querySelector('.next-badge').style.display='';found=true;}});})();
 </script>
 </body>
 </html>
