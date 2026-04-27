@@ -82,6 +82,15 @@ BOARDS = [
         "youtube_tolerance":    3,
         "schedule":    ("monthly", "tuesday", 2, None),
     },
+    {
+        "key":         "dda",
+        "name":        "Downtown Development Authority",
+        "category_id": 38,
+        "keywords":    ["downtown development authority", "dda"],
+        "output":      Path("data") / "dda.json",
+        "youtube":     False,
+        "schedule":    ("monthly", "monday", 3, None),
+    },
 ]
 
 
@@ -401,20 +410,16 @@ def run_youtube_only_board(board: dict, start_iso: str, end_iso: str, api_key: s
     print(f"{'='*60}")
     print("  (meetings manually maintained — scraping YouTube only)")
 
-    # Step 1: YouTube
     print("  Step 1: Fetching YouTube recordings...")
     recordings = fetch_youtube_streams(api_key, board, start_iso, end_iso)
     print(f"    Found {len(recordings)} recordings in window")
 
-    # Step 2: Merge recordings only; preserve meetings untouched
     print("  Step 2: Merging...")
     existing          = load_existing(board["output"])
     merged_recordings = merge_recordings(existing.get("recordings", []), recordings)
 
-    # Step 3: Upcoming
     upcoming = compute_upcoming(board)
 
-    # Step 4: Write — meetings array preserved exactly as-is
     output = {
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "upcoming_meetings": upcoming,
@@ -431,7 +436,6 @@ def run_youtube_only_board(board: dict, start_iso: str, end_iso: str, api_key: s
 
 
 def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) -> None:
-    # Route youtube_only boards to their own handler
     if board.get("scraper_type") == "youtube_only":
         run_youtube_only_board(board, start_iso, end_iso, api_key)
         return
@@ -441,7 +445,6 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
     print(f"  {name}")
     print(f"{'='*60}")
 
-    # Step 1: CivicClerk
     print("  Step 1: Fetching CivicClerk events...")
     cc_url     = build_cc_url(start_iso, end_iso)
     all_events = fetch_all_cc_events(cc_url)
@@ -455,7 +458,6 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
     scraped = [m for m in (transform_event(e, board) for e in board_events) if m is not None]
     print(f"    {len(scraped)} with documents")
 
-    # Step 2: YouTube (optional)
     unmatched_recs = []
     if board.get("youtube") and api_key:
         print("  Step 2: Fetching YouTube streams...")
@@ -464,7 +466,6 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
             scraped, recordings, board.get("youtube_tolerance", 3)
         )
 
-    # Step 3: Merge
     print("  Step 3: Merging...")
     existing   = load_existing(board["output"])
     merged_meetings, stats = merge_meetings(existing.get("meetings", []), scraped)
@@ -474,10 +475,8 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
     if board.get("youtube"):
         merged_recordings = merge_recordings(existing.get("recordings", []), unmatched_recs)
 
-    # Step 4: Upcoming
     upcoming = compute_upcoming(board)
 
-    # Step 5: Write
     output = {
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "upcoming_meetings": upcoming,
@@ -502,6 +501,7 @@ BOARD_TIMES = {
     "crb":    "5:00 PM",
     "bra":    "7:45 AM \u2013 9:30 AM",
     "cpsrab": "6:00 PM \u2013 8:00 PM",
+    "dda":    "3:00 PM \u2013 5:00 PM",
 }
 
 for b in BOARDS:
@@ -533,7 +533,6 @@ def main():
         if not boards_to_run:
             raise SystemExit(f"Unknown board key: {args.board}. Available: {[b['key'] for b in BOARDS]}")
 
-    # Only fetch YouTube key if at least one board needs it
     needs_youtube = any(b.get("youtube") for b in boards_to_run)
     api_key       = get_youtube_key() if needs_youtube else None
 
