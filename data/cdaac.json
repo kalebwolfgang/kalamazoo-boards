@@ -1,0 +1,25 @@
+{
+  "last_updated": "2026-04-28",
+  "upcoming_meetings": [
+    {
+      "date": "2026-06-25",
+      "display": "Thursday, June 25, 2026",
+      "time": "5:30 PM \u2013 7:30 PM"
+    },
+    {
+      "date": "2026-09-24",
+      "display": "Thursday, September 24, 2026",
+      "time": "5:30 PM \u2013 7:30 PM"
+    },
+    {
+      "date": "2026-10-22",
+      "display": "Thursday, October 22, 2026",
+      "time": "5:30 PM \u2013 7:30 PM"
+    },
+    {
+      "date": "2026-11-19",
+      "display": "Thursday, November 19, 2026",
+      "time": "5:30 PM \u2013 7:30 PM"
+    }
+  ]
+}
