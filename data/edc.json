@@ -1,11 +1,6 @@
 {
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-04-28",
   "upcoming_meetings": [
-    {
-      "date": "2026-04-16",
-      "display": "Thursday, April 16, 2026",
-      "time": "7:45 AM"
-    },
     {
       "date": "2026-05-21",
       "display": "Thursday, May 21, 2026",
@@ -20,9 +15,35 @@
       "date": "2026-07-16",
       "display": "Thursday, July 16, 2026",
       "time": "7:45 AM"
+    },
+    {
+      "date": "2026-08-20",
+      "display": "Thursday, August 20, 2026",
+      "time": "7:45 AM"
+    },
+    {
+      "date": "2026-09-17",
+      "display": "Thursday, September 17, 2026",
+      "time": "7:45 AM"
+    },
+    {
+      "date": "2026-10-15",
+      "display": "Thursday, October 15, 2026",
+      "time": "7:45 AM"
     }
   ],
   "meetings": [
+    {
+      "date": "2026-04-16",
+      "display": "April 16, 2026",
+      "event_id": 2689,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2689/files/agenda/4945",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2689/files/agenda/4945"
+    },
     {
       "date": "2026-03-19",
       "display": "March 19, 2026",
@@ -31,8 +52,8 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Economic Development Corporation",
       "cancelled": false,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2688/files/agenda/4893",
-      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2688/files/agenda/4893"
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2688/files/agenda/4893"
     },
     {
       "date": "2026-02-19",
@@ -42,8 +63,8 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Economic Development Corporation",
       "cancelled": false,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2687/files/agenda/4775",
-      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2687/files/agenda/4775"
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2687/files/agenda/4775"
     },
     {
       "date": "2026-01-15",
@@ -53,8 +74,8 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Economic Development Corporation",
       "cancelled": false,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2686/files/agenda/4634",
-      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2686/files/agenda/4634"
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2686/files/agenda/4634"
     },
     {
       "date": "2025-12-18",
@@ -64,8 +85,8 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Economic Development Corporation",
       "cancelled": false,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1376/files/agenda/4598",
-      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1376/files/agenda/4598"
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1376/files/agenda/4598"
     },
     {
       "date": "2025-12-11",
@@ -75,8 +96,8 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Meeting",
       "cancelled": false,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2529/files/agenda/4546",
-      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2529/files/agenda/4546"
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2529/files/agenda/4546"
     },
     {
       "date": "2025-11-20",
@@ -86,8 +107,8 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Economic Development Corporation",
       "cancelled": false,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1375/files/agenda/4460",
-      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1375/files/agenda/4460"
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1375/files/agenda/4460"
     },
     {
       "date": "2025-10-16",
@@ -97,8 +118,8 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Economic Development Corporation",
       "cancelled": false,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1374/files/agenda/4352",
-      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1374/files/agenda/4352"
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1374/files/agenda/4352"
     },
     {
       "date": "2025-09-18",
@@ -108,8 +129,338 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Economic Development Corporation",
       "cancelled": false,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1373/files/agenda/4283",
-      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1373/files/agenda/4283"
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1373/files/agenda/4373",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1373/files/agenda/4283"
+    },
+    {
+      "date": "2025-08-21",
+      "display": "August 21, 2025",
+      "event_id": 1372,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1372/files/agenda/4177",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1372/files/agenda/4317",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1372/files/agenda/4177"
+    },
+    {
+      "date": "2025-06-26",
+      "display": "June 26, 2025",
+      "event_id": 1370,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1370/files/agenda/4007",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1370/files/agenda/4234",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1370/files/agenda/4007"
+    },
+    {
+      "date": "2025-05-15",
+      "display": "May 15, 2025",
+      "event_id": 1369,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1369/files/agenda/3887",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1369/files/agenda/4233",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1369/files/agenda/3887"
+    },
+    {
+      "date": "2025-04-17",
+      "display": "April 17, 2025",
+      "event_id": 1368,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1368/files/agenda/3824",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1368/files/agenda/3897",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1368/files/agenda/3824"
+    },
+    {
+      "date": "2025-03-20",
+      "display": "March 20, 2025",
+      "event_id": 1367,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1367/files/agenda/3721",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1367/files/agenda/3721"
+    },
+    {
+      "date": "2025-02-20",
+      "display": "February 20, 2025",
+      "event_id": 1366,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1366/files/agenda/3636",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1366/files/agenda/3815",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1366/files/agenda/3636"
+    },
+    {
+      "date": "2025-01-16",
+      "display": "January 16, 2025",
+      "event_id": 1077,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1077/files/agenda/3529",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1077/files/agenda/3648",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1077/files/agenda/3529"
+    },
+    {
+      "date": "2024-12-19",
+      "display": "December 19, 2024",
+      "event_id": 1076,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1076/files/agenda/3492",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1076/files/agenda/3535",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1076/files/agenda/3492"
+    },
+    {
+      "date": "2024-11-21",
+      "display": "November 21, 2024",
+      "event_id": 1075,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1075/files/agenda/3376",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1075/files/agenda/3503",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1075/files/agenda/3376"
+    },
+    {
+      "date": "2024-10-17",
+      "display": "October 17, 2024",
+      "event_id": 1074,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1074/files/agenda/3255",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1074/files/agenda/3383",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1074/files/agenda/3255"
+    },
+    {
+      "date": "2024-09-19",
+      "display": "September 19, 2024",
+      "event_id": 1073,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1073/files/agenda/3170",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1073/files/agenda/3267",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1073/files/agenda/3170"
+    },
+    {
+      "date": "2024-08-15",
+      "display": "August 15, 2024",
+      "event_id": 1072,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1072/files/agenda/3066",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1072/files/agenda/3176",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1072/files/agenda/3066"
+    },
+    {
+      "date": "2024-06-20",
+      "display": "June 20, 2024",
+      "event_id": 1070,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1070/files/agenda/2962",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1070/files/agenda/3075",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1070/files/agenda/2962"
+    },
+    {
+      "date": "2024-05-16",
+      "display": "May 16, 2024",
+      "event_id": 1069,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1069/files/agenda/2844",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1069/files/agenda/2997",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1069/files/agenda/2844"
+    },
+    {
+      "date": "2024-04-18",
+      "display": "April 18, 2024",
+      "event_id": 1068,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1068/files/agenda/2804",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1068/files/agenda/2857",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1068/files/agenda/2804"
+    },
+    {
+      "date": "2024-03-21",
+      "display": "March 21, 2024",
+      "event_id": 1067,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1067/files/agenda/2728",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1067/files/agenda/2820",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1067/files/agenda/2728"
+    },
+    {
+      "date": "2024-02-15",
+      "display": "February 15, 2024",
+      "event_id": 1066,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1066/files/agenda/2600",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1066/files/agenda/2736",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1066/files/agenda/2600"
+    },
+    {
+      "date": "2024-01-18",
+      "display": "January 18, 2024",
+      "event_id": 852,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/852/files/agenda/2536",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/852/files/agenda/2614",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/852/files/agenda/2536"
+    },
+    {
+      "date": "2023-12-21",
+      "display": "December 21, 2023",
+      "event_id": 851,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/851/files/agenda/2488",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/851/files/agenda/2488"
+    },
+    {
+      "date": "2023-11-16",
+      "display": "November 16, 2023",
+      "event_id": 850,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/850/files/agenda/2368",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/850/files/agenda/2368"
+    },
+    {
+      "date": "2023-10-19",
+      "display": "October 19, 2023",
+      "event_id": 849,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/849/files/agenda/2323",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/849/files/agenda/2323"
+    },
+    {
+      "date": "2023-09-21",
+      "display": "September 21, 2023",
+      "event_id": 848,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/848/files/agenda/2250",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/848/files/agenda/2250"
+    },
+    {
+      "date": "2023-08-17",
+      "display": "August 17, 2023",
+      "event_id": 847,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/847/files/agenda/2151",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/847/files/agenda/2151"
+    },
+    {
+      "date": "2023-07-20",
+      "display": "July 20, 2023",
+      "event_id": 846,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/846/files/agenda/2100",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/846/files/agenda/2100"
+    },
+    {
+      "date": "2023-06-15",
+      "display": "June 15, 2023",
+      "event_id": 845,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/845/files/agenda/2047",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/845/files/agenda/2047"
+    },
+    {
+      "date": "2023-05-18",
+      "display": "May 18, 2023",
+      "event_id": 844,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/844/files/agenda/1995",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/844/files/agenda/1995"
+    },
+    {
+      "date": "2023-05-04",
+      "display": "May 4, 2023",
+      "event_id": 843,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/843/files/agenda/1959",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/843/files/agenda/1959"
+    },
+    {
+      "date": "2023-03-16",
+      "display": "March 16, 2023",
+      "event_id": 842,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/842/files/agenda/1811",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/842/files/agenda/1811"
+    },
+    {
+      "date": "2023-02-16",
+      "display": "February 16, 2023",
+      "event_id": 841,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/841/files/agenda/1731",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/841/files/agenda/1731"
+    },
+    {
+      "date": "2023-01-19",
+      "display": "January 19, 2023",
+      "event_id": 828,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/828/files/agenda/1686",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Economic Development Corporation",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/828/files/agenda/1686"
     }
   ]
 }
