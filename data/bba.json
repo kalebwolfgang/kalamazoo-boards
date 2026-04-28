@@ -1,0 +1,45 @@
+{
+  "last_updated": "2026-04-28",
+  "upcoming_meetings": [
+    {
+      "date": "2026-05-21",
+      "display": "Thursday, May 21, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    },
+    {
+      "date": "2026-06-18",
+      "display": "Thursday, June 18, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    },
+    {
+      "date": "2026-07-16",
+      "display": "Thursday, July 16, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    },
+    {
+      "date": "2026-08-20",
+      "display": "Thursday, August 20, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    },
+    {
+      "date": "2026-09-17",
+      "display": "Thursday, September 17, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    },
+    {
+      "date": "2026-10-15",
+      "display": "Thursday, October 15, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    },
+    {
+      "date": "2026-11-19",
+      "display": "Thursday, November 19, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    },
+    {
+      "date": "2026-12-17",
+      "display": "Thursday, December 17, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    }
+  ]
+}
