@@ -101,6 +101,16 @@ BOARDS = [
         "output":      Path("data") / "bba.json",
         "youtube":     False,
     },
+    {
+        "key":         "cdaac",
+        "name":        "Community Development Act Advisory Committee",
+        "scraper_type": "web_scrape",
+        "web_url":     "https://www.kalamazoocity.org/Government/Boards-Commissions/Community-Development-Act-Advisory-Committee-CDAAC",
+        "category_id": None,
+        "keywords":    [],
+        "output":      Path("data") / "cdaac.json",
+        "youtube":     False,
+    },
 ]
 
 
@@ -126,6 +136,7 @@ BOARD_TIMES = {
     "dega":   "3:00 PM \u2013 5:00 PM",
     "edc":    "7:45 AM",
     "bba":    "4:00 PM \u2013 6:00 PM",
+    "cdaac":  "5:30 PM \u2013 7:30 PM",
 }
 
 for b in BOARDS:
