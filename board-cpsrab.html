@@ -559,7 +559,7 @@ fetch('data/cpsrab.json')
     const upcomingEl = document.getElementById('upcoming-meetings-list');
     if (upcomingEl && data.upcoming_meetings) {
       const today2 = new Date(); today2.setHours(0,0,0,0);
-      const future = data.upcoming_meetings.filter(m => new Date(m.date + 'T00:00:00') >= today2);
+      const future = data.upcoming_meetings.filter(m => new Date(m.date + 'T00:00:00') >= today2).slice(0, 3);
       upcomingEl.innerHTML = future.map(m => `
         <div class="meeting-item" data-date="${m.date}">
           <div class="next-badge" style="display:none">Next</div>
