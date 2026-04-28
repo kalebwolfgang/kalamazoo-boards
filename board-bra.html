@@ -833,8 +833,7 @@ fetch('data/bra.json')
     const upcomingEl = document.getElementById('upcoming-meetings-list');
     if (upcomingEl && bra.upcoming_meetings) {
       const today2 = new Date(); today2.setHours(0,0,0,0);
-      const future = bra.upcoming_meetings.filter(m => new Date(m.date + 'T00:00:00') >= today2);
-      upcomingEl.innerHTML = future.map(m => `
+      const future = bra.upcoming_meetings.filter(m => new Date(m.date + 'T00:00:00') >= today2).slice(0, 3);      upcomingEl.innerHTML = future.map(m => `
         <div class="meeting-item" data-date="${m.date}">
           <div class="next-badge" style="display:none">Next</div>
           <div class="meeting-date">${m.display}</div>
