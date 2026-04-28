@@ -100,6 +100,15 @@ BOARDS = [
         "youtube":     False,
         "schedule":    ("monthly", "monday", 3, None),
     },
+    {
+        "key":         "edc",
+        "name":        "Economic Development Corporation",
+        "category_id": 33,
+        "keywords":    ["economic development corporation", "edc"],
+        "output":      Path("data") / "edc.json",
+        "youtube":     False,
+        "schedule":    ("monthly", "thursday", 3, None),
+    },
 ]
 
 
@@ -510,6 +519,7 @@ BOARD_TIMES = {
     "cpsrab": "6:00 PM \u2013 8:00 PM",
     "dda":    "3:00 PM \u2013 5:00 PM",
     "dega":   "3:00 PM \u2013 5:00 PM",
+    "edc":    "7:45 AM",
 }
 
 for b in BOARDS:
