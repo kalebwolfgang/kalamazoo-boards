@@ -649,8 +649,7 @@ fetch('data/bba.json')
     const upcomingEl = document.getElementById('upcoming-meetings-list');
     if (!upcomingEl || !bba.upcoming_meetings) return;
     const today = new Date(); today.setHours(0,0,0,0);
-    const future = bba.upcoming_meetings.filter(m => new Date(m.date + 'T00:00:00') >= today);
-    upcomingEl.innerHTML = future.map(m => `
+    const future = bba.upcoming_meetings.filter(m => new Date(m.date + 'T00:00:00') >= today).slice(0, 3);    upcomingEl.innerHTML = future.map(m => `
       <div class="meeting-item" data-date="${m.date}">
         <div class="next-badge" style="display:none">Next</div>
         <div class="meeting-date">${m.display}</div>
