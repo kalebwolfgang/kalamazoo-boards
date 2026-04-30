@@ -1,6 +1,17 @@
 {
   "last_updated": "2026-04-30",
-  "upcoming_meetings": [],
+  "upcoming_meetings": [
+    {
+      "date": "2026-07-09",
+      "display": "Thursday, July 09, 2026",
+      "time": "9:00 AM"
+    },
+    {
+      "date": "2026-10-08",
+      "display": "Thursday, October 08, 2026",
+      "time": "9:00 AM"
+    }
+  ],
   "meetings": [
     {
       "date": "2026-04-09",
