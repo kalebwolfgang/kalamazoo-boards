@@ -10,6 +10,9 @@ Three scraper types:
   youtube_only   Meetings manually maintained; YouTube scraped; upcoming from schedule rule
   web_scrape     No CivicClerk; upcoming meetings scraped from city website
 
+Flags:
+  upcoming_from_web   CivicClerk for past meetings; city website for upcoming
+
 Usage:
     python scraper.py               # All boards
     python scraper.py --board crb   # One board only
@@ -92,6 +95,16 @@ BOARDS = [
         "youtube":     False,
     },
     {
+        "key":         "ec",
+        "name":        "Election Commission",
+        "category_id": 37,
+        "keywords":    ["election commission", "election inspector", "accuracy test", "precinct", "election"],
+        "output":      Path("data") / "ec.json",
+        "youtube":     False,
+        "upcoming_from_web": True,
+        "web_url":     "https://www.kalamazoocity.org/Government/Boards-Commissions/Election-Commission",
+    },
+    {
         "key":         "bba",
         "name":        "Building Board of Appeals",
         "scraper_type": "web_scrape",
@@ -135,6 +148,7 @@ BOARD_TIMES = {
     "dda":    "3:00 PM \u2013 5:00 PM",
     "dega":   "3:00 PM \u2013 5:00 PM",
     "edc":    "7:45 AM",
+    "ec":     "9:00 AM",
     "bba":    "4:00 PM \u2013 6:00 PM",
     "cdaac":  "5:30 PM \u2013 7:30 PM",
 }
@@ -310,9 +324,9 @@ def scrape_web_upcoming(board: dict) -> list[dict]:
     r = requests.get(url, timeout=30)
     r.raise_for_status()
 
-    today   = date.today()
+    today    = date.today()
     upcoming = []
-    seen    = set()
+    seen     = set()
 
     # Match date patterns like "Thursday, May 21, 2026 | 04:00 PM"
     pattern = r'(\w+day,\s+\w+\s+\d{1,2},\s+\d{4})\s*\|'
@@ -565,10 +579,16 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
 
     print(f"    Found {len(past_events)} past events, {len(future_events)} upcoming events")
 
-    scraped  = [m for m in (transform_event(e, board) for e in past_events) if m is not None]
-    upcoming = events_to_upcoming(future_events, board)
+    scraped = [m for m in (transform_event(e, board) for e in past_events) if m is not None]
     print(f"    {len(scraped)} past events with documents")
-    print(f"    {len(upcoming)} upcoming meetings on CivicClerk")
+
+    # Upcoming: use city website if flagged, otherwise use CivicClerk future events
+    if board.get("upcoming_from_web"):
+        print("  Step 2: Scraping upcoming meetings from city website...")
+        upcoming = scrape_web_upcoming(board)
+    else:
+        upcoming = events_to_upcoming(future_events, board)
+        print(f"    {len(upcoming)} upcoming meetings on CivicClerk")
 
     unmatched_recs = []
     if board.get("youtube") and api_key:
