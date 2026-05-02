@@ -1,5 +1,5 @@
 """
-Kalamazoo Boards & Commissions — Unified Ongoing Scraper
+Kalamazoo Boards & Commissions - Unified Ongoing Scraper
 =========================================================
 
 Runs all configured boards, checking the last 6 months for new meetings
@@ -11,7 +11,8 @@ Three scraper types:
   web_scrape     No CivicClerk; upcoming meetings scraped from city website
 
 Flags:
-  upcoming_from_web   CivicClerk for past meetings; city website for upcoming
+  upcoming_from_web  CivicClerk for past meetings; city website for upcoming
+  preserve_upcoming  CivicClerk for past meetings; preserve existing upcoming from JSON
 
 Usage:
     python scraper.py               # All boards
@@ -105,6 +106,15 @@ BOARDS = [
         "web_url":     "https://www.kalamazoocity.org/Government/Boards-Commissions/Election-Commission",
     },
     {
+        "key":         "pension-board",
+        "name":        "Employee Retirement System Board of Trustees",
+        "category_id": 42,
+        "keywords":    ["employees retirement system", "retirement system", "pension"],
+        "output":      Path("data") / "pension-board.json",
+        "youtube":     False,
+        "preserve_upcoming": True,
+    },
+    {
         "key":         "bba",
         "name":        "Building Board of Appeals",
         "scraper_type": "web_scrape",
@@ -149,6 +159,7 @@ BOARD_TIMES = {
     "dega":   "3:00 PM \u2013 5:00 PM",
     "edc":    "7:45 AM",
     "ec":     "9:00 AM",
+    "pension-board": "8:00 AM \u2013 9:00 AM",
     "bba":    "4:00 PM \u2013 6:00 PM",
     "cdaac":  "5:30 PM \u2013 7:30 PM",
 }
@@ -489,7 +500,7 @@ def run_youtube_only_board(board: dict, start_iso: str, end_iso: str, api_key: s
     print(f"\n{'='*60}")
     print(f"  {name}")
     print(f"{'='*60}")
-    print("  (meetings manually maintained — scraping YouTube only)")
+    print("  (meetings manually maintained - scraping YouTube only)")
 
     print("  Step 1: Fetching YouTube recordings...")
     recordings = fetch_youtube_streams(api_key, board, start_iso, end_iso)
@@ -586,6 +597,10 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
     if board.get("upcoming_from_web"):
         print("  Step 2: Scraping upcoming meetings from city website...")
         upcoming = scrape_web_upcoming(board)
+    elif board.get("preserve_upcoming"):
+        existing_check = load_existing(board["output"])
+        upcoming = existing_check.get("upcoming_meetings", [])
+        print(f"    Preserving {len(upcoming)} upcoming meetings from existing JSON")
     else:
         upcoming = events_to_upcoming(future_events, board)
         print(f"    {len(upcoming)} upcoming meetings on CivicClerk")
@@ -637,7 +652,7 @@ def main():
     start_iso = start_dt.strftime("%Y-%m-%d")
     end_iso   = now.strftime("%Y-%m-%d")
 
-    print(f"Unified Scraper — lookback: {start_iso} → {end_iso}  |  lookahead: +{LOOKAHEAD_MONTHS} months")
+    print(f"Unified Scraper - lookback: {start_iso} → {end_iso}  |  lookahead: +{LOOKAHEAD_MONTHS} months")
 
     boards_to_run = BOARDS
     if args.board:
