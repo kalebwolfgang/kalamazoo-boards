@@ -118,6 +118,19 @@ BOARDS = [
         "youtube_tolerance":    3,
     },
     {
+        "key":         "hdc",
+        "name":        "Historic District Commission",
+        "category_id": 35,
+        "keywords":    ["historic district commission", "historic district", "hdc"],
+        "output":      Path("data") / "hdc.json",
+        "youtube":     True,
+        "youtube_channel_id":   "UCIgXSSXLSDxThVaaiRMsR5Q",
+        "youtube_search_query": "Historic District Commission",
+        "youtube_title_filter": ["historic district"],
+        "youtube_tolerance":    3,
+        "schedule":    ("monthly", "tuesday", 3, None),
+    },
+    {
         "key":         "pension-board",
         "name":        "Employee Retirement System Board of Trustees",
         "category_id": 42,
@@ -156,7 +169,7 @@ BOARDS = [
 CIVICCLERK_TENANT    = "kalamazoomi"
 LOOKBACK_MONTHS      = 6
 LOOKAHEAD_MONTHS     = 6
-PRESERVE_IF_EMPTY    = ("agenda_url", "minutes_url")
+PRESERVE_IF_EMPTY    = ("agenda_url", "minutes_url", "youtube_id", "youtube_url")
 
 
 # ---------------------------------------------------------------------------
@@ -172,6 +185,7 @@ BOARD_TIMES = {
     "edc":    "7:45 AM",
     "ec":     "9:00 AM",
     "ecc":    "4:30 PM \u2013 6:30 PM",
+    "hdc":    "5:00 PM \u2013 7:00 PM",
     "pension-board": "8:00 AM \u2013 9:00 AM",
     "bba":    "4:00 PM \u2013 6:00 PM",
     "cdaac":  "5:30 PM \u2013 7:30 PM",
@@ -610,6 +624,9 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
     if board.get("upcoming_from_web"):
         print("  Step 2: Scraping upcoming meetings from city website...")
         upcoming = scrape_web_upcoming(board)
+    elif board.get("schedule"):
+        print("  Step 2: Computing upcoming meetings from schedule rule...")
+        upcoming = compute_upcoming_schedule(board)
     elif board.get("preserve_upcoming"):
         existing_check = load_existing(board["output"])
         upcoming = existing_check.get("upcoming_meetings", [])
@@ -618,10 +635,28 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
         upcoming = events_to_upcoming(future_events, board)
         print(f"    {len(upcoming)} upcoming meetings on CivicClerk")
 
-    unmatched_recs = []
+    all_recs = []
     if board.get("youtube") and api_key:
         print("  Step 2: Fetching YouTube streams...")
-        unmatched_recs = fetch_youtube_streams(api_key, board, start_iso, end_iso)
+        all_recs = fetch_youtube_streams(api_key, board, start_iso, end_iso)
+        
+        # Embed videos into meetings
+        tolerance = board.get("youtube_tolerance", 3)
+        for rec in all_recs:
+            rec_date = datetime.strptime(rec["date"], "%Y-%m-%d").date()
+            best_meeting = None
+            best_delta = timedelta(days=tolerance + 1)
+            
+            for m in scraped:
+                m_date = datetime.strptime(m["date"], "%Y-%m-%d").date()
+                delta = abs(rec_date - m_date)
+                if delta <= timedelta(days=tolerance) and delta < best_delta:
+                    best_delta = delta
+                    best_meeting = m
+                    
+            if best_meeting and not best_meeting.get("youtube_id"):
+                best_meeting["youtube_id"] = rec["youtube_id"]
+                best_meeting["youtube_url"] = rec["youtube_url"]
 
     print("  Step 3: Merging...")
     existing        = load_existing(board["output"])
@@ -630,7 +665,7 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
 
     merged_recordings = []
     if board.get("youtube"):
-        merged_recordings = merge_recordings(existing.get("recordings", []), unmatched_recs)
+        merged_recordings = merge_recordings(existing.get("recordings", []), all_recs)
 
     output = {
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
