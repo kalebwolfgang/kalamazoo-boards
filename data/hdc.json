@@ -1,497 +1,776 @@
-"""
-Kalamazoo Historic District Commission (HDC) Meeting Scraper
-============================================================
-
-Pulls HDC meetings from the CivicClerk API and past recordings from the
-Kalamazoo City TV YouTube channel (live streams tab), then writes everything
-to data/hdc.json in the format the website expects.
-
-CivicClerk supplies: meeting dates, agenda URLs, minutes URLs, cancelled status.
-YouTube supplies: video IDs for recordings. The two are matched by date.
-
-Requires the YOUTUBE_API_KEY environment variable to be set.
-Never put the key in this file or commit it to GitHub.
-
-Default mode (no arguments):
-    Fetches the last 6 months of CivicClerk events and YouTube streams.
-    Merges new data into the existing data/hdc.json. This is what GitHub
-    Actions runs on a weekly cron.
-
-    python scripts/hdc_scraper.py
-
-Backfill mode (custom start date):
-    Fetches everything from the given date forward. Use this once to build
-    the full historical record. Safe to re-run — it won't duplicate records.
-
-    python scripts/hdc_scraper.py --start-date 2020-01-01
-"""
-
-import argparse
-import json
-import os
-from datetime import datetime, date, timedelta, timezone
-from pathlib import Path
-
-import requests
-
-
-# ---------------------------------------------------------------------------
-# Configuration
-# ---------------------------------------------------------------------------
-
-CIVICCLERK_TENANT       = "kalamazoomi"
-HDC_CATEGORY_ID         = 35
-HDC_KEYWORDS            = ["historic district commission", "historic district", "hdc"]
-
-YOUTUBE_CHANNEL_ID      = "UCIgXSSXLSDxThVaaiRMsR5Q"
-YOUTUBE_SEARCH_QUERY    = "Historic District Commission"
-YOUTUBE_TITLE_FILTER    = ["historic district"]
-YOUTUBE_DATE_TOLERANCE  = 3
-
-LOOKBACK_MONTHS         = 6
-CUTOFF_DATE             = "2020-01-01"   # don't go earlier than this in default mode
-
-OUTPUT_PATH             = Path("data") / "hdc.json"
-
-PRESERVE_IF_SCRAPE_EMPTY = ("youtube_id", "agenda_url", "minutes_url")
-
-
-# ---------------------------------------------------------------------------
-# CivicClerk helpers
-# ---------------------------------------------------------------------------
-
-def build_civicclerk_url(start_date: str, end_date: str) -> str:
-    base  = f"https://{CIVICCLERK_TENANT}.api.civicclerk.com/v1/Events"
-    query = (
-        f"?$filter=startDateTime ge {start_date} and startDateTime lt {end_date}"
-        f"&$orderby=startDateTime desc, eventName asc"
-    )
-    return base + query
-
-
-def fetch_all_civicclerk_events(url: str) -> list[dict]:
-    """Fetch all events from CivicClerk, following pagination."""
-    all_events = []
-    page = 1
-    while url:
-        print(f"  [CivicClerk] Fetching page {page}...")
-        r = requests.get(url, timeout=30)
-        r.raise_for_status()
-        data = r.json()
-        events = data.get("value", [])
-        all_events.extend(events)
-        url = data.get("@odata.nextLink")
-        page += 1
-    return all_events
-
-
-def is_hdc_event(event: dict) -> bool:
-    """Return True only for genuine HDC events."""
-    if event.get("eventCategoryId") != HDC_CATEGORY_ID:
-        return False
-    name_lower = event.get("eventName", "").lower()
-    return any(kw in name_lower for kw in HDC_KEYWORDS)
-
-
-def find_file_id(published_files: list[dict], file_type: str) -> int | None:
-    for f in published_files or []:
-        if f.get("type") == file_type:
-            return f.get("fileId")
-    return None
-
-
-def build_document_url(event_id: int, file_id: int) -> str:
-    return (
-        f"https://{CIVICCLERK_TENANT}.portal.civicclerk.com"
-        f"/event/{event_id}/files/agenda/{file_id}"
-    )
-
-
-def transform_civicclerk_event(event: dict) -> dict:
-    """Turn a raw CivicClerk event into an HDC meeting record."""
-    event_id  = event["id"]
-    date_only = event["startDateTime"].split("T")[0]
-
-    published_files = event.get("publishedFiles", [])
-    agenda_file_id  = find_file_id(published_files, "Agenda")
-    minutes_file_id = find_file_id(published_files, "Minutes")
-
-    # CivicClerk marks cancelled events in the eventName
-    name_lower = event.get("eventName", "").lower()
-    cancelled  = "cancel" in name_lower
-    
-    # Drop completely empty administrative shells
-    if not agenda_file_id and not minutes_file_id and not cancelled:
-        return None 
-
-    return {
-        "date":        date_only,
-        "display":     format_display_date(date_only),
-        "event_id":    event_id,
-        "url":         (
-            build_document_url(event_id, agenda_file_id)
-            if agenda_file_id
-            else f"https://{CIVICCLERK_TENANT}.portal.civicclerk.com/event/{event_id}/overview"
-        ),
-        "link_label":  "Minutes" if minutes_file_id else ("Agenda" if agenda_file_id else "Meeting Overview"),
-        "meeting_type": "Historic District Commission",
-        "cancelled":   cancelled,
-        "minutes_url": build_document_url(event_id, minutes_file_id) if minutes_file_id else None,
-        "agenda_url":  build_document_url(event_id, agenda_file_id)  if agenda_file_id  else None,
+{
+  "last_updated": "2026-05-02",
+  "upcoming_meetings": [
+    {
+      "date": "2026-05-19",
+      "display": "Tuesday, May 19, 2026",
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
+    },
+    {
+      "date": "2026-06-16",
+      "display": "Tuesday, June 16, 2026",
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
+    },
+    {
+      "date": "2026-07-21",
+      "display": "Tuesday, July 21, 2026",
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
+    },
+    {
+      "date": "2026-08-18",
+      "display": "Tuesday, August 18, 2026",
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
+    },
+    {
+      "date": "2026-09-15",
+      "display": "Tuesday, September 15, 2026",
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
+    },
+    {
+      "date": "2026-10-20",
+      "display": "Tuesday, October 20, 2026",
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
     }
-
-
-def format_display_date(iso: str) -> str:
-    """'2026-04-01' → 'April 1, 2026'"""
-    d = datetime.strptime(iso, "%Y-%m-%d")
-    return d.strftime("%B %d, %Y").replace(" 0", " ")
-
-
-# ---------------------------------------------------------------------------
-# YouTube helpers
-# ---------------------------------------------------------------------------
-
-def get_youtube_api_key() -> str:
-    key = os.environ.get("YOUTUBE_API_KEY", "").strip()
-    if not key:
-        raise SystemExit(
-            "ERROR: YOUTUBE_API_KEY environment variable is not set.\n"
-            "  Local:          export YOUTUBE_API_KEY='your-key-here'\n"
-            "  GitHub Actions: add it as a repository secret named YOUTUBE_API_KEY"
-        )
-    return key
-
-
-def fetch_youtube_streams(api_key: str, start_date: str, end_date: str) -> list[dict]:
-    """Search the Kalamazoo City TV channel for HDC live stream recordings."""
-    print(f"  [YouTube] Searching for '{YOUTUBE_SEARCH_QUERY}' streams...")
-
-    start_rfc = f"{start_date}T00:00:00Z"
-    end_rfc   = f"{end_date}T23:59:59Z"
-
-    base_url = "https://www.googleapis.com/youtube/v3/search"
-    params = {
-        "key":          api_key,
-        "channelId":    YOUTUBE_CHANNEL_ID,
-        "q":            YOUTUBE_SEARCH_QUERY,
-        "type":         "video",
-        "eventType":    "completed", 
-        "publishedAfter":  start_rfc,
-        "publishedBefore": end_rfc,
-        "maxResults":   50,
-        "part":         "snippet",
-        "order":        "date",
+  ],
+  "meetings": [
+    {
+      "date": "2026-04-21",
+      "display": "April 21, 2026",
+      "event_id": 2738,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2738/files/agenda/4954",
+      "link_label": "Agenda",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2738/files/agenda/4954",
+      "youtube_id": "SHyZSytY4uI",
+      "youtube_url": "https://www.youtube.com/watch?v=SHyZSytY4uI"
+    },
+    {
+      "date": "2026-03-17",
+      "display": "March 17, 2026",
+      "event_id": 2737,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2737/files/agenda/4849",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2737/files/agenda/4938",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2737/files/agenda/4849",
+      "youtube_id": "Hdp1U0Q79-0",
+      "youtube_url": "https://www.youtube.com/watch?v=Hdp1U0Q79-0"
+    },
+    {
+      "date": "2026-02-17",
+      "display": "February 17, 2026",
+      "event_id": 2736,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2736/overview",
+      "link_label": "Meeting Overview",
+      "meeting_type": "Historic District Commission",
+      "cancelled": true,
+      "minutes_url": null,
+      "agenda_url": null
+    },
+    {
+      "date": "2025-12-16",
+      "display": "December 16, 2025",
+      "event_id": 1390,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1390/files/agenda/4566",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1390/files/agenda/4638",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1390/files/agenda/4566"
+    },
+    {
+      "date": "2025-11-18",
+      "display": "November 18, 2025",
+      "event_id": 1389,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1389/overview",
+      "link_label": "Meeting Overview",
+      "meeting_type": "Historic District Commission",
+      "cancelled": true,
+      "minutes_url": null,
+      "agenda_url": null
+    },
+    {
+      "date": "2025-10-21",
+      "display": "October 21, 2025",
+      "event_id": 1388,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1388/files/agenda/4384",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1388/files/agenda/4565",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1388/files/agenda/4384",
+      "youtube_id": "kycYp86Qpds",
+      "youtube_url": "https://www.youtube.com/watch?v=kycYp86Qpds"
+    },
+    {
+      "date": "2025-09-16",
+      "display": "September 16, 2025",
+      "event_id": 1387,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1387/files/agenda/4270",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1387/files/agenda/4303",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1387/files/agenda/4270",
+      "youtube_id": "cBXhbxUtN2o",
+      "youtube_url": "https://www.youtube.com/watch?v=cBXhbxUtN2o"
+    },
+    {
+      "date": "2025-08-19",
+      "display": "August 19, 2025",
+      "event_id": 1386,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1386/overview",
+      "link_label": "Meeting Overview",
+      "meeting_type": "Historic District Commission",
+      "cancelled": true,
+      "minutes_url": null,
+      "agenda_url": null
+    },
+    {
+      "date": "2025-07-15",
+      "display": "July 15, 2025",
+      "event_id": 1385,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1385/files/agenda/4063",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1385/files/agenda/4126",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1385/files/agenda/4063",
+      "youtube_id": "o685bhEMwJQ",
+      "youtube_url": "https://www.youtube.com/watch?v=o685bhEMwJQ"
+    },
+    {
+      "date": "2025-06-17",
+      "display": "June 17, 2025",
+      "event_id": 1384,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1384/files/agenda/3984",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1384/files/agenda/4020",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1384/files/agenda/3984",
+      "youtube_id": "7SaucBV1Vy4",
+      "youtube_url": "https://www.youtube.com/watch?v=7SaucBV1Vy4"
+    },
+    {
+      "date": "2025-05-20",
+      "display": "May 20, 2025",
+      "event_id": 1383,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1383/files/agenda/3909",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1383/files/agenda/3961",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1383/files/agenda/3909",
+      "youtube_id": "F1s809ZhTwg",
+      "youtube_url": "https://www.youtube.com/watch?v=F1s809ZhTwg"
+    },
+    {
+      "date": "2025-04-15",
+      "display": "April 15, 2025",
+      "event_id": 1382,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1382/files/agenda/3819",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1382/files/agenda/3868",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1382/files/agenda/3819",
+      "youtube_id": "OVFO1OgPa3E",
+      "youtube_url": "https://www.youtube.com/watch?v=OVFO1OgPa3E"
+    },
+    {
+      "date": "2025-03-18",
+      "display": "March 18, 2025",
+      "event_id": 1381,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1381/files/agenda/3699",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1381/files/agenda/3744",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1381/files/agenda/3699",
+      "youtube_id": "cN5rfZu5N88",
+      "youtube_url": "https://www.youtube.com/watch?v=cN5rfZu5N88"
+    },
+    {
+      "date": "2025-02-18",
+      "display": "February 18, 2025",
+      "event_id": 1380,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1380/files/agenda/3616",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1380/files/agenda/3646",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1380/files/agenda/3616",
+      "youtube_id": "kkIPZfVsFcA",
+      "youtube_url": "https://www.youtube.com/watch?v=kkIPZfVsFcA"
+    },
+    {
+      "date": "2025-01-21",
+      "display": "January 21, 2025",
+      "event_id": 1379,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1379/files/agenda/3532",
+      "link_label": "Agenda",
+      "meeting_type": "Historic District Commission",
+      "cancelled": true,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1379/files/agenda/3532"
+    },
+    {
+      "date": "2024-12-17",
+      "display": "December 17, 2024",
+      "event_id": 1135,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1135/files/agenda/3456",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1135/files/agenda/3495",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1135/files/agenda/3456",
+      "youtube_id": "I7R-qapINQA",
+      "youtube_url": "https://www.youtube.com/watch?v=I7R-qapINQA"
+    },
+    {
+      "date": "2024-11-19",
+      "display": "November 19, 2024",
+      "event_id": 1134,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1134/files/agenda/3353",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1134/files/agenda/3408",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1134/files/agenda/3353",
+      "youtube_id": "798s0WI67no",
+      "youtube_url": "https://www.youtube.com/watch?v=798s0WI67no"
+    },
+    {
+      "date": "2024-10-15",
+      "display": "October 15, 2024",
+      "event_id": 1133,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1133/files/agenda/3345",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1133/files/agenda/3285",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1133/files/agenda/3345",
+      "youtube_id": "62xz6nAK8v0",
+      "youtube_url": "https://www.youtube.com/watch?v=62xz6nAK8v0"
+    },
+    {
+      "date": "2024-08-20",
+      "display": "August 20, 2024",
+      "event_id": 1131,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1131/files/agenda/3088",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1131/files/agenda/3118",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1131/files/agenda/3088",
+      "youtube_id": "uvUTactTYFA",
+      "youtube_url": "https://www.youtube.com/watch?v=uvUTactTYFA"
+    },
+    {
+      "date": "2024-07-16",
+      "display": "July 16, 2024",
+      "event_id": 1130,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1130/files/agenda/3012",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1130/files/agenda/3028",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1130/files/agenda/3012",
+      "youtube_id": "M9Tj-Xz6Aw4",
+      "youtube_url": "https://www.youtube.com/watch?v=M9Tj-Xz6Aw4"
+    },
+    {
+      "date": "2024-06-18",
+      "display": "June 18, 2024",
+      "event_id": 1190,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1190/files/agenda/2934",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1190/files/agenda/2970",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1190/files/agenda/2934",
+      "youtube_id": "yQDIjHIzfh8",
+      "youtube_url": "https://www.youtube.com/watch?v=yQDIjHIzfh8"
+    },
+    {
+      "date": "2024-05-21",
+      "display": "May 21, 2024",
+      "event_id": 1128,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1128/files/agenda/2874",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1128/files/agenda/2909",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1128/files/agenda/2874",
+      "youtube_id": "5wQ-OxIARyo",
+      "youtube_url": "https://www.youtube.com/watch?v=5wQ-OxIARyo"
+    },
+    {
+      "date": "2024-04-16",
+      "display": "April 16, 2024",
+      "event_id": 1127,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1127/files/agenda/2783",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1127/files/agenda/2854",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1127/files/agenda/2783",
+      "youtube_id": "ypQ0aIXxdfk",
+      "youtube_url": "https://www.youtube.com/watch?v=ypQ0aIXxdfk"
+    },
+    {
+      "date": "2024-03-19",
+      "display": "March 19, 2024",
+      "event_id": 1126,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1126/files/agenda/2717",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1126/files/agenda/2740",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1126/files/agenda/2717",
+      "youtube_id": "Up-qasMGEOA",
+      "youtube_url": "https://www.youtube.com/watch?v=Up-qasMGEOA"
+    },
+    {
+      "date": "2024-02-20",
+      "display": "February 20, 2024",
+      "event_id": 801,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/801/files/agenda/2618",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/801/files/agenda/2739",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/801/files/agenda/2618",
+      "youtube_id": "V3LdVAk4oVM",
+      "youtube_url": "https://www.youtube.com/watch?v=V3LdVAk4oVM"
+    },
+    {
+      "date": "2024-01-16",
+      "display": "January 16, 2024",
+      "event_id": 800,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/800/files/agenda/2519",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/800/files/agenda/2602",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/800/files/agenda/2519",
+      "youtube_id": "QsYeiZvePjI",
+      "youtube_url": "https://www.youtube.com/watch?v=QsYeiZvePjI"
+    },
+    {
+      "date": "2023-12-19",
+      "display": "December 19, 2023",
+      "event_id": 799,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/799/files/agenda/2481",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/799/files/agenda/2493",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/799/files/agenda/2481",
+      "youtube_id": "3HDSesL9CQ0",
+      "youtube_url": "https://www.youtube.com/watch?v=3HDSesL9CQ0"
+    },
+    {
+      "date": "2023-10-17",
+      "display": "October 17, 2023",
+      "event_id": 797,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/797/files/agenda/2312",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/797/files/agenda/2345",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/797/files/agenda/2312",
+      "youtube_id": "pfpLQWvSXO0",
+      "youtube_url": "https://www.youtube.com/watch?v=pfpLQWvSXO0"
+    },
+    {
+      "date": "2023-08-15",
+      "display": "August 15, 2023",
+      "event_id": 795,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/795/files/agenda/2144",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/795/files/agenda/2188",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/795/files/agenda/2144",
+      "youtube_id": "1vpGbx1Rp18",
+      "youtube_url": "https://www.youtube.com/watch?v=1vpGbx1Rp18"
+    },
+    {
+      "date": "2023-07-18",
+      "display": "July 18, 2023",
+      "event_id": 794,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/794/files/agenda/2080",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/794/files/agenda/2108",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/794/files/agenda/2080",
+      "youtube_id": "w082OBdTUis",
+      "youtube_url": "https://www.youtube.com/watch?v=w082OBdTUis"
+    },
+    {
+      "date": "2023-06-22",
+      "display": "June 22, 2023",
+      "event_id": 793,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/793/files/agenda/2057",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/793/files/agenda/2064",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/793/files/agenda/2057",
+      "youtube_id": "OFwCO5FXDys",
+      "youtube_url": "https://www.youtube.com/watch?v=OFwCO5FXDys"
+    },
+    {
+      "date": "2023-05-16",
+      "display": "May 16, 2023",
+      "event_id": 792,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/792/files/agenda/1991",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/792/files/agenda/2030",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/792/files/agenda/1991",
+      "youtube_id": "pkFec3qHaY8",
+      "youtube_url": "https://www.youtube.com/watch?v=pkFec3qHaY8"
+    },
+    {
+      "date": "2023-04-18",
+      "display": "April 18, 2023",
+      "event_id": 791,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/791/files/agenda/1911",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/791/files/agenda/1933",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/791/files/agenda/1911",
+      "youtube_id": "AlrOmrWg8eo",
+      "youtube_url": "https://www.youtube.com/watch?v=AlrOmrWg8eo"
+    },
+    {
+      "date": "2023-03-21",
+      "display": "March 21, 2023",
+      "event_id": 790,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/790/files/agenda/1814",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/790/files/agenda/1853",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/790/files/agenda/1814",
+      "youtube_id": "OZPcItsHjpA",
+      "youtube_url": "https://www.youtube.com/watch?v=OZPcItsHjpA"
+    },
+    {
+      "date": "2023-02-21",
+      "display": "February 21, 2023",
+      "event_id": 789,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/789/files/agenda/1751",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/789/files/agenda/1788",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/789/files/agenda/1751",
+      "youtube_id": "ZJ-2X2VAWx8",
+      "youtube_url": "https://www.youtube.com/watch?v=ZJ-2X2VAWx8"
+    },
+    {
+      "date": "2023-01-31",
+      "display": "January 31, 2023",
+      "event_id": 788,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/788/files/agenda/1695",
+      "link_label": "Minutes",
+      "meeting_type": "Historic District Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/788/files/agenda/1730",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/788/files/agenda/1695",
+      "youtube_id": "AGqWDSXdEAM",
+      "youtube_url": "https://www.youtube.com/watch?v=AGqWDSXdEAM"
     }
-
-    all_items = []
-    page_token = None
-    page = 1
-
-    while True:
-        if page_token:
-            params["pageToken"] = page_token
-
-        print(f"  [YouTube] Fetching page {page}...")
-        r = requests.get(base_url, params=params, timeout=30)
-        r.raise_for_status()
-        data = r.json()
-
-        items = data.get("items", [])
-        all_items.extend(items)
-
-        page_token = data.get("nextPageToken")
-        if not page_token:
-            break
-        page += 1
-
-    print(f"  [YouTube] Total streams found: {len(all_items)}")
-    return all_items
-
-
-def youtube_items_to_recordings(items: list[dict]) -> list[dict]:
-    """Convert raw YouTube API items to recording dicts keyed by date."""
-    recordings = []
-    for item in items:
-        video_id    = item["id"]["videoId"]
-        snippet     = item["snippet"]
-        title       = snippet.get("title", "")
-        published   = snippet.get("publishedAt", "")
-        date_only   = published[:10] if published else None
-
-        if not date_only:
-            continue 
-            
-        title_lower = title.lower()
-        if not any(kw in title_lower for kw in YOUTUBE_TITLE_FILTER):
-            continue
-
-        recordings.append({
-            "date":        date_only,
-            "display":     format_display_date(date_only),
-            "youtube_id":  video_id,
-            "youtube_url": f"https://www.youtube.com/watch?v={video_id}",
-            "title":       title,
-        })
-
-    return recordings
-
-
-def match_recordings_to_meetings(
-    meetings:   list[dict],
-    recordings: list[dict],
-    tolerance:  int = YOUTUBE_DATE_TOLERANCE,) -> tuple[list[dict], list[dict]]:
-    """Try to pair each recording with the closest meeting within `tolerance` days."""
-    meetings = [dict(m) for m in meetings]
-
-    for rec in recordings:
-        rec_date = datetime.strptime(rec["date"], "%Y-%m-%d").date()
-        best_meeting = None
-        best_delta   = timedelta(days=tolerance + 1)
-
-        for m in meetings:
-            m_date = datetime.strptime(m["date"], "%Y-%m-%d").date()
-            delta  = abs(rec_date - m_date)
-            if delta <= timedelta(days=tolerance) and delta < best_delta:
-                best_delta   = delta
-                best_meeting = m
-
-        if best_meeting:
-            if not best_meeting.get("youtube_id"):
-                best_meeting["youtube_id"]  = rec["youtube_id"]
-                best_meeting["youtube_url"] = rec["youtube_url"]
-                print(f"  ~ MATCHED:  {rec['date']} YouTube -> {best_meeting['date']} meeting")
-        else:
-            print(f"  ? UNMATCHED: {rec['date']} {rec['youtube_id']}")
-
-    # RETURN ALL RECORDINGS so the UI card is fully populated
-    return meetings, recordings
-
-
-# ---------------------------------------------------------------------------
-# Upcoming meetings (Algorithmically Generated)
-# ---------------------------------------------------------------------------
-
-def compute_upcoming_meetings(n: int = 6) -> list[dict]:
-    """
-    Generate the next N HDC meeting dates.
-    HDC meets the 3rd Tuesday of each month.
-    """
-    today = date.today()
-    results = []
-    
-    year  = today.year
-    month = today.month
-    
-    checked = 0
-    while len(results) < n and checked < 36:
-        # Find 1st day of the month
-        first_of_month = date(year, month, 1)
-        
-        # Weekday 1 is Tuesday. Find days until the 1st Tuesday
-        days_to_tuesday = 1 - first_of_month.weekday()
-        if days_to_tuesday < 0:
-            days_to_tuesday += 7
-            
-        # Add 14 days to the 1st Tuesday to get the 3rd Tuesday
-        third_tuesday = first_of_month + timedelta(days=days_to_tuesday + 14)
-        
-        if third_tuesday >= today:
-            results.append({
-                "date":     third_tuesday.strftime("%Y-%m-%d"),
-                "display":  third_tuesday.strftime("%A, %B %d, %Y").replace(" 0", " "),
-                "time":     "5:00 PM - 7:00 PM",
-                "location": "City Commission Chambers"
-            })
-            
-        month += 1
-        if month > 12:
-            month = 1
-            year += 1
-        checked += 1
-
-    return results
-
-
-# ---------------------------------------------------------------------------
-# Merge logic
-# ---------------------------------------------------------------------------
-
-def load_existing(path: Path) -> dict:
-    if path.exists():
-        with path.open("r", encoding="utf-8") as f:
-            return json.load(f)
-    return {
-        "last_updated":     None,
-        "upcoming_meetings": [],
-        "meetings":         [],
-        "recordings":       [],
+  ],
+  "recordings": [
+    {
+      "date": "2026-04-22",
+      "display": "April 22, 2026",
+      "youtube_id": "SHyZSytY4uI",
+      "youtube_url": "https://www.youtube.com/watch?v=SHyZSytY4uI",
+      "title": "April 21, 2026 Historic District Commission"
+    },
+    {
+      "date": "2026-03-18",
+      "display": "March 18, 2026",
+      "youtube_id": "Hdp1U0Q79-0",
+      "youtube_url": "https://www.youtube.com/watch?v=Hdp1U0Q79-0",
+      "title": "March 17, 2026 Historic District Commission"
+    },
+    {
+      "date": "2026-01-22",
+      "display": "January 22, 2026",
+      "youtube_id": "mUmV_pZRaVQ",
+      "youtube_url": "https://www.youtube.com/watch?v=mUmV_pZRaVQ",
+      "title": "January 20, 2026 Historic District Commission"
+    },
+    {
+      "date": "2025-10-22",
+      "display": "October 22, 2025",
+      "youtube_id": "kycYp86Qpds",
+      "youtube_url": "https://www.youtube.com/watch?v=kycYp86Qpds",
+      "title": "October 21, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-09-17",
+      "display": "September 17, 2025",
+      "youtube_id": "cBXhbxUtN2o",
+      "youtube_url": "https://www.youtube.com/watch?v=cBXhbxUtN2o",
+      "title": "September 16, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-07-16",
+      "display": "July 16, 2025",
+      "youtube_id": "o685bhEMwJQ",
+      "youtube_url": "https://www.youtube.com/watch?v=o685bhEMwJQ",
+      "title": "July 15, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-06-18",
+      "display": "June 18, 2025",
+      "youtube_id": "7SaucBV1Vy4",
+      "youtube_url": "https://www.youtube.com/watch?v=7SaucBV1Vy4",
+      "title": "June 17, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-06-18",
+      "display": "June 18, 2025",
+      "youtube_id": "VL0-0DUxl1k",
+      "youtube_url": "https://www.youtube.com/watch?v=VL0-0DUxl1k",
+      "title": "June 17, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-05-21",
+      "display": "May 21, 2025",
+      "youtube_id": "F1s809ZhTwg",
+      "youtube_url": "https://www.youtube.com/watch?v=F1s809ZhTwg",
+      "title": "May 20, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-04-16",
+      "display": "April 16, 2025",
+      "youtube_id": "OVFO1OgPa3E",
+      "youtube_url": "https://www.youtube.com/watch?v=OVFO1OgPa3E",
+      "title": "April 15, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-04-16",
+      "display": "April 16, 2025",
+      "youtube_id": "jod7gnQm9Nc",
+      "youtube_url": "https://www.youtube.com/watch?v=jod7gnQm9Nc",
+      "title": "April 15, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-03-19",
+      "display": "March 19, 2025",
+      "youtube_id": "cN5rfZu5N88",
+      "youtube_url": "https://www.youtube.com/watch?v=cN5rfZu5N88",
+      "title": "March 18, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-03-18",
+      "display": "March 18, 2025",
+      "youtube_id": "U7OrliIDLHk",
+      "youtube_url": "https://www.youtube.com/watch?v=U7OrliIDLHk",
+      "title": "March 18, 2025 Historic District Commission"
+    },
+    {
+      "date": "2025-02-19",
+      "display": "February 19, 2025",
+      "youtube_id": "kkIPZfVsFcA",
+      "youtube_url": "https://www.youtube.com/watch?v=kkIPZfVsFcA",
+      "title": "February 18, 2025 Historic District Commission"
+    },
+    {
+      "date": "2024-12-18",
+      "display": "December 18, 2024",
+      "youtube_id": "I7R-qapINQA",
+      "youtube_url": "https://www.youtube.com/watch?v=I7R-qapINQA",
+      "title": "December 17, 2024 Historic District Commission"
+    },
+    {
+      "date": "2024-11-20",
+      "display": "November 20, 2024",
+      "youtube_id": "798s0WI67no",
+      "youtube_url": "https://www.youtube.com/watch?v=798s0WI67no",
+      "title": "November 19, 2024 Historic District Commission"
+    },
+    {
+      "date": "2024-10-16",
+      "display": "October 16, 2024",
+      "youtube_id": "62xz6nAK8v0",
+      "youtube_url": "https://www.youtube.com/watch?v=62xz6nAK8v0",
+      "title": "October 15, 2024 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2024-10-10",
+      "display": "October 10, 2024",
+      "youtube_id": "nJHOJpRu8O0",
+      "youtube_url": "https://www.youtube.com/watch?v=nJHOJpRu8O0",
+      "title": "October 9, 2024 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2024-08-21",
+      "display": "August 21, 2024",
+      "youtube_id": "uvUTactTYFA",
+      "youtube_url": "https://www.youtube.com/watch?v=uvUTactTYFA",
+      "title": "August 20, 2024 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2024-07-17",
+      "display": "July 17, 2024",
+      "youtube_id": "M9Tj-Xz6Aw4",
+      "youtube_url": "https://www.youtube.com/watch?v=M9Tj-Xz6Aw4",
+      "title": "July 16, 2024 City of Kalamazoo Historic District Commission Regular Business Meeting"
+    },
+    {
+      "date": "2024-06-19",
+      "display": "June 19, 2024",
+      "youtube_id": "yQDIjHIzfh8",
+      "youtube_url": "https://www.youtube.com/watch?v=yQDIjHIzfh8",
+      "title": "June 17, 2024 City of Kalamazoo Historic District Commission - Regular Business Meeting"
+    },
+    {
+      "date": "2024-05-22",
+      "display": "May 22, 2024",
+      "youtube_id": "5wQ-OxIARyo",
+      "youtube_url": "https://www.youtube.com/watch?v=5wQ-OxIARyo",
+      "title": "May 21, 2024 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2024-04-17",
+      "display": "April 17, 2024",
+      "youtube_id": "ypQ0aIXxdfk",
+      "youtube_url": "https://www.youtube.com/watch?v=ypQ0aIXxdfk",
+      "title": "April 16, 2024 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2024-03-20",
+      "display": "March 20, 2024",
+      "youtube_id": "Up-qasMGEOA",
+      "youtube_url": "https://www.youtube.com/watch?v=Up-qasMGEOA",
+      "title": "March 19, 2024 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2024-03-14",
+      "display": "March 14, 2024",
+      "youtube_id": "ALynY7XqWQE",
+      "youtube_url": "https://www.youtube.com/watch?v=ALynY7XqWQE",
+      "title": "March 13, 2024 Historic District Commission"
+    },
+    {
+      "date": "2024-02-23",
+      "display": "February 23, 2024",
+      "youtube_id": "V3LdVAk4oVM",
+      "youtube_url": "https://www.youtube.com/watch?v=V3LdVAk4oVM",
+      "title": "February 20, 2024  Historic District Commission (Rebroadcast)"
+    },
+    {
+      "date": "2024-02-22",
+      "display": "February 22, 2024",
+      "youtube_id": "gFFoALTNJro",
+      "youtube_url": "https://www.youtube.com/watch?v=gFFoALTNJro",
+      "title": "February 20, 2024  Historic District Commission (Rebroadcast)"
+    },
+    {
+      "date": "2024-02-21",
+      "display": "February 21, 2024",
+      "youtube_id": "Qqp156jLjhc",
+      "youtube_url": "https://www.youtube.com/watch?v=Qqp156jLjhc",
+      "title": "February 20, 2024  Historic District Commission"
+    },
+    {
+      "date": "2024-01-17",
+      "display": "January 17, 2024",
+      "youtube_id": "QsYeiZvePjI",
+      "youtube_url": "https://www.youtube.com/watch?v=QsYeiZvePjI",
+      "title": "January 16,  2024 - Historic District Commission"
+    },
+    {
+      "date": "2023-12-19",
+      "display": "December 19, 2023",
+      "youtube_id": "3HDSesL9CQ0",
+      "youtube_url": "https://www.youtube.com/watch?v=3HDSesL9CQ0",
+      "title": "December 18, 2023 - City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2023-10-18",
+      "display": "October 18, 2023",
+      "youtube_id": "pfpLQWvSXO0",
+      "youtube_url": "https://www.youtube.com/watch?v=pfpLQWvSXO0",
+      "title": "October 17, 2023 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2023-08-16",
+      "display": "August 16, 2023",
+      "youtube_id": "1vpGbx1Rp18",
+      "youtube_url": "https://www.youtube.com/watch?v=1vpGbx1Rp18",
+      "title": "August 15, 2023 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2023-07-19",
+      "display": "July 19, 2023",
+      "youtube_id": "w082OBdTUis",
+      "youtube_url": "https://www.youtube.com/watch?v=w082OBdTUis",
+      "title": "July 18, 2023 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2023-06-23",
+      "display": "June 23, 2023",
+      "youtube_id": "OFwCO5FXDys",
+      "youtube_url": "https://www.youtube.com/watch?v=OFwCO5FXDys",
+      "title": "June 22, 2023 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2023-05-17",
+      "display": "May 17, 2023",
+      "youtube_id": "pkFec3qHaY8",
+      "youtube_url": "https://www.youtube.com/watch?v=pkFec3qHaY8",
+      "title": "May 16, 2023 City of Kalamazoo City - Historic District Commission"
+    },
+    {
+      "date": "2023-04-19",
+      "display": "April 19, 2023",
+      "youtube_id": "AlrOmrWg8eo",
+      "youtube_url": "https://www.youtube.com/watch?v=AlrOmrWg8eo",
+      "title": "April 18, 2023 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2023-03-21",
+      "display": "March 21, 2023",
+      "youtube_id": "OZPcItsHjpA",
+      "youtube_url": "https://www.youtube.com/watch?v=OZPcItsHjpA",
+      "title": "March 21, 2023 City of Kalamazoo Historic District Commission"
+    },
+    {
+      "date": "2023-02-22",
+      "display": "February 22, 2023",
+      "youtube_id": "ZJ-2X2VAWx8",
+      "youtube_url": "https://www.youtube.com/watch?v=ZJ-2X2VAWx8",
+      "title": "February 21, 2023 City of Kalamazoo - Historic District Commission"
+    },
+    {
+      "date": "2023-01-31",
+      "display": "January 31, 2023",
+      "youtube_id": "AGqWDSXdEAM",
+      "youtube_url": "https://www.youtube.com/watch?v=AGqWDSXdEAM",
+      "title": "January 31, 2023 City of Kalamazoo Historic District Commission"
     }
-
-
-def smart_merge_record(existing: dict, scraped: dict) -> tuple[dict, list[str]]:
-    result    = dict(scraped)
-    preserved = []
-    for field in PRESERVE_IF_SCRAPE_EMPTY:
-        if not result.get(field) and existing.get(field):
-            result[field] = existing[field]
-            preserved.append(field)
-    return result, preserved
-
-
-def merge_meetings(existing: list[dict], scraped: list[dict]) -> tuple[list[dict], dict]:
-    stats = {"added": 0, "updated": 0, "unchanged": 0, "preserved": 0}
-
-    def key(m):
-        if m.get("event_id") is not None:
-            return ("id", m["event_id"])
-        return ("fallback", m.get("date"))
-
-    by_key = {key(m): m for m in existing}
-
-    for s in scraped:
-        k = key(s)
-        if k not in by_key:
-            by_key[k] = s
-            stats["added"] += 1
-            print(f"  + NEW:      {s['date']}")
-            continue
-
-        merged, preserved = smart_merge_record(by_key[k], s)
-        if preserved:
-            stats["preserved"] += len(preserved)
-            print(f"  = PROTECTED:{merged['date']}  kept manual {', '.join(preserved)}")
-
-        changed = any(by_key[k].get(f) != merged.get(f)
-                      for f in ("date", "url", "cancelled", "minutes_url", "agenda_url", "youtube_id"))
-        if changed:
-            by_key[k] = merged
-            stats["updated"] += 1
-            print(f"  ~ UPDATED:  {merged['date']}")
-        else:
-            stats["unchanged"] += 1
-
-    merged_list = sorted(by_key.values(), key=lambda m: m["date"], reverse=True)
-    return merged_list, stats
-
-
-def merge_recordings(existing: list[dict], new_recs: list[dict]) -> list[dict]:
-    """Merge standalone recording entries (unmatched YouTube videos)."""
-    by_id = {r["youtube_id"]: r for r in existing}
-    added = 0
-    for r in new_recs:
-        if r["youtube_id"] not in by_id:
-            by_id[r["youtube_id"]] = r
-            added += 1
-            print(f"  + NEW RECORDING: {r['date']} {r['youtube_id']}")
-    if added == 0:
-        print("  (no new standalone recordings)")
-    return sorted(by_id.values(), key=lambda r: r["date"], reverse=True)
-
-
-# ---------------------------------------------------------------------------
-# Argument parsing & date window
-# ---------------------------------------------------------------------------
-
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Scrape Kalamazoo Historic District Commission meetings.",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-    )
-    parser.add_argument("--start-date", help="Start of window (YYYY-MM-DD).")
-    parser.add_argument("--end-date",   help="End of window (YYYY-MM-DD). Defaults to today.")
-    return parser.parse_args()
-
-
-def determine_window(args) -> tuple[str, str, str]:
-    now = datetime.now(timezone.utc)
-    if args.start_date:
-        start_iso = args.start_date
-        end_iso   = args.end_date or now.strftime("%Y-%m-%d")
-        return start_iso, end_iso, "BACKFILL"
-
-    start_dt  = now - timedelta(days=LOOKBACK_MONTHS * 30)
-    cutoff_dt = datetime.fromisoformat(CUTOFF_DATE).replace(tzinfo=timezone.utc)
-    if start_dt < cutoff_dt:
-        start_dt = cutoff_dt
-
-    start_iso = start_dt.strftime("%Y-%m-%d")
-    end_iso   = args.end_date or now.strftime("%Y-%m-%d")
-    return start_iso, end_iso, "DEFAULT"
-
-
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
-
-def main() -> None:
-    args = parse_args()
-    start_iso, end_iso, mode = determine_window(args)
-    api_key = get_youtube_api_key()
-
-    print(f"HDC Scraper [{mode} mode]")
-    print(f"Window: {start_iso} -> {end_iso}\n")
-
-    # ── 1. CivicClerk meetings ──────────────────────────────────────────────
-    print("── Step 1: Fetching CivicClerk events...")
-    cc_url     = build_civicclerk_url(start_iso, end_iso)
-    all_events = fetch_all_civicclerk_events(cc_url)
-    hdc_events = [e for e in all_events if is_hdc_event(e)]
-    print(f"  HDC events found: {len(hdc_events)}\n")
-
-    scraped_meetings = [m for m in (transform_civicclerk_event(e) for e in hdc_events) if m is not None]
-    for m in scraped_meetings:
-        ag = "agenda"    if m["agenda_url"]  else "no agenda"
-        mn = "minutes"   if m["minutes_url"] else "no minutes"
-        ca = " CANCELLED" if m["cancelled"]  else ""
-        print(f"  {m['date']}  [{ag}, {mn}]{ca}")
-    print()
-
-    # ── 2. YouTube recordings ───────────────────────────────────────────────
-    print("── Step 2: Fetching YouTube streams...")
-    yt_items   = fetch_youtube_streams(api_key, start_iso, end_iso)
-    recordings = youtube_items_to_recordings(yt_items)
-    print()
-
-    # ── 3. Match recordings to meetings ─────────────────────────────────────
-    print("── Step 3: Matching recordings to meetings...")
-    scraped_meetings, unmatched_recs = match_recordings_to_meetings(
-        scraped_meetings, recordings
-    )
-    print()
-
-    # ── 4. Merge with existing JSON ─────────────────────────────────────────
-    print("── Step 4: Merging with existing data/hdc.json...")
-    existing = load_existing(OUTPUT_PATH)
-
-    merged_meetings, m_stats = merge_meetings(existing.get("meetings", []), scraped_meetings)
-    merged_recordings = merge_recordings(existing.get("recordings", []), unmatched_recs)
-    print()
-    print(f"  Meetings  - added: {m_stats['added']}  updated: {m_stats['updated']}  unchanged: {m_stats['unchanged']}  fields protected: {m_stats['preserved']}\n")
-
-    # ── 5. Recompute upcoming meetings ──────────────────────────────────────
-    print("── Step 5: Computing upcoming meetings (3rd Tuesday)...")
-    upcoming = compute_upcoming_meetings(n=6)
-    for u in upcoming:
-        print(f"  {u['date']}  {u['display']}")
-    print()
-
-    # ── 6. Write output ─────────────────────────────────────────────────────
-    output = {
-        "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "upcoming_meetings": upcoming,
-        "meetings":          merged_meetings,
-        "recordings":        merged_recordings,
-    }
-
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT_PATH.open("w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
-        f.write("\n")
-
-    print(f"Wrote {OUTPUT_PATH}")
-    print(f"  {len(merged_meetings)} total meetings")
-    print(f"  {len(merged_recordings)} standalone recordings")
-    print(f"  {len(upcoming)} upcoming dates")
-
-if __name__ == "__main__":
-    main()
+  ]
+}
