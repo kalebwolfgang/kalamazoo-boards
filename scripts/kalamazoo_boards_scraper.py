@@ -106,6 +106,18 @@ BOARDS = [
         "web_url":     "https://www.kalamazoocity.org/Government/Boards-Commissions/Election-Commission",
     },
     {
+        "key":         "ecc",
+        "name":        "Environmental Concerns Committee",
+        "category_id": 46,
+        "keywords":    ["environmental concerns committee", "environmental concerns"],
+        "output":      Path("data") / "ecc.json",
+        "youtube":     True,
+        "youtube_channel_id":   "UCIgXSSXLSDxThVaaiRMsR5Q",
+        "youtube_search_query": "Environmental Concerns Committee",
+        "youtube_title_filter": ["environmental concerns committee", "environmental concerns"],
+        "youtube_tolerance":    3,
+    },
+    {
         "key":         "pension-board",
         "name":        "Employee Retirement System Board of Trustees",
         "category_id": 42,
@@ -159,6 +171,7 @@ BOARD_TIMES = {
     "dega":   "3:00 PM \u2013 5:00 PM",
     "edc":    "7:45 AM",
     "ec":     "9:00 AM",
+    "ecc":    "4:30 PM \u2013 6:30 PM",
     "pension-board": "8:00 AM \u2013 9:00 AM",
     "bba":    "4:00 PM \u2013 6:00 PM",
     "cdaac":  "5:30 PM \u2013 7:30 PM",
@@ -652,7 +665,7 @@ def main():
     start_iso = start_dt.strftime("%Y-%m-%d")
     end_iso   = now.strftime("%Y-%m-%d")
 
-    print(f"Unified Scraper - lookback: {start_iso} → {end_iso}  |  lookahead: +{LOOKAHEAD_MONTHS} months")
+    print(f"Unified Scraper - lookback: {start_iso} -> {end_iso}  |  lookahead: +{LOOKAHEAD_MONTHS} months")
 
     boards_to_run = BOARDS
     if args.board:
