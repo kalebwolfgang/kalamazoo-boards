@@ -4,20 +4,46 @@
     {
       "date": "2026-05-20",
       "display": "Wednesday, May 20, 2026",
-      "time": "4:30 PM \u2013 6:30 PM"
+      "time": "4:30 PM – 6:30 PM"
     },
     {
       "date": "2026-06-17",
       "display": "Wednesday, June 17, 2026",
-      "time": "4:30 PM \u2013 6:30 PM"
+      "time": "4:30 PM – 6:30 PM"
     },
     {
       "date": "2026-07-15",
       "display": "Wednesday, July 15, 2026",
-      "time": "4:30 PM \u2013 6:30 PM"
+      "time": "4:30 PM – 6:30 PM"
+    },
+    {
+      "date": "2026-08-19",
+      "display": "Wednesday, August 19, 2026",
+      "time": "4:30 PM – 6:30 PM"
+    },
+    {
+      "date": "2026-09-16",
+      "display": "Wednesday, September 16, 2026",
+      "time": "4:30 PM – 6:30 PM"
+    },
+    {
+      "date": "2026-10-21",
+      "display": "Wednesday, October 21, 2026",
+      "time": "4:30 PM – 6:30 PM"
     }
   ],
   "meetings": [
+    {
+      "date": "2026-04-15",
+      "display": "April 15, 2026",
+      "event_id": 2751,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2751/files/agenda/4941",
+      "link_label": "Agenda",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2751/files/agenda/4941"
+    },
     {
       "date": "2026-03-18",
       "display": "March 18, 2026",
@@ -26,7 +52,7 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Environmental Concerns Committee",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2750/files/agenda/4964",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2750/files/agenda/4872"
     },
     {
@@ -34,7 +60,7 @@
       "display": "December 17, 2025",
       "event_id": 2498,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2498/files/agenda/4592",
-      "link_label": "Agenda & Minutes",
+      "link_label": "Agenda",
       "meeting_type": "Environmental Concerns Committee",
       "cancelled": false,
       "minutes_url": null,
@@ -48,26 +74,15 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Environmental Concerns Committee",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2497/files/agenda/4833",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2497/files/agenda/4431"
-    },
-    {
-      "date": "2025-10-15",
-      "display": "October 15, 2025",
-      "event_id": 2496,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2496/files/agenda/4296",
-      "link_label": "View notice",
-      "meeting_type": "Environmental Concerns Committee",
-      "cancelled": true,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2496/files/agenda/4296"
     },
     {
       "date": "2025-09-17",
       "display": "September 17, 2025",
       "event_id": 2495,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2495/files/agenda/4254",
-      "link_label": "Agenda & Minutes",
+      "link_label": "Agenda",
       "meeting_type": "Environmental Concerns Committee",
       "cancelled": false,
       "minutes_url": null,
@@ -81,19 +96,8 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Environmental Concerns Committee",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2494/files/agenda/4297",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2494/files/agenda/4179"
-    },
-    {
-      "date": "2025-07-16",
-      "display": "July 16, 2025",
-      "event_id": 2493,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2493/files/agenda/4062",
-      "link_label": "View notice",
-      "meeting_type": "Environmental Concerns Committee",
-      "cancelled": true,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2493/files/agenda/4062"
     },
     {
       "date": "2025-06-18",
@@ -103,21 +107,182 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Environmental Concerns Committee",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2492/files/agenda/4194",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2492/files/agenda/3989"
+    },
+    {
+      "date": "2025-05-21",
+      "display": "May 21, 2025",
+      "event_id": 2491,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2491/files/agenda/3893",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2491/files/agenda/4019",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2491/files/agenda/3893"
+    },
+    {
+      "date": "2025-03-19",
+      "display": "March 19, 2025",
+      "event_id": 2489,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2489/files/agenda/3705",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2489/files/agenda/4018",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2489/files/agenda/3705"
+    },
+    {
+      "date": "2025-02-19",
+      "display": "February 19, 2025",
+      "event_id": 2488,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2488/files/agenda/3630",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2488/files/agenda/3742",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2488/files/agenda/3630"
+    },
+    {
+      "date": "2025-01-15",
+      "display": "January 15, 2025",
+      "event_id": 2487,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2487/files/agenda/3523",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2487/files/agenda/3647",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2487/files/agenda/3523"
+    },
+    {
+      "date": "2024-12-18",
+      "display": "December 18, 2024",
+      "event_id": 1110,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1110/files/agenda/3447",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1110/files/agenda/3612",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1110/files/agenda/3447"
+    },
+    {
+      "date": "2024-11-20",
+      "display": "November 20, 2024",
+      "event_id": 1109,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1109/files/agenda/3357",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1109/files/agenda/3494",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1109/files/agenda/3357"
+    },
+    {
+      "date": "2024-10-16",
+      "display": "October 16, 2024",
+      "event_id": 1108,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1108/files/agenda/3225",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1108/files/agenda/3402",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1108/files/agenda/3225"
+    },
+    {
+      "date": "2024-09-18",
+      "display": "September 18, 2024",
+      "event_id": 1107,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1107/files/agenda/3152",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1107/files/agenda/4767",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1107/files/agenda/3152"
+    },
+    {
+      "date": "2024-08-21",
+      "display": "August 21, 2024",
+      "event_id": 1106,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1106/files/agenda/3072",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1106/files/agenda/3280",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1106/files/agenda/3072"
+    },
+    {
+      "date": "2024-07-17",
+      "display": "July 17, 2024",
+      "event_id": 1105,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1105/files/agenda/3015",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1105/files/agenda/3194",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1105/files/agenda/3015"
+    },
+    {
+      "date": "2024-05-15",
+      "display": "May 15, 2024",
+      "event_id": 1103,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1103/files/agenda/2833",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1103/files/agenda/3227",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1103/files/agenda/2833"
+    },
+    {
+      "date": "2024-04-17",
+      "display": "April 17, 2024",
+      "event_id": 1102,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1102/files/agenda/2775",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1102/files/agenda/3228",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1102/files/agenda/2775"
+    },
+    {
+      "date": "2024-03-20",
+      "display": "March 20, 2024",
+      "event_id": 1101,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1101/files/agenda/2697",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1101/files/agenda/3232",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1101/files/agenda/2697"
+    },
+    {
+      "date": "2024-02-21",
+      "display": "February 21, 2024",
+      "event_id": 1100,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1100/files/agenda/2599",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Environmental Concerns Committee",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1100/files/agenda/3230",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1100/files/agenda/2599"
     }
   ],
   "recordings": [
     {
-      "date": "2026-03-18",
-      "display": "March 18, 2026",
+      "date": "2026-04-16",
+      "display": "April 16, 2026",
+      "youtube_id": "ez2cYMMUU_c",
+      "youtube_url": "https://www.youtube.com/watch?v=ez2cYMMUU_c",
+      "title": "April 15, 2026 Environmental Concerns Committee"
+    },
+    {
+      "date": "2026-03-19",
+      "display": "March 19, 2026",
       "youtube_id": "fAIolW2GqoI",
       "youtube_url": "https://www.youtube.com/watch?v=fAIolW2GqoI",
       "title": "March 18, 2026 Environmental Concerns Committee"
     },
     {
-      "date": "2026-02-18",
-      "display": "February 18, 2026",
+      "date": "2026-02-19",
+      "display": "February 19, 2026",
       "youtube_id": "xixTN7tXvOQ",
       "youtube_url": "https://www.youtube.com/watch?v=xixTN7tXvOQ",
       "title": "February 18, 2026 Environmental Concerns Committee"
@@ -130,18 +295,144 @@
       "title": "December 17, 2025 Environmental Concerns Committee"
     },
     {
-      "date": "2025-11-19",
-      "display": "November 19, 2025",
+      "date": "2025-11-20",
+      "display": "November 20, 2025",
       "youtube_id": "cozciGibzfE",
       "youtube_url": "https://www.youtube.com/watch?v=cozciGibzfE",
       "title": "November 19, 2025 Environmental Concerns Committee"
     },
     {
-      "date": "2025-09-17",
-      "display": "September 17, 2025",
+      "date": "2025-09-18",
+      "display": "September 18, 2025",
       "youtube_id": "cF5HDJvdy6I",
       "youtube_url": "https://www.youtube.com/watch?v=cF5HDJvdy6I",
       "title": "September 17, 2025 Environmental Concerns Committee"
+    },
+    {
+      "date": "2025-08-21",
+      "display": "August 21, 2025",
+      "youtube_id": "JW5jQVuodqM",
+      "youtube_url": "https://www.youtube.com/watch?v=JW5jQVuodqM",
+      "title": "August 20, 2025 Environmental Concerns Committee"
+    },
+    {
+      "date": "2025-06-19",
+      "display": "June 19, 2025",
+      "youtube_id": "dlD8--qlMI8",
+      "youtube_url": "https://www.youtube.com/watch?v=dlD8--qlMI8",
+      "title": "June 18, 2025 Environmental Concerns Committee"
+    },
+    {
+      "date": "2025-05-22",
+      "display": "May 22, 2025",
+      "youtube_id": "wYK9QgG862U",
+      "youtube_url": "https://www.youtube.com/watch?v=wYK9QgG862U",
+      "title": "May 21, 2025 Environmental Concerns Committee"
+    },
+    {
+      "date": "2025-03-20",
+      "display": "March 20, 2025",
+      "youtube_id": "7I5ylU3Pv9c",
+      "youtube_url": "https://www.youtube.com/watch?v=7I5ylU3Pv9c",
+      "title": "March 19, 2025 Environmental Concerns Committee"
+    },
+    {
+      "date": "2025-02-20",
+      "display": "February 20, 2025",
+      "youtube_id": "k56htGIyN2s",
+      "youtube_url": "https://www.youtube.com/watch?v=k56htGIyN2s",
+      "title": "February 19, 2025 Environmental Concerns Committee"
+    },
+    {
+      "date": "2025-01-16",
+      "display": "January 16, 2025",
+      "youtube_id": "AQzlRGZhWD4",
+      "youtube_url": "https://www.youtube.com/watch?v=AQzlRGZhWD4",
+      "title": "January 15, 2025 Environmental Concerns Committee"
+    },
+    {
+      "date": "2024-12-19",
+      "display": "December 19, 2024",
+      "youtube_id": "-tYJMYpf1_E",
+      "youtube_url": "https://www.youtube.com/watch?v=-tYJMYpf1_E",
+      "title": "December 18, 2024 Environmental Concerns Committee"
+    },
+    {
+      "date": "2024-11-21",
+      "display": "November 21, 2024",
+      "youtube_id": "FP_02WjyF_g",
+      "youtube_url": "https://www.youtube.com/watch?v=FP_02WjyF_g",
+      "title": "November 20, 2024 Environmental Concerns Committee"
+    },
+    {
+      "date": "2024-10-17",
+      "display": "October 17, 2024",
+      "youtube_id": "B_fj6YSqIsE",
+      "youtube_url": "https://www.youtube.com/watch?v=B_fj6YSqIsE",
+      "title": "October 16, 2024 City of Kalamazoo Environmental Concerns Committee"
+    },
+    {
+      "date": "2024-08-22",
+      "display": "August 22, 2024",
+      "youtube_id": "VTw4KO-Gx9Q",
+      "youtube_url": "https://www.youtube.com/watch?v=VTw4KO-Gx9Q",
+      "title": "August 21, 2024 City of Kalamazoo Environmental Concerns Committee"
+    },
+    {
+      "date": "2024-07-18",
+      "display": "July 18, 2024",
+      "youtube_id": "mLHRoKsQW4Y",
+      "youtube_url": "https://www.youtube.com/watch?v=mLHRoKsQW4Y",
+      "title": "July 17, 2024 City of Kalamazoo Environmental Concerns Committee"
+    },
+    {
+      "date": "2024-05-16",
+      "display": "May 16, 2024",
+      "youtube_id": "YugdX94H6eA",
+      "youtube_url": "https://www.youtube.com/watch?v=YugdX94H6eA",
+      "title": "May 15, 2024 City of Kalamazoo Environmental Concerns Committee"
+    },
+    {
+      "date": "2024-04-18",
+      "display": "April 18, 2024",
+      "youtube_id": "6xCx1KGgPzk",
+      "youtube_url": "https://www.youtube.com/watch?v=6xCx1KGgPzk",
+      "title": "April 17, 2024 City of Kalamazoo Environmental Concerns Committee"
+    },
+    {
+      "date": "2024-03-21",
+      "display": "March 21, 2024",
+      "youtube_id": "6qEZBAT5sZA",
+      "youtube_url": "https://www.youtube.com/watch?v=6qEZBAT5sZA",
+      "title": "March 20, 2024 City of Kalamazoo Environmental Concerns Committee"
+    },
+    {
+      "date": "2024-01-18",
+      "display": "January 18, 2024",
+      "youtube_id": "yRbPW2ML3MM",
+      "youtube_url": "https://www.youtube.com/watch?v=yRbPW2ML3MM",
+      "title": "January 17, 2024 Environmental Concerns Committee"
+    },
+    {
+      "date": "2023-05-18",
+      "display": "May 18, 2023",
+      "youtube_id": "G_4eRvPbpfk",
+      "youtube_url": "https://www.youtube.com/watch?v=G_4eRvPbpfk",
+      "title": "May 17, 2023 Environmental Concerns Committee"
+    },
+    {
+      "date": "2023-03-15",
+      "display": "March 15, 2023",
+      "youtube_id": "J-dqe0l4FeU",
+      "youtube_url": "https://www.youtube.com/watch?v=J-dqe0l4FeU",
+      "title": "March 15, 2023 - Environmental Concerns Committee"
+    },
+    {
+      "date": "2023-01-18",
+      "display": "January 18, 2023",
+      "youtube_id": "sjG-tBNoR_4",
+      "youtube_url": "https://www.youtube.com/watch?v=sjG-tBNoR_4",
+      "title": "January 18th, 2023, City of Kalamazoo Environmental Concerns Committee"
     }
   ]
 }
