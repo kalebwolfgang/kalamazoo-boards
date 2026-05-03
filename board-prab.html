@@ -195,9 +195,9 @@
     .next-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-bottom: 5px; }
     .meeting-date { font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.4; }
     .meeting-time { font-size: 14px; color: var(--muted); margin-top: 2px; }
-    
+
     .meeting-loc-inline { font-size: 13px; color: var(--navy-light); font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
-    
+
     .meeting-note { font-size: 13px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
     .meeting-location { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-lt); }
     .location-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
@@ -250,7 +250,7 @@
     .members-inner { max-width: 1400px; margin: 0 auto; }
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
-    
+
     .members-table-guide-link { font-size: 13px; color: var(--muted); margin-top: -8px; margin-bottom: 12px; }
     .members-table-guide-link a { color: var(--navy-light); text-decoration: none; }
     .members-table-guide-link a:hover { text-decoration: underline; }
@@ -516,43 +516,7 @@
         Upcoming Meetings
       </div>
       <div class="sidebar-card-body">
-        <div class="meeting-item" data-date="2026-04-07">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, April 7, 2026</div>
-          <div class="meeting-time">5:30 PM – 7:30 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-05-05">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, May 5, 2026</div>
-          <div class="meeting-time">5:30 PM – 7:30 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-06-02">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, June 2, 2026</div>
-          <div class="meeting-time">5:30 PM – 7:30 PM</div>
-          <div class="meeting-loc-inline">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            Spring Valley Park
-          </div>
-        </div>
-        <div class="meeting-item" data-date="2026-07-07">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, July 7, 2026</div>
-          <div class="meeting-time">5:30 PM – 7:30 PM</div>
-          <div class="meeting-loc-inline">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            Southside Park
-          </div>
-        </div>
-        <div class="meeting-item" data-date="2026-08-04">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, August 4, 2026</div>
-          <div class="meeting-time">5:30 PM – 7:30 PM</div>
-          <div class="meeting-loc-inline">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            Axtell Creek Park
-          </div>
-        </div>
+        <div id="upcoming-meetings-list"></div>
         <p class="meeting-note">Meets the first Tuesday of each month at 5:30 PM. Summer meetings (June–August) are held in City parks.</p>
         <div class="meeting-location">
           <div class="location-name">Community Room at Mayors' Riverfront Park</div>
@@ -613,7 +577,7 @@
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
     <p class="members-subhead">9 seats</p>
-    
+
     <p class="members-table-guide-link">
       New to these terms? <a href="faq.html#members-table">See definitions and learn more →</a>
     </p>
@@ -705,6 +669,54 @@ function termText(m) {
 
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 
+// ── Upcoming meetings from prab.json ─────────────────
+fetch('data/prab.json')
+  .then(r => r.json())
+  .then(data => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const upcoming = (data.upcoming_meetings || [])
+      .filter(m => new Date(m.date + 'T00:00:00') >= today)
+      .slice(0, 3);
+
+    const container = document.getElementById('upcoming-meetings-list');
+    if (!container) return;
+
+    if (upcoming.length === 0) {
+      container.innerHTML = '<p class="meeting-note" style="margin-bottom:14px">No upcoming meetings scheduled. Check the <a href="https://www.kalamazoocity.org/Government/Boards-Commissions/Parks-Recreation-Advisory-Board-PRAB" target="_blank" rel="noopener" style="color:var(--navy-light)">city website</a> for updates.</p>';
+      return;
+    }
+
+    let firstFound = false;
+    upcoming.forEach(m => {
+      const locHTML = m.location
+        ? `<div class="meeting-loc-inline">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            ${m.location}
+          </div>`
+        : '';
+
+      const item = document.createElement('div');
+      item.className = 'meeting-item';
+      item.innerHTML = `
+        <div class="next-badge" style="display:none">Next</div>
+        <div class="meeting-date">${m.display}</div>
+        <div class="meeting-time">${m.time}</div>
+        ${locHTML}
+      `;
+
+      if (!firstFound) {
+        item.querySelector('.next-badge').style.display = '';
+        firstFound = true;
+      }
+
+      container.appendChild(item);
+    });
+  })
+  .catch(err => console.error('Could not load prab.json:', err));
+
+// ── Members table from boards.json ───────────────────
 fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
@@ -907,20 +919,6 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
     btn.nextElementSibling.hidden = expanded;
   });
 });
-
-// ── Dynamic "Next" meeting badge ─────────────────────
-(function () {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  let found = false;
-  document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
-    const d = new Date(item.dataset.date + 'T00:00:00');
-    if (!found && d >= today) {
-      item.querySelector('.next-badge').style.display = '';
-      found = true;
-    }
-  });
-})();
 </script>
 </body>
 </html>
