@@ -425,26 +425,29 @@ def compute_upcoming_schedule(board: dict, n: int = 6) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def scrape_location_overrides(text: str) -> dict:
-    """Parse per-meeting location overrides from city board page text.
-    Strips HTML tags and normalizes whitespace before matching.
+    """Parse per-meeting location overrides by searching within individual
+    list items only, so park names from different bullets never run together.
     Returns dict of iso_date -> location_name.
     """
-    clean = re.sub(r'<[^>]+>', ' ', text)
-    clean = re.sub(r'\s+', ' ', clean)  # collapse all whitespace to single spaces
-
     overrides = {}
     today = date.today()
 
-    pattern = re.compile(
+    li_pattern  = re.compile(r'<li>(.*?)</li>', re.IGNORECASE | re.DOTALL)
+    loc_pattern = re.compile(
         r'(January|February|March|April|May|June|July|August'
         r'|September|October|November|December)'
-        r' (\d{1,2}) at ([A-Z][A-Za-z ]{2,40})',
+        r'\s+(\d{1,2})\s+at\s+(.+)',
         re.IGNORECASE
     )
-    for m in pattern.finditer(clean):
-        month_str = m.group(1)
-        day_str   = m.group(2)
-        location  = m.group(3).strip().rstrip('., ')
+
+    for li_match in li_pattern.finditer(text):
+        li_text = re.sub(r'<[^>]+>', ' ', li_match.group(1)).strip()
+        loc_match = loc_pattern.search(li_text)
+        if not loc_match:
+            continue
+        month_str = loc_match.group(1)
+        day_str   = loc_match.group(2)
+        location  = loc_match.group(3).strip().rstrip('., ')
         for year in (today.year, today.year + 1):
             try:
                 d = datetime.strptime(f"{month_str} {day_str} {year}", "%B %d %Y").date()
