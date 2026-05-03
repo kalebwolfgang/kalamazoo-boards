@@ -5,10 +5,11 @@ Kalamazoo Boards & Commissions - Unified Ongoing Scraper
 Runs all configured boards, checking the last 6 months for new meetings
 and the next 6 months for upcoming meeting dates.
 
-Three scraper types:
-  (default)      CivicClerk for past meetings + future events for upcoming
-  youtube_only   Meetings manually maintained; YouTube scraped; upcoming from schedule rule
-  web_scrape     No CivicClerk; upcoming meetings scraped from city website
+Four scraper types:
+  (default)              CivicClerk for past meetings + future events for upcoming
+  youtube_only           Meetings manually maintained; YouTube scraped; upcoming from schedule rule
+  web_scrape             No CivicClerk; upcoming meetings scraped from city website
+  web_docs_and_youtube   Documents scraped from Minutes-Agendas page; YouTube scraped; upcoming from schedule rule
 
 Flags:
   upcoming_from_web  CivicClerk for past meetings; city website for upcoming
@@ -58,18 +59,19 @@ BOARDS = [
         "youtube":     False,
     },
     {
-        "key":         "cpsrab",
-        "name":        "Citizens Public Safety Review and Appeal Board",
-        "scraper_type": "youtube_only",
-        "category_id": None,
-        "keywords":    [],
-        "output":      Path("data") / "cpsrab.json",
-        "youtube":     True,
-        "youtube_channel_id":   "UCIgXSSXLSDxThVaaiRMsR5Q",
-        "youtube_search_query": "Citizens Public Safety Review and Appeal Board",
-        "youtube_title_filter": ["citizens public safety", "cpsrab"],
-        "youtube_tolerance":    3,
-        "schedule":    ("monthly", "tuesday", 2, None),
+        "key":                    "cpsrab",
+        "name":                   "Citizens Public Safety Review and Appeal Board",
+        "scraper_type":           "web_docs_and_youtube",
+        "minutes_agendas_section":"Citizens Public Safety Review and Appeal Board",
+        "category_id":            None,
+        "keywords":               [],
+        "output":                 Path("data") / "cpsrab.json",
+        "youtube":                True,
+        "youtube_channel_id":     "UCIgXSSXLSDxThVaaiRMsR5Q",
+        "youtube_search_query":   "Citizens Public Safety Review and Appeal Board",
+        "youtube_title_filter":   ["citizens public safety", "cpsrab"],
+        "youtube_tolerance":      3,
+        "schedule":               ("monthly", "tuesday", 2, None),
     },
     {
         "key":         "dda",
@@ -241,6 +243,7 @@ BOARDS = [
 # ---------------------------------------------------------------------------
 
 CIVICCLERK_TENANT    = "kalamazoomi"
+MINUTES_AGENDAS_URL  = "https://www.kalamazoocity.org/Government/Boards-Commissions/Minutes-Agendas"
 LOOKBACK_MONTHS      = 6
 LOOKAHEAD_MONTHS     = 6
 PRESERVE_IF_EMPTY    = ("agenda_url", "minutes_url", "youtube_id", "youtube_url")
@@ -432,6 +435,106 @@ def compute_upcoming_schedule(board: dict, n: int = 6) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Minutes-Agendas page scraping (for web_docs_and_youtube boards)
+# ---------------------------------------------------------------------------
+
+def scrape_minutes_agendas_docs(board: dict, start_iso: str, end_iso: str) -> list[dict]:
+    """
+    Fetches the city's Minutes-Agendas page, isolates the board's section,
+    and returns meeting dicts with agenda_url and/or minutes_url.
+    Only returns meetings whose date falls within [start_iso, end_iso].
+    """
+    section_name = board["minutes_agendas_section"]
+    print(f"    [Web] Fetching Minutes-Agendas page for {section_name}...")
+    r = requests.get(MINUTES_AGENDAS_URL, timeout=30)
+    r.raise_for_status()
+    html = r.text
+
+    # Isolate this board's section between its heading and the next heading
+    section_pattern = re.compile(
+        r'(?:<h2[^>]*>.*?' + re.escape(section_name) + r'.*?</h2>)(.*?)(?=<h2|\Z)',
+        re.IGNORECASE | re.DOTALL
+    )
+    section_match = section_pattern.search(html)
+    if not section_match:
+        print(f"    WARNING: Could not find '{section_name}' section on Minutes-Agendas page.")
+        return []
+
+    section_html = section_match.group(1)
+
+    link_pattern = re.compile(
+        r'<a\s[^>]*href="([^"]+\.pdf)"[^>]*>(.*?)</a>',
+        re.IGNORECASE | re.DOTALL
+    )
+    date_pattern = re.compile(
+        r'(January|February|March|April|May|June|July|August'
+        r'|September|October|November|December)\s+(\d{1,2}),?\s+(\d{4})',
+        re.IGNORECASE
+    )
+
+    start_dt = datetime.strptime(start_iso, "%Y-%m-%d").date()
+    end_dt   = datetime.strptime(end_iso,   "%Y-%m-%d").date()
+
+    by_date = {}
+
+    for link_match in link_pattern.finditer(section_html):
+        href      = link_match.group(1).strip()
+        link_text = re.sub(r'<[^>]+>', '', link_match.group(2)).strip()
+
+        if href.startswith('/'):
+            href = 'https://www.kalamazoocity.org' + href
+
+        date_match = date_pattern.search(link_text)
+        if not date_match:
+            continue
+
+        try:
+            doc_date = datetime.strptime(
+                f"{date_match.group(1)} {date_match.group(2)} {date_match.group(3)}", "%B %d %Y"
+            ).date()
+        except ValueError:
+            continue
+
+        if doc_date < start_dt or doc_date > end_dt:
+            continue
+
+        iso = doc_date.strftime("%Y-%m-%d")
+        if iso not in by_date:
+            by_date[iso] = {"agenda_url": None, "minutes_url": None}
+
+        text_lower = link_text.lower()
+        if "agenda" in text_lower:
+            by_date[iso]["agenda_url"] = href
+        elif "minutes" in text_lower:
+            by_date[iso]["minutes_url"] = href
+
+    meetings = []
+    for iso, docs in sorted(by_date.items()):
+        if not docs["agenda_url"] and not docs["minutes_url"]:
+            continue
+
+        if docs["agenda_url"] and docs["minutes_url"]:
+            link_label = "Agenda & Minutes"
+        elif docs["agenda_url"]:
+            link_label = "Agenda"
+        else:
+            link_label = "Minutes"
+
+        meetings.append({
+            "date":        iso,
+            "display":     format_display_date(iso),
+            "agenda_url":  docs["agenda_url"],
+            "minutes_url": docs["minutes_url"],
+            "link_label":  link_label,
+            "cancelled":   False,
+        })
+        print(f"    {iso}  {link_label}")
+
+    print(f"    Found {len(meetings)} meetings with documents in window")
+    return meetings
+
+
+# ---------------------------------------------------------------------------
 # Web scrape upcoming (for boards on kalamazoocity.org without CivicClerk)
 # ---------------------------------------------------------------------------
 
@@ -483,14 +586,12 @@ def scrape_web_upcoming(board: dict) -> list[dict]:
     upcoming = []
     seen     = set()
 
-    # Parse location overrides before the date loop (PRAB and any future boards that need it)
     location_overrides = {}
     if board.get("parse_locations"):
         location_overrides = scrape_location_overrides(r.text)
         if location_overrides:
             print(f"    Found {len(location_overrides)} location override(s): {list(location_overrides.values())}")
 
-    # Match date patterns like "Thursday, May 21, 2026 | 04:00 PM"
     pattern = r'(\w+day,\s+\w+\s+\d{1,2},\s+\d{4})\s*\|'
     matches = re.findall(pattern, r.text)
 
@@ -662,6 +763,43 @@ def merge_recordings(existing: list, new_recs: list) -> list:
 # Per-board run
 # ---------------------------------------------------------------------------
 
+def run_web_docs_and_youtube_board(board: dict, start_iso: str, end_iso: str, api_key: str) -> None:
+    name = board["name"]
+    print(f"\n{'='*60}")
+    print(f"  {name}")
+    print(f"{'='*60}")
+
+    print("  Step 1: Scraping meeting documents from Minutes-Agendas page...")
+    scraped_meetings = scrape_minutes_agendas_docs(board, start_iso, end_iso)
+
+    print("  Step 2: Fetching YouTube recordings...")
+    recordings = fetch_youtube_streams(api_key, board, start_iso, end_iso)
+    print(f"    Found {len(recordings)} recordings in window")
+
+    print("  Step 3: Merging...")
+    existing = load_existing(board["output"])
+    merged_meetings, stats = merge_meetings(existing.get("meetings", []), scraped_meetings)
+    print(f"    added: {stats['added']}  updated: {stats['updated']}  unchanged: {stats['unchanged']}")
+    merged_recordings = merge_recordings(existing.get("recordings", []), recordings)
+
+    upcoming = compute_upcoming_schedule(board)
+    print(f"  Upcoming: computed {len(upcoming)} dates from schedule rule")
+
+    output = {
+        "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "upcoming_meetings": upcoming,
+        "meetings":          merged_meetings,
+        "recordings":        merged_recordings,
+    }
+
+    board["output"].parent.mkdir(parents=True, exist_ok=True)
+    with board["output"].open("w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+    print(f"  Wrote {board['output']}  ({len(merged_meetings)} meetings, {len(merged_recordings)} recordings)")
+
+
 def run_youtube_only_board(board: dict, start_iso: str, end_iso: str, api_key: str) -> None:
     name = board["name"]
     print(f"\n{'='*60}")
@@ -728,6 +866,10 @@ def run_web_scrape_board(board: dict) -> None:
 
 
 def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) -> None:
+    if board.get("scraper_type") == "web_docs_and_youtube":
+        run_web_docs_and_youtube_board(board, start_iso, end_iso, api_key)
+        return
+
     if board.get("scraper_type") == "youtube_only":
         run_youtube_only_board(board, start_iso, end_iso, api_key)
         return
