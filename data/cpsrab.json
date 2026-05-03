@@ -37,25 +37,33 @@
       "date": "2026-03-10",
       "display": "March 10, 2026",
       "agenda_url": null,
-      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/march-10-2026.pdf"
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/march-10-2026.pdf",
+      "link_label": "Minutes",
+      "cancelled": false
     },
     {
       "date": "2026-02-10",
       "display": "February 10, 2026",
       "agenda_url": null,
-      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/february-10-2026.pdf"
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/february-10-2026.pdf",
+      "link_label": "Minutes",
+      "cancelled": false
     },
     {
       "date": "2026-01-13",
       "display": "January 13, 2026",
       "agenda_url": null,
-      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/january-13-2026.pdf"
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/january-13-2026.pdf",
+      "link_label": "Minutes",
+      "cancelled": false
     },
     {
       "date": "2025-12-09",
-      "display": "December 9, 2025",
+      "display": "December 09, 2025",
       "agenda_url": null,
-      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/december-9-2025.pdf"
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/december-9-2025.pdf",
+      "link_label": "Minutes",
+      "cancelled": false
     },
     {
       "date": "2025-10-14",
