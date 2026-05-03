@@ -195,13 +195,8 @@
     .next-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-bottom: 5px; }
     .meeting-date { font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.4; }
     .meeting-time { font-size: 14px; color: var(--muted); margin-top: 2px; }
-
     .meeting-loc-inline { font-size: 13px; color: var(--navy-light); font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
-
     .meeting-note { font-size: 13px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
-    .meeting-location { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-lt); }
-    .location-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-    .location-addr { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
     /* ── BOTTOM CARDS ── */
     .bottom-cards {
@@ -219,7 +214,6 @@
     .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .bottom-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
 
-    /* Apply to Serve / Full Width Cards */
     .card-apply-serve { border-left: 4px solid var(--gold); }
     .apply-standalone-inner {
       padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px);
@@ -232,12 +226,10 @@
     .apply-standalone-btn { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
     .apply-standalone-btn:hover { background: var(--navy-mid); color: white; }
 
-    /* Text Cards */
     .text-card-content { flex: 1; font-size: 15px; color: var(--body); line-height: 1.6; margin-bottom: 16px; }
     .text-card-link { display: inline-flex; align-items: center; font-weight: 600; color: var(--navy-light); text-decoration: none; transition: color 0.15s; margin-top: auto; }
     .text-card-link:hover { color: var(--gold); }
 
-    /* Documents */
     .doc-link { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: var(--navy-light); font-size: 15px; transition: color 0.15s; }
     .doc-link:last-child { border-bottom: none; padding-bottom: 0; }
     .doc-link:hover { color: var(--gold); }
@@ -250,15 +242,11 @@
     .members-inner { max-width: 1400px; margin: 0 auto; }
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
-
     .members-table-guide-link { font-size: 13px; color: var(--muted); margin-top: -8px; margin-bottom: 12px; }
     .members-table-guide-link a { color: var(--navy-light); text-decoration: none; }
     .members-table-guide-link a:hover { text-decoration: underline; }
 
-    /* Outer wrapper */
     .members-table-outer { position: relative; }
-
-    /* Horizontal scroll track — above table, injected via JS */
     .h-scroll-track { height: 6px; background: #e0dbd2; border: 1px solid var(--border); border-radius: 3px; position: relative; margin-bottom: 8px; }
     .h-scroll-thumb { position: absolute; top: 0; height: 6px; background: #1c2333; border-radius: 3px; min-width: 32px; }
     @media (min-width: 900px) { .h-scroll-track { display: none; } }
@@ -282,7 +270,6 @@
       .members-table tbody tr:hover td:nth-child(2) { background: var(--cream); }
     }
 
-    /* Sticky dot + name columns */
     .members-table th:first-child,
     .members-table td:first-child { position: sticky; left: 0; z-index: 3; }
     .members-table th:nth-child(2),
@@ -305,7 +292,6 @@
     .status-badge.transitioning { background: #fef3c7; color: #92400e; }
     .status-badge.seated        { background: #dcfce7; color: #166534; }
 
-    /* Staff note */
     .staff-note-wrap { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x) clamp(32px, 5vw, 48px); display: flex; flex-direction: column; gap: 10px; }
     .staff-note { background: var(--cream-dk); border: 1px solid var(--border); border-radius: 3px; padding: 14px 18px; font-size: 14px; color: var(--muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
     .staff-note strong { color: var(--body); }
@@ -518,10 +504,6 @@
       <div class="sidebar-card-body">
         <div id="upcoming-meetings-list"></div>
         <p class="meeting-note">Meets the first Tuesday of each month at 5:30 PM. Summer meetings (June–August) are held in City parks.</p>
-        <div class="meeting-location">
-          <div class="location-name">Community Room at Mayors' Riverfront Park</div>
-          <div class="location-addr">Kalamazoo, MI</div>
-        </div>
       </div>
     </div>
 
@@ -628,6 +610,9 @@ const SIX_MO = new Date(TODAY);
 SIX_MO.setMonth(SIX_MO.getMonth() + 6);
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
+const PIN_SVG = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>`;
+const DEFAULT_LOCATION = "Community Room at Mayors' Riverfront Park";
+
 function seatStatus(m) {
   if (m.isVacant) return 'vacant';
   if (!m.termEnd || m.termEnd === '2100-01-01') return 'permanent';
@@ -649,9 +634,7 @@ function fmtDate(iso) {
   return `${MONTHS[+m - 1]} ${+d}, ${y}`;
 }
 
-function memberType(m) {
-  return 'Voting';
-}
+function memberType(m) { return 'Voting'; }
 
 function subLabel(m) {
   if (m.positionRequirement) return m.positionRequirement;
@@ -690,12 +673,9 @@ fetch('data/prab.json')
 
     let firstFound = false;
     upcoming.forEach(m => {
-      const locHTML = m.location
-        ? `<div class="meeting-loc-inline">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            ${m.location}
-          </div>`
-        : '';
+      // Always show a location — use the specific park if set, otherwise the default room
+      const loc = m.location || DEFAULT_LOCATION;
+      const locHTML = `<div class="meeting-loc-inline">${PIN_SVG} ${loc}</div>`;
 
       const item = document.createElement('div');
       item.className = 'meeting-item';
@@ -725,7 +705,6 @@ fetch('boards.json')
 
     const members = board.members;
 
-    // ── Seat stats ───────────────────────────────────────
     let nO = 0, nT = 0, nS = 0;
     members.forEach(m => {
       const ds = displayStatus(seatStatus(m));
@@ -738,7 +717,6 @@ fetch('boards.json')
     document.getElementById('stat-trans').textContent  = nT;
     document.getElementById('stat-seated').textContent = nS;
 
-    // ── Header dots ──────────────────────────────────────
     const dotsEl = document.getElementById('header-dots');
     members.forEach(m => {
       const ds  = displayStatus(seatStatus(m));
@@ -755,7 +733,6 @@ fetch('boards.json')
       dotsEl.appendChild(dot);
     });
 
-    // ── Members table ─────────────────────────────────────
     const tbody = document.getElementById('members-tbody');
     members.forEach(m => {
       const st  = seatStatus(m);
@@ -784,7 +761,6 @@ fetch('boards.json')
       tbody.appendChild(tr);
     });
 
-    // ── Tooltip / Bottom Sheet ─────────────────────────────
     const tooltip = document.getElementById('tooltip');
     const ttName  = document.getElementById('tt-name');
     const ttRole  = document.getElementById('tt-role');
