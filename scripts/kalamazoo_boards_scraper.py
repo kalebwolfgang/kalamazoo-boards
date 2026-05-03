@@ -449,17 +449,29 @@ def fetch_youtube_streams(api_key: str, board: dict, start_date: str, end_date: 
 
     recordings   = []
     title_filter = board.get("youtube_title_filter", [])
+    date_pattern = re.compile(
+        r'(January|February|March|April|May|June|July|August|September|October|November|December)'
+        r'\s+\d{1,2},?\s+\d{4}'
+    )
     for item in all_items:
         video_id  = item["id"]["videoId"]
         snippet   = item["snippet"]
         title     = snippet.get("title", "")
         published = snippet.get("publishedAt", "")
-        date_only = published[:10] if published else None
-        if not date_only:
+        pub_date  = published[:10] if published else None
+        if not pub_date:
             continue
         if title_filter and not any(kw in title.lower() for kw in title_filter):
             print(f"    SKIPPED (wrong board): {title[:60]}")
             continue
+        match = date_pattern.search(title)
+        if match:
+            try:
+                date_only = datetime.strptime(match.group().replace(",", ""), "%B %d %Y").strftime("%Y-%m-%d")
+            except Exception:
+                date_only = pub_date
+        else:
+            date_only = pub_date
         recordings.append({
             "date":        date_only,
             "display":     format_display_date(date_only),
