@@ -164,6 +164,16 @@ BOARDS = [
         "parse_locations":  True,
     },
     {
+        "key":         "trb",
+        "name":        "Traffic Board",
+        "scraper_type": "web_scrape",
+        "web_url":     "https://www.kalamazoocity.org/Government/Boards-Commissions/Traffic-Board",
+        "category_id": None,
+        "keywords":    [],
+        "output":      Path("data") / "trb.json",
+        "youtube":     False,
+    },
+    {
         "key":         "bor",
         "name":        "Board of Review for Assessments",
         "scraper_type": "web_scrape",
@@ -253,6 +263,7 @@ BOARD_TIMES = {
     "hpc":          "6:00 PM \u2013 8:00 PM",
     "pension-board":"8:00 AM \u2013 9:00 AM",
     "prab":         "5:30 PM \u2013 7:30 PM",
+    "trb":          "",
     "bor":          "TBD",
     "ric":          "11:00 AM \u2013 12:00 PM",
     "kmga":         "12:00 PM \u2013 2:00 PM",
@@ -428,6 +439,7 @@ def scrape_location_overrides(text: str) -> dict:
     """Parse per-meeting location overrides by searching within individual
     list items only, so park names from different bullets never run together.
     Returns dict of iso_date -> location_name.
+    Only called for boards with parse_locations: True.
     """
     overrides = {}
     today = date.today()
@@ -443,8 +455,6 @@ def scrape_location_overrides(text: str) -> dict:
     for li_match in li_pattern.finditer(text):
         li_text = re.sub(r'<[^>]+>', ' ', li_match.group(1)).strip()
         li_text = li_text.replace('&nbsp;', ' ')
-        if any(p in li_text.lower() for p in ['spring', 'southside', 'axtell']):
-            print(f"    DEBUG: {repr(li_text)}")
         loc_match = loc_pattern.search(li_text)
         if not loc_match:
             continue
@@ -667,7 +677,6 @@ def run_youtube_only_board(board: dict, start_iso: str, end_iso: str, api_key: s
     existing          = load_existing(board["output"])
     merged_recordings = merge_recordings(existing.get("recordings", []), recordings)
 
-    # Upcoming: use schedule rule if configured, otherwise preserve from JSON
     if board.get("schedule"):
         upcoming = compute_upcoming_schedule(board)
         print(f"  Upcoming: computed {len(upcoming)} dates from schedule rule")
@@ -707,7 +716,6 @@ def run_web_scrape_board(board: dict) -> None:
         "upcoming_meetings": upcoming,
     }
 
-    # Preserve meetings array if it exists (future-proof)
     if existing.get("meetings"):
         output["meetings"] = existing["meetings"]
 
@@ -750,7 +758,6 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
     scraped = [m for m in (transform_event(e, board) for e in past_events) if m is not None]
     print(f"    {len(scraped)} past events with documents")
 
-    # Upcoming: use city website if flagged, otherwise use CivicClerk future events
     if board.get("upcoming_from_web"):
         print("  Step 2: Scraping upcoming meetings from city website...")
         upcoming = scrape_web_upcoming(board)
@@ -770,7 +777,6 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
         print("  Step 2: Fetching YouTube streams...")
         all_recs = fetch_youtube_streams(api_key, board, start_iso, end_iso)
 
-        # Embed videos into meetings
         tolerance = board.get("youtube_tolerance", 3)
         for rec in all_recs:
             rec_date = datetime.strptime(rec["date"], "%Y-%m-%d").date()
