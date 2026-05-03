@@ -130,7 +130,7 @@ BOARDS = [
         "youtube_tolerance":    3,
         "schedule":    ("monthly", "tuesday", 3, None),
     },
-   {
+    {
         "key":         "hpc",
         "name":        "Historic Preservation Commission",
         "category_id": 36,
@@ -152,7 +152,18 @@ BOARDS = [
         "youtube":     False,
         "preserve_upcoming": True,
     },
-  {
+    {
+        "key":              "prab",
+        "name":             "Parks & Recreation Advisory Board",
+        "scraper_type":     "web_scrape",
+        "web_url":          "https://www.kalamazoocity.org/Government/Boards-Commissions/Parks-Recreation-Advisory-Board-PRAB",
+        "category_id":      None,
+        "keywords":         [],
+        "output":           Path("data") / "prab.json",
+        "youtube":          False,
+        "parse_locations":  True,
+    },
+    {
         "key":         "bor",
         "name":        "Board of Review for Assessments",
         "scraper_type": "web_scrape",
@@ -162,7 +173,7 @@ BOARDS = [
         "output":      Path("data") / "bor.json",
         "youtube":     False,
     },
-  {
+    {
         "key":         "ric",
         "name":        "Retirement Investment Committee / Perpetual Care Investment Committee",
         "scraper_type": "web_scrape",
@@ -172,7 +183,7 @@ BOARDS = [
         "output":      Path("data") / "ric.json",
         "youtube":     False,
     },
-  {
+    {
         "key":         "kmga",
         "name":        "Kalamazoo Municipal Golf Association",
         "scraper_type": "web_scrape",
@@ -241,6 +252,7 @@ BOARD_TIMES = {
     "hdc":          "5:00 PM \u2013 7:00 PM",
     "hpc":          "6:00 PM \u2013 8:00 PM",
     "pension-board":"8:00 AM \u2013 9:00 AM",
+    "prab":         "5:30 PM \u2013 7:30 PM",
     "bor":          "TBD",
     "ric":          "11:00 AM \u2013 12:00 PM",
     "kmga":         "12:00 PM \u2013 2:00 PM",
@@ -412,6 +424,35 @@ def compute_upcoming_schedule(board: dict, n: int = 6) -> list[dict]:
 # Web scrape upcoming (for boards on kalamazoocity.org without CivicClerk)
 # ---------------------------------------------------------------------------
 
+def scrape_location_overrides(text: str) -> dict:
+    """Parse per-meeting location overrides from city board page text.
+    Matches patterns like 'June 2 at Spring Valley Park'.
+    Returns dict of iso_date -> location_name.
+    Only called for boards with parse_locations: True.
+    """
+    overrides = {}
+    pattern = re.compile(
+        r'(January|February|March|April|May|June|July|August'
+        r'|September|October|November|December)'
+        r'\s+(\d{1,2})\s+at\s+([A-Z][^,\n<]+)',
+        re.IGNORECASE
+    )
+    today = date.today()
+    for m in pattern.finditer(text):
+        month_str = m.group(1)
+        day_str   = m.group(2)
+        location  = m.group(3).strip().rstrip('., ')
+        for year in (today.year, today.year + 1):
+            try:
+                d = datetime.strptime(f"{month_str} {day_str} {year}", "%B %d %Y").date()
+                if d >= today:
+                    overrides[d.strftime("%Y-%m-%d")] = location
+                    break
+            except ValueError:
+                continue
+    return overrides
+
+
 def scrape_web_upcoming(board: dict) -> list[dict]:
     """Scrape upcoming meeting dates from a city website board page."""
     url = board["web_url"]
@@ -422,6 +463,13 @@ def scrape_web_upcoming(board: dict) -> list[dict]:
     today    = date.today()
     upcoming = []
     seen     = set()
+
+    # Parse location overrides before the date loop (PRAB and any future boards that need it)
+    location_overrides = {}
+    if board.get("parse_locations"):
+        location_overrides = scrape_location_overrides(r.text)
+        if location_overrides:
+            print(f"    Found {len(location_overrides)} location override(s): {list(location_overrides.values())}")
 
     # Match date patterns like "Thursday, May 21, 2026 | 04:00 PM"
     pattern = r'(\w+day,\s+\w+\s+\d{1,2},\s+\d{4})\s*\|'
@@ -435,11 +483,15 @@ def scrape_web_upcoming(board: dict) -> list[dict]:
         try:
             d = datetime.strptime(match_clean, "%A, %B %d, %Y").date()
             if d >= today:
-                upcoming.append({
+                item = {
                     "date":    d.strftime("%Y-%m-%d"),
                     "display": format_display_date_long(d.strftime("%Y-%m-%d")),
                     "time":    board.get("time", "TBD"),
-                })
+                }
+                loc = location_overrides.get(d.strftime("%Y-%m-%d"))
+                if loc:
+                    item["location"] = loc
+                upcoming.append(item)
         except ValueError:
             continue
 
@@ -708,21 +760,21 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
     if board.get("youtube") and api_key:
         print("  Step 2: Fetching YouTube streams...")
         all_recs = fetch_youtube_streams(api_key, board, start_iso, end_iso)
-        
+
         # Embed videos into meetings
         tolerance = board.get("youtube_tolerance", 3)
         for rec in all_recs:
             rec_date = datetime.strptime(rec["date"], "%Y-%m-%d").date()
             best_meeting = None
             best_delta = timedelta(days=tolerance + 1)
-            
+
             for m in scraped:
                 m_date = datetime.strptime(m["date"], "%Y-%m-%d").date()
                 delta = abs(rec_date - m_date)
                 if delta <= timedelta(days=tolerance) and delta < best_delta:
                     best_delta = delta
                     best_meeting = m
-                    
+
             if best_meeting and not best_meeting.get("youtube_id"):
                 best_meeting["youtube_id"] = rec["youtube_id"]
                 best_meeting["youtube_url"] = rec["youtube_url"]
