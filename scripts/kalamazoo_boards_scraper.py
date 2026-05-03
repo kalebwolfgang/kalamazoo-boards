@@ -426,19 +426,19 @@ def compute_upcoming_schedule(board: dict, n: int = 6) -> list[dict]:
 
 def scrape_location_overrides(text: str) -> dict:
     """Parse per-meeting location overrides from city board page text.
-    Matches patterns like 'June 2 at Spring Valley Park'.
+    Strips HTML tags first so link formatting doesn't interfere.
     Returns dict of iso_date -> location_name.
-    Only called for boards with parse_locations: True.
     """
+    clean = re.sub(r'<[^>]+>', ' ', text)
     overrides = {}
     pattern = re.compile(
         r'(January|February|March|April|May|June|July|August'
         r'|September|October|November|December)'
-        r'\s+(\d{1,2})\s+at\s+(?:<[^>]*>)?([A-Z][^,\n<]+)',
+        r'\s+(\d{1,2})\s+at\s+([A-Z][^,\n<]+)',
         re.IGNORECASE
     )
     today = date.today()
-    for m in pattern.finditer(text):
+    for m in pattern.finditer(clean):
         month_str = m.group(1)
         day_str   = m.group(2)
         location  = m.group(3).strip().rstrip('., ')
