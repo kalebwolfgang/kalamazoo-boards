@@ -211,6 +211,7 @@ BOARD_TIMES = {
     "hdc":          "5:00 PM \u2013 7:00 PM",
     "hpc":          "6:00 PM \u2013 8:00 PM",
     "pension-board":"8:00 AM \u2013 9:00 AM",
+    "ric":          "11:00 AM \u2013 12:00 PM",
     "bba":          "4:00 PM \u2013 6:00 PM",
     "cdaac":        "5:30 PM \u2013 7:30 PM",
 }
