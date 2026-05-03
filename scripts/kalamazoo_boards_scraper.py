@@ -152,6 +152,16 @@ BOARDS = [
         "youtube":     False,
         "preserve_upcoming": True,
     },
+  {
+        "key":         "ric",
+        "name":        "Retirement Investment Committee / Perpetual Care Investment Committee",
+        "scraper_type": "web_scrape",
+        "web_url":     "https://www.kalamazoocity.org/Government/Boards-Commissions/Retirement-Investment-Committee-Perpetual-Care-Investment-Committee",
+        "category_id": None,
+        "keywords":    [],
+        "output":      Path("data") / "ric.json",
+        "youtube":     False,
+    },
     {
         "key":         "bba",
         "name":        "Building Board of Appeals",
