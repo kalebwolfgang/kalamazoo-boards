@@ -252,10 +252,8 @@
     .members-table-guide-link a { color: var(--navy-light); text-decoration: none; }
     .members-table-guide-link a:hover { text-decoration: underline; }
 
-    /* Text hint removed — replaced by visual affordances */
     .table-scroll-hint { display: none !important; }
 
-    /* Horizontal scroll track — injected via JS, sits ABOVE the table */
     .h-scroll-track {
       height: 6px; background: #e0dbd2;
       border: 1px solid var(--border); border-radius: 3px;
@@ -270,7 +268,6 @@
       .h-scroll-track { display: none; }
     }
 
-    /* Outer wrapper */
     .members-table-outer { position: relative; }
 
     .members-table-wrap {
@@ -297,7 +294,6 @@
     .members-table td:nth-child(2) { position: sticky; left: 44px; z-index: 3; }
     .members-table thead th:first-child,
     .members-table thead th:nth-child(2) { background: var(--navy); }
-    /* Shadow on name column shows content scrolling behind it */
     .members-table td:nth-child(2),
     .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.1); }
 
@@ -536,22 +532,7 @@
         Upcoming Meetings
       </div>
       <div class="sidebar-card-body">
-        <div class="meeting-item" data-date="2026-03-13">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Friday, March 13, 2026</div>
-          <div class="meeting-time">9:00 AM – 12:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-03-13">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Friday, March 13, 2026</div>
-          <div class="meeting-time">1:20 PM – 4:40 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-03-18">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Wednesday, March 18, 2026</div>
-          <div class="meeting-time">10:00 AM – 11:00 AM</div>
-          <div style="font-size:13px;color:var(--muted);margin-top:3px;">Final session — no hearings</div>
-        </div>
+        <div id="upcoming-meetings-list"></div>
         <p class="meeting-note">March sessions are by appointment only — in-person hearings require a scheduled appointment. The Board also meets in July and December for Assessment Roll corrections.</p>
         <div class="meeting-location">
           <div class="location-name">Third Floor Conference Room</div>
@@ -706,6 +687,39 @@ function termText(m) {
 
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 
+// ── Upcoming meetings from bor.json ────────────────────────────────────────
+fetch('data/bor.json')
+  .then(r => r.json())
+  .then(data => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const upcoming = (data.upcoming_meetings || [])
+      .filter(m => new Date(m.date + 'T00:00:00') >= today)
+      .slice(0, 5);
+
+    const list = document.getElementById('upcoming-meetings-list');
+    if (!list) return;
+
+    if (upcoming.length === 0) {
+      list.innerHTML = `<p style="font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:14px;">The Board of Review meets for three weeks in March to hear appeals beginning on the first Tuesday after the first Monday. It also meets in July and December to approve corrections to the Assessment Roll.</p>`;
+      return;
+    }
+
+    let found = false;
+    list.innerHTML = upcoming.map(m => {
+      const d = new Date(m.date + 'T00:00:00');
+      const isNext = !found && d >= today;
+      if (isNext) found = true;
+      return `<div class="meeting-item">
+        <div class="next-badge"${isNext ? '' : ' style="display:none"'}>Next</div>
+        <div class="meeting-date">${m.display}</div>
+        <div class="meeting-time">${m.time}</div>
+      </div>`;
+    }).join('');
+  })
+  .catch(err => console.warn('Could not load bor.json:', err));
+
+// ── Members from boards.json ───────────────────────────────────────────────
 fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
@@ -836,13 +850,12 @@ fetch('boards.json')
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-// Horizontal scroll track for members table (above table, no fades)
+// ── Horizontal scroll track ────────────────────────────────────────────────
 (function () {
   const wrap  = document.getElementById('members-table-wrap');
   const outer = document.getElementById('members-table-outer');
   if (!wrap || !outer) return;
 
-  // Inject track BEFORE the outer wrapper so it appears above the table
   const track = document.createElement('div');
   track.className = 'h-scroll-track';
   const thumb = document.createElement('div');
@@ -853,11 +866,8 @@ fetch('boards.json')
   function update() {
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
     const maxScroll = scrollWidth - clientWidth;
-
-    // Clamp scroll position — prevents rubber-band drift past content edges
     if (scrollLeft < 0) { wrap.scrollLeft = 0; return; }
     if (scrollLeft > maxScroll) { wrap.scrollLeft = maxScroll; return; }
-
     const thumbPct  = clientWidth / scrollWidth;
     const trackW    = track.offsetWidth;
     const thumbW    = Math.max(32, Math.round(thumbPct * trackW));
@@ -872,7 +882,7 @@ fetch('boards.json')
   update();
 })();
 
-// Prevent rubber-band overscroll at horizontal boundaries (older iOS Safari fallback)
+// ── Touch overscroll prevention ────────────────────────────────────────────
 (function () {
   const wrap = document.getElementById('members-table-wrap');
   if (!wrap) return;
@@ -882,32 +892,26 @@ fetch('boards.json')
   wrap.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
-    isHorizontal = null; // reset direction each new gesture
+    isHorizontal = null;
   }, { passive: true });
 
   wrap.addEventListener('touchmove', e => {
     const dx = e.touches[0].clientX - startX;
     const dy = e.touches[0].clientY - startY;
-
-    // Determine gesture direction on first meaningful movement
     if (isHorizontal === null && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
       isHorizontal = Math.abs(dx) > Math.abs(dy);
     }
-
-    // Vertical gesture — return immediately, let browser scroll the page normally
     if (!isHorizontal) return;
-
-    // Horizontal gesture — only block at the scroll boundaries
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
     const atLeft  = scrollLeft <= 0;
     const atRight = scrollLeft >= scrollWidth - clientWidth - 1;
-
     if ((atLeft && dx > 0) || (atRight && dx < 0)) {
       e.preventDefault();
     }
   }, { passive: false });
 })();
 
+// ── Accordion ─────────────────────────────────────────────────────────────
 document.querySelectorAll('.acc-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -915,19 +919,6 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
     btn.nextElementSibling.hidden = expanded;
   });
 });
-
-(function () {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  let found = false;
-  document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
-    const d = new Date(item.dataset.date + 'T00:00:00');
-    if (!found && d >= today) {
-      item.querySelector('.next-badge').style.display = '';
-      found = true;
-    }
-  });
-})();
 </script>
 </body>
 </html>
