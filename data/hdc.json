@@ -4,32 +4,38 @@
     {
       "date": "2026-05-19",
       "display": "Tuesday, May 19, 2026",
-      "time": "5:00 PM – 7:00 PM"
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
     },
     {
       "date": "2026-06-16",
       "display": "Tuesday, June 16, 2026",
-      "time": "5:00 PM – 7:00 PM"
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
     },
     {
       "date": "2026-07-21",
       "display": "Tuesday, July 21, 2026",
-      "time": "5:00 PM – 7:00 PM"
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
     },
     {
       "date": "2026-08-18",
       "display": "Tuesday, August 18, 2026",
-      "time": "5:00 PM – 7:00 PM"
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
     },
     {
       "date": "2026-09-15",
       "display": "Tuesday, September 15, 2026",
-      "time": "5:00 PM – 7:00 PM"
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
     },
     {
       "date": "2026-10-20",
       "display": "Tuesday, October 20, 2026",
-      "time": "5:00 PM – 7:00 PM"
+      "time": "5:00 PM - 7:00 PM",
+      "location": "City Commission Chambers"
     }
   ],
   "meetings": [
@@ -494,85 +500,85 @@
   ],
   "recordings": [
     {
-      "date": "2026-04-22",
-      "display": "April 22, 2026",
+      "date": "2026-04-21",
+      "display": "April 21, 2026",
       "youtube_id": "SHyZSytY4uI",
       "youtube_url": "https://www.youtube.com/watch?v=SHyZSytY4uI",
       "title": "April 21, 2026 Historic District Commission"
     },
     {
-      "date": "2026-03-18",
-      "display": "March 18, 2026",
+      "date": "2026-03-17",
+      "display": "March 17, 2026",
       "youtube_id": "Hdp1U0Q79-0",
       "youtube_url": "https://www.youtube.com/watch?v=Hdp1U0Q79-0",
       "title": "March 17, 2026 Historic District Commission"
     },
     {
-      "date": "2026-01-22",
-      "display": "January 22, 2026",
+      "date": "2026-01-20",
+      "display": "January 20, 2026",
       "youtube_id": "mUmV_pZRaVQ",
       "youtube_url": "https://www.youtube.com/watch?v=mUmV_pZRaVQ",
       "title": "January 20, 2026 Historic District Commission"
     },
     {
-      "date": "2025-10-22",
-      "display": "October 22, 2025",
+      "date": "2025-10-21",
+      "display": "October 21, 2025",
       "youtube_id": "kycYp86Qpds",
       "youtube_url": "https://www.youtube.com/watch?v=kycYp86Qpds",
       "title": "October 21, 2025 Historic District Commission"
     },
     {
-      "date": "2025-09-17",
-      "display": "September 17, 2025",
+      "date": "2025-09-16",
+      "display": "September 16, 2025",
       "youtube_id": "cBXhbxUtN2o",
       "youtube_url": "https://www.youtube.com/watch?v=cBXhbxUtN2o",
       "title": "September 16, 2025 Historic District Commission"
     },
     {
-      "date": "2025-07-16",
-      "display": "July 16, 2025",
+      "date": "2025-07-15",
+      "display": "July 15, 2025",
       "youtube_id": "o685bhEMwJQ",
       "youtube_url": "https://www.youtube.com/watch?v=o685bhEMwJQ",
       "title": "July 15, 2025 Historic District Commission"
     },
     {
-      "date": "2025-06-18",
-      "display": "June 18, 2025",
+      "date": "2025-06-17",
+      "display": "June 17, 2025",
       "youtube_id": "7SaucBV1Vy4",
       "youtube_url": "https://www.youtube.com/watch?v=7SaucBV1Vy4",
       "title": "June 17, 2025 Historic District Commission"
     },
     {
-      "date": "2025-06-18",
-      "display": "June 18, 2025",
+      "date": "2025-06-17",
+      "display": "June 17, 2025",
       "youtube_id": "VL0-0DUxl1k",
       "youtube_url": "https://www.youtube.com/watch?v=VL0-0DUxl1k",
       "title": "June 17, 2025 Historic District Commission"
     },
     {
-      "date": "2025-05-21",
-      "display": "May 21, 2025",
+      "date": "2025-05-20",
+      "display": "May 20, 2025",
       "youtube_id": "F1s809ZhTwg",
       "youtube_url": "https://www.youtube.com/watch?v=F1s809ZhTwg",
       "title": "May 20, 2025 Historic District Commission"
     },
     {
-      "date": "2025-04-16",
-      "display": "April 16, 2025",
+      "date": "2025-04-15",
+      "display": "April 15, 2025",
       "youtube_id": "OVFO1OgPa3E",
       "youtube_url": "https://www.youtube.com/watch?v=OVFO1OgPa3E",
       "title": "April 15, 2025 Historic District Commission"
     },
     {
-      "date": "2025-04-16",
-      "display": "April 16, 2025",
+      "date": "2025-04-15",
+      "display": "April 15, 2025",
       "youtube_id": "jod7gnQm9Nc",
       "youtube_url": "https://www.youtube.com/watch?v=jod7gnQm9Nc",
       "title": "April 15, 2025 Historic District Commission"
     },
     {
-      "date": "2025-03-19",
-      "display": "March 19, 2025",
+      "date": "2025-03-18",
+      "display": "March 18, 2025",
       "youtube_id": "cN5rfZu5N88",
       "youtube_url": "https://www.youtube.com/watch?v=cN5rfZu5N88",
       "title": "March 18, 2025 Historic District Commission"
@@ -585,162 +591,162 @@
       "title": "March 18, 2025 Historic District Commission"
     },
     {
-      "date": "2025-02-19",
-      "display": "February 19, 2025",
+      "date": "2025-02-18",
+      "display": "February 18, 2025",
       "youtube_id": "kkIPZfVsFcA",
       "youtube_url": "https://www.youtube.com/watch?v=kkIPZfVsFcA",
       "title": "February 18, 2025 Historic District Commission"
     },
     {
-      "date": "2024-12-18",
-      "display": "December 18, 2024",
+      "date": "2024-12-17",
+      "display": "December 17, 2024",
       "youtube_id": "I7R-qapINQA",
       "youtube_url": "https://www.youtube.com/watch?v=I7R-qapINQA",
       "title": "December 17, 2024 Historic District Commission"
     },
     {
-      "date": "2024-11-20",
-      "display": "November 20, 2024",
+      "date": "2024-11-19",
+      "display": "November 19, 2024",
       "youtube_id": "798s0WI67no",
       "youtube_url": "https://www.youtube.com/watch?v=798s0WI67no",
       "title": "November 19, 2024 Historic District Commission"
     },
     {
-      "date": "2024-10-16",
-      "display": "October 16, 2024",
+      "date": "2024-10-15",
+      "display": "October 15, 2024",
       "youtube_id": "62xz6nAK8v0",
       "youtube_url": "https://www.youtube.com/watch?v=62xz6nAK8v0",
       "title": "October 15, 2024 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2024-10-10",
-      "display": "October 10, 2024",
+      "date": "2024-10-09",
+      "display": "October 9, 2024",
       "youtube_id": "nJHOJpRu8O0",
       "youtube_url": "https://www.youtube.com/watch?v=nJHOJpRu8O0",
       "title": "October 9, 2024 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2024-08-21",
-      "display": "August 21, 2024",
+      "date": "2024-08-20",
+      "display": "August 20, 2024",
       "youtube_id": "uvUTactTYFA",
       "youtube_url": "https://www.youtube.com/watch?v=uvUTactTYFA",
       "title": "August 20, 2024 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2024-07-17",
-      "display": "July 17, 2024",
+      "date": "2024-07-16",
+      "display": "July 16, 2024",
       "youtube_id": "M9Tj-Xz6Aw4",
       "youtube_url": "https://www.youtube.com/watch?v=M9Tj-Xz6Aw4",
       "title": "July 16, 2024 City of Kalamazoo Historic District Commission Regular Business Meeting"
     },
     {
-      "date": "2024-06-19",
-      "display": "June 19, 2024",
+      "date": "2024-06-17",
+      "display": "June 17, 2024",
       "youtube_id": "yQDIjHIzfh8",
       "youtube_url": "https://www.youtube.com/watch?v=yQDIjHIzfh8",
       "title": "June 17, 2024 City of Kalamazoo Historic District Commission - Regular Business Meeting"
     },
     {
-      "date": "2024-05-22",
-      "display": "May 22, 2024",
+      "date": "2024-05-21",
+      "display": "May 21, 2024",
       "youtube_id": "5wQ-OxIARyo",
       "youtube_url": "https://www.youtube.com/watch?v=5wQ-OxIARyo",
       "title": "May 21, 2024 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2024-04-17",
-      "display": "April 17, 2024",
+      "date": "2024-04-16",
+      "display": "April 16, 2024",
       "youtube_id": "ypQ0aIXxdfk",
       "youtube_url": "https://www.youtube.com/watch?v=ypQ0aIXxdfk",
       "title": "April 16, 2024 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2024-03-20",
-      "display": "March 20, 2024",
+      "date": "2024-03-19",
+      "display": "March 19, 2024",
       "youtube_id": "Up-qasMGEOA",
       "youtube_url": "https://www.youtube.com/watch?v=Up-qasMGEOA",
       "title": "March 19, 2024 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2024-03-14",
-      "display": "March 14, 2024",
+      "date": "2024-03-13",
+      "display": "March 13, 2024",
       "youtube_id": "ALynY7XqWQE",
       "youtube_url": "https://www.youtube.com/watch?v=ALynY7XqWQE",
       "title": "March 13, 2024 Historic District Commission"
     },
     {
-      "date": "2024-02-23",
-      "display": "February 23, 2024",
+      "date": "2024-02-20",
+      "display": "February 20, 2024",
       "youtube_id": "V3LdVAk4oVM",
       "youtube_url": "https://www.youtube.com/watch?v=V3LdVAk4oVM",
       "title": "February 20, 2024  Historic District Commission (Rebroadcast)"
     },
     {
-      "date": "2024-02-22",
-      "display": "February 22, 2024",
+      "date": "2024-02-20",
+      "display": "February 20, 2024",
       "youtube_id": "gFFoALTNJro",
       "youtube_url": "https://www.youtube.com/watch?v=gFFoALTNJro",
       "title": "February 20, 2024  Historic District Commission (Rebroadcast)"
     },
     {
-      "date": "2024-02-21",
-      "display": "February 21, 2024",
+      "date": "2024-02-20",
+      "display": "February 20, 2024",
       "youtube_id": "Qqp156jLjhc",
       "youtube_url": "https://www.youtube.com/watch?v=Qqp156jLjhc",
       "title": "February 20, 2024  Historic District Commission"
     },
     {
-      "date": "2024-01-17",
-      "display": "January 17, 2024",
+      "date": "2024-01-16",
+      "display": "January 16, 2024",
       "youtube_id": "QsYeiZvePjI",
       "youtube_url": "https://www.youtube.com/watch?v=QsYeiZvePjI",
       "title": "January 16,  2024 - Historic District Commission"
     },
     {
-      "date": "2023-12-19",
-      "display": "December 19, 2023",
+      "date": "2023-12-18",
+      "display": "December 18, 2023",
       "youtube_id": "3HDSesL9CQ0",
       "youtube_url": "https://www.youtube.com/watch?v=3HDSesL9CQ0",
       "title": "December 18, 2023 - City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2023-10-18",
-      "display": "October 18, 2023",
+      "date": "2023-10-17",
+      "display": "October 17, 2023",
       "youtube_id": "pfpLQWvSXO0",
       "youtube_url": "https://www.youtube.com/watch?v=pfpLQWvSXO0",
       "title": "October 17, 2023 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2023-08-16",
-      "display": "August 16, 2023",
+      "date": "2023-08-15",
+      "display": "August 15, 2023",
       "youtube_id": "1vpGbx1Rp18",
       "youtube_url": "https://www.youtube.com/watch?v=1vpGbx1Rp18",
       "title": "August 15, 2023 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2023-07-19",
-      "display": "July 19, 2023",
+      "date": "2023-07-18",
+      "display": "July 18, 2023",
       "youtube_id": "w082OBdTUis",
       "youtube_url": "https://www.youtube.com/watch?v=w082OBdTUis",
       "title": "July 18, 2023 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2023-06-23",
-      "display": "June 23, 2023",
+      "date": "2023-06-22",
+      "display": "June 22, 2023",
       "youtube_id": "OFwCO5FXDys",
       "youtube_url": "https://www.youtube.com/watch?v=OFwCO5FXDys",
       "title": "June 22, 2023 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2023-05-17",
-      "display": "May 17, 2023",
+      "date": "2023-05-16",
+      "display": "May 16, 2023",
       "youtube_id": "pkFec3qHaY8",
       "youtube_url": "https://www.youtube.com/watch?v=pkFec3qHaY8",
       "title": "May 16, 2023 City of Kalamazoo City - Historic District Commission"
     },
     {
-      "date": "2023-04-19",
-      "display": "April 19, 2023",
+      "date": "2023-04-18",
+      "display": "April 18, 2023",
       "youtube_id": "AlrOmrWg8eo",
       "youtube_url": "https://www.youtube.com/watch?v=AlrOmrWg8eo",
       "title": "April 18, 2023 City of Kalamazoo Historic District Commission"
@@ -753,8 +759,8 @@
       "title": "March 21, 2023 City of Kalamazoo Historic District Commission"
     },
     {
-      "date": "2023-02-22",
-      "display": "February 22, 2023",
+      "date": "2023-02-21",
+      "display": "February 21, 2023",
       "youtube_id": "ZJ-2X2VAWx8",
       "youtube_url": "https://www.youtube.com/watch?v=ZJ-2X2VAWx8",
       "title": "February 21, 2023 City of Kalamazoo - Historic District Commission"
