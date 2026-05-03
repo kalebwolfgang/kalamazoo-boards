@@ -442,6 +442,7 @@ def scrape_location_overrides(text: str) -> dict:
 
     for li_match in li_pattern.finditer(text):
         li_text = re.sub(r'<[^>]+>', ' ', li_match.group(1)).strip()
+        li_text = li_text.replace('&nbsp;', ' ')
         if any(p in li_text.lower() for p in ['spring', 'southside', 'axtell']):
             print(f"    DEBUG: {repr(li_text)}")
         loc_match = loc_pattern.search(li_text)
