@@ -701,9 +701,7 @@ fetch('data/bor.json')
     if (!list) return;
 
    if (upcoming.length === 0) {
-      list.innerHTML = `
-        <p style="font-size:16px;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:10px;">There are currently 0 upcoming meetings — check back to see when new meetings are added.</p>
-        <p style="font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:14px;">The Board of Review meets for three weeks in March to hear appeals beginning on the first Tuesday after the first Monday. It also meets in July and December to approve corrections to the Assessment Roll.</p>`;
+      list.innerHTML = `<p style="font-size:15px;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:14px;">There are currently 0 upcoming meetings — check back to see when new meetings are added.</p>`;
       return;
     }
 
