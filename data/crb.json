@@ -3,32 +3,17 @@
   "upcoming_meetings": [
     {
       "date": "2026-06-03",
-      "display": "Wednesday, June 3, 2026",
+      "display": "Wednesday, June 03, 2026",
       "time": "5:00 PM"
     },
     {
       "date": "2026-08-05",
-      "display": "Wednesday, August 5, 2026",
+      "display": "Wednesday, August 05, 2026",
       "time": "5:00 PM"
     },
     {
       "date": "2026-10-07",
-      "display": "Wednesday, October 7, 2026",
-      "time": "5:00 PM"
-    },
-    {
-      "date": "2026-12-02",
-      "display": "Wednesday, December 2, 2026",
-      "time": "5:00 PM"
-    },
-    {
-      "date": "2027-02-03",
-      "display": "Wednesday, February 3, 2027",
-      "time": "5:00 PM"
-    },
-    {
-      "date": "2027-04-07",
-      "display": "Wednesday, April 7, 2027",
+      "display": "Wednesday, October 07, 2026",
       "time": "5:00 PM"
     }
   ],
