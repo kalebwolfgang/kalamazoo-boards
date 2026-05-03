@@ -190,20 +190,20 @@ PRESERVE_IF_EMPTY    = ("agenda_url", "minutes_url", "youtube_id", "youtube_url"
 # ---------------------------------------------------------------------------
 
 BOARD_TIMES = {
-    "crb":    "5:00 PM",
-    "bra":    "7:45 AM \u2013 9:30 AM",
-    "cpsrab": "6:00 PM \u2013 8:00 PM",
-    "dda":    "3:00 PM \u2013 5:00 PM",
-    "dega":   "3:00 PM \u2013 5:00 PM",
-    "edc":    "7:45 AM",
-    "ec":     "9:00 AM",
-    "ecc":    "4:30 PM \u2013 6:30 PM",
-    "hdc":    "5:00 PM \u2013 7:00 PM",
-    "pension-board": "8:00 AM \u2013 9:00 AM",
-    "bba":    "4:00 PM \u2013 6:00 PM",
-    "cdaac":  "5:30 PM \u2013 7:30 PM",
+    "crb":          "5:00 PM",
+    "bra":          "7:45 AM \u2013 9:30 AM",
+    "cpsrab":       "6:00 PM \u2013 8:00 PM",
+    "dda":          "3:00 PM \u2013 5:00 PM",
+    "dega":         "3:00 PM \u2013 5:00 PM",
+    "edc":          "7:45 AM",
+    "ec":           "9:00 AM",
+    "ecc":          "4:30 PM \u2013 6:30 PM",
+    "hdc":          "5:00 PM \u2013 7:00 PM",
+    "hpc":          "6:00 PM \u2013 8:00 PM",
+    "pension-board":"8:00 AM \u2013 9:00 AM",
+    "bba":          "4:00 PM \u2013 6:00 PM",
+    "cdaac":        "5:30 PM \u2013 7:30 PM",
 }
-
 for b in BOARDS:
     b["time"] = BOARD_TIMES.get(b["key"], "TBD")
 
