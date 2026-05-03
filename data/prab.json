@@ -1,0 +1,47 @@
+{
+  "last_updated": "2026-05-03",
+  "upcoming_meetings": [
+    {
+      "date": "2026-05-05",
+      "display": "Tuesday, May 05, 2026",
+      "time": "5:30 PM – 7:30 PM"
+    },
+    {
+      "date": "2026-06-02",
+      "display": "Tuesday, June 02, 2026",
+      "time": "5:30 PM – 7:30 PM"
+    },
+    {
+      "date": "2026-07-07",
+      "display": "Tuesday, July 07, 2026",
+      "time": "5:30 PM – 7:30 PM",
+      "location": "Southside Park"
+    },
+    {
+      "date": "2026-08-04",
+      "display": "Tuesday, August 04, 2026",
+      "time": "5:30 PM – 7:30 PM",
+      "location": "Axtell Creek Park"
+    },
+    {
+      "date": "2026-09-08",
+      "display": "Tuesday, September 08, 2026",
+      "time": "5:30 PM – 7:30 PM"
+    },
+    {
+      "date": "2026-10-06",
+      "display": "Tuesday, October 06, 2026",
+      "time": "5:30 PM – 7:30 PM"
+    },
+    {
+      "date": "2026-11-10",
+      "display": "Tuesday, November 10, 2026",
+      "time": "5:30 PM – 7:30 PM"
+    },
+    {
+      "date": "2026-12-08",
+      "display": "Tuesday, December 08, 2026",
+      "time": "5:30 PM – 7:30 PM"
+    }
+  ]
+}
