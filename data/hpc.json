@@ -1,38 +1,50 @@
 {
-  "last_updated": "2026-05-02",
+  "last_updated": "2026-05-03",
   "upcoming_meetings": [
     {
       "date": "2026-05-13",
       "display": "Wednesday, May 13, 2026",
-      "time": "6:00 PM \u2013 8:00 PM"
+      "time": "6:00 PM – 8:00 PM"
     },
     {
       "date": "2026-06-10",
       "display": "Wednesday, June 10, 2026",
-      "time": "6:00 PM \u2013 8:00 PM"
+      "time": "6:00 PM – 8:00 PM"
     },
     {
       "date": "2026-07-08",
       "display": "Wednesday, July 8, 2026",
-      "time": "6:00 PM \u2013 8:00 PM"
+      "time": "6:00 PM – 8:00 PM"
     },
     {
       "date": "2026-08-12",
       "display": "Wednesday, August 12, 2026",
-      "time": "6:00 PM \u2013 8:00 PM"
+      "time": "6:00 PM – 8:00 PM"
+    },
+    {
+      "date": "2026-09-09",
+      "display": "Wednesday, September 9, 2026",
+      "time": "6:00 PM – 8:00 PM"
+    },
+    {
+      "date": "2026-10-14",
+      "display": "Wednesday, October 14, 2026",
+      "time": "6:00 PM – 8:00 PM"
     }
   ],
   "meetings": [
     {
-      "date": "2026-04-08",
-      "display": "April 8, 2026",
-      "event_id": 2675,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2675/files",
-      "link_label": "Agenda & Minutes",
+      "date": "2026-04-22",
+      "display": "April 22, 2026",
+      "event_id": 2764,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2764/files/agenda/4961",
+      "link_label": "Agenda",
       "meeting_type": "Historic Preservation Commission",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": null
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2764/files/agenda/4961",
+      "youtube_id": "bkDVjzmCPYQ",
+      "youtube_url": "https://www.youtube.com/watch?v=bkDVjzmCPYQ"
     },
     {
       "date": "2026-03-11",
@@ -42,19 +54,23 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Historic Preservation Commission",
       "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2674/files/agenda/4831"
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2674/files/agenda/4911",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2674/files/agenda/4831",
+      "youtube_id": "nmgvTPXJRyA",
+      "youtube_url": "https://www.youtube.com/watch?v=nmgvTPXJRyA"
     },
     {
       "date": "2026-02-11",
       "display": "February 11, 2026",
       "event_id": 2673,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2673/files/agenda/4718",
-      "link_label": "View notice",
+      "link_label": "Agenda",
       "meeting_type": "Historic Preservation Commission",
       "cancelled": true,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2673/files/agenda/4718"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2673/files/agenda/4718",
+      "youtube_id": null,
+      "youtube_url": null
     },
     {
       "date": "2026-01-14",
@@ -64,8 +80,10 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Historic Preservation Commission",
       "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2661/files/agenda/4632"
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2661/files/agenda/4693",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2661/files/agenda/4632",
+      "youtube_id": "FYS8rmM8H8k",
+      "youtube_url": "https://www.youtube.com/watch?v=FYS8rmM8H8k"
     },
     {
       "date": "2025-12-10",
@@ -75,67 +93,545 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Historic Preservation Commission",
       "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1403/files/agenda/4542"
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1403/files/agenda/4621",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1403/files/agenda/4542",
+      "youtube_id": "l5UhDJkT-7U",
+      "youtube_url": "https://www.youtube.com/watch?v=l5UhDJkT-7U"
     },
     {
       "date": "2025-11-12",
       "display": "November 12, 2025",
       "event_id": 1402,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1402/files/agenda/4425",
-      "link_label": "Agenda & Minutes",
+      "link_label": "Agenda",
       "meeting_type": "Historic Preservation Commission",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1402/files/agenda/4425"
-    },
-    {
-      "date": "2025-10-08",
-      "display": "October 8, 2025",
-      "event_id": 1401,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1401/files/agenda/4251",
-      "link_label": "View notice",
-      "meeting_type": "Historic Preservation Commission",
-      "cancelled": true,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1401/files/agenda/4251"
-    }
-  ],
-  "recordings": [
-    {
-      "date": "2026-03-11",
-      "display": "March 11, 2026",
-      "youtube_id": "nmgvTPXJRyA",
-      "youtube_url": "https://www.youtube.com/live/nmgvTPXJRyA",
-      "title": "March 11, 2026 Historic Preservation Commission"
-    },
-    {
-      "date": "2026-01-14",
-      "display": "January 14, 2026",
-      "youtube_id": "FYS8rmM8H8k",
-      "youtube_url": "https://www.youtube.com/watch?v=FYS8rmM8H8k",
-      "title": "January 14, 2026 Historic Preservation Commission"
-    },
-    {
-      "date": "2025-12-10",
-      "display": "December 10, 2025",
-      "youtube_id": "l5UhDJkT-7U",
-      "youtube_url": "https://www.youtube.com/watch?v=l5UhDJkT-7U",
-      "title": "December 10, 2025 Historic Preservation Commission"
-    },
-    {
-      "date": "2025-11-12",
-      "display": "November 12, 2025",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1402/files/agenda/4425",
       "youtube_id": "h5zUjQaK7WA",
-      "youtube_url": "https://www.youtube.com/watch?v=h5zUjQaK7WA",
-      "title": "November 12, 2025 Historic Preservation Commission"
+      "youtube_url": "https://www.youtube.com/watch?v=h5zUjQaK7WA"
+    },
+    {
+      "date": "2025-09-10",
+      "display": "September 10, 2025",
+      "event_id": 1400,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1400/files/agenda/4252",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1400/files/agenda/4272",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1400/files/agenda/4252",
+      "youtube_id": null,
+      "youtube_url": null
     },
     {
       "date": "2025-08-13",
       "display": "August 13, 2025",
+      "event_id": 1399,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1399/files/agenda/4155",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1399/files/agenda/4193",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1399/files/agenda/4155",
       "youtube_id": "O_b-gIGn6r4",
-      "youtube_url": "https://www.youtube.com/watch?v=O_b-gIGn6r4",
-      "title": "August 13, 2025 Historic Preservation Commission"
+      "youtube_url": "https://www.youtube.com/watch?v=O_b-gIGn6r4"
+    },
+    {
+      "date": "2025-07-09",
+      "display": "July 9, 2025",
+      "event_id": 1398,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1398/files/agenda/4040",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1398/files/agenda/4125",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1398/files/agenda/4040",
+      "youtube_id": null,
+      "youtube_url": null
+    },
+    {
+      "date": "2025-06-11",
+      "display": "June 11, 2025",
+      "event_id": 1397,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1397/files/agenda/3959",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1397/files/agenda/4021",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1397/files/agenda/3959",
+      "youtube_id": "SPOpFA_R0ig",
+      "youtube_url": "https://www.youtube.com/watch?v=SPOpFA_R0ig"
+    },
+    {
+      "date": "2025-05-21",
+      "display": "May 21, 2025",
+      "event_id": 1396,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1396/files/agenda/3915",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1396/files/agenda/3951",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1396/files/agenda/3915",
+      "youtube_id": "Ilk9PeAa_L8",
+      "youtube_url": "https://www.youtube.com/watch?v=Ilk9PeAa_L8"
+    },
+    {
+      "date": "2025-04-23",
+      "display": "April 23, 2025",
+      "event_id": 1395,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1395/files/agenda/3847",
+      "link_label": "Agenda",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1395/files/agenda/3847",
+      "youtube_id": null,
+      "youtube_url": null
+    },
+    {
+      "date": "2025-03-12",
+      "display": "March 12, 2025",
+      "event_id": 1394,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1394/files/agenda/3693",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1394/files/agenda/3716",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1394/files/agenda/3693",
+      "youtube_id": "O1Ns586R-GU",
+      "youtube_url": "https://www.youtube.com/watch?v=O1Ns586R-GU"
+    },
+    {
+      "date": "2025-02-12",
+      "display": "February 12, 2025",
+      "event_id": 1393,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1393/files/agenda/3574",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1393/files/agenda/3618",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1393/files/agenda/3574",
+      "youtube_id": "ilhke-3tltM",
+      "youtube_url": "https://www.youtube.com/watch?v=ilhke-3tltM"
+    },
+    {
+      "date": "2025-01-08",
+      "display": "January 8, 2025",
+      "event_id": 1392,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1392/files/agenda/3512",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1392/files/agenda/3517",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1392/files/agenda/3512",
+      "youtube_id": null,
+      "youtube_url": null
+    },
+    {
+      "date": "2024-12-11",
+      "display": "December 11, 2024",
+      "event_id": 1123,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1123/files/agenda/3419",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1123/files/agenda/3471",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1123/files/agenda/3419",
+      "youtube_id": "ctzLgEDNKdE",
+      "youtube_url": "https://www.youtube.com/watch?v=ctzLgEDNKdE"
+    },
+    {
+      "date": "2024-11-13",
+      "display": "November 13, 2024",
+      "event_id": 1122,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1122/files/agenda/3342",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1122/files/agenda/3407",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1122/files/agenda/3342",
+      "youtube_id": "jdFy0O-KWE8",
+      "youtube_url": "https://www.youtube.com/watch?v=jdFy0O-KWE8"
+    },
+    {
+      "date": "2024-10-09",
+      "display": "October 9, 2024",
+      "event_id": 1121,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1121/files/agenda/3212",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1121/files/agenda/3254",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1121/files/agenda/3212",
+      "youtube_id": null,
+      "youtube_url": null
+    },
+    {
+      "date": "2024-08-14",
+      "display": "August 14, 2024",
+      "event_id": 1119,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1119/files/agenda/3061",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1119/files/agenda/3253",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1119/files/agenda/3061",
+      "youtube_id": "96aPdBw1UMA",
+      "youtube_url": "https://www.youtube.com/watch?v=96aPdBw1UMA"
+    },
+    {
+      "date": "2024-07-10",
+      "display": "July 10, 2024",
+      "event_id": 1118,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1118/files/agenda/2991",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1118/files/agenda/3032",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1118/files/agenda/2991",
+      "youtube_id": "OImYHMR3tr0",
+      "youtube_url": "https://www.youtube.com/watch?v=OImYHMR3tr0"
+    },
+    {
+      "date": "2024-06-12",
+      "display": "June 12, 2024",
+      "event_id": 1117,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1117/files/agenda/2911",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1117/files/agenda/2980",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1117/files/agenda/2911",
+      "youtube_id": "ytqlTStHwFI",
+      "youtube_url": "https://www.youtube.com/watch?v=ytqlTStHwFI"
+    },
+    {
+      "date": "2024-03-13",
+      "display": "March 13, 2024",
+      "event_id": 1114,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1114/files/agenda/2684",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1114/files/agenda/2742",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1114/files/agenda/2684",
+      "youtube_id": null,
+      "youtube_url": null
+    },
+    {
+      "date": "2024-02-14",
+      "display": "February 14, 2024",
+      "event_id": 1113,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1113/files/agenda/2597",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1113/files/agenda/2741",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1113/files/agenda/2597",
+      "youtube_id": "Bb0L_Zjagmk",
+      "youtube_url": "https://www.youtube.com/watch?v=Bb0L_Zjagmk"
+    },
+    {
+      "date": "2024-01-10",
+      "display": "January 10, 2024",
+      "event_id": 1097,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1097/files/agenda/2509",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1097/files/agenda/2596",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1097/files/agenda/2509",
+      "youtube_id": "z1Yg9WS9Aho",
+      "youtube_url": "https://www.youtube.com/watch?v=z1Yg9WS9Aho"
+    },
+    {
+      "date": "2023-12-13",
+      "display": "December 13, 2023",
+      "event_id": 839,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/839/files/agenda/2450",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/839/files/agenda/2492",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/839/files/agenda/2450",
+      "youtube_id": "7Gj1Evn01P8",
+      "youtube_url": "https://www.youtube.com/watch?v=7Gj1Evn01P8"
+    },
+    {
+      "date": "2023-09-13",
+      "display": "September 13, 2023",
+      "event_id": 836,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/836/files/agenda/2212",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/836/files/agenda/2452",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/836/files/agenda/2212",
+      "youtube_id": null,
+      "youtube_url": null
+    },
+    {
+      "date": "2023-08-09",
+      "display": "August 9, 2023",
+      "event_id": 835,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/835/files/agenda/2142",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/835/files/agenda/2214",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/835/files/agenda/2142",
+      "youtube_id": "ep-rJLioQ_s",
+      "youtube_url": "https://www.youtube.com/watch?v=ep-rJLioQ_s"
+    },
+    {
+      "date": "2023-07-12",
+      "display": "July 12, 2023",
+      "event_id": 834,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/834/files/agenda/2078",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/834/files/agenda/2107",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/834/files/agenda/2078",
+      "youtube_id": "tHs2Ss3w6oA",
+      "youtube_url": "https://www.youtube.com/watch?v=tHs2Ss3w6oA"
+    },
+    {
+      "date": "2023-06-14",
+      "display": "June 14, 2023",
+      "event_id": 833,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/833/files/agenda/2039",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/833/files/agenda/2063",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/833/files/agenda/2039",
+      "youtube_id": "Cel_PevQ9Xg",
+      "youtube_url": "https://www.youtube.com/watch?v=Cel_PevQ9Xg"
+    },
+    {
+      "date": "2023-04-12",
+      "display": "April 12, 2023",
+      "event_id": 831,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/831/files/agenda/1880",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/831/files/agenda/1931",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/831/files/agenda/1880",
+      "youtube_id": "2WZvjfXQLfM",
+      "youtube_url": "https://www.youtube.com/watch?v=2WZvjfXQLfM"
+    },
+    {
+      "date": "2023-03-08",
+      "display": "March 8, 2023",
+      "event_id": 830,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/830/files/agenda/1799",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/830/files/agenda/1879",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/830/files/agenda/1799",
+      "youtube_id": "gUuh5JoMRsU",
+      "youtube_url": "https://www.youtube.com/watch?v=gUuh5JoMRsU"
+    },
+    {
+      "date": "2023-02-08",
+      "display": "February 8, 2023",
+      "event_id": 829,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/829/files/agenda/1726",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Historic Preservation Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/829/files/agenda/1757",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/829/files/agenda/1726",
+      "youtube_id": "NFSEPVL8-Ks",
+      "youtube_url": "https://www.youtube.com/watch?v=NFSEPVL8-Ks"
+    }
+  ],
+  "recordings": [
+    {
+      "date": "2024-04-25",
+      "display": "April 25, 2024",
+      "youtube_id": "fX0KyLnjdVc",
+      "youtube_url": "https://www.youtube.com/watch?v=fX0KyLnjdVc",
+      "title": "April 23, 2024 City of Kalamazoo Historic Preservation Commission"
+    },
+    {
+      "date": "2023-02-15",
+      "display": "February 15, 2023",
+      "youtube_id": "MslkrS6b1Bg",
+      "youtube_url": "https://www.youtube.com/watch?v=MslkrS6b1Bg",
+      "title": "February 8, 2023 City of Kalamazoo Historic Preservation Commission"
+    },
+    {
+      "date": "2022-12-15",
+      "display": "December 15, 2022",
+      "youtube_id": "BLDU6vBJoCI",
+      "youtube_url": "https://www.youtube.com/watch?v=BLDU6vBJoCI",
+      "title": "December 14, 2022 City of Kalamazoo Historical Preservation Commission"
+    },
+    {
+      "date": "2022-11-10",
+      "display": "November 10, 2022",
+      "youtube_id": "QadOXVcdANU",
+      "youtube_url": "https://www.youtube.com/watch?v=QadOXVcdANU",
+      "title": "November 9, 2022 City of Kalamazoo Historic Preservation Commission"
+    },
+    {
+      "date": "2022-10-12",
+      "display": "October 12, 2022",
+      "youtube_id": "Qn37ZEE4jCs",
+      "youtube_url": "https://www.youtube.com/watch?v=Qn37ZEE4jCs",
+      "title": "October 12, 2022 City of Kalamazoo Historic Preservation Commission"
+    },
+    {
+      "date": "2022-09-14",
+      "display": "September 14, 2022",
+      "youtube_id": "pvdwhX43ij0",
+      "youtube_url": "https://www.youtube.com/watch?v=pvdwhX43ij0",
+      "title": "September 14, 2022 City of Kalamazoo Historic Preservation Commission"
+    },
+    {
+      "date": "2022-08-10",
+      "display": "August 10, 2022",
+      "youtube_id": "9Q52kW6ityo",
+      "youtube_url": "https://www.youtube.com/watch?v=9Q52kW6ityo",
+      "title": "August 10, 2022 City of Kalamazoo Historic Preservation Commission"
+    },
+    {
+      "date": "2022-07-13",
+      "display": "July 13, 2022",
+      "youtube_id": "qR7qiqv-KWw",
+      "youtube_url": "https://www.youtube.com/watch?v=qR7qiqv-KWw",
+      "title": "July 13, 2022 City of Kalamazoo Historic Preservation Commission"
+    },
+    {
+      "date": "2021-11-11",
+      "display": "November 11, 2021",
+      "youtube_id": "YPEBe-ydDNU",
+      "youtube_url": "https://www.youtube.com/watch?v=YPEBe-ydDNU",
+      "title": "Historic Preservation Commission – November 10, 2021"
+    },
+    {
+      "date": "2021-10-13",
+      "display": "October 13, 2021",
+      "youtube_id": "_pe6OGCbWH0",
+      "youtube_url": "https://www.youtube.com/watch?v=_pe6OGCbWH0",
+      "title": "Historic Preservation Commission – October 13, 2021"
+    },
+    {
+      "date": "2021-09-08",
+      "display": "September 8, 2021",
+      "youtube_id": "-5y39wBu8s4",
+      "youtube_url": "https://www.youtube.com/watch?v=-5y39wBu8s4",
+      "title": "Historic Preservation Commission - September 8, 2021"
+    },
+    {
+      "date": "2021-07-14",
+      "display": "July 14, 2021",
+      "youtube_id": "3ehsrD-aPhw",
+      "youtube_url": "https://www.youtube.com/watch?v=3ehsrD-aPhw",
+      "title": "Historic Preservation Commission - July 14, 2021"
+    },
+    {
+      "date": "2021-06-10",
+      "display": "June 10, 2021",
+      "youtube_id": "ZBVyP4TTWBY",
+      "youtube_url": "https://www.youtube.com/watch?v=ZBVyP4TTWBY",
+      "title": "Historic Preservation Commission - June 9, 2021"
+    },
+    {
+      "date": "2021-05-26",
+      "display": "May 26, 2021",
+      "youtube_id": "E47z2O8bqE4",
+      "youtube_url": "https://www.youtube.com/watch?v=E47z2O8bqE4",
+      "title": "The Kalamazoo Historic Preservation Commission 2020 and 2021 Awards of Merit"
+    },
+    {
+      "date": "2021-05-12",
+      "display": "May 12, 2021",
+      "youtube_id": "rrUgl56-nWQ",
+      "youtube_url": "https://www.youtube.com/watch?v=rrUgl56-nWQ",
+      "title": "Historic Preservation Commission - May 12, 2021"
+    },
+    {
+      "date": "2021-04-15",
+      "display": "April 15, 2021",
+      "youtube_id": "jTrsKLBZyC8",
+      "youtube_url": "https://www.youtube.com/watch?v=jTrsKLBZyC8",
+      "title": "Historic Preservation Commission - April 14, 2021"
+    },
+    {
+      "date": "2021-03-11",
+      "display": "March 11, 2021",
+      "youtube_id": "RMUN0-v6KPI",
+      "youtube_url": "https://www.youtube.com/watch?v=RMUN0-v6KPI",
+      "title": "Historic Preservation Commission, March 10, 2021"
+    },
+    {
+      "date": "2021-02-25",
+      "display": "February 25, 2021",
+      "youtube_id": "C7VEjeQSyZw",
+      "youtube_url": "https://www.youtube.com/watch?v=C7VEjeQSyZw",
+      "title": "Historic Preservation Commission - February 24, 2021"
+    },
+    {
+      "date": "2021-02-11",
+      "display": "February 11, 2021",
+      "youtube_id": "PiW48TbAk1E",
+      "youtube_url": "https://www.youtube.com/watch?v=PiW48TbAk1E",
+      "title": "Historic Preservation Commission - February 10, 2021"
+    },
+    {
+      "date": "2021-01-14",
+      "display": "January 14, 2021",
+      "youtube_id": "n8A7bTafeb4",
+      "youtube_url": "https://www.youtube.com/watch?v=n8A7bTafeb4",
+      "title": "Historic Preservation Commission - January 13, 2021"
+    },
+    {
+      "date": "2020-12-10",
+      "display": "December 10, 2020",
+      "youtube_id": "zOfV0pQLBWI",
+      "youtube_url": "https://www.youtube.com/watch?v=zOfV0pQLBWI",
+      "title": "Historic Preservation Commission - December 9, 2020"
+    },
+    {
+      "date": "2020-11-11",
+      "display": "November 11, 2020",
+      "youtube_id": "-gKsTd7gpNc",
+      "youtube_url": "https://www.youtube.com/watch?v=-gKsTd7gpNc",
+      "title": "Historic Preservation Commission, November 10, 2020"
+    },
+    {
+      "date": "2020-10-14",
+      "display": "October 14, 2020",
+      "youtube_id": "Y7kxwqx0YcM",
+      "youtube_url": "https://www.youtube.com/watch?v=Y7kxwqx0YcM",
+      "title": "Historic Preservation Commission - October 14, 2020"
+    },
+    {
+      "date": "2020-09-09",
+      "display": "September 9, 2020",
+      "youtube_id": "O1ljQRLmP5M",
+      "youtube_url": "https://www.youtube.com/watch?v=O1ljQRLmP5M",
+      "title": "Historic Preservation Commission, September 9, 2020 (Part 2)"
+    },
+    {
+      "date": "2020-09-09",
+      "display": "September 9, 2020",
+      "youtube_id": "yCSbLrN8PBg",
+      "youtube_url": "https://www.youtube.com/watch?v=yCSbLrN8PBg",
+      "title": "Historic Preservation Commission, September 9, 2020 (Part 1)"
+    },
+    {
+      "date": "2020-07-22",
+      "display": "July 22, 2020",
+      "youtube_id": "DToWtfz7XgE",
+      "youtube_url": "https://www.youtube.com/watch?v=DToWtfz7XgE",
+      "title": "Historic Preservation Commission"
     }
   ]
 }
