@@ -165,6 +165,11 @@
     .sidebar-card-body { padding: 18px; }
 
     /* Meetings */
+    .meeting-item { padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); }
+    .meeting-item:last-of-type { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .next-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-bottom: 5px; }
+    .meeting-date { font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.4; }
+    .meeting-time { font-size: 14px; color: var(--muted); margin-top: 2px; }
     .meeting-note { font-size: 14px; color: var(--muted); line-height: 1.5; }
     .meeting-location { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-lt); }
     .location-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
@@ -177,7 +182,7 @@
     .members-inner { max-width: 1400px; margin: 0 auto; }
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
-    
+
     .members-table-guide-link { font-size: 13px; color: var(--muted); margin-top: -8px; margin-bottom: 12px; }
     .members-table-guide-link a { color: var(--navy-light); text-decoration: none; }
     .members-table-guide-link a:hover { text-decoration: underline; }
@@ -185,7 +190,7 @@
     /* Outer wrapper */
     .members-table-outer { position: relative; }
 
-    /* Horizontal scroll track — above table, injected via JS */
+    /* Horizontal scroll track */
     .h-scroll-track { height: 6px; background: #e0dbd2; border: 1px solid var(--border); border-radius: 3px; position: relative; margin-bottom: 8px; }
     .h-scroll-thumb { position: absolute; top: 0; height: 6px; background: #1c2333; border-radius: 3px; min-width: 32px; }
     @media (min-width: 900px) { .h-scroll-track { display: none; } }
@@ -421,6 +426,7 @@
         Meetings
       </div>
       <div class="sidebar-card-body">
+        <div id="upcoming-meetings-list"></div>
         <p class="meeting-note">The Traffic Board does not have a regular meeting schedule. Special meetings are called as needed.</p>
         <div class="meeting-location">
           <div class="location-name">Kalamazoo Public Services</div>
@@ -440,7 +446,7 @@
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
     <p class="members-subhead">6 seats · Position-based appointments</p>
-    
+
     <p class="members-table-guide-link">
       New to these terms? <a href="faq.html#members-table">See definitions and learn more →</a>
     </p>
@@ -512,6 +518,45 @@ function subLabel(m) {
 
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 
+// ── Upcoming meetings from trb.json ──────────────────
+fetch('data/trb.json')
+  .then(r => r.json())
+  .then(data => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const upcoming = (data.upcoming_meetings || [])
+      .filter(m => new Date(m.date + 'T00:00:00') >= today)
+      .slice(0, 3);
+
+    const container = document.getElementById('upcoming-meetings-list');
+    if (!container) return;
+
+    if (upcoming.length === 0) {
+      container.innerHTML = '<p style="font-size:15px;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:14px;">No meetings are currently scheduled — special meetings are called as needed. Check the <a href="https://www.kalamazoocity.org/Government/Boards-Commissions/Traffic-Board" target="_blank" rel="noopener" style="color:var(--navy-light)">city website</a> for updates.</p>';
+      return;
+    }
+
+    let firstFound = false;
+    upcoming.forEach(m => {
+      const timeHTML = m.time ? `<div class="meeting-time">${m.time}</div>` : '';
+      const item = document.createElement('div');
+      item.className = 'meeting-item';
+      item.innerHTML = `
+        <div class="next-badge" style="display:none">Next</div>
+        <div class="meeting-date">${m.display}</div>
+        ${timeHTML}
+      `;
+      if (!firstFound) {
+        item.querySelector('.next-badge').style.display = '';
+        firstFound = true;
+      }
+      container.appendChild(item);
+    });
+  })
+  .catch(err => console.error('Could not load trb.json:', err));
+
+// ── Members from boards.json ──────────────────────────
 fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
@@ -520,7 +565,6 @@ fetch('boards.json')
 
     const members = board.members;
 
-    // ── Seat stats ───────────────────────────────────────
     let nO = 0, nT = 0, nS = 0;
     members.forEach(m => {
       const ds = displayStatus(seatStatus(m));
@@ -533,7 +577,6 @@ fetch('boards.json')
     document.getElementById('stat-trans').textContent  = nT;
     document.getElementById('stat-seated').textContent = nS;
 
-    // ── Header dots ──────────────────────────────────────
     const dotsEl = document.getElementById('header-dots');
     members.forEach(m => {
       const ds  = displayStatus(seatStatus(m));
@@ -550,7 +593,6 @@ fetch('boards.json')
       dotsEl.appendChild(dot);
     });
 
-    // ── Members table ─────────────────────────────────────
     const tbody = document.getElementById('members-tbody');
     members.forEach(m => {
       const st  = seatStatus(m);
@@ -563,19 +605,14 @@ fetch('boards.json')
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td style="text-align:center">
-          <span class="member-dot ${col}"></span>
-        </td>
-        <td>
-          <div class="member-name ${m.isVacant ? 'vacant' : ''}">${name}</div>
-        </td>
+        <td style="text-align:center"><span class="member-dot ${col}"></span></td>
+        <td><div class="member-name ${m.isVacant ? 'vacant' : ''}">${name}</div></td>
         <td>${posDisplay}</td>
         <td><span class="status-badge ${ds}">${dsLabel}</span></td>
       `;
       tbody.appendChild(tr);
     });
 
-    // ── Tooltip / Bottom Sheet ─────────────────────────────
     const tooltip = document.getElementById('tooltip');
     const ttName  = document.getElementById('tt-name');
     const ttRole  = document.getElementById('tt-role');
@@ -641,8 +678,7 @@ fetch('boards.json')
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-
-// Horizontal scroll track for members table
+// ── Horizontal scroll track ───────────────────────────
 (function () {
   const wrap  = document.getElementById('members-table-wrap');
   const outer = document.getElementById('members-table-outer');
@@ -674,7 +710,7 @@ fetch('boards.json')
   update();
 })();
 
-// Prevent rubber-band overscroll at horizontal boundaries (older iOS Safari)
+// ── Prevent rubber-band overscroll (iOS) ─────────────
 (function () {
   const wrap = document.getElementById('members-table-wrap');
   if (!wrap) return;
