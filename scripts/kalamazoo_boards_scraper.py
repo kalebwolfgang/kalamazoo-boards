@@ -434,7 +434,7 @@ def scrape_location_overrides(text: str) -> dict:
     pattern = re.compile(
         r'(January|February|March|April|May|June|July|August'
         r'|September|October|November|December)'
-        r'\s+(\d{1,2})\s+at\s+([A-Z][^,\n<]+)',
+        r'\s+(\d{1,2})\s+at\s+(?:<[^>]*>)?([A-Z][^,\n<]+)',
         re.IGNORECASE
     )
     today = date.today()
