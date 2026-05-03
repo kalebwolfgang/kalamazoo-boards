@@ -3,17 +3,32 @@
   "upcoming_meetings": [
     {
       "date": "2026-06-03",
-      "display": "Wednesday, June 03, 2026",
+      "display": "Wednesday, June 3, 2026",
       "time": "5:00 PM"
     },
     {
       "date": "2026-08-05",
-      "display": "Wednesday, August 05, 2026",
+      "display": "Wednesday, August 5, 2026",
       "time": "5:00 PM"
     },
     {
       "date": "2026-10-07",
-      "display": "Wednesday, October 07, 2026",
+      "display": "Wednesday, October 7, 2026",
+      "time": "5:00 PM"
+    },
+    {
+      "date": "2026-12-02",
+      "display": "Wednesday, December 2, 2026",
+      "time": "5:00 PM"
+    },
+    {
+      "date": "2027-02-03",
+      "display": "Wednesday, February 3, 2027",
+      "time": "5:00 PM"
+    },
+    {
+      "date": "2027-04-07",
+      "display": "Wednesday, April 7, 2027",
       "time": "5:00 PM"
     }
   ],
@@ -26,7 +41,9 @@
       "link_label": "Agenda",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905",
+      "youtube_id": "EHLmMUNh2ic",
+      "youtube_url": "https://www.youtube.com/watch?v=EHLmMUNh2ic"
     },
     {
       "date": "2026-02-04",
@@ -36,7 +53,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4915",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4680"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4680",
+      "youtube_id": "AyZ7Xlchn0g",
+      "youtube_url": "https://www.youtube.com/watch?v=AyZ7Xlchn0g"
     },
     {
       "date": "2025-12-03",
@@ -46,7 +65,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4701",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4496"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4496",
+      "youtube_id": "S-fbz2QWogk",
+      "youtube_url": "https://www.youtube.com/watch?v=S-fbz2QWogk"
     },
     {
       "date": "2025-10-01",
@@ -56,7 +77,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4700",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300",
+      "youtube_id": "tlmv3vpCP7A",
+      "youtube_url": "https://www.youtube.com/watch?v=tlmv3vpCP7A"
     },
     {
       "date": "2025-08-06",
@@ -66,7 +89,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4707",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4116"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4116",
+      "youtube_id": "wyMIZJ_dFrY",
+      "youtube_url": "https://www.youtube.com/watch?v=wyMIZJ_dFrY"
     },
     {
       "date": "2025-06-04",
@@ -76,7 +101,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2466/files/agenda/4702",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2466/files/agenda/3926"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2466/files/agenda/3926",
+      "youtube_id": "OJVi3FyK8YE",
+      "youtube_url": "https://www.youtube.com/watch?v=OJVi3FyK8YE"
     },
     {
       "date": "2025-04-30",
@@ -86,7 +113,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/4703",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/3858"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/3858",
+      "youtube_id": "9QghnWyUTPM",
+      "youtube_url": "https://www.youtube.com/watch?v=9QghnWyUTPM"
     },
     {
       "date": "2025-04-02",
@@ -106,7 +135,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2462/files/agenda/4704",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2462/files/agenda/3556"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2462/files/agenda/3556",
+      "youtube_id": "WEL6x-IqZDM",
+      "youtube_url": "https://www.youtube.com/watch?v=WEL6x-IqZDM"
     },
     {
       "date": "2024-12-04",
@@ -126,7 +157,9 @@
       "link_label": "Agenda",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1050/files/agenda/3179"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1050/files/agenda/3179",
+      "youtube_id": "-HHCaV8nAbc",
+      "youtube_url": "https://www.youtube.com/watch?v=-HHCaV8nAbc"
     },
     {
       "date": "2024-08-07",
@@ -136,7 +169,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1048/files/agenda/4141",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1048/files/agenda/3049"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1048/files/agenda/3049",
+      "youtube_id": "sZispkBntfQ",
+      "youtube_url": "https://www.youtube.com/watch?v=sZispkBntfQ"
     },
     {
       "date": "2024-06-05",
@@ -146,7 +181,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1046/files/agenda/4140",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1046/files/agenda/2878"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1046/files/agenda/2878",
+      "youtube_id": "sjBbRZ3C6lA",
+      "youtube_url": "https://www.youtube.com/watch?v=sjBbRZ3C6lA"
     },
     {
       "date": "2024-04-03",
@@ -156,7 +193,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1044/files/agenda/3036",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1044/files/agenda/2748"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1044/files/agenda/2748",
+      "youtube_id": "ouv106OKGWA",
+      "youtube_url": "https://www.youtube.com/watch?v=ouv106OKGWA"
     },
     {
       "date": "2024-02-07",
@@ -166,7 +205,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1042/files/agenda/3037",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1042/files/agenda/2575"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1042/files/agenda/2575",
+      "youtube_id": "7a_ngfYjjnA",
+      "youtube_url": "https://www.youtube.com/watch?v=7a_ngfYjjnA"
     },
     {
       "date": "2023-12-06",
@@ -176,7 +217,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/882/files/agenda/3034",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/882/files/agenda/2397"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/882/files/agenda/2397",
+      "youtube_id": "WY_WPU4DmmU",
+      "youtube_url": "https://www.youtube.com/watch?v=WY_WPU4DmmU"
     },
     {
       "date": "2023-11-01",
@@ -186,7 +229,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/881/files/agenda/3033",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/881/files/agenda/2340"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/881/files/agenda/2340",
+      "youtube_id": "KW-MLKpqvc8",
+      "youtube_url": "https://www.youtube.com/watch?v=KW-MLKpqvc8"
     },
     {
       "date": "2023-10-04",
@@ -196,7 +241,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/3030",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/2253"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/2253",
+      "youtube_id": "ez7bJo5V5NM",
+      "youtube_url": "https://www.youtube.com/watch?v=ez7bJo5V5NM"
     },
     {
       "date": "2023-09-06",
@@ -216,7 +263,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/869/files/agenda/2947",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/869/files/agenda/2118"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/869/files/agenda/2118",
+      "youtube_id": "1n9rQncA8ac",
+      "youtube_url": "https://www.youtube.com/watch?v=1n9rQncA8ac"
     },
     {
       "date": "2023-06-07",
@@ -226,7 +275,9 @@
       "link_label": "Agenda",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/868/files/agenda/2028"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/868/files/agenda/2028",
+      "youtube_id": "bF7OxOMgO3o",
+      "youtube_url": "https://www.youtube.com/watch?v=bF7OxOMgO3o"
     },
     {
       "date": "2023-04-24",
@@ -236,7 +287,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/867/files/agenda/2031",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/867/files/agenda/1849"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/867/files/agenda/1849",
+      "youtube_id": "cks4bZtoUBY",
+      "youtube_url": "https://www.youtube.com/watch?v=cks4bZtoUBY"
     },
     {
       "date": "2023-02-01",
@@ -246,7 +299,9 @@
       "link_label": "Minutes",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/866/files/agenda/1943",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/866/files/agenda/1710"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/866/files/agenda/1710",
+      "youtube_id": "DuCelMA3YXQ",
+      "youtube_url": "https://www.youtube.com/watch?v=DuCelMA3YXQ"
     }
   ],
   "recordings": [
@@ -297,7 +352,21 @@
       "display": "April 30, 2025",
       "youtube_id": "9QghnWyUTPM",
       "youtube_url": "https://www.youtube.com/watch?v=9QghnWyUTPM",
-      "title": "April 30, 2025 Civil Rights Board"
+      "title": "April 30, 2025 City of Kalamazoo Civil Rights Board"
+    },
+    {
+      "date": "2025-04-30",
+      "display": "April 30, 2025",
+      "youtube_id": "7omxmVQxqGA",
+      "youtube_url": "https://www.youtube.com/watch?v=7omxmVQxqGA",
+      "title": "April 30, 2025 City of Kalamazoo Civil Rights Board"
+    },
+    {
+      "date": "2025-04-30",
+      "display": "April 30, 2025",
+      "youtube_id": "w-GWTtWM7eU",
+      "youtube_url": "https://www.youtube.com/watch?v=w-GWTtWM7eU",
+      "title": "April 30, 2025 City of Kalamazoo Civil Rights Board"
     },
     {
       "date": "2025-02-05",
@@ -311,42 +380,42 @@
       "display": "October 2, 2024",
       "youtube_id": "-HHCaV8nAbc",
       "youtube_url": "https://www.youtube.com/watch?v=-HHCaV8nAbc",
-      "title": "October 2, 2024 Civil Rights Board"
+      "title": "October 2, 2024 City of Kalamazoo Civil Rights Board"
     },
     {
       "date": "2024-08-07",
       "display": "August 7, 2024",
       "youtube_id": "sZispkBntfQ",
       "youtube_url": "https://www.youtube.com/watch?v=sZispkBntfQ",
-      "title": "August 7, 2024 Civil Rights Board"
+      "title": "August 7, 2024 City of Kalamazoo Civil Rights Board"
     },
     {
       "date": "2024-06-05",
       "display": "June 5, 2024",
       "youtube_id": "sjBbRZ3C6lA",
       "youtube_url": "https://www.youtube.com/watch?v=sjBbRZ3C6lA",
-      "title": "June 5, 2024 Civil Rights Board"
+      "title": "June 5, 2024 City of Kalamazoo Civil Rights Board"
     },
     {
       "date": "2024-04-03",
       "display": "April 3, 2024",
       "youtube_id": "ouv106OKGWA",
       "youtube_url": "https://www.youtube.com/watch?v=ouv106OKGWA",
-      "title": "April 3, 2024 Civil Rights Board"
+      "title": "April 3, 2024 City of Kalamazoo Civil Rights Board"
     },
     {
       "date": "2024-02-07",
       "display": "February 7, 2024",
       "youtube_id": "7a_ngfYjjnA",
       "youtube_url": "https://www.youtube.com/watch?v=7a_ngfYjjnA",
-      "title": "February 7, 2024 Civil Rights Board"
+      "title": "February 7, 2024 City of Kalamazoo Civil Rights Board"
     },
     {
       "date": "2023-12-06",
       "display": "December 6, 2023",
       "youtube_id": "WY_WPU4DmmU",
       "youtube_url": "https://www.youtube.com/watch?v=WY_WPU4DmmU",
-      "title": "December 6, 2023 Kalamazoo Civil Rights Board"
+      "title": "December 6, 2023 City of Kalamazoo Civil Rights Board"
     },
     {
       "date": "2023-11-01",
@@ -367,21 +436,28 @@
       "display": "August 2, 2023",
       "youtube_id": "1n9rQncA8ac",
       "youtube_url": "https://www.youtube.com/watch?v=1n9rQncA8ac",
-      "title": "August 2, 2023 City of Kalamazoo Civil Rights Board"
+      "title": "August 2, 2023 City of Kalamazoo Civil RIghts Board"
     },
     {
       "date": "2023-06-07",
       "display": "June 7, 2023",
       "youtube_id": "bF7OxOMgO3o",
       "youtube_url": "https://www.youtube.com/watch?v=bF7OxOMgO3o",
-      "title": "June 7, 2023 City of Kalamazoo Civil Rights Board"
+      "title": "June 7, 2023 City of Kalamazoo - Civil Rights Board"
     },
     {
       "date": "2023-04-24",
       "display": "April 24, 2023",
       "youtube_id": "cks4bZtoUBY",
       "youtube_url": "https://www.youtube.com/watch?v=cks4bZtoUBY",
-      "title": "April 24, 2023 City of Kalamazoo Civil Rights Board"
+      "title": "April 24, 2023 - City of Kalamazoo Civil Rights Board"
+    },
+    {
+      "date": "2023-04-24",
+      "display": "April 24, 2023",
+      "youtube_id": "Zayq3MQNXP8",
+      "youtube_url": "https://www.youtube.com/watch?v=Zayq3MQNXP8",
+      "title": "April 24, 2023 - City of Kalamazoo Civil Rights Board"
     },
     {
       "date": "2023-02-01",
@@ -391,29 +467,29 @@
       "title": "February 1, 2023 City of Kalamazoo Civil Rights Board"
     },
     {
-      "date": "2022-12-08",
-      "display": "December 8, 2022",
+      "date": "2022-12-07",
+      "display": "December 7, 2022",
       "youtube_id": "y5XKYBXDBjM",
       "youtube_url": "https://www.youtube.com/watch?v=y5XKYBXDBjM",
       "title": "December 7, 2022 Kalamazoo Civil Rights Board"
     },
     {
-      "date": "2022-10-06",
-      "display": "October 6, 2022",
+      "date": "2022-10-05",
+      "display": "October 5, 2022",
       "youtube_id": "5R_ebltfDfw",
       "youtube_url": "https://www.youtube.com/watch?v=5R_ebltfDfw",
       "title": "October 5, 2022 City of Kalamazoo Civil Rights Board"
     },
     {
-      "date": "2022-09-08",
-      "display": "September 8, 2022",
+      "date": "2022-09-07",
+      "display": "September 7, 2022",
       "youtube_id": "7fwCUOGLzag",
       "youtube_url": "https://www.youtube.com/watch?v=7fwCUOGLzag",
       "title": "September 7, 2022 City of Kalamazoo Civil Rights Board"
     },
     {
-      "date": "2022-08-04",
-      "display": "August 4, 2022",
+      "date": "2022-08-03",
+      "display": "August 3, 2022",
       "youtube_id": "fwSVOvQktGU",
       "youtube_url": "https://www.youtube.com/watch?v=fwSVOvQktGU",
       "title": "August 3, 2022 City of Kalamazoo Civil Rights Board"
@@ -426,8 +502,8 @@
       "title": "June 30, 2022 City of Kalamazoo Civil Rights Board"
     },
     {
-      "date": "2022-05-10",
-      "display": "May 10, 2022",
+      "date": "2022-05-09",
+      "display": "May 9, 2022",
       "youtube_id": "xOLgMiv8h9Q",
       "youtube_url": "https://www.youtube.com/watch?v=xOLgMiv8h9Q",
       "title": "May 9, 2022 City of Kalamazoo Civil Rights Board Special Meeting"
@@ -440,15 +516,15 @@
       "title": "Civil Rights Board - October 6, 2021"
     },
     {
-      "date": "2021-09-02",
-      "display": "September 2, 2021",
+      "date": "2021-09-01",
+      "display": "September 1, 2021",
       "youtube_id": "9PTI_HSJnSA",
       "youtube_url": "https://www.youtube.com/watch?v=9PTI_HSJnSA",
       "title": "Civil Rights Board - September 1, 2021"
     },
     {
-      "date": "2021-07-01",
-      "display": "July 1, 2021",
+      "date": "2021-06-30",
+      "display": "June 30, 2021",
       "youtube_id": "USQ7p0DgKKk",
       "youtube_url": "https://www.youtube.com/watch?v=USQ7p0DgKKk",
       "title": "Civil Rights Board - June 30, 2021"
@@ -461,8 +537,8 @@
       "title": "Civil Rights Board - June 2, 2021"
     },
     {
-      "date": "2021-04-08",
-      "display": "April 8, 2021",
+      "date": "2021-04-07",
+      "display": "April 7, 2021",
       "youtube_id": "_9Vmalbpp6g",
       "youtube_url": "https://www.youtube.com/watch?v=_9Vmalbpp6g",
       "title": "Civil Rights Board - April 7, 2021"
@@ -475,36 +551,36 @@
       "title": "Civil Rights Board, Friday, March 19, 2021"
     },
     {
-      "date": "2021-03-04",
-      "display": "March 4, 2021",
+      "date": "2021-03-03",
+      "display": "March 3, 2021",
       "youtube_id": "mh7Dyk-OjVs",
       "youtube_url": "https://www.youtube.com/watch?v=mh7Dyk-OjVs",
       "title": "Civil Rights Board - March 3, 2021"
     },
     {
-      "date": "2021-02-04",
-      "display": "February 4, 2021",
+      "date": "2021-02-03",
+      "display": "February 3, 2021",
       "youtube_id": "GBZ5Syifhv0",
       "youtube_url": "https://www.youtube.com/watch?v=GBZ5Syifhv0",
       "title": "Civil Rights Board - February 3, 2021"
     },
     {
-      "date": "2021-01-07",
-      "display": "January 7, 2021",
+      "date": "2021-01-06",
+      "display": "January 6, 2021",
       "youtube_id": "fRUIfAKCVF0",
       "youtube_url": "https://www.youtube.com/watch?v=fRUIfAKCVF0",
       "title": "Civil Rights Board - January 6, 2021"
     },
     {
-      "date": "2020-12-24",
-      "display": "December 24, 2020",
+      "date": "2020-12-23",
+      "display": "December 23, 2020",
       "youtube_id": "VyEetkzKVHo",
       "youtube_url": "https://www.youtube.com/watch?v=VyEetkzKVHo",
       "title": "Civil Rights Board, December 23, 2020"
     },
     {
-      "date": "2020-11-24",
-      "display": "November 24, 2020",
+      "date": "2020-11-23",
+      "display": "November 23, 2020",
       "youtube_id": "X6xVr6JK2F0",
       "youtube_url": "https://www.youtube.com/watch?v=X6xVr6JK2F0",
       "title": "Civil Rights Board, November 23, 2020"
