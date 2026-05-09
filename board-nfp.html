@@ -239,9 +239,17 @@
     .doc-link:hover svg { color: var(--gold); }
     .pdf-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 2px; margin-left: auto; flex-shrink: 0; }
 
-    .nfp-apply-desc { font-size: 15px; color: var(--body); line-height: 1.65; margin-bottom: 18px; flex: 1; }
-    .nfp-apply-link { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 15px; font-weight: 700; padding: 10px 22px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; align-self: flex-start; }
-    .nfp-apply-link:hover { background: var(--navy-mid); color: white; }
+    /* ── SITE PLAN REVIEW CTA ── */
+    .hearing-cta { background: var(--navy); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); margin-top: clamp(32px, 5vw, 48px); }
+    .hearing-cta-inner { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 40px) var(--pad-x); display: flex; align-items: center; gap: 56px; }
+    @media (max-width: 900px) { .hearing-cta-inner { flex-direction: column; gap: 24px; align-items: flex-start; } }
+    .hearing-cta-text { flex: 1; }
+    .hearing-cta-label { font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .hearing-cta-heading { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 26px); font-weight: 600; color: white; margin-bottom: 10px; line-height: 1.25; }
+    .hearing-cta-desc { font-size: clamp(15px, 2.5vw, 17px); color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 680px; }
+    .hearing-cta-action { flex-shrink: 0; }
+    .hearing-cta-btn { display: inline-block; background: var(--gold); color: var(--navy); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; white-space: nowrap; transition: background 0.15s; }
+    .hearing-cta-btn:hover { background: var(--gold-lt); }
 
     /* ── CARD FILTER BAR ── */
     .card-filter-bar { display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--cream); border-bottom: 1px solid var(--border); flex-shrink: 0; }
@@ -557,6 +565,22 @@
 
 <div class="bottom-cards">
 
+  <div class="bottom-card scrollable-card">
+    <div class="bottom-card-header">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      Meeting Recordings
+      <span class="card-count-pill" id="pill-recordings">— recordings</span>
+    </div>
+    <div class="card-filter-bar">
+      <select class="card-filter-select" id="recordings-year-select" onchange="filterRecordings()"></select>
+      <span class="card-filter-count" id="recordings-filter-count"></span>
+    </div>
+    <div class="scrollable-wrap" id="wrap-recordings">
+      <div class="scrollable-card-body scrollable-recordings" id="scroll-recordings">
+      </div>
+    </div>
+  </div>
+
   <div class="bottom-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -572,17 +596,6 @@
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         Minutes & Agendas Portal
       </a>
-    </div>
-  </div>
-
-  <div class="bottom-card">
-    <div class="bottom-card-header">
-      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-      Apply for Site Plan Review
-    </div>
-    <div class="bottom-card-body">
-      <p class="nfp-apply-desc">The Natural Features Protection Ordinance requires review for development near water, woodlands, slopes, or other natural areas within the Overlay District.</p>
-      <a class="nfp-apply-link" href="https://www.kalamazoocity.org/Business-Development/Real-Estate-Development/Apply-for-Board-or-Commission-Review/Apply-for-Natural-Features-Protection-Review" target="_blank" rel="noopener">Submit Application →</a>
     </div>
   </div>
 
@@ -631,20 +644,15 @@
 
 </div>
 
-<div class="bottom-cards" style="padding-top: 24px;">
-  <div class="bottom-card card-apply-serve scrollable-card" style="border-left: none;">
-    <div class="bottom-card-header">
-      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-      Meeting Recordings
-      <span class="card-count-pill" id="pill-recordings">— recordings</span>
+<div class="hearing-cta">
+  <div class="hearing-cta-inner">
+    <div class="hearing-cta-text">
+      <div class="hearing-cta-label">Natural Features Protection Review</div>
+      <div class="hearing-cta-heading">Apply for Natural Features Protection Review</div>
+      <p class="hearing-cta-desc">The Natural Features Protection Ordinance requires Board review for development near water, woodlands, slopes, or other natural areas within the Overlay District. Board approval is required to obtain full site plan review approval.</p>
     </div>
-    <div class="card-filter-bar">
-      <select class="card-filter-select" id="recordings-year-select" onchange="filterRecordings()"></select>
-      <span class="card-filter-count" id="recordings-filter-count"></span>
-    </div>
-    <div class="scrollable-wrap" id="wrap-recordings">
-      <div class="scrollable-card-body scrollable-recordings" id="scroll-recordings">
-      </div>
+    <div class="hearing-cta-action">
+      <a class="hearing-cta-btn" href="https://www.kalamazoocity.org/Business-Development/Real-Estate-Development/Apply-for-Board-or-Commission-Review/Apply-for-Natural-Features-Protection-Review" target="_blank" rel="noopener">Submit Application →</a>
     </div>
   </div>
 </div>
