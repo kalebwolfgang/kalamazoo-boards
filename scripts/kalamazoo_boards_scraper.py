@@ -280,6 +280,15 @@ BOARDS = [
         "output":      Path("data") / "ncbda.json",
         "youtube":     False,
     },
+    {
+        "key":         "spk",
+        "name":        "SPK Organizing Committee",
+        "category_id": 44,
+        "keywords":    ["shared prosperity kalamazoo", "spk organizing committee", "spk"],
+        "output":      Path("data") / "spk.json",
+        "youtube":     False,
+        "preserve_upcoming": True,
+    },
 ]
 
 
