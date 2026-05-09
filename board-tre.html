@@ -489,31 +489,9 @@
         Upcoming Meetings
       </div>
       <div class="sidebar-card-body">
-        <div class="meeting-item" data-date="2026-04-07">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, April 7, 2026</div>
-          <div class="meeting-time">2:00 PM – 4:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-05-05">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, May 5, 2026</div>
-          <div class="meeting-time">2:00 PM – 4:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-06-02">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, June 2, 2026</div>
-          <div class="meeting-time">2:00 PM – 4:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-07-07">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, July 7, 2026</div>
-          <div class="meeting-time">2:00 PM – 4:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-08-04">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, August 4, 2026</div>
-          <div class="meeting-time">2:00 PM – 4:00 PM</div>
-        </div>
+        
+        <div id="upcoming-meetings-list"></div>
+
         <p class="meeting-note">Meets the first Tuesday of each month, 2:00–4:00 PM.</p>
         <div class="meeting-location">
           <div class="location-name">Kalamazoo Stockbridge Facility</div>
@@ -651,6 +629,47 @@ function termText(m) {
 
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 
+// ── Upcoming meetings from tre.json ─────────────────
+fetch('data/tre.json')
+  .then(r => r.json())
+  .then(data => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const upcoming = (data.upcoming_meetings || [])
+      .filter(m => new Date(m.date + 'T00:00:00') >= today)
+      .slice(0, 3);
+
+    const container = document.getElementById('upcoming-meetings-list');
+    if (!container) return;
+
+    if (upcoming.length === 0) {
+      container.innerHTML = '<p class="meeting-note" style="margin-bottom:14px">No upcoming meetings scheduled. Check the <a href="https://www.kalamazoocity.org/Government/Boards-Commissions/Tree-Committee" target="_blank" rel="noopener" style="color:var(--navy-light)">city website</a> for updates.</p>';
+      return;
+    }
+
+    let firstFound = false;
+    upcoming.forEach(m => {
+      const item = document.createElement('div');
+      item.className = 'meeting-item';
+      item.innerHTML = `
+        <div class="next-badge" style="display:none">Next</div>
+        <div class="meeting-date">${m.display}</div>
+        <div class="meeting-time">${m.time}</div>
+      `;
+
+      if (!firstFound) {
+        item.querySelector('.next-badge').style.display = '';
+        firstFound = true;
+      }
+
+      container.appendChild(item);
+    });
+  })
+  .catch(err => console.error('Could not load tre.json:', err));
+
+
+// ── Members table from boards.json ───────────────────
 fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
@@ -850,20 +869,6 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
     btn.nextElementSibling.hidden = expanded;
   });
 });
-
-// ── Dynamic "Next" meeting badge ─────────────────────
-(function () {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  let found = false;
-  document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
-    const d = new Date(item.dataset.date + 'T00:00:00');
-    if (!found && d >= today) {
-      item.querySelector('.next-badge').style.display = '';
-      found = true;
-    }
-  });
-})();
 </script>
 </body>
 </html>
