@@ -238,10 +238,16 @@
     .doc-link svg { flex-shrink: 0; color: var(--muted); }
     .doc-link:hover svg { color: var(--gold); }
     .pdf-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 2px; margin-left: auto; flex-shrink: 0; }
-    
+
     .nfp-apply-desc { font-size: 15px; color: var(--body); line-height: 1.65; margin-bottom: 18px; flex: 1; }
     .nfp-apply-link { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 15px; font-weight: 700; padding: 10px 22px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; align-self: flex-start; }
     .nfp-apply-link:hover { background: var(--navy-mid); color: white; }
+
+    /* ── CARD FILTER BAR ── */
+    .card-filter-bar { display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--cream); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .card-filter-select { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--body); background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 5px 10px; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; padding-right: 26px; }
+    .card-filter-select:focus { outline: none; border-color: var(--navy-light); }
+    .card-filter-count { font-size: 12px; color: var(--muted); margin-left: auto; }
 
     /* ── SCROLLABLE CARDS (Minutes & Recordings) ── */
     .bottom-card.scrollable-card { overflow: hidden; }
@@ -266,46 +272,36 @@
     .minutes-action { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
     .minutes-item:hover .minutes-action { color: var(--gold); }
 
-    /* Recordings Items */
-    .rec-item { display: flex; gap: 12px; align-items: flex-start; text-decoration: none; padding: 14px 24px 14px 18px; border-bottom: 1px solid var(--border-lt); }
-    .scrollable-card-body .rec-item:last-child { border-bottom: none; }
-    .rec-thumb { position: relative; width: 88px; height: 50px; border-radius: 2px; flex-shrink: 0; background: #1a1a2e; overflow: hidden; }
-    .rec-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; transition: opacity 0.15s; }
-    .rec-item:hover .rec-thumb img { opacity: 1; }
-    .rec-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.15s; }
-    .rec-item:hover .rec-play { transform: scale(1.15); }
+    /* Recording Items */
+    .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
+    .recording-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+    .rec-thumb { position: relative; flex-shrink: 0; width: 90px; border-radius: 3px; overflow: hidden; }
+    .rec-thumb img { width: 100%; display: block; }
+    .rec-play { position: absolute; inset: 0; background: rgba(0,0,0,0.38); display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+    .recording-item:hover .rec-play { background: rgba(0,0,0,0.18); }
     .rec-info { flex: 1; }
-    .rec-title { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.35; transition: color 0.15s; margin-bottom: 2px; }
-    .rec-date { font-size: 12px; color: var(--muted); }
-    .rec-item:hover .rec-title { color: var(--gold); }
-    .rec-watch { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
-    .rec-item:hover .rec-watch { color: var(--gold); }
+    .rec-date { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 3px; }
+    .rec-sublabel { font-size: 12px; color: var(--muted); }
+    .rec-watch { font-size: 13px; color: var(--navy-light); margin-top: 6px; display: flex; align-items: center; gap: 5px; }
+    .recording-item:hover .rec-date { color: var(--gold); }
+    .recording-item:hover .rec-watch { color: var(--gold); }
+    .scrollable-card-body .recording-item { margin: 0; padding: 14px 24px 14px 18px; border-bottom: 1px solid var(--border-lt) !important; border-radius: 0; }
+    .scrollable-card-body .recording-item:last-child { border-bottom: none !important; }
 
     /* ── MEMBERS SECTION ── */
     .members-section { background: var(--white); border-top: 1px solid var(--border); padding: clamp(32px, 6vw, 56px) var(--pad-x) clamp(40px, 7vw, 72px); margin-top: clamp(32px, 5vw, 48px); }
     .members-inner { max-width: 1400px; margin: 0 auto; }
     .members-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .members-subhead { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
-    
     .members-table-guide-link { font-size: 13px; color: var(--muted); margin-top: -8px; margin-bottom: 12px; }
     .members-table-guide-link a { color: var(--navy-light); text-decoration: none; }
     .members-table-guide-link a:hover { text-decoration: underline; }
-
-    /* Outer wrapper */
     .members-table-outer { position: relative; }
-
-    /* Horizontal scroll track — above table, injected via JS */
     .h-scroll-track { height: 6px; background: #e0dbd2; border: 1px solid var(--border); border-radius: 3px; position: relative; margin-bottom: 8px; }
     .h-scroll-thumb { position: absolute; top: 0; height: 6px; background: #1c2333; border-radius: 3px; min-width: 32px; }
     @media (min-width: 900px) { .h-scroll-track { display: none; } }
-
-    .members-table-wrap {
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
-      overscroll-behavior-x: none;
-      scrollbar-width: none; -ms-overflow-style: none;
-    }
+    .members-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: none; scrollbar-width: none; -ms-overflow-style: none; }
     .members-table-wrap::-webkit-scrollbar { display: none; }
-
     .members-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 560px; }
     .members-table thead { background: var(--navy); }
     .members-table th { padding: 12px 16px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.05em; text-align: left; white-space: nowrap; }
@@ -317,8 +313,6 @@
       .members-table tbody tr:hover td:first-child,
       .members-table tbody tr:hover td:nth-child(2) { background: var(--cream); }
     }
-
-    /* Sticky dot + name columns */
     .members-table th:first-child,
     .members-table td:first-child { position: sticky; left: 0; z-index: 3; }
     .members-table th:nth-child(2),
@@ -327,7 +321,6 @@
     .members-table thead th:nth-child(2) { background: var(--navy); }
     .members-table td:nth-child(2),
     .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.1); }
-
     .member-dot { width: 16px; height: 16px; border-radius: 50%; display: inline-block; }
     .member-dot.red    { background: #dc2626; }
     .member-dot.yellow { background: #d97706; }
@@ -361,7 +354,6 @@
     .tt-term.transitioning { color: var(--gold-lt); }
     .tt-term.seated        { color: #86efac; }
     .tt-res { color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 4px; }
-
     @media (max-width: 600px) {
       .tooltip {
         position: fixed; bottom: 0; left: 0; right: 0;
@@ -542,38 +534,13 @@
   </div>
 
   <aside class="sidebar">
-
     <div class="sidebar-card">
       <div class="sidebar-card-header">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Upcoming Meetings
       </div>
       <div class="sidebar-card-body">
-        <div class="meeting-item" data-date="2026-03-24">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, March 24, 2026</div>
-          <div class="meeting-time">4:00 PM – 6:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-04-28">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, April 28, 2026</div>
-          <div class="meeting-time">4:00 PM – 6:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-05-27">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Wednesday, May 27, 2026</div>
-          <div class="meeting-time">4:00 PM – 6:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-06-23">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, June 23, 2026</div>
-          <div class="meeting-time">4:00 PM – 6:00 PM</div>
-        </div>
-        <div class="meeting-item" data-date="2026-07-28">
-          <div class="next-badge" style="display:none">Next</div>
-          <div class="meeting-date">Tuesday, July 28, 2026</div>
-          <div class="meeting-time">4:00 PM – 6:00 PM</div>
-        </div>
+        <div id="upcoming-meetings-list"></div>
         <p class="meeting-note">Meets the fourth Tuesday of each month at 4:00 PM.</p>
         <div class="meeting-location">
           <div class="location-name">City Hall, Commission Chambers</div>
@@ -585,7 +552,6 @@
         </div>
       </div>
     </div>
-
   </aside>
 </div>
 
@@ -623,84 +589,30 @@
   <div class="bottom-card scrollable-card">
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      Recent Meetings
-      <span class="card-count-pill">8 meetings</span>
+      Minutes & Agendas
+      <span class="card-count-pill" id="pill-meetings">— meetings</span>
+    </div>
+    <div class="card-filter-bar">
+      <select class="card-filter-select" id="meetings-year-select" onchange="filterMeetings()"></select>
+      <select class="card-filter-select" id="meetings-month-select" onchange="filterMeetings()">
+        <option value="all">All months</option>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+      <span class="card-filter-count" id="meetings-filter-count"></span>
     </div>
     <div class="scrollable-wrap" id="wrap-minutes">
-      <div class="scrollable-card-body" id="scroll-minutes">
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2724/files/agenda/4901" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">March 24, 2026</div>
-            <div class="minutes-sublabel">NFP Review Board • Regular Meeting</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2723/files/agenda/4781" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">February 24, 2026</div>
-            <div class="minutes-sublabel">NFP Review Board • Regular Meeting</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2722/files/agenda/4672" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">January 27, 2026</div>
-            <div class="minutes-sublabel">NFP Review Board • Regular Meeting</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/2527/files/agenda/4568" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">December 16, 2025</div>
-            <div class="minutes-sublabel">NFP Review Board • Regular Meeting</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1414/files/agenda/4466" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">November 25, 2025</div>
-            <div class="minutes-sublabel">NFP Review Board • Regular Meeting</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1413/files/agenda/4402" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">October 28, 2025</div>
-            <div class="minutes-sublabel">NFP Review Board • Regular Meeting</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1412/files/agenda/4292" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">September 23, 2025</div>
-            <div class="minutes-sublabel">NFP Review Board • Regular Meeting</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
-        <a class="minutes-item" href="https://kalamazoomi.portal.civicclerk.com/event/1411/files/agenda/4195" target="_blank" rel="noopener">
-          <div class="minutes-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <div class="minutes-info">
-            <div class="minutes-date">August 26, 2025</div>
-            <div class="minutes-sublabel">NFP Review Board • Regular Meeting</div>
-            <div class="minutes-action"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agenda & Minutes</div>
-          </div>
-        </a>
-
+      <div class="scrollable-card-body scrollable-minutes" id="scroll-minutes">
       </div>
     </div>
   </div>
@@ -724,96 +636,14 @@
     <div class="bottom-card-header">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
       Meeting Recordings
-      <span class="card-count-pill">5 recordings</span>
+      <span class="card-count-pill" id="pill-recordings">— recordings</span>
+    </div>
+    <div class="card-filter-bar">
+      <select class="card-filter-select" id="recordings-year-select" onchange="filterRecordings()"></select>
+      <span class="card-filter-count" id="recordings-filter-count"></span>
     </div>
     <div class="scrollable-wrap" id="wrap-recordings">
-      <div class="scrollable-card-body" id="scroll-recordings">
-
-        <a class="rec-item" href="https://www.youtube.com/live/8NJJCzQqlE0?si=YGk8xjWy18-CCUkJ" target="_blank" rel="noopener">
-          <div class="rec-thumb">
-            <img src="https://img.youtube.com/vi/8NJJCzQqlE0/mqdefault.jpg" alt="March 24, 2026 meeting recording">
-            <div class="rec-play">
-              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-          </div>
-          <div class="rec-info">
-            <div class="rec-title">NFP Review Board</div>
-            <div class="rec-date">March 24, 2026</div>
-            <div class="rec-watch">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Watch on YouTube
-            </div>
-          </div>
-        </a>
-
-        <a class="rec-item" href="https://www.youtube.com/watch?v=Ro4ZJPd_fT8" target="_blank" rel="noopener">
-          <div class="rec-thumb">
-            <img src="https://img.youtube.com/vi/Ro4ZJPd_fT8/mqdefault.jpg" alt="February 24, 2026 meeting recording">
-            <div class="rec-play">
-              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-          </div>
-          <div class="rec-info">
-            <div class="rec-title">NFP Review Board</div>
-            <div class="rec-date">February 24, 2026</div>
-            <div class="rec-watch">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Watch on YouTube
-            </div>
-          </div>
-        </a>
-
-        <a class="rec-item" href="https://www.youtube.com/watch?v=st7STRp_RyE" target="_blank" rel="noopener">
-          <div class="rec-thumb">
-            <img src="https://img.youtube.com/vi/st7STRp_RyE/mqdefault.jpg" alt="January 27, 2026 meeting recording">
-            <div class="rec-play">
-              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-          </div>
-          <div class="rec-info">
-            <div class="rec-title">NFP Review Board</div>
-            <div class="rec-date">January 27, 2026</div>
-            <div class="rec-watch">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Watch on YouTube
-            </div>
-          </div>
-        </a>
-
-        <a class="rec-item" href="https://www.youtube.com/watch?v=X1ibjbAoNMM" target="_blank" rel="noopener">
-          <div class="rec-thumb">
-            <img src="https://img.youtube.com/vi/X1ibjbAoNMM/mqdefault.jpg" alt="December 16, 2025 meeting recording">
-            <div class="rec-play">
-              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-          </div>
-          <div class="rec-info">
-            <div class="rec-title">NFP Review Board</div>
-            <div class="rec-date">December 16, 2025</div>
-            <div class="rec-watch">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Watch on YouTube
-            </div>
-          </div>
-        </a>
-
-        <a class="rec-item" href="https://www.youtube.com/watch?v=MVOlJzxNIpU" target="_blank" rel="noopener">
-          <div class="rec-thumb">
-            <img src="https://img.youtube.com/vi/MVOlJzxNIpU/mqdefault.jpg" alt="November 25, 2025 meeting recording">
-            <div class="rec-play">
-              <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-          </div>
-          <div class="rec-info">
-            <div class="rec-title">NFP Review Board</div>
-            <div class="rec-date">November 25, 2025</div>
-            <div class="rec-watch">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Watch on YouTube
-            </div>
-          </div>
-        </a>
-
+      <div class="scrollable-card-body scrollable-recordings" id="scroll-recordings">
       </div>
     </div>
   </div>
@@ -823,11 +653,9 @@
   <div class="members-inner">
     <div class="members-heading">Current Members</div>
     <p class="members-subhead">7 members</p>
-    
     <p class="members-table-guide-link">
       New to these terms? <a href="faq.html#members-table">See definitions and learn more →</a>
     </p>
-
     <div class="members-table-outer" id="members-table-outer">
     <div class="members-table-wrap" id="members-table-wrap">
       <table class="members-table">
@@ -843,7 +671,8 @@
         </thead>
         <tbody id="members-tbody"></tbody>
       </table>
-    </div></div></div>
+    </div></div>
+  </div>
 </div>
 
 <div class="staff-note-wrap">
@@ -862,8 +691,8 @@
 </div>
 
 <footer>
-  <p>City of Kalamazoo — Boards & Commissions Office  | 
-    <a href="tel:+12693376200">(269) 337-6200</a>  | 
+  <p>City of Kalamazoo — Boards & Commissions Office  |
+    <a href="tel:+12693376200">(269) 337-6200</a>  |
     <a href="#">City Clerk's Office</a>
   </p>
 </footer>
@@ -878,27 +707,21 @@ function seatStatus(m) {
   if (m.isVacant) return 'vacant';
   if (!m.termEnd || m.termEnd === '2100-01-01') return 'permanent';
   const end = new Date(m.termEnd);
-  if (end < TODAY)   return 'expired';
-  if (end < SIX_MO)  return 'expiring';
+  if (end < TODAY)  return 'expired';
+  if (end < SIX_MO) return 'expiring';
   return 'stable';
 }
-
 function displayStatus(st) {
   if (st === 'vacant')                       return 'open';
   if (st === 'expired' || st === 'expiring') return 'transitioning';
   return 'seated';
 }
-
 function fmtDate(iso) {
   if (!iso || iso === '2100-01-01') return null;
   const [y, m, d] = iso.split('-');
   return `${MONTHS[+m - 1]} ${+d}, ${y}`;
 }
-
-function memberType(m) {
-  return 'Member';
-}
-
+function memberType(m) { return 'Member'; }
 function termText(m) {
   const st = seatStatus(m);
   if (st === 'vacant')   return 'Open seat';
@@ -906,7 +729,6 @@ function termText(m) {
   if (st === 'expiring') return `Term ends ${fmtDate(m.termEnd)}`;
   return `Term ends ${fmtDate(m.termEnd)}`;
 }
-
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 
 fetch('boards.json')
@@ -914,23 +736,20 @@ fetch('boards.json')
   .then(boards => {
     const board = boards.find(b => b.abbr === 'NFP');
     if (!board) return;
-
     const members = board.members;
 
-    // ── Seat stats ───────────────────────────────────────
     let nO = 0, nT = 0, nS = 0;
     members.forEach(m => {
       const ds = displayStatus(seatStatus(m));
-      if (ds === 'open')               nO++;
+      if (ds === 'open') nO++;
       else if (ds === 'transitioning') nT++;
-      else                             nS++;
+      else nS++;
     });
     document.getElementById('stat-total').textContent  = members.length;
     document.getElementById('stat-open').textContent   = nO;
     document.getElementById('stat-trans').textContent  = nT;
     document.getElementById('stat-seated').textContent = nS;
 
-    // ── Header dots ──────────────────────────────────────
     const dotsEl = document.getElementById('header-dots');
     members.forEach(m => {
       const ds  = displayStatus(seatStatus(m));
@@ -947,27 +766,21 @@ fetch('boards.json')
       dotsEl.appendChild(dot);
     });
 
-    // ── Members table ─────────────────────────────────────
     const tbody = document.getElementById('members-tbody');
     members.forEach(m => {
       const st  = seatStatus(m);
       const ds  = displayStatus(st);
       const col = ds === 'open' ? 'red' : ds === 'transitioning' ? 'yellow' : 'green';
-      const name        = m.isVacant ? 'Open Seat' : `${m.firstName} ${m.lastName}`.trim();
-      const typeLabel   = memberType(m);
-      const roleSub     = (m.role && m.role !== 'Member')
-                          ? `<div class="member-role-sub">${m.role}</div>` : '';
+      const name      = m.isVacant ? 'Open Seat' : `${m.firstName} ${m.lastName}`.trim();
+      const typeLabel = memberType(m);
+      const roleSub   = (m.role && m.role !== 'Member') ? `<div class="member-role-sub">${m.role}</div>` : '';
       const termDisplay = m.termEnd ? fmtDate(m.termEnd) : '—';
       const resDisplay  = m.isVacant ? '—' : (m.residency || '—');
       const dsLabel     = ds.charAt(0).toUpperCase() + ds.slice(1);
-
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td style="text-align:center"><span class="member-dot ${col}"></span></td>
-        <td>
-          <div class="member-name ${m.isVacant ? 'vacant' : ''}">${name}</div>
-          ${roleSub}
-        </td>
+        <td><div class="member-name ${m.isVacant ? 'vacant' : ''}">${name}</div>${roleSub}</td>
         <td><span class="type-badge">${typeLabel}</span></td>
         <td>${resDisplay}</td>
         <td>${termDisplay}</td>
@@ -976,7 +789,6 @@ fetch('boards.json')
       tbody.appendChild(tr);
     });
 
-    // ── Tooltip / Bottom Sheet ─────────────────────────────
     const tooltip = document.getElementById('tooltip');
     const ttName  = document.getElementById('tt-name');
     const ttRole  = document.getElementById('tt-role');
@@ -1010,76 +822,147 @@ fetch('boards.json')
       tooltip.style.left = x + 'px';
       tooltip.style.top  = y + 'px';
     });
-
-    document.addEventListener('mouseleave', () => {
-      if (isTouchDevice()) return;
-      tooltip.classList.remove('visible');
-      lastDot = null;
-    });
-
+    document.addEventListener('mouseleave', () => { if (isTouchDevice()) return; tooltip.classList.remove('visible'); lastDot = null; });
     document.addEventListener('click', e => {
       if (!isTouchDevice()) return;
       const isDot = e.target.classList && e.target.classList.contains('seat-dot-hdr');
-      if (isDot) {
-        populateTooltip(e.target);
-        tooltip.classList.add('visible');
-        e.stopPropagation();
-      } else if (!tooltip.contains(e.target)) {
-        tooltip.classList.remove('visible');
-      }
+      if (isDot) { populateTooltip(e.target); tooltip.classList.add('visible'); e.stopPropagation(); }
+      else if (!tooltip.contains(e.target)) { tooltip.classList.remove('visible'); }
     });
-
     document.addEventListener('keydown', e => {
-      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('seat-dot-hdr')) {
-        e.preventDefault();
-        populateTooltip(e.target);
-        tooltip.classList.add('visible');
-      }
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('seat-dot-hdr')) { e.preventDefault(); populateTooltip(e.target); tooltip.classList.add('visible'); }
       if (e.key === 'Escape') tooltip.classList.remove('visible');
     });
-
     ttClose.addEventListener('click', () => tooltip.classList.remove('visible'));
   })
   .catch(err => console.error('Could not load boards.json:', err));
 
-// ── Vertical Scroll Tracks (Minutes & Recordings) ────
+fetch('data/nfp.json')
+  .then(r => r.json())
+  .then(nfp => {
+
+    const docIconActive = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--navy-light)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
+    const docIconMuted  = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" color="var(--muted)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
+    const extIcon       = `<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+    const playIcon      = `<svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+
+    // ── Upcoming meetings ────────────────────────────────
+    const upcomingEl = document.getElementById('upcoming-meetings-list');
+    if (upcomingEl && nfp.upcoming_meetings) {
+      const today = new Date(); today.setHours(0,0,0,0);
+      const future = nfp.upcoming_meetings.filter(m => new Date(m.date + 'T00:00:00') >= today).slice(0, 3);
+      upcomingEl.innerHTML = future.map(m => `
+        <div class="meeting-item" data-date="${m.date}">
+          <div class="next-badge" style="display:none">Next</div>
+          <div class="meeting-date">${m.display}</div>
+          <div class="meeting-time">${m.time}</div>
+        </div>
+      `).join('');
+
+      let found = false;
+      document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
+        const d = new Date(item.dataset.date + 'T00:00:00');
+        if (!found && d >= today) { item.querySelector('.next-badge').style.display = ''; found = true; }
+      });
+    }
+
+    // ── Minutes card ─────────────────────────────────────
+    const minutesEl    = document.getElementById('scroll-minutes');
+    const pillMeetings = document.getElementById('pill-meetings');
+    if (minutesEl && nfp.meetings) {
+      if (pillMeetings) pillMeetings.textContent = `${nfp.meetings.length} meetings`;
+      window.allMeetings = nfp.meetings;
+      const years = [...new Set(nfp.meetings.map(m => m.date.slice(0, 4)))].sort((a, b) => b - a);
+      document.getElementById('meetings-year-select').innerHTML =
+        `<option value="all">All years</option>` + years.map(y => `<option value="${y}">${y}</option>`).join('');
+
+      window.filterMeetings = function() {
+        const year  = document.getElementById('meetings-year-select').value;
+        const month = document.getElementById('meetings-month-select').value;
+        const filtered = window.allMeetings.filter(m => {
+          const [y, mo] = m.date.split('-');
+          if (year  !== 'all' && y !== year) return false;
+          if (month !== 'all' && parseInt(mo) !== parseInt(month)) return false;
+          return true;
+        });
+        document.getElementById('meetings-filter-count').textContent = `${filtered.length} shown`;
+        minutesEl.innerHTML = filtered.map(m => {
+          const dateHtml = m.cancelled
+            ? `<div class="minutes-date" style="color:var(--muted);font-weight:400">${m.display} <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle">CANCELLED</span></div>`
+            : `<div class="minutes-date">${m.display}</div>`;
+          return `
+            <a class="minutes-item${m.cancelled ? ' cancelled' : ''}" href="${m.url}" target="_blank" rel="noopener">
+              <div class="minutes-icon">${m.cancelled ? docIconMuted : docIconActive}</div>
+              <div class="minutes-info">
+                ${dateHtml}
+                <div class="minutes-sublabel">${m.meeting_type}</div>
+                <div class="minutes-action">${extIcon} ${m.link_label}</div>
+              </div>
+            </a>
+          `;
+        }).join('') || `<div style="padding:18px;font-size:14px;color:var(--muted)">No meetings found for this period.</div>`;
+      };
+      window.filterMeetings();
+    }
+
+    // ── Recordings card ──────────────────────────────────
+    const recordingsEl   = document.getElementById('scroll-recordings');
+    const pillRecordings = document.getElementById('pill-recordings');
+    if (recordingsEl && nfp.recordings) {
+      if (pillRecordings) pillRecordings.textContent = `${nfp.recordings.length} recordings`;
+      window.allRecordings = nfp.recordings;
+      const recYears = [...new Set(nfp.recordings.map(r => r.date.slice(0, 4)))].sort((a, b) => b - a);
+      document.getElementById('recordings-year-select').innerHTML =
+        `<option value="all">All years</option>` + recYears.map(y => `<option value="${y}">${y}</option>`).join('');
+
+      window.filterRecordings = function() {
+        const year = document.getElementById('recordings-year-select').value;
+        const filtered = window.allRecordings.filter(r => year === 'all' || r.date.slice(0, 4) === year);
+        document.getElementById('recordings-filter-count').textContent = `${filtered.length} shown`;
+        recordingsEl.innerHTML = filtered.map(r => `
+          <a class="recording-item" href="${r.youtube_url}" target="_blank" rel="noopener">
+            <div class="rec-thumb">
+              <img src="https://img.youtube.com/vi/${r.youtube_id}/mqdefault.jpg" alt="${r.display} meeting recording">
+              <div class="rec-play">${playIcon}</div>
+            </div>
+            <div class="rec-info">
+              <div class="rec-date">${r.display}</div>
+              <div class="rec-sublabel">Natural Features Protection Review Board</div>
+              <div class="rec-watch">${extIcon} Watch on YouTube</div>
+            </div>
+          </a>
+        `).join('') || `<div style="padding:18px;font-size:14px;color:var(--muted)">No recordings found for this year.</div>`;
+      };
+      window.filterRecordings();
+    }
+
+  })
+  .catch(err => console.error('Could not load data/nfp.json:', err));
+
+// ── Vertical Scroll Tracks ────────────────────────────
 function setupVerticalScroll(contentId, wrapId) {
   const el  = document.getElementById(contentId);
   const wEl = document.getElementById(wrapId);
   if (!el || !wEl) return;
-
-  const track = document.createElement('div');
-  track.className = 'scroll-track';
-  const thumb = document.createElement('div');
-  thumb.className = 'scroll-thumb';
-  track.appendChild(thumb);
-  wEl.appendChild(track);
-
+  const track = document.createElement('div'); track.className = 'scroll-track';
+  const thumb = document.createElement('div'); thumb.className = 'scroll-thumb';
+  track.appendChild(thumb); wEl.appendChild(track);
   function update() {
     const { scrollTop, scrollHeight, clientHeight } = el;
     const scrollable = scrollHeight - clientHeight;
-    
-    if (scrollable <= 0) {
-      track.style.display = 'none';
-      wEl.classList.add('at-end');
-      return;
-    }
+    if (scrollable <= 0) { track.style.display = 'none'; wEl.classList.add('at-end'); return; }
     track.style.display = 'block';
-
-    const thumbPct = clientHeight / scrollHeight;
-    const trackH   = track.offsetHeight;
-    const thumbH   = Math.max(24, Math.round(thumbPct * trackH));
+    const thumbH = Math.max(24, Math.round((clientHeight / scrollHeight) * track.offsetHeight));
     thumb.style.height = thumbH + 'px';
-    thumb.style.top    = Math.round((scrollTop / scrollable) * (trackH - thumbH)) + 'px';
+    thumb.style.top    = Math.round((scrollTop / scrollable) * (track.offsetHeight - thumbH)) + 'px';
     wEl.classList.toggle('at-end', scrollTop + clientHeight >= scrollHeight - 4);
   }
-
   el.addEventListener('scroll', update, { passive: true });
   new ResizeObserver(update).observe(el);
   update();
 }
 
-setupVerticalScroll('scroll-minutes', 'wrap-minutes');
+setupVerticalScroll('scroll-minutes',    'wrap-minutes');
 setupVerticalScroll('scroll-recordings', 'wrap-recordings');
 
 // ── Horizontal scroll track for members table ────────
@@ -1087,28 +970,18 @@ setupVerticalScroll('scroll-recordings', 'wrap-recordings');
   const wrap  = document.getElementById('members-table-wrap');
   const outer = document.getElementById('members-table-outer');
   if (!wrap || !outer) return;
-
-  const track = document.createElement('div');
-  track.className = 'h-scroll-track';
-  const thumb = document.createElement('div');
-  thumb.className = 'h-scroll-thumb';
-  track.appendChild(thumb);
-  outer.before(track);
-
+  const track = document.createElement('div'); track.className = 'h-scroll-track';
+  const thumb = document.createElement('div'); thumb.className = 'h-scroll-thumb';
+  track.appendChild(thumb); outer.before(track);
   function update() {
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
     const maxScroll = scrollWidth - clientWidth;
     if (scrollLeft < 0) { wrap.scrollLeft = 0; return; }
     if (scrollLeft > maxScroll) { wrap.scrollLeft = maxScroll; return; }
-    const thumbPct = clientWidth / scrollWidth;
-    const trackW   = track.offsetWidth;
-    const thumbW   = Math.max(32, Math.round(thumbPct * trackW));
+    const thumbW = Math.max(32, Math.round((clientWidth / scrollWidth) * track.offsetWidth));
     thumb.style.width = thumbW + 'px';
-    thumb.style.left  = maxScroll > 0
-      ? Math.round((scrollLeft / maxScroll) * (trackW - thumbW)) + 'px'
-      : '0px';
+    thumb.style.left  = maxScroll > 0 ? Math.round((scrollLeft / maxScroll) * (track.offsetWidth - thumbW)) + 'px' : '0px';
   }
-
   wrap.addEventListener('scroll', update, { passive: true });
   new ResizeObserver(update).observe(wrap);
   update();
@@ -1118,28 +991,15 @@ setupVerticalScroll('scroll-recordings', 'wrap-recordings');
 (function () {
   const wrap = document.getElementById('members-table-wrap');
   if (!wrap) return;
-
   let startX = 0, startY = 0, isHorizontal = null;
-
-  wrap.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    isHorizontal = null;
-  }, { passive: true });
-
+  wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; startY = e.touches[0].clientY; isHorizontal = null; }, { passive: true });
   wrap.addEventListener('touchmove', e => {
     const dx = e.touches[0].clientX - startX;
     const dy = e.touches[0].clientY - startY;
-    if (isHorizontal === null && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
-      isHorizontal = Math.abs(dx) > Math.abs(dy);
-    }
+    if (isHorizontal === null && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) { isHorizontal = Math.abs(dx) > Math.abs(dy); }
     if (!isHorizontal) return;
     const { scrollLeft, scrollWidth, clientWidth } = wrap;
-    const atLeft  = scrollLeft <= 0;
-    const atRight = scrollLeft >= scrollWidth - clientWidth - 1;
-    if ((atLeft && dx > 0) || (atRight && dx < 0)) {
-      e.preventDefault();
-    }
+    if ((scrollLeft <= 0 && dx > 0) || (scrollLeft >= scrollWidth - clientWidth - 1 && dx < 0)) { e.preventDefault(); }
   }, { passive: false });
 })();
 
@@ -1151,20 +1011,6 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
     btn.nextElementSibling.hidden = expanded;
   });
 });
-
-// ── Dynamic "Next" meeting badge ─────────────────────
-(function () {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  let found = false;
-  document.querySelectorAll('.meeting-item[data-date]').forEach(item => {
-    const d = new Date(item.dataset.date + 'T00:00:00');
-    if (!found && d >= today) {
-      item.querySelector('.next-badge').style.display = '';
-      found = true;
-    }
-  });
-})();
 </script>
 </body>
 </html>
