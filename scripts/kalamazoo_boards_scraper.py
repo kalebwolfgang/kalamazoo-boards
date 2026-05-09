@@ -321,10 +321,10 @@ BOARD_TIMES = {
     "tre":          "2:00 PM \u2013 4:00 PM",
     "bba":          "4:00 PM \u2013 6:00 PM",
     "cdaac":        "5:30 PM \u2013 7:30 PM",
+    "ncbda":        "6:00 PM \u2013 7:00 PM",
 }
 for b in BOARDS:
     b["time"] = BOARD_TIMES.get(b["key"], "TBD")
-
 
 # ---------------------------------------------------------------------------
 # CivicClerk helpers
