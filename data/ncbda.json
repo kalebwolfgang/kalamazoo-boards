@@ -4,17 +4,32 @@
     {
       "date": "2026-05-21",
       "display": "Thursday, May 21, 2026",
-      "time": "6:00 PM \u2013 7:00 PM"
+      "time": "6:00 PM – 7:00 PM"
     },
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "6:00 PM \u2013 7:00 PM"
+      "time": "6:00 PM – 7:00 PM"
     },
     {
       "date": "2026-07-16",
       "display": "Thursday, July 16, 2026",
-      "time": "6:00 PM \u2013 7:00 PM"
+      "time": "6:00 PM – 7:00 PM"
+    },
+    {
+      "date": "2026-08-20",
+      "display": "Thursday, August 20, 2026",
+      "time": "6:00 PM – 7:00 PM"
+    },
+    {
+      "date": "2026-09-17",
+      "display": "Thursday, September 17, 2026",
+      "time": "6:00 PM – 7:00 PM"
+    },
+    {
+      "date": "2026-10-15",
+      "display": "Thursday, October 15, 2026",
+      "time": "6:00 PM – 7:00 PM"
     }
   ],
   "meetings": [
@@ -23,7 +38,7 @@
       "display": "March 19, 2026",
       "event_id": 2712,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2712/files/agenda/4870",
-      "link_label": "Agenda & Minutes",
+      "link_label": "Agenda",
       "meeting_type": "Northside Cultural Business District Authority Board",
       "cancelled": false,
       "minutes_url": null,
@@ -37,7 +52,7 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Northside Cultural Business District Authority Board",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2711/files/agenda/4896",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2711/files/agenda/4737"
     },
     {
@@ -48,63 +63,217 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Northside Cultural Business District Authority Board",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2710/files/agenda/4861",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2710/files/agenda/4639"
-    },
-    {
-      "date": "2025-12-18",
-      "display": "December 18, 2025",
-      "event_id": 1433,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1433/files/agenda/4483",
-      "link_label": "View notice",
-      "meeting_type": "Northside Cultural Business District Authority Board",
-      "cancelled": true,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1433/files/agenda/4483"
     },
     {
       "date": "2025-11-20",
       "display": "November 20, 2025",
       "event_id": 1432,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1432/files/agenda/4453",
-      "link_label": "Agenda & Minutes",
+      "link_label": "Agenda",
       "meeting_type": "Northside Cultural Business District Authority Board",
       "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1432/files/agenda/4453"
     },
     {
-      "date": "2025-10-16",
-      "display": "October 16, 2025",
-      "event_id": 1431,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1431/files/agenda/4351",
-      "link_label": "View notice",
-      "meeting_type": "Northside Cultural Business District Authority Board",
-      "cancelled": true,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1431/files/agenda/4351"
-    },
-    {
-      "date": "2025-09-18",
-      "display": "September 18, 2025",
-      "event_id": 1430,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1430/files",
-      "link_label": "Agenda & Minutes",
-      "meeting_type": "Northside Cultural Business District Authority Board",
-      "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": null
-    },
-    {
       "date": "2025-09-11",
       "display": "September 11, 2025",
       "event_id": 2520,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2520/files/agenda/4248",
-      "link_label": "Agenda & Minutes",
+      "link_label": "Agenda",
       "meeting_type": "Special Meeting",
       "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2520/files/agenda/4248"
+    },
+    {
+      "date": "2025-08-21",
+      "display": "August 21, 2025",
+      "event_id": 1429,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1429/files/agenda/4189",
+      "link_label": "Agenda",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1429/files/agenda/4189"
+    },
+    {
+      "date": "2025-07-17",
+      "display": "July 17, 2025",
+      "event_id": 1428,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1428/files/agenda/4074",
+      "link_label": "Agenda",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1428/files/agenda/4074"
+    },
+    {
+      "date": "2025-06-26",
+      "display": "June 26, 2025",
+      "event_id": 1427,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1427/files/agenda/3999",
+      "link_label": "Agenda",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1427/files/agenda/3999"
+    },
+    {
+      "date": "2025-05-22",
+      "display": "May 22, 2025",
+      "event_id": 1426,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1426/files/agenda/3917",
+      "link_label": "Agenda",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1426/files/agenda/3917"
+    },
+    {
+      "date": "2025-04-17",
+      "display": "April 17, 2025",
+      "event_id": 1425,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1425/files/agenda/3821",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1425/files/agenda/3928",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1425/files/agenda/3821"
+    },
+    {
+      "date": "2025-03-20",
+      "display": "March 20, 2025",
+      "event_id": 1424,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1424/files/agenda/3736",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1424/files/agenda/3867",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1424/files/agenda/3736"
+    },
+    {
+      "date": "2025-02-20",
+      "display": "February 20, 2025",
+      "event_id": 1423,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1423/files/agenda/3607",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1423/files/agenda/3866",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1423/files/agenda/3607"
+    },
+    {
+      "date": "2025-01-16",
+      "display": "January 16, 2025",
+      "event_id": 1422,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1422/files/agenda/3515",
+      "link_label": "Agenda",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1422/files/agenda/3515"
+    },
+    {
+      "date": "2024-12-19",
+      "display": "December 19, 2024",
+      "event_id": 1160,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1160/files/agenda/3472",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1160/files/agenda/3537",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1160/files/agenda/3472"
+    },
+    {
+      "date": "2024-11-21",
+      "display": "November 21, 2024",
+      "event_id": 953,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/953/files/agenda/3380",
+      "link_label": "Agenda",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/953/files/agenda/3380"
+    },
+    {
+      "date": "2024-10-17",
+      "display": "October 17, 2024",
+      "event_id": 1209,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1209/files/agenda/3249",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1209/files/agenda/3479",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1209/files/agenda/3249"
+    },
+    {
+      "date": "2024-10-10",
+      "display": "October 10, 2024",
+      "event_id": 1215,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1215/files/agenda/3223",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Special Meeting",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1215/files/agenda/3478",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1215/files/agenda/3223"
+    },
+    {
+      "date": "2024-07-18",
+      "display": "July 18, 2024",
+      "event_id": 951,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/951/files/agenda/3001",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/951/files/agenda/3477",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/951/files/agenda/3001"
+    },
+    {
+      "date": "2024-06-20",
+      "display": "June 20, 2024",
+      "event_id": 1157,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1157/files/agenda/2949",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1157/files/agenda/3116",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1157/files/agenda/2949"
+    },
+    {
+      "date": "2024-05-16",
+      "display": "May 16, 2024",
+      "event_id": 950,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/950/files/agenda/2836",
+      "link_label": "Agenda",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/950/files/agenda/2836"
+    },
+    {
+      "date": "2024-03-21",
+      "display": "March 21, 2024",
+      "event_id": 949,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/949/files/agenda/2702",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/949/files/agenda/2822",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/949/files/agenda/2702"
+    },
+    {
+      "date": "2024-01-18",
+      "display": "January 18, 2024",
+      "event_id": 948,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/948/files/agenda/2533",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/948/files/agenda/2774",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/948/files/agenda/2533"
     }
   ]
 }
