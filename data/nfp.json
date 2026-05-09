@@ -1,0 +1,147 @@
+{
+  "last_updated": "2026-05-08",
+  "upcoming_meetings": [
+    {
+      "date": "2026-05-27",
+      "display": "Wednesday, May 27, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    },
+    {
+      "date": "2026-06-23",
+      "display": "Tuesday, June 23, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    },
+    {
+      "date": "2026-07-28",
+      "display": "Tuesday, July 28, 2026",
+      "time": "4:00 PM \u2013 6:00 PM"
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2026-03-24",
+      "display": "March 24, 2026",
+      "event_id": 2724,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2724/files/agenda/4901",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Natural Features Protection Review Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2724/files/agenda/4901"
+    },
+    {
+      "date": "2026-02-24",
+      "display": "February 24, 2026",
+      "event_id": 2723,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2723/files/agenda/4781",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Natural Features Protection Review Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2723/files/agenda/4781"
+    },
+    {
+      "date": "2026-01-27",
+      "display": "January 27, 2026",
+      "event_id": 2722,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2722/files/agenda/4672",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Natural Features Protection Review Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2722/files/agenda/4672"
+    },
+    {
+      "date": "2025-12-16",
+      "display": "December 16, 2025",
+      "event_id": 2527,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2527/files/agenda/4568",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Natural Features Protection Review Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2527/files/agenda/4568"
+    },
+    {
+      "date": "2025-11-25",
+      "display": "November 25, 2025",
+      "event_id": 1414,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1414/files/agenda/4466",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Natural Features Protection Review Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1414/files/agenda/4466"
+    },
+    {
+      "date": "2025-10-28",
+      "display": "October 28, 2025",
+      "event_id": 1413,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1413/files/agenda/4402",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Natural Features Protection Review Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1413/files/agenda/4402"
+    },
+    {
+      "date": "2025-09-23",
+      "display": "September 23, 2025",
+      "event_id": 1412,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1412/files/agenda/4292",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Natural Features Protection Review Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1412/files/agenda/4292"
+    },
+    {
+      "date": "2025-08-26",
+      "display": "August 26, 2025",
+      "event_id": 1411,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1411/files/agenda/4195",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Natural Features Protection Review Board",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1411/files/agenda/4195"
+    }
+  ],
+  "recordings": [
+    {
+      "date": "2026-03-24",
+      "display": "March 24, 2026",
+      "youtube_id": "8NJJCzQqlE0",
+      "youtube_url": "https://www.youtube.com/live/8NJJCzQqlE0?si=YGk8xjWy18-CCUkJ",
+      "title": "March 24, 2026 Natural Features Protection Review Board"
+    },
+    {
+      "date": "2026-02-24",
+      "display": "February 24, 2026",
+      "youtube_id": "Ro4ZJPd_fT8",
+      "youtube_url": "https://www.youtube.com/watch?v=Ro4ZJPd_fT8",
+      "title": "February 24, 2026 Natural Features Protection Review Board"
+    },
+    {
+      "date": "2026-01-27",
+      "display": "January 27, 2026",
+      "youtube_id": "st7STRp_RyE",
+      "youtube_url": "https://www.youtube.com/watch?v=st7STRp_RyE",
+      "title": "January 27, 2026 Natural Features Protection Review Board"
+    },
+    {
+      "date": "2025-12-16",
+      "display": "December 16, 2025",
+      "youtube_id": "X1ibjbAoNMM",
+      "youtube_url": "https://www.youtube.com/watch?v=X1ibjbAoNMM",
+      "title": "December 16, 2025 Natural Features Protection Review Board"
+    },
+    {
+      "date": "2025-11-25",
+      "display": "November 25, 2025",
+      "youtube_id": "MVOlJzxNIpU",
+      "youtube_url": "https://www.youtube.com/watch?v=MVOlJzxNIpU",
+      "title": "November 25, 2025 Natural Features Protection Review Board"
+    }
+  ]
+}
