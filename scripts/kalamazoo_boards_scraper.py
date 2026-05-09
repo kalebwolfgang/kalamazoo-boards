@@ -159,6 +159,18 @@ BOARDS = [
         "schedule":    ("monthly", "tuesday", 4, None),
     },
     {
+        "key":         "pc",
+        "name":        "Planning Commission",
+        "category_id": 29,
+        "keywords":    ["planning commission"],
+        "output":      Path("data") / "pc.json",
+        "youtube":     True,
+        "youtube_channel_id":   "UCIgXSSXLSDxThVaaiRMsR5Q",
+        "youtube_search_query": "Planning Commission Kalamazoo",
+        "youtube_title_filter": ["planning commission"],
+        "youtube_tolerance":    3,
+    },
+    {
         "key":         "pension-board",
         "name":        "Employee Retirement System Board of Trustees",
         "category_id": 42,
