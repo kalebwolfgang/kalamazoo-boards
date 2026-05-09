@@ -2,28 +2,49 @@
   "last_updated": "2026-05-09",
   "upcoming_meetings": [
     {
-      "date": "2026-05-07",
-      "display": "Thursday, May 7, 2026",
-      "time": "7:00 PM \u2013 9:00 PM"
-    },
-    {
       "date": "2026-06-04",
       "display": "Thursday, June 4, 2026",
-      "time": "7:00 PM \u2013 9:00 PM"
+      "time": "7:00 PM – 9:00 PM"
     },
     {
       "date": "2026-07-02",
       "display": "Thursday, July 2, 2026",
-      "time": "7:00 PM \u2013 9:00 PM"
+      "time": "7:00 PM – 9:00 PM"
+    },
+    {
+      "date": "2026-08-06",
+      "display": "Thursday, August 6, 2026",
+      "time": "7:00 PM – 9:00 PM"
+    },
+    {
+      "date": "2026-09-03",
+      "display": "Thursday, September 3, 2026",
+      "time": "7:00 PM – 9:00 PM"
+    },
+    {
+      "date": "2026-10-01",
+      "display": "Thursday, October 1, 2026",
+      "time": "7:00 PM – 9:00 PM"
     }
   ],
   "meetings": [
+    {
+      "date": "2026-05-07",
+      "display": "May 7, 2026",
+      "event_id": 2587,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995",
+      "link_label": "Agenda",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995"
+    },
     {
       "date": "2026-04-08",
       "display": "April 8, 2026",
       "event_id": 2586,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2586/files/agenda/4912",
-      "link_label": "Agenda & Minutes",
+      "link_label": "Agenda",
       "meeting_type": "Planning Commission",
       "cancelled": false,
       "minutes_url": null,
@@ -48,19 +69,8 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/5001",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/4676"
-    },
-    {
-      "date": "2026-01-07",
-      "display": "January 7, 2026",
-      "event_id": 1445,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1445/files",
-      "link_label": "View notice",
-      "meeting_type": "Planning Commission",
-      "cancelled": true,
-      "minutes_url": null,
-      "agenda_url": null
     },
     {
       "date": "2025-12-04",
@@ -70,30 +80,19 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4883",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4476"
     },
     {
-      "date": "2025-11-12",
-      "display": "November 12, 2025",
-      "event_id": 2525,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2525/files",
-      "link_label": "View notice",
-      "meeting_type": "Special Meeting",
-      "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": null
-    },
-    {
-      "date": "2025-10-02",
-      "display": "October 2, 2025",
-      "event_id": 1442,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1442/files/agenda/4286",
-      "link_label": "View notice",
+      "date": "2025-11-06",
+      "display": "November 6, 2025",
+      "event_id": 1443,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1443/files/agenda/4407",
+      "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": true,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1442/files/agenda/4286"
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1443/files/agenda/4882",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1443/files/agenda/4407"
     },
     {
       "date": "2025-09-04",
@@ -103,28 +102,537 @@
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1441/files/agenda/4881",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1441/files/agenda/4228"
     },
     {
-      "date": "2025-08-07",
-      "display": "August 7, 2025",
-      "event_id": 1440,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/1440/files/agenda/4105",
-      "link_label": "View notice",
+      "date": "2025-07-09",
+      "display": "July 9, 2025",
+      "event_id": 1439,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1439/files/agenda/4042",
+      "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": true,
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1439/files/agenda/4880",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1439/files/agenda/4042"
+    },
+    {
+      "date": "2025-05-01",
+      "display": "May 1, 2025",
+      "event_id": 1437,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1437/files/agenda/3871",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1437/files/agenda/4879",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1437/files/agenda/3871"
+    },
+    {
+      "date": "2025-04-09",
+      "display": "April 9, 2025",
+      "event_id": 1436,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1436/files/agenda/3783",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1436/files/agenda/4878",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1436/files/agenda/3783"
+    },
+    {
+      "date": "2025-03-06",
+      "display": "March 6, 2025",
+      "event_id": 1435,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1435/files/agenda/3675",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1435/files/agenda/4848",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1435/files/agenda/3675"
+    },
+    {
+      "date": "2025-02-06",
+      "display": "February 6, 2025",
+      "event_id": 1434,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1434/files/agenda/3564",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1434/files/agenda/3718",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1434/files/agenda/3564"
+    },
+    {
+      "date": "2024-12-18",
+      "display": "December 18, 2024",
+      "event_id": 1313,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1313/files/agenda/3485",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Special Meeting",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1313/files/agenda/3598",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1313/files/agenda/3485"
+    },
+    {
+      "date": "2024-12-11",
+      "display": "December 11, 2024",
+      "event_id": 1245,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1245/files/agenda/3436",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Special Meeting",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1245/files/agenda/3599",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1245/files/agenda/3436"
+    },
+    {
+      "date": "2024-11-07",
+      "display": "November 7, 2024",
+      "event_id": 988,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/988/files/agenda/3303",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/988/files/agenda/3596",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/988/files/agenda/3303"
+    },
+    {
+      "date": "2024-10-03",
+      "display": "October 3, 2024",
+      "event_id": 987,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/987/files/agenda/3184",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/987/files/agenda/3593",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/987/files/agenda/3184"
+    },
+    {
+      "date": "2024-07-08",
+      "display": "July 8, 2024",
+      "event_id": 984,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/984/files/agenda/2981",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/984/files/agenda/3592",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/984/files/agenda/2981"
+    },
+    {
+      "date": "2024-06-06",
+      "display": "June 6, 2024",
+      "event_id": 983,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/983/files/agenda/2898",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/983/files/agenda/3591",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/983/files/agenda/2898"
+    },
+    {
+      "date": "2024-05-02",
+      "display": "May 2, 2024",
+      "event_id": 982,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/982/files/agenda/2823",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/982/files/agenda/3590",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/982/files/agenda/2823"
+    },
+    {
+      "date": "2024-04-04",
+      "display": "April 4, 2024",
+      "event_id": 981,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/981/files/agenda/2756",
+      "link_label": "Agenda",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1440/files/agenda/4105"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/981/files/agenda/2756"
+    },
+    {
+      "date": "2024-03-07",
+      "display": "March 7, 2024",
+      "event_id": 980,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/980/files/agenda/2671",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/980/files/agenda/3589",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/980/files/agenda/2671"
+    },
+    {
+      "date": "2024-02-01",
+      "display": "February 1, 2024",
+      "event_id": 979,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/979/files/agenda/2562",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/979/files/agenda/3588",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/979/files/agenda/2562"
+    },
+    {
+      "date": "2024-01-04",
+      "display": "January 4, 2024",
+      "event_id": 786,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/786/files/agenda/2494",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/786/files/agenda/2655",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/786/files/agenda/2494"
+    },
+    {
+      "date": "2023-12-07",
+      "display": "December 7, 2023",
+      "event_id": 785,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/785/files/agenda/2405",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/785/files/agenda/2654",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/785/files/agenda/2405"
+    },
+    {
+      "date": "2023-10-09",
+      "display": "October 9, 2023",
+      "event_id": 783,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/783/files/agenda/2271",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/783/files/agenda/2653",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/783/files/agenda/2271"
+    },
+    {
+      "date": "2023-09-07",
+      "display": "September 7, 2023",
+      "event_id": 782,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/782/files/agenda/2186",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/782/files/agenda/2652",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/782/files/agenda/2186"
+    },
+    {
+      "date": "2023-08-03",
+      "display": "August 3, 2023",
+      "event_id": 781,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/781/files/agenda/2113",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/781/files/agenda/2651",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/781/files/agenda/2113"
+    },
+    {
+      "date": "2023-07-20",
+      "display": "July 20, 2023",
+      "event_id": 780,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/780/files/agenda/2094",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/780/files/agenda/2650",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/780/files/agenda/2094"
+    },
+    {
+      "date": "2023-06-01",
+      "display": "June 1, 2023",
+      "event_id": 779,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/779/files/agenda/2000",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/779/files/agenda/2649",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/779/files/agenda/2000"
+    },
+    {
+      "date": "2023-05-04",
+      "display": "May 4, 2023",
+      "event_id": 778,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/778/files/agenda/1946",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/778/files/agenda/2648",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/778/files/agenda/1946"
+    },
+    {
+      "date": "2023-04-06",
+      "display": "April 6, 2023",
+      "event_id": 777,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/777/files/agenda/1845",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/777/files/agenda/2647",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/777/files/agenda/1845"
+    },
+    {
+      "date": "2023-03-02",
+      "display": "March 2, 2023",
+      "event_id": 776,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/776/files/agenda/1766",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/776/files/agenda/2646",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/776/files/agenda/1766"
+    },
+    {
+      "date": "2023-02-02",
+      "display": "February 2, 2023",
+      "event_id": 775,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/775/files/agenda/1708",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/775/files/agenda/2645",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/775/files/agenda/1708"
+    },
+    {
+      "date": "2022-12-01",
+      "display": "December 1, 2022",
+      "event_id": 586,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/586/files/agenda/1596",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/586/files/agenda/2644",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/586/files/agenda/1596"
+    },
+    {
+      "date": "2022-11-03",
+      "display": "November 3, 2022",
+      "event_id": 585,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/585/files/agenda/1558",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/585/files/agenda/2643",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/585/files/agenda/1558"
+    },
+    {
+      "date": "2022-09-01",
+      "display": "September 1, 2022",
+      "event_id": 583,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/583/files/agenda/1467",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/583/files/agenda/2642",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/583/files/agenda/1467"
+    },
+    {
+      "date": "2022-08-04",
+      "display": "August 4, 2022",
+      "event_id": 582,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/582/files/agenda/1434",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/582/files/agenda/2641",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/582/files/agenda/1434"
+    },
+    {
+      "date": "2022-07-07",
+      "display": "July 7, 2022",
+      "event_id": 581,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/581/files/agenda/1392",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/581/files/agenda/2640",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/581/files/agenda/1392"
+    },
+    {
+      "date": "2022-06-22",
+      "display": "June 22, 2022",
+      "event_id": 635,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/635/files/agenda/1373",
+      "link_label": "Agenda",
+      "meeting_type": "Special Meeting",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/635/files/agenda/1373"
+    },
+    {
+      "date": "2022-06-02",
+      "display": "June 2, 2022",
+      "event_id": 580,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/580/files/agenda/1350",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/580/files/agenda/2639",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/580/files/agenda/1350"
+    },
+    {
+      "date": "2022-05-05",
+      "display": "May 5, 2022",
+      "event_id": 579,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/579/files/agenda/1331",
+      "link_label": "Agenda",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/579/files/agenda/1331"
+    },
+    {
+      "date": "2022-04-07",
+      "display": "April 7, 2022",
+      "event_id": 578,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/578/files/agenda/1279",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/578/files/agenda/2638",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/578/files/agenda/1279"
+    },
+    {
+      "date": "2022-03-03",
+      "display": "March 3, 2022",
+      "event_id": 577,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/577/files/agenda/1252",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/577/files/agenda/2637",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/577/files/agenda/1252"
+    },
+    {
+      "date": "2022-02-03",
+      "display": "February 3, 2022",
+      "event_id": 440,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/440/files/agenda/1207",
+      "link_label": "Agenda",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/440/files/agenda/1207"
+    },
+    {
+      "date": "2022-01-06",
+      "display": "January 6, 2022",
+      "event_id": 439,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/439/files/agenda/1188",
+      "link_label": "Agenda",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/439/files/agenda/1188"
+    },
+    {
+      "date": "2021-12-02",
+      "display": "December 2, 2021",
+      "event_id": 398,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/398/files/agenda/1138",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/398/files/agenda/2636",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/398/files/agenda/1138"
+    },
+    {
+      "date": "2021-11-04",
+      "display": "November 4, 2021",
+      "event_id": 397,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/397/files/agenda/1107",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/397/files/agenda/2635",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/397/files/agenda/1107"
+    },
+    {
+      "date": "2021-10-07",
+      "display": "October 7, 2021",
+      "event_id": 396,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/396/files/agenda/1066",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/396/files/agenda/2634",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/396/files/agenda/1066"
+    },
+    {
+      "date": "2021-08-09",
+      "display": "August 9, 2021",
+      "event_id": 394,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/394/files/agenda/939",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/394/files/agenda/2633",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/394/files/agenda/939"
+    },
+    {
+      "date": "2021-07-01",
+      "display": "July 1, 2021",
+      "event_id": 393,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/393/files/agenda/904",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/393/files/agenda/999",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/393/files/agenda/904"
+    },
+    {
+      "date": "2021-06-03",
+      "display": "June 3, 2021",
+      "event_id": 392,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/392/files/agenda/869",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/392/files/agenda/998",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/392/files/agenda/869"
+    },
+    {
+      "date": "2021-04-21",
+      "display": "April 21, 2021",
+      "event_id": 390,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/390/files/agenda/839",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/390/files/agenda/997",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/390/files/agenda/839"
+    },
+    {
+      "date": "2021-03-04",
+      "display": "March 4, 2021",
+      "event_id": 389,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/389/files/agenda/778",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Planning Commission",
+      "cancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/389/files/agenda/996",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/389/files/agenda/778"
     }
   ],
   "recordings": [
+    {
+      "date": "2026-05-07",
+      "display": "May 7, 2026",
+      "youtube_id": "RGquK8ZfqZ8",
+      "youtube_url": "https://www.youtube.com/watch?v=RGquK8ZfqZ8",
+      "title": "May 7, 2026 City of Kalamazoo Planning Commission"
+    },
     {
       "date": "2026-04-08",
       "display": "April 8, 2026",
       "youtube_id": "nYZIdSr5HiE",
       "youtube_url": "https://www.youtube.com/watch?v=nYZIdSr5HiE",
       "title": "April 8, 2026 Planning Commission"
+    },
+    {
+      "date": "2026-03-25",
+      "display": "March 25, 2026",
+      "youtube_id": "P7Z4m_5j_fg",
+      "youtube_url": "https://www.youtube.com/watch?v=P7Z4m_5j_fg",
+      "title": "March 25, 2026 City of Kalamazoo Planning Commission"
     },
     {
       "date": "2026-02-05",
@@ -138,7 +646,7 @@
       "display": "December 4, 2025",
       "youtube_id": "pEsDkjNXzw4",
       "youtube_url": "https://www.youtube.com/watch?v=pEsDkjNXzw4",
-      "title": "December 4, 2025 Planning Commission"
+      "title": "December 4, 2025 Kalamazoo Planning Commission"
     },
     {
       "date": "2025-11-06",
@@ -153,6 +661,398 @@
       "youtube_id": "mrL1OtBoMGg",
       "youtube_url": "https://www.youtube.com/watch?v=mrL1OtBoMGg",
       "title": "September 4, 2025 Planning Commission"
+    },
+    {
+      "date": "2025-07-09",
+      "display": "July 9, 2025",
+      "youtube_id": "kKQdfAW8xlk",
+      "youtube_url": "https://www.youtube.com/watch?v=kKQdfAW8xlk",
+      "title": "July 9, 2025 Planning Commission"
+    },
+    {
+      "date": "2025-07-09",
+      "display": "July 9, 2025",
+      "youtube_id": "51jyzWDTPNU",
+      "youtube_url": "https://www.youtube.com/watch?v=51jyzWDTPNU",
+      "title": "July 9, 2025 Planning Commission"
+    },
+    {
+      "date": "2025-06-12",
+      "display": "June 12, 2025",
+      "youtube_id": "CVdY0adMEck",
+      "youtube_url": "https://www.youtube.com/watch?v=CVdY0adMEck",
+      "title": "June 12, 2025 Planning Commission"
+    },
+    {
+      "date": "2025-05-01",
+      "display": "May 1, 2025",
+      "youtube_id": "aM4g4wpgWNk",
+      "youtube_url": "https://www.youtube.com/watch?v=aM4g4wpgWNk",
+      "title": "May 1, 2025 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2025-04-09",
+      "display": "April 9, 2025",
+      "youtube_id": "F4l_9BCVFrc",
+      "youtube_url": "https://www.youtube.com/watch?v=F4l_9BCVFrc",
+      "title": "April 9, 2025 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2025-04-09",
+      "display": "April 9, 2025",
+      "youtube_id": "na2VKwkzlo0",
+      "youtube_url": "https://www.youtube.com/watch?v=na2VKwkzlo0",
+      "title": "April 9, 2025 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2025-03-06",
+      "display": "March 6, 2025",
+      "youtube_id": "8p3t7v89w_U",
+      "youtube_url": "https://www.youtube.com/watch?v=8p3t7v89w_U",
+      "title": "March 6, 2025 Planning Commission"
+    },
+    {
+      "date": "2025-02-06",
+      "display": "February 6, 2025",
+      "youtube_id": "DicHpoG1SW4",
+      "youtube_url": "https://www.youtube.com/watch?v=DicHpoG1SW4",
+      "title": "February 6, 2025 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2024-11-07",
+      "display": "November 7, 2024",
+      "youtube_id": "Jbmu2AaCZ5U",
+      "youtube_url": "https://www.youtube.com/watch?v=Jbmu2AaCZ5U",
+      "title": "November 7, 2024 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2024-07-08",
+      "display": "July 8, 2024",
+      "youtube_id": "w4wJkpe7swQ",
+      "youtube_url": "https://www.youtube.com/watch?v=w4wJkpe7swQ",
+      "title": "July 8, 2024 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2024-06-06",
+      "display": "June 6, 2024",
+      "youtube_id": "e1oPkJWhU-w",
+      "youtube_url": "https://www.youtube.com/watch?v=e1oPkJWhU-w",
+      "title": "June 6, 2024 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2024-05-02",
+      "display": "May 2, 2024",
+      "youtube_id": "5p313wjHY-k",
+      "youtube_url": "https://www.youtube.com/watch?v=5p313wjHY-k",
+      "title": "May 2, 2024 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2024-03-07",
+      "display": "March 7, 2024",
+      "youtube_id": "BZkomlCuqMc",
+      "youtube_url": "https://www.youtube.com/watch?v=BZkomlCuqMc",
+      "title": "March 7, 2024 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2024-02-01",
+      "display": "February 1, 2024",
+      "youtube_id": "__TitwuLx7s",
+      "youtube_url": "https://www.youtube.com/watch?v=__TitwuLx7s",
+      "title": "February 1, 2024 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2024-01-04",
+      "display": "January 4, 2024",
+      "youtube_id": "hD2gNhKAtjw",
+      "youtube_url": "https://www.youtube.com/watch?v=hD2gNhKAtjw",
+      "title": "January 4, 2024 - City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2023-12-07",
+      "display": "December 7, 2023",
+      "youtube_id": "7rmm7jbuLi4",
+      "youtube_url": "https://www.youtube.com/watch?v=7rmm7jbuLi4",
+      "title": "December 7, 2023 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2023-10-09",
+      "display": "October 9, 2023",
+      "youtube_id": "N6QByA3oByI",
+      "youtube_url": "https://www.youtube.com/watch?v=N6QByA3oByI",
+      "title": "October 9, 2023 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2023-09-07",
+      "display": "September 7, 2023",
+      "youtube_id": "cH0vApyT-cE",
+      "youtube_url": "https://www.youtube.com/watch?v=cH0vApyT-cE",
+      "title": "September 7, 2023 City of Kalamazoo - Planning Commission"
+    },
+    {
+      "date": "2023-08-03",
+      "display": "August 3, 2023",
+      "youtube_id": "mRPOcc3w2D8",
+      "youtube_url": "https://www.youtube.com/watch?v=mRPOcc3w2D8",
+      "title": "August 3, 2023 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2023-07-20",
+      "display": "July 20, 2023",
+      "youtube_id": "xTMS59uFMY8",
+      "youtube_url": "https://www.youtube.com/watch?v=xTMS59uFMY8",
+      "title": "July 20, 2023 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2023-06-01",
+      "display": "June 1, 2023",
+      "youtube_id": "V7TNmyNulh8",
+      "youtube_url": "https://www.youtube.com/watch?v=V7TNmyNulh8",
+      "title": "June 1, 2023 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2023-05-04",
+      "display": "May 4, 2023",
+      "youtube_id": "61RaqBK43hs",
+      "youtube_url": "https://www.youtube.com/watch?v=61RaqBK43hs",
+      "title": "May 4, 2023 City of Kalamazoo Planning Commission - Regular Business Meeting"
+    },
+    {
+      "date": "2023-04-06",
+      "display": "April 6, 2023",
+      "youtube_id": "Wx2sSrRnTTo",
+      "youtube_url": "https://www.youtube.com/watch?v=Wx2sSrRnTTo",
+      "title": "April 6, 2023 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2023-03-02",
+      "display": "March 2, 2023",
+      "youtube_id": "reW9acNwO44",
+      "youtube_url": "https://www.youtube.com/watch?v=reW9acNwO44",
+      "title": "March 2, 2023 - City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2023-03-02",
+      "display": "March 2, 2023",
+      "youtube_id": "b8iBqCyL7ZM",
+      "youtube_url": "https://www.youtube.com/watch?v=b8iBqCyL7ZM",
+      "title": "March 2, 2023 - City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2023-02-02",
+      "display": "February 2, 2023",
+      "youtube_id": "L_W1bs9U8Wo",
+      "youtube_url": "https://www.youtube.com/watch?v=L_W1bs9U8Wo",
+      "title": "February 2, 2023 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2022-12-01",
+      "display": "December 1, 2022",
+      "youtube_id": "nSgH_cyvPpU",
+      "youtube_url": "https://www.youtube.com/watch?v=nSgH_cyvPpU",
+      "title": "December 1, 2022 City of Kalamazoo - City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2022-11-03",
+      "display": "November 3, 2022",
+      "youtube_id": "GX8gHFrXwFw",
+      "youtube_url": "https://www.youtube.com/watch?v=GX8gHFrXwFw",
+      "title": "November 3, 2022 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2022-09-01",
+      "display": "September 1, 2022",
+      "youtube_id": "n6xbvaIRrv0",
+      "youtube_url": "https://www.youtube.com/watch?v=n6xbvaIRrv0",
+      "title": "September 1, 2022 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2022-08-04",
+      "display": "August 4, 2022",
+      "youtube_id": "7tYOby7unJc",
+      "youtube_url": "https://www.youtube.com/watch?v=7tYOby7unJc",
+      "title": "August 4, 2022 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2022-07-07",
+      "display": "July 7, 2022",
+      "youtube_id": "z4dOTX2NmOY",
+      "youtube_url": "https://www.youtube.com/watch?v=z4dOTX2NmOY",
+      "title": "July 7, 2022 City of Kalamazoo Planning Commission"
+    },
+    {
+      "date": "2022-06-22",
+      "display": "June 22, 2022",
+      "youtube_id": "pQ1TcAi2oOQ",
+      "youtube_url": "https://www.youtube.com/watch?v=pQ1TcAi2oOQ",
+      "title": "June 22, 2022 City of Kalamazoo Planning Commission Special Meeting"
+    },
+    {
+      "date": "2022-06-02",
+      "display": "June 2, 2022",
+      "youtube_id": "ENfAgPJlmKk",
+      "youtube_url": "https://www.youtube.com/watch?v=ENfAgPJlmKk",
+      "title": "June 2, 2022 City of Kalamazoo Planning Commission meeting"
+    },
+    {
+      "date": "2022-04-07",
+      "display": "April 7, 2022",
+      "youtube_id": "d4NBfw2xioI",
+      "youtube_url": "https://www.youtube.com/watch?v=d4NBfw2xioI",
+      "title": "April 7, 2022 Kalamazoo City Planning Commission"
+    },
+    {
+      "date": "2022-03-03",
+      "display": "March 3, 2022",
+      "youtube_id": "PajB562P-x4",
+      "youtube_url": "https://www.youtube.com/watch?v=PajB562P-x4",
+      "title": "City of Kalamazoo Planning Commission meeting March 3, 2022"
+    },
+    {
+      "date": "2021-12-02",
+      "display": "December 2, 2021",
+      "youtube_id": "NFHff8Bv-ks",
+      "youtube_url": "https://www.youtube.com/watch?v=NFHff8Bv-ks",
+      "title": "Planning Commission – December 2, 2021"
+    },
+    {
+      "date": "2021-11-04",
+      "display": "November 4, 2021",
+      "youtube_id": "5wk4IAEwALU",
+      "youtube_url": "https://www.youtube.com/watch?v=5wk4IAEwALU",
+      "title": "Planning Commission – November 4, 2021"
+    },
+    {
+      "date": "2021-10-07",
+      "display": "October 7, 2021",
+      "youtube_id": "tN8iNF1lUhs",
+      "youtube_url": "https://www.youtube.com/watch?v=tN8iNF1lUhs",
+      "title": "Planning Commission - October 7, 2021"
+    },
+    {
+      "date": "2021-08-09",
+      "display": "August 9, 2021",
+      "youtube_id": "sMM1NhV5_S4",
+      "youtube_url": "https://www.youtube.com/watch?v=sMM1NhV5_S4",
+      "title": "Planning Commission - August 9, 2021"
+    },
+    {
+      "date": "2021-07-01",
+      "display": "July 1, 2021",
+      "youtube_id": "oY_mPT6KJdk",
+      "youtube_url": "https://www.youtube.com/watch?v=oY_mPT6KJdk",
+      "title": "Planning Commission - July 1, 2021"
+    },
+    {
+      "date": "2021-06-03",
+      "display": "June 3, 2021",
+      "youtube_id": "inatfoVO5zc",
+      "youtube_url": "https://www.youtube.com/watch?v=inatfoVO5zc",
+      "title": "Planning Commission - June 3, 2021"
+    },
+    {
+      "date": "2021-04-21",
+      "display": "April 21, 2021",
+      "youtube_id": "vAfwPA-FMPk",
+      "youtube_url": "https://www.youtube.com/watch?v=vAfwPA-FMPk",
+      "title": "Planning Commission - April 21, 2021"
+    },
+    {
+      "date": "2021-04-07",
+      "display": "April 7, 2021",
+      "youtube_id": "CPtAiVQlgks",
+      "youtube_url": "https://www.youtube.com/watch?v=CPtAiVQlgks",
+      "title": "Planning Commission - April 7, 2021"
+    },
+    {
+      "date": "2021-03-04",
+      "display": "March 4, 2021",
+      "youtube_id": "hwYrApO-Xic",
+      "youtube_url": "https://www.youtube.com/watch?v=hwYrApO-Xic",
+      "title": "Planning Commission, March 4, 2021"
+    },
+    {
+      "date": "2021-02-04",
+      "display": "February 4, 2021",
+      "youtube_id": "601N6CvMH3k",
+      "youtube_url": "https://www.youtube.com/watch?v=601N6CvMH3k",
+      "title": "Planning Commission, February 4, 2021"
+    },
+    {
+      "date": "2021-01-11",
+      "display": "January 11, 2021",
+      "youtube_id": "EMxSO2EtMzw",
+      "youtube_url": "https://www.youtube.com/watch?v=EMxSO2EtMzw",
+      "title": "Planning Commission, January 11, 2021"
+    },
+    {
+      "date": "2021-01-07",
+      "display": "January 7, 2021",
+      "youtube_id": "5lf7te7b_rs",
+      "youtube_url": "https://www.youtube.com/watch?v=5lf7te7b_rs",
+      "title": "Planning Commission, January 7, 2021"
+    },
+    {
+      "date": "2020-12-03",
+      "display": "December 3, 2020",
+      "youtube_id": "5WIoH8AvIBo",
+      "youtube_url": "https://www.youtube.com/watch?v=5WIoH8AvIBo",
+      "title": "Planning Commission, December 3, 2020"
+    },
+    {
+      "date": "2020-11-05",
+      "display": "November 5, 2020",
+      "youtube_id": "Sq4ZpfQvnIQ",
+      "youtube_url": "https://www.youtube.com/watch?v=Sq4ZpfQvnIQ",
+      "title": "Planning Commission, November 5, 2020"
+    },
+    {
+      "date": "2020-10-01",
+      "display": "October 1, 2020",
+      "youtube_id": "0dT7NFbTLOk",
+      "youtube_url": "https://www.youtube.com/watch?v=0dT7NFbTLOk",
+      "title": "Planning Commission, October 1, 2020"
+    },
+    {
+      "date": "2020-09-03",
+      "display": "September 3, 2020",
+      "youtube_id": "I8dXRIDXRGY",
+      "youtube_url": "https://www.youtube.com/watch?v=I8dXRIDXRGY",
+      "title": "Planning Commission, September 3, 2020"
+    },
+    {
+      "date": "2020-07-30",
+      "display": "July 30, 2020",
+      "youtube_id": "lsLF3mnMrcY",
+      "youtube_url": "https://www.youtube.com/watch?v=lsLF3mnMrcY",
+      "title": "Planning Commission"
+    },
+    {
+      "date": "2020-05-08",
+      "display": "May 8, 2020",
+      "youtube_id": "sck1U5GH_Ko",
+      "youtube_url": "https://www.youtube.com/watch?v=sck1U5GH_Ko",
+      "title": "Planning Commission"
+    },
+    {
+      "date": "2020-04-16",
+      "display": "April 16, 2020",
+      "youtube_id": "Ot8A0eGobGI",
+      "youtube_url": "https://www.youtube.com/watch?v=Ot8A0eGobGI",
+      "title": "Kalamazoo Planning Commission. Comments through 830pm: (269) 226-6573"
+    },
+    {
+      "date": "2020-03-05",
+      "display": "March 5, 2020",
+      "youtube_id": "YxgmY3wLkWk",
+      "youtube_url": "https://www.youtube.com/watch?v=YxgmY3wLkWk",
+      "title": "Kalamazoo City Planning Commission Meeting, March 5, 2020"
+    },
+    {
+      "date": "2020-01-14",
+      "display": "January 14, 2020",
+      "youtube_id": "PnJFwM2Pu6c",
+      "youtube_url": "https://www.youtube.com/watch?v=PnJFwM2Pu6c",
+      "title": "Kalamazoo Planning Commission, January 14, 2020"
     }
   ]
 }
