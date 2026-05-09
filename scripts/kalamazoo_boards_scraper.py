@@ -171,6 +171,18 @@ BOARDS = [
         "youtube_tolerance":    3,
     },
     {
+        "key":         "zba",
+        "name":        "Zoning Board of Appeals",
+        "category_id": 30,
+        "keywords":    ["zoning board of appeals", "zoning board"],
+        "output":      Path("data") / "zba.json",
+        "youtube":     True,
+        "youtube_channel_id":   "UCIgXSSXLSDxThVaaiRMsR5Q",
+        "youtube_search_query": "Zoning Board of Appeals Kalamazoo",
+        "youtube_title_filter": ["zoning board of appeals", "zoning board"],
+        "youtube_tolerance":    3,
+    },
+    {
         "key":         "pension-board",
         "name":        "Employee Retirement System Board of Trustees",
         "category_id": 42,
