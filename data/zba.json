@@ -1,0 +1,152 @@
+{
+  "last_updated": "2026-05-09",
+  "upcoming_meetings": [
+    {
+      "date": "2026-05-14",
+      "display": "Thursday, May 14, 2026",
+      "time": "7:00 PM \u2013 9:00 PM"
+    },
+    {
+      "date": "2026-06-11",
+      "display": "Thursday, June 11, 2026",
+      "time": "7:00 PM \u2013 9:00 PM"
+    },
+    {
+      "date": "2026-07-09",
+      "display": "Thursday, July 9, 2026",
+      "time": "7:00 PM \u2013 9:00 PM"
+    },
+    {
+      "date": "2026-08-13",
+      "display": "Thursday, August 13, 2026",
+      "time": "7:00 PM \u2013 9:00 PM"
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2026-04-09",
+      "display": "April 9, 2026",
+      "event_id": 2616,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2616/files/agenda/4916",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Zoning Board of Appeals",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2616/files/agenda/4916"
+    },
+    {
+      "date": "2026-03-12",
+      "display": "March 12, 2026",
+      "event_id": 2615,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2615/files/agenda/4826",
+      "link_label": "View notice",
+      "meeting_type": "Zoning Board of Appeals",
+      "cancelled": true,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2615/files/agenda/4826"
+    },
+    {
+      "date": "2026-02-12",
+      "display": "February 12, 2026",
+      "event_id": 2614,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2614/files/agenda/4708",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Zoning Board of Appeals",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2614/files/agenda/4708"
+    },
+    {
+      "date": "2026-01-08",
+      "display": "January 8, 2026",
+      "event_id": 1459,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1459/files/agenda/4602",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Zoning Board of Appeals",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1459/files/agenda/4602"
+    },
+    {
+      "date": "2025-12-11",
+      "display": "December 11, 2025",
+      "event_id": 1457,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1457/files/agenda/4523",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Zoning Board of Appeals",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1457/files/agenda/4523"
+    },
+    {
+      "date": "2025-11-13",
+      "display": "November 13, 2025",
+      "event_id": 1456,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1456/files/agenda/4423",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Zoning Board of Appeals",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1456/files/agenda/4423"
+    },
+    {
+      "date": "2025-10-09",
+      "display": "October 9, 2025",
+      "event_id": 1455,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1455/files/agenda/4324",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Zoning Board of Appeals",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1455/files/agenda/4324"
+    },
+    {
+      "date": "2025-09-11",
+      "display": "September 11, 2025",
+      "event_id": 1454,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/1454/files/agenda/4240",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "Zoning Board of Appeals",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1454/files/agenda/4240"
+    }
+  ],
+  "recordings": [
+    {
+      "date": "2026-04-09",
+      "display": "April 9, 2026",
+      "youtube_id": "HjTiRtfIl74",
+      "youtube_url": "https://www.youtube.com/live/HjTiRtfIl74",
+      "title": "April 9, 2026 Zoning Board of Appeals"
+    },
+    {
+      "date": "2026-02-12",
+      "display": "February 12, 2026",
+      "youtube_id": "8YBJPJYdbUE",
+      "youtube_url": "https://www.youtube.com/watch?v=8YBJPJYdbUE",
+      "title": "February 12, 2026 Zoning Board of Appeals"
+    },
+    {
+      "date": "2026-01-08",
+      "display": "January 8, 2026",
+      "youtube_id": "Duf282qycCY",
+      "youtube_url": "https://www.youtube.com/watch?v=Duf282qycCY",
+      "title": "January 8, 2026 Zoning Board of Appeals"
+    },
+    {
+      "date": "2025-12-11",
+      "display": "December 11, 2025",
+      "youtube_id": "7ix8a6uqWV8",
+      "youtube_url": "https://www.youtube.com/watch?v=7ix8a6uqWV8",
+      "title": "December 11, 2025 Zoning Board of Appeals"
+    },
+    {
+      "date": "2025-11-13",
+      "display": "November 13, 2025",
+      "youtube_id": "ZhViwsjtD-w",
+      "youtube_url": "https://www.youtube.com/watch?v=ZhViwsjtD-w",
+      "title": "November 13, 2025 Zoning Board of Appeals"
+    }
+  ]
+}
