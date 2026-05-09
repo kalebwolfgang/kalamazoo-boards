@@ -1,4 +1,3 @@
-cat > /mnt/user-data/outputs/pc.json << 'EOF'
 {
   "last_updated": "2026-05-09",
   "upcoming_meetings": [
