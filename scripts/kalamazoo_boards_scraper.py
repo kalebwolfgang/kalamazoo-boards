@@ -272,6 +272,14 @@ BOARDS = [
         "output":      Path("data") / "cdaac.json",
         "youtube":     False,
     },
+    {
+        "key":         "ncbda",
+        "name":        "Northside Cultural Business District Authority Board",
+        "category_id": 43,
+        "keywords":    ["northside cultural business district", "northside cultural", "ncbda"],
+        "output":      Path("data") / "ncbda.json",
+        "youtube":     False,
+    },
 ]
 
 
