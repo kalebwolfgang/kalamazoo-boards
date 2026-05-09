@@ -156,5 +156,3 @@
     }
   ]
 }
-EOF
-echo "JSON written"
