@@ -969,7 +969,16 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
     scraped = [m for m in (transform_event(e, board) for e in past_events) if m is not None]
     print(f"    {len(scraped)} past events with documents")
 
-    if board.get("upcoming_from_web"):
+    if board.get("upcoming_web_override_cc"):
+        print("  Step 2: Checking web and CivicClerk for upcoming...")
+        web_upcoming = scrape_web_upcoming(board)
+        if web_upcoming:
+            print(f"    Website override active: {len(web_upcoming)} meetings found.")
+            upcoming = web_upcoming
+        else:
+            upcoming = events_to_upcoming(future_events, board)
+            print(f"    Website had 0. Fallback: {len(upcoming)} from CivicClerk.")
+    elif board.get("upcoming_from_web"):
         print("  Step 2: Scraping upcoming meetings from city website...")
         upcoming = scrape_web_upcoming(board)
     elif board.get("schedule"):
