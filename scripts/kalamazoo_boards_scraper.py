@@ -146,6 +146,16 @@ BOARDS = [
         "schedule":    ("monthly", "wednesday", 2, None),
     },
     {
+        "key":         "locc",
+        "name":        "Local Officers Compensation Commission",
+        "category_id": 31,
+        "keywords":    ["local officers compensation commission", "locc"],
+        "output":      Path("data") / "locc.json",
+        "youtube":     False,
+        "upcoming_web_override_cc": True,
+        "web_url":     "https://www.kalamazoocity.org/Government/Boards-Commissions/Local-Officers-Compensation-Commission",
+    },
+    {
         "key":         "nfp",
         "name":        "Natural Features Protection Review Board",
         "category_id": 41,
