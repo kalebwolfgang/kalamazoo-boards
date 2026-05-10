@@ -1,0 +1,39 @@
+{
+  "last_updated": "2026-05-09",
+  "upcoming_meetings": [],
+  "meetings": [
+    {
+      "date": "2025-12-16",
+      "display": "December 16, 2025",
+      "event_id": 2583,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2583/files/agenda/4561",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "LOCC Board • Regular Meeting",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2583/files/agenda/4561"
+    },
+    {
+      "date": "2023-12-12",
+      "display": "December 12, 2023",
+      "event_id": 955,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/955/files/agenda/2445",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "LOCC Board • Regular Meeting",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/955/files/agenda/2445"
+    },
+    {
+      "date": "2021-12-14",
+      "display": "December 14, 2021",
+      "event_id": 537,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/537/files/agenda/1163",
+      "link_label": "Agenda & Minutes",
+      "meeting_type": "LOCC Board • Regular Meeting",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/537/files/agenda/1163"
+    }
+  ]
+}
