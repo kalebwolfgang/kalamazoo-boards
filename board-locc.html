@@ -675,17 +675,18 @@ fetch('data/locc.json')
     const todayStr = TODAY.toISOString().split('T')[0];
     const upcoming = (data.upcoming_meetings || []).filter(m => m.date >= todayStr).slice(0, 3);
     
-    if (upcoming.length > 0 && upcomingContainer) {
-      upcoming.forEach((m, idx) => {
-        const div = document.createElement('div');
-        div.className = 'meeting-item';
-        div.innerHTML = `
-          <div class="next-badge" ${idx === 0 ? '' : 'style="display:none"'}>Next</div>
-          <div class="meeting-date">${m.display}</div>
-          <div class="meeting-time">${m.time}</div>
-        `;
-        upcomingContainer.appendChild(div);
-      });
+    if (upcomingContainer) {
+      if (upcoming.length === 0) {
+        upcomingContainer.innerHTML = `<p style="font-size:15px;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:14px;">There are currently 0 upcoming meetings — check back to see when new meetings are added.</p>`;
+      } else {
+        upcomingContainer.innerHTML = upcoming.map((m, idx) => `
+          <div class="meeting-item">
+            <div class="next-badge" ${idx === 0 ? '' : 'style="display:none"'}>Next</div>
+            <div class="meeting-date">${m.display}</div>
+            <div class="meeting-time">${m.time}</div>
+          </div>
+        `).join('');
+      }
     }
 
     // ── Minutes & Agendas ──
