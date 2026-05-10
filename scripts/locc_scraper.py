@@ -1,0 +1,292 @@
+#!/usr/bin/env python3
+"""
+Local Officers Compensation Commission scraper
+=============================================
+CivicClerk category 31 only — no YouTube.
+Upcoming meetings are preserved from existing JSON (on-call schedule
+is manually maintained; CivicClerk does not reliably publish future events).
+
+Default mode (no arguments):
+    Fetches the last 6 months for past meetings. Preserves existing upcoming.
+    python locc_scraper.py
+
+Backfill mode:
+    python locc_scraper.py --start-date 2020-01-01
+"""
+
+import argparse
+import json
+from datetime import datetime, date, timedelta, timezone
+from pathlib import Path
+
+import requests
+
+
+# ---------------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------------
+
+CIVICCLERK_TENANT = "kalamazoomi"
+LOCC_CATEGORY_ID  = 31
+LOCC_KEYWORDS     = ["local officers compensation commission", "locc"]
+BOARD_NAME        = "Local Officers Compensation Commission"
+OUTPUT_PATH       = Path("data") / "locc.json"
+CUTOFF_DATE       = "2020-01-01"
+LOOKBACK_MONTHS   = 6
+
+PRESERVE_IF_SCRAPE_EMPTY = ("agenda_url", "minutes_url")
+
+
+# ---------------------------------------------------------------------------
+# CivicClerk helpers
+# ---------------------------------------------------------------------------
+
+def build_civicclerk_url(start_date: str, end_date: str) -> str:
+    base  = f"https://{CIVICCLERK_TENANT}.api.civicclerk.com/v1/Events"
+    query = (
+        f"?$filter=startDateTime ge {start_date} and startDateTime lt {end_date}"
+        f"&$orderby=startDateTime desc, eventName asc"
+    )
+    return base + query
+
+
+def fetch_all_civicclerk_events(url: str) -> list:
+    all_events = []
+    page = 1
+    while url:
+        print(f"  [CivicClerk] Fetching page {page}...")
+        r = requests.get(url, timeout=30)
+        r.raise_for_status()
+        data = r.json()
+        events = data.get("value", [])
+        all_events.extend(events)
+        print(f"    got {len(events)} events (running total: {len(all_events)})")
+        url = data.get("@odata.nextLink")
+        page += 1
+    return all_events
+
+
+def is_locc_event(event: dict) -> bool:
+    if event.get("eventCategoryId") != LOCC_CATEGORY_ID:
+        return False
+    name_lower = event.get("eventName", "").lower()
+    return any(kw in name_lower for kw in LOCC_KEYWORDS)
+
+
+def find_file_id(published_files: list, file_type: str):
+    for f in published_files or []:
+        if f.get("type") == file_type:
+            return f.get("fileId")
+    return None
+
+
+def build_document_url(event_id: int, file_id: int) -> str:
+    return (
+        f"https://{CIVICCLERK_TENANT}.portal.civicclerk.com"
+        f"/event/{event_id}/files/agenda/{file_id}"
+    )
+
+
+def format_display_date(iso: str) -> str:
+    d = datetime.strptime(iso, "%Y-%m-%d")
+    return d.strftime("%B %#d, %Y")
+
+
+def transform_civicclerk_event(event: dict):
+    event_id        = event["id"]
+    date_only       = event["startDateTime"].split("T")[0]
+    published_files = event.get("publishedFiles", [])
+    agenda_file_id  = find_file_id(published_files, "Agenda")
+    minutes_file_id = find_file_id(published_files, "Minutes")
+    name_lower      = event.get("eventName", "").lower()
+    cancelled       = "cancel" in name_lower
+
+    if not agenda_file_id and not minutes_file_id:
+        return None
+
+    has_minutes = bool(minutes_file_id)
+    if cancelled:
+        link_label = "View notice"
+    elif has_minutes:
+        link_label = "Agenda & Minutes"
+    else:
+        link_label = "Agenda"
+
+    agenda_url  = build_document_url(event_id, agenda_file_id)  if agenda_file_id  else None
+    minutes_url = build_document_url(event_id, minutes_file_id) if minutes_file_id else None
+
+    url = agenda_url or (
+        f"https://{CIVICCLERK_TENANT}.portal.civicclerk.com/event/{event_id}/overview"
+    )
+
+    return {
+        "date":         date_only,
+        "display":      format_display_date(date_only),
+        "event_id":     event_id,
+        "url":          url,
+        "link_label":   link_label,
+        "meeting_type": BOARD_NAME,
+        "cancelled":    cancelled,
+        "minutes_url":  minutes_url,
+        "agenda_url":   agenda_url,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Merge helpers
+# ---------------------------------------------------------------------------
+
+def load_existing(path: Path) -> dict:
+    if path.exists():
+        with path.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    return {
+        "last_updated":      None,
+        "upcoming_meetings": [],
+        "meetings":          [],
+    }
+
+
+def smart_merge_record(existing: dict, scraped: dict) -> tuple:
+    result, preserved = dict(scraped), []
+    for field in PRESERVE_IF_SCRAPE_EMPTY:
+        if not result.get(field) and existing.get(field):
+            result[field] = existing[field]
+            preserved.append(field)
+    return result, preserved
+
+
+def merge_meetings(existing: list, scraped: list) -> tuple:
+    stats = {"added": 0, "updated": 0, "unchanged": 0, "preserved": 0}
+
+    def key(m):
+        return ("id", m["event_id"]) if m.get("event_id") is not None else ("date", m.get("date"))
+
+    by_key = {key(m): m for m in existing}
+
+    for s in scraped:
+        k = key(s)
+        if k not in by_key:
+            by_key[k] = s
+            stats["added"] += 1
+            print(f"  + NEW:      {s['date']} {s['meeting_type']}")
+            continue
+
+        merged, preserved = smart_merge_record(by_key[k], s)
+        if preserved:
+            stats["preserved"] += len(preserved)
+            print(f"  = PROTECTED:{merged['date']}  kept {', '.join(preserved)}")
+
+        changed = any(
+            by_key[k].get(f) != merged.get(f)
+            for f in ("url", "cancelled", "minutes_url", "agenda_url")
+        )
+        if changed:
+            by_key[k] = merged
+            stats["updated"] += 1
+            print(f"  ~ UPDATED:  {merged['date']}")
+        else:
+            stats["unchanged"] += 1
+
+    merged_list = sorted(by_key.values(), key=lambda m: m["date"], reverse=True)
+    return merged_list, stats
+
+
+# ---------------------------------------------------------------------------
+# Argument parsing & date window
+# ---------------------------------------------------------------------------
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Scrape Kalamazoo Local Officers Compensation Commission meetings.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Examples:\n"
+            "  python locc_scraper.py                            # Default: last 6 months\n"
+            "  python locc_scraper.py --start-date 2020-01-01   # Full backfill\n"
+        ),
+    )
+    parser.add_argument("--start-date", help="Start of window (YYYY-MM-DD).")
+    parser.add_argument("--end-date",   help="End of window (YYYY-MM-DD). Defaults to today.")
+    return parser.parse_args()
+
+
+def determine_window(args) -> tuple:
+    now = datetime.now(timezone.utc)
+    if args.start_date:
+        return args.start_date, args.end_date or now.strftime("%Y-%m-%d"), "BACKFILL"
+
+    start_dt  = now - timedelta(days=LOOKBACK_MONTHS * 30)
+    cutoff_dt = datetime.fromisoformat(CUTOFF_DATE).replace(tzinfo=timezone.utc)
+    if start_dt < cutoff_dt:
+        start_dt = cutoff_dt
+
+    return start_dt.strftime("%Y-%m-%d"), args.end_date or now.strftime("%Y-%m-%d"), "DEFAULT"
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main() -> None:
+    args = parse_args()
+    start_iso, end_iso, mode = determine_window(args)
+
+    print(f"LOCC Scraper [{mode} mode]")
+    print(f"Window: {start_iso} → {end_iso}")
+    print()
+
+    # ── Step 1: CivicClerk past meetings only
+    print("── Step 1: Fetching CivicClerk events...")
+    today_iso = date.today().isoformat()
+
+    cc_url     = build_civicclerk_url(start_iso, end_iso)
+    all_events = fetch_all_civicclerk_events(cc_url)
+    locc_events = [e for e in all_events if is_locc_event(e)]
+
+    past_events = [e for e in locc_events if e["startDateTime"].split("T")[0] <= today_iso]
+
+    print(f"  LOCC events found: {len(locc_events)} ({len(past_events)} past)")
+    print()
+
+    scraped = [m for m in (transform_civicclerk_event(e) for e in past_events) if m is not None]
+    for m in scraped:
+        ag = "agenda"    if m["agenda_url"]  else "no agenda"
+        mn = "minutes"   if m["minutes_url"] else "no minutes"
+        ca = " CANCELLED" if m["cancelled"]   else ""
+        print(f"  {m['date']}  [{ag}, {mn}]{ca}")
+    print()
+
+    # ── Step 2: Merge
+    print("── Step 2: Merging with existing data/locc.json...")
+    existing = load_existing(OUTPUT_PATH)
+    merged_meetings, stats = merge_meetings(existing.get("meetings", []), scraped)
+    print()
+    print(f"  Meetings — added: {stats['added']}  updated: {stats['updated']}  unchanged: {stats['unchanged']}  fields protected: {stats['preserved']}")
+    print()
+
+    # ── Step 3: Preserve upcoming from existing JSON
+    upcoming = existing.get("upcoming_meetings", [])
+    print(f"── Step 3: Preserving {len(upcoming)} upcoming meetings from existing JSON")
+    for u in upcoming:
+        print(f"  {u['date']}  {u['display']}")
+    print()
+
+    output = {
+        "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "upcoming_meetings": upcoming,
+        "meetings":          merged_meetings,
+    }
+
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with OUTPUT_PATH.open("w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+    print(f"Wrote {OUTPUT_PATH}")
+    print(f"  {len(merged_meetings)} total meetings")
+    print(f"  {len(upcoming)} upcoming dates preserved")
+
+
+if __name__ == "__main__":
+    main()
