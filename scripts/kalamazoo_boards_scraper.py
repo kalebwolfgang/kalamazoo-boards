@@ -1070,6 +1070,7 @@ def main():
     for board in boards_to_run:
         run_board(board, start_iso, end_iso, api_key)
 
+    build_calendar_json()
     print("\nDone.")
 
 
