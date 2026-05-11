@@ -348,6 +348,70 @@ for b in BOARDS:
     b["time"] = BOARD_TIMES.get(b["key"], "TBD")
 
 # ---------------------------------------------------------------------------
+# Board abbreviations (uppercase display labels for calendar)
+# ---------------------------------------------------------------------------
+
+BOARD_ABBR = {
+    "bba":          "BBA",
+    "bor":          "BOR",
+    "bra":          "BRA",
+    "cdaac":        "CDAAC",
+    "cpsrab":       "CPSRAB",
+    "crb":          "CRB",
+    "dda":          "DDA",
+    "dega":         "DEGA",
+    "ec":           "EC",
+    "ecc":          "ECC",
+    "edc":          "EDC",
+    "hdc":          "HDC",
+    "hpc":          "HPC",
+    "kmga":         "KMGA",
+    "locc":         "LOCC",
+    "ncbda":        "NCBDA",
+    "nfp":          "NFP",
+    "pc":           "PC",
+    "pension-board":"PB",
+    "prab":         "PRAB",
+    "ric":          "RIC",
+    "spk":          "SPK",
+    "trb":          "TRB",
+    "tre":          "TRE",
+    "zba":          "ZBA",
+}
+
+# ---------------------------------------------------------------------------
+# Board locations (static defaults; None = handled per-meeting)
+# ---------------------------------------------------------------------------
+
+BOARD_LOCATIONS = {
+    "bba":          "City Commission Chambers, City Hall, 241 W South St",
+    "bor":          "Third Floor Conference Room, City Hall, 241 W South St",
+    "bra":          "CPED Main Conference Room, 245 N Rose St, Suite 100",
+    "cdaac":        "Community Room, City Hall Second Floor, 241 W South St",
+    "cpsrab":       "City Commission Chambers, City Hall Second Floor, 241 W South St",
+    "crb":          "City Commission Chambers, City Hall Second Floor, 241 W South St",
+    "dda":          "City Hall, 241 W South St",
+    "dega":         "City Hall, 241 W South St",
+    "ec":           None,
+    "ecc":          "City Commission Chambers, City Hall, 241 W South St",
+    "edc":          "CPED Main Conference Room, 245 N Rose St, Suite 100",
+    "hdc":          "City Commission Chambers, City Hall, 241 W South St",
+    "hpc":          "City Hall, 241 W South St",
+    "kmga":         None,
+    "locc":         "City Hall, 241 W South St",
+    "ncbda":        "Northside Association for Community Development, 612 N Park St",
+    "nfp":          "City Commission Chambers, City Hall, 241 W South St",
+    "pc":           "City Commission Chambers, City Hall Second Floor, 241 W South St",
+    "pension-board":"City Hall, 241 W South St",
+    "prab":         None,
+    "ric":          "W.E. Upjohn Institute, 300 S Westnedge Ave",
+    "spk":          "City Hall, 241 W South St",
+    "trb":          "Kalamazoo Public Services, 415 Stockbridge Ave",
+    "tre":          "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
+    "zba":          "City Commission Chambers, City Hall Second Floor, 241 W South St",
+}
+
+# ---------------------------------------------------------------------------
 # CivicClerk helpers
 # ---------------------------------------------------------------------------
 
