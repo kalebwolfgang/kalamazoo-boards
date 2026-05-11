@@ -414,7 +414,7 @@ BOARD_LOCATIONS = {
 def get_meeting_location(key: str, date_iso: str, meeting: dict) -> str | None:
     """Resolve location for a single meeting, handling per-meeting and seasonal cases."""
     if key == "prab":
-        return meeting.get("location") or None
+        return meeting.get("location") or "Community Room, Mayors' Riverfront Park"
     if key == "kmga":
         month = int(date_iso[5:7])
         if month in (1, 2, 3, 10, 11, 12):
