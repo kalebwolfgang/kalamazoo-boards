@@ -351,6 +351,18 @@ for b in BOARDS:
 # CivicClerk helpers
 # ---------------------------------------------------------------------------
 
+def get_meeting_location(key: str, date_iso: str, meeting: dict) -> str | None:
+    """Resolve location for a single meeting, handling per-meeting and seasonal cases."""
+    if key == "prab":
+        return meeting.get("location") or None
+    if key == "kmga":
+        month = int(date_iso[5:7])
+        if month in (1, 2, 3, 10, 11, 12):
+            return "Eastern Hills Golf Club, Kalamazoo"
+        return "Milham Park Golf Club, Kalamazoo"
+    return BOARD_LOCATIONS.get(key)
+
+
 def build_cc_url(start_date: str, end_date: str) -> str:
     base  = f"https://{CIVICCLERK_TENANT}.api.civicclerk.com/v1/Events"
     query = (
