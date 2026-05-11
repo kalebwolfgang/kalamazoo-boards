@@ -1,11 +1,6 @@
 {
-  "last_updated": "2026-05-10",
+  "last_updated": "2026-05-11",
   "upcoming_meetings": [
-    {
-      "date": "2026-05-11",
-      "display": "Monday, May 11, 2026",
-      "time": "3:00 PM – 5:00 PM"
-    },
     {
       "date": "2026-06-15",
       "display": "Monday, June 15, 2026",
@@ -33,6 +28,17 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-05-11",
+      "display": "May 11, 2026",
+      "event_id": 2664,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2664/files/agenda/5015",
+      "link_label": "Agenda",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2664/files/agenda/5015",
+      "meeting_type": "Downtown Development Authority Board"
+    },
     {
       "date": "2026-04-20",
       "display": "April 20, 2026",
