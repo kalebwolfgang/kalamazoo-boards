@@ -411,10 +411,6 @@ BOARD_LOCATIONS = {
     "zba":          "City Commission Chambers, City Hall Second Floor, 241 W South St",
 }
 
-# ---------------------------------------------------------------------------
-# CivicClerk helpers
-# ---------------------------------------------------------------------------
-
 def get_meeting_location(key: str, date_iso: str, meeting: dict) -> str | None:
     """Resolve location for a single meeting, handling per-meeting and seasonal cases."""
     if key == "prab":
