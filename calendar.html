@@ -409,10 +409,12 @@ footer a:hover { color: var(--gold-lt); }
   function renderCalendar() {
     elMonthYear.textContent = `${MONTHS[currentMonth]} ${currentYear}`;
 
-    // Nav button states — disable prev if more than 12 months back
-    const minAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth() - 12, 1);
+    // Nav button states — 4-month window: 1 back, current, 2 forward
+    const minAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth() - 1, 1);
+    const maxAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth() + 2, 1);
     const viewing    = new Date(currentYear, currentMonth, 1);
     elBtnPrev.disabled = viewing <= minAllowed;
+    elBtnNext.disabled = viewing >= maxAllowed;
 
     // Count meetings this month
     const monthCount = countInMonth(currentYear, currentMonth);
