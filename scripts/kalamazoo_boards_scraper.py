@@ -1040,6 +1040,51 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
 
 
 # ---------------------------------------------------------------------------
+# Calendar aggregation
+# ---------------------------------------------------------------------------
+
+def build_calendar_json() -> None:
+    """Aggregate all board upcoming_meetings into a single data/calendar.json."""
+    print("\nBuilding data/calendar.json...")
+    all_meetings = []
+
+    for board in BOARDS:
+        path = board["output"]
+        if not path.exists():
+            continue
+        with path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        key  = board["key"]
+        abbr = BOARD_ABBR.get(key, key.upper())
+        name = board["name"]
+        for meeting in data.get("upcoming_meetings", []):
+            date_iso = meeting.get("date")
+            if not date_iso:
+                continue
+            all_meetings.append({
+                "date":     date_iso,
+                "display":  meeting.get("display", date_iso),
+                "time":     meeting.get("time") or None,
+                "location": get_meeting_location(key, date_iso, meeting),
+                "abbr":     abbr,
+                "name":     name,
+            })
+
+    all_meetings.sort(key=lambda m: m["date"])
+
+    out_path = Path("data") / "calendar.json"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8") as f:
+        json.dump({
+            "last_updated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            "meetings":     all_meetings,
+        }, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+    print(f"  Wrote {out_path}  ({len(all_meetings)} total meetings)")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
