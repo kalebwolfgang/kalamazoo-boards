@@ -423,6 +423,10 @@ def get_meeting_location(key: str, date_iso: str, meeting: dict) -> str | None:
     return BOARD_LOCATIONS.get(key)
 
 
+# ---------------------------------------------------------------------------
+# CivicClerk helpers
+# ---------------------------------------------------------------------------
+
 def build_cc_url(start_date: str, end_date: str) -> str:
     base  = f"https://{CIVICCLERK_TENANT}.api.civicclerk.com/v1/Events"
     query = (
