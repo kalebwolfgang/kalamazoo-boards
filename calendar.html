@@ -351,49 +351,37 @@ footer a:hover { color: var(--gold-lt); }
   /* ── Load Data ── */
   async function loadData() {
     try {
-      const boardsRes = await fetch('boards.json');
-      if (!boardsRes.ok) throw new Error('boards.json not found');
-      const boards = await boardsRes.json();
+      const res = await fetch('data/calendar.json');
+      if (!res.ok) throw new Error('calendar.json not found');
+      const cal = await res.json();
 
-      // Fetch all data files in parallel, swallow 404s gracefully
-      const fetches = boards.map(board => {
-        const slug = board.abbr ? board.abbr.toLowerCase() : '';
-        if (!slug) return Promise.resolve({ board, data: null });
-        return fetch(`data/${slug}.json`)
-          .then(r => r.ok ? r.json() : null)
-          .then(data => ({ board, data }))
-          .catch(() => ({ board, data: null }));
-      });
-
-      const results = await Promise.all(fetches);
+      // PB abbr maps to pension-board filename, all others match abbr lowercase
+      const DETAIL_SLUG = { 'PB': 'pension-board' };
 
       meetingsByDate = {};
       totalUpcoming  = 0;
 
-      results.forEach(({ board, data }) => {
-        if (!data || !Array.isArray(data.upcoming_meetings)) return;
-        data.upcoming_meetings.forEach(meeting => {
-          if (!meeting.date) return;
-          const entry = {
-            abbr:       board.abbr,
-            name:       board.name,
-            date:       meeting.date,
-            display:    meeting.display || meeting.date,
-            time:       meeting.time    || null,
-            location:   meeting.location || null,
-            detailPage: `board-${board.abbr.toLowerCase()}.html`
-          };
-          if (!meetingsByDate[meeting.date]) meetingsByDate[meeting.date] = [];
-          meetingsByDate[meeting.date].push(entry);
-          totalUpcoming++;
-        });
+      (cal.meetings || []).forEach(meeting => {
+        if (!meeting.date) return;
+        const slug = DETAIL_SLUG[meeting.abbr] || meeting.abbr.toLowerCase();
+        const entry = {
+          abbr:       meeting.abbr,
+          name:       meeting.name,
+          date:       meeting.date,
+          display:    meeting.display || meeting.date,
+          time:       meeting.time    || null,
+          location:   meeting.location || null,
+          detailPage: `board-${slug}.html`
+        };
+        if (!meetingsByDate[meeting.date]) meetingsByDate[meeting.date] = [];
+        meetingsByDate[meeting.date].push(entry);
+        totalUpcoming++;
       });
 
       dataLoaded = true;
       elLoading.style.display  = 'none';
       elGridWrap.style.display = 'block';
 
-      // Update header stats
       elStatTotal.textContent = totalUpcoming;
 
       renderCalendar();
