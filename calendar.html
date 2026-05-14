@@ -113,7 +113,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-day-header { padding: 10px; text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--cream); }
 
 /* Month cells */
-.cal-cell { min-height: 128px; padding: 10px 10px 8px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; background: var(--white); transition: background 0.1s; cursor: default; }
+.cal-cell { min-height: 148px; padding: 10px 10px 10px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; background: var(--white); transition: background 0.1s; cursor: default; display: flex; flex-direction: column; }
 .cal-cell[data-date] { cursor: pointer; }
 .cal-cell[data-date]:hover { background: #f8f6f2; }
 .cal-cell.other-month { background: #faf9f6; }
@@ -124,16 +124,16 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-cell.has-meetings:hover { background: #f6f4ef; }
 
 /* Cell top row: date number + meeting count */
-.cal-cell-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 7px; }
+.cal-cell-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0; }
 .cal-date-num { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1; display: inline-block; }
 .cal-today-badge { width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: white; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; }
-.cal-meeting-count { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; color: var(--navy); line-height: 1; letter-spacing: -0.02em; }
+.cal-meeting-count { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; color: var(--navy); line-height: 1; letter-spacing: -0.03em; }
 .cal-cell.past .cal-meeting-count { color: var(--muted); }
 
-/* Board pills below count */
-.cal-board-pills { display: flex; flex-wrap: wrap; gap: 3px; }
-.cal-board-pill { display: inline-flex; align-items: center; font-size: 9px; font-weight: 700; color: white; padding: 2px 5px; border-radius: 2px; letter-spacing: 0.05em; line-height: 1.3; white-space: nowrap; }
-.cal-more-pill { display: inline-flex; align-items: center; font-size: 9px; font-weight: 600; color: var(--muted); padding: 2px 5px; border-radius: 2px; background: var(--cream-dk); letter-spacing: 0.02em; }
+/* Board pills — stacked at bottom of cell */
+.cal-board-pills { display: flex; flex-direction: column; gap: 4px; margin-top: auto; padding-top: 8px; }
+.cal-board-pill { display: flex; align-items: center; font-size: 11px; font-weight: 700; color: white; padding: 5px 8px; border-radius: 3px; letter-spacing: 0.04em; line-height: 1.2; white-space: nowrap; }
+.cal-more-pill { display: flex; align-items: center; font-size: 11px; font-weight: 600; color: var(--muted); padding: 5px 8px; border-radius: 3px; background: var(--cream-dk); letter-spacing: 0.02em; }
 
 .cal-empty-cell { grid-column: 1 / -1; padding: 48px 20px; text-align: center; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--muted); font-size: 15px; }
 .cal-empty-cell p { margin-bottom: 6px; }
@@ -141,12 +141,13 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 
 /* Mobile month */
 @media (max-width: 640px) {
-  .cal-cell { min-height: 80px; padding: 6px 4px 5px; }
+  .cal-cell { min-height: 88px; padding: 6px 5px 6px; }
   .cal-day-header { font-size: 9px; padding: 8px 3px; letter-spacing: 0.04em; }
   .cal-date-num { font-size: 11px; }
   .cal-today-badge { width: 22px; height: 22px; font-size: 10px; }
-  .cal-meeting-count { font-size: 18px; }
-  .cal-board-pill { font-size: 8px; padding: 2px 4px; }
+  .cal-meeting-count { font-size: 24px; }
+  .cal-board-pill { font-size: 9px; padding: 3px 5px; }
+  .cal-more-pill { font-size: 9px; padding: 3px 5px; }
   .cal-count { width: 100%; margin-left: 0; }
 }
 @media (max-width: 380px) {
@@ -181,10 +182,17 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .mini-day.week-start { border-radius: 3px 0 0 3px; }
 .mini-day.week-end { border-radius: 0 3px 3px 0; }
 
-/* Board legend */
-.week-legend { padding: 0 14px 16px; flex: 1; overflow-y: auto; }
-.week-legend-title { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.legend-item { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; font-size: 12px; color: var(--body); cursor: default; }
+/* Board legend accordion */
+.week-legend { padding: 0 14px 16px; flex: 1; min-height: 0; }
+.week-legend-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; cursor: pointer; padding: 6px 0; font-family: 'IBM Plex Sans', sans-serif; }
+.week-legend-toggle-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.week-legend-chevron { color: var(--muted); transition: transform 0.25s ease; flex-shrink: 0; }
+.week-legend-toggle:hover .week-legend-toggle-label,
+.week-legend-toggle:hover .week-legend-chevron { color: var(--navy); }
+.week-legend-items { overflow: hidden; max-height: 400px; transition: max-height 0.3s ease, opacity 0.25s ease; opacity: 1; }
+.week-legend-items.collapsed { max-height: 0; opacity: 0; }
+.week-legend-chevron.collapsed { transform: rotate(-90deg); }
+.legend-item { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; font-size: 11px; color: var(--body); cursor: default; line-height: 1.3; }
 .legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
 
 /* Week main */
@@ -407,8 +415,11 @@ footer a:hover { color: var(--gold-lt); }
             <div class="mini-grid" id="mini-grid"></div>
           </div>
           <div class="week-legend">
-            <div class="week-legend-title">Boards</div>
-            <div id="week-legend-items"></div>
+            <button class="week-legend-toggle" id="legend-toggle" aria-expanded="true">
+              <span class="week-legend-toggle-label">Boards</span>
+              <svg class="week-legend-chevron" id="legend-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="week-legend-items" id="week-legend-items"></div>
           </div>
         </aside>
         <div class="week-main">
@@ -1117,6 +1128,17 @@ footer a:hover { color: var(--gold-lt); }
   document.getElementById('mini-next').addEventListener('click', () => {
     if (++miniMonth > 11) { miniMonth = 0; miniYear++; }
     renderMiniMonth();
+  });
+
+  /* Legend accordion */
+  document.getElementById('legend-toggle').addEventListener('click', () => {
+    const items   = document.getElementById('week-legend-items');
+    const chevron = document.getElementById('legend-chevron');
+    const toggle  = document.getElementById('legend-toggle');
+    const isOpen  = !items.classList.contains('collapsed');
+    items.classList.toggle('collapsed', isOpen);
+    chevron.classList.toggle('collapsed', isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
   });
 
   /* Close popup */
