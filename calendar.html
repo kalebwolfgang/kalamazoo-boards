@@ -136,6 +136,13 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-more-pill { display: flex; align-items: center; font-size: 11px; font-weight: 600; color: var(--muted); padding: 5px 8px; border-radius: 3px; background: var(--cream-dk); letter-spacing: 0.02em; }
 
 .cal-empty-cell { grid-column: 1 / -1; padding: 48px 20px; text-align: center; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--muted); font-size: 15px; }
+.cal-cell.single-meeting .cal-meeting-count { font-size: 52px; }
+.cal-cell.single-meeting .cal-board-pill { font-size: 13px; padding: 9px 12px; border-radius: 4px; gap: 7px; }
+.cal-cell.single-meeting .cal-board-pill-name { display: inline; font-weight: 500; letter-spacing: 0.01em; opacity: 0.9; }
+@media (max-width: 640px) {
+  .cal-cell.single-meeting .cal-meeting-count { font-size: 32px; }
+  .cal-cell.single-meeting .cal-board-pill { font-size: 10px; padding: 6px 8px; }
+}
 .cal-empty-cell p { margin-bottom: 6px; }
 .cal-empty-cell small { font-size: 13px; color: var(--border); }
 
@@ -183,14 +190,14 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .mini-day.week-end { border-radius: 0 3px 3px 0; }
 
 /* Board legend accordion */
-.week-legend { padding: 0 14px 16px; flex: 1; min-height: 0; }
-.week-legend-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; cursor: pointer; padding: 6px 0; font-family: 'IBM Plex Sans', sans-serif; }
+.week-legend { padding: 0 14px 16px; flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.week-legend-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: none; border: none; cursor: pointer; padding: 6px 0; font-family: 'IBM Plex Sans', sans-serif; flex-shrink: 0; }
 .week-legend-toggle-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 .week-legend-chevron { color: var(--muted); transition: transform 0.25s ease; flex-shrink: 0; }
 .week-legend-toggle:hover .week-legend-toggle-label,
 .week-legend-toggle:hover .week-legend-chevron { color: var(--navy); }
-.week-legend-items { overflow: hidden; max-height: 400px; transition: max-height 0.3s ease, opacity 0.25s ease; opacity: 1; }
-.week-legend-items.collapsed { max-height: 0; opacity: 0; }
+.week-legend-items { flex: 1; overflow-y: auto; opacity: 1; transition: opacity 0.2s ease; }
+.week-legend-items.collapsed { max-height: 0; opacity: 0; overflow: hidden; pointer-events: none; }
 .week-legend-chevron.collapsed { transform: rotate(-90deg); }
 .legend-item { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; font-size: 11px; color: var(--body); cursor: default; line-height: 1.3; }
 .legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
@@ -416,7 +423,7 @@ footer a:hover { color: var(--gold-lt); }
           </div>
           <div class="week-legend">
             <button class="week-legend-toggle" id="legend-toggle" aria-expanded="true">
-              <span class="week-legend-toggle-label">Boards</span>
+              <span class="week-legend-toggle-label">Board Key</span>
               <svg class="week-legend-chevron" id="legend-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="week-legend-items" id="week-legend-items"></div>
@@ -678,6 +685,7 @@ footer a:hover { color: var(--gold-lt); }
       if (isToday)     cls += ' today';
       else if (isPast) cls += ' past';
       if (count > 0)   cls += ' has-meetings';
+      if (count === 1) cls += ' single-meeting';
 
       const attrs = count > 0
         ? ` data-date="${dateStr}" tabindex="0" role="button" aria-label="${count} meeting${count>1?'s':''} on ${meetings[0].display}"`
@@ -708,8 +716,11 @@ footer a:hover { color: var(--gold-lt); }
 
         html += `<div class="cal-board-pills" aria-hidden="true">`;
         show.forEach(m => {
-          const color = getBoardColor(m.abbr);
-          html += `<span class="cal-board-pill" style="background:${color}">${m.abbr}</span>`;
+          const color    = getBoardColor(m.abbr);
+          const nameSpan = count === 1
+            ? `<span class="cal-board-pill-name">${m.name}</span>`
+            : '';
+          html += `<span class="cal-board-pill" style="background:${color}">${m.abbr}${nameSpan}</span>`;
         });
         if (extra > 0) {
           html += `<span class="cal-more-pill">+${extra}</span>`;
