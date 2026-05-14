@@ -16,8 +16,8 @@ Flags:
   preserve_upcoming  CivicClerk for past meetings; preserve existing upcoming from JSON
 
 Usage:
-    python scraper.py               # All boards
-    python scraper.py --board crb   # One board only
+    python scraper.py                # All boards
+    python scraper.py --board crb    # One board only
 
 YouTube API key required for boards with youtube: true.
     set YOUTUBE_API_KEY=your-key-here
@@ -1161,6 +1161,102 @@ def build_calendar_json() -> None:
 
 
 # ---------------------------------------------------------------------------
+# ICS Generation
+# ---------------------------------------------------------------------------
+
+def write_ics_event(m: dict) -> str:
+    date_str = m['date'].replace('-', '')
+    time_str = m.get('time', '')
+    
+    dtstart = date_str
+    dtend = date_str
+    is_all_day = True
+    
+    # Catch empty strings or placeholder strings from BOARD_TIMES config
+    if time_str and time_str not in ("TBD", "On Call"):
+        try:
+            # Handle potential en-dash (\u2013) that are used in your board config
+            start_time_str = time_str.replace('\u2013', '-').split('-')[0].strip()
+            dt = datetime.strptime(start_time_str, '%I:%M %p')
+            dtstart = f"{date_str}T{dt.strftime('%H%M%S')}"
+            
+            # Assume 2hr default, ensuring it doesn't cross past 23 for simple parsers
+            end_h = dt.hour + 2
+            if end_h > 23:
+                end_h = 23
+            dtend = f"{date_str}T{end_h:02d}{dt.minute:02d}00"
+            is_all_day = False
+        except ValueError:
+            # Fallback to all-day if it fails to parse a weird time string format
+            pass
+
+    lines = [
+        "BEGIN:VEVENT",
+        f"UID:{m['abbr']}-{m['date']}@kalamazoocity-boards",
+    ]
+    
+    if is_all_day:
+        lines.append(f"DTSTART;VALUE=DATE:{dtstart}")
+    else:
+        lines.append(f"DTSTART:{dtstart}")
+        lines.append(f"DTEND:{dtend}")
+        
+    lines.append(f"SUMMARY:{m['name']} — City of Kalamazoo")
+    
+    if m.get('location'):
+        lines.append(f"LOCATION:{m['location']}")
+        
+    lines.append("END:VEVENT")
+    return '\r\n'.join(lines)
+
+
+def generate_ics_files(calendar_json_path='data/calendar.json', output_dir='data/ics') -> None:
+    print("\nGenerating ICS calendar files...")
+    
+    if not Path(calendar_json_path).exists():
+        print(f"  WARNING: {calendar_json_path} does not exist. Skipping ICS generation.")
+        return
+        
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
+    
+    with open(calendar_json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        meetings = data.get('meetings', [])
+        
+    header = (
+        "BEGIN:VCALENDAR\r\n"
+        "VERSION:2.0\r\n"
+        "PRODID:-//City of Kalamazoo Boards & Commissions//EN\r\n"
+        "X-WR-CALNAME:Kalamazoo Boards & Commissions\r\n"
+        "X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions\r\n"
+    )
+    footer = "END:VCALENDAR\r\n"
+
+    # Per-board files
+    by_board = {}
+    for m in meetings:
+        by_board.setdefault(m['abbr'], []).append(m)
+
+    for abbr, board_meetings in by_board.items():
+        events = '\r\n'.join(write_ics_event(m) for m in board_meetings)
+        board_name = board_meetings[0]['name']
+        board_header = header.replace('Kalamazoo Boards & Commissions', board_name)
+        
+        out_path = Path(output_dir) / f"{abbr.lower()}.ics"
+        with open(out_path, 'w', encoding='utf-8') as f:
+            f.write(board_header + events + "\r\n" + footer)
+
+    # All-boards combined
+    if meetings:
+        all_events = '\r\n'.join(write_ics_event(m) for m in meetings)
+        out_path = Path(output_dir) / "all-boards.ics"
+        with open(out_path, 'w', encoding='utf-8') as f:
+            f.write(header + all_events + "\r\n" + footer)
+
+    print(f"  Wrote {len(by_board) + 1} ICS files to {output_dir}/")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -1192,6 +1288,8 @@ def main():
         run_board(board, start_iso, end_iso, api_key)
 
     build_calendar_json()
+    generate_ics_files()
+    
     print("\nDone.")
 
 
