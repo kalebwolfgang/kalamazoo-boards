@@ -123,12 +123,10 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-cell.has-meetings { background: #fdfdfc; }
 .cal-cell.has-meetings:hover { background: #f6f4ef; }
 
-/* Cell top row: date number + meeting count */
-.cal-cell-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0; }
+/* Cell top row: date number only */
+.cal-cell-top { display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 0; }
 .cal-date-num { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1; display: inline-block; }
 .cal-today-badge { width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: white; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; }
-.cal-meeting-count { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; color: var(--navy); line-height: 1; letter-spacing: -0.03em; }
-.cal-cell.past .cal-meeting-count { color: var(--muted); }
 
 /* Board pills — stacked at bottom of cell */
 .cal-board-pills { display: flex; flex-direction: column; gap: 4px; margin-top: auto; padding-top: 8px; min-width: 0; }
@@ -138,12 +136,9 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-more-pill { display: flex; align-items: center; font-size: 11px; font-weight: 600; color: var(--muted); padding: 5px 8px; border-radius: 3px; background: var(--cream-dk); letter-spacing: 0.02em; }
 
 .cal-empty-cell { grid-column: 1 / -1; padding: 48px 20px; text-align: center; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--muted); font-size: 15px; }
-.cal-cell.single-meeting .cal-meeting-count { font-size: 52px; }
 .cal-cell.single-meeting .cal-board-pill { font-size: 12px; padding: 9px 12px; border-radius: 4px; }
 .cal-cell.single-meeting .cal-board-pill-abbr { font-weight: 700; }
-.cal-cell.single-meeting .cal-board-pill-name { font-size: 11px; }
 @media (max-width: 640px) {
-  .cal-cell.single-meeting .cal-meeting-count { font-size: 32px; }
   .cal-cell.single-meeting .cal-board-pill { font-size: 10px; padding: 6px 8px; }
 }
 .cal-empty-cell p { margin-bottom: 6px; }
@@ -279,9 +274,8 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-close-btn { background: none; border: none; cursor: pointer; color: var(--muted); padding: 4px; display: flex; align-items: center; border-radius: 2px; flex-shrink: 0; transition: color 0.15s, background 0.15s; }
 .modal-close-btn:hover { color: var(--navy); background: var(--cream); }
 
-.modal-body { padding: 0; }
-.modal-meeting { padding: 24px 20px 20px; border-bottom: 2px solid var(--cream-dk); border-left: 4px solid transparent; transition: background 0.1s; }
-.modal-meeting:last-child { border-bottom: none; padding-bottom: 24px; }
+.modal-body { padding: 8px 0 4px; display: flex; flex-direction: column; gap: 4px; }
+.modal-meeting { padding: 20px 20px 18px; border-left: 4px solid transparent; transition: background 0.1s; border-radius: 0 2px 2px 0; }
 .modal-meeting:hover { background: #faf9f7; }
 
 .modal-meeting-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
@@ -732,9 +726,6 @@ footer a:hover { color: var(--gold-lt); }
         html += `<div class="cal-today-badge">${day}</div>`;
       } else {
         html += `<span class="cal-date-num">${day}</span>`;
-      }
-      if (count > 0) {
-        html += `<span class="cal-meeting-count">${count}</span>`;
       }
       html += `</div>`;
 
