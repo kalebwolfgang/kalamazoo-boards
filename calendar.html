@@ -1070,7 +1070,6 @@ footer a:hover { color: var(--gold-lt); }
     return meetings.map(m => {
       const color   = getBoardColor(m.abbr);
       const slug    = m.abbr.toLowerCase();
-      const baseUrl = 'https://raw.githubusercontent.com/kalebwolfgang/kalamazoo-boards/main/data/ics/';
       return `
         <div class="modal-meeting" style="border-left-color:${color}">
           <div class="modal-meeting-top">
@@ -1095,13 +1094,13 @@ footer a:hover { color: var(--gold-lt); }
               </button>
             </div>
             <div class="modal-actions-row">
-              <a class="modal-action-btn green" href="webcal://${baseUrl.replace('https://','')}${slug}.ics">
+              <button class="modal-action-btn green" onclick="calAddToCalendar(${JSON.stringify(m).replace(/"/g, '&quot;')})">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Add This Meeting
+              </button>
+              <a class="modal-action-btn green" href="webcal://raw.githubusercontent.com/kalebwolfgang/kalamazoo-boards/main/data/ics/${slug}.ics">
                 <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
                 Subscribe to ${m.abbr}
-              </a>
-              <a class="modal-action-btn green" href="webcal://${baseUrl.replace('https://','')}all-boards.ics">
-                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-                Subscribe to All Boards
               </a>
             </div>
           </div>
