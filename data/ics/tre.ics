@@ -1,0 +1,55 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Tree Committee//EN
+X-WR-CALNAME:Tree Committee
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:TRE-2026-06-02@kalamazoocity-boards
+DTSTART:20260602T140000
+DTEND:20260602T160000
+SUMMARY:Tree Committee — City of Kalamazoo
+LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:TRE-2026-07-07@kalamazoocity-boards
+DTSTART:20260707T140000
+DTEND:20260707T160000
+SUMMARY:Tree Committee — City of Kalamazoo
+LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:TRE-2026-08-04@kalamazoocity-boards
+DTSTART:20260804T140000
+DTEND:20260804T160000
+SUMMARY:Tree Committee — City of Kalamazoo
+LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:TRE-2026-09-01@kalamazoocity-boards
+DTSTART:20260901T140000
+DTEND:20260901T160000
+SUMMARY:Tree Committee — City of Kalamazoo
+LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:TRE-2026-10-06@kalamazoocity-boards
+DTSTART:20261006T140000
+DTEND:20261006T160000
+SUMMARY:Tree Committee — City of Kalamazoo
+LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:TRE-2026-11-03@kalamazoocity-boards
+DTSTART:20261103T140000
+DTEND:20261103T160000
+SUMMARY:Tree Committee — City of Kalamazoo
+LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:TRE-2026-12-01@kalamazoocity-boards
+DTSTART:20261201T140000
+DTEND:20261201T160000
+SUMMARY:Tree Committee — City of Kalamazoo
+LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
+END:VEVENT
+END:VCALENDAR

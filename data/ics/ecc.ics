@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Environmental Concerns Committee//EN
+X-WR-CALNAME:Environmental Concerns Committee
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:ECC-2026-05-20@kalamazoocity-boards
+DTSTART:20260520T163000
+DTEND:20260520T183000
+SUMMARY:Environmental Concerns Committee — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:ECC-2026-06-17@kalamazoocity-boards
+DTSTART:20260617T163000
+DTEND:20260617T183000
+SUMMARY:Environmental Concerns Committee — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:ECC-2026-07-15@kalamazoocity-boards
+DTSTART:20260715T163000
+DTEND:20260715T183000
+SUMMARY:Environmental Concerns Committee — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:ECC-2026-08-19@kalamazoocity-boards
+DTSTART:20260819T163000
+DTEND:20260819T183000
+SUMMARY:Environmental Concerns Committee — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:ECC-2026-09-16@kalamazoocity-boards
+DTSTART:20260916T163000
+DTEND:20260916T183000
+SUMMARY:Environmental Concerns Committee — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:ECC-2026-10-21@kalamazoocity-boards
+DTSTART:20261021T163000
+DTEND:20261021T183000
+SUMMARY:Environmental Concerns Committee — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+END:VCALENDAR

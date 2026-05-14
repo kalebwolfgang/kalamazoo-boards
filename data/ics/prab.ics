@@ -1,0 +1,55 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Parks & Recreation Advisory Board//EN
+X-WR-CALNAME:Parks & Recreation Advisory Board
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:PRAB-2026-06-02@kalamazoocity-boards
+DTSTART:20260602T173000
+DTEND:20260602T193000
+SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+LOCATION:Spring Valley Park
+END:VEVENT
+BEGIN:VEVENT
+UID:PRAB-2026-07-07@kalamazoocity-boards
+DTSTART:20260707T173000
+DTEND:20260707T193000
+SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+LOCATION:Southside Park
+END:VEVENT
+BEGIN:VEVENT
+UID:PRAB-2026-08-04@kalamazoocity-boards
+DTSTART:20260804T173000
+DTEND:20260804T193000
+SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+LOCATION:Axtell Creek Park
+END:VEVENT
+BEGIN:VEVENT
+UID:PRAB-2026-09-08@kalamazoocity-boards
+DTSTART:20260908T173000
+DTEND:20260908T193000
+SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+LOCATION:Community Room, Mayors' Riverfront Park
+END:VEVENT
+BEGIN:VEVENT
+UID:PRAB-2026-10-06@kalamazoocity-boards
+DTSTART:20261006T173000
+DTEND:20261006T193000
+SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+LOCATION:Community Room, Mayors' Riverfront Park
+END:VEVENT
+BEGIN:VEVENT
+UID:PRAB-2026-11-10@kalamazoocity-boards
+DTSTART:20261110T173000
+DTEND:20261110T193000
+SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+LOCATION:Community Room, Mayors' Riverfront Park
+END:VEVENT
+BEGIN:VEVENT
+UID:PRAB-2026-12-08@kalamazoocity-boards
+DTSTART:20261208T173000
+DTEND:20261208T193000
+SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+LOCATION:Community Room, Mayors' Riverfront Park
+END:VEVENT
+END:VCALENDAR

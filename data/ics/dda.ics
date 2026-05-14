@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Downtown Development Authority//EN
+X-WR-CALNAME:Downtown Development Authority
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:DDA-2026-06-15@kalamazoocity-boards
+DTSTART:20260615T150000
+DTEND:20260615T170000
+SUMMARY:Downtown Development Authority — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:DDA-2026-07-13@kalamazoocity-boards
+DTSTART:20260713T150000
+DTEND:20260713T170000
+SUMMARY:Downtown Development Authority — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:DDA-2026-08-17@kalamazoocity-boards
+DTSTART:20260817T150000
+DTEND:20260817T170000
+SUMMARY:Downtown Development Authority — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:DDA-2026-09-21@kalamazoocity-boards
+DTSTART:20260921T150000
+DTEND:20260921T170000
+SUMMARY:Downtown Development Authority — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:DDA-2026-10-19@kalamazoocity-boards
+DTSTART:20261019T150000
+DTEND:20261019T170000
+SUMMARY:Downtown Development Authority — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+END:VCALENDAR

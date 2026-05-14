@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Retirement Investment Committee / Perpetual Care Investment Committee//EN
+X-WR-CALNAME:Retirement Investment Committee / Perpetual Care Investment Committee
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:RIC-2026-05-27@kalamazoocity-boards
+DTSTART:20260527T110000
+DTEND:20260527T130000
+SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
+LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:RIC-2026-08-26@kalamazoocity-boards
+DTSTART:20260826T110000
+DTEND:20260826T130000
+SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
+LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:RIC-2026-12-02@kalamazoocity-boards
+DTSTART:20261202T110000
+DTEND:20261202T130000
+SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
+LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
+END:VEVENT
+END:VCALENDAR

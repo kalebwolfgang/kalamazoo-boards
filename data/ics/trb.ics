@@ -1,0 +1,12 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Traffic Board//EN
+X-WR-CALNAME:Traffic Board
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:TRB-2026-06-15@kalamazoocity-boards
+DTSTART;VALUE=DATE:20260615
+SUMMARY:Traffic Board — City of Kalamazoo
+LOCATION:Kalamazoo Public Services, 415 Stockbridge Ave
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Election Commission//EN
+X-WR-CALNAME:Election Commission
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:EC-2026-07-09@kalamazoocity-boards
+DTSTART:20260709T090000
+DTEND:20260709T110000
+SUMMARY:Election Commission — City of Kalamazoo
+END:VEVENT
+BEGIN:VEVENT
+UID:EC-2026-10-08@kalamazoocity-boards
+DTSTART:20261008T090000
+DTEND:20261008T110000
+SUMMARY:Election Commission — City of Kalamazoo
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Community Development Act Advisory Committee//EN
+X-WR-CALNAME:Community Development Act Advisory Committee
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:CDAAC-2026-06-25@kalamazoocity-boards
+DTSTART:20260625T173000
+DTEND:20260625T193000
+SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
+LOCATION:Community Room, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:CDAAC-2026-09-24@kalamazoocity-boards
+DTSTART:20260924T173000
+DTEND:20260924T193000
+SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
+LOCATION:Community Room, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:CDAAC-2026-10-22@kalamazoocity-boards
+DTSTART:20261022T173000
+DTEND:20261022T193000
+SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
+LOCATION:Community Room, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:CDAAC-2026-11-19@kalamazoocity-boards
+DTSTART:20261119T173000
+DTEND:20261119T193000
+SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
+LOCATION:Community Room, City Hall Second Floor, 241 W South St
+END:VEVENT
+END:VCALENDAR

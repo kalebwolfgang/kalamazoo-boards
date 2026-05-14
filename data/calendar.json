@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-11",
+  "last_updated": "2026-05-14",
   "meetings": [
     {
       "date": "2026-05-11",
@@ -8,30 +8,6 @@
       "location": "City Hall, 241 W South St",
       "abbr": "SPK",
       "name": "SPK Organizing Committee"
-    },
-    {
-      "date": "2026-05-12",
-      "display": "Tuesday, May 12, 2026",
-      "time": "6:00 PM – 8:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
-    },
-    {
-      "date": "2026-05-13",
-      "display": "Wednesday, May 13, 2026",
-      "time": "6:00 PM – 8:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "HPC",
-      "name": "Historic Preservation Commission"
-    },
-    {
-      "date": "2026-05-14",
-      "display": "Thursday, May 14, 2026",
-      "time": "7:00 PM – 9:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "ZBA",
-      "name": "Zoning Board of Appeals"
     },
     {
       "date": "2026-05-19",
@@ -72,14 +48,6 @@
       "location": "Milham Park Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
-    },
-    {
-      "date": "2026-05-21",
-      "display": "Thursday, May 21, 2026",
-      "time": "4:00 PM – 6:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
-      "abbr": "BBA",
-      "name": "Building Board of Appeals"
     },
     {
       "date": "2026-05-21",
@@ -868,10 +836,26 @@
     {
       "date": "2026-11-10",
       "display": "Tuesday, November 10, 2026",
+      "time": "6:00 PM – 8:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "CPSRAB",
+      "name": "Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2026-11-10",
+      "display": "Tuesday, November 10, 2026",
       "time": "5:30 PM – 7:30 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
+    },
+    {
+      "date": "2026-11-11",
+      "display": "Wednesday, November 11, 2026",
+      "time": "6:00 PM – 8:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "HPC",
+      "name": "Historic Preservation Commission"
     },
     {
       "date": "2026-11-19",

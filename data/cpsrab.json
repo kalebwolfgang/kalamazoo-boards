@@ -1,11 +1,6 @@
 {
-  "last_updated": "2026-05-11",
+  "last_updated": "2026-05-14",
   "upcoming_meetings": [
-    {
-      "date": "2026-05-12",
-      "display": "Tuesday, May 12, 2026",
-      "time": "6:00 PM – 8:00 PM"
-    },
     {
       "date": "2026-06-09",
       "display": "Tuesday, June 09, 2026",
@@ -29,6 +24,11 @@
     {
       "date": "2026-10-13",
       "display": "Tuesday, October 13, 2026",
+      "time": "6:00 PM – 8:00 PM"
+    },
+    {
+      "date": "2026-11-10",
+      "display": "Tuesday, November 10, 2026",
       "time": "6:00 PM – 8:00 PM"
     }
   ],
@@ -307,6 +307,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-05-12",
+      "display": "May 12, 2026",
+      "youtube_id": "gd-ajh09QvQ",
+      "youtube_url": "https://www.youtube.com/watch?v=gd-ajh09QvQ",
+      "title": "May 12, 2026 Citizens Public Safety Review and Appeal Board"
+    },
     {
       "date": "2026-04-14",
       "display": "April 14, 2026",

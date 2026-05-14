@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Employee Retirement System Board of Trustees//EN
+X-WR-CALNAME:Employee Retirement System Board of Trustees
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:PB-2026-06-03@kalamazoocity-boards
+DTSTART:20260603T080000
+DTEND:20260603T100000
+SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:PB-2026-09-02@kalamazoocity-boards
+DTSTART:20260902T080000
+DTEND:20260902T100000
+SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:PB-2026-12-09@kalamazoocity-boards
+DTSTART:20261209T080000
+DTEND:20261209T100000
+SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+END:VCALENDAR

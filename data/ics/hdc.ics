@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Historic District Commission//EN
+X-WR-CALNAME:Historic District Commission
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:HDC-2026-05-19@kalamazoocity-boards
+DTSTART:20260519T170000
+DTEND:20260519T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HDC-2026-06-16@kalamazoocity-boards
+DTSTART:20260616T170000
+DTEND:20260616T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HDC-2026-07-21@kalamazoocity-boards
+DTSTART:20260721T170000
+DTEND:20260721T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HDC-2026-08-18@kalamazoocity-boards
+DTSTART:20260818T170000
+DTEND:20260818T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HDC-2026-09-15@kalamazoocity-boards
+DTSTART:20260915T170000
+DTEND:20260915T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HDC-2026-10-20@kalamazoocity-boards
+DTSTART:20261020T170000
+DTEND:20261020T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+END:VCALENDAR

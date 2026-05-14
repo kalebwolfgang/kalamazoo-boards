@@ -1,11 +1,6 @@
 {
-  "last_updated": "2026-05-11",
+  "last_updated": "2026-05-14",
   "upcoming_meetings": [
-    {
-      "date": "2026-05-13",
-      "display": "Wednesday, May 13, 2026",
-      "time": "6:00 PM – 8:00 PM"
-    },
     {
       "date": "2026-06-10",
       "display": "Wednesday, June 10, 2026",
@@ -30,19 +25,37 @@
       "date": "2026-10-14",
       "display": "Wednesday, October 14, 2026",
       "time": "6:00 PM – 8:00 PM"
+    },
+    {
+      "date": "2026-11-11",
+      "display": "Wednesday, November 11, 2026",
+      "time": "6:00 PM – 8:00 PM"
     }
   ],
   "meetings": [
+    {
+      "date": "2026-05-13",
+      "display": "May 13, 2026",
+      "event_id": 2676,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2676/files/agenda/5049",
+      "link_label": "Agenda",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2676/files/agenda/5049",
+      "meeting_type": "Historic Preservation Commission",
+      "youtube_id": "G6gfCBfpX8c",
+      "youtube_url": "https://www.youtube.com/watch?v=G6gfCBfpX8c"
+    },
     {
       "date": "2026-04-22",
       "display": "April 22, 2026",
       "event_id": 2764,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2764/files/agenda/4961",
-      "link_label": "Agenda",
-      "meeting_type": "Historic Preservation Commission",
+      "link_label": "Agenda & Minutes",
       "cancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2764/files/agenda/5033",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2764/files/agenda/4961",
+      "meeting_type": "April 22, 2026 Historic Preservation Commission",
       "youtube_id": "bkDVjzmCPYQ",
       "youtube_url": "https://www.youtube.com/watch?v=bkDVjzmCPYQ"
     },
@@ -451,6 +464,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-05-13",
+      "display": "May 13, 2026",
+      "youtube_id": "G6gfCBfpX8c",
+      "youtube_url": "https://www.youtube.com/watch?v=G6gfCBfpX8c",
+      "title": "May 13, 2026 Historic Preservation Commission"
+    },
     {
       "date": "2026-04-22",
       "display": "April 22, 2026",

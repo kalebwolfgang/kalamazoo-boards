@@ -1,0 +1,48 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//City of Historic Preservation Commission//EN
+X-WR-CALNAME:Historic Preservation Commission
+X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VEVENT
+UID:HPC-2026-06-10@kalamazoocity-boards
+DTSTART:20260610T180000
+DTEND:20260610T200000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HPC-2026-07-08@kalamazoocity-boards
+DTSTART:20260708T180000
+DTEND:20260708T200000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HPC-2026-08-12@kalamazoocity-boards
+DTSTART:20260812T180000
+DTEND:20260812T200000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HPC-2026-09-09@kalamazoocity-boards
+DTSTART:20260909T180000
+DTEND:20260909T200000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HPC-2026-10-14@kalamazoocity-boards
+DTSTART:20261014T180000
+DTEND:20261014T200000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HPC-2026-11-11@kalamazoocity-boards
+DTSTART:20261111T180000
+DTEND:20261111T200000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+END:VCALENDAR

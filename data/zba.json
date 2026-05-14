@@ -1,11 +1,6 @@
 {
-  "last_updated": "2026-05-11",
+  "last_updated": "2026-05-14",
   "upcoming_meetings": [
-    {
-      "date": "2026-05-14",
-      "display": "Thursday, May 14, 2026",
-      "time": "7:00 PM – 9:00 PM"
-    },
     {
       "date": "2026-06-11",
       "display": "Thursday, June 11, 2026",
@@ -33,6 +28,17 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-05-14",
+      "display": "May 14, 2026",
+      "event_id": 2617,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2617/files/agenda/5019",
+      "link_label": "Agenda",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2617/files/agenda/5019",
+      "meeting_type": "Zoning Board of Appeals"
+    },
     {
       "date": "2026-04-09",
       "display": "April 9, 2026",
