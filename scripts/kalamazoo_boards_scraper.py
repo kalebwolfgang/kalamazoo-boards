@@ -1240,8 +1240,11 @@ def generate_ics_files(calendar_json_path='data/calendar.json', output_dir='data
     for abbr, board_meetings in by_board.items():
         events = '\r\n'.join(write_ics_event(m) for m in board_meetings)
         board_name = board_meetings[0]['name']
-        board_header = header.replace('Kalamazoo Boards & Commissions', board_name)
-        
+        board_header = header.replace(
+            'X-WR-CALNAME:Kalamazoo Boards & Commissions',
+            f'X-WR-CALNAME:{board_name}'
+        )
+
         out_path = Path(output_dir) / f"{abbr.lower()}.ics"
         with open(out_path, 'w', encoding='utf-8') as f:
             f.write(board_header + events + "\r\n" + footer)
