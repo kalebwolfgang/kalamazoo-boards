@@ -110,15 +110,16 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 
 /* Mobile filter button */
 .cal-filter-btn-mobile {
-  display: none; align-items: center; gap: 6px;
-  background: var(--white); border: 1px solid var(--border); border-radius: 2px;
-  padding: 5px 11px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px;
-  font-weight: 500; color: var(--navy); cursor: pointer; transition: background 0.15s;
-  white-space: nowrap; flex-shrink: 0;
+  display: none; align-items: center; gap: 7px;
+  background: var(--green); border: none; border-radius: 3px;
+  padding: 7px 14px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px;
+  font-weight: 600; color: white; cursor: pointer; transition: background 0.15s;
+  white-space: nowrap; flex-shrink: 0; letter-spacing: 0.02em;
 }
-.cal-filter-btn-mobile:hover { background: var(--cream-dk); }
+.cal-filter-btn-mobile:hover { background: var(--green-mid); }
+.cal-filter-btn-mobile.is-filtered { background: var(--gold); color: var(--navy); }
 .filter-mobile-badge {
-  background: var(--green); color: white; font-size: 10px; font-weight: 700;
+  background: white; color: var(--green); font-size: 10px; font-weight: 700;
   border-radius: 10px; padding: 1px 6px; display: none;
 }
 
@@ -342,8 +343,10 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-action-btn.primary:hover { background: var(--cream-dk); border-color: var(--navy); }
 .modal-action-btn.green { background: rgba(45,107,74,0.08); color: var(--green); border-color: rgba(45,107,74,0.25); }
 .modal-action-btn.green:hover { background: rgba(45,107,74,0.14); border-color: var(--green); }
-.modal-action-btn.share { background: rgba(13,79,99,0.06); color: var(--navy-mid); border-color: rgba(13,79,99,0.2); }
-.modal-action-btn.share:hover { background: rgba(13,79,99,0.12); border-color: var(--navy); }
+.modal-action-btn.share { background: var(--cream); color: var(--muted); border-color: var(--border); }
+.modal-action-btn.share:hover { background: var(--cream-dk); color: var(--navy); border-color: var(--navy); }
+.modal-action-btn.subscribe { background: rgba(13,79,99,0.06); color: var(--navy-mid); border-color: rgba(13,79,99,0.2); }
+.modal-action-btn.subscribe:hover { background: rgba(13,79,99,0.12); border-color: var(--navy); }
 .cal-popover { position: fixed; background: var(--white); border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); z-index: 700; min-width: 210px; overflow: hidden; }
 .cal-popover-option { display: flex; align-items: center; gap: 10px; padding: 11px 14px; font-size: 13px; font-weight: 500; color: var(--body); text-decoration: none; border: none; background: none; cursor: pointer; width: 100%; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.1s; text-align: left; line-height: 1.3; }
 .cal-popover-option:hover { background: var(--cream); color: var(--navy); }
@@ -643,11 +646,14 @@ footer a:hover { color: var(--gold-lt); }
     const isFiltered = activeFilters.size > 0;
 
     // Badges
+    const mobileBtn = document.getElementById('btn-filter-mobile');
     if (isFiltered) {
       badge.textContent = activeFilters.size; badge.style.display = 'inline-flex';
       mobBadge.textContent = activeFilters.size; mobBadge.style.display = 'inline-flex';
+      if (mobileBtn) mobileBtn.classList.add('is-filtered');
     } else {
       badge.style.display = 'none'; mobBadge.style.display = 'none';
+      if (mobileBtn) mobileBtn.classList.remove('is-filtered');
     }
 
     // Sort alphabetically — engaged first, then available
@@ -888,9 +894,49 @@ footer a:hover { color: var(--gold-lt); }
     return `https://calendar.google.com/calendar/render?${params.toString()}`;
   }
 
+  function buildOutlookUrl(m) {
+    const mins = parseTimeToMinutes(m.time);
+    let startdt, enddt;
+    if (mins !== null) {
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'), sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor((mins+90)/60)).padStart(2,'0'), em=String((mins+90)%60).padStart(2,'0');
+      startdt = `${m.date}T${sh}:${sm}:00`; enddt = `${m.date}T${eh}:${em}:00`;
+    } else { startdt = enddt = m.date; }
+    const params = new URLSearchParams({ rru:'addevent', subject:`${m.name} — City of Kalamazoo`, startdt, enddt, location:m.location||'', body:`Public meeting of the ${m.name}.` });
+    return `https://outlook.live.com/calendar/0/action/compose?${params}`;
+  }
+
+  function generateICSContent(m) {
+    const dateRaw = m.date.replace(/-/g,'');
+    const mins    = parseTimeToMinutes(m.time);
+    let dtStart, dtEnd;
+    if (mins !== null) {
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'), sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor((mins+90)/60)).padStart(2,'0'), em=String((mins+90)%60).padStart(2,'0');
+      dtStart=`${dateRaw}T${sh}${sm}00`; dtEnd=`${dateRaw}T${eh}${em}00`;
+    } else { dtStart=dtEnd=dateRaw; }
+    return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//City of Kalamazoo Boards & Commissions//EN',
+      'BEGIN:VEVENT', `UID:${m.abbr}-${m.date}@kalamazoocity-boards`,
+      `DTSTART:${dtStart}`, `DTEND:${dtEnd}`,
+      `SUMMARY:${m.name} — City of Kalamazoo`,
+      m.location ? `LOCATION:${m.location}` : '',
+      'END:VEVENT','END:VCALENDAR'].filter(Boolean).join('\r\n');
+  }
+
+  function downloadICS(m) {
+    const content = generateICSContent(m);
+    const url = URL.createObjectURL(new Blob([content], {type:'text/calendar'}));
+    const a = document.createElement('a');
+    a.href=url; a.download=`${m.abbr}-${m.date}.ics`;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+  }
+
   function buildMeetingHTML(meetings) {
+    const isMobile = window.innerWidth < 640;
     return meetings.map(m => {
-      const color = getBoardColor(m.abbr);
+      const color     = getBoardColor(m.abbr);
+      const webcalUrl = `webcal://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${m.abbr.toLowerCase()}.ics`;
       return `<div class="modal-meeting" style="border-left-color:${color}">
         <div class="modal-meeting-top">
           <div class="modal-meeting-badge" style="background:${color}"><span>${m.abbr}</span></div>
@@ -901,14 +947,22 @@ footer a:hover { color: var(--gold-lt); }
         </div>
         ${m.location ? `<div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>` : ''}
         <div class="modal-actions">
-          <a class="modal-action-btn primary" href="https://www.youtube.com/@CityofKalamazoo" target="_blank" rel="noopener">
+          <a class="modal-action-btn primary" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
             <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1-.8-2.2-.8-2.7-.9C16.9 2.5 12 2.5 12 2.5s-4.9 0-7.7.2c-.5.1-1.7.1-2.7.9C.8 4.3.5 6.2.5 6.2S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1 .8 2.4.8 3 .9C6.8 21 12 21 12 21s4.9 0 7.7-.3c.5-.1 1.7-.1 2.7-.9.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.8V8.9l7.3 3-7.3 2.9z"/></svg>
             Watch Live
           </a>
           <button class="modal-action-btn share" onclick="calShareMeeting('${m.date}','${m.abbr}',this)">
             <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            ${navigator && navigator.share ? 'Share' : 'Copy Link'}
+            ${isMobile ? 'Share' : 'Copy Link'}
           </button>
+          <button class="modal-action-btn green" onclick="calShowCalPopover('${m.date}','${m.abbr}',this)">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Add to Calendar
+          </button>
+          <a class="modal-action-btn subscribe" href="${webcalUrl}">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+            Subscribe to ${m.abbr}
+          </a>
         </div>
       </div>`;
     }).join('');
@@ -959,35 +1013,55 @@ footer a:hover { color: var(--gold-lt); }
   /* POPOVERS */
   window.calShowCalPopover = function(dateStr, abbr, btn) {
     document.querySelectorAll('.cal-popover').forEach(el => el.remove());
-    const meetings = meetingsByDate[dateStr]||[];
-    const m = meetings.find(x => x.abbr===abbr)||meetings[0];
+    const meetings = meetingsByDate[dateStr] || [];
+    const m = meetings.find(x => x.abbr === abbr) || meetings[0];
     if (!m) return;
-    const slug=abbr.toLowerCase(), gcalUrl=buildGCalUrl(m);
-    const webcalUrl=`webcal://raw.githubusercontent.com/kalebwolfgang/kalamazoo-boards/main/data/ics/${slug}.ics`;
-    const isMobile=!!navigator.share;
-    const pop=document.createElement('div'); pop.className='cal-popover';
-    const rect=btn.getBoundingClientRect();
-    if (window.innerHeight-rect.bottom<120) { pop.style.bottom=`${window.innerHeight-rect.top+6}px`; pop.style.top='auto'; }
-    else pop.style.top=`${rect.bottom+6}px`;
-    pop.style.left=`${Math.min(rect.left,window.innerWidth-220)}px`;
-    const addRow=isMobile?`<button class="cal-popover-option" id="cal-pop-add"><span class="cal-popover-icon">📅</span><span>Add this meeting</span></button><div class="cal-popover-divider"></div>`:'';
-    pop.innerHTML=`${addRow}<a class="cal-popover-option" href="${webcalUrl}"><span class="cal-popover-icon">🔄</span><span>Subscribe to ${abbr} meetings</span></a><div class="cal-popover-divider"></div><a class="cal-popover-option" href="${gcalUrl}" target="_blank" rel="noopener"><span class="cal-popover-icon" style="font-size:13px;font-weight:700;color:#4285F4">G</span><span>Add to Google Calendar</span></a>`;
-    document.body.appendChild(pop);
-    if (isMobile) {
-      pop.querySelector('#cal-pop-add').addEventListener('click', async () => {
-        pop.remove();
-        try {
-          const dateRaw=m.date.replace(/-/g,''), mins=parseTimeToMinutes(m.time);
-          let dtStart,dtEnd;
-          if (mins!==null) { const sh=String(Math.floor(mins/60)).padStart(2,'0'),sm=String(mins%60).padStart(2,'0'),eh=String(Math.floor((mins+90)/60)).padStart(2,'0'),em=String((mins+90)%60).padStart(2,'0'); dtStart=`${dateRaw}T${sh}${sm}00`; dtEnd=`${dateRaw}T${eh}${em}00`; } else { dtStart=dtEnd=dateRaw; }
-          const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//City of Kalamazoo Boards & Commissions//EN','BEGIN:VEVENT',`UID:${abbr}-${m.date}@kalamazoocity-boards`,`DTSTART:${dtStart}`,`DTEND:${dtEnd}`,`SUMMARY:${m.name} — City of Kalamazoo`,m.location?`LOCATION:${m.location}`:'','END:VEVENT','END:VCALENDAR'].filter(Boolean).join('\r\n');
-          const file=new File([ics],`${abbr}-${m.date}.ics`,{type:'text/calendar'});
-          if (navigator.canShare&&navigator.canShare({files:[file]})) await navigator.share({files:[file],title:m.name});
-          else { const url=URL.createObjectURL(new Blob([ics],{type:'text/calendar'})),a=document.createElement('a'); a.href=url; a.download=`${abbr}-${m.date}.ics`; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); }
-        } catch(e) {}
-      });
+
+    const gcalUrl    = buildGCalUrl(m);
+    const outlookUrl = buildOutlookUrl(m);
+
+    const pop = document.createElement('div');
+    pop.className = 'cal-popover';
+    const rect = btn.getBoundingClientRect();
+    if (window.innerHeight - rect.bottom < 140) {
+      pop.style.bottom = `${window.innerHeight - rect.top + 6}px`;
+      pop.style.top    = 'auto';
+    } else {
+      pop.style.top = `${rect.bottom + 6}px`;
     }
-    setTimeout(() => { document.addEventListener('click', function h(e) { if (!pop.contains(e.target)&&e.target!==btn) { pop.remove(); document.removeEventListener('click',h); } }); }, 0);
+    pop.style.left = `${Math.min(rect.left, window.innerWidth - 230)}px`;
+
+    pop.innerHTML = `
+      <div style="padding:8px 14px 6px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)">Add this meeting to…</div>
+      <a class="cal-popover-option" href="${gcalUrl}" target="_blank" rel="noopener">
+        <span class="cal-popover-icon" style="font-size:13px;font-weight:700;color:#4285F4">G</span>
+        <span>Google Calendar</span>
+      </a>
+      <a class="cal-popover-option" href="${outlookUrl}" target="_blank" rel="noopener">
+        <span class="cal-popover-icon" style="font-size:13px;font-weight:700;color:#0078D4">⊞</span>
+        <span>Outlook.com</span>
+      </a>
+      <div class="cal-popover-divider"></div>
+      <button class="cal-popover-option" id="cal-pop-ics">
+        <span class="cal-popover-icon">📅</span>
+        <span>Apple / iCal / Other (.ics)</span>
+      </button>`;
+
+    document.body.appendChild(pop);
+
+    pop.querySelector('#cal-pop-ics').addEventListener('click', () => {
+      pop.remove();
+      downloadICS(m);
+    });
+
+    setTimeout(() => {
+      document.addEventListener('click', function h(e) {
+        if (!pop.contains(e.target) && e.target !== btn) {
+          pop.remove();
+          document.removeEventListener('click', h);
+        }
+      });
+    }, 0);
   };
 
   window.calShareMeeting = function(dateStr, abbr) {
@@ -997,8 +1071,9 @@ footer a:hover { color: var(--gold-lt); }
     const m=meetings.find(x=>x.abbr===abbr)||meetings[0];
     const title=m?`${m.name} — Kzoo Boards`:'Kalamazoo Public Meeting';
     const text=m?`${m.name} has a public meeting on ${m.display||dateStr}${m.time?' at '+m.time:''}${m.location?'\n📍 '+m.location:''}\n\nKzoo Boards — independent civic resource, not the city's official site.`:'Check out this Kalamazoo public meeting.';
-    // Use native share sheet on any platform that supports it (mobile + modern desktop)
-    if (navigator.share) {
+    const isMobileShare = window.innerWidth < 640;
+    // Native share sheet on mobile only; desktop always copies link
+    if (isMobileShare && navigator.share) {
       navigator.share({title,text,url:shareUrl}).catch(()=>{}); return;
     }
     // Fallback: copy link
