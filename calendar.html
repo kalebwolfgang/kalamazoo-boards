@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meeting Calendar — Boards &amp; Commissions · City of Kalamazoo</title>
-<meta name="description" content="Public meeting schedule for all City of Kalamazoo boards and commissions. Browse by month or week.">
+<meta name="description" content="Public meeting schedule for all City of Kalamazoo boards and commissions. Browse by month.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="City of Kalamazoo — Boards &amp; Commissions">
 <meta property="og:title" content="Meeting Calendar — Kalamazoo Boards &amp; Commissions">
-<meta property="og:description" content="Public meeting schedule for all City of Kalamazoo boards and commissions. Browse upcoming meetings by month or week.">
+<meta property="og:description" content="Public meeting schedule for all City of Kalamazoo boards and commissions. Browse upcoming meetings by month.">
 <meta property="og:url" content="https://kalebwolfgang.github.io/kalamazoo-boards/calendar.html">
 <meta property="og:image" content="https://kalebwolfgang.github.io/kalamazoo-boards/og-calendar.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -25,6 +25,7 @@
   --gold:      #c9921a;
   --gold-lt:   #e8b84b;
   --green:     #2d6b4a;
+  --green-mid: #3a8860;
   --green-lt:  #4a9068;
   --green-bg:  #edf4f0;
   --cream:     #f5f2ec;
@@ -78,27 +79,21 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .breadcrumb a:hover { text-decoration: underline; }
 .bc-sep { color: var(--border); }
 
-/* ── Page Header ── */
-.page-header { background: var(--navy); padding: clamp(28px,5vw,48px) var(--pad-x) clamp(24px,4vw,44px); }
+/* ── Page Header — GREEN ── */
+.page-header { background: var(--green); padding: clamp(28px,5vw,48px) var(--pad-x) clamp(24px,4vw,44px); }
 .page-header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px,5vw,38px); font-weight: 600; color: white; line-height: 1.2; margin-bottom: 8px; }
-.page-header p { color: rgba(255,255,255,0.5); font-size: clamp(14px,2.5vw,17px); font-weight: 300; max-width: 520px; line-height: 1.7; }
+.page-header p { color: rgba(255,255,255,0.6); font-size: clamp(14px,2.5vw,17px); font-weight: 300; max-width: 520px; line-height: 1.7; }
 .page-header-meta { display: flex; gap: 20px; flex-wrap: wrap; }
 .phm-stat { text-align: right; }
-.phm-stat-num { font-family: 'Playfair Display', serif; font-size: clamp(22px,4vw,32px); font-weight: 600; color: var(--gold); line-height: 1; }
-.phm-stat-lbl { font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
+.phm-stat-num { font-family: 'Playfair Display', serif; font-size: clamp(22px,4vw,32px); font-weight: 600; color: var(--gold-lt); line-height: 1; }
+.phm-stat-lbl { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
 
 /* ── Calendar Wrapper ── */
 .cal-wrap { max-width: 1400px; margin: 0 auto; padding: clamp(24px,4vw,44px) var(--pad-x) clamp(48px,8vw,100px); }
 
-/* ── View Toggle ── */
-.view-toggle { display: flex; background: var(--cream-dk); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
-.view-toggle-btn { background: none; border: none; padding: 7px 18px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--muted); cursor: pointer; transition: background 0.15s, color 0.15s; white-space: nowrap; }
-.view-toggle-btn.active-month { background: var(--navy); color: white; }
-.view-toggle-btn.active-week  { background: var(--green); color: white; }
-
-/* ── Calendar Controls ── */
-.cal-controls { display: flex; align-items: center; gap: 16px; margin-bottom: 6px; flex-wrap: wrap; }
+/* ── Controls ── */
+.cal-controls { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
 .cal-nav-group { display: flex; align-items: center; gap: 10px; }
 .cal-month-year { font-family: 'Playfair Display', serif; font-size: clamp(22px,3.5vw,30px); font-weight: 600; color: var(--navy); min-width: 220px; }
 .cal-nav-btn { background: var(--white); border: 1px solid var(--border); border-radius: 2px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--navy); transition: background 0.15s, border-color 0.15s; flex-shrink: 0; }
@@ -109,6 +104,26 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-count { margin-left: auto; font-size: 14px; color: var(--muted); white-space: nowrap; }
 .cal-count strong { color: var(--navy); font-weight: 600; }
 
+/* ── Filter Chips ── */
+.cal-filter-wrap { margin-bottom: 20px; }
+.cal-filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.cal-filter-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; margin-right: 4px; }
+.filter-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 13px; border-radius: 20px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer; border: 1.5px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, opacity 0.15s;
+  white-space: nowrap; letter-spacing: 0.02em;
+}
+.filter-chip-all { background: var(--navy); color: white; border-color: var(--navy); }
+.filter-chip-all.inactive { background: transparent; color: var(--navy); border-color: var(--navy); }
+.filter-chip-all.inactive:hover { background: rgba(13,79,99,0.06); }
+.filter-chip-board { /* styles set inline via JS */ }
+.filter-chip-board.inactive { background: transparent !important; }
+.filter-chip-board.inactive:hover { opacity: 0.75; }
+
 /* ── Loading ── */
 .cal-state-wrap { background: var(--white); border: 1px solid var(--border); padding: 60px 20px; text-align: center; border-radius: 4px; }
 .cal-spinner { width: 30px; height: 30px; border: 3px solid var(--border); border-top-color: var(--navy); border-radius: 50%; animation: cal-spin 0.75s linear infinite; margin: 0 auto 14px; }
@@ -116,157 +131,118 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-state-text { font-size: 15px; color: var(--muted); }
 
 /* ══════════════════════════════════════════
-   MONTH VIEW — Count-style cells (Image 1)
+   MONTH GRID — Refined, editorial
    ══════════════════════════════════════════ */
-.cal-grid-wrap { background: var(--white); border: 1px solid var(--border); border-bottom: none; border-right: none; border-radius: 4px 4px 0 0; overflow: hidden; }
+.cal-grid-wrap {
+  background: var(--white);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 0 0 1px var(--border);
+}
 .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
-.cal-day-header { padding: 10px; text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--cream); }
 
-/* Month cells */
-.cal-cell { min-height: 148px; padding: 10px 10px 10px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); transition: background 0.1s; cursor: default; display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
+/* Day headers — editorial, gold separator */
+.cal-day-header {
+  padding: 12px 14px 10px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 2px solid var(--gold);
+  background: var(--white);
+}
+
+/* Month cells — no vertical borders, horizontal rows only */
+.cal-cell {
+  min-height: 152px;
+  padding: 12px 14px 10px;
+  border-right: none;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+  transition: background 0.1s;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  position: relative;
+}
+/* Subtle right separator — lighter than old border */
+.cal-cell:not(:nth-child(7n)) { border-right: 1px solid var(--border-lt); }
+
 .cal-cell[data-date] { cursor: pointer; }
 .cal-cell[data-date]:hover { background: #f8f6f2; }
-.cal-cell.other-month { background: #faf9f6; }
-.cal-cell.other-month .cal-date-num { color: #ccc8c0; }
+.cal-cell.other-month { background: #faf9f7; }
+.cal-cell.other-month .cal-date-num { color: #d4cfc6; }
 .cal-cell.past .cal-date-num { color: var(--muted); }
-.cal-cell.today { background: #f0f8fb; }
-.cal-cell.has-meetings { background: #fdfdfc; }
-.cal-cell.has-meetings:hover { background: #f6f4ef; }
+.cal-cell.today { background: #f0faf5; }
+.cal-cell.has-meetings[data-date]:hover { background: #f4f2ed; }
 
-/* Cell top row: date number only */
+/* Date numbers — large, Playfair, editorial */
 .cal-cell-top { display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 0; }
-.cal-date-num { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1; display: inline-block; }
-.cal-today-badge { width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: white; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; }
+.cal-date-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+  display: inline-block;
+}
+.cal-today-badge {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
 
-/* Board pills — stacked at bottom of cell, uniform size for all days */
+/* Board pills — refined */
 .cal-board-pills { display: flex; flex-direction: column; gap: 4px; margin-top: auto; padding-top: 8px; min-width: 0; }
-.cal-board-pill { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: white; padding: 9px 12px; border-radius: 4px; letter-spacing: 0.04em; line-height: 1.2; overflow: hidden; min-width: 0; }
+.cal-board-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700; color: white;
+  padding: 5px 9px; border-radius: 3px;
+  letter-spacing: 0.04em; line-height: 1.2;
+  overflow: hidden; min-width: 0;
+}
 .cal-board-pill-abbr { flex-shrink: 0; }
-.cal-board-pill-name { font-weight: 500; letter-spacing: 0.01em; opacity: 0.9; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; font-size: 10px; }
-.cal-more-pill { display: flex; align-items: center; font-size: 11px; font-weight: 600; color: var(--muted); padding: 5px 8px; border-radius: 3px; background: var(--cream-dk); letter-spacing: 0.02em; }
+.cal-more-pill {
+  display: inline-flex; align-items: center;
+  font-size: 11px; font-weight: 600; color: var(--muted);
+  padding: 4px 8px; border-radius: 3px;
+  background: var(--cream-dk); letter-spacing: 0.02em;
+}
 
-.cal-empty-cell { grid-column: 1 / -1; padding: 48px 20px; text-align: center; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--muted); font-size: 15px; }
+.cal-empty-cell { grid-column: 1 / -1; padding: 48px 20px; text-align: center; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 15px; }
 .cal-empty-cell p { margin-bottom: 6px; }
 .cal-empty-cell small { font-size: 13px; color: var(--border); }
 
 /* Mobile month */
 @media (max-width: 640px) {
-  .cal-cell { min-height: 88px; padding: 6px 5px 6px; }
-  .cal-day-header { font-size: 9px; padding: 8px 3px; letter-spacing: 0.04em; }
-  .cal-date-num { font-size: 11px; }
-  .cal-today-badge { width: 22px; height: 22px; font-size: 10px; }
-  .cal-meeting-count { font-size: 24px; }
-  .cal-board-pill { font-size: 9px; padding: 3px 5px; }
-  .cal-more-pill { font-size: 9px; padding: 3px 5px; }
+  .cal-cell { min-height: 96px; padding: 8px 7px 8px; }
+  .cal-day-header { font-size: 9px; padding: 10px 5px; letter-spacing: 0.05em; }
+  .cal-date-num { font-size: 15px; }
+  .cal-today-badge { width: 24px; height: 24px; font-size: 13px; }
+  .cal-board-pill { font-size: 9px; padding: 3px 6px; }
+  .cal-more-pill { font-size: 9px; padding: 3px 6px; }
   .cal-count { width: 100%; margin-left: 0; }
+  .cal-filter-label { display: none; }
 }
 @media (max-width: 380px) {
-  .cal-cell { min-height: 56px; }
-  .cal-day-header { font-size: 8px; padding: 6px 2px; }
+  .cal-cell { min-height: 64px; }
+  .cal-day-header { font-size: 8px; padding: 8px 3px; }
 }
 
 /* ══════════════════════════════════════════
-   WEEK VIEW
-   ══════════════════════════════════════════ */
-.week-view-container { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-.week-layout { display: flex; min-height: 600px; }
-
-/* Sidebar */
-.week-sidebar { width: 220px; flex-shrink: 0; background: var(--cream); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
-
-/* Mini month */
-.mini-month-wrap { padding: 16px 14px 12px; }
-.mini-month-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-.mini-month-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--navy); }
-.mini-nav-btn { background: none; border: none; cursor: pointer; color: var(--muted); padding: 3px 6px; border-radius: 2px; font-size: 14px; line-height: 1; transition: background 0.15s, color 0.15s; }
-.mini-nav-btn:hover { background: var(--cream-dk); color: var(--navy); }
-.mini-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; }
-.mini-dow { font-size: 9px; font-weight: 600; text-align: center; color: var(--muted); letter-spacing: 0.06em; padding: 2px 0 4px; }
-.mini-day { font-size: 11px; text-align: center; padding: 3px 0; border-radius: 2px; cursor: pointer; color: var(--text); line-height: 1.4; transition: background 0.12s, color 0.12s; }
-.mini-day:hover { background: var(--cream-dk); }
-.mini-day.other-month { color: #ccc8c0; }
-.mini-day.has-events { font-weight: 600; color: var(--navy); }
-.mini-day.today { background: var(--navy); color: white; border-radius: 50%; font-weight: 600; }
-.mini-day.in-week { background: rgba(45,107,74,0.12); border-radius: 2px; }
-.mini-day.in-week.today { background: var(--navy); color: white; }
-.mini-day.week-start { border-radius: 3px 0 0 3px; }
-.mini-day.week-end { border-radius: 0 3px 3px 0; }
-
-/* Board legend accordion */
-.week-legend { padding: 0 14px 16px; flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
-.week-legend-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: var(--cream-dk); border: 1px solid var(--border); border-radius: 3px; cursor: pointer; padding: 8px 10px; font-family: 'IBM Plex Sans', sans-serif; flex-shrink: 0; transition: background 0.15s, border-color 0.15s; margin-bottom: 8px; }
-.week-legend-toggle:hover { background: #e0dbd0; border-color: var(--navy); }
-.week-legend-toggle-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); }
-.week-legend-chevron { color: var(--navy); transition: transform 0.25s ease; flex-shrink: 0; }
-.week-legend-items { flex: 1; overflow-y: auto; opacity: 1; transition: opacity 0.2s ease; }
-.week-legend-items.collapsed { max-height: 0; opacity: 0; overflow: hidden; pointer-events: none; }
-.week-legend-chevron.collapsed { transform: rotate(-90deg); }
-.legend-item { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; font-size: 11px; color: var(--body); cursor: default; line-height: 1.3; }
-.legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
-
-/* Week main */
-.week-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
-
-/* Week day headers */
-.wk-header { display: grid; grid-template-columns: 52px repeat(7, 1fr); border-bottom: 2px solid var(--border); background: var(--cream); flex-shrink: 0; }
-.wk-header-spacer { border-right: 1px solid var(--border); }
-.wk-day-header { padding: 10px 6px 8px; text-align: center; border-right: 1px solid var(--border); }
-.wk-day-name { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 3px; }
-.wk-day-num { font-size: 18px; font-weight: 400; color: var(--text); font-family: 'Playfair Display', serif; display: inline-block; }
-.wk-day-header.wk-today .wk-day-name { color: var(--green); }
-.wk-today-num { background: var(--navy); color: white; border-radius: 50%; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; }
-
-/* Week scroll area */
-.wk-scroll { flex: 1; overflow-y: auto; position: relative; }
-.wk-scroll::-webkit-scrollbar { width: 6px; }
-.wk-scroll::-webkit-scrollbar-track { background: var(--cream); }
-.wk-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-
-/* Week time grid */
-.wk-grid { display: grid; grid-template-columns: 52px repeat(7, 1fr); position: relative; }
-.wk-time-label { font-size: 10px; color: var(--muted); text-align: right; padding-right: 8px; padding-top: 0; border-right: 1px solid var(--border); position: relative; }
-.wk-time-label span { position: absolute; top: -7px; right: 8px; white-space: nowrap; }
-.wk-cell { border-right: 1px solid var(--border); border-top: 1px solid var(--border-lt); position: relative; }
-.wk-cell:last-child { border-right: none; }
-.wk-cell.wk-today-col { background: rgba(240,248,251,0.6); }
-
-/* Week event blocks */
-.wk-event { position: absolute; left: 3px; right: 3px; min-height: 30px; border-radius: 3px; padding: 4px 6px; cursor: pointer; border: none; text-align: left; font-family: 'IBM Plex Sans', sans-serif; transition: opacity 0.12s, transform 0.12s; z-index: 2; overflow: hidden; }
-.wk-event:hover { opacity: 0.88; transform: translateY(-1px); }
-.wk-event-abbr { display: block; font-size: 11px; font-weight: 700; color: white; letter-spacing: 0.04em; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.wk-event-time { display: block; font-size: 10px; color: rgba(255,255,255,0.8); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-/* All-day row */
-.wk-allday-row { display: grid; grid-template-columns: 52px repeat(7, 1fr); border-bottom: 2px solid var(--border); background: #fefefe; flex-shrink: 0; min-height: 0; }
-.wk-allday-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; border-right: 1px solid var(--border); padding-top: 4px; padding-bottom: 4px; }
-.wk-allday-cell { border-right: 1px solid var(--border); padding: 3px 3px; display: flex; flex-wrap: wrap; gap: 2px; min-height: 26px; }
-.wk-allday-chip { display: inline-flex; align-items: center; font-size: 9px; font-weight: 700; color: white; padding: 2px 5px; border-radius: 2px; white-space: nowrap; cursor: pointer; border: none; font-family: 'IBM Plex Sans', sans-serif; letter-spacing: 0.04em; }
-
-/* Week empty state */
-.wk-empty { grid-column: 2 / -1; display: flex; align-items: center; justify-content: center; padding: 60px 20px; color: var(--muted); font-size: 14px; }
-
-/* Mobile week: simplified */
-@media (max-width: 760px) {
-  .week-sidebar { width: 160px; }
-  .mini-month-wrap { padding: 12px 10px 8px; }
-  .wk-day-num { font-size: 14px; }
-  .wk-time-label span { font-size: 9px; }
-}
-@media (max-width: 560px) {
-  .week-layout { flex-direction: column; }
-  .week-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
-  .mini-month-wrap { padding: 12px; }
-  .week-legend { display: none; }
-  .wk-day-name { display: none; }
-  .wk-day-num { font-size: 13px; }
-  .wk-header-spacer { display: none; }
-  .wk-time-label { display: none; }
-  .wk-grid { grid-template-columns: repeat(7, 1fr); }
-  .wk-header { grid-template-columns: repeat(7, 1fr); }
-}
-
-/* ══════════════════════════════════════════
-   IMPROVED MODAL
+   MODAL
    ══════════════════════════════════════════ */
 .modal-overlay { position: fixed; inset: 0; background: rgba(13,79,99,0.45); z-index: 500; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
 .modal-overlay.open { opacity: 1; pointer-events: all; }
@@ -293,7 +269,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-detail-row { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--body); margin-bottom: 4px; line-height: 1.4; }
 .modal-detail-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
 
-/* Action buttons — single row */
 .modal-actions { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
 .modal-action-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 6px 11px; border-radius: 2px; border: 1px solid var(--border); cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.15s, border-color 0.15s; text-decoration: none; white-space: nowrap; }
 .modal-action-btn.primary { background: var(--cream); color: var(--navy); }
@@ -302,18 +277,13 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-action-btn.green:hover { background: rgba(45,107,74,0.14); border-color: var(--green); }
 .modal-action-btn.share { background: rgba(13,79,99,0.06); color: var(--navy-mid); border-color: rgba(13,79,99,0.2); }
 .modal-action-btn.share:hover { background: rgba(13,79,99,0.12); border-color: var(--navy); }
-.modal-action-btn.gcal { background: rgba(66,133,244,0.07); color: #3367d6; border-color: rgba(66,133,244,0.25); }
-.modal-action-btn.gcal:hover { background: rgba(66,133,244,0.13); border-color: #4285F4; }
 
-/* Calendar + share popovers */
+/* Popovers */
 .cal-popover { position: fixed; background: var(--white); border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); z-index: 700; min-width: 210px; overflow: hidden; }
 .cal-popover-option { display: flex; align-items: center; gap: 10px; padding: 11px 14px; font-size: 13px; font-weight: 500; color: var(--body); text-decoration: none; border: none; background: none; cursor: pointer; width: 100%; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.1s; text-align: left; line-height: 1.3; }
 .cal-popover-option:hover { background: var(--cream); color: var(--navy); }
 .cal-popover-icon { font-size: 15px; flex-shrink: 0; width: 20px; text-align: center; }
 .cal-popover-divider { height: 1px; background: var(--border-lt); margin: 2px 0; }
-
-.modal-close-btn { background: none; border: none; cursor: pointer; color: var(--muted); padding: 4px; display: flex; align-items: center; border-radius: 2px; flex-shrink: 0; transition: color 0.15s, background 0.15s; }
-.modal-close-btn:hover { color: var(--navy); background: var(--cream); }
 
 /* Toast */
 .cal-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--navy); color: white; padding: 10px 18px; border-radius: 3px; font-size: 13px; font-weight: 500; z-index: 800; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; white-space: nowrap; }
@@ -404,20 +374,23 @@ footer a:hover { color: var(--gold-lt); }
   <!-- Controls -->
   <div class="cal-controls">
     <div class="cal-nav-group">
-      <button class="cal-nav-btn" id="btn-prev" aria-label="Previous">
+      <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       </button>
       <span class="cal-month-year" id="cal-month-year">Loading…</span>
-      <button class="cal-nav-btn" id="btn-next" aria-label="Next">
+      <button class="cal-nav-btn" id="btn-next" aria-label="Next month">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
       <button class="cal-today-btn" id="btn-today">Today</button>
     </div>
-    <div class="view-toggle">
-      <button class="view-toggle-btn active-month" id="btn-view-month">Month</button>
-      <button class="view-toggle-btn" id="btn-view-week">Week</button>
-    </div>
     <span class="cal-count" id="cal-count"></span>
+  </div>
+
+  <!-- Board Filters -->
+  <div class="cal-filter-wrap" id="cal-filter-wrap" style="display:none">
+    <div class="cal-filter-row" id="cal-filter-row">
+      <span class="cal-filter-label">Filter</span>
+    </div>
   </div>
 
   <!-- Loading -->
@@ -430,38 +403,6 @@ footer a:hover { color: var(--gold-lt); }
   <div id="view-month" style="display:none">
     <div class="cal-grid-wrap">
       <div class="cal-grid" id="cal-grid"></div>
-    </div>
-  </div>
-
-  <!-- Week View -->
-  <div id="view-week" style="display:none">
-    <div class="week-view-container">
-      <div class="week-layout">
-        <aside class="week-sidebar">
-          <div class="mini-month-wrap">
-            <div class="mini-month-header">
-              <button class="mini-nav-btn" id="mini-prev">&#8249;</button>
-              <span class="mini-month-label" id="mini-month-label"></span>
-              <button class="mini-nav-btn" id="mini-next">&#8250;</button>
-            </div>
-            <div class="mini-grid" id="mini-grid"></div>
-          </div>
-          <div class="week-legend">
-            <button class="week-legend-toggle" id="legend-toggle" aria-expanded="true">
-              <span class="week-legend-toggle-label">Board Key</span>
-              <svg class="week-legend-chevron" id="legend-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="week-legend-items" id="week-legend-items"></div>
-          </div>
-        </aside>
-        <div class="week-main">
-          <div class="wk-header" id="wk-header"></div>
-          <div class="wk-allday-row" id="wk-allday-row" style="display:none"></div>
-          <div class="wk-scroll" id="wk-scroll">
-            <div class="wk-grid" id="wk-grid"></div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -518,10 +459,10 @@ footer a:hover { color: var(--gold-lt); }
   const DAYS_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const DETAIL_SLUG = { 'PB': 'pension-board' };
 
-  // Civic palette: navy, gold, green + 7 more earthy, muted tones
+  // Civic palette
   const BOARD_PALETTE = [
     '#c9921a',  // gold
-    '#2d6b4a',  // forest green (3rd color)
+    '#2d6b4a',  // forest green
     '#c05c2e',  // terracotta
     '#2d5f8a',  // steel blue
     '#7b3f6e',  // dusty plum
@@ -544,33 +485,24 @@ footer a:hover { color: var(--gold-lt); }
   /* ══════════════
      STATE
      ══════════════ */
-  const todayRaw = new Date();
-  const TODAY    = new Date(todayRaw.getFullYear(), todayRaw.getMonth(), todayRaw.getDate());
+  const todayRaw   = new Date();
+  const TODAY      = new Date(todayRaw.getFullYear(), todayRaw.getMonth(), todayRaw.getDate());
 
-  let currentView  = 'month';
   let currentYear  = TODAY.getFullYear();
   let currentMonth = TODAY.getMonth();
-
-  // Week view state
-  let weekStart    = getWeekSunday(TODAY);   // always a Sunday
-  let miniYear     = weekStart.getFullYear();
-  let miniMonth    = weekStart.getMonth();
 
   // Data
   let meetingsByDate = {};
   let totalUpcoming  = 0;
-  let allBoards      = [];   // [{abbr, name}] for legend
+  let allBoards      = [];
   let dataLoaded     = false;
+
+  // Filter state — empty Set = show all
+  let activeFilters  = new Set();
 
   /* ══════════════
      HELPERS
      ══════════════ */
-  function getWeekSunday(date) {
-    const d = new Date(date);
-    d.setDate(d.getDate() - d.getDay());
-    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
-  }
-
   function isSameDay(a, b) {
     return a.getFullYear() === b.getFullYear() &&
            a.getMonth()    === b.getMonth()    &&
@@ -593,11 +525,11 @@ footer a:hover { color: var(--gold-lt); }
     return h * 60 + mn;
   }
 
-  function formatHourLabel(h) {
-    if (h === 0)  return '12 AM';
-    if (h < 12)  return `${h} AM`;
-    if (h === 12) return '12 PM';
-    return `${h - 12} PM`;
+  // Returns meetings for a date, respecting active filters
+  function getMeetingsForDate(dateStr) {
+    const meetings = meetingsByDate[dateStr] || [];
+    if (activeFilters.size === 0) return meetings;
+    return meetings.filter(m => activeFilters.has(m.abbr));
   }
 
   /* ══════════════
@@ -630,15 +562,17 @@ footer a:hover { color: var(--gold-lt); }
         totalUpcoming++;
         if (!seenAbbr[m.abbr]) {
           seenAbbr[m.abbr] = true;
-          getBoardColor(m.abbr);   // assign color in data order
+          getBoardColor(m.abbr);
           allBoards.push({ abbr: m.abbr, name: m.name });
         }
       });
 
       dataLoaded = true;
-      document.getElementById('cal-loading').style.display  = 'none';
+      document.getElementById('cal-loading').style.display = 'none';
+      document.getElementById('view-month').style.display  = 'block';
       document.getElementById('stat-total-count').textContent = totalUpcoming;
 
+      renderFilters();
       render();
 
     } catch (err) {
@@ -648,38 +582,108 @@ footer a:hover { color: var(--gold-lt); }
     }
   }
 
-  /* ══════════════════════
-     TOP-LEVEL RENDER
-     ══════════════════════ */
+  /* ══════════════════════════
+     FILTER CHIPS
+     ══════════════════════════ */
+  function renderFilters() {
+    if (allBoards.length === 0) return;
+
+    const wrap = document.getElementById('cal-filter-wrap');
+    const row  = document.getElementById('cal-filter-row');
+    wrap.style.display = 'block';
+
+    const allActive = activeFilters.size === 0;
+
+    let html = '<span class="cal-filter-label">Filter</span>';
+
+    // "All" chip
+    html += `<button
+      class="filter-chip filter-chip-all${allActive ? '' : ' inactive'}"
+      id="filter-all-btn"
+    >All</button>`;
+
+    // One chip per board
+    allBoards.forEach(b => {
+      const color   = getBoardColor(b.abbr);
+      const active  = activeFilters.has(b.abbr);
+      const bgStyle = active
+        ? `background:${color};color:white;border-color:${color}`
+        : `background:transparent;color:${color};border-color:${color}`;
+
+      html += `<button
+        class="filter-chip filter-chip-board${active ? '' : ' inactive'}"
+        style="${bgStyle}"
+        data-abbr="${b.abbr}"
+        title="${b.name}"
+      >${b.abbr}</button>`;
+    });
+
+    row.innerHTML = html;
+
+    // "All" handler
+    document.getElementById('filter-all-btn').addEventListener('click', () => {
+      activeFilters.clear();
+      renderFilters();
+      render();
+    });
+
+    // Board chip handlers
+    row.querySelectorAll('.filter-chip-board').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const abbr = btn.dataset.abbr;
+        if (activeFilters.has(abbr)) {
+          activeFilters.delete(abbr);
+        } else {
+          activeFilters.add(abbr);
+        }
+        renderFilters();
+        render();
+      });
+    });
+  }
+
+  /* ══════════════════════════
+     RENDER
+     ══════════════════════════ */
   function render() {
     if (!dataLoaded) return;
-    if (currentView === 'month') renderMonthView();
-    else                          renderWeekView();
+    renderMonthView();
   }
 
   /* ══════════════════════════
      MONTH VIEW
      ══════════════════════════ */
   function renderMonthView() {
-    document.getElementById('view-month').style.display = 'block';
-    document.getElementById('view-week').style.display  = 'none';
-    document.getElementById('btn-view-month').className = 'view-toggle-btn active-month';
-    document.getElementById('btn-view-week').className  = 'view-toggle-btn';
-
     document.getElementById('cal-month-year').textContent = `${MONTHS[currentMonth]} ${currentYear}`;
 
-    // Nav limits: 1 month back, current, 2 forward
+    // Nav limits: 1 month back, current, 6 forward
     const minAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth() - 1, 1);
-    const maxAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth() + 2, 1);
+    const maxAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth() + 6, 1);
     const viewing    = new Date(currentYear, currentMonth, 1);
     document.getElementById('btn-prev').disabled = viewing <= minAllowed;
     document.getElementById('btn-next').disabled = viewing >= maxAllowed;
 
     const monthCount = countInMonth(currentYear, currentMonth);
     document.getElementById('stat-month-count').textContent = monthCount;
+
+    const filterSuffix = activeFilters.size === 1
+      ? ` for ${[...activeFilters][0]}`
+      : activeFilters.size > 1
+        ? ` for selected boards`
+        : '';
+
     document.getElementById('cal-count').innerHTML = monthCount === 0
-      ? 'No meetings this month'
-      : `<strong>${monthCount}</strong> meeting${monthCount === 1 ? '' : 's'} this month`;
+      ? `No meetings${filterSuffix} this month`
+      : `<strong>${monthCount}</strong> meeting${monthCount === 1 ? '' : 's'}${filterSuffix} this month`;
+
+    // Update total stat to reflect filters
+    if (activeFilters.size > 0) {
+      const filteredTotal = Object.keys(meetingsByDate)
+        .reduce((sum, ds) => sum + getMeetingsForDate(ds).length, 0);
+      document.getElementById('stat-total-count').textContent = filteredTotal;
+    } else {
+      document.getElementById('stat-total-count').textContent = totalUpcoming;
+    }
 
     const firstDow     = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth  = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -699,13 +703,13 @@ footer a:hover { color: var(--gold-lt); }
 
     // Current month days
     for (let day = 1; day <= daysInMonth; day++) {
-      const mm      = String(currentMonth + 1).padStart(2, '0');
-      const dd      = String(day).padStart(2, '0');
-      const dateStr = `${currentYear}-${mm}-${dd}`;
-      const cellDt  = new Date(currentYear, currentMonth, day);
-      const isToday = isSameDay(cellDt, TODAY);
-      const isPast  = cellDt < TODAY;
-      const meetings = meetingsByDate[dateStr] || [];
+      const mm       = String(currentMonth + 1).padStart(2, '0');
+      const dd       = String(day).padStart(2, '0');
+      const dateStr  = `${currentYear}-${mm}-${dd}`;
+      const cellDt   = new Date(currentYear, currentMonth, day);
+      const isToday  = isSameDay(cellDt, TODAY);
+      const isPast   = cellDt < TODAY;
+      const meetings = getMeetingsForDate(dateStr);
       const count    = meetings.length;
 
       let cls = 'cal-cell';
@@ -718,8 +722,6 @@ footer a:hover { color: var(--gold-lt); }
         : '';
 
       html += `<div class="${cls}"${attrs}>`;
-
-      // Top row: date + count
       html += `<div class="cal-cell-top">`;
       if (isToday) {
         html += `<div class="cal-today-badge">${day}</div>`;
@@ -728,22 +730,22 @@ footer a:hover { color: var(--gold-lt); }
       }
       html += `</div>`;
 
-      // Board pills
       if (count > 0) {
-        // Deduplicate by abbr for pill display
         const unique = [];
         const seen   = {};
         meetings.forEach(m => { if (!seen[m.abbr]) { seen[m.abbr] = true; unique.push(m); } });
-        const show   = unique.slice(0, 2);
-        const extra  = unique.length - 2;
+        const show  = unique.slice(0, 3);
+        const extra = unique.length - 3;
 
         html += `<div class="cal-board-pills" aria-hidden="true">`;
         show.forEach(m => {
-          const color    = getBoardColor(m.abbr);
-          html += `<span class="cal-board-pill" style="background:${color}"><span class="cal-board-pill-abbr">${m.abbr}</span></span>`;
+          const color = getBoardColor(m.abbr);
+          html += `<span class="cal-board-pill" style="background:${color}">
+            <span class="cal-board-pill-abbr">${m.abbr}</span>
+          </span>`;
         });
         if (extra > 0) {
-          html += `<span class="cal-more-pill">+${extra}</span>`;
+          html += `<span class="cal-more-pill">+${extra} more</span>`;
         }
         html += `</div>`;
       }
@@ -761,7 +763,10 @@ footer a:hover { color: var(--gold-lt); }
     }
 
     if (monthCount === 0 && dataLoaded) {
-      html += `<div class="cal-empty-cell"><p>No meetings scheduled for ${MONTHS[currentMonth]} ${currentYear}.</p><small>Meeting data updates automatically each week.</small></div>`;
+      const msg = activeFilters.size > 0
+        ? `No meetings for selected board${activeFilters.size > 1 ? 's' : ''} in ${MONTHS[currentMonth]} ${currentYear}.`
+        : `No meetings scheduled for ${MONTHS[currentMonth]} ${currentYear}.`;
+      html += `<div class="cal-empty-cell"><p>${msg}</p><small>Meeting data updates automatically each week.</small></div>`;
     }
 
     const grid = document.getElementById('cal-grid');
@@ -784,285 +789,22 @@ footer a:hover { color: var(--gold-lt); }
   function countInMonth(year, month) {
     return Object.keys(meetingsByDate).reduce((sum, dateStr) => {
       const d = new Date(dateStr + 'T00:00:00');
-      return (d.getFullYear() === year && d.getMonth() === month)
-        ? sum + meetingsByDate[dateStr].length : sum;
+      if (d.getFullYear() !== year || d.getMonth() !== month) return sum;
+      return sum + getMeetingsForDate(dateStr).length;
     }, 0);
-  }
-
-  /* ══════════════════════════
-     WEEK VIEW
-     ══════════════════════════ */
-  const HOUR_HEIGHT  = 56;   // px per hour
-  const START_HOUR   = 8;    // 8 AM
-  const END_HOUR     = 21;   // 9 PM
-  const TOTAL_HOURS  = END_HOUR - START_HOUR;
-
-  function renderWeekView() {
-    document.getElementById('view-month').style.display = 'none';
-    document.getElementById('view-week').style.display  = 'block';
-    document.getElementById('btn-view-month').className = 'view-toggle-btn';
-    document.getElementById('btn-view-week').className  = 'view-toggle-btn active-week';
-
-    // Sync mini-month to week start
-    miniYear  = weekStart.getFullYear();
-    miniMonth = weekStart.getMonth();
-
-    // Update headline label to show week range
-    const weekEnd  = new Date(weekStart); weekEnd.setDate(weekEnd.getDate() + 6);
-    const sameMonth = weekStart.getMonth() === weekEnd.getMonth();
-    const label = sameMonth
-      ? `${MONTHS[weekStart.getMonth()].slice(0,3)} ${weekStart.getDate()}–${weekEnd.getDate()}, ${weekStart.getFullYear()}`
-      : `${MONTHS[weekStart.getMonth()].slice(0,3)} ${weekStart.getDate()} – ${MONTHS[weekEnd.getMonth()].slice(0,3)} ${weekEnd.getDate()}, ${weekEnd.getFullYear()}`;
-    document.getElementById('cal-month-year').textContent = label;
-
-    // Nav: no hard limit for week view
-    document.getElementById('btn-prev').disabled = false;
-    document.getElementById('btn-next').disabled = false;
-
-    // Count meetings this week
-    let weekCount = 0;
-    for (let i = 0; i < 7; i++) {
-      const d  = new Date(weekStart); d.setDate(d.getDate() + i);
-      weekCount += (meetingsByDate[dateToStr(d)] || []).length;
-    }
-    document.getElementById('cal-count').innerHTML = weekCount === 0
-      ? 'No meetings this week'
-      : `<strong>${weekCount}</strong> meeting${weekCount === 1 ? '' : 's'} this week`;
-
-    renderMiniMonth();
-    renderWeekLegend();
-    renderWeekHeader();
-    renderWeekGrid();
-  }
-
-  function renderWeekHeader() {
-    const el = document.getElementById('wk-header');
-    let html = `<div class="wk-header-spacer"></div>`;
-    for (let i = 0; i < 7; i++) {
-      const d       = new Date(weekStart); d.setDate(d.getDate() + i);
-      const isToday = isSameDay(d, TODAY);
-      html += `<div class="wk-day-header${isToday ? ' wk-today' : ''}">
-        <span class="wk-day-name">${DAYS_SHORT[d.getDay()]}</span>
-        ${isToday
-          ? `<span class="wk-today-num">${d.getDate()}</span>`
-          : `<span class="wk-day-num">${d.getDate()}</span>`}
-      </div>`;
-    }
-    el.innerHTML = html;
-  }
-
-  function renderWeekGrid() {
-    const alldayEl = document.getElementById('wk-allday-row');
-    const gridEl   = document.getElementById('wk-grid');
-
-    // Collect timed and untimed meetings
-    const timedByCol   = Array.from({length:7}, () => []);
-    const untimedByCol = Array.from({length:7}, () => []);
-
-    for (let i = 0; i < 7; i++) {
-      const d   = new Date(weekStart); d.setDate(d.getDate() + i);
-      const str = dateToStr(d);
-      (meetingsByDate[str] || []).forEach(m => {
-        const mins = parseTimeToMinutes(m.time);
-        if (mins !== null) timedByCol[i].push({...m, mins});
-        else               untimedByCol[i].push(m);
-      });
-    }
-
-    // All-day row (untimed meetings)
-    const hasUntimed = untimedByCol.some(col => col.length > 0);
-    if (hasUntimed) {
-      alldayEl.style.display = 'grid';
-      let adHtml = `<div class="wk-allday-label"><span>TBD</span></div>`;
-      for (let i = 0; i < 7; i++) {
-        const d   = new Date(weekStart); d.setDate(d.getDate() + i);
-        const str = dateToStr(d);
-        adHtml += `<div class="wk-allday-cell">`;
-        untimedByCol[i].forEach(m => {
-          const color = getBoardColor(m.abbr);
-          adHtml += `<button class="wk-allday-chip" style="background:${color}" data-date="${str}" data-abbr="${m.abbr}">${m.abbr}</button>`;
-        });
-        adHtml += `</div>`;
-      }
-      alldayEl.innerHTML = adHtml;
-    } else {
-      alldayEl.style.display = 'none';
-    }
-
-    // Time grid
-    let html = '';
-    for (let h = START_HOUR; h < END_HOUR; h++) {
-      // Time label cell
-      html += `<div class="wk-time-label" style="height:${HOUR_HEIGHT}px">
-        <span>${formatHourLabel(h)}</span>
-      </div>`;
-      // Day cells
-      for (let col = 0; col < 7; col++) {
-        const d       = new Date(weekStart); d.setDate(d.getDate() + col);
-        const isToday = isSameDay(d, TODAY);
-        html += `<div class="wk-cell${isToday ? ' wk-today-col' : ''}" style="height:${HOUR_HEIGHT}px"></div>`;
-      }
-    }
-    gridEl.innerHTML = html;
-
-    // Overlay events as absolutely positioned elements
-    // We do this by inserting absolutely-positioned elements inside each day column via a wrapper approach
-    // Rebuild grid with day columns instead
-    buildWeekEventColumns(timedByCol);
-
-    // Scroll to 5 PM area
-    const scrollEl = document.getElementById('wk-scroll');
-    scrollEl.scrollTop = (17 - START_HOUR) * HOUR_HEIGHT - 60;
-  }
-
-  function buildWeekEventColumns(timedByCol) {
-    // Replace the wk-grid with a flex approach for event layering
-    const gridEl = document.getElementById('wk-grid');
-    const totalH = TOTAL_HOURS * HOUR_HEIGHT;
-
-    let html = '';
-
-    // Time axis column
-    html += `<div style="width:52px;flex-shrink:0;position:relative;height:${totalH}px;border-right:1px solid var(--border)">`;
-    for (let h = START_HOUR; h < END_HOUR; h++) {
-      const top = (h - START_HOUR) * HOUR_HEIGHT;
-      html += `<div style="position:absolute;top:${top}px;left:0;right:0;height:${HOUR_HEIGHT}px;display:flex;align-items:flex-start;justify-content:flex-end;padding-right:8px;padding-top:0">
-        <span style="font-size:10px;color:var(--muted);position:absolute;top:-7px;right:8px;white-space:nowrap">${formatHourLabel(h)}</span>
-      </div>`;
-    }
-    html += `</div>`;
-
-    // Day columns
-    for (let col = 0; col < 7; col++) {
-      const d       = new Date(weekStart); d.setDate(d.getDate() + col);
-      const isToday = isSameDay(d, TODAY);
-      const str     = dateToStr(d);
-      const isLast  = col === 6;
-
-      html += `<div style="flex:1;min-width:0;position:relative;height:${totalH}px;border-right:${isLast?'none':'1px solid var(--border)'};background:${isToday?'rgba(240,248,251,0.6)':'transparent'}">`;
-
-      // Hour grid lines
-      for (let h = START_HOUR; h < END_HOUR; h++) {
-        const top = (h - START_HOUR) * HOUR_HEIGHT;
-        html += `<div style="position:absolute;top:${top}px;left:0;right:0;height:1px;background:var(--border-lt)"></div>`;
-      }
-
-      // Events
-      timedByCol[col].forEach(m => {
-        const offsetMins = m.mins - START_HOUR * 60;
-        let topPx = Math.max(0, (offsetMins / 60) * HOUR_HEIGHT);
-        if (topPx > totalH - 36) topPx = totalH - 36;
-        const color = getBoardColor(m.abbr);
-
-        html += `<button class="wk-event" style="top:${topPx}px;background:${color};" data-date="${str}" data-abbr="${m.abbr}">
-          <span class="wk-event-abbr">${m.abbr}</span>
-          <span class="wk-event-time">${m.time}</span>
-        </button>`;
-      });
-
-      html += `</div>`;
-    }
-
-    gridEl.style.display = 'flex';
-    gridEl.style.height  = `${totalH}px`;
-    gridEl.innerHTML = html;
-
-    // Attach click handlers to week events
-    gridEl.querySelectorAll('[data-date]').forEach(el => {
-      el.addEventListener('click', () => openPopup(el.dataset.date, el.dataset.abbr || null));
-    });
-    document.getElementById('wk-allday-row').querySelectorAll('[data-date]').forEach(el => {
-      el.addEventListener('click', () => openPopup(el.dataset.date, el.dataset.abbr || null));
-    });
-  }
-
-  function renderWeekLegend() {
-    const el = document.getElementById('week-legend-items');
-    const sorted = [...allBoards].sort((a, b) => a.abbr.localeCompare(b.abbr));
-    el.innerHTML = sorted.map(b => {
-      const color = getBoardColor(b.abbr);
-      return `<div class="legend-item">
-        <div class="legend-dot" style="background:${color}"></div>
-        <span>${b.abbr} — ${b.name}</span>
-      </div>`;
-    }).join('');
-  }
-
-  /* ══════════════════════════
-     MINI MONTH (week sidebar)
-     ══════════════════════════ */
-  function renderMiniMonth() {
-    document.getElementById('mini-month-label').textContent = `${MONTHS[miniMonth].slice(0,3)} ${miniYear}`;
-
-    const firstDow    = new Date(miniYear, miniMonth, 1).getDay();
-    const daysInMonth = new Date(miniYear, miniMonth + 1, 0).getDate();
-    const daysInPrev  = new Date(miniYear, miniMonth, 0).getDate();
-
-    // Build set of dates in current week
-    const weekDates = new Set();
-    for (let i = 0; i < 7; i++) {
-      const d = new Date(weekStart); d.setDate(d.getDate() + i);
-      weekDates.add(dateToStr(d));
-    }
-
-    let html = '';
-    DAYS_SHORT.forEach(d => { html += `<div class="mini-dow">${d[0]}</div>`; });
-
-    // Prev month trailing
-    for (let i = firstDow - 1; i >= 0; i--) {
-      html += `<div class="mini-day other-month">${daysInPrev - i}</div>`;
-    }
-
-    // Current month
-    for (let day = 1; day <= daysInMonth; day++) {
-      const mm  = String(miniMonth + 1).padStart(2,'0');
-      const dd  = String(day).padStart(2,'0');
-      const str = `${miniYear}-${mm}-${dd}`;
-      const d   = new Date(miniYear, miniMonth, day);
-
-      const isTod   = isSameDay(d, TODAY);
-      const inWeek  = weekDates.has(str);
-      const hasMtgs = !!(meetingsByDate[str] && meetingsByDate[str].length);
-
-      let cls = 'mini-day';
-      if (inWeek)   cls += ' in-week';
-      if (isTod)    cls += ' today';
-      if (hasMtgs)  cls += ' has-events';
-
-      html += `<div class="${cls}" data-date="${str}" title="${hasMtgs ? meetingsByDate[str].length + ' meeting(s)' : ''}">${day}</div>`;
-    }
-
-    // Next month leading
-    const total = firstDow + daysInMonth;
-    const trail = total % 7 === 0 ? 0 : 7 - (total % 7);
-    for (let i = 1; i <= trail; i++) {
-      html += `<div class="mini-day other-month">${i}</div>`;
-    }
-
-    const grid = document.getElementById('mini-grid');
-    grid.innerHTML = html;
-
-    grid.querySelectorAll('.mini-day[data-date]').forEach(el => {
-      el.addEventListener('click', () => {
-        const d  = new Date(el.dataset.date + 'T00:00:00');
-        weekStart = getWeekSunday(d);
-        renderWeekView();
-      });
-    });
   }
 
   /* ══════════════════════════
      POPUP
      ══════════════════════════ */
-
-  let currentPopupDate = null;   // tracks open popup date for share link
+  let currentPopupDate = null;
 
   function sortedMeetings(meetings) {
     return [...meetings].sort((a, b) => {
       const ta = parseTimeToMinutes(a.time);
       const tb = parseTimeToMinutes(b.time);
       if (ta === null && tb === null) return 0;
-      if (ta === null) return 1;   // untimed goes last
+      if (ta === null) return 1;
       if (tb === null) return -1;
       return ta - tb;
     });
@@ -1096,7 +838,6 @@ footer a:hover { color: var(--gold-lt); }
   function buildMeetingHTML(meetings) {
     return meetings.map(m => {
       const color = getBoardColor(m.abbr);
-      const slug  = m.abbr.toLowerCase();
       return `
         <div class="modal-meeting" style="border-left-color:${color}">
           <div class="modal-meeting-top">
@@ -1127,6 +868,77 @@ footer a:hover { color: var(--gold-lt); }
     }).join('');
   }
 
+  function openPopup(dateStr) {
+    // When filters active, show only filtered meetings in popup
+    let meetings = getMeetingsForDate(dateStr);
+    if (!meetings || !meetings.length) {
+      // Fall back to all meetings if filter yields nothing (shouldn't happen, but safety)
+      meetings = meetingsByDate[dateStr] || [];
+    }
+    if (!meetings.length) return;
+
+    meetings = sortedMeetings(meetings);
+    currentPopupDate = dateStr;
+
+    const dateLabel = meetings[0].display || dateStr;
+    const lbl       = meetings.length === 1 ? 'Meeting on' : 'Meetings on';
+    const html      = buildMeetingHTML(meetings);
+    const isMobile  = window.innerWidth < 640;
+
+    if (isMobile) {
+      document.getElementById('bs-date-text').textContent = dateLabel;
+      document.getElementById('bs-body').innerHTML        = html;
+      document.getElementById('bs-overlay').classList.add('open');
+      document.getElementById('bottom-sheet').classList.add('open');
+      document.getElementById('bs-close').focus();
+    } else {
+      document.getElementById('modal-date-lbl').textContent  = lbl;
+      document.getElementById('modal-date-text').textContent = dateLabel;
+      document.getElementById('modal-body').innerHTML        = html;
+      document.getElementById('modal-overlay').classList.add('open');
+      document.getElementById('modal-close').focus();
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.getElementById('bs-overlay').classList.remove('open');
+    document.getElementById('bottom-sheet').classList.remove('open');
+    document.body.style.overflow = '';
+    document.querySelectorAll('.share-popover, .cal-popover').forEach(el => el.remove());
+  }
+
+  /* ══════════════════════════
+     NAVIGATION
+     ══════════════════════════ */
+  document.getElementById('btn-prev').addEventListener('click', () => {
+    if (--currentMonth < 0) { currentMonth = 11; currentYear--; }
+    render();
+  });
+
+  document.getElementById('btn-next').addEventListener('click', () => {
+    if (++currentMonth > 11) { currentMonth = 0; currentYear++; }
+    render();
+  });
+
+  document.getElementById('btn-today').addEventListener('click', () => {
+    currentYear  = TODAY.getFullYear();
+    currentMonth = TODAY.getMonth();
+    render();
+  });
+
+  document.getElementById('modal-close').addEventListener('click', closePopup);
+  document.getElementById('bs-close').addEventListener('click', closePopup);
+  document.getElementById('modal-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal-overlay')) closePopup();
+  });
+  document.getElementById('bs-overlay').addEventListener('click', closePopup);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+
+  /* ══════════════════════════
+     CALENDAR / SHARE POPOVERS
+     ══════════════════════════ */
   window.calShowCalPopover = function(dateStr, abbr, btn) {
     document.querySelectorAll('.cal-popover').forEach(el => el.remove());
 
@@ -1134,16 +946,15 @@ footer a:hover { color: var(--gold-lt); }
     const m = meetings.find(x => x.abbr === abbr) || meetings[0];
     if (!m) return;
 
-    const slug    = abbr.toLowerCase();
-    const gcalUrl = buildGCalUrl(m);
+    const slug      = abbr.toLowerCase();
+    const gcalUrl   = buildGCalUrl(m);
     const webcalUrl = `webcal://raw.githubusercontent.com/kalebwolfgang/kalamazoo-boards/main/data/ics/${slug}.ics`;
     const isMobile  = !!navigator.share;
 
     const pop = document.createElement('div');
     pop.className = 'cal-popover';
 
-    // Position above or below the button
-    const rect     = btn.getBoundingClientRect();
+    const rect      = btn.getBoundingClientRect();
     const popHeight = isMobile ? 150 : 105;
     const spaceBelow = window.innerHeight - rect.bottom;
     if (spaceBelow < popHeight + 10) {
@@ -1154,7 +965,6 @@ footer a:hover { color: var(--gold-lt); }
     }
     pop.style.left = `${Math.min(rect.left, window.innerWidth - 220)}px`;
 
-    // Mobile: 3 options. Desktop: 2 options (no .ics share sheet)
     const addThisRow = isMobile ? `
       <button class="cal-popover-option" id="cal-pop-add">
         <span class="cal-popover-icon">📅</span>
@@ -1176,12 +986,10 @@ footer a:hover { color: var(--gold-lt); }
 
     document.body.appendChild(pop);
 
-    // Mobile: wire up "Add this meeting" via share sheet with .ics file
     if (isMobile) {
       pop.querySelector('#cal-pop-add').addEventListener('click', async () => {
         pop.remove();
         try {
-          // Build the ICS content
           const dateRaw = m.date.replace(/-/g, '');
           const mins    = parseTimeToMinutes(m.time);
           let dtStart, dtEnd;
@@ -1210,7 +1018,6 @@ footer a:hover { color: var(--gold-lt); }
           if (navigator.canShare && navigator.canShare({ files: [file] })) {
             await navigator.share({ files: [file], title: m.name });
           } else {
-            // Fallback: plain .ics download if file sharing not supported
             const blob = new Blob([icsContent], { type: 'text/calendar' });
             const url  = URL.createObjectURL(blob);
             const a    = document.createElement('a');
@@ -1222,7 +1029,6 @@ footer a:hover { color: var(--gold-lt); }
       });
     }
 
-    // Close on outside click
     setTimeout(() => {
       document.addEventListener('click', function handler(e) {
         if (!pop.contains(e.target) && e.target !== btn) {
@@ -1233,7 +1039,6 @@ footer a:hover { color: var(--gold-lt); }
     }, 0);
   };
 
-  /* ── Share: native sheet on mobile, popover on desktop ── */
   window.calShareMeeting = function(dateStr, abbr, btn) {
     const url = new URL(window.location.href);
     url.searchParams.set('date', dateStr);
@@ -1243,7 +1048,6 @@ footer a:hover { color: var(--gold-lt); }
     const meetings = meetingsByDate[dateStr] || [];
     const m = meetings.find(x => x.abbr === abbr) || meetings[0];
 
-    // Mobile: native share sheet — OS appends URL automatically, don't include in text
     if (navigator.share) {
       const title = m ? `${m.name} — Kzoo Boards` : 'Kalamazoo Public Meeting';
       const text  = m
@@ -1253,7 +1057,6 @@ footer a:hover { color: var(--gold-lt); }
       return;
     }
 
-    // Desktop: just copy the link
     navigator.clipboard.writeText(shareUrl)
       .then(() => showToast('Link copied!'))
       .catch(() => {
@@ -1266,204 +1069,24 @@ footer a:hover { color: var(--gold-lt); }
       });
   };
 
-  // Expose ICS download as global (called from inline onclick)
-  window.calAddToCalendar = function(m) {
-    const dateRaw = m.date.replace(/-/g, '');
-    const mins    = parseTimeToMinutes(m.time);
-    let dtStart, dtEnd;
-
-    if (mins !== null) {
-      const sh = String(Math.floor(mins / 60)).padStart(2, '0');
-      const sm = String(mins % 60).padStart(2, '0');
-      const endMins = mins + 90;
-      const eh = String(Math.floor(endMins / 60)).padStart(2, '0');
-      const em = String(endMins % 60).padStart(2, '0');
-      dtStart = `${dateRaw}T${sh}${sm}00`;
-      dtEnd   = `${dateRaw}T${eh}${em}00`;
-    } else {
-      dtStart = `${dateRaw}`;
-      dtEnd   = `${dateRaw}`;
-    }
-
-    const loc  = m.location ? `LOCATION:${m.location}\r\n` : '';
-    const desc = `Public meeting of the ${m.name}. Learn more: ${window.location.origin + '/' + m.detailPage}`;
-    const uid  = `${m.abbr}-${m.date}@kalamazoocity-boards`;
-
-    const ics = [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//City of Kalamazoo Boards & Commissions//EN',
-      'BEGIN:VEVENT',
-      `UID:${uid}`,
-      `DTSTART:${dtStart}`,
-      `DTEND:${dtEnd}`,
-      `SUMMARY:${m.name} — City of Kalamazoo`,
-      loc.trim(),
-      `DESCRIPTION:${desc}`,
-      `URL:${window.location.origin + '/' + m.detailPage}`,
-      'END:VEVENT',
-      'END:VCALENDAR'
-    ].filter(Boolean).join('\r\n');
-
-    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement('a');
-    a.href = url; a.download = `${m.abbr}-meeting-${m.date}.ics`;
-    document.body.appendChild(a); a.click();
-    document.body.removeChild(a); URL.revokeObjectURL(url);
-  };
-
   function showToast(msg) {
     const t = document.getElementById('cal-toast');
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2200);
+    setTimeout(() => t.classList.remove('show'), 2400);
   }
-
-  function copyShareLink(dateStr) {
-    const url = new URL(window.location.href);
-    url.searchParams.set('date', dateStr);
-    navigator.clipboard.writeText(url.toString())
-      .then(() => showToast('Link copied to clipboard'))
-      .catch(() => {
-        // Fallback for non-https
-        const ta = document.createElement('textarea');
-        ta.value = url.toString();
-        document.body.appendChild(ta); ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        showToast('Link copied to clipboard');
-      });
-  }
-
-  function openPopup(dateStr, filterAbbr = null) {
-    let meetings = meetingsByDate[dateStr];
-    if (!meetings || !meetings.length) return;
-
-    // Sort earliest to latest
-    meetings = sortedMeetings(meetings);
-
-    // Week view: show only the clicked meeting
-    if (filterAbbr !== null) {
-      const filtered = meetings.filter(m => m.abbr === filterAbbr);
-      if (filtered.length) meetings = filtered;
-    }
-
-    currentPopupDate = dateStr;
-    const dateLabel  = meetings[0].display || dateStr;
-    const lbl        = meetings.length === 1 ? 'Meeting on' : 'Meetings on';
-    const html       = buildMeetingHTML(meetings);
-    const isMobile   = window.innerWidth < 640;
-
-    if (isMobile) {
-      document.getElementById('bs-date-text').textContent = dateLabel;
-      document.getElementById('bs-body').innerHTML        = html;
-      document.getElementById('bs-overlay').classList.add('open');
-      document.getElementById('bottom-sheet').classList.add('open');
-      document.getElementById('bs-close').focus();
-    } else {
-      document.getElementById('modal-date-lbl').textContent  = lbl;
-      document.getElementById('modal-date-text').textContent = dateLabel;
-      document.getElementById('modal-body').innerHTML        = html;
-      document.getElementById('modal-overlay').classList.add('open');
-      document.getElementById('modal-close').focus();
-    }
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closePopup() {
-    document.getElementById('modal-overlay').classList.remove('open');
-    document.getElementById('bs-overlay').classList.remove('open');
-    document.getElementById('bottom-sheet').classList.remove('open');
-    document.body.style.overflow = '';
-    document.querySelectorAll('.share-popover, .cal-popover').forEach(el => el.remove());
-  }
-
-  /* ══════════════════════════
-     NAVIGATION HANDLERS
-     ══════════════════════════ */
-  document.getElementById('btn-prev').addEventListener('click', () => {
-    if (currentView === 'month') {
-      if (--currentMonth < 0) { currentMonth = 11; currentYear--; }
-    } else {
-      weekStart.setDate(weekStart.getDate() - 7);
-      weekStart = new Date(weekStart);
-    }
-    render();
-  });
-
-  document.getElementById('btn-next').addEventListener('click', () => {
-    if (currentView === 'month') {
-      if (++currentMonth > 11) { currentMonth = 0; currentYear++; }
-    } else {
-      weekStart.setDate(weekStart.getDate() + 7);
-      weekStart = new Date(weekStart);
-    }
-    render();
-  });
-
-  document.getElementById('btn-today').addEventListener('click', () => {
-    currentYear  = TODAY.getFullYear();
-    currentMonth = TODAY.getMonth();
-    weekStart    = getWeekSunday(TODAY);
-    render();
-  });
-
-  document.getElementById('btn-view-month').addEventListener('click', () => {
-    if (currentView === 'month') return;
-    currentView  = 'month';
-    currentYear  = weekStart.getFullYear();
-    currentMonth = weekStart.getMonth();
-    render();
-  });
-
-  document.getElementById('btn-view-week').addEventListener('click', () => {
-    if (currentView === 'week') return;
-    currentView = 'week';
-    weekStart   = getWeekSunday(TODAY);
-    render();
-  });
-
-  // Mini-month nav
-  document.getElementById('mini-prev').addEventListener('click', () => {
-    if (--miniMonth < 0) { miniMonth = 11; miniYear--; }
-    renderMiniMonth();
-  });
-  document.getElementById('mini-next').addEventListener('click', () => {
-    if (++miniMonth > 11) { miniMonth = 0; miniYear++; }
-    renderMiniMonth();
-  });
-
-  /* Legend accordion */
-  document.getElementById('legend-toggle').addEventListener('click', () => {
-    const items   = document.getElementById('week-legend-items');
-    const chevron = document.getElementById('legend-chevron');
-    const toggle  = document.getElementById('legend-toggle');
-    const isOpen  = !items.classList.contains('collapsed');
-    items.classList.toggle('collapsed', isOpen);
-    chevron.classList.toggle('collapsed', isOpen);
-    toggle.setAttribute('aria-expanded', String(!isOpen));
-  });
-
-  /* Close popup */
-  document.getElementById('modal-close').addEventListener('click', closePopup);
-  document.getElementById('bs-close').addEventListener('click', closePopup);
-  document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target === document.getElementById('modal-overlay')) closePopup(); });
-  document.getElementById('bs-overlay').addEventListener('click', closePopup);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
 
   /* ── Boot ── */
   async function boot() {
     await loadData();
-    const params    = new URLSearchParams(window.location.search);
-    const shareDate = params.get('date');
-    const shareBoard = params.get('board') || null;
+    const params     = new URLSearchParams(window.location.search);
+    const shareDate  = params.get('date');
     if (shareDate && meetingsByDate[shareDate]) {
       const d = new Date(shareDate + 'T00:00:00');
       currentYear  = d.getFullYear();
       currentMonth = d.getMonth();
       render();
-      setTimeout(() => openPopup(shareDate, shareBoard), 80);
+      setTimeout(() => openPopup(shareDate), 80);
     }
   }
   boot();
