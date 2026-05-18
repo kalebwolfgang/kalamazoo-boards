@@ -538,8 +538,30 @@ footer a:hover { color: var(--gold-lt); }
   const DETAIL_SLUG = { 'PB': 'pension-board' };
 
   const BOARD_PALETTE = [
-    '#c9921a','#2d6b4a','#c05c2e','#2d5f8a','#7b3f6e',
-    '#4a7a8a','#8b6914','#6b4a2d','#5a7a3a','#8a4a5a',
+    '#b5821a',  // gold
+    '#2d6b4a',  // forest green
+    '#b5522a',  // terracotta
+    '#2d5a8a',  // steel blue
+    '#7b3f6e',  // dusty plum
+    '#3a7a8a',  // slate teal
+    '#7a5210',  // dark amber
+    '#6b4a2d',  // warm brown
+    '#4a7a2a',  // olive
+    '#8a3a5a',  // rose wine
+    '#1a5a8a',  // cerulean
+    '#8a2a2a',  // brick red
+    '#3d5280',  // cornflower blue
+    '#5a7a1a',  // yellow-green
+    '#7a4a10',  // caramel
+    '#1a7a5a',  // jade
+    '#6a2a8a',  // purple
+    '#2a4a6a',  // dark navy
+    '#6a2a4a',  // burgundy
+    '#3a6a2a',  // hunter green
+    '#8a2a6a',  // magenta
+    '#1a5a6a',  // dark teal
+    '#4a2a6a',  // indigo
+    '#6a5a1a',  // dark olive gold
   ];
   const boardColorMap = {};
   let   boardColorIdx = 0;
@@ -746,7 +768,7 @@ footer a:hover { color: var(--gold-lt); }
     document.getElementById('cal-month-year').textContent = `${MONTHS[currentMonth]} ${currentYear}`;
 
     const minAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth()-1, 1);
-    const maxAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth()+6, 1);
+    const maxAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth()+2, 1);
     const viewing    = new Date(currentYear, currentMonth, 1);
     document.getElementById('btn-prev').disabled = viewing <= minAllowed;
     document.getElementById('btn-next').disabled = viewing >= maxAllowed;
@@ -879,9 +901,14 @@ footer a:hover { color: var(--gold-lt); }
         </div>
         ${m.location ? `<div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>` : ''}
         <div class="modal-actions">
-          <a class="modal-action-btn primary" href="${m.detailPage}">More Info <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
-          <button class="modal-action-btn share" onclick="calShareMeeting('${m.date}','${m.abbr}',this)"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share</button>
-          <button class="modal-action-btn green" onclick="calShowCalPopover('${m.date}','${m.abbr}',this)"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Add to Calendar</button>
+          <a class="modal-action-btn primary" href="https://www.youtube.com/@CityofKalamazoo" target="_blank" rel="noopener">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1-.8-2.2-.8-2.7-.9C16.9 2.5 12 2.5 12 2.5s-4.9 0-7.7.2c-.5.1-1.7.1-2.7.9C.8 4.3.5 6.2.5 6.2S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1 .8 2.4.8 3 .9C6.8 21 12 21 12 21s4.9 0 7.7-.3c.5-.1 1.7-.1 2.7-.9.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.8V8.9l7.3 3-7.3 2.9z"/></svg>
+            Watch Live
+          </a>
+          <button class="modal-action-btn share" onclick="calShareMeeting('${m.date}','${m.abbr}',this)">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            ${navigator && navigator.share ? 'Share' : 'Copy Link'}
+          </button>
         </div>
       </div>`;
     }).join('');
@@ -968,12 +995,14 @@ footer a:hover { color: var(--gold-lt); }
     const shareUrl=url.toString();
     const meetings=meetingsByDate[dateStr]||[];
     const m=meetings.find(x=>x.abbr===abbr)||meetings[0];
+    const title=m?`${m.name} — Kzoo Boards`:'Kalamazoo Public Meeting';
+    const text=m?`${m.name} has a public meeting on ${m.display||dateStr}${m.time?' at '+m.time:''}${m.location?'\n📍 '+m.location:''}\n\nKzoo Boards — independent civic resource, not the city's official site.`:'Check out this Kalamazoo public meeting.';
+    // Use native share sheet on any platform that supports it (mobile + modern desktop)
     if (navigator.share) {
-      const title=m?`${m.name} — Kzoo Boards`:'Kalamazoo Public Meeting';
-      const text=m?`${m.name} has a public meeting on ${m.display||dateStr}${m.time?' at '+m.time:''}${m.location?'\n📍 '+m.location:''}\n\nKzoo Boards — independent civic resource, not the city's official site.`:'Check out this Kalamazoo public meeting.';
       navigator.share({title,text,url:shareUrl}).catch(()=>{}); return;
     }
-    navigator.clipboard.writeText(shareUrl).then(()=>showToast('Link copied!')).catch(()=>{ const ta=document.createElement('textarea'); ta.value=shareUrl; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('Link copied!'); });
+    // Fallback: copy link
+    navigator.clipboard.writeText(shareUrl).then(()=>showToast('Link copied to clipboard')).catch(()=>{ const ta=document.createElement('textarea'); ta.value=shareUrl; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('Link copied to clipboard'); });
   };
 
   function showToast(msg) { const t=document.getElementById('cal-toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2400); }
