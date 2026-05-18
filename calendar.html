@@ -1020,6 +1020,7 @@ footer a:hover { color: var(--gold-lt); }
 
     const gcalUrl    = buildGCalUrl(m);
     const outlookUrl = buildOutlookUrl(m);
+    const webcalUrl  = `webcal://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${m.abbr.toLowerCase()}.ics`;
 
     const pop = document.createElement('div');
     pop.className = 'cal-popover';
