@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="City of Kalamazoo — Boards &amp; Commissions">
 <meta property="og:title" content="Meeting Calendar — Kalamazoo Boards &amp; Commissions">
-<meta property="og:description" content="Public meeting schedule for all City of Kalamazoo boards and commissions. Browse upcoming meetings by month.">
+<meta property="og:description" content="Public meeting schedule for all City of Kalamazoo boards and commissions.">
 <meta property="og:url" content="https://kalebwolfgang.github.io/kalamazoo-boards/calendar.html">
 <meta property="og:image" content="https://kalebwolfgang.github.io/kalamazoo-boards/og-calendar.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -79,7 +79,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .breadcrumb a:hover { text-decoration: underline; }
 .bc-sep { color: var(--border); }
 
-/* ── Page Header — GREEN ── */
+/* ── Page Header ── */
 .page-header { background: var(--green); padding: clamp(28px,5vw,48px) var(--pad-x) clamp(24px,4vw,44px); }
 .page-header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px,5vw,38px); font-weight: 600; color: white; line-height: 1.2; margin-bottom: 8px; }
@@ -89,156 +89,216 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .phm-stat-num { font-family: 'Playfair Display', serif; font-size: clamp(22px,4vw,32px); font-weight: 600; color: var(--gold-lt); line-height: 1; }
 .phm-stat-lbl { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
 
-/* ── Calendar Wrapper ── */
-.cal-wrap { max-width: 1400px; margin: 0 auto; padding: clamp(24px,4vw,44px) var(--pad-x) clamp(48px,8vw,100px); }
+/* ── Outer Wrapper ── */
+.cal-wrap { max-width: 1400px; margin: 0 auto; padding: clamp(20px,4vw,36px) var(--pad-x) clamp(48px,8vw,100px); }
+
+/* ── Two-column layout ── */
+.cal-layout { display: flex; gap: 20px; align-items: flex-start; }
+.cal-main    { flex: 1; min-width: 0; }
 
 /* ── Controls ── */
-.cal-controls { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
-.cal-nav-group { display: flex; align-items: center; gap: 10px; }
-.cal-month-year { font-family: 'Playfair Display', serif; font-size: clamp(22px,3.5vw,30px); font-weight: 600; color: var(--navy); min-width: 220px; }
-.cal-nav-btn { background: var(--white); border: 1px solid var(--border); border-radius: 2px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--navy); transition: background 0.15s, border-color 0.15s; flex-shrink: 0; }
+.cal-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.cal-nav-group { display: flex; align-items: center; gap: 9px; }
+.cal-month-year { font-family: 'Playfair Display', serif; font-size: clamp(20px,3vw,28px); font-weight: 600; color: var(--navy); min-width: 190px; }
+.cal-nav-btn { background: var(--white); border: 1px solid var(--border); border-radius: 2px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--navy); transition: background 0.15s, border-color 0.15s; flex-shrink: 0; }
 .cal-nav-btn:hover:not(:disabled) { background: var(--cream-dk); border-color: var(--navy); }
 .cal-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-.cal-today-btn { background: none; border: 1px solid var(--border); border-radius: 2px; padding: 6px 14px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--muted); cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; white-space: nowrap; }
+.cal-today-btn { background: none; border: 1px solid var(--border); border-radius: 2px; padding: 5px 12px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--muted); cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; white-space: nowrap; }
 .cal-today-btn:hover { background: var(--cream-dk); color: var(--navy); border-color: var(--navy); }
-.cal-count { margin-left: auto; font-size: 14px; color: var(--muted); white-space: nowrap; }
+.cal-count { margin-left: auto; font-size: 13px; color: var(--muted); white-space: nowrap; }
 .cal-count strong { color: var(--navy); font-weight: 600; }
 
-/* ── Filter Chips ── */
-.cal-filter-wrap { margin-bottom: 20px; }
-.cal-filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.cal-filter-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; margin-right: 4px; }
-.filter-chip {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 5px 13px; border-radius: 20px;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 12px; font-weight: 600;
-  cursor: pointer; border: 1.5px solid transparent;
-  transition: background 0.15s, color 0.15s, border-color 0.15s, opacity 0.15s;
-  white-space: nowrap; letter-spacing: 0.02em;
+/* Mobile filter button */
+.cal-filter-btn-mobile {
+  display: none; align-items: center; gap: 6px;
+  background: var(--white); border: 1px solid var(--border); border-radius: 2px;
+  padding: 5px 11px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px;
+  font-weight: 500; color: var(--navy); cursor: pointer; transition: background 0.15s;
+  white-space: nowrap; flex-shrink: 0;
 }
-.filter-chip-all { background: var(--navy); color: white; border-color: var(--navy); }
-.filter-chip-all.inactive { background: transparent; color: var(--navy); border-color: var(--navy); }
-.filter-chip-all.inactive:hover { background: rgba(13,79,99,0.06); }
-.filter-chip-board { /* styles set inline via JS */ }
-.filter-chip-board.inactive { background: transparent !important; }
-.filter-chip-board.inactive:hover { opacity: 0.75; }
+.cal-filter-btn-mobile:hover { background: var(--cream-dk); }
+.filter-mobile-badge {
+  background: var(--green); color: white; font-size: 10px; font-weight: 700;
+  border-radius: 10px; padding: 1px 6px; display: none;
+}
 
 /* ── Loading ── */
 .cal-state-wrap { background: var(--white); border: 1px solid var(--border); padding: 60px 20px; text-align: center; border-radius: 4px; }
-.cal-spinner { width: 30px; height: 30px; border: 3px solid var(--border); border-top-color: var(--navy); border-radius: 50%; animation: cal-spin 0.75s linear infinite; margin: 0 auto 14px; }
+.cal-spinner { width: 28px; height: 28px; border: 3px solid var(--border); border-top-color: var(--navy); border-radius: 50%; animation: cal-spin 0.75s linear infinite; margin: 0 auto 14px; }
 @keyframes cal-spin { to { transform: rotate(360deg); } }
 .cal-state-text { font-size: 15px; color: var(--muted); }
 
 /* ══════════════════════════════════════════
-   MONTH GRID — Refined, editorial
+   MONTH GRID
    ══════════════════════════════════════════ */
 .cal-grid-wrap {
-  background: var(--white);
-  border-radius: 4px;
-  overflow: hidden;
+  background: var(--white); border-radius: 4px; overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 0 0 1px var(--border);
 }
 .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
 
-/* Day headers — editorial, gold separator */
 .cal-day-header {
-  padding: 12px 14px 10px;
-  text-align: left;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  border-bottom: 2px solid var(--gold);
-  background: var(--white);
+  padding: 10px 10px 8px; text-align: left;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); border-bottom: 2px solid var(--gold); background: var(--white);
 }
 
-/* Month cells — no vertical borders, horizontal rows only */
+/* Tighter cells — content flows top-down, no bottom-push */
 .cal-cell {
-  min-height: 152px;
-  padding: 12px 14px 10px;
-  border-right: none;
-  border-bottom: 1px solid var(--border);
-  background: var(--white);
-  transition: background 0.1s;
-  cursor: default;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  min-width: 0;
-  position: relative;
+  min-height: 100px; padding: 10px 10px 8px;
+  border-right: none; border-bottom: 1px solid var(--border);
+  background: var(--white); transition: background 0.1s;
+  cursor: default; display: flex; flex-direction: column; gap: 4px;
+  overflow: hidden; min-width: 0;
 }
-/* Subtle right separator — lighter than old border */
 .cal-cell:not(:nth-child(7n)) { border-right: 1px solid var(--border-lt); }
-
 .cal-cell[data-date] { cursor: pointer; }
 .cal-cell[data-date]:hover { background: #f8f6f2; }
 .cal-cell.other-month { background: #faf9f7; }
-.cal-cell.other-month .cal-date-num { color: #d4cfc6; }
-.cal-cell.past .cal-date-num { color: var(--muted); }
+.cal-cell.other-month .cal-date-num { color: #d0cbc1; }
+.cal-cell.past .cal-date-num { color: #b0aba3; }
 .cal-cell.today { background: #f0faf5; }
 .cal-cell.has-meetings[data-date]:hover { background: #f4f2ed; }
 
-/* Date numbers — large, Playfair, editorial */
-.cal-cell-top { display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 0; }
+.cal-cell-top { display: flex; justify-content: flex-start; align-items: flex-start; }
 .cal-date-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--text);
-  line-height: 1;
-  display: inline-block;
+  font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400;
+  color: var(--text); line-height: 1;
 }
 .cal-today-badge {
-  width: 30px; height: 30px;
-  border-radius: 50%;
-  background: var(--green);
-  color: white;
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
+  width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: white;
+  font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center; line-height: 1;
 }
 
-/* Board pills — refined */
-.cal-board-pills { display: flex; flex-direction: column; gap: 4px; margin-top: auto; padding-top: 8px; min-width: 0; }
+/* Pills — sit directly under the date */
+.cal-board-pills { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .cal-board-pill {
-  display: inline-flex; align-items: center; gap: 5px;
+  display: inline-flex; align-items: center;
   font-size: 11px; font-weight: 700; color: white;
-  padding: 5px 9px; border-radius: 3px;
-  letter-spacing: 0.04em; line-height: 1.2;
-  overflow: hidden; min-width: 0;
+  padding: 4px 8px; border-radius: 3px;
+  letter-spacing: 0.04em; line-height: 1.2; overflow: hidden; min-width: 0;
 }
-.cal-board-pill-abbr { flex-shrink: 0; }
 .cal-more-pill {
   display: inline-flex; align-items: center;
-  font-size: 11px; font-weight: 600; color: var(--muted);
-  padding: 4px 8px; border-radius: 3px;
-  background: var(--cream-dk); letter-spacing: 0.02em;
+  font-size: 10px; font-weight: 600; color: var(--muted);
+  padding: 3px 7px; border-radius: 3px; background: var(--cream-dk); letter-spacing: 0.02em;
 }
-
-.cal-empty-cell { grid-column: 1 / -1; padding: 48px 20px; text-align: center; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 15px; }
+.cal-empty-cell {
+  grid-column: 1 / -1; padding: 40px 20px; text-align: center;
+  border-bottom: 1px solid var(--border); color: var(--muted); font-size: 15px;
+}
 .cal-empty-cell p { margin-bottom: 6px; }
 .cal-empty-cell small { font-size: 13px; color: var(--border); }
 
-/* Mobile month */
 @media (max-width: 640px) {
-  .cal-cell { min-height: 96px; padding: 8px 7px 8px; }
-  .cal-day-header { font-size: 9px; padding: 10px 5px; letter-spacing: 0.05em; }
-  .cal-date-num { font-size: 15px; }
-  .cal-today-badge { width: 24px; height: 24px; font-size: 13px; }
-  .cal-board-pill { font-size: 9px; padding: 3px 6px; }
-  .cal-more-pill { font-size: 9px; padding: 3px 6px; }
-  .cal-count { width: 100%; margin-left: 0; }
-  .cal-filter-label { display: none; }
+  .cal-cell { min-height: 72px; padding: 7px 5px 6px; gap: 3px; }
+  .cal-day-header { font-size: 9px; padding: 8px 4px; }
+  .cal-date-num { font-size: 14px; }
+  .cal-today-badge { width: 22px; height: 22px; font-size: 12px; }
+  .cal-board-pill { font-size: 9px; padding: 3px 5px; }
+  .cal-more-pill { font-size: 9px; padding: 2px 5px; }
+  .cal-count { width: 100%; margin-left: 0; order: 10; }
 }
 @media (max-width: 380px) {
-  .cal-cell { min-height: 64px; }
-  .cal-day-header { font-size: 8px; padding: 8px 3px; }
+  .cal-cell { min-height: 56px; }
+  .cal-day-header { font-size: 8px; padding: 6px 2px; }
+}
+
+/* ══════════════════════════════════════════
+   FILTER SIDEBAR
+   ══════════════════════════════════════════ */
+.cal-sidebar {
+  width: 224px; flex-shrink: 0;
+  position: sticky; top: 76px;
+  max-height: calc(100vh - 96px);
+  display: flex; flex-direction: column;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+/* Sidebar toggle header */
+.sidebar-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 13px; background: var(--cream); border: none;
+  border-bottom: 1px solid var(--border); cursor: pointer; width: 100%;
+  font-family: 'IBM Plex Sans', sans-serif; transition: background 0.15s; flex-shrink: 0;
+}
+.sidebar-toggle:hover { background: var(--cream-dk); }
+.sidebar-toggle-left { display: flex; align-items: center; gap: 7px; }
+.sidebar-toggle-label { font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--navy); }
+.sidebar-badge {
+  background: var(--green); color: white;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.02em;
+  border-radius: 10px; padding: 1px 7px; display: none; align-items: center;
+}
+.sidebar-chevron { color: var(--navy); transition: transform 0.22s ease; flex-shrink: 0; }
+.sidebar-chevron.is-collapsed { transform: rotate(-90deg); }
+
+/* Sidebar scrollable body */
+.sidebar-body { flex: 1; overflow-y: auto; overflow-x: hidden; }
+.sidebar-body::-webkit-scrollbar { width: 4px; }
+.sidebar-body::-webkit-scrollbar-track { background: transparent; }
+.sidebar-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.sidebar-body.is-collapsed { display: none; }
+
+/* Section headers */
+.sb-section-hd {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 13px 5px; position: sticky; top: 0; z-index: 1; background: var(--white);
+}
+.sb-section-hd--engaged { background: var(--green-bg); border-bottom: 1px solid rgba(45,107,74,0.15); }
+.sb-section-hd-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.sb-section-hd--engaged .sb-section-hd-label { color: var(--green); }
+.sb-clear-btn {
+  font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; font-weight: 500;
+  color: var(--muted); background: none; border: none; cursor: pointer; padding: 0;
+  text-decoration: underline; text-decoration-color: rgba(107,114,128,0.4); transition: color 0.12s;
+}
+.sb-clear-btn:hover { color: var(--navy); }
+.sb-divider { height: 1px; background: var(--border); margin: 2px 0; }
+.sb-all-note {
+  padding: 8px 13px 10px; font-size: 11px; color: var(--muted);
+  line-height: 1.5; border-bottom: 1px solid var(--border-lt); font-style: italic;
+}
+
+/* Board items */
+.board-item {
+  display: flex; align-items: center; gap: 7px; width: 100%;
+  padding: 6px 13px; background: none; border: none; cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif; text-align: left;
+  transition: background 0.1s; border-left: 3px solid transparent;
+}
+.board-item:hover { background: var(--cream); }
+.board-item--engaged { background: rgba(45,107,74,0.055); border-left-color: var(--green); }
+.board-item--engaged:hover { background: rgba(45,107,74,0.10); }
+.board-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+.board-abbr { font-size: 11px; font-weight: 700; color: var(--text); letter-spacing: 0.03em; width: 38px; flex-shrink: 0; }
+.board-name { font-size: 11px; color: var(--muted); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.3; }
+.board-item--engaged .board-name { color: var(--body); }
+.board-action { color: var(--border); flex-shrink: 0; line-height: 1; transition: color 0.1s; display: flex; align-items: center; }
+.board-item:hover .board-action { color: var(--muted); }
+.board-item--engaged .board-action { color: rgba(45,107,74,0.4); }
+.board-item--engaged:hover .board-action { color: var(--green); }
+
+/* ── Responsive: sidebar becomes slide-in drawer on mobile ── */
+@media (max-width: 860px) {
+  .cal-sidebar { display: none; }
+  .cal-filter-btn-mobile { display: flex; }
+
+  .cal-sidebar.mobile-open {
+    display: flex; position: fixed; right: 0; top: 0; bottom: 0;
+    width: 260px; max-height: 100vh; z-index: 400;
+    border-radius: 0; box-shadow: -4px 0 24px rgba(0,0,0,0.18);
+    animation: sb-slide-in 0.25s ease;
+  }
+  @keyframes sb-slide-in {
+    from { transform: translateX(100%); }
+    to   { transform: translateX(0); }
+  }
+  .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(13,79,99,0.35); z-index: 399; }
+  .sidebar-overlay.open { display: block; }
 }
 
 /* ══════════════════════════════════════════
@@ -248,27 +308,22 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-overlay.open { opacity: 1; pointer-events: all; }
 .modal { background: var(--white); border-radius: 4px; max-width: 460px; width: 100%; max-height: 82vh; overflow-y: auto; transform: translateY(10px) scale(0.99); transition: transform 0.22s ease; box-shadow: 0 24px 64px rgba(0,0,0,0.22); }
 .modal-overlay.open .modal { transform: translateY(0) scale(1); }
-
 .modal-head { padding: 18px 20px 14px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-lt); }
 .modal-date-lbl  { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
 .modal-date-text { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: var(--navy); line-height: 1.25; }
 .modal-close-btn { background: none; border: none; cursor: pointer; color: var(--muted); padding: 4px; display: flex; align-items: center; border-radius: 2px; flex-shrink: 0; transition: color 0.15s, background 0.15s; }
 .modal-close-btn:hover { color: var(--navy); background: var(--cream); }
-
 .modal-body { padding: 8px 0 4px; display: flex; flex-direction: column; gap: 10px; }
-.modal-meeting { padding: 20px 20px 18px; border-left: 4px solid transparent; transition: background 0.1s; border-radius: 0 2px 2px 0; }
+.modal-meeting { padding: 20px 20px 18px; border-left: 4px solid transparent; transition: background 0.1s; }
 .modal-meeting:hover { background: #faf9f7; }
-
 .modal-meeting-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
 .modal-meeting-badge { width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .modal-meeting-badge span { font-size: 9px; font-weight: 700; color: white; letter-spacing: 0.05em; text-align: center; line-height: 1.2; }
 .modal-meeting-info { min-width: 0; }
 .modal-meeting-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.3; margin-bottom: 2px; }
 .modal-meeting-sub { font-size: 12px; color: var(--muted); }
-
 .modal-detail-row { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--body); margin-bottom: 4px; line-height: 1.4; }
 .modal-detail-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
-
 .modal-actions { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
 .modal-action-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 6px 11px; border-radius: 2px; border: 1px solid var(--border); cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.15s, border-color 0.15s; text-decoration: none; white-space: nowrap; }
 .modal-action-btn.primary { background: var(--cream); color: var(--navy); }
@@ -277,15 +332,11 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-action-btn.green:hover { background: rgba(45,107,74,0.14); border-color: var(--green); }
 .modal-action-btn.share { background: rgba(13,79,99,0.06); color: var(--navy-mid); border-color: rgba(13,79,99,0.2); }
 .modal-action-btn.share:hover { background: rgba(13,79,99,0.12); border-color: var(--navy); }
-
-/* Popovers */
 .cal-popover { position: fixed; background: var(--white); border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); z-index: 700; min-width: 210px; overflow: hidden; }
 .cal-popover-option { display: flex; align-items: center; gap: 10px; padding: 11px 14px; font-size: 13px; font-weight: 500; color: var(--body); text-decoration: none; border: none; background: none; cursor: pointer; width: 100%; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.1s; text-align: left; line-height: 1.3; }
 .cal-popover-option:hover { background: var(--cream); color: var(--navy); }
 .cal-popover-icon { font-size: 15px; flex-shrink: 0; width: 20px; text-align: center; }
 .cal-popover-divider { height: 1px; background: var(--border-lt); margin: 2px 0; }
-
-/* Toast */
 .cal-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--navy); color: white; padding: 10px 18px; border-radius: 3px; font-size: 13px; font-weight: 500; z-index: 800; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; white-space: nowrap; }
 .cal-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
@@ -302,8 +353,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .bs-close-btn { background: none; border: none; cursor: pointer; color: var(--muted); padding: 4px; display: flex; align-items: center; border-radius: 2px; flex-shrink: 0; }
 .bs-close-btn:hover { color: var(--navy); }
 .bs-body { padding: 0 0 32px; }
-
-/* ── Footer ── */
 footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 24px var(--pad-x); text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
 footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
 footer a:hover { color: var(--gold-lt); }
@@ -370,43 +419,63 @@ footer a:hover { color: var(--gold-lt); }
 </div>
 
 <div class="cal-wrap">
+  <div class="cal-layout">
 
-  <!-- Controls -->
-  <div class="cal-controls">
-    <div class="cal-nav-group">
-      <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    <!-- Main calendar -->
+    <div class="cal-main">
+      <div class="cal-controls">
+        <div class="cal-nav-group">
+          <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <span class="cal-month-year" id="cal-month-year">Loading…</span>
+          <button class="cal-nav-btn" id="btn-next" aria-label="Next month">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <button class="cal-today-btn" id="btn-today">Today</button>
+        </div>
+        <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter boards">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+          Boards
+          <span class="filter-mobile-badge" id="filter-mobile-badge"></span>
+        </button>
+        <span class="cal-count" id="cal-count"></span>
+      </div>
+
+      <div class="cal-state-wrap" id="cal-loading">
+        <div class="cal-spinner"></div>
+        <p class="cal-state-text">Loading meeting data…</p>
+      </div>
+
+      <div id="view-month" style="display:none">
+        <div class="cal-grid-wrap">
+          <div class="cal-grid" id="cal-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Sidebar -->
+    <aside class="cal-sidebar" id="cal-sidebar">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-expanded="true" aria-controls="sidebar-body">
+        <span class="sidebar-toggle-left">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+          <span class="sidebar-toggle-label">Boards</span>
+          <span class="sidebar-badge" id="sidebar-badge"></span>
+        </span>
+        <svg class="sidebar-chevron" id="sidebar-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
       </button>
-      <span class="cal-month-year" id="cal-month-year">Loading…</span>
-      <button class="cal-nav-btn" id="btn-next" aria-label="Next month">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-      <button class="cal-today-btn" id="btn-today">Today</button>
-    </div>
-    <span class="cal-count" id="cal-count"></span>
-  </div>
+      <div class="sidebar-body" id="sidebar-body">
+        <!-- populated by JS after data loads -->
+      </div>
+    </aside>
 
-  <!-- Board Filters -->
-  <div class="cal-filter-wrap" id="cal-filter-wrap" style="display:none">
-    <div class="cal-filter-row" id="cal-filter-row">
-      <span class="cal-filter-label">Filter</span>
-    </div>
   </div>
-
-  <!-- Loading -->
-  <div class="cal-state-wrap" id="cal-loading">
-    <div class="cal-spinner"></div>
-    <p class="cal-state-text">Loading meeting data…</p>
-  </div>
-
-  <!-- Month View -->
-  <div id="view-month" style="display:none">
-    <div class="cal-grid-wrap">
-      <div class="cal-grid" id="cal-grid"></div>
-    </div>
-  </div>
-
 </div>
+
+<!-- Sidebar overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <!-- Desktop Modal -->
 <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-date-text">
@@ -452,213 +521,198 @@ footer a:hover { color: var(--gold-lt); }
 <script>
 (function () {
 
-  /* ══════════════════════════
-     CONSTANTS & BOARD COLORS
-     ══════════════════════════ */
   const MONTHS     = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DAYS_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const DETAIL_SLUG = { 'PB': 'pension-board' };
 
-  // Civic palette
   const BOARD_PALETTE = [
-    '#c9921a',  // gold
-    '#2d6b4a',  // forest green
-    '#c05c2e',  // terracotta
-    '#2d5f8a',  // steel blue
-    '#7b3f6e',  // dusty plum
-    '#4a7a8a',  // slate teal
-    '#8b6914',  // dark amber
-    '#6b4a2d',  // warm brown
-    '#5a7a3a',  // olive
-    '#8a4a5a',  // rose wine
+    '#c9921a','#2d6b4a','#c05c2e','#2d5f8a','#7b3f6e',
+    '#4a7a8a','#8b6914','#6b4a2d','#5a7a3a','#8a4a5a',
   ];
   const boardColorMap = {};
   let   boardColorIdx = 0;
 
   function getBoardColor(abbr) {
-    if (!(abbr in boardColorMap)) {
-      boardColorMap[abbr] = BOARD_PALETTE[boardColorIdx++ % BOARD_PALETTE.length];
-    }
+    if (!(abbr in boardColorMap)) boardColorMap[abbr] = BOARD_PALETTE[boardColorIdx++ % BOARD_PALETTE.length];
     return boardColorMap[abbr];
   }
 
-  /* ══════════════
-     STATE
-     ══════════════ */
+  /* STATE */
   const todayRaw   = new Date();
   const TODAY      = new Date(todayRaw.getFullYear(), todayRaw.getMonth(), todayRaw.getDate());
-
   let currentYear  = TODAY.getFullYear();
   let currentMonth = TODAY.getMonth();
-
-  // Data
   let meetingsByDate = {};
   let totalUpcoming  = 0;
   let allBoards      = [];
   let dataLoaded     = false;
+  let activeFilters  = new Set();  // empty = show all
+  let sidebarOpen    = true;
 
-  // Filter state — empty Set = show all
-  let activeFilters  = new Set();
-
-  /* ══════════════
-     HELPERS
-     ══════════════ */
+  /* HELPERS */
   function isSameDay(a, b) {
-    return a.getFullYear() === b.getFullYear() &&
-           a.getMonth()    === b.getMonth()    &&
-           a.getDate()     === b.getDate();
+    return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
   }
-
-  function dateToStr(d) {
-    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-  }
-
   function parseTimeToMinutes(t) {
     if (!t) return null;
     const m = t.match(/(\d+):(\d+)\s*(AM|PM)/i);
     if (!m) return null;
     let h = parseInt(m[1]);
-    const mn = parseInt(m[2]);
-    const ap = m[3].toUpperCase();
-    if (ap === 'PM' && h !== 12) h += 12;
-    if (ap === 'AM' && h === 12) h = 0;
-    return h * 60 + mn;
+    const mn = parseInt(m[2]), ap = m[3].toUpperCase();
+    if (ap==='PM' && h!==12) h+=12;
+    if (ap==='AM' && h===12) h=0;
+    return h*60+mn;
   }
-
-  // Returns meetings for a date, respecting active filters
   function getMeetingsForDate(dateStr) {
-    const meetings = meetingsByDate[dateStr] || [];
-    if (activeFilters.size === 0) return meetings;
-    return meetings.filter(m => activeFilters.has(m.abbr));
+    const all = meetingsByDate[dateStr] || [];
+    return activeFilters.size === 0 ? all : all.filter(m => activeFilters.has(m.abbr));
   }
 
-  /* ══════════════
-     LOAD DATA
-     ══════════════ */
+  /* LOAD DATA */
   async function loadData() {
     try {
       const res = await fetch('data/calendar.json');
       if (!res.ok) throw new Error('calendar.json not found');
       const cal = await res.json();
-
-      meetingsByDate = {};
-      totalUpcoming  = 0;
+      meetingsByDate = {}; totalUpcoming = 0;
       const seenAbbr = {};
-
       (cal.meetings || []).forEach(m => {
         if (!m.date) return;
         const slug  = DETAIL_SLUG[m.abbr] || m.abbr.toLowerCase();
-        const entry = {
-          abbr:       m.abbr,
-          name:       m.name,
-          date:       m.date,
-          display:    m.display || m.date,
-          time:       m.time    || null,
-          location:   m.location || null,
-          detailPage: `board-${slug}.html`
-        };
+        const entry = { abbr:m.abbr, name:m.name, date:m.date, display:m.display||m.date, time:m.time||null, location:m.location||null, detailPage:`board-${slug}.html` };
         if (!meetingsByDate[m.date]) meetingsByDate[m.date] = [];
         meetingsByDate[m.date].push(entry);
         totalUpcoming++;
-        if (!seenAbbr[m.abbr]) {
-          seenAbbr[m.abbr] = true;
-          getBoardColor(m.abbr);
-          allBoards.push({ abbr: m.abbr, name: m.name });
-        }
+        if (!seenAbbr[m.abbr]) { seenAbbr[m.abbr]=true; getBoardColor(m.abbr); allBoards.push({abbr:m.abbr, name:m.name}); }
       });
-
       dataLoaded = true;
       document.getElementById('cal-loading').style.display = 'none';
       document.getElementById('view-month').style.display  = 'block';
       document.getElementById('stat-total-count').textContent = totalUpcoming;
-
-      renderFilters();
+      renderSidebar();
       render();
-
-    } catch (err) {
+    } catch(err) {
       console.error('Calendar load error:', err);
-      document.getElementById('cal-loading').innerHTML =
-        '<p class="cal-state-text" style="color:#dc2626">Unable to load meeting data. Please refresh and try again.</p>';
+      document.getElementById('cal-loading').innerHTML = '<p class="cal-state-text" style="color:#dc2626">Unable to load meeting data. Please refresh and try again.</p>';
     }
   }
 
   /* ══════════════════════════
-     FILTER CHIPS
+     SIDEBAR FILTER
      ══════════════════════════ */
-  function renderFilters() {
-    if (allBoards.length === 0) return;
+  function renderSidebar() {
+    const body     = document.getElementById('sidebar-body');
+    const badge    = document.getElementById('sidebar-badge');
+    const mobBadge = document.getElementById('filter-mobile-badge');
+    if (!body) return;
 
-    const wrap = document.getElementById('cal-filter-wrap');
-    const row  = document.getElementById('cal-filter-row');
-    wrap.style.display = 'block';
+    const isFiltered = activeFilters.size > 0;
 
-    const allActive = activeFilters.size === 0;
+    // Badges
+    if (isFiltered) {
+      badge.textContent = activeFilters.size; badge.style.display = 'inline-flex';
+      mobBadge.textContent = activeFilters.size; mobBadge.style.display = 'inline-flex';
+    } else {
+      badge.style.display = 'none'; mobBadge.style.display = 'none';
+    }
 
-    let html = '<span class="cal-filter-label">Filter</span>';
+    // Sort alphabetically — engaged first, then available
+    const sorted    = [...allBoards].sort((a,b) => a.abbr.localeCompare(b.abbr));
+    const engaged   = sorted.filter(b =>  activeFilters.has(b.abbr));
+    const available = sorted.filter(b => !activeFilters.has(b.abbr));
 
-    // "All" chip
-    html += `<button
-      class="filter-chip filter-chip-all${allActive ? '' : ' inactive'}"
-      id="filter-all-btn"
-    >All</button>`;
+    let html = '';
 
-    // One chip per board
-    allBoards.forEach(b => {
-      const color   = getBoardColor(b.abbr);
-      const active  = activeFilters.has(b.abbr);
-      const bgStyle = active
-        ? `background:${color};color:white;border-color:${color}`
-        : `background:transparent;color:${color};border-color:${color}`;
+    if (isFiltered) {
+      // Engaged section (top)
+      html += `<div class="sb-section-hd sb-section-hd--engaged">
+        <span class="sb-section-hd-label">Showing</span>
+        <button class="sb-clear-btn" id="sb-clear">Clear all</button>
+      </div>`;
+      engaged.forEach(b => { html += buildBoardItem(b, true); });
 
-      html += `<button
-        class="filter-chip filter-chip-board${active ? '' : ' inactive'}"
-        style="${bgStyle}"
-        data-abbr="${b.abbr}"
-        title="${b.name}"
-      >${b.abbr}</button>`;
-    });
+      html += `<div class="sb-divider"></div>`;
 
-    row.innerHTML = html;
+      // Available section (bottom)
+      html += `<div class="sb-section-hd">
+        <span class="sb-section-hd-label">Available</span>
+      </div>`;
+      available.forEach(b => { html += buildBoardItem(b, false); });
 
-    // "All" handler
-    document.getElementById('filter-all-btn').addEventListener('click', () => {
-      activeFilters.clear();
-      renderFilters();
-      render();
-    });
+    } else {
+      html += `<div class="sb-all-note">Select a board to filter the calendar.</div>`;
+      html += `<div class="sb-section-hd">
+        <span class="sb-section-hd-label">All Boards</span>
+      </div>`;
+      sorted.forEach(b => { html += buildBoardItem(b, false); });
+    }
 
-    // Board chip handlers
-    row.querySelectorAll('.filter-chip-board').forEach(btn => {
+    body.innerHTML = html;
+
+    // Board click handlers
+    body.querySelectorAll('[data-board-abbr]').forEach(btn => {
       btn.addEventListener('click', () => {
-        const abbr = btn.dataset.abbr;
-        if (activeFilters.has(abbr)) {
-          activeFilters.delete(abbr);
-        } else {
-          activeFilters.add(abbr);
-        }
-        renderFilters();
-        render();
+        const abbr = btn.dataset.boardAbbr;
+        if (activeFilters.has(abbr)) activeFilters.delete(abbr);
+        else activeFilters.add(abbr);
+        renderSidebar(); render();
       });
     });
+
+    const clearBtn = document.getElementById('sb-clear');
+    if (clearBtn) clearBtn.addEventListener('click', e => {
+      e.stopPropagation(); activeFilters.clear(); renderSidebar(); render();
+    });
   }
 
-  /* ══════════════════════════
-     RENDER
-     ══════════════════════════ */
-  function render() {
-    if (!dataLoaded) return;
-    renderMonthView();
+  function buildBoardItem(b, engaged) {
+    const color  = getBoardColor(b.abbr);
+    const action = engaged
+      ? `<svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`
+      : `<svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
+    return `<button class="board-item${engaged?' board-item--engaged':''}"
+      data-board-abbr="${b.abbr}"
+      title="${b.name}">
+      <span class="board-dot" style="background:${color}"></span>
+      <span class="board-abbr">${b.abbr}</span>
+      <span class="board-name">${b.name}</span>
+      <span class="board-action">${action}</span>
+    </button>`;
   }
 
-  /* ══════════════════════════
-     MONTH VIEW
-     ══════════════════════════ */
+  /* Sidebar collapse toggle */
+  document.getElementById('sidebar-toggle').addEventListener('click', () => {
+    sidebarOpen = !sidebarOpen;
+    document.getElementById('sidebar-body').classList.toggle('is-collapsed', !sidebarOpen);
+    document.getElementById('sidebar-chevron').classList.toggle('is-collapsed', !sidebarOpen);
+    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', String(sidebarOpen));
+  });
+
+  /* Mobile drawer */
+  document.getElementById('btn-filter-mobile').addEventListener('click', () => {
+    document.getElementById('cal-sidebar').classList.add('mobile-open');
+    document.getElementById('sidebar-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('sidebar-overlay').addEventListener('click', closeMobileSidebar);
+  function closeMobileSidebar() {
+    document.getElementById('cal-sidebar').classList.remove('mobile-open');
+    document.getElementById('sidebar-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeMobileSidebar();
+  });
+
+  /* RENDER */
+  function render() { if (dataLoaded) renderMonthView(); }
+
+  /* MONTH VIEW */
   function renderMonthView() {
     document.getElementById('cal-month-year').textContent = `${MONTHS[currentMonth]} ${currentYear}`;
 
-    // Nav limits: 1 month back, current, 6 forward
-    const minAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth() - 1, 1);
-    const maxAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth() + 6, 1);
+    const minAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth()-1, 1);
+    const maxAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth()+6, 1);
     const viewing    = new Date(currentYear, currentMonth, 1);
     document.getElementById('btn-prev').disabled = viewing <= minAllowed;
     document.getElementById('btn-next').disabled = viewing >= maxAllowed;
@@ -666,235 +720,157 @@ footer a:hover { color: var(--gold-lt); }
     const monthCount = countInMonth(currentYear, currentMonth);
     document.getElementById('stat-month-count').textContent = monthCount;
 
-    const filterSuffix = activeFilters.size === 1
-      ? ` for ${[...activeFilters][0]}`
-      : activeFilters.size > 1
-        ? ` for selected boards`
-        : '';
-
-    document.getElementById('cal-count').innerHTML = monthCount === 0
-      ? `No meetings${filterSuffix} this month`
-      : `<strong>${monthCount}</strong> meeting${monthCount === 1 ? '' : 's'}${filterSuffix} this month`;
-
-    // Update total stat to reflect filters
     if (activeFilters.size > 0) {
-      const filteredTotal = Object.keys(meetingsByDate)
-        .reduce((sum, ds) => sum + getMeetingsForDate(ds).length, 0);
-      document.getElementById('stat-total-count').textContent = filteredTotal;
+      document.getElementById('stat-total-count').textContent =
+        Object.keys(meetingsByDate).reduce((s,ds) => s + getMeetingsForDate(ds).length, 0);
     } else {
       document.getElementById('stat-total-count').textContent = totalUpcoming;
     }
 
+    const filterSuffix = activeFilters.size===1
+      ? ` for <strong>${[...activeFilters][0]}</strong>`
+      : activeFilters.size>1 ? ` for <strong>${activeFilters.size} boards</strong>` : '';
+
+    document.getElementById('cal-count').innerHTML = monthCount===0
+      ? `No meetings${filterSuffix} this month`
+      : `<strong>${monthCount}</strong> meeting${monthCount===1?'':'s'}${filterSuffix} this month`;
+
     const firstDow     = new Date(currentYear, currentMonth, 1).getDay();
-    const daysInMonth  = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const daysInMonth  = new Date(currentYear, currentMonth+1, 0).getDate();
     const daysInPrevMo = new Date(currentYear, currentMonth, 0).getDate();
 
     let html = '';
-    DAYS_SHORT.forEach(d => {
-      html += `<div class="cal-day-header" aria-hidden="true">${d}</div>`;
-    });
+    DAYS_SHORT.forEach(d => { html += `<div class="cal-day-header" aria-hidden="true">${d}</div>`; });
 
-    // Trailing prev-month days
-    for (let i = firstDow - 1; i >= 0; i--) {
-      html += `<div class="cal-cell other-month" aria-hidden="true">
-        <div class="cal-cell-top"><span class="cal-date-num">${daysInPrevMo - i}</span></div>
-      </div>`;
+    for (let i=firstDow-1; i>=0; i--) {
+      html += `<div class="cal-cell other-month" aria-hidden="true"><div class="cal-cell-top"><span class="cal-date-num">${daysInPrevMo-i}</span></div></div>`;
     }
 
-    // Current month days
-    for (let day = 1; day <= daysInMonth; day++) {
-      const mm       = String(currentMonth + 1).padStart(2, '0');
-      const dd       = String(day).padStart(2, '0');
-      const dateStr  = `${currentYear}-${mm}-${dd}`;
-      const cellDt   = new Date(currentYear, currentMonth, day);
-      const isToday  = isSameDay(cellDt, TODAY);
-      const isPast   = cellDt < TODAY;
-      const meetings = getMeetingsForDate(dateStr);
-      const count    = meetings.length;
+    for (let day=1; day<=daysInMonth; day++) {
+      const mm      = String(currentMonth+1).padStart(2,'0');
+      const dd      = String(day).padStart(2,'0');
+      const dateStr = `${currentYear}-${mm}-${dd}`;
+      const cellDt  = new Date(currentYear, currentMonth, day);
+      const isToday = isSameDay(cellDt, TODAY);
+      const isPast  = cellDt < TODAY;
+      const meetings= getMeetingsForDate(dateStr);
+      const count   = meetings.length;
 
       let cls = 'cal-cell';
-      if (isToday)     cls += ' today';
+      if (isToday) cls += ' today';
       else if (isPast) cls += ' past';
-      if (count > 0)   cls += ' has-meetings';
+      if (count > 0) cls += ' has-meetings';
 
-      const attrs = count > 0
-        ? ` data-date="${dateStr}" tabindex="0" role="button" aria-label="${count} meeting${count>1?'s':''} on ${meetings[0].display}"`
-        : '';
+      const attrs = count>0 ? ` data-date="${dateStr}" tabindex="0" role="button" aria-label="${count} meeting${count>1?'s':''} on ${meetings[0].display}"` : '';
 
       html += `<div class="${cls}"${attrs}>`;
       html += `<div class="cal-cell-top">`;
-      if (isToday) {
-        html += `<div class="cal-today-badge">${day}</div>`;
-      } else {
-        html += `<span class="cal-date-num">${day}</span>`;
-      }
+      html += isToday ? `<div class="cal-today-badge">${day}</div>` : `<span class="cal-date-num">${day}</span>`;
       html += `</div>`;
 
       if (count > 0) {
-        const unique = [];
-        const seen   = {};
-        meetings.forEach(m => { if (!seen[m.abbr]) { seen[m.abbr] = true; unique.push(m); } });
-        const show  = unique.slice(0, 3);
-        const extra = unique.length - 3;
-
+        const unique = [], seen = {};
+        meetings.forEach(m => { if (!seen[m.abbr]) { seen[m.abbr]=true; unique.push(m); } });
+        const show = unique.slice(0,3), extra = unique.length-3;
         html += `<div class="cal-board-pills" aria-hidden="true">`;
         show.forEach(m => {
-          const color = getBoardColor(m.abbr);
-          html += `<span class="cal-board-pill" style="background:${color}">
-            <span class="cal-board-pill-abbr">${m.abbr}</span>
-          </span>`;
+          html += `<span class="cal-board-pill" style="background:${getBoardColor(m.abbr)}"><span class="cal-board-pill-abbr">${m.abbr}</span></span>`;
         });
-        if (extra > 0) {
-          html += `<span class="cal-more-pill">+${extra} more</span>`;
-        }
+        if (extra > 0) html += `<span class="cal-more-pill">+${extra} more</span>`;
         html += `</div>`;
       }
 
       html += `</div>`;
     }
 
-    // Leading next-month days
     const total    = firstDow + daysInMonth;
-    const trailing = total % 7 === 0 ? 0 : 7 - (total % 7);
-    for (let i = 1; i <= trailing; i++) {
-      html += `<div class="cal-cell other-month" aria-hidden="true">
-        <div class="cal-cell-top"><span class="cal-date-num">${i}</span></div>
-      </div>`;
+    const trailing = total%7===0 ? 0 : 7-(total%7);
+    for (let i=1; i<=trailing; i++) {
+      html += `<div class="cal-cell other-month" aria-hidden="true"><div class="cal-cell-top"><span class="cal-date-num">${i}</span></div></div>`;
     }
 
-    if (monthCount === 0 && dataLoaded) {
-      const msg = activeFilters.size > 0
-        ? `No meetings for selected board${activeFilters.size > 1 ? 's' : ''} in ${MONTHS[currentMonth]} ${currentYear}.`
+    if (monthCount===0 && dataLoaded) {
+      const msg = activeFilters.size>0
+        ? `No meetings for selected board${activeFilters.size>1?'s':''} in ${MONTHS[currentMonth]} ${currentYear}.`
         : `No meetings scheduled for ${MONTHS[currentMonth]} ${currentYear}.`;
       html += `<div class="cal-empty-cell"><p>${msg}</p><small>Meeting data updates automatically each week.</small></div>`;
     }
 
-    const grid = document.getElementById('cal-grid');
-    grid.innerHTML = html;
-    attachMonthHandlers();
-  }
-
-  function attachMonthHandlers() {
+    document.getElementById('cal-grid').innerHTML = html;
     document.getElementById('cal-grid').querySelectorAll('[data-date]').forEach(el => {
-      el.addEventListener('click', e => {
-        const date = e.currentTarget.dataset.date;
-        if (date) openPopup(date);
-      });
-      el.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPopup(el.dataset.date); }
-      });
+      el.addEventListener('click', e => { const d = e.currentTarget.dataset.date; if (d) openPopup(d); });
+      el.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); openPopup(el.dataset.date); } });
     });
   }
 
   function countInMonth(year, month) {
-    return Object.keys(meetingsByDate).reduce((sum, dateStr) => {
-      const d = new Date(dateStr + 'T00:00:00');
-      if (d.getFullYear() !== year || d.getMonth() !== month) return sum;
-      return sum + getMeetingsForDate(dateStr).length;
+    return Object.keys(meetingsByDate).reduce((sum, ds) => {
+      const d = new Date(ds+'T00:00:00');
+      return (d.getFullYear()===year && d.getMonth()===month) ? sum+getMeetingsForDate(ds).length : sum;
     }, 0);
   }
 
-  /* ══════════════════════════
-     POPUP
-     ══════════════════════════ */
-  let currentPopupDate = null;
-
+  /* POPUP */
   function sortedMeetings(meetings) {
-    return [...meetings].sort((a, b) => {
-      const ta = parseTimeToMinutes(a.time);
-      const tb = parseTimeToMinutes(b.time);
-      if (ta === null && tb === null) return 0;
-      if (ta === null) return 1;
-      if (tb === null) return -1;
-      return ta - tb;
+    return [...meetings].sort((a,b) => {
+      const ta=parseTimeToMinutes(a.time), tb=parseTimeToMinutes(b.time);
+      if (ta===null && tb===null) return 0; if (ta===null) return 1; if (tb===null) return -1;
+      return ta-tb;
     });
   }
 
   function buildGCalUrl(m) {
-    const dateRaw = m.date.replace(/-/g, '');
+    const dateRaw = m.date.replace(/-/g,'');
     const mins    = parseTimeToMinutes(m.time);
     let dates;
-    if (mins !== null) {
-      const sh = String(Math.floor(mins / 60)).padStart(2, '0');
-      const sm = String(mins % 60).padStart(2, '0');
-      const endMins = mins + 90;
-      const eh = String(Math.floor(endMins / 60)).padStart(2, '0');
-      const em = String(endMins % 60).padStart(2, '0');
+    if (mins!==null) {
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'), sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor((mins+90)/60)).padStart(2,'0'), em=String((mins+90)%60).padStart(2,'0');
       dates = `${dateRaw}T${sh}${sm}00/${dateRaw}T${eh}${em}00`;
-    } else {
-      dates = `${dateRaw}/${dateRaw}`;
-    }
-    const details = `Public meeting of the ${m.name}. More info: ${window.location.origin}/${m.detailPage}`;
-    const params  = new URLSearchParams({
-      action:   'TEMPLATE',
-      text:     `${m.name} — City of Kalamazoo`,
-      dates,
-      details,
-      location: m.location || '',
-    });
+    } else { dates = `${dateRaw}/${dateRaw}`; }
+    const params = new URLSearchParams({action:'TEMPLATE',text:`${m.name} — City of Kalamazoo`,dates,details:`Public meeting of the ${m.name}. More info: ${window.location.origin}/${m.detailPage}`,location:m.location||''});
     return `https://calendar.google.com/calendar/render?${params.toString()}`;
   }
 
   function buildMeetingHTML(meetings) {
     return meetings.map(m => {
       const color = getBoardColor(m.abbr);
-      return `
-        <div class="modal-meeting" style="border-left-color:${color}">
-          <div class="modal-meeting-top">
-            <div class="modal-meeting-badge" style="background:${color}">
-              <span>${m.abbr}</span>
-            </div>
-            <div class="modal-meeting-info">
-              <div class="modal-meeting-name">${m.name}</div>
-              ${m.time ? `<div class="modal-meeting-sub">${m.time}</div>` : ''}
-            </div>
+      return `<div class="modal-meeting" style="border-left-color:${color}">
+        <div class="modal-meeting-top">
+          <div class="modal-meeting-badge" style="background:${color}"><span>${m.abbr}</span></div>
+          <div class="modal-meeting-info">
+            <div class="modal-meeting-name">${m.name}</div>
+            ${m.time ? `<div class="modal-meeting-sub">${m.time}</div>` : ''}
           </div>
-          ${m.location ? `<div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>` : ''}
-          <div class="modal-actions">
-            <a class="modal-action-btn primary" href="${m.detailPage}">
-              More Info
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-            <button class="modal-action-btn share" onclick="calShareMeeting('${m.date}','${m.abbr}',this)">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-              Share
-            </button>
-            <button class="modal-action-btn green" onclick="calShowCalPopover('${m.date}','${m.abbr}',this)">
-              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Add to Calendar
-            </button>
-          </div>
-        </div>`;
+        </div>
+        ${m.location ? `<div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>` : ''}
+        <div class="modal-actions">
+          <a class="modal-action-btn primary" href="${m.detailPage}">More Info <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <button class="modal-action-btn share" onclick="calShareMeeting('${m.date}','${m.abbr}',this)"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share</button>
+          <button class="modal-action-btn green" onclick="calShowCalPopover('${m.date}','${m.abbr}',this)"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Add to Calendar</button>
+        </div>
+      </div>`;
     }).join('');
   }
 
   function openPopup(dateStr) {
-    // When filters active, show only filtered meetings in popup
     let meetings = getMeetingsForDate(dateStr);
-    if (!meetings || !meetings.length) {
-      // Fall back to all meetings if filter yields nothing (shouldn't happen, but safety)
-      meetings = meetingsByDate[dateStr] || [];
-    }
+    if (!meetings.length) meetings = meetingsByDate[dateStr] || [];
     if (!meetings.length) return;
-
     meetings = sortedMeetings(meetings);
-    currentPopupDate = dateStr;
-
-    const dateLabel = meetings[0].display || dateStr;
-    const lbl       = meetings.length === 1 ? 'Meeting on' : 'Meetings on';
-    const html      = buildMeetingHTML(meetings);
-    const isMobile  = window.innerWidth < 640;
-
+    const dateLabel = meetings[0].display||dateStr;
+    const html = buildMeetingHTML(meetings);
+    const isMobile = window.innerWidth < 640;
     if (isMobile) {
       document.getElementById('bs-date-text').textContent = dateLabel;
-      document.getElementById('bs-body').innerHTML        = html;
+      document.getElementById('bs-body').innerHTML = html;
       document.getElementById('bs-overlay').classList.add('open');
       document.getElementById('bottom-sheet').classList.add('open');
       document.getElementById('bs-close').focus();
     } else {
-      document.getElementById('modal-date-lbl').textContent  = lbl;
+      document.getElementById('modal-date-lbl').textContent  = meetings.length===1 ? 'Meeting on' : 'Meetings on';
       document.getElementById('modal-date-text').textContent = dateLabel;
-      document.getElementById('modal-body').innerHTML        = html;
+      document.getElementById('modal-body').innerHTML = html;
       document.getElementById('modal-overlay').classList.add('open');
       document.getElementById('modal-close').focus();
     }
@@ -906,187 +882,74 @@ footer a:hover { color: var(--gold-lt); }
     document.getElementById('bs-overlay').classList.remove('open');
     document.getElementById('bottom-sheet').classList.remove('open');
     document.body.style.overflow = '';
-    document.querySelectorAll('.share-popover, .cal-popover').forEach(el => el.remove());
+    document.querySelectorAll('.cal-popover').forEach(el => el.remove());
   }
 
-  /* ══════════════════════════
-     NAVIGATION
-     ══════════════════════════ */
-  document.getElementById('btn-prev').addEventListener('click', () => {
-    if (--currentMonth < 0) { currentMonth = 11; currentYear--; }
-    render();
-  });
-
-  document.getElementById('btn-next').addEventListener('click', () => {
-    if (++currentMonth > 11) { currentMonth = 0; currentYear++; }
-    render();
-  });
-
-  document.getElementById('btn-today').addEventListener('click', () => {
-    currentYear  = TODAY.getFullYear();
-    currentMonth = TODAY.getMonth();
-    render();
-  });
-
+  /* NAVIGATION */
+  document.getElementById('btn-prev').addEventListener('click', () => { if (--currentMonth<0) { currentMonth=11; currentYear--; } render(); });
+  document.getElementById('btn-next').addEventListener('click', () => { if (++currentMonth>11) { currentMonth=0; currentYear++; } render(); });
+  document.getElementById('btn-today').addEventListener('click', () => { currentYear=TODAY.getFullYear(); currentMonth=TODAY.getMonth(); render(); });
   document.getElementById('modal-close').addEventListener('click', closePopup);
   document.getElementById('bs-close').addEventListener('click', closePopup);
-  document.getElementById('modal-overlay').addEventListener('click', e => {
-    if (e.target === document.getElementById('modal-overlay')) closePopup();
-  });
+  document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target===document.getElementById('modal-overlay')) closePopup(); });
   document.getElementById('bs-overlay').addEventListener('click', closePopup);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+  document.addEventListener('keydown', e => { if (e.key==='Escape') { closePopup(); closeMobileSidebar(); } });
 
-  /* ══════════════════════════
-     CALENDAR / SHARE POPOVERS
-     ══════════════════════════ */
+  /* POPOVERS */
   window.calShowCalPopover = function(dateStr, abbr, btn) {
     document.querySelectorAll('.cal-popover').forEach(el => el.remove());
-
-    const meetings = meetingsByDate[dateStr] || [];
-    const m = meetings.find(x => x.abbr === abbr) || meetings[0];
+    const meetings = meetingsByDate[dateStr]||[];
+    const m = meetings.find(x => x.abbr===abbr)||meetings[0];
     if (!m) return;
-
-    const slug      = abbr.toLowerCase();
-    const gcalUrl   = buildGCalUrl(m);
-    const webcalUrl = `webcal://raw.githubusercontent.com/kalebwolfgang/kalamazoo-boards/main/data/ics/${slug}.ics`;
-    const isMobile  = !!navigator.share;
-
-    const pop = document.createElement('div');
-    pop.className = 'cal-popover';
-
-    const rect      = btn.getBoundingClientRect();
-    const popHeight = isMobile ? 150 : 105;
-    const spaceBelow = window.innerHeight - rect.bottom;
-    if (spaceBelow < popHeight + 10) {
-      pop.style.bottom = `${window.innerHeight - rect.top + 6}px`;
-      pop.style.top    = 'auto';
-    } else {
-      pop.style.top = `${rect.bottom + 6}px`;
-    }
-    pop.style.left = `${Math.min(rect.left, window.innerWidth - 220)}px`;
-
-    const addThisRow = isMobile ? `
-      <button class="cal-popover-option" id="cal-pop-add">
-        <span class="cal-popover-icon">📅</span>
-        <span>Add this meeting</span>
-      </button>
-      <div class="cal-popover-divider"></div>` : '';
-
-    pop.innerHTML = `
-      ${addThisRow}
-      <a class="cal-popover-option" href="${webcalUrl}">
-        <span class="cal-popover-icon">🔄</span>
-        <span>Subscribe to ${abbr} meetings</span>
-      </a>
-      <div class="cal-popover-divider"></div>
-      <a class="cal-popover-option" href="${gcalUrl}" target="_blank" rel="noopener">
-        <span class="cal-popover-icon" style="font-size:13px;font-weight:700;color:#4285F4">G</span>
-        <span>Add to Google Calendar</span>
-      </a>`;
-
+    const slug=abbr.toLowerCase(), gcalUrl=buildGCalUrl(m);
+    const webcalUrl=`webcal://raw.githubusercontent.com/kalebwolfgang/kalamazoo-boards/main/data/ics/${slug}.ics`;
+    const isMobile=!!navigator.share;
+    const pop=document.createElement('div'); pop.className='cal-popover';
+    const rect=btn.getBoundingClientRect();
+    if (window.innerHeight-rect.bottom<120) { pop.style.bottom=`${window.innerHeight-rect.top+6}px`; pop.style.top='auto'; }
+    else pop.style.top=`${rect.bottom+6}px`;
+    pop.style.left=`${Math.min(rect.left,window.innerWidth-220)}px`;
+    const addRow=isMobile?`<button class="cal-popover-option" id="cal-pop-add"><span class="cal-popover-icon">📅</span><span>Add this meeting</span></button><div class="cal-popover-divider"></div>`:'';
+    pop.innerHTML=`${addRow}<a class="cal-popover-option" href="${webcalUrl}"><span class="cal-popover-icon">🔄</span><span>Subscribe to ${abbr} meetings</span></a><div class="cal-popover-divider"></div><a class="cal-popover-option" href="${gcalUrl}" target="_blank" rel="noopener"><span class="cal-popover-icon" style="font-size:13px;font-weight:700;color:#4285F4">G</span><span>Add to Google Calendar</span></a>`;
     document.body.appendChild(pop);
-
     if (isMobile) {
       pop.querySelector('#cal-pop-add').addEventListener('click', async () => {
         pop.remove();
         try {
-          const dateRaw = m.date.replace(/-/g, '');
-          const mins    = parseTimeToMinutes(m.time);
-          let dtStart, dtEnd;
-          if (mins !== null) {
-            const sh = String(Math.floor(mins / 60)).padStart(2, '0');
-            const sm = String(mins % 60).padStart(2, '0');
-            const eh = String(Math.floor((mins + 90) / 60)).padStart(2, '0');
-            const em = String((mins + 90) % 60).padStart(2, '0');
-            dtStart = `${dateRaw}T${sh}${sm}00`;
-            dtEnd   = `${dateRaw}T${eh}${em}00`;
-          } else {
-            dtStart = dtEnd = dateRaw;
-          }
-          const icsContent = [
-            'BEGIN:VCALENDAR', 'VERSION:2.0',
-            'PRODID:-//City of Kalamazoo Boards & Commissions//EN',
-            'BEGIN:VEVENT',
-            `UID:${abbr}-${m.date}@kalamazoocity-boards`,
-            `DTSTART:${dtStart}`, `DTEND:${dtEnd}`,
-            `SUMMARY:${m.name} — City of Kalamazoo`,
-            m.location ? `LOCATION:${m.location}` : '',
-            'END:VEVENT', 'END:VCALENDAR'
-          ].filter(Boolean).join('\r\n');
-
-          const file = new File([icsContent], `${abbr}-${m.date}.ics`, { type: 'text/calendar' });
-          if (navigator.canShare && navigator.canShare({ files: [file] })) {
-            await navigator.share({ files: [file], title: m.name });
-          } else {
-            const blob = new Blob([icsContent], { type: 'text/calendar' });
-            const url  = URL.createObjectURL(blob);
-            const a    = document.createElement('a');
-            a.href = url; a.download = `${abbr}-${m.date}.ics`;
-            document.body.appendChild(a); a.click();
-            document.body.removeChild(a); URL.revokeObjectURL(url);
-          }
-        } catch(e) { /* user cancelled */ }
+          const dateRaw=m.date.replace(/-/g,''), mins=parseTimeToMinutes(m.time);
+          let dtStart,dtEnd;
+          if (mins!==null) { const sh=String(Math.floor(mins/60)).padStart(2,'0'),sm=String(mins%60).padStart(2,'0'),eh=String(Math.floor((mins+90)/60)).padStart(2,'0'),em=String((mins+90)%60).padStart(2,'0'); dtStart=`${dateRaw}T${sh}${sm}00`; dtEnd=`${dateRaw}T${eh}${em}00`; } else { dtStart=dtEnd=dateRaw; }
+          const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//City of Kalamazoo Boards & Commissions//EN','BEGIN:VEVENT',`UID:${abbr}-${m.date}@kalamazoocity-boards`,`DTSTART:${dtStart}`,`DTEND:${dtEnd}`,`SUMMARY:${m.name} — City of Kalamazoo`,m.location?`LOCATION:${m.location}`:'','END:VEVENT','END:VCALENDAR'].filter(Boolean).join('\r\n');
+          const file=new File([ics],`${abbr}-${m.date}.ics`,{type:'text/calendar'});
+          if (navigator.canShare&&navigator.canShare({files:[file]})) await navigator.share({files:[file],title:m.name});
+          else { const url=URL.createObjectURL(new Blob([ics],{type:'text/calendar'})),a=document.createElement('a'); a.href=url; a.download=`${abbr}-${m.date}.ics`; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); }
+        } catch(e) {}
       });
     }
-
-    setTimeout(() => {
-      document.addEventListener('click', function handler(e) {
-        if (!pop.contains(e.target) && e.target !== btn) {
-          pop.remove();
-          document.removeEventListener('click', handler);
-        }
-      });
-    }, 0);
+    setTimeout(() => { document.addEventListener('click', function h(e) { if (!pop.contains(e.target)&&e.target!==btn) { pop.remove(); document.removeEventListener('click',h); } }); }, 0);
   };
 
-  window.calShareMeeting = function(dateStr, abbr, btn) {
-    const url = new URL(window.location.href);
-    url.searchParams.set('date', dateStr);
-    url.searchParams.set('board', abbr);
-    const shareUrl = url.toString();
-
-    const meetings = meetingsByDate[dateStr] || [];
-    const m = meetings.find(x => x.abbr === abbr) || meetings[0];
-
+  window.calShareMeeting = function(dateStr, abbr) {
+    const url=new URL(window.location.href); url.searchParams.set('date',dateStr); url.searchParams.set('board',abbr);
+    const shareUrl=url.toString();
+    const meetings=meetingsByDate[dateStr]||[];
+    const m=meetings.find(x=>x.abbr===abbr)||meetings[0];
     if (navigator.share) {
-      const title = m ? `${m.name} — Kzoo Boards` : 'Kalamazoo Public Meeting';
-      const text  = m
-        ? `${m.name} has a public meeting on ${m.display || dateStr}${m.time ? ' at ' + m.time : ''}${m.location ? '\n📍 ' + m.location : ''}\n\nKzoo Boards — independent civic resource, not the city's official site.`
-        : 'Check out this Kalamazoo public meeting.';
-      navigator.share({ title, text, url: shareUrl }).catch(() => {});
-      return;
+      const title=m?`${m.name} — Kzoo Boards`:'Kalamazoo Public Meeting';
+      const text=m?`${m.name} has a public meeting on ${m.display||dateStr}${m.time?' at '+m.time:''}${m.location?'\n📍 '+m.location:''}\n\nKzoo Boards — independent civic resource, not the city's official site.`:'Check out this Kalamazoo public meeting.';
+      navigator.share({title,text,url:shareUrl}).catch(()=>{}); return;
     }
-
-    navigator.clipboard.writeText(shareUrl)
-      .then(() => showToast('Link copied!'))
-      .catch(() => {
-        const ta = document.createElement('textarea');
-        ta.value = shareUrl;
-        document.body.appendChild(ta); ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        showToast('Link copied!');
-      });
+    navigator.clipboard.writeText(shareUrl).then(()=>showToast('Link copied!')).catch(()=>{ const ta=document.createElement('textarea'); ta.value=shareUrl; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('Link copied!'); });
   };
 
-  function showToast(msg) {
-    const t = document.getElementById('cal-toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2400);
-  }
+  function showToast(msg) { const t=document.getElementById('cal-toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2400); }
 
-  /* ── Boot ── */
   async function boot() {
     await loadData();
-    const params     = new URLSearchParams(window.location.search);
-    const shareDate  = params.get('date');
-    if (shareDate && meetingsByDate[shareDate]) {
-      const d = new Date(shareDate + 'T00:00:00');
-      currentYear  = d.getFullYear();
-      currentMonth = d.getMonth();
-      render();
-      setTimeout(() => openPopup(shareDate), 80);
+    const params=new URLSearchParams(window.location.search), shareDate=params.get('date');
+    if (shareDate&&meetingsByDate[shareDate]) {
+      const d=new Date(shareDate+'T00:00:00'); currentYear=d.getFullYear(); currentMonth=d.getMonth();
+      render(); setTimeout(()=>openPopup(shareDate),80);
     }
   }
   boot();
