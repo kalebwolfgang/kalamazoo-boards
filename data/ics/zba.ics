@@ -1,6 +1,6 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//City of Zoning Board of Appeals//EN
+PRODID:-//City of Kalamazoo Boards & Commissions//EN
 X-WR-CALNAME:Zoning Board of Appeals
 X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
 BEGIN:VEVENT
@@ -35,6 +35,13 @@ BEGIN:VEVENT
 UID:ZBA-2026-10-08@kalamazoocity-boards
 DTSTART:20261008T190000
 DTEND:20261008T210000
+SUMMARY:Zoning Board of Appeals — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:ZBA-2026-11-12@kalamazoocity-boards
+DTSTART:20261112T190000
+DTEND:20261112T210000
 SUMMARY:Zoning Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-14",
+  "last_updated": "2026-05-18",
   "meetings": [
     {
       "date": "2026-05-11",
@@ -856,6 +856,14 @@
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
+    },
+    {
+      "date": "2026-11-12",
+      "display": "Thursday, November 12, 2026",
+      "time": "7:00 PM – 9:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "ZBA",
+      "name": "Zoning Board of Appeals"
     },
     {
       "date": "2026-11-19",

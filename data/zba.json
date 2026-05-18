@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-14",
+  "last_updated": "2026-05-18",
   "upcoming_meetings": [
     {
       "date": "2026-06-11",
@@ -24,6 +24,11 @@
     {
       "date": "2026-10-08",
       "display": "Thursday, October 08, 2026",
+      "time": "7:00 PM – 9:00 PM"
+    },
+    {
+      "date": "2026-11-12",
+      "display": "Thursday, November 12, 2026",
       "time": "7:00 PM – 9:00 PM"
     }
   ],
@@ -624,6 +629,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-05-14",
+      "display": "May 14, 2026",
+      "youtube_id": "MJm6950nnCI",
+      "youtube_url": "https://www.youtube.com/watch?v=MJm6950nnCI",
+      "title": "May 14, 2026 Zoning Board of Appeals"
+    },
     {
       "date": "2026-04-09",
       "display": "April 9, 2026",

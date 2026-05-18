@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-14",
+  "last_updated": "2026-05-18",
   "upcoming_meetings": [
     {
       "date": "2026-05-26",
@@ -35,14 +35,16 @@
   "meetings": [
     {
       "date": "2026-05-07",
-      "display": "May 7, 2026",
+      "display": "May 07, 2026",
       "event_id": 2765,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2765/files/agenda/4999",
-      "link_label": "Agenda",
-      "meeting_type": "Natural Features Protection Review Board",
+      "link_label": "Agenda & Minutes",
       "cancelled": false,
-      "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2765/files/agenda/4999"
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2765/files/agenda/5064",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2765/files/agenda/4999",
+      "meeting_type": "Natural Features Protection Review Board",
+      "youtube_id": "luo2Fw6cbW4",
+      "youtube_url": "https://www.youtube.com/watch?v=luo2Fw6cbW4"
     },
     {
       "date": "2026-04-28",

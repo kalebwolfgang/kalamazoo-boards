@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-14",
+  "last_updated": "2026-05-18",
   "upcoming_meetings": [
     {
       "date": "2026-06-09",
@@ -33,6 +33,14 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-04-14",
+      "display": "April 14, 2026",
+      "agenda_url": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/april-14-2026.pdf",
+      "link_label": "Minutes",
+      "cancelled": false
+    },
     {
       "date": "2026-03-10",
       "display": "March 10, 2026",
