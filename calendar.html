@@ -347,12 +347,16 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-action-btn.share:hover { background: var(--cream-dk); color: var(--navy); border-color: var(--navy); }
 .modal-action-btn.subscribe { background: rgba(13,79,99,0.06); color: var(--navy-mid); border-color: rgba(13,79,99,0.2); }
 .modal-action-btn.subscribe:hover { background: rgba(13,79,99,0.12); border-color: var(--navy); }
-.cal-popover { position: fixed; background: var(--white); border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); z-index: 700; min-width: 210px; overflow: hidden; }
-.cal-popover-option { display: flex; align-items: center; gap: 10px; padding: 11px 14px; font-size: 13px; font-weight: 500; color: var(--body); text-decoration: none; border: none; background: none; cursor: pointer; width: 100%; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.1s; text-align: left; line-height: 1.3; }
-.cal-popover-option:hover { background: var(--cream); color: var(--navy); }
+.cal-popover { position: fixed; background: var(--white); border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); z-index: 700; min-width: 260px; overflow: hidden; }
+.cal-popover-option { display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--body); text-decoration: none; border: none; background: none; cursor: pointer; width: 100%; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.1s; text-align: left; line-height: 1.3; }
+.cal-popover-option:hover { background: rgba(0,0,0,0.04); color: var(--navy); }
 .cal-popover-icon { font-size: 15px; flex-shrink: 0; width: 20px; text-align: center; }
+.cal-popover-section-hd { padding: 10px 14px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
+.cal-popover-section--subscribe { background: var(--green-bg); border-top: 2px solid rgba(45,107,74,0.2); }
+.cal-popover-section--subscribe .cal-popover-section-hd { color: var(--green); }
+.cal-popover-section--subscribe .cal-popover-option { color: var(--body); }
+.cal-popover-section--subscribe .cal-popover-option:hover { background: rgba(45,107,74,0.1); color: var(--green); }
 .cal-popover-divider { height: 1px; background: var(--border-lt); margin: 2px 0; }
-.cal-popover-section-hd { padding: 8px 14px 4px; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .cal-popover-option--subscribe { align-items: flex-start; }
 .cal-popover-sub { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.4; font-weight: 400; }
 .cal-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--navy); color: white; padding: 10px 18px; border-radius: 3px; font-size: 13px; font-weight: 500; z-index: 800; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; white-space: nowrap; }
@@ -1018,9 +1022,11 @@ footer a:hover { color: var(--gold-lt); }
     const m = meetings.find(x => x.abbr === abbr) || meetings[0];
     if (!m) return;
 
-    const gcalUrl    = buildGCalUrl(m);
-    const outlookUrl = buildOutlookUrl(m);
-    const webcalUrl  = `webcal://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${m.abbr.toLowerCase()}.ics`;
+    const gcalUrl          = buildGCalUrl(m);
+    const outlookUrl       = buildOutlookUrl(m);
+    const webcalUrl        = `webcal://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${m.abbr.toLowerCase()}.ics`;
+    const feedUrl          = `https://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${m.abbr.toLowerCase()}.ics`;
+    const gcalSubscribeUrl = `https://calendar.google.com/calendar/render?cid=${encodeURIComponent(feedUrl)}`;
 
     const pop = document.createElement('div');
     pop.className = 'cal-popover';
@@ -1032,6 +1038,8 @@ footer a:hover { color: var(--gold-lt); }
       pop.style.top = `${rect.bottom + 6}px`;
     }
     pop.style.left = `${Math.min(rect.left, window.innerWidth - 230)}px`;
+
+    const isMobile = window.innerWidth < 640;
 
     pop.innerHTML = `
       <div class="cal-popover-section-hd">This meeting only</div>
@@ -1047,21 +1055,42 @@ footer a:hover { color: var(--gold-lt); }
         <span class="cal-popover-icon">📅</span>
         <span>Apple / iCal / Other (.ics)</span>
       </button>
-      <div class="cal-popover-divider"></div>
-      <div class="cal-popover-section-hd">All ${m.abbr} meetings, ongoing</div>
-      <a class="cal-popover-option cal-popover-option--subscribe" href="${webcalUrl}">
-        <span class="cal-popover-icon">🔄</span>
-        <div>
-          <div>Subscribe in my calendar app</div>
-          <div class="cal-popover-sub">Stays updated automatically as new meetings are added</div>
-        </div>
-      </a>`;
+      <div class="cal-popover-section--subscribe">
+        <div class="cal-popover-section-hd">All ${m.abbr} meetings — ongoing</div>
+        <a class="cal-popover-option" href="${gcalSubscribeUrl}" target="_blank" rel="noopener">
+          <span class="cal-popover-icon" style="font-size:13px;font-weight:700;color:#4285F4">G</span>
+          <span>Subscribe via Google Calendar</span>
+        </a>
+        ${isMobile ? `<a class="cal-popover-option" href="${webcalUrl}">
+          <span class="cal-popover-icon">📱</span>
+          <span>Open in Calendar App</span>
+        </a>` : ''}
+        <button class="cal-popover-option" id="cal-pop-copy-feed">
+          <span class="cal-popover-icon">🔗</span>
+          <div>
+            <div>Copy feed URL</div>
+            <div class="cal-popover-sub">Paste into Outlook, Apple Calendar, or any calendar app</div>
+          </div>
+        </button>
+      </div>`;
 
     document.body.appendChild(pop);
 
     pop.querySelector('#cal-pop-ics').addEventListener('click', () => {
       pop.remove();
       downloadICS(m);
+    });
+
+    pop.querySelector('#cal-pop-copy-feed').addEventListener('click', () => {
+      pop.remove();
+      navigator.clipboard.writeText(feedUrl)
+        .then(() => showToast('Feed URL copied — paste into your calendar app'))
+        .catch(() => {
+          const ta = document.createElement('textarea');
+          ta.value = feedUrl; document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta);
+          showToast('Feed URL copied — paste into your calendar app');
+        });
     });
 
     setTimeout(() => {
