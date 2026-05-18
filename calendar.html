@@ -698,6 +698,8 @@ footer a:hover { color: var(--gold-lt); }
       ${active ? `<span class="board-action" style="color:rgba(255,255,255,0.7);font-size:11px;font-weight:500;letter-spacing:0.04em">Default</span>` : `<span class="board-action" style="font-size:11px;color:var(--muted)">Show all</span>`}
     </button>`;
   }
+
+  function buildBoardItem(b, engaged) {
     const color  = getBoardColor(b.abbr);
     const action = engaged
       ? `<svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`
