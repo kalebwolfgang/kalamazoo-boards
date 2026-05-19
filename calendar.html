@@ -953,7 +953,7 @@ footer a:hover { color: var(--gold-lt); }
       const color    = getBoardColor(m.abbr);
       const feedSlug = m.abbr.toLowerCase();
       const webcalUrl       = `webcal://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${feedSlug}.ics`;
-      const gcalSubscribeUrl = `https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fkalebwolfgang.github.io%2Fkalamazoo-boards%2Fdata%2Fics%2F${feedSlug}.ics`;
+      const gcalSubscribeUrl = `https://calendar.google.com/calendar/render?cid=https%3A%2F%2Fkalebwolfgang.github.io%2Fkalamazoo-boards%2Fdata%2Fics%2F${feedSlug}.ics`;
       const followUrl    = useWebcal ? webcalUrl : gcalSubscribeUrl;
       const followTarget = useWebcal ? '' : 'target="_blank" rel="noopener"';
       const followSub    = useWebcal ? 'Opens Apple Calendar' : 'Via Google Calendar';
