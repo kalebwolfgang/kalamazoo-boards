@@ -337,16 +337,18 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-meeting-sub { font-size: 12px; color: var(--muted); }
 .modal-detail-row { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--body); margin-bottom: 4px; line-height: 1.4; }
 .modal-detail-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
-.modal-actions { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
-.modal-action-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 6px 11px; border-radius: 2px; border: 1px solid var(--border); cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.15s, border-color 0.15s; text-decoration: none; white-space: nowrap; }
-.modal-action-btn.primary { background: var(--cream); color: var(--navy); }
-.modal-action-btn.primary:hover { background: var(--cream-dk); border-color: var(--navy); }
-.modal-action-btn.green { background: rgba(45,107,74,0.08); color: var(--green); border-color: rgba(45,107,74,0.25); }
-.modal-action-btn.green:hover { background: rgba(45,107,74,0.14); border-color: var(--green); }
-.modal-action-btn.share { background: var(--cream); color: var(--muted); border-color: var(--border); }
-.modal-action-btn.share:hover { background: var(--cream-dk); color: var(--navy); border-color: var(--navy); }
-.modal-action-btn.subscribe { background: rgba(13,79,99,0.06); color: var(--navy-mid); border-color: rgba(13,79,99,0.2); }
-.modal-action-btn.subscribe:hover { background: rgba(13,79,99,0.12); border-color: var(--navy); }
+.modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 14px; }
+.modal-action-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; font-size: 12px; font-weight: 600; padding: 9px 12px; border-radius: 3px; border: 1px solid var(--border); cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.15s, border-color 0.15s; text-decoration: none; }
+.modal-action-btn-row { display: flex; align-items: center; gap: 5px; }
+.modal-action-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.01em; opacity: 0.75; }
+.modal-action-btn.watch { background: rgba(200,0,0,0.05); color: #b00; border-color: rgba(200,0,0,0.18); }
+.modal-action-btn.watch:hover { background: rgba(200,0,0,0.1); border-color: rgba(200,0,0,0.35); }
+.modal-action-btn.copylink { background: var(--cream); color: var(--muted); border-color: var(--border); }
+.modal-action-btn.copylink:hover { background: var(--cream-dk); color: var(--navy); border-color: var(--navy); }
+.modal-action-btn.addcal { background: rgba(13,79,99,0.06); color: var(--navy); border-color: rgba(13,79,99,0.2); }
+.modal-action-btn.addcal:hover { background: rgba(13,79,99,0.12); border-color: var(--navy); }
+.modal-action-btn.follow { background: rgba(45,107,74,0.07); color: var(--green); border-color: rgba(45,107,74,0.25); }
+.modal-action-btn.follow:hover { background: rgba(45,107,74,0.14); border-color: var(--green); }
 .cal-popover { position: fixed; background: var(--white); border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); z-index: 700; min-width: 260px; overflow: hidden; }
 .cal-popover-option { display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--body); text-decoration: none; border: none; background: none; cursor: pointer; width: 100%; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.1s; text-align: left; line-height: 1.3; }
 .cal-popover-option:hover { background: rgba(0,0,0,0.04); color: var(--navy); }
@@ -940,10 +942,21 @@ footer a:hover { color: var(--gold-lt); }
   }
 
   function buildMeetingHTML(meetings) {
-    const isMobile = window.innerWidth < 640;
+    const isMobile  = window.innerWidth < 640;
+    const isIOS     = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isMac     = /Macintosh/.test(navigator.userAgent);
+    const useWebcal = isIOS || isMac;
+
     return meetings.map(m => {
-      const color     = getBoardColor(m.abbr);
-      const webcalUrl = `webcal://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${m.abbr.toLowerCase()}.ics`;
+      const color    = getBoardColor(m.abbr);
+      const feedSlug = m.abbr.toLowerCase();
+      const webcalUrl       = `webcal://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${feedSlug}.ics`;
+      const gcalSubscribeUrl = `https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fkalebwolfgang.github.io%2Fkalamazoo-boards%2Fdata%2Fics%2F${feedSlug}.ics`;
+      const followUrl    = useWebcal ? webcalUrl : gcalSubscribeUrl;
+      const followTarget = useWebcal ? '' : 'target="_blank" rel="noopener"';
+      const followSub    = useWebcal ? 'Opens Apple Calendar' : 'Via Google Calendar';
+      const addCalSub    = useWebcal ? 'Downloads to Apple Calendar' : 'Opens Google Calendar';
+
       return `<div class="modal-meeting" style="border-left-color:${color}">
         <div class="modal-meeting-top">
           <div class="modal-meeting-badge" style="background:${color}"><span>${m.abbr}</span></div>
@@ -954,18 +967,34 @@ footer a:hover { color: var(--gold-lt); }
         </div>
         ${m.location ? `<div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>` : ''}
         <div class="modal-actions">
-          <a class="modal-action-btn primary" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
-            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1-.8-2.2-.8-2.7-.9C16.9 2.5 12 2.5 12 2.5s-4.9 0-7.7.2c-.5.1-1.7.1-2.7.9C.8 4.3.5 6.2.5 6.2S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1 .8 2.4.8 3 .9C6.8 21 12 21 12 21s4.9 0 7.7-.3c.5-.1 1.7-.1 2.7-.9.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.8V8.9l7.3 3-7.3 2.9z"/></svg>
-            Watch Live
+          <a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
+            <span class="modal-action-btn-row">
+              <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1-.8-2.2-.8-2.7-.9C16.9 2.5 12 2.5 12 2.5s-4.9 0-7.7.2c-.5.1-1.7.1-2.7.9C.8 4.3.5 6.2.5 6.2S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1 .8 2.4.8 3 .9C6.8 21 12 21 12 21s4.9 0 7.7-.3c.5-.1 1.7-.1 2.7-.9.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.8V8.9l7.3 3-7.3 2.9z"/></svg>
+              Watch Live
+            </span>
+            <span class="modal-action-sub">Stream on YouTube</span>
           </a>
-          <button class="modal-action-btn share" onclick="calShareMeeting('${m.date}','${m.abbr}',this)">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            ${isMobile ? 'Share' : 'Copy Link'}
+          <button class="modal-action-btn copylink" onclick="calShareMeeting('${m.date}','${m.abbr}',this)">
+            <span class="modal-action-btn-row">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              ${isMobile ? 'Share' : 'Copy Link'}
+            </span>
+            <span class="modal-action-sub">${isMobile ? 'Share this meeting' : 'Copy link to meeting'}</span>
           </button>
-          <button class="modal-action-btn green" onclick="calShowCalPopover('${m.date}','${m.abbr}',this)">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Add to Calendar
+          <button class="modal-action-btn addcal" onclick="calAddToCalendar('${m.date}','${m.abbr}')">
+            <span class="modal-action-btn-row">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
+              Add to Calendar
+            </span>
+            <span class="modal-action-sub">${addCalSub}</span>
           </button>
+          <a class="modal-action-btn follow" href="${followUrl}" ${followTarget}>
+            <span class="modal-action-btn-row">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+              Follow ${m.abbr}
+            </span>
+            <span class="modal-action-sub">All meetings, auto-updates</span>
+          </a>
         </div>
       </div>`;
     }).join('');
@@ -1014,6 +1043,16 @@ footer a:hover { color: var(--gold-lt); }
   document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target===document.getElementById('modal-overlay')) closePopup(); });
   document.getElementById('bs-overlay').addEventListener('click', closePopup);
   document.addEventListener('keydown', e => { if (e.key==='Escape') { closePopup(); closeMobileSidebar(); } });
+
+  window.calAddToCalendar = function(dateStr, abbr) {
+    const meetings = meetingsByDate[dateStr] || [];
+    const m = meetings.find(x => x.abbr === abbr) || meetings[0];
+    if (!m) return;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isMac = /Macintosh/.test(navigator.userAgent);
+    if (isIOS || isMac) { downloadICS(m); }
+    else { window.open(buildGCalUrl(m), '_blank'); }
+  };
 
   /* POPOVERS */
   window.calShowCalPopover = function(dateStr, abbr, btn) {
