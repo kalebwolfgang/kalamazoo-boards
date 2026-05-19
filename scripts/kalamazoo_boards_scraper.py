@@ -1223,12 +1223,32 @@ def generate_ics_files(calendar_json_path='data/calendar.json', output_dir='data
         data = json.load(f)
         meetings = data.get('meetings', [])
         
+    vtimezone = (
+        "BEGIN:VTIMEZONE\r\n"
+        "TZID:America/Detroit\r\n"
+        "BEGIN:DAYLIGHT\r\n"
+        "TZOFFSETFROM:-0500\r\n"
+        "TZOFFSETTO:-0400\r\n"
+        "TZNAME:EDT\r\n"
+        "DTSTART:19700308T020000\r\n"
+        "RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3\r\n"
+        "END:DAYLIGHT\r\n"
+        "BEGIN:STANDARD\r\n"
+        "TZOFFSETFROM:-0400\r\n"
+        "TZOFFSETTO:-0500\r\n"
+        "TZNAME:EST\r\n"
+        "DTSTART:19701101T020000\r\n"
+        "RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11\r\n"
+        "END:STANDARD\r\n"
+        "END:VTIMEZONE\r\n"
+    )
     header = (
         "BEGIN:VCALENDAR\r\n"
         "VERSION:2.0\r\n"
         "PRODID:-//City of Kalamazoo Boards & Commissions//EN\r\n"
         "X-WR-CALNAME:Kalamazoo Boards & Commissions\r\n"
         "X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions\r\n"
+        + vtimezone
     )
     footer = "END:VCALENDAR\r\n"
 
