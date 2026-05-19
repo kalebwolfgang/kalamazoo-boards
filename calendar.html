@@ -338,6 +338,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-detail-row { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--body); margin-bottom: 4px; line-height: 1.4; }
 .modal-detail-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
 .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 14px; }
+.modal-actions.no-stream .modal-action-btn:last-child { grid-column: 1 / -1; }
 .modal-action-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; font-size: 12px; font-weight: 600; padding: 9px 12px; border-radius: 3px; border: 1px solid var(--border); cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.15s, border-color 0.15s; text-decoration: none; }
 .modal-action-btn-row { display: flex; align-items: center; gap: 5px; }
 .modal-action-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.01em; opacity: 0.75; }
@@ -548,6 +549,7 @@ footer a:hover { color: var(--gold-lt); }
   const MONTHS     = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DAYS_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const DETAIL_SLUG = { 'PB': 'pension-board' };
+  const LIVESTREAM_BOARDS = new Set(['CPSRAB','CRB','ECC','HDC','HPC','NFP','PC','ZBA']);
 
   const BOARD_PALETTE = [
     '#b5821a',  // gold
@@ -957,6 +959,8 @@ footer a:hover { color: var(--gold-lt); }
       const followSub    = useWebcal ? 'Opens Apple Calendar' : 'Via Google Calendar';
       const addCalSub    = useWebcal ? 'Downloads to Apple Calendar' : 'Opens Google Calendar';
 
+      const hasStream = LIVESTREAM_BOARDS.has(m.abbr);
+
       return `<div class="modal-meeting" style="border-left-color:${color}">
         <div class="modal-meeting-top">
           <div class="modal-meeting-badge" style="background:${color}"><span>${m.abbr}</span></div>
@@ -966,14 +970,14 @@ footer a:hover { color: var(--gold-lt); }
           </div>
         </div>
         ${m.location ? `<div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>` : ''}
-        <div class="modal-actions">
-          <a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
+        <div class="modal-actions${hasStream ? '' : ' no-stream'}">
+          ${hasStream ? `<a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
             <span class="modal-action-btn-row">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1-.8-2.2-.8-2.7-.9C16.9 2.5 12 2.5 12 2.5s-4.9 0-7.7.2c-.5.1-1.7.1-2.7.9C.8 4.3.5 6.2.5 6.2S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1 .8 2.4.8 3 .9C6.8 21 12 21 12 21s4.9 0 7.7-.3c.5-.1 1.7-.1 2.7-.9.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.8V8.9l7.3 3-7.3 2.9z"/></svg>
               Watch Live
             </span>
             <span class="modal-action-sub">Stream on YouTube</span>
-          </a>
+          </a>` : ''}
           <button class="modal-action-btn copylink" onclick="calShareMeeting('${m.date}','${m.abbr}',this)">
             <span class="modal-action-btn-row">
               <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
