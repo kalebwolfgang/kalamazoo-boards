@@ -3,136 +3,153 @@ VERSION:2.0
 PRODID:-//City of Kalamazoo Boards & Commissions//EN
 X-WR-CALNAME:Kalamazoo Boards & Commissions
 X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
+BEGIN:VTIMEZONE
+TZID:America/Detroit
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+END:STANDARD
+END:VTIMEZONE
 BEGIN:VEVENT
 UID:SPK-2026-05-11@kalamazoocity-boards
-DTSTART:20260511T123000
-DTEND:20260511T143000
+DTSTART;TZID=America/Detroit:20260511T123000
+DTEND;TZID=America/Detroit:20260511T143000
 SUMMARY:SPK Organizing Committee — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HDC-2026-05-19@kalamazoocity-boards
-DTSTART:20260519T170000
-DTEND:20260519T190000
+DTSTART;TZID=America/Detroit:20260519T170000
+DTEND;TZID=America/Detroit:20260519T190000
 SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ECC-2026-05-20@kalamazoocity-boards
-DTSTART:20260520T163000
-DTEND:20260520T183000
+DTSTART;TZID=America/Detroit:20260520T163000
+DTEND;TZID=America/Detroit:20260520T183000
 SUMMARY:Environmental Concerns Committee — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:BRA-2026-05-21@kalamazoocity-boards
-DTSTART:20260521T074500
-DTEND:20260521T094500
+DTSTART;TZID=America/Detroit:20260521T074500
+DTEND;TZID=America/Detroit:20260521T094500
 SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-05-21@kalamazoocity-boards
-DTSTART:20260521T074500
-DTEND:20260521T094500
+DTSTART;TZID=America/Detroit:20260521T074500
+DTEND;TZID=America/Detroit:20260521T094500
 SUMMARY:Economic Development Corporation — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-05-21@kalamazoocity-boards
-DTSTART:20260521T120000
-DTEND:20260521T140000
+DTSTART;TZID=America/Detroit:20260521T120000
+DTEND;TZID=America/Detroit:20260521T140000
 SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
 LOCATION:Milham Park Golf Club, Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:NCBDA-2026-05-21@kalamazoocity-boards
-DTSTART:20260521T180000
-DTEND:20260521T200000
+DTSTART;TZID=America/Detroit:20260521T180000
+DTEND;TZID=America/Detroit:20260521T200000
 SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
 LOCATION:Northside Association for Community Development, 612 N Park St
 END:VEVENT
 BEGIN:VEVENT
 UID:NFP-2026-05-26@kalamazoocity-boards
-DTSTART:20260526T160000
-DTEND:20260526T180000
+DTSTART;TZID=America/Detroit:20260526T160000
+DTEND;TZID=America/Detroit:20260526T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:RIC-2026-05-27@kalamazoocity-boards
-DTSTART:20260527T110000
-DTEND:20260527T130000
+DTSTART;TZID=America/Detroit:20260527T110000
+DTEND;TZID=America/Detroit:20260527T130000
 SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
 LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-06-02@kalamazoocity-boards
-DTSTART:20260602T173000
-DTEND:20260602T193000
+DTSTART;TZID=America/Detroit:20260602T173000
+DTEND;TZID=America/Detroit:20260602T193000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Spring Valley Park
 END:VEVENT
 BEGIN:VEVENT
 UID:TRE-2026-06-02@kalamazoocity-boards
-DTSTART:20260602T140000
-DTEND:20260602T160000
+DTSTART;TZID=America/Detroit:20260602T140000
+DTEND;TZID=America/Detroit:20260602T160000
 SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:CRB-2026-06-03@kalamazoocity-boards
-DTSTART:20260603T170000
-DTEND:20260603T190000
+DTSTART;TZID=America/Detroit:20260603T170000
+DTEND;TZID=America/Detroit:20260603T190000
 SUMMARY:Civil Rights Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PB-2026-06-03@kalamazoocity-boards
-DTSTART:20260603T080000
-DTEND:20260603T100000
+DTSTART;TZID=America/Detroit:20260603T080000
+DTEND;TZID=America/Detroit:20260603T100000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PC-2026-06-04@kalamazoocity-boards
-DTSTART:20260604T190000
-DTEND:20260604T210000
+DTSTART;TZID=America/Detroit:20260604T190000
+DTEND;TZID=America/Detroit:20260604T210000
 SUMMARY:Planning Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-06-09@kalamazoocity-boards
-DTSTART:20260609T180000
-DTEND:20260609T200000
+DTSTART;TZID=America/Detroit:20260609T180000
+DTEND;TZID=America/Detroit:20260609T200000
 SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-06-10@kalamazoocity-boards
-DTSTART:20260610T180000
-DTEND:20260610T200000
+DTSTART;TZID=America/Detroit:20260610T180000
+DTEND;TZID=America/Detroit:20260610T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ZBA-2026-06-11@kalamazoocity-boards
-DTSTART:20260611T190000
-DTEND:20260611T210000
+DTSTART;TZID=America/Detroit:20260611T190000
+DTEND;TZID=America/Detroit:20260611T210000
 SUMMARY:Zoning Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-06-15@kalamazoocity-boards
-DTSTART:20260615T150000
-DTEND:20260615T170000
+DTSTART;TZID=America/Detroit:20260615T150000
+DTEND;TZID=America/Detroit:20260615T170000
 SUMMARY:Downtown Development Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-06-15@kalamazoocity-boards
-DTSTART:20260615T150000
-DTEND:20260615T170000
+DTSTART;TZID=America/Detroit:20260615T150000
+DTEND;TZID=America/Detroit:20260615T170000
 SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -144,678 +161,678 @@ LOCATION:Kalamazoo Public Services, 415 Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:HDC-2026-06-16@kalamazoocity-boards
-DTSTART:20260616T170000
-DTEND:20260616T190000
+DTSTART;TZID=America/Detroit:20260616T170000
+DTEND;TZID=America/Detroit:20260616T190000
 SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ECC-2026-06-17@kalamazoocity-boards
-DTSTART:20260617T163000
-DTEND:20260617T183000
+DTSTART;TZID=America/Detroit:20260617T163000
+DTEND;TZID=America/Detroit:20260617T183000
 SUMMARY:Environmental Concerns Committee — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:BRA-2026-06-18@kalamazoocity-boards
-DTSTART:20260618T074500
-DTEND:20260618T094500
+DTSTART;TZID=America/Detroit:20260618T074500
+DTEND;TZID=America/Detroit:20260618T094500
 SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-06-18@kalamazoocity-boards
-DTSTART:20260618T074500
-DTEND:20260618T094500
+DTSTART;TZID=America/Detroit:20260618T074500
+DTEND;TZID=America/Detroit:20260618T094500
 SUMMARY:Economic Development Corporation — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-06-18@kalamazoocity-boards
-DTSTART:20260618T120000
-DTEND:20260618T140000
+DTSTART;TZID=America/Detroit:20260618T120000
+DTEND;TZID=America/Detroit:20260618T140000
 SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
 LOCATION:Milham Park Golf Club, Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:BBA-2026-06-18@kalamazoocity-boards
-DTSTART:20260618T160000
-DTEND:20260618T180000
+DTSTART;TZID=America/Detroit:20260618T160000
+DTEND;TZID=America/Detroit:20260618T180000
 SUMMARY:Building Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NCBDA-2026-06-18@kalamazoocity-boards
-DTSTART:20260618T180000
-DTEND:20260618T200000
+DTSTART;TZID=America/Detroit:20260618T180000
+DTEND;TZID=America/Detroit:20260618T200000
 SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
 LOCATION:Northside Association for Community Development, 612 N Park St
 END:VEVENT
 BEGIN:VEVENT
 UID:NFP-2026-06-23@kalamazoocity-boards
-DTSTART:20260623T160000
-DTEND:20260623T180000
+DTSTART;TZID=America/Detroit:20260623T160000
+DTEND;TZID=America/Detroit:20260623T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CDAAC-2026-06-25@kalamazoocity-boards
-DTSTART:20260625T173000
-DTEND:20260625T193000
+DTSTART;TZID=America/Detroit:20260625T173000
+DTEND;TZID=America/Detroit:20260625T193000
 SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
 LOCATION:Community Room, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PC-2026-07-02@kalamazoocity-boards
-DTSTART:20260702T190000
-DTEND:20260702T210000
+DTSTART;TZID=America/Detroit:20260702T190000
+DTEND;TZID=America/Detroit:20260702T210000
 SUMMARY:Planning Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-07-07@kalamazoocity-boards
-DTSTART:20260707T173000
-DTEND:20260707T193000
+DTSTART;TZID=America/Detroit:20260707T173000
+DTEND;TZID=America/Detroit:20260707T193000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Southside Park
 END:VEVENT
 BEGIN:VEVENT
 UID:TRE-2026-07-07@kalamazoocity-boards
-DTSTART:20260707T140000
-DTEND:20260707T160000
+DTSTART;TZID=America/Detroit:20260707T140000
+DTEND;TZID=America/Detroit:20260707T160000
 SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-07-08@kalamazoocity-boards
-DTSTART:20260708T180000
-DTEND:20260708T200000
+DTSTART;TZID=America/Detroit:20260708T180000
+DTEND;TZID=America/Detroit:20260708T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:EC-2026-07-09@kalamazoocity-boards
-DTSTART:20260709T090000
-DTEND:20260709T110000
+DTSTART;TZID=America/Detroit:20260709T090000
+DTEND;TZID=America/Detroit:20260709T110000
 SUMMARY:Election Commission — City of Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:ZBA-2026-07-09@kalamazoocity-boards
-DTSTART:20260709T190000
-DTEND:20260709T210000
+DTSTART;TZID=America/Detroit:20260709T190000
+DTEND;TZID=America/Detroit:20260709T210000
 SUMMARY:Zoning Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-07-13@kalamazoocity-boards
-DTSTART:20260713T150000
-DTEND:20260713T170000
+DTSTART;TZID=America/Detroit:20260713T150000
+DTEND;TZID=America/Detroit:20260713T170000
 SUMMARY:Downtown Development Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-07-13@kalamazoocity-boards
-DTSTART:20260713T150000
-DTEND:20260713T170000
+DTSTART;TZID=America/Detroit:20260713T150000
+DTEND;TZID=America/Detroit:20260713T170000
 SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:SPK-2026-07-13@kalamazoocity-boards
-DTSTART:20260713T123000
-DTEND:20260713T143000
+DTSTART;TZID=America/Detroit:20260713T123000
+DTEND;TZID=America/Detroit:20260713T143000
 SUMMARY:SPK Organizing Committee — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-07-14@kalamazoocity-boards
-DTSTART:20260714T180000
-DTEND:20260714T200000
+DTSTART;TZID=America/Detroit:20260714T180000
+DTEND;TZID=America/Detroit:20260714T200000
 SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ECC-2026-07-15@kalamazoocity-boards
-DTSTART:20260715T163000
-DTEND:20260715T183000
+DTSTART;TZID=America/Detroit:20260715T163000
+DTEND;TZID=America/Detroit:20260715T183000
 SUMMARY:Environmental Concerns Committee — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-07-16@kalamazoocity-boards
-DTSTART:20260716T120000
-DTEND:20260716T140000
+DTSTART;TZID=America/Detroit:20260716T120000
+DTEND;TZID=America/Detroit:20260716T140000
 SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
 LOCATION:Milham Park Golf Club, Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:BBA-2026-07-16@kalamazoocity-boards
-DTSTART:20260716T160000
-DTEND:20260716T180000
+DTSTART;TZID=America/Detroit:20260716T160000
+DTEND;TZID=America/Detroit:20260716T180000
 SUMMARY:Building Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NCBDA-2026-07-16@kalamazoocity-boards
-DTSTART:20260716T180000
-DTEND:20260716T200000
+DTSTART;TZID=America/Detroit:20260716T180000
+DTEND;TZID=America/Detroit:20260716T200000
 SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
 LOCATION:Northside Association for Community Development, 612 N Park St
 END:VEVENT
 BEGIN:VEVENT
 UID:HDC-2026-07-21@kalamazoocity-boards
-DTSTART:20260721T170000
-DTEND:20260721T190000
+DTSTART;TZID=America/Detroit:20260721T170000
+DTEND;TZID=America/Detroit:20260721T190000
 SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NFP-2026-07-28@kalamazoocity-boards
-DTSTART:20260728T160000
-DTEND:20260728T180000
+DTSTART;TZID=America/Detroit:20260728T160000
+DTEND;TZID=America/Detroit:20260728T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-08-04@kalamazoocity-boards
-DTSTART:20260804T173000
-DTEND:20260804T193000
+DTSTART;TZID=America/Detroit:20260804T173000
+DTEND;TZID=America/Detroit:20260804T193000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Axtell Creek Park
 END:VEVENT
 BEGIN:VEVENT
 UID:TRE-2026-08-04@kalamazoocity-boards
-DTSTART:20260804T140000
-DTEND:20260804T160000
+DTSTART;TZID=America/Detroit:20260804T140000
+DTEND;TZID=America/Detroit:20260804T160000
 SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:CRB-2026-08-05@kalamazoocity-boards
-DTSTART:20260805T170000
-DTEND:20260805T190000
+DTSTART;TZID=America/Detroit:20260805T170000
+DTEND;TZID=America/Detroit:20260805T190000
 SUMMARY:Civil Rights Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PC-2026-08-06@kalamazoocity-boards
-DTSTART:20260806T190000
-DTEND:20260806T210000
+DTSTART;TZID=America/Detroit:20260806T190000
+DTEND;TZID=America/Detroit:20260806T210000
 SUMMARY:Planning Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-08-11@kalamazoocity-boards
-DTSTART:20260811T180000
-DTEND:20260811T200000
+DTSTART;TZID=America/Detroit:20260811T180000
+DTEND;TZID=America/Detroit:20260811T200000
 SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-08-12@kalamazoocity-boards
-DTSTART:20260812T180000
-DTEND:20260812T200000
+DTSTART;TZID=America/Detroit:20260812T180000
+DTEND;TZID=America/Detroit:20260812T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ZBA-2026-08-13@kalamazoocity-boards
-DTSTART:20260813T190000
-DTEND:20260813T210000
+DTSTART;TZID=America/Detroit:20260813T190000
+DTEND;TZID=America/Detroit:20260813T210000
 SUMMARY:Zoning Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-08-17@kalamazoocity-boards
-DTSTART:20260817T150000
-DTEND:20260817T170000
+DTSTART;TZID=America/Detroit:20260817T150000
+DTEND;TZID=America/Detroit:20260817T170000
 SUMMARY:Downtown Development Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-08-17@kalamazoocity-boards
-DTSTART:20260817T150000
-DTEND:20260817T170000
+DTSTART;TZID=America/Detroit:20260817T150000
+DTEND;TZID=America/Detroit:20260817T170000
 SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HDC-2026-08-18@kalamazoocity-boards
-DTSTART:20260818T170000
-DTEND:20260818T190000
+DTSTART;TZID=America/Detroit:20260818T170000
+DTEND;TZID=America/Detroit:20260818T190000
 SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ECC-2026-08-19@kalamazoocity-boards
-DTSTART:20260819T163000
-DTEND:20260819T183000
+DTSTART;TZID=America/Detroit:20260819T163000
+DTEND;TZID=America/Detroit:20260819T183000
 SUMMARY:Environmental Concerns Committee — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:BRA-2026-08-20@kalamazoocity-boards
-DTSTART:20260820T074500
-DTEND:20260820T094500
+DTSTART;TZID=America/Detroit:20260820T074500
+DTEND;TZID=America/Detroit:20260820T094500
 SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-08-20@kalamazoocity-boards
-DTSTART:20260820T074500
-DTEND:20260820T094500
+DTSTART;TZID=America/Detroit:20260820T074500
+DTEND;TZID=America/Detroit:20260820T094500
 SUMMARY:Economic Development Corporation — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-08-20@kalamazoocity-boards
-DTSTART:20260820T120000
-DTEND:20260820T140000
+DTSTART;TZID=America/Detroit:20260820T120000
+DTEND;TZID=America/Detroit:20260820T140000
 SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
 LOCATION:Milham Park Golf Club, Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:BBA-2026-08-20@kalamazoocity-boards
-DTSTART:20260820T160000
-DTEND:20260820T180000
+DTSTART;TZID=America/Detroit:20260820T160000
+DTEND;TZID=America/Detroit:20260820T180000
 SUMMARY:Building Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NCBDA-2026-08-20@kalamazoocity-boards
-DTSTART:20260820T180000
-DTEND:20260820T200000
+DTSTART;TZID=America/Detroit:20260820T180000
+DTEND;TZID=America/Detroit:20260820T200000
 SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
 LOCATION:Northside Association for Community Development, 612 N Park St
 END:VEVENT
 BEGIN:VEVENT
 UID:NFP-2026-08-25@kalamazoocity-boards
-DTSTART:20260825T160000
-DTEND:20260825T180000
+DTSTART;TZID=America/Detroit:20260825T160000
+DTEND;TZID=America/Detroit:20260825T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:RIC-2026-08-26@kalamazoocity-boards
-DTSTART:20260826T110000
-DTEND:20260826T130000
+DTSTART;TZID=America/Detroit:20260826T110000
+DTEND;TZID=America/Detroit:20260826T130000
 SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
 LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:TRE-2026-09-01@kalamazoocity-boards
-DTSTART:20260901T140000
-DTEND:20260901T160000
+DTSTART;TZID=America/Detroit:20260901T140000
+DTEND;TZID=America/Detroit:20260901T160000
 SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:PB-2026-09-02@kalamazoocity-boards
-DTSTART:20260902T080000
-DTEND:20260902T100000
+DTSTART;TZID=America/Detroit:20260902T080000
+DTEND;TZID=America/Detroit:20260902T100000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PC-2026-09-03@kalamazoocity-boards
-DTSTART:20260903T190000
-DTEND:20260903T210000
+DTSTART;TZID=America/Detroit:20260903T190000
+DTEND;TZID=America/Detroit:20260903T210000
 SUMMARY:Planning Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-09-08@kalamazoocity-boards
-DTSTART:20260908T180000
-DTEND:20260908T200000
+DTSTART;TZID=America/Detroit:20260908T180000
+DTEND;TZID=America/Detroit:20260908T200000
 SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-09-08@kalamazoocity-boards
-DTSTART:20260908T173000
-DTEND:20260908T193000
+DTSTART;TZID=America/Detroit:20260908T173000
+DTEND;TZID=America/Detroit:20260908T193000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-09-09@kalamazoocity-boards
-DTSTART:20260909T180000
-DTEND:20260909T200000
+DTSTART;TZID=America/Detroit:20260909T180000
+DTEND;TZID=America/Detroit:20260909T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ZBA-2026-09-10@kalamazoocity-boards
-DTSTART:20260910T190000
-DTEND:20260910T210000
+DTSTART;TZID=America/Detroit:20260910T190000
+DTEND;TZID=America/Detroit:20260910T210000
 SUMMARY:Zoning Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:SPK-2026-09-14@kalamazoocity-boards
-DTSTART:20260914T123000
-DTEND:20260914T143000
+DTSTART;TZID=America/Detroit:20260914T123000
+DTEND;TZID=America/Detroit:20260914T143000
 SUMMARY:SPK Organizing Committee — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HDC-2026-09-15@kalamazoocity-boards
-DTSTART:20260915T170000
-DTEND:20260915T190000
+DTSTART;TZID=America/Detroit:20260915T170000
+DTEND;TZID=America/Detroit:20260915T190000
 SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ECC-2026-09-16@kalamazoocity-boards
-DTSTART:20260916T163000
-DTEND:20260916T183000
+DTSTART;TZID=America/Detroit:20260916T163000
+DTEND;TZID=America/Detroit:20260916T183000
 SUMMARY:Environmental Concerns Committee — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:BRA-2026-09-17@kalamazoocity-boards
-DTSTART:20260917T074500
-DTEND:20260917T094500
+DTSTART;TZID=America/Detroit:20260917T074500
+DTEND;TZID=America/Detroit:20260917T094500
 SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-09-17@kalamazoocity-boards
-DTSTART:20260917T074500
-DTEND:20260917T094500
+DTSTART;TZID=America/Detroit:20260917T074500
+DTEND;TZID=America/Detroit:20260917T094500
 SUMMARY:Economic Development Corporation — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-09-17@kalamazoocity-boards
-DTSTART:20260917T120000
-DTEND:20260917T140000
+DTSTART;TZID=America/Detroit:20260917T120000
+DTEND;TZID=America/Detroit:20260917T140000
 SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
 LOCATION:Milham Park Golf Club, Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:BBA-2026-09-17@kalamazoocity-boards
-DTSTART:20260917T160000
-DTEND:20260917T180000
+DTSTART;TZID=America/Detroit:20260917T160000
+DTEND;TZID=America/Detroit:20260917T180000
 SUMMARY:Building Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NCBDA-2026-09-17@kalamazoocity-boards
-DTSTART:20260917T180000
-DTEND:20260917T200000
+DTSTART;TZID=America/Detroit:20260917T180000
+DTEND;TZID=America/Detroit:20260917T200000
 SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
 LOCATION:Northside Association for Community Development, 612 N Park St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-09-21@kalamazoocity-boards
-DTSTART:20260921T150000
-DTEND:20260921T170000
+DTSTART;TZID=America/Detroit:20260921T150000
+DTEND;TZID=America/Detroit:20260921T170000
 SUMMARY:Downtown Development Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-09-21@kalamazoocity-boards
-DTSTART:20260921T150000
-DTEND:20260921T170000
+DTSTART;TZID=America/Detroit:20260921T150000
+DTEND;TZID=America/Detroit:20260921T170000
 SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NFP-2026-09-22@kalamazoocity-boards
-DTSTART:20260922T160000
-DTEND:20260922T180000
+DTSTART;TZID=America/Detroit:20260922T160000
+DTEND;TZID=America/Detroit:20260922T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CDAAC-2026-09-24@kalamazoocity-boards
-DTSTART:20260924T173000
-DTEND:20260924T193000
+DTSTART;TZID=America/Detroit:20260924T173000
+DTEND;TZID=America/Detroit:20260924T193000
 SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
 LOCATION:Community Room, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PC-2026-10-01@kalamazoocity-boards
-DTSTART:20261001T190000
-DTEND:20261001T210000
+DTSTART;TZID=America/Detroit:20261001T190000
+DTEND;TZID=America/Detroit:20261001T210000
 SUMMARY:Planning Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-10-06@kalamazoocity-boards
-DTSTART:20261006T173000
-DTEND:20261006T193000
+DTSTART;TZID=America/Detroit:20261006T173000
+DTEND;TZID=America/Detroit:20261006T193000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:TRE-2026-10-06@kalamazoocity-boards
-DTSTART:20261006T140000
-DTEND:20261006T160000
+DTSTART;TZID=America/Detroit:20261006T140000
+DTEND;TZID=America/Detroit:20261006T160000
 SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:CRB-2026-10-07@kalamazoocity-boards
-DTSTART:20261007T170000
-DTEND:20261007T190000
+DTSTART;TZID=America/Detroit:20261007T170000
+DTEND;TZID=America/Detroit:20261007T190000
 SUMMARY:Civil Rights Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:EC-2026-10-08@kalamazoocity-boards
-DTSTART:20261008T090000
-DTEND:20261008T110000
+DTSTART;TZID=America/Detroit:20261008T090000
+DTEND;TZID=America/Detroit:20261008T110000
 SUMMARY:Election Commission — City of Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:ZBA-2026-10-08@kalamazoocity-boards
-DTSTART:20261008T190000
-DTEND:20261008T210000
+DTSTART;TZID=America/Detroit:20261008T190000
+DTEND;TZID=America/Detroit:20261008T210000
 SUMMARY:Zoning Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-10-13@kalamazoocity-boards
-DTSTART:20261013T180000
-DTEND:20261013T200000
+DTSTART;TZID=America/Detroit:20261013T180000
+DTEND;TZID=America/Detroit:20261013T200000
 SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-10-14@kalamazoocity-boards
-DTSTART:20261014T180000
-DTEND:20261014T200000
+DTSTART;TZID=America/Detroit:20261014T180000
+DTEND;TZID=America/Detroit:20261014T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:BRA-2026-10-15@kalamazoocity-boards
-DTSTART:20261015T074500
-DTEND:20261015T094500
+DTSTART;TZID=America/Detroit:20261015T074500
+DTEND;TZID=America/Detroit:20261015T094500
 SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-10-15@kalamazoocity-boards
-DTSTART:20261015T074500
-DTEND:20261015T094500
+DTSTART;TZID=America/Detroit:20261015T074500
+DTEND;TZID=America/Detroit:20261015T094500
 SUMMARY:Economic Development Corporation — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-10-15@kalamazoocity-boards
-DTSTART:20261015T120000
-DTEND:20261015T140000
+DTSTART;TZID=America/Detroit:20261015T120000
+DTEND;TZID=America/Detroit:20261015T140000
 SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
 LOCATION:Eastern Hills Golf Club, Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:BBA-2026-10-15@kalamazoocity-boards
-DTSTART:20261015T160000
-DTEND:20261015T180000
+DTSTART;TZID=America/Detroit:20261015T160000
+DTEND;TZID=America/Detroit:20261015T180000
 SUMMARY:Building Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NCBDA-2026-10-15@kalamazoocity-boards
-DTSTART:20261015T180000
-DTEND:20261015T200000
+DTSTART;TZID=America/Detroit:20261015T180000
+DTEND;TZID=America/Detroit:20261015T200000
 SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
 LOCATION:Northside Association for Community Development, 612 N Park St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-10-19@kalamazoocity-boards
-DTSTART:20261019T150000
-DTEND:20261019T170000
+DTSTART;TZID=America/Detroit:20261019T150000
+DTEND;TZID=America/Detroit:20261019T170000
 SUMMARY:Downtown Development Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-10-19@kalamazoocity-boards
-DTSTART:20261019T150000
-DTEND:20261019T170000
+DTSTART;TZID=America/Detroit:20261019T150000
+DTEND;TZID=America/Detroit:20261019T170000
 SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HDC-2026-10-20@kalamazoocity-boards
-DTSTART:20261020T170000
-DTEND:20261020T190000
+DTSTART;TZID=America/Detroit:20261020T170000
+DTEND;TZID=America/Detroit:20261020T190000
 SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ECC-2026-10-21@kalamazoocity-boards
-DTSTART:20261021T163000
-DTEND:20261021T183000
+DTSTART;TZID=America/Detroit:20261021T163000
+DTEND;TZID=America/Detroit:20261021T183000
 SUMMARY:Environmental Concerns Committee — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CDAAC-2026-10-22@kalamazoocity-boards
-DTSTART:20261022T173000
-DTEND:20261022T193000
+DTSTART;TZID=America/Detroit:20261022T173000
+DTEND;TZID=America/Detroit:20261022T193000
 SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
 LOCATION:Community Room, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NFP-2026-10-27@kalamazoocity-boards
-DTSTART:20261027T160000
-DTEND:20261027T180000
+DTSTART;TZID=America/Detroit:20261027T160000
+DTEND;TZID=America/Detroit:20261027T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:TRE-2026-11-03@kalamazoocity-boards
-DTSTART:20261103T140000
-DTEND:20261103T160000
+DTSTART;TZID=America/Detroit:20261103T140000
+DTEND;TZID=America/Detroit:20261103T160000
 SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:PC-2026-11-05@kalamazoocity-boards
-DTSTART:20261105T190000
-DTEND:20261105T210000
+DTSTART;TZID=America/Detroit:20261105T190000
+DTEND;TZID=America/Detroit:20261105T210000
 SUMMARY:Planning Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:SPK-2026-11-09@kalamazoocity-boards
-DTSTART:20261109T123000
-DTEND:20261109T143000
+DTSTART;TZID=America/Detroit:20261109T123000
+DTEND;TZID=America/Detroit:20261109T143000
 SUMMARY:SPK Organizing Committee — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-11-10@kalamazoocity-boards
-DTSTART:20261110T180000
-DTEND:20261110T200000
+DTSTART;TZID=America/Detroit:20261110T180000
+DTEND;TZID=America/Detroit:20261110T200000
 SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-11-10@kalamazoocity-boards
-DTSTART:20261110T173000
-DTEND:20261110T193000
+DTSTART;TZID=America/Detroit:20261110T173000
+DTEND;TZID=America/Detroit:20261110T193000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-11-11@kalamazoocity-boards
-DTSTART:20261111T180000
-DTEND:20261111T200000
+DTSTART;TZID=America/Detroit:20261111T180000
+DTEND;TZID=America/Detroit:20261111T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ZBA-2026-11-12@kalamazoocity-boards
-DTSTART:20261112T190000
-DTEND:20261112T210000
+DTSTART;TZID=America/Detroit:20261112T190000
+DTEND;TZID=America/Detroit:20261112T210000
 SUMMARY:Zoning Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-11-19@kalamazoocity-boards
-DTSTART:20261119T120000
-DTEND:20261119T140000
+DTSTART;TZID=America/Detroit:20261119T120000
+DTEND;TZID=America/Detroit:20261119T140000
 SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
 LOCATION:Eastern Hills Golf Club, Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:BBA-2026-11-19@kalamazoocity-boards
-DTSTART:20261119T160000
-DTEND:20261119T180000
+DTSTART;TZID=America/Detroit:20261119T160000
+DTEND;TZID=America/Detroit:20261119T180000
 SUMMARY:Building Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CDAAC-2026-11-19@kalamazoocity-boards
-DTSTART:20261119T173000
-DTEND:20261119T193000
+DTSTART;TZID=America/Detroit:20261119T173000
+DTEND;TZID=America/Detroit:20261119T193000
 SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
 LOCATION:Community Room, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:TRE-2026-12-01@kalamazoocity-boards
-DTSTART:20261201T140000
-DTEND:20261201T160000
+DTSTART;TZID=America/Detroit:20261201T140000
+DTEND;TZID=America/Detroit:20261201T160000
 SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:RIC-2026-12-02@kalamazoocity-boards
-DTSTART:20261202T110000
-DTEND:20261202T130000
+DTSTART;TZID=America/Detroit:20261202T110000
+DTEND;TZID=America/Detroit:20261202T130000
 SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
 LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-12-08@kalamazoocity-boards
-DTSTART:20261208T173000
-DTEND:20261208T193000
+DTSTART;TZID=America/Detroit:20261208T173000
+DTEND;TZID=America/Detroit:20261208T193000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:PB-2026-12-09@kalamazoocity-boards
-DTSTART:20261209T080000
-DTEND:20261209T100000
+DTSTART;TZID=America/Detroit:20261209T080000
+DTEND;TZID=America/Detroit:20261209T100000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-12-17@kalamazoocity-boards
-DTSTART:20261217T120000
-DTEND:20261217T140000
+DTSTART;TZID=America/Detroit:20261217T120000
+DTEND;TZID=America/Detroit:20261217T140000
 SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
 LOCATION:Eastern Hills Golf Club, Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:BBA-2026-12-17@kalamazoocity-boards
-DTSTART:20261217T160000
-DTEND:20261217T180000
+DTSTART;TZID=America/Detroit:20261217T160000
+DTEND;TZID=America/Detroit:20261217T180000
 SUMMARY:Building Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
