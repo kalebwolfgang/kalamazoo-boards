@@ -1198,8 +1198,8 @@ def write_ics_event(m: dict) -> str:
     if is_all_day:
         lines.append(f"DTSTART;VALUE=DATE:{dtstart}")
     else:
-        lines.append(f"DTSTART:{dtstart}")
-        lines.append(f"DTEND:{dtend}")
+        lines.append(f"DTSTART;TZID=America/Detroit:{dtstart}")
+        lines.append(f"DTEND;TZID=America/Detroit:{dtend}")
         
     lines.append(f"SUMMARY:{m['name']} — City of Kalamazoo")
     
