@@ -21,13 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:HDC-2026-05-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260519T170000
-DTEND;TZID=America/Detroit:20260519T190000
-SUMMARY:Historic District Commission — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:HDC-2026-06-16@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260616T170000
 DTEND;TZID=America/Detroit:20260616T190000
@@ -59,6 +52,13 @@ BEGIN:VEVENT
 UID:HDC-2026-10-20@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261020T170000
 DTEND;TZID=America/Detroit:20261020T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HDC-2026-11-17@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261117T170000
+DTEND;TZID=America/Detroit:20261117T190000
 SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT

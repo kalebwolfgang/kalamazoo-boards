@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-19",
+  "last_updated": "2026-05-20",
   "meetings": [
     {
       "date": "2026-05-11",
@@ -8,22 +8,6 @@
       "location": "City Hall, 241 W South St",
       "abbr": "SPK",
       "name": "SPK Organizing Committee"
-    },
-    {
-      "date": "2026-05-19",
-      "display": "Tuesday, May 19, 2026",
-      "time": "5:00 PM – 7:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
-      "abbr": "HDC",
-      "name": "Historic District Commission"
-    },
-    {
-      "date": "2026-05-20",
-      "display": "Wednesday, May 20, 2026",
-      "time": "4:30 PM – 6:30 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
-      "abbr": "ECC",
-      "name": "Environmental Concerns Committee"
     },
     {
       "date": "2026-05-21",
@@ -864,6 +848,14 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
+    },
+    {
+      "date": "2026-11-17",
+      "display": "Tuesday, November 17, 2026",
+      "time": "5:00 PM – 7:00 PM",
+      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "abbr": "HDC",
+      "name": "Historic District Commission"
     },
     {
       "date": "2026-11-19",

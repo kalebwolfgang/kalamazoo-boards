@@ -28,20 +28,6 @@ SUMMARY:SPK Organizing Committee — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
-UID:HDC-2026-05-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260519T170000
-DTEND;TZID=America/Detroit:20260519T190000
-SUMMARY:Historic District Commission — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:ECC-2026-05-20@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260520T163000
-DTEND;TZID=America/Detroit:20260520T183000
-SUMMARY:Environmental Concerns Committee — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:BRA-2026-05-21@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260521T074500
 DTEND;TZID=America/Detroit:20260521T094500
@@ -772,6 +758,13 @@ DTSTART;TZID=America/Detroit:20261112T190000
 DTEND;TZID=America/Detroit:20261112T210000
 SUMMARY:Zoning Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HDC-2026-11-17@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261117T170000
+DTEND;TZID=America/Detroit:20261117T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-11-19@kalamazoocity-boards
