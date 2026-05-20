@@ -445,12 +445,6 @@ footer a:hover { color: var(--gold-lt); }
       <h1>Meeting Calendar</h1>
       <p>Upcoming public meetings across all City of Kalamazoo boards and commissions. Click any day or meeting to see details.</p>
     </div>
-    <div class="page-header-meta">
-      <div class="phm-stat">
-        <div class="phm-stat-num" id="stat-month-count">—</div>
-        <div class="phm-stat-lbl">This Month</div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -842,7 +836,6 @@ footer a:hover { color: var(--gold-lt); }
     document.getElementById('btn-next').disabled = viewing >= maxAllowed;
 
     const monthCount = countInMonth(currentYear, currentMonth);
-    document.getElementById('stat-month-count').textContent = monthCount;
 
     const firstDow     = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth  = new Date(currentYear, currentMonth+1, 0).getDate();
