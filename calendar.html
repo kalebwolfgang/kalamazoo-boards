@@ -97,18 +97,36 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-main    { flex: 1; min-width: 0; }
 
 /* ── Controls ── */
-.cal-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
-.cal-nav-group { display: flex; align-items: center; gap: 9px; }
-.cal-month-year { font-family: 'Playfair Display', serif; font-size: clamp(20px,3vw,28px); font-weight: 600; color: var(--navy); min-width: 190px; }
-.cal-nav-btn { background: var(--white); border: 1px solid var(--border); border-radius: 2px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--navy); transition: background 0.15s, border-color 0.15s; flex-shrink: 0; }
-.cal-nav-btn:hover:not(:disabled) { background: var(--cream-dk); border-color: var(--navy); }
-.cal-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-.cal-today-btn { background: none; border: 1px solid var(--border); border-radius: 2px; padding: 5px 12px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--muted); cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; white-space: nowrap; }
-.cal-today-btn:hover { background: var(--cream-dk); color: var(--navy); border-color: var(--navy); }
-.cal-count { margin-left: auto; font-size: 13px; color: var(--muted); white-space: nowrap; }
+.cal-controls {
+  display: flex; align-items: center; justify-content: center;
+  gap: 20px; margin-bottom: 10px;
+}
+.cal-month-year {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 600; color: var(--navy);
+  text-align: center; min-width: 220px; line-height: 1;
+}
+.cal-nav-btn {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 50%; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--navy); flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.cal-nav-btn:hover:not(:disabled) {
+  background: var(--cream-dk); border-color: var(--navy);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.cal-nav-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+.cal-subcontrols {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.cal-count { font-size: 13px; color: var(--muted); text-align: center; }
 .cal-count strong { color: var(--navy); font-weight: 600; }
 
-/* Mobile filter button */
+/* Mobile filter button — shown only on mobile via cal-subcontrols */
 .cal-filter-btn-mobile {
   display: none; align-items: center; gap: 6px;
   background: var(--white); border: 1.5px solid var(--border); border-radius: 20px;
@@ -289,7 +307,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .board-item--engaged { background: rgba(45,107,74,0.055); border-left-color: var(--green); }
 .board-item--engaged:hover { background: rgba(45,107,74,0.10); }
 .board-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
-.board-abbr { font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: 0.03em; width: 62px; flex-shrink: 0; }
+.board-abbr { font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: 0.03em; width: 82px; flex-shrink: 0; }
 .board-name { font-size: 18px; color: var(--muted); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.3; }
 .board-item--engaged .board-name { color: var(--body); }
 .board-action { color: var(--border); flex-shrink: 0; line-height: 1; transition: color 0.1s; display: flex; align-items: center; }
@@ -466,23 +484,25 @@ footer a:hover { color: var(--gold-lt); }
 
     <!-- Main calendar (RIGHT) -->
     <div class="cal-main">
+      <!-- Centered month navigation -->
       <div class="cal-controls">
-        <div class="cal-nav-group">
-          <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <span class="cal-month-year" id="cal-month-year">Loading…</span>
-          <button class="cal-nav-btn" id="btn-next" aria-label="Next month">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-          <button class="cal-today-btn" id="btn-today">Today</button>
-        </div>
+        <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="cal-month-year" id="cal-month-year">Loading…</span>
+        <button class="cal-nav-btn" id="btn-next" aria-label="Next month">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Count + mobile filter -->
+      <div class="cal-subcontrols">
+        <span class="cal-count" id="cal-count"></span>
         <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter by board">
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
           Filter
           <span class="filter-mobile-badge" id="filter-mobile-badge"></span>
         </button>
-        <span class="cal-count" id="cal-count"></span>
       </div>
 
       <div class="cal-state-wrap" id="cal-loading">
@@ -553,11 +573,31 @@ footer a:hover { color: var(--gold-lt); }
   const LIVESTREAM_BOARDS = new Set(['CPSRAB','CRB','ECC','HDC','HPC','NFP','PC','ZBA']);
 
   const BOARD_PALETTE = [
-    '#b5821a','#2d6b4a','#b5522a','#2d5a8a','#7b3f6e',
-    '#3a7a8a','#7a5210','#6b4a2d','#4a7a2a','#8a3a5a',
-    '#1a5a8a','#8a2a2a','#3d5280','#5a7a1a','#7a4a10',
-    '#1a7a5a','#6a2a8a','#2a4a6a','#6a2a4a','#3a6a2a',
-    '#8a2a6a','#1a5a6a','#4a2a6a','#6a5a1a','#5a2a3a',
+    '#3a5e7a',  // BBA   - slate blue (building/concrete)
+    '#6a5038',  // BOR   - warm brown (property assessment)
+    '#5a6a2a',  // BRA   - olive green (brownfield → reclamation)
+    '#5a2a7a',  // CDAAC - community purple
+    '#1a3a6a',  // CPSRAB- deep navy (public safety oversight)
+    '#8a2020',  // CRB   - justice red (civil rights)
+    '#b07a14',  // DDA   - downtown gold (prosperity)
+    '#8a6010',  // DEGA  - growth amber (economic expansion)
+    '#2a3a8a',  // EC    - democracy blue (elections)
+    '#2d6b4a',  // ECC   - forest green (environment)
+    '#1a6a5a',  // EDC   - prosperity teal (economic development)
+    '#8a4a28',  // HDC   - brick terracotta (historic architecture)
+    '#6e3020',  // HPC   - preservation clay (older, deeper)
+    '#4a7a28',  // KMGA  - fairway green (golf)
+    '#4a3a58',  // LOCC  - governance slate purple
+    '#7a2a6a',  // NCBDA - cultural magenta (arts & culture)
+    '#1a5e35',  // NFP   - deep emerald (natural features)
+    '#1a2a60',  // PB    - midnight navy (pension/long-term trust)
+    '#1e4a7a',  // PC    - blueprint blue (planning)
+    '#3d7a3a',  // PRAB  - parks green (recreation)
+    '#2a5a7a',  // RIC   - investment blue-teal (finance)
+    '#b83a1a',  // SPK   - shared prosperity orange-red (energy/warmth)
+    '#7a4a10',  // TRB   - traffic amber (roads)
+    '#234d28',  // TRE   - deep forest (trees)
+    '#4a6a8a',  // ZBA   - zoning steel blue (appeals)
   ];
 
   // All 25 boards — permanent, alphabetical by abbreviation
@@ -801,7 +841,7 @@ footer a:hover { color: var(--gold-lt); }
 
   /* MONTH VIEW */
   function renderMonthView() {
-    document.getElementById('cal-month-year').textContent = `${MONTHS[currentMonth]} ${currentYear}`;
+    document.getElementById('cal-month-year').textContent = MONTHS[currentMonth];
 
     const minAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth()-1, 1);
     const maxAllowed = new Date(TODAY.getFullYear(), TODAY.getMonth()+2, 1);
@@ -1050,7 +1090,6 @@ footer a:hover { color: var(--gold-lt); }
   /* NAVIGATION */
   document.getElementById('btn-prev').addEventListener('click', () => { if (--currentMonth<0) { currentMonth=11; currentYear--; } render(); });
   document.getElementById('btn-next').addEventListener('click', () => { if (++currentMonth>11) { currentMonth=0; currentYear++; } render(); });
-  document.getElementById('btn-today').addEventListener('click', () => { currentYear=TODAY.getFullYear(); currentMonth=TODAY.getMonth(); render(); });
   document.getElementById('modal-close').addEventListener('click', closePopup);
   document.getElementById('bs-close').addEventListener('click', closePopup);
   document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target===document.getElementById('modal-overlay')) closePopup(); });
