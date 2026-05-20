@@ -450,10 +450,6 @@ footer a:hover { color: var(--gold-lt); }
         <div class="phm-stat-num" id="stat-month-count">—</div>
         <div class="phm-stat-lbl">This Month</div>
       </div>
-      <div class="phm-stat">
-        <div class="phm-stat-num" id="stat-total-count">—</div>
-        <div class="phm-stat-lbl">Total Upcoming</div>
-      </div>
     </div>
   </div>
 </div>
@@ -685,7 +681,6 @@ footer a:hover { color: var(--gold-lt); }
       dataLoaded = true;
       document.getElementById('cal-loading').style.display = 'none';
       document.getElementById('view-month').style.display  = 'block';
-      document.getElementById('stat-total-count').textContent = totalUpcoming;
       renderSidebar();
       render();
     } catch(err) {
@@ -848,13 +843,6 @@ footer a:hover { color: var(--gold-lt); }
 
     const monthCount = countInMonth(currentYear, currentMonth);
     document.getElementById('stat-month-count').textContent = monthCount;
-
-    if (activeFilters.size > 0) {
-      document.getElementById('stat-total-count').textContent =
-        Object.keys(meetingsByDate).reduce((s,ds) => s + getMeetingsForDate(ds).length, 0);
-    } else {
-      document.getElementById('stat-total-count').textContent = totalUpcoming;
-    }
 
     const firstDow     = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth  = new Date(currentYear, currentMonth+1, 0).getDate();
