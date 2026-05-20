@@ -338,7 +338,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-detail-row { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--body); margin-bottom: 4px; line-height: 1.4; }
 .modal-detail-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
 .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 14px; }
-.modal-actions.no-stream .modal-action-btn:last-child { grid-column: 1 / -1; }
+.modal-actions.has-stream .modal-action-btn:last-child { grid-column: 1 / -1; }
 .modal-action-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; font-size: 12px; font-weight: 600; padding: 9px 12px; border-radius: 3px; border: 1px solid var(--border); cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.15s, border-color 0.15s; text-decoration: none; }
 .modal-action-btn-row { display: flex; align-items: center; gap: 5px; }
 .modal-action-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.01em; opacity: 0.75; }
@@ -947,18 +947,9 @@ footer a:hover { color: var(--gold-lt); }
     const isMobile  = window.innerWidth < 640;
     const isIOS     = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const isMac     = /Macintosh/.test(navigator.userAgent);
-    const useWebcal = isIOS || isMac;
 
     return meetings.map(m => {
-      const color    = getBoardColor(m.abbr);
-      const feedSlug = m.abbr.toLowerCase();
-      const webcalUrl       = `webcal://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${feedSlug}.ics`;
-      const gcalSubscribeUrl = `https://calendar.google.com/calendar/render?cid=https%3A%2F%2Fkalebwolfgang.github.io%2Fkalamazoo-boards%2Fdata%2Fics%2F${feedSlug}.ics`;
-      const followUrl    = useWebcal ? webcalUrl : gcalSubscribeUrl;
-      const followTarget = useWebcal ? '' : 'target="_blank" rel="noopener"';
-      const followSub    = useWebcal ? 'Opens Apple Calendar' : 'Via Google Calendar';
-      const addCalSub    = useWebcal ? 'Downloads to Apple Calendar' : 'Opens Google Calendar';
-
+      const color     = getBoardColor(m.abbr);
       const hasStream = LIVESTREAM_BOARDS.has(m.abbr);
 
       return `<div class="modal-meeting" style="border-left-color:${color}">
@@ -970,7 +961,7 @@ footer a:hover { color: var(--gold-lt); }
           </div>
         </div>
         ${m.location ? `<div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>` : ''}
-        <div class="modal-actions${hasStream ? '' : ' no-stream'}">
+        <div class="modal-actions${hasStream ? ' has-stream' : ''}">
           ${hasStream ? `<a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
             <span class="modal-action-btn-row">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1-.8-2.2-.8-2.7-.9C16.9 2.5 12 2.5 12 2.5s-4.9 0-7.7.2c-.5.1-1.7.1-2.7.9C.8 4.3.5 6.2.5 6.2S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1 .8 2.4.8 3 .9C6.8 21 12 21 12 21s4.9 0 7.7-.3c.5-.1 1.7-.1 2.7-.9.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.8V8.9l7.3 3-7.3 2.9z"/></svg>
@@ -990,15 +981,8 @@ footer a:hover { color: var(--gold-lt); }
               <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
               Add to Calendar
             </span>
-            <span class="modal-action-sub">${addCalSub}</span>
+            <span class="modal-action-sub">This meeting only</span>
           </button>
-          <a class="modal-action-btn follow" href="${followUrl}" ${followTarget}>
-            <span class="modal-action-btn-row">
-              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-              Follow ${m.abbr}
-            </span>
-            <span class="modal-action-sub">All meetings, auto-updates</span>
-          </a>
         </div>
       </div>`;
     }).join('');
