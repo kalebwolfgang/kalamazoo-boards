@@ -463,6 +463,27 @@ footer a:hover { color: var(--gold-lt); }
 </div>
 
 <div class="cal-wrap">
+      <!-- Centered month navigation — above both columns -->
+      <div class="cal-controls">
+        <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="cal-month-year" id="cal-month-year">Loading…</span>
+        <button class="cal-nav-btn" id="btn-next" aria-label="Next month">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Count + mobile filter -->
+      <div class="cal-subcontrols">
+        <span class="cal-count" id="cal-count"></span>
+        <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter by board">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+          Filter
+          <span class="filter-mobile-badge" id="filter-mobile-badge"></span>
+        </button>
+      </div>
+
   <div class="cal-layout">
 
     <!-- Filter Sidebar (LEFT) -->
@@ -484,26 +505,6 @@ footer a:hover { color: var(--gold-lt); }
 
     <!-- Main calendar (RIGHT) -->
     <div class="cal-main">
-      <!-- Centered month navigation -->
-      <div class="cal-controls">
-        <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <span class="cal-month-year" id="cal-month-year">Loading…</span>
-        <button class="cal-nav-btn" id="btn-next" aria-label="Next month">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-
-      <!-- Count + mobile filter -->
-      <div class="cal-subcontrols">
-        <span class="cal-count" id="cal-count"></span>
-        <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter by board">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-          Filter
-          <span class="filter-mobile-badge" id="filter-mobile-badge"></span>
-        </button>
-      </div>
 
       <div class="cal-state-wrap" id="cal-loading">
         <div class="cal-spinner"></div>
