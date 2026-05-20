@@ -458,16 +458,6 @@ footer a:hover { color: var(--gold-lt); }
 </div>
 
 <div class="cal-wrap">
-      <!-- Centered month navigation — above both columns -->
-      <div class="cal-controls">
-        <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <span class="cal-month-year" id="cal-month-year">Loading…</span>
-        <button class="cal-nav-btn" id="btn-next" aria-label="Next month">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
 
       <!-- Count + mobile filter -->
 
@@ -492,6 +482,17 @@ footer a:hover { color: var(--gold-lt); }
 
     <!-- Main calendar (RIGHT) -->
     <div class="cal-main">
+
+      <!-- Centered month navigation — over calendar grid -->
+      <div class="cal-controls">
+        <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="cal-month-year" id="cal-month-year">Loading…</span>
+        <button class="cal-nav-btn" id="btn-next" aria-label="Next month">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
 
       <!-- Mobile filter — top-left of calendar, hidden on desktop -->
       <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter by board">
