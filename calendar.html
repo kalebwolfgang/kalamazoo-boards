@@ -340,6 +340,16 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-meeting-sub { font-size: 12px; color: var(--muted); }
 .modal-detail-row { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--body); margin-bottom: 4px; line-height: 1.4; }
 .modal-detail-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+.modal-board-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 12px; font-weight: 500; color: var(--navy-mid);
+  text-decoration: none; margin-top: 10px; margin-bottom: 2px;
+  border-bottom: 1px solid rgba(26,122,151,0.3); padding-bottom: 1px;
+  transition: color 0.12s, border-color 0.12s;
+}
+.modal-board-link:hover { color: var(--navy); border-bottom-color: var(--navy); }
+.modal-board-link svg { transition: transform 0.12s; }
+.modal-board-link:hover svg { transform: translateX(2px); }
 .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 14px; }
 .modal-actions.has-stream .modal-action-btn:last-child { grid-column: 1 / -1; }
 .modal-action-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; font-size: 12px; font-weight: 600; padding: 9px 12px; border-radius: 3px; border: 1px solid var(--border); cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.15s, border-color 0.15s; text-decoration: none; }
@@ -353,18 +363,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-action-btn.addcal:hover { background: rgba(13,79,99,0.12); border-color: var(--navy); }
 .modal-action-btn.follow { background: rgba(45,107,74,0.07); color: var(--green); border-color: rgba(45,107,74,0.25); }
 .modal-action-btn.follow:hover { background: rgba(45,107,74,0.14); border-color: var(--green); }
-.cal-popover { position: fixed; background: var(--white); border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); z-index: 700; min-width: 260px; overflow: hidden; }
-.cal-popover-option { display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: 13px; font-weight: 500; color: var(--body); text-decoration: none; border: none; background: none; cursor: pointer; width: 100%; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.1s; text-align: left; line-height: 1.3; }
-.cal-popover-option:hover { background: rgba(0,0,0,0.04); color: var(--navy); }
-.cal-popover-icon { font-size: 15px; flex-shrink: 0; width: 20px; text-align: center; }
-.cal-popover-section-hd { padding: 10px 14px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
-.cal-popover-section--subscribe { background: var(--green-bg); border-top: 2px solid rgba(45,107,74,0.2); }
-.cal-popover-section--subscribe .cal-popover-section-hd { color: var(--green); }
-.cal-popover-section--subscribe .cal-popover-option { color: var(--body); }
-.cal-popover-section--subscribe .cal-popover-option:hover { background: rgba(45,107,74,0.1); color: var(--green); }
-.cal-popover-divider { height: 1px; background: var(--border-lt); margin: 2px 0; }
-.cal-popover-option--subscribe { align-items: flex-start; }
-.cal-popover-sub { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.4; font-weight: 400; }
 .cal-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--navy); color: white; padding: 10px 18px; border-radius: 3px; font-size: 13px; font-weight: 500; z-index: 800; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; white-space: nowrap; }
 .cal-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
@@ -759,6 +757,12 @@ footer a:hover { color: var(--gold-lt); }
 
   /* Sidebar collapse toggle */
   document.getElementById('sidebar-toggle').addEventListener('click', () => {
+    // On mobile: close the drawer entirely
+    if (document.getElementById('cal-sidebar').classList.contains('mobile-open')) {
+      closeMobileSidebar();
+      return;
+    }
+    // On desktop: collapse/expand the board list
     sidebarOpen = !sidebarOpen;
     document.getElementById('sidebar-body').classList.toggle('is-collapsed', !sidebarOpen);
     document.getElementById('sidebar-chevron').classList.toggle('is-collapsed', !sidebarOpen);
@@ -923,19 +927,6 @@ footer a:hover { color: var(--gold-lt); }
     return `https://calendar.google.com/calendar/render?${params.toString()}`;
   }
 
-  function buildOutlookUrl(m) {
-    const mins = parseTimeToMinutes(m.time);
-    let startdt, enddt;
-    if (mins !== null) {
-      const endMins = getEndMins(m.time, mins);
-      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
-      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
-      startdt = `${m.date}T${sh}:${sm}:00`; enddt = `${m.date}T${eh}:${em}:00`;
-    } else { startdt = enddt = m.date; }
-    const params = new URLSearchParams({ rru:'addevent', subject:`${m.name} — City of Kalamazoo`, startdt, enddt, location:m.location||'', body:`Public meeting of the ${m.name}.` });
-    return `https://outlook.live.com/calendar/0/action/compose?${params}`;
-  }
-
   function generateICSContent(m) {
     const dateRaw = m.date.replace(/-/g,'');
     const mins    = parseTimeToMinutes(m.time);
@@ -980,6 +971,10 @@ footer a:hover { color: var(--gold-lt); }
           </div>
         </div>
         ${m.location ? `<div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>` : ''}
+        <a class="modal-board-link" href="${m.detailPage}">
+          ${m.name} board page
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
         <div class="modal-actions${hasStream ? ' has-stream' : ''}">
           ${hasStream ? `<a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
             <span class="modal-action-btn-row">
@@ -1058,94 +1053,6 @@ footer a:hover { color: var(--gold-lt); }
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     if (isIOS) { downloadICS(m); }
     else { window.open(buildGCalUrl(m), '_blank'); }
-  };
-
-  /* POPOVERS */
-  window.calShowCalPopover = function(dateStr, abbr, btn) {
-    document.querySelectorAll('.cal-popover').forEach(el => el.remove());
-    const meetings = meetingsByDate[dateStr] || [];
-    const m = meetings.find(x => x.abbr === abbr) || meetings[0];
-    if (!m) return;
-
-    const gcalUrl          = buildGCalUrl(m);
-    const outlookUrl       = buildOutlookUrl(m);
-    const webcalUrl        = `webcal://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${m.abbr.toLowerCase()}.ics`;
-    const feedUrl          = `https://kalebwolfgang.github.io/kalamazoo-boards/data/ics/${m.abbr.toLowerCase()}.ics`;
-    const gcalSubscribeUrl = `https://calendar.google.com/calendar/render?cid=${encodeURIComponent(feedUrl)}`;
-
-    const pop = document.createElement('div');
-    pop.className = 'cal-popover';
-    const rect = btn.getBoundingClientRect();
-    if (window.innerHeight - rect.bottom < 140) {
-      pop.style.bottom = `${window.innerHeight - rect.top + 6}px`;
-      pop.style.top    = 'auto';
-    } else {
-      pop.style.top = `${rect.bottom + 6}px`;
-    }
-    pop.style.left = `${Math.min(rect.left, window.innerWidth - 230)}px`;
-
-    const isMobile = window.innerWidth < 640;
-
-    pop.innerHTML = `
-      <div class="cal-popover-section-hd">This meeting only</div>
-      <a class="cal-popover-option" href="${gcalUrl}" target="_blank" rel="noopener">
-        <span class="cal-popover-icon" style="font-size:13px;font-weight:700;color:#4285F4">G</span>
-        <span>Google Calendar</span>
-      </a>
-      <a class="cal-popover-option" href="${outlookUrl}" target="_blank" rel="noopener">
-        <span class="cal-popover-icon" style="font-size:12px;font-weight:700;color:#0078D4">⊞</span>
-        <span>Outlook.com</span>
-      </a>
-      <button class="cal-popover-option" id="cal-pop-ics">
-        <span class="cal-popover-icon">📅</span>
-        <span>Apple / iCal / Other (.ics)</span>
-      </button>
-      <div class="cal-popover-section--subscribe">
-        <div class="cal-popover-section-hd">All ${m.abbr} meetings — ongoing</div>
-        <a class="cal-popover-option" href="${gcalSubscribeUrl}" target="_blank" rel="noopener">
-          <span class="cal-popover-icon" style="font-size:13px;font-weight:700;color:#4285F4">G</span>
-          <span>Subscribe via Google Calendar</span>
-        </a>
-        ${isMobile ? `<a class="cal-popover-option" href="${webcalUrl}">
-          <span class="cal-popover-icon">📱</span>
-          <span>Open in Calendar App</span>
-        </a>` : ''}
-        <button class="cal-popover-option" id="cal-pop-copy-feed">
-          <span class="cal-popover-icon">🔗</span>
-          <div>
-            <div>Copy feed URL</div>
-            <div class="cal-popover-sub">Paste into Outlook, Apple Calendar, or any calendar app</div>
-          </div>
-        </button>
-      </div>`;
-
-    document.body.appendChild(pop);
-
-    pop.querySelector('#cal-pop-ics').addEventListener('click', () => {
-      pop.remove();
-      downloadICS(m);
-    });
-
-    pop.querySelector('#cal-pop-copy-feed').addEventListener('click', () => {
-      pop.remove();
-      navigator.clipboard.writeText(feedUrl)
-        .then(() => showToast('Feed URL copied — paste into your calendar app'))
-        .catch(() => {
-          const ta = document.createElement('textarea');
-          ta.value = feedUrl; document.body.appendChild(ta); ta.select();
-          document.execCommand('copy'); document.body.removeChild(ta);
-          showToast('Feed URL copied — paste into your calendar app');
-        });
-    });
-
-    setTimeout(() => {
-      document.addEventListener('click', function h(e) {
-        if (!pop.contains(e.target) && e.target !== btn) {
-          pop.remove();
-          document.removeEventListener('click', h);
-        }
-      });
-    }, 0);
   };
 
   window.calShareMeeting = function(dateStr, abbr) {
