@@ -110,18 +110,19 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 
 /* Mobile filter button */
 .cal-filter-btn-mobile {
-  display: none; align-items: center; gap: 7px;
-  background: var(--green); border: none; border-radius: 3px;
-  padding: 7px 14px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px;
-  font-weight: 600; color: white; cursor: pointer; transition: background 0.15s;
+  display: none; align-items: center; gap: 6px;
+  background: var(--white); border: 1.5px solid var(--border); border-radius: 20px;
+  padding: 6px 14px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px;
+  font-weight: 600; color: var(--navy); cursor: pointer; transition: all 0.15s;
   white-space: nowrap; flex-shrink: 0; letter-spacing: 0.02em;
 }
-.cal-filter-btn-mobile:hover { background: var(--green-mid); }
-.cal-filter-btn-mobile.is-filtered { background: var(--gold); color: var(--navy); }
+.cal-filter-btn-mobile:hover { border-color: var(--navy); background: var(--cream); }
+.cal-filter-btn-mobile.is-filtered { background: var(--gold); border-color: var(--gold); color: var(--navy); }
 .filter-mobile-badge {
-  background: white; color: var(--green); font-size: 10px; font-weight: 700;
+  background: var(--navy); color: white; font-size: 10px; font-weight: 700;
   border-radius: 10px; padding: 1px 6px; display: none;
 }
+.cal-filter-btn-mobile.is-filtered .filter-mobile-badge { background: var(--navy); color: white; }
 
 /* ── Loading ── */
 .cal-state-wrap { background: var(--white); border: 1px solid var(--border); padding: 60px 20px; text-align: center; border-radius: 4px; }
@@ -228,7 +229,8 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 }
 .sidebar-toggle:hover { background: var(--cream-dk); }
 .sidebar-toggle-left { display: flex; align-items: center; gap: 7px; }
-.sidebar-toggle-label { font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--navy); }
+.sidebar-toggle-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
+.sidebar-toggle-hint { font-size: 11px; font-weight: 400; color: var(--muted); letter-spacing: 0; text-transform: none; }
 .sidebar-badge {
   background: var(--green); color: white;
   font-size: 10px; font-weight: 700; letter-spacing: 0.02em;
@@ -299,6 +301,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 @media (max-width: 860px) {
   .cal-sidebar { display: none; }
   .cal-filter-btn-mobile { display: flex; }
+  .sidebar-body { max-height: none; }
 
   .cal-sidebar.mobile-open {
     display: flex; position: fixed; right: 0; top: 0; bottom: 0;
@@ -451,7 +454,7 @@ footer a:hover { color: var(--gold-lt); }
       <button class="sidebar-toggle" id="sidebar-toggle" aria-expanded="true" aria-controls="sidebar-body">
         <span class="sidebar-toggle-left">
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-          <span class="sidebar-toggle-label">Boards</span>
+          <span class="sidebar-toggle-label">Filter by Board</span>
           <span class="sidebar-badge" id="sidebar-badge"></span>
         </span>
         <svg class="sidebar-chevron" id="sidebar-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -476,9 +479,9 @@ footer a:hover { color: var(--gold-lt); }
           </button>
           <button class="cal-today-btn" id="btn-today">Today</button>
         </div>
-        <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter boards">
+        <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter by board">
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-          Boards
+          Filter
           <span class="filter-mobile-badge" id="filter-mobile-badge"></span>
         </button>
         <span class="cal-count" id="cal-count"></span>
@@ -681,8 +684,8 @@ footer a:hover { color: var(--gold-lt); }
 
       // Engaged section
       html += `<div class="sb-section-hd sb-section-hd--engaged">
-        <span class="sb-section-hd-label">Showing</span>
-        <button class="sb-clear-btn" id="sb-clear">Clear</button>
+        <span class="sb-section-hd-label">Showing only</span>
+        <button class="sb-clear-btn" id="sb-clear">Clear all</button>
       </div>`;
       engaged.forEach(b => { html += buildBoardItem(b, true); });
 
@@ -698,6 +701,7 @@ footer a:hover { color: var(--gold-lt); }
       // All Boards option at top — shown as active (default)
       html += buildAllBoardsItem(true);
       html += `<div class="sb-divider"></div>`;
+      html += `<div class="sb-all-note">Tap a board below to filter the calendar to that board's meetings only.</div>`;
       html += `<div class="sb-section-hd">
         <span class="sb-section-hd-label">All Boards</span>
       </div>`;
@@ -892,13 +896,27 @@ footer a:hover { color: var(--gold-lt); }
     });
   }
 
+  // Parse actual end time from range strings like "5:00 PM – 7:00 PM"
+  // Falls back to startMins + 90 if no end time is present
+  function getEndMins(timeStr, startMins) {
+    if (timeStr) {
+      const parts = timeStr.split(/\u2013|\u2014|\s+-\s+/);
+      if (parts.length >= 2) {
+        const endMins = parseTimeToMinutes(parts[1].trim());
+        if (endMins !== null && endMins > startMins) return endMins;
+      }
+    }
+    return startMins + 90;
+  }
+
   function buildGCalUrl(m) {
     const dateRaw = m.date.replace(/-/g,'');
     const mins    = parseTimeToMinutes(m.time);
     let dates;
     if (mins!==null) {
-      const sh=String(Math.floor(mins/60)).padStart(2,'0'), sm=String(mins%60).padStart(2,'0');
-      const eh=String(Math.floor((mins+90)/60)).padStart(2,'0'), em=String((mins+90)%60).padStart(2,'0');
+      const endMins = getEndMins(m.time, mins);
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
       dates = `${dateRaw}T${sh}${sm}00/${dateRaw}T${eh}${em}00`;
     } else { dates = `${dateRaw}/${dateRaw}`; }
     const params = new URLSearchParams({action:'TEMPLATE',text:`${m.name} — City of Kalamazoo`,dates,details:`Public meeting of the ${m.name}. More info: ${window.location.origin}/${m.detailPage}`,location:m.location||''});
@@ -909,8 +927,9 @@ footer a:hover { color: var(--gold-lt); }
     const mins = parseTimeToMinutes(m.time);
     let startdt, enddt;
     if (mins !== null) {
-      const sh=String(Math.floor(mins/60)).padStart(2,'0'), sm=String(mins%60).padStart(2,'0');
-      const eh=String(Math.floor((mins+90)/60)).padStart(2,'0'), em=String((mins+90)%60).padStart(2,'0');
+      const endMins = getEndMins(m.time, mins);
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
       startdt = `${m.date}T${sh}:${sm}:00`; enddt = `${m.date}T${eh}:${em}:00`;
     } else { startdt = enddt = m.date; }
     const params = new URLSearchParams({ rru:'addevent', subject:`${m.name} — City of Kalamazoo`, startdt, enddt, location:m.location||'', body:`Public meeting of the ${m.name}.` });
@@ -922,8 +941,9 @@ footer a:hover { color: var(--gold-lt); }
     const mins    = parseTimeToMinutes(m.time);
     let dtStart, dtEnd;
     if (mins !== null) {
-      const sh=String(Math.floor(mins/60)).padStart(2,'0'), sm=String(mins%60).padStart(2,'0');
-      const eh=String(Math.floor((mins+90)/60)).padStart(2,'0'), em=String((mins+90)%60).padStart(2,'0');
+      const endMins = getEndMins(m.time, mins);
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
       dtStart=`${dateRaw}T${sh}${sm}00`; dtEnd=`${dateRaw}T${eh}${em}00`;
     } else { dtStart=dtEnd=dateRaw; }
     return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//City of Kalamazoo Boards & Commissions//EN',
@@ -946,7 +966,6 @@ footer a:hover { color: var(--gold-lt); }
   function buildMeetingHTML(meetings) {
     const isMobile  = window.innerWidth < 640;
     const isIOS     = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const isMac     = /Macintosh/.test(navigator.userAgent);
 
     return meetings.map(m => {
       const color     = getBoardColor(m.abbr);
@@ -1037,8 +1056,7 @@ footer a:hover { color: var(--gold-lt); }
     const m = meetings.find(x => x.abbr === abbr) || meetings[0];
     if (!m) return;
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const isMac = /Macintosh/.test(navigator.userAgent);
-    if (isIOS || isMac) { downloadICS(m); }
+    if (isIOS) { downloadICS(m); }
     else { window.open(buildGCalUrl(m), '_blank'); }
   };
 
