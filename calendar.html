@@ -99,7 +99,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 /* ── Controls ── */
 .cal-controls {
   display: flex; align-items: center; justify-content: center;
-  gap: 20px; margin-bottom: 10px;
+  gap: 20px; margin-bottom: 20px;
 }
 .cal-month-year {
   font-family: 'Playfair Display', serif;
@@ -119,14 +119,8 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .cal-nav-btn:disabled { opacity: 0.25; cursor: not-allowed; }
-.cal-subcontrols {
-  display: flex; align-items: center; justify-content: center;
-  gap: 16px; margin-bottom: 16px; flex-wrap: wrap;
-}
-.cal-count { font-size: 13px; color: var(--muted); text-align: center; }
-.cal-count strong { color: var(--navy); font-weight: 600; }
 
-/* Mobile filter button — shown only on mobile via cal-subcontrols */
+/* Mobile filter button — top-left of calendar grid on mobile */
 .cal-filter-btn-mobile {
   display: none; align-items: center; gap: 6px;
   background: var(--white); border: 1.5px solid var(--border); border-radius: 20px;
@@ -318,7 +312,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 /* ── Responsive: sidebar becomes slide-in drawer on mobile ── */
 @media (max-width: 860px) {
   .cal-sidebar { display: none; }
-  .cal-filter-btn-mobile { display: flex; }
+  .cal-filter-btn-mobile { display: flex; margin-bottom: 12px; }
   .sidebar-body { max-height: none; }
   .cal-subcontrols { justify-content: space-between; padding: 0 2px; }
 
@@ -476,14 +470,6 @@ footer a:hover { color: var(--gold-lt); }
       </div>
 
       <!-- Count + mobile filter -->
-      <div class="cal-subcontrols">
-        <span class="cal-count" id="cal-count"></span>
-        <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter by board">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-          Filter
-          <span class="filter-mobile-badge" id="filter-mobile-badge"></span>
-        </button>
-      </div>
 
   <div class="cal-layout">
 
@@ -506,6 +492,13 @@ footer a:hover { color: var(--gold-lt); }
 
     <!-- Main calendar (RIGHT) -->
     <div class="cal-main">
+
+      <!-- Mobile filter — top-left of calendar, hidden on desktop -->
+      <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter by board">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filter
+        <span class="filter-mobile-badge" id="filter-mobile-badge"></span>
+      </button>
 
       <div class="cal-state-wrap" id="cal-loading">
         <div class="cal-spinner"></div>
@@ -860,14 +853,6 @@ footer a:hover { color: var(--gold-lt); }
     } else {
       document.getElementById('stat-total-count').textContent = totalUpcoming;
     }
-
-    const filterSuffix = activeFilters.size===1
-      ? ` for <strong>${[...activeFilters][0]}</strong>`
-      : activeFilters.size>1 ? ` for <strong>${activeFilters.size} boards</strong>` : '';
-
-    document.getElementById('cal-count').innerHTML = monthCount===0
-      ? `No meetings${filterSuffix} this month`
-      : `<strong>${monthCount}</strong> meeting${monthCount===1?'':'s'}${filterSuffix} this month`;
 
     const firstDow     = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth  = new Date(currentYear, currentMonth+1, 0).getDate();
