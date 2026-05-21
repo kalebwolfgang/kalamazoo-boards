@@ -968,36 +968,42 @@ footer a:hover { color: var(--gold-lt); }
   }
 
   function buildGCalUrl(m) {
-    const dateRaw = m.date.replace(/-/g,'');
-    const mins    = parseTimeToMinutes(m.time);
-    let dates;
-    if (mins!==null) {
-      const endMins = getEndMins(m.time, mins);
-      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
-      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
-      dates = `${dateRaw}T${sh}${sm}00/${dateRaw}T${eh}${em}00`;
-    } else { dates = `${dateRaw}/${dateRaw}`; }
-    const params = new URLSearchParams({action:'TEMPLATE',text:`${m.name} — City of Kalamazoo`,dates,details:`Public meeting of the ${m.name}. More info: ${window.location.origin}/${m.detailPage}`,location:m.location||''});
-    return `https://calendar.google.com/calendar/render?${params.toString()}`;
-  }
+    const dateRaw = m.date.replace(/-/g,'');
+    const mins    = parseTimeToMinutes(m.time);
+    let dates;
+    if (mins!==null) {
+      const endMins = getEndMins(m.time, mins);
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
+      dates = `${dateRaw}T${sh}${sm}00/${dateRaw}T${eh}${em}00`;
+    } else { dates = `${dateRaw}/${dateRaw}`; }
 
-  function generateICSContent(m) {
-    const dateRaw = m.date.replace(/-/g,'');
-    const mins    = parseTimeToMinutes(m.time);
-    let dtStart, dtEnd;
-    if (mins !== null) {
-      const endMins = getEndMins(m.time, mins);
-      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
-      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
-      dtStart=`${dateRaw}T${sh}${sm}00`; dtEnd=`${dateRaw}T${eh}${em}00`;
-    } else { dtStart=dtEnd=dateRaw; }
-    return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//City of Kalamazoo Boards & Commissions//EN',
-      'BEGIN:VEVENT', `UID:${m.abbr}-${m.date}@kalamazoocity-boards`,
-      `DTSTART:${dtStart}`, `DTEND:${dtEnd}`,
-      `SUMMARY:${m.name} — City of Kalamazoo`,
-      m.location ? `LOCATION:${m.location}` : '',
-      'END:VEVENT','END:VCALENDAR'].filter(Boolean).join('\r\n');
-  }
+    const locString = m.location === "Location TBD" ? m.location : m.location + ", Kalamazoo, MI";
+
+    const params = new URLSearchParams({action:'TEMPLATE',text:`${m.name} — City of Kalamazoo`,dates,details:`Public meeting of the ${m.name}. More info: ${window.location.origin}/${m.detailPage}`,location:locString});
+    return `https://calendar.google.com/calendar/render?${params.toString()}`;
+  }
+
+  function generateICSContent(m) {
+    const dateRaw = m.date.replace(/-/g,'');
+    const mins    = parseTimeToMinutes(m.time);
+    let dtStart, dtEnd;
+    if (mins !== null) {
+      const endMins = getEndMins(m.time, mins);
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
+      dtStart=`${dateRaw}T${sh}${sm}00`; dtEnd=`${dateRaw}T${eh}${em}00`;
+    } else { dtStart=dtEnd=dateRaw; }
+
+    const locString = m.location === "Location TBD" ? m.location : m.location + ", Kalamazoo, MI";
+
+    return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//City of Kalamazoo Boards & Commissions//EN',
+      'BEGIN:VEVENT', `UID:${m.abbr}-${m.date}@kalamazoocity-boards`,
+      `DTSTART:${dtStart}`, `DTEND:${dtEnd}`,
+      `SUMMARY:${m.name} — City of Kalamazoo`,
+      `LOCATION:${locString}`,
+      'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  }
 
   function downloadICS(m) {
     const content = generateICSContent(m);
