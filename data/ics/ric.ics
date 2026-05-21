@@ -23,21 +23,21 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:RIC-2026-05-27@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260527T110000
-DTEND;TZID=America/Detroit:20260527T130000
+DTEND;TZID=America/Detroit:20260527T120000
 SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
 LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:RIC-2026-08-26@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260826T110000
-DTEND;TZID=America/Detroit:20260826T130000
+DTEND;TZID=America/Detroit:20260826T120000
 SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
 LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:RIC-2026-12-02@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261202T110000
-DTEND;TZID=America/Detroit:20261202T130000
+DTEND;TZID=America/Detroit:20261202T120000
 SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
 LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
 END:VEVENT

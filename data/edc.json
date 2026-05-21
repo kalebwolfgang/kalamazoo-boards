@@ -1,11 +1,6 @@
 {
-  "last_updated": "2026-05-20",
+  "last_updated": "2026-05-21",
   "upcoming_meetings": [
-    {
-      "date": "2026-05-21",
-      "display": "Thursday, May 21, 2026",
-      "time": "7:45 AM"
-    },
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
@@ -28,6 +23,17 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-05-21",
+      "display": "May 21, 2026",
+      "event_id": 2690,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2690/files/agenda/5082",
+      "link_label": "Agenda",
+      "cancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2690/files/agenda/5082",
+      "meeting_type": "Economic Development Corporation Board of Directors"
+    },
     {
       "date": "2026-04-16",
       "display": "April 16, 2026",

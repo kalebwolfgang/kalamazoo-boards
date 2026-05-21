@@ -55,4 +55,11 @@ DTEND;TZID=America/Detroit:20261019T170000
 SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
+BEGIN:VEVENT
+UID:DEGA-2026-11-16@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261116T150000
+DTEND;TZID=America/Detroit:20261116T170000
+SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
 END:VCALENDAR

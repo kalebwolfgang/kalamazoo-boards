@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-20",
+  "last_updated": "2026-05-21",
   "upcoming_meetings": [
     {
       "date": "2026-06-15",
@@ -24,6 +24,11 @@
     {
       "date": "2026-10-19",
       "display": "Monday, October 19, 2026",
+      "time": "3:00 PM – 5:00 PM"
+    },
+    {
+      "date": "2026-11-16",
+      "display": "Monday, November 16, 2026",
       "time": "3:00 PM – 5:00 PM"
     }
   ],

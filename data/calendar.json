@@ -1,6 +1,168 @@
 {
-  "last_updated": "2026-05-20",
+  "last_updated": "2026-05-21",
   "meetings": [
+    {
+      "date": "2026-04-01",
+      "display": "Wednesday, April 01, 2026",
+      "time": "5:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "CRB",
+      "name": "Civil Rights Board",
+      "youtube_url": "https://www.youtube.com/watch?v=EHLmMUNh2ic",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905"
+    },
+    {
+      "date": "2026-04-08",
+      "display": "Wednesday, April 08, 2026",
+      "time": "7:00 PM – 9:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "PC",
+      "name": "Planning Commission",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2586/files/agenda/4912"
+    },
+    {
+      "date": "2026-04-09",
+      "display": "Thursday, April 09, 2026",
+      "time": "9:00 AM",
+      "location": null,
+      "abbr": "EC",
+      "name": "Election Commission",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2763/files/agenda/4918"
+    },
+    {
+      "date": "2026-04-09",
+      "display": "Thursday, April 09, 2026",
+      "time": "7:00 PM – 9:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "ZBA",
+      "name": "Zoning Board of Appeals",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2616/files/agenda/4916"
+    },
+    {
+      "date": "2026-04-14",
+      "display": "Tuesday, April 14, 2026",
+      "time": "6:00 PM – 8:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "CPSRAB",
+      "name": "Citizens Public Safety Review and Appeal Board",
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/april-14-2026.pdf"
+    },
+    {
+      "date": "2026-04-15",
+      "display": "Wednesday, April 15, 2026",
+      "time": "4:30 PM – 6:30 PM",
+      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "abbr": "ECC",
+      "name": "Environmental Concerns Committee",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2751/files/agenda/4941"
+    },
+    {
+      "date": "2026-04-16",
+      "display": "Thursday, April 16, 2026",
+      "time": "7:45 AM – 9:30 AM",
+      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "abbr": "BRA",
+      "name": "Brownfield Redevelopment Authority",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2701/files/agenda/4943"
+    },
+    {
+      "date": "2026-04-16",
+      "display": "Thursday, April 16, 2026",
+      "time": "7:45 AM",
+      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "abbr": "EDC",
+      "name": "Economic Development Corporation",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2689/files/agenda/4945"
+    },
+    {
+      "date": "2026-04-20",
+      "display": "Monday, April 20, 2026",
+      "time": "3:00 PM – 5:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "DDA",
+      "name": "Downtown Development Authority",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2663/files/agenda/4959",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2663/files/agenda/5041"
+    },
+    {
+      "date": "2026-04-20",
+      "display": "Monday, April 20, 2026",
+      "time": "3:00 PM – 5:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "DEGA",
+      "name": "Downtown Economic Growth Authority",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2652/files/agenda/4971",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2652/files/agenda/5040"
+    },
+    {
+      "date": "2026-04-21",
+      "display": "Tuesday, April 21, 2026",
+      "time": "5:00 PM – 7:00 PM",
+      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "abbr": "HDC",
+      "name": "Historic District Commission",
+      "youtube_url": "https://www.youtube.com/watch?v=SHyZSytY4uI",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2738/files/agenda/4954",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2738/files/agenda/5056"
+    },
+    {
+      "date": "2026-04-22",
+      "display": "Wednesday, April 22, 2026",
+      "time": "6:00 PM – 8:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "HPC",
+      "name": "Historic Preservation Commission",
+      "youtube_url": "https://www.youtube.com/watch?v=bkDVjzmCPYQ",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2764/files/agenda/4961",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2764/files/agenda/5033"
+    },
+    {
+      "date": "2026-04-28",
+      "display": "Tuesday, April 28, 2026",
+      "time": "4:00 PM – 6:00 PM",
+      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "abbr": "NFP",
+      "name": "Natural Features Protection Review Board",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2725/files/agenda/4977"
+    },
+    {
+      "date": "2026-05-07",
+      "display": "Thursday, May 07, 2026",
+      "time": "4:00 PM – 6:00 PM",
+      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "abbr": "NFP",
+      "name": "Natural Features Protection Review Board",
+      "youtube_url": "https://www.youtube.com/watch?v=luo2Fw6cbW4",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2765/files/agenda/4999",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2765/files/agenda/5064"
+    },
+    {
+      "date": "2026-05-07",
+      "display": "Thursday, May 07, 2026",
+      "time": "7:00 PM – 9:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "PC",
+      "name": "Planning Commission",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995"
+    },
+    {
+      "date": "2026-05-11",
+      "display": "Monday, May 11, 2026",
+      "time": "3:00 PM – 5:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "DDA",
+      "name": "Downtown Development Authority",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2664/files/agenda/5015"
+    },
+    {
+      "date": "2026-05-11",
+      "display": "Monday, May 11, 2026",
+      "time": "3:00 PM – 5:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "DEGA",
+      "name": "Downtown Economic Growth Authority",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2653/files/agenda/5017"
+    },
     {
       "date": "2026-05-11",
       "display": "Monday, May 11, 2026",
@@ -10,12 +172,50 @@
       "name": "SPK Organizing Committee"
     },
     {
+      "date": "2026-05-13",
+      "display": "Wednesday, May 13, 2026",
+      "time": "6:00 PM – 8:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "HPC",
+      "name": "Historic Preservation Commission",
+      "youtube_url": "https://www.youtube.com/watch?v=G6gfCBfpX8c",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2676/files/agenda/5049"
+    },
+    {
+      "date": "2026-05-14",
+      "display": "Thursday, May 14, 2026",
+      "time": "7:00 PM – 9:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "ZBA",
+      "name": "Zoning Board of Appeals",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2617/files/agenda/5019"
+    },
+    {
+      "date": "2026-05-19",
+      "display": "Tuesday, May 19, 2026",
+      "time": "5:00 PM – 7:00 PM",
+      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "abbr": "HDC",
+      "name": "Historic District Commission",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2739/files/agenda/5072"
+    },
+    {
+      "date": "2026-05-20",
+      "display": "Wednesday, May 20, 2026",
+      "time": "4:30 PM – 6:30 PM",
+      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "abbr": "ECC",
+      "name": "Environmental Concerns Committee",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2752/files/agenda/5070"
+    },
+    {
       "date": "2026-05-21",
       "display": "Thursday, May 21, 2026",
       "time": "7:45 AM – 9:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority"
+      "name": "Brownfield Redevelopment Authority",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2702/files/agenda/5086"
     },
     {
       "date": "2026-05-21",
@@ -23,7 +223,8 @@
       "time": "7:45 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
-      "name": "Economic Development Corporation"
+      "name": "Economic Development Corporation",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2690/files/agenda/5082"
     },
     {
       "date": "2026-05-21",
@@ -32,14 +233,6 @@
       "location": "Milham Park Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
-    },
-    {
-      "date": "2026-05-21",
-      "display": "Thursday, May 21, 2026",
-      "time": "6:00 PM – 7:00 PM",
-      "location": "Northside Association for Community Development, 612 N Park St",
-      "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board"
     },
     {
       "date": "2026-05-26",
@@ -848,6 +1041,22 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
+    },
+    {
+      "date": "2026-11-16",
+      "display": "Monday, November 16, 2026",
+      "time": "3:00 PM – 5:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "DDA",
+      "name": "Downtown Development Authority"
+    },
+    {
+      "date": "2026-11-16",
+      "display": "Monday, November 16, 2026",
+      "time": "3:00 PM – 5:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "DEGA",
+      "name": "Downtown Economic Growth Authority"
     },
     {
       "date": "2026-11-17",

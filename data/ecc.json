@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-20",
+  "last_updated": "2026-05-21",
   "upcoming_meetings": [
     {
       "date": "2026-06-17",
@@ -272,6 +272,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-05-20",
+      "display": "May 20, 2026",
+      "youtube_id": "P7suPTOXaSI",
+      "youtube_url": "https://www.youtube.com/watch?v=P7suPTOXaSI",
+      "title": "May 20, 2026 Environmental Concerns Committee"
+    },
     {
       "date": "2026-04-15",
       "display": "April 15, 2026",

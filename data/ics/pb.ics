@@ -23,21 +23,21 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:PB-2026-06-03@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260603T080000
-DTEND;TZID=America/Detroit:20260603T100000
+DTEND;TZID=America/Detroit:20260603T090000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PB-2026-09-02@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260902T080000
-DTEND;TZID=America/Detroit:20260902T100000
+DTEND;TZID=America/Detroit:20260902T090000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PB-2026-12-09@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261209T080000
-DTEND;TZID=America/Detroit:20261209T100000
+DTEND;TZID=America/Detroit:20261209T090000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
