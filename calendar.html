@@ -1130,8 +1130,8 @@ footer a:hover { color: var(--gold-lt); }
     const title = m ? `${m.name} — ${isPastMeeting ? 'Meeting Record' : 'Upcoming Meeting'}` : 'Kalamazoo Public Meeting';
     const text  = m
       ? isPastMeeting
-        ? `Meeting record\n${m.name}\n${m.display}\nView meeting documents and recording`
-        : `Upcoming meeting\n${m.name}\n${m.display}${m.time ? ' at ' + m.time : ''}${location ? '\n' + location : ''}`
+        ? `Meeting Record\n${m.name}\n\n📅 ${m.display}\n📋 View meeting documents`
+        : `Upcoming Meeting\n${m.name}\n\n📅 ${m.display}${m.time ? ' at ' + m.time : ''}${location ? '\n📍 ' + location : ''}`
       : 'Kalamazoo public meeting';
     const isMobileShare = window.innerWidth < 640;
     // Native share sheet on mobile only; desktop always copies link
