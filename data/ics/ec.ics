@@ -25,11 +25,13 @@ UID:EC-2026-07-09@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260709T090000
 DTEND;TZID=America/Detroit:20260709T100000
 SUMMARY:Election Commission — City of Kalamazoo
+LOCATION:City Records Center, 3001 S Burdick St
 END:VEVENT
 BEGIN:VEVENT
 UID:EC-2026-10-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261008T090000
 DTEND;TZID=America/Detroit:20261008T100000
 SUMMARY:Election Commission — City of Kalamazoo
+LOCATION:City Records Center, 3001 S Burdick St
 END:VEVENT
 END:VCALENDAR
