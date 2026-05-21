@@ -4,22 +4,22 @@
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "7:45 AM – 9:30 AM"
+      "time": "07:45 AM – 09:30 AM"
     },
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "7:45 AM – 9:30 AM"
+      "time": "07:45 AM – 09:30 AM"
     },
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "7:45 AM – 9:30 AM"
+      "time": "07:45 AM – 09:30 AM"
     },
     {
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
-      "time": "7:45 AM – 9:30 AM"
+      "time": "07:45 AM – 09:30 AM"
     }
   ],
   "meetings": [
@@ -27,11 +27,11 @@
       "date": "2026-05-21",
       "display": "May 21, 2026",
       "event_id": 2702,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2702/files/agenda/5086",
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2702/files/agenda/5088",
       "link_label": "Agenda",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2702/files/agenda/5086",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2702/files/agenda/5088",
       "meeting_type": "Brownfield Redevelopment Authority Board of Directors"
     },
     {

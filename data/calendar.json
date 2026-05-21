@@ -4,7 +4,7 @@
     {
       "date": "2026-04-01",
       "display": "Wednesday, April 01, 2026",
-      "time": "5:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
       "name": "Civil Rights Board",
@@ -14,7 +14,7 @@
     {
       "date": "2026-04-08",
       "display": "Wednesday, April 08, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission",
@@ -24,7 +24,7 @@
     {
       "date": "2026-04-09",
       "display": "Thursday, April 09, 2026",
-      "time": "9:00 AM",
+      "time": "09:00 AM – 10:00 AM",
       "location": null,
       "abbr": "EC",
       "name": "Election Commission",
@@ -33,7 +33,7 @@
     {
       "date": "2026-04-09",
       "display": "Thursday, April 09, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals",
@@ -52,7 +52,7 @@
     {
       "date": "2026-04-15",
       "display": "Wednesday, April 15, 2026",
-      "time": "4:30 PM – 6:30 PM",
+      "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee",
@@ -62,7 +62,7 @@
     {
       "date": "2026-04-16",
       "display": "Thursday, April 16, 2026",
-      "time": "7:45 AM – 9:30 AM",
+      "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority",
@@ -80,7 +80,7 @@
     {
       "date": "2026-04-20",
       "display": "Monday, April 20, 2026",
-      "time": "3:00 PM – 5:00 PM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority",
@@ -100,7 +100,7 @@
     {
       "date": "2026-04-21",
       "display": "Tuesday, April 21, 2026",
-      "time": "5:00 PM – 7:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission",
@@ -111,7 +111,7 @@
     {
       "date": "2026-04-22",
       "display": "Wednesday, April 22, 2026",
-      "time": "6:00 PM – 8:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission",
@@ -122,7 +122,7 @@
     {
       "date": "2026-04-28",
       "display": "Tuesday, April 28, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board",
@@ -131,7 +131,7 @@
     {
       "date": "2026-05-07",
       "display": "Thursday, May 07, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board",
@@ -142,7 +142,7 @@
     {
       "date": "2026-05-07",
       "display": "Thursday, May 07, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission",
@@ -152,7 +152,7 @@
     {
       "date": "2026-05-11",
       "display": "Monday, May 11, 2026",
-      "time": "3:00 PM – 5:00 PM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority",
@@ -187,7 +187,7 @@
     {
       "date": "2026-05-13",
       "display": "Wednesday, May 13, 2026",
-      "time": "6:00 PM – 8:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission",
@@ -197,7 +197,7 @@
     {
       "date": "2026-05-14",
       "display": "Thursday, May 14, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals",
@@ -207,7 +207,7 @@
     {
       "date": "2026-05-19",
       "display": "Tuesday, May 19, 2026",
-      "time": "5:00 PM – 7:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission",
@@ -217,7 +217,7 @@
     {
       "date": "2026-05-20",
       "display": "Wednesday, May 20, 2026",
-      "time": "4:30 PM – 6:30 PM",
+      "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee",
@@ -227,11 +227,11 @@
     {
       "date": "2026-05-21",
       "display": "Thursday, May 21, 2026",
-      "time": "7:45 AM – 9:30 AM",
+      "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2702/files/agenda/5086"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2702/files/agenda/5088"
     },
     {
       "date": "2026-05-21",
@@ -245,7 +245,7 @@
     {
       "date": "2026-05-21",
       "display": "Thursday, May 21, 2026",
-      "time": "12:00 PM – 2:00 PM",
+      "time": "12:00 PM – 02:00 PM",
       "location": "Milham Park Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -253,7 +253,7 @@
     {
       "date": "2026-05-26",
       "display": "Tuesday, May 26, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
@@ -269,7 +269,7 @@
     {
       "date": "2026-06-02",
       "display": "Tuesday, June 02, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Spring Valley Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -277,7 +277,7 @@
     {
       "date": "2026-06-02",
       "display": "Tuesday, June 02, 2026",
-      "time": "2:00 PM – 4:00 PM",
+      "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
@@ -285,7 +285,7 @@
     {
       "date": "2026-06-03",
       "display": "Wednesday, June 03, 2026",
-      "time": "5:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
       "name": "Civil Rights Board"
@@ -301,7 +301,7 @@
     {
       "date": "2026-06-04",
       "display": "Thursday, June 04, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
@@ -317,7 +317,7 @@
     {
       "date": "2026-06-10",
       "display": "Wednesday, June 10, 2026",
-      "time": "6:00 PM – 8:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -325,7 +325,7 @@
     {
       "date": "2026-06-11",
       "display": "Thursday, June 11, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
@@ -333,7 +333,7 @@
     {
       "date": "2026-06-15",
       "display": "Monday, June 15, 2026",
-      "time": "3:00 PM – 5:00 PM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority"
@@ -349,7 +349,7 @@
     {
       "date": "2026-06-15",
       "display": "Monday, June 15, 2026",
-      "time": null,
+      "time": "11:00 AM – 12:00 PM",
       "location": "Kalamazoo Public Services, 415 Stockbridge Ave",
       "abbr": "TRB",
       "name": "Traffic Board"
@@ -357,7 +357,7 @@
     {
       "date": "2026-06-16",
       "display": "Tuesday, June 16, 2026",
-      "time": "5:00 PM – 7:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
@@ -365,7 +365,7 @@
     {
       "date": "2026-06-17",
       "display": "Wednesday, June 17, 2026",
-      "time": "4:30 PM – 6:30 PM",
+      "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
@@ -373,7 +373,7 @@
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "7:45 AM – 9:30 AM",
+      "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
@@ -389,7 +389,7 @@
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "12:00 PM – 2:00 PM",
+      "time": "12:00 PM – 02:00 PM",
       "location": "Milham Park Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -397,7 +397,7 @@
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
@@ -413,7 +413,7 @@
     {
       "date": "2026-06-23",
       "display": "Tuesday, June 23, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
@@ -421,7 +421,7 @@
     {
       "date": "2026-06-25",
       "display": "Thursday, June 25, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, City Hall Second Floor, 241 W South St",
       "abbr": "CDAAC",
       "name": "Community Development Act Advisory Committee"
@@ -429,7 +429,7 @@
     {
       "date": "2026-07-02",
       "display": "Thursday, July 02, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
@@ -437,7 +437,7 @@
     {
       "date": "2026-07-07",
       "display": "Tuesday, July 07, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Southside Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -445,7 +445,7 @@
     {
       "date": "2026-07-07",
       "display": "Tuesday, July 07, 2026",
-      "time": "2:00 PM – 4:00 PM",
+      "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
@@ -453,7 +453,7 @@
     {
       "date": "2026-07-08",
       "display": "Wednesday, July 08, 2026",
-      "time": "6:00 PM – 8:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -461,7 +461,7 @@
     {
       "date": "2026-07-09",
       "display": "Thursday, July 09, 2026",
-      "time": "9:00 AM",
+      "time": "09:00 AM – 10:00 AM",
       "location": null,
       "abbr": "EC",
       "name": "Election Commission"
@@ -469,7 +469,7 @@
     {
       "date": "2026-07-09",
       "display": "Thursday, July 09, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
@@ -477,7 +477,7 @@
     {
       "date": "2026-07-13",
       "display": "Monday, July 13, 2026",
-      "time": "3:00 PM – 5:00 PM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority"
@@ -509,7 +509,7 @@
     {
       "date": "2026-07-15",
       "display": "Wednesday, July 15, 2026",
-      "time": "4:30 PM – 6:30 PM",
+      "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
@@ -517,7 +517,7 @@
     {
       "date": "2026-07-16",
       "display": "Thursday, July 16, 2026",
-      "time": "12:00 PM – 2:00 PM",
+      "time": "12:00 PM – 02:00 PM",
       "location": "Milham Park Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -525,7 +525,7 @@
     {
       "date": "2026-07-16",
       "display": "Thursday, July 16, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
@@ -541,7 +541,7 @@
     {
       "date": "2026-07-21",
       "display": "Tuesday, July 21, 2026",
-      "time": "5:00 PM – 7:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
@@ -549,7 +549,7 @@
     {
       "date": "2026-07-28",
       "display": "Tuesday, July 28, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
@@ -557,7 +557,7 @@
     {
       "date": "2026-08-04",
       "display": "Tuesday, August 04, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Axtell Creek Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -565,7 +565,7 @@
     {
       "date": "2026-08-04",
       "display": "Tuesday, August 04, 2026",
-      "time": "2:00 PM – 4:00 PM",
+      "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
@@ -573,7 +573,7 @@
     {
       "date": "2026-08-05",
       "display": "Wednesday, August 05, 2026",
-      "time": "5:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
       "name": "Civil Rights Board"
@@ -581,7 +581,7 @@
     {
       "date": "2026-08-06",
       "display": "Thursday, August 06, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
@@ -597,7 +597,7 @@
     {
       "date": "2026-08-12",
       "display": "Wednesday, August 12, 2026",
-      "time": "6:00 PM – 8:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -605,7 +605,7 @@
     {
       "date": "2026-08-13",
       "display": "Thursday, August 13, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
@@ -613,7 +613,7 @@
     {
       "date": "2026-08-17",
       "display": "Monday, August 17, 2026",
-      "time": "3:00 PM – 5:00 PM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority"
@@ -629,7 +629,7 @@
     {
       "date": "2026-08-18",
       "display": "Tuesday, August 18, 2026",
-      "time": "5:00 PM – 7:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
@@ -637,7 +637,7 @@
     {
       "date": "2026-08-19",
       "display": "Wednesday, August 19, 2026",
-      "time": "4:30 PM – 6:30 PM",
+      "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
@@ -645,7 +645,7 @@
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "7:45 AM – 9:30 AM",
+      "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
@@ -661,7 +661,7 @@
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "12:00 PM – 2:00 PM",
+      "time": "12:00 PM – 02:00 PM",
       "location": "Milham Park Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -669,7 +669,7 @@
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
@@ -685,7 +685,7 @@
     {
       "date": "2026-08-25",
       "display": "Tuesday, August 25, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
@@ -701,7 +701,7 @@
     {
       "date": "2026-09-01",
       "display": "Tuesday, September 01, 2026",
-      "time": "2:00 PM – 4:00 PM",
+      "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
@@ -717,7 +717,7 @@
     {
       "date": "2026-09-03",
       "display": "Thursday, September 03, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
@@ -733,7 +733,7 @@
     {
       "date": "2026-09-08",
       "display": "Tuesday, September 08, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -741,7 +741,7 @@
     {
       "date": "2026-09-09",
       "display": "Wednesday, September 09, 2026",
-      "time": "6:00 PM – 8:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -749,7 +749,7 @@
     {
       "date": "2026-09-10",
       "display": "Thursday, September 10, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
@@ -765,7 +765,7 @@
     {
       "date": "2026-09-15",
       "display": "Tuesday, September 15, 2026",
-      "time": "5:00 PM – 7:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
@@ -773,7 +773,7 @@
     {
       "date": "2026-09-16",
       "display": "Wednesday, September 16, 2026",
-      "time": "4:30 PM – 6:30 PM",
+      "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
@@ -781,7 +781,7 @@
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "7:45 AM – 9:30 AM",
+      "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
@@ -797,7 +797,7 @@
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "12:00 PM – 2:00 PM",
+      "time": "12:00 PM – 02:00 PM",
       "location": "Milham Park Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -805,7 +805,7 @@
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
@@ -821,7 +821,7 @@
     {
       "date": "2026-09-21",
       "display": "Monday, September 21, 2026",
-      "time": "3:00 PM – 5:00 PM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority"
@@ -837,7 +837,7 @@
     {
       "date": "2026-09-22",
       "display": "Tuesday, September 22, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
@@ -845,7 +845,7 @@
     {
       "date": "2026-09-24",
       "display": "Thursday, September 24, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, City Hall Second Floor, 241 W South St",
       "abbr": "CDAAC",
       "name": "Community Development Act Advisory Committee"
@@ -853,7 +853,7 @@
     {
       "date": "2026-10-01",
       "display": "Thursday, October 01, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
@@ -861,7 +861,7 @@
     {
       "date": "2026-10-06",
       "display": "Tuesday, October 06, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -869,7 +869,7 @@
     {
       "date": "2026-10-06",
       "display": "Tuesday, October 06, 2026",
-      "time": "2:00 PM – 4:00 PM",
+      "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
@@ -877,7 +877,7 @@
     {
       "date": "2026-10-07",
       "display": "Wednesday, October 07, 2026",
-      "time": "5:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
       "name": "Civil Rights Board"
@@ -885,7 +885,7 @@
     {
       "date": "2026-10-08",
       "display": "Thursday, October 08, 2026",
-      "time": "9:00 AM",
+      "time": "09:00 AM – 10:00 AM",
       "location": null,
       "abbr": "EC",
       "name": "Election Commission"
@@ -893,7 +893,7 @@
     {
       "date": "2026-10-08",
       "display": "Thursday, October 08, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
@@ -909,7 +909,7 @@
     {
       "date": "2026-10-14",
       "display": "Wednesday, October 14, 2026",
-      "time": "6:00 PM – 8:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -917,7 +917,7 @@
     {
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
-      "time": "7:45 AM – 9:30 AM",
+      "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
@@ -933,7 +933,7 @@
     {
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
-      "time": "12:00 PM – 2:00 PM",
+      "time": "12:00 PM – 02:00 PM",
       "location": "Eastern Hills Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -941,7 +941,7 @@
     {
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
@@ -957,7 +957,7 @@
     {
       "date": "2026-10-19",
       "display": "Monday, October 19, 2026",
-      "time": "3:00 PM – 5:00 PM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority"
@@ -973,7 +973,7 @@
     {
       "date": "2026-10-20",
       "display": "Tuesday, October 20, 2026",
-      "time": "5:00 PM – 7:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
@@ -981,7 +981,7 @@
     {
       "date": "2026-10-21",
       "display": "Wednesday, October 21, 2026",
-      "time": "4:30 PM – 6:30 PM",
+      "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
@@ -989,7 +989,7 @@
     {
       "date": "2026-10-22",
       "display": "Thursday, October 22, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, City Hall Second Floor, 241 W South St",
       "abbr": "CDAAC",
       "name": "Community Development Act Advisory Committee"
@@ -997,7 +997,7 @@
     {
       "date": "2026-10-27",
       "display": "Tuesday, October 27, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
@@ -1005,7 +1005,7 @@
     {
       "date": "2026-11-03",
       "display": "Tuesday, November 03, 2026",
-      "time": "2:00 PM – 4:00 PM",
+      "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
@@ -1013,7 +1013,7 @@
     {
       "date": "2026-11-05",
       "display": "Thursday, November 05, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
@@ -1037,7 +1037,7 @@
     {
       "date": "2026-11-10",
       "display": "Tuesday, November 10, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -1045,7 +1045,7 @@
     {
       "date": "2026-11-11",
       "display": "Wednesday, November 11, 2026",
-      "time": "6:00 PM – 8:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -1053,7 +1053,7 @@
     {
       "date": "2026-11-12",
       "display": "Thursday, November 12, 2026",
-      "time": "7:00 PM – 9:00 PM",
+      "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
@@ -1061,7 +1061,7 @@
     {
       "date": "2026-11-16",
       "display": "Monday, November 16, 2026",
-      "time": "3:00 PM – 5:00 PM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority"
@@ -1077,7 +1077,7 @@
     {
       "date": "2026-11-17",
       "display": "Tuesday, November 17, 2026",
-      "time": "5:00 PM – 7:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
@@ -1085,7 +1085,7 @@
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
-      "time": "12:00 PM – 2:00 PM",
+      "time": "12:00 PM – 02:00 PM",
       "location": "Eastern Hills Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -1093,7 +1093,7 @@
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
@@ -1101,7 +1101,7 @@
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, City Hall Second Floor, 241 W South St",
       "abbr": "CDAAC",
       "name": "Community Development Act Advisory Committee"
@@ -1109,7 +1109,7 @@
     {
       "date": "2026-12-01",
       "display": "Tuesday, December 01, 2026",
-      "time": "2:00 PM – 4:00 PM",
+      "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
@@ -1125,7 +1125,7 @@
     {
       "date": "2026-12-08",
       "display": "Tuesday, December 08, 2026",
-      "time": "5:30 PM – 7:30 PM",
+      "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -1141,7 +1141,7 @@
     {
       "date": "2026-12-17",
       "display": "Thursday, December 17, 2026",
-      "time": "12:00 PM – 2:00 PM",
+      "time": "12:00 PM – 02:00 PM",
       "location": "Eastern Hills Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -1149,7 +1149,7 @@
     {
       "date": "2026-12-17",
       "display": "Thursday, December 17, 2026",
-      "time": "4:00 PM – 6:00 PM",
+      "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
