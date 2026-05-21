@@ -1243,8 +1243,15 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
 
     output = {
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "metadata": {
+            "time": board.get("time", "TBD"),
+            "location": BOARD_LOCATIONS.get(board["key"]) or "TBD"
+        },
         "upcoming_meetings": upcoming,
         "meetings":          merged_meetings,
+    }
+    if board.get("youtube"):
+        output["recordings"] = merged_recordings
     }
     if board.get("youtube"):
         output["recordings"] = merged_recordings
