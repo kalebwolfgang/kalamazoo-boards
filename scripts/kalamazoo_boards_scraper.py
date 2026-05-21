@@ -1135,9 +1135,12 @@ def run_web_scrape_board(board: dict) -> None:
 
     output = {
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "metadata": {
+            "time": board.get("time", "TBD"),
+            "location": BOARD_LOCATIONS.get(board["key"]) or "TBD"
+        },
         "upcoming_meetings": upcoming,
     }
-
     if existing.get("meetings"):
         output["meetings"] = existing["meetings"]
 
