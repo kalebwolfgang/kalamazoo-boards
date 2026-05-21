@@ -1127,9 +1127,11 @@ footer a:hover { color: var(--gold-lt); }
     const m=meetings.find(x=>x.abbr===abbr)||meetings[0];
     const location = m && m.location ? m.location + ', Kalamazoo, MI' : null;
     const isPastMeeting = m && new Date(m.date + 'T23:59:59') < new Date();
-    const title = m ? `${m.name} — ${isPastMeeting ? 'Meeting Record' : 'Public Meeting'}` : 'Kalamazoo Public Meeting';
+    const title = m ? `${m.name} — ${isPastMeeting ? 'Meeting Record' : 'Upcoming Meeting'}` : 'Kalamazoo Public Meeting';
     const text  = m
-      ? `${isPastMeeting ? 'Public meeting record' : 'Upcoming public meeting'}\n${m.name}\n${m.display}${!isPastMeeting && m.time ? ' at ' + m.time : ''}${location ? '\n' + location : ''}`
+      ? isPastMeeting
+        ? `Meeting record\n${m.name}\n${m.display}\nView meeting documents and recording`
+        : `Upcoming meeting\n${m.name}\n${m.display}${m.time ? ' at ' + m.time : ''}${location ? '\n' + location : ''}`
       : 'Kalamazoo public meeting';
     const isMobileShare = window.innerWidth < 640;
     // Native share sheet on mobile only; desktop always copies link
