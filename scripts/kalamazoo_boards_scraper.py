@@ -791,15 +791,16 @@ def scrape_minutes_agendas_docs(board: dict, start_iso: str, end_iso: str) -> li
 
 def scrape_location_overrides(text: str) -> dict:
     """Parse per-meeting location overrides by searching within individual
-    list items only, so park names from different bullets never run together.
+    list items or sentences, so locations from different bullets never run together.
     Returns dict of iso_date -> location_name.
     Only called for boards with parse_locations: True.
     """
     overrides = {}
     today = date.today()
 
+    # 1. Check list items (for PRAB format: "June 12 at Spring Valley Park")
     li_pattern  = re.compile(r'<li>(.*?)</li>', re.IGNORECASE | re.DOTALL)
-    loc_pattern = re.compile(
+    prab_pattern = re.compile(
         r'(January|February|March|April|May|June|July|August'
         r'|September|October|November|December)'
         r'\s+(\d{1,2})\s+at\s+(.+)',
@@ -809,20 +810,44 @@ def scrape_location_overrides(text: str) -> dict:
     for li_match in li_pattern.finditer(text):
         li_text = re.sub(r'<[^>]+>', ' ', li_match.group(1)).strip()
         li_text = li_text.replace('&nbsp;', ' ')
-        loc_match = loc_pattern.search(li_text)
-        if not loc_match:
+        loc_match = prab_pattern.search(li_text)
+        if loc_match:
+            month_str, day_str, location = loc_match.groups()
+            location = location.strip().rstrip('., ')
+            for year in (today.year, today.year + 1):
+                try:
+                    d = datetime.strptime(f"{month_str} {day_str} {year}", "%B %d %Y").date()
+                    if d >= today:
+                        overrides[d.strftime("%Y-%m-%d")] = location
+                        break
+                except ValueError:
+                    continue
+
+    # 2. Check full sentences (for EC format: "Thursday, July 9, 2026, at 9:00 a.m. at the City Records Center")
+    ec_pattern = re.compile(
+        r'(January|February|March|April|May|June|July|August'
+        r'|September|October|November|December)'
+        r'\s+(\d{1,2}),?\s+(\d{4}),?\s+at\s+[\d:apm.\s]+(?:at|in)\s+(.*?)(?=<|\n|$)',
+        re.IGNORECASE
+    )
+
+    for match in ec_pattern.finditer(text):
+        month_str, day_str, year_str, location = match.groups()
+        location = location.strip().rstrip('., ')
+        
+        # Standardize the EC's common spots
+        if "City Record" in location:
+            location = "City Records Center, 3001 S Burdick St"
+        elif "Community Room" in location:
+            location = "Community Room, City Hall Second Floor, 241 W South St"
+            
+        try:
+            d = datetime.strptime(f"{month_str} {day_str} {year_str}", "%B %d %Y").date()
+            if d >= today:
+                overrides[d.strftime("%Y-%m-%d")] = location
+        except ValueError:
             continue
-        month_str = loc_match.group(1)
-        day_str   = loc_match.group(2)
-        location  = loc_match.group(3).strip().rstrip('., ')
-        for year in (today.year, today.year + 1):
-            try:
-                d = datetime.strptime(f"{month_str} {day_str} {year}", "%B %d %Y").date()
-                if d >= today:
-                    overrides[d.strftime("%Y-%m-%d")] = location
-                    break
-            except ValueError:
-                continue
+
     return overrides
 
 
