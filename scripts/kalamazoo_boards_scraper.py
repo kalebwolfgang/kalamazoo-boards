@@ -1063,6 +1063,10 @@ def run_web_docs_and_youtube_board(board: dict, start_iso: str, end_iso: str, ap
 
     output = {
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "metadata": {
+            "time": board.get("time", "TBD"),
+            "location": BOARD_LOCATIONS.get(board["key"]) or "TBD"
+        },
         "upcoming_meetings": upcoming,
         "meetings":          merged_meetings,
         "recordings":        merged_recordings,
