@@ -1093,14 +1093,13 @@ footer a:hover { color: var(--gold-lt); }
   }
 
   function buildMeetingHTML(meetings) {
-    const isMobile  = window.innerWidth < 640;
-    const isIOS     = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isMobile = window.innerWidth < 640;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     return meetings.map(m => {
-      const color     = getBoardColor(m.abbr);
+      const color = getBoardColor(m.abbr);
       const hasStream = LIVESTREAM_BOARDS.has(m.abbr);
-
-      const isPast    = new Date(m.date + 'T23:59:59') < TODAY;
+      const isPast = new Date(m.date + 'T23:59:59') < TODAY;
 
       return `<div class="modal-meeting" style="border-left-color:${color}">
         <div class="modal-meeting-top">
@@ -1111,15 +1110,15 @@ footer a:hover { color: var(--gold-lt); }
           </div>
         </div>
         <div class="modal-detail-row">
-          <span class="modal-detail-icon">
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
-  </svg>
-</span>
-          <span${m.location === "Location TBD" ? ' style="font-style: italic; opacity: 0.7;"' : ''}>${m.location}</span>
-        </div>
-        <a class="modal-board-link" href="${m.detailPage}">
-          ${m.name} board page
+          <span class="modal-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+            </svg>
+          </span>
+          <span${m.location === "Location TBD" ? ' style="font-style: italic; opacity: 0.7;"' : ''}>${m.location}</span>
+        </div>
+        <a class="modal-board-link" href="${m.detailPage}">
+          ${m.name} board page
           <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
         <div class="modal-actions${hasStream && !isPast ? ' has-stream' : ''}">
