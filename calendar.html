@@ -462,6 +462,17 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 24px var(--pad-x); text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
 footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
 footer a:hover { color: var(--gold-lt); }
+/* Modal spacing fix */
+.modal-meeting {
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.modal-meeting-name { margin-bottom: 0; }
+.modal-meeting-sub { margin: 0; }
+.modal-detail-row { margin-bottom: 0; }
+.modal-board-link { margin: 0; align-self: flex-start; }
 </style>
 </head>
 <body>
