@@ -306,7 +306,7 @@ BOARDS = [
 # Global config
 # ---------------------------------------------------------------------------
 
-CIVICCLERK_TENANT    = "kalamazoomi"
+CIVICCLERK_TENANT  = "kalamazoomi"
 MINUTES_AGENDAS_URL  = "https://www.kalamazoocity.org/Government/Boards-Commissions/Minutes-Agendas"
 LOOKBACK_MONTHS      = 6
 LOOKAHEAD_MONTHS     = 6
@@ -1120,9 +1120,16 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
 # ---------------------------------------------------------------------------
 
 def build_calendar_json() -> None:
-    """Aggregate all board upcoming_meetings into a single data/calendar.json."""
+    """Aggregate all board meetings into a single data/calendar.json.
+    Includes upcoming meetings plus recent past meetings (within 2 months)
+    with their recording/document URLs for the calendar page.
+    """
     print("\nBuilding data/calendar.json...")
     all_meetings = []
+    today          = date.today()
+    first_of_month = today.replace(day=1)
+    lookback_start = (first_of_month - timedelta(days=1)).replace(day=1)
+    lookback_iso   = lookback_start.strftime("%Y-%m-%d")
 
     for board in BOARDS:
         path = board["output"]
@@ -1130,13 +1137,18 @@ def build_calendar_json() -> None:
             continue
         with path.open("r", encoding="utf-8") as f:
             data = json.load(f)
+
         key  = board["key"]
         abbr = BOARD_ABBR.get(key, key.upper())
         name = board["name"]
+        seen_dates = set()
+
+        # Upcoming meetings — no document URLs yet
         for meeting in data.get("upcoming_meetings", []):
             date_iso = meeting.get("date")
             if not date_iso:
                 continue
+            seen_dates.add(date_iso)
             all_meetings.append({
                 "date":     date_iso,
                 "display":  meeting.get("display", date_iso),
@@ -1145,6 +1157,32 @@ def build_calendar_json() -> None:
                 "abbr":     abbr,
                 "name":     name,
             })
+
+        # Recent past meetings — include recording/document URLs
+        for meeting in data.get("meetings", []):
+            date_iso = meeting.get("date")
+            if not date_iso or date_iso < lookback_iso:
+                continue
+            if date_iso in seen_dates:
+                continue
+            seen_dates.add(date_iso)
+
+            entry = {
+                "date":     date_iso,
+                "display":  format_display_date_long(date_iso),
+                "time":     board.get("time") or None,
+                "location": get_meeting_location(key, date_iso, meeting),
+                "abbr":     abbr,
+                "name":     name,
+            }
+            if meeting.get("youtube_url"):
+                entry["youtube_url"] = meeting["youtube_url"]
+            if meeting.get("agenda_url"):
+                entry["agenda_url"] = meeting["agenda_url"]
+            if meeting.get("minutes_url"):
+                entry["minutes_url"] = meeting["minutes_url"]
+
+            all_meetings.append(entry)
 
     all_meetings.sort(key=lambda m: m["date"])
 
@@ -1172,22 +1210,26 @@ def write_ics_event(m: dict) -> str:
     dtend = date_str
     is_all_day = True
     
-    # Catch empty strings or placeholder strings from BOARD_TIMES config
     if time_str and time_str not in ("TBD", "On Call"):
         try:
-            # Handle potential en-dash (\u2013) that are used in your board config
-            start_time_str = time_str.replace('\u2013', '-').split('-')[0].strip()
-            dt = datetime.strptime(start_time_str, '%I:%M %p')
-            dtstart = f"{date_str}T{dt.strftime('%H%M%S')}"
+            parts          = time_str.split('\u2013')
+            start_time_str = parts[0].strip()
+            dt_start       = datetime.strptime(start_time_str, '%I:%M %p')
+            dtstart        = f"{date_str}T{dt_start.strftime('%H%M%S')}"
+            is_all_day     = False
             
-            # Assume 2hr default, ensuring it doesn't cross past 23 for simple parsers
-            end_h = dt.hour + 2
-            if end_h > 23:
-                end_h = 23
-            dtend = f"{date_str}T{end_h:02d}{dt.minute:02d}00"
-            is_all_day = False
+            # Use actual end time from range string if present, else fall back to +2 hours
+            if len(parts) >= 2:
+                try:
+                    dt_end = datetime.strptime(parts[1].strip(), '%I:%M %p')
+                    dtend  = f"{date_str}T{dt_end.strftime('%H%M%S')}"
+                except ValueError:
+                    end_h = min(dt_start.hour + 2, 23)
+                    dtend = f"{date_str}T{end_h:02d}{dt_start.minute:02d}00"
+            else:
+                end_h = min(dt_start.hour + 2, 23)
+                dtend = f"{date_str}T{end_h:02d}{dt_start.minute:02d}00"
         except ValueError:
-            # Fallback to all-day if it fails to parse a weird time string format
             pass
 
     lines = [
@@ -1221,7 +1263,9 @@ def generate_ics_files(calendar_json_path='data/calendar.json', output_dir='data
     
     with open(calendar_json_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
-        meetings = data.get('meetings', [])
+    
+    today_iso = date.today().isoformat()
+    meetings  = [m for m in data.get('meetings', []) if m.get('date', '') >= today_iso]
         
     vtimezone = (
         "BEGIN:VTIMEZONE\r\n"
