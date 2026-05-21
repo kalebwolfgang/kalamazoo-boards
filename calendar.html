@@ -666,13 +666,16 @@ footer a:hover { color: var(--gold-lt); }
       (cal.meetings || []).forEach(m => {
         if (!m.date) return;
         const slug  = DETAIL_SLUG[m.abbr] || m.abbr.toLowerCase();
+        const fallbackLocation = cal.metadata && cal.metadata[m.abbr] && cal.metadata[m.abbr].location;
+        const finalLocation = m.location || fallbackLocation || "Location TBD";
+        
         const entry = {
           abbr:       m.abbr,
           name:       m.name,
           date:       m.date,
           display:    m.display || m.date,
           time:       m.time    || null,
-          location:   m.location || null,
+          location:   finalLocation,
           detailPage: `board-${slug}.html`,
           youtubeUrl: m.youtube_url || null,
           agendaUrl:  m.agenda_url  || null,
