@@ -411,7 +411,21 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
 .modal-actions.has-stream .modal-action-btn:last-child { grid-column: 1 / -1; }
 .modal-actions.is-past:not(.has-stream) .modal-action-btn { grid-column: 1 / -1; }
-.modal-action-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; font-size: 12px; font-weight: 600; padding: 9px 12px; border-radius: 3px; border: 1px solid var(--border); cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: background 0.15s, border-color 0.15s; text-decoration: none; }
+.modal-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif;
+  transition: background 0.15s, border-color 0.15s;
+  text-decoration: none;
+}
 .modal-action-btn-row { display: flex; align-items: center; gap: 5px; }
 .modal-action-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.01em; opacity: 0.75; }
 .modal-action-btn.watch { background: rgba(200,0,0,0.05); color: #b00; border-color: rgba(200,0,0,0.18); }
