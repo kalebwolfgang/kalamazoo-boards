@@ -1028,11 +1028,11 @@ footer a:hover { color: var(--gold-lt); }
         <div class="modal-meeting-top">
           <div class="modal-meeting-badge" style="background:${color}"><span>${m.abbr}</span></div>
           <div class="modal-meeting-info">
-            <div class="modal-meeting-name">${m.name}</div>
-            ${m.time ? `<div class="modal-meeting-sub">${m.time}</div>` : ''}
-          </div>
-       </div>
-        <div class="modal-detail-row">
+            <div class="modal-meeting-name">${m.name}</div>
+          </div>
+       </div>
+        ${m.time ? `<div class="modal-meeting-sub">${m.time}</div>` : ''}
+        <div class="modal-detail-row">
           <span class="modal-detail-icon">📍</span>
           <span${m.location === "Location TBD" ? ' style="font-style: italic; opacity: 0.7;"' : ''}>${m.location}</span>
         </div>
