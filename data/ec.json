@@ -1,15 +1,21 @@
 {
   "last_updated": "2026-05-21",
+  "metadata": {
+    "time": "09:00 AM – 10:00 AM",
+    "location": "TBD"
+  },
   "upcoming_meetings": [
     {
       "date": "2026-07-09",
       "display": "Thursday, July 09, 2026",
-      "time": "09:00 AM – 10:00 AM"
+      "time": "09:00 AM – 10:00 AM",
+      "location": "City Records Center, 3001 S Burdick St"
     },
     {
       "date": "2026-10-08",
       "display": "Thursday, October 08, 2026",
-      "time": "09:00 AM – 10:00 AM"
+      "time": "09:00 AM – 10:00 AM",
+      "location": "City Records Center, 3001 S Burdick St"
     }
   ],
   "meetings": [
