@@ -93,7 +93,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-wrap { max-width: 1400px; margin: 0 auto; padding: clamp(20px,4vw,36px) var(--pad-x) clamp(48px,8vw,100px); }
 
 /* ── Two-column layout ── */
-.cal-layout { display: flex; gap: 20px; align-items: stretch; }
+.cal-layout { display: flex; gap: 20px; align-items: flex-start; }
 .cal-main    { flex: 1; min-width: 0; }
 
 /* ── Controls ── */
@@ -687,6 +687,7 @@ footer a:hover { color: var(--gold-lt); }
       document.getElementById('view-month').style.display  = 'block';
       renderSidebar();
       render();
+      requestAnimationFrame(syncSidebarHeight);
     } catch(err) {
       console.error('Calendar load error:', err);
       document.getElementById('cal-loading').innerHTML = '<p class="cal-state-text" style="color:#dc2626">Unable to load meeting data. Please refresh and try again.</p>';
@@ -828,12 +829,31 @@ footer a:hover { color: var(--gold-lt); }
     document.getElementById('sidebar-overlay').classList.remove('open');
     document.body.style.overflow = '';
   }
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 860) closeMobileSidebar();
-  });
+  /* Sync sidebar height to match calendar grid — calendar drives the height */
+  function syncSidebarHeight() {
+    const main    = document.getElementById('view-month');
+    const sidebar = document.getElementById('cal-sidebar');
+    const body    = document.getElementById('sidebar-body');
+    if (!main || !sidebar || !body || window.innerWidth <= 860) return;
+    const gridH = main.offsetHeight;
+    sidebar.style.height = gridH + 'px';
+    const fixedH = Array.from(sidebar.children)
+      .filter(c => c !== body)
+      .reduce((s, c) => s + c.offsetHeight, 0);
+    body.style.maxHeight = Math.max(gridH - fixedH, 80) + 'px';
+  }
 
   /* RENDER */
-  function render() { if (dataLoaded) renderMonthView(); }
+  function render() {
+    if (dataLoaded) {
+      renderMonthView();
+      requestAnimationFrame(syncSidebarHeight);
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) { closeMobileSidebar(); syncSidebarHeight(); }
+  });
 
   /* MONTH VIEW */
   function renderMonthView() {
