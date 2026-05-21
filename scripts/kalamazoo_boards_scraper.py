@@ -1104,6 +1104,10 @@ def run_youtube_only_board(board: dict, start_iso: str, end_iso: str, api_key: s
 
     output = {
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "metadata": {
+            "time": board.get("time", "TBD"),
+            "location": BOARD_LOCATIONS.get(board["key"]) or "TBD"
+        },
         "upcoming_meetings": upcoming,
         "meetings":          existing.get("meetings", []),
         "recordings":        merged_recordings,
