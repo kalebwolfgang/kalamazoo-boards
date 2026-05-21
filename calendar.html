@@ -1128,14 +1128,19 @@ footer a:hover { color: var(--gold-lt); }
     const shareUrl=url.toString();
     const meetings=meetingsByDate[dateStr]||[];
     const m=meetings.find(x=>x.abbr===abbr)||meetings[0];
-    const location = m && m.location ? m.location + ', Kalamazoo, MI' : null;
-    const isPastMeeting = m && new Date(m.date + 'T23:59:59') < new Date();
-    const title = m ? `${m.name} — ${isPastMeeting ? 'Meeting Record' : 'Upcoming Meeting'}` : 'Kalamazoo Public Meeting';
-    const text  = m
-      ? isPastMeeting
-        ? `Meeting Record\n\n${m.name}\n\n📅 ${m.display}\n\n📋 View Meeting Documents`
-        : `Upcoming Meeting\n\n${m.name}\n\n📅 ${m.display}${m.time ? ' at ' + m.time : ''}\n\n📍 ${location || ''}`
-      : 'Kalamazoo Public Meeting';
+      
+      let locationText = '';
+      if (m && m.location) {
+        locationText = m.location === "Location TBD" ? m.location : m.location + ', Kalamazoo, MI';
+      }
+      
+      const isPastMeeting = m && new Date(m.date + 'T23:59:59') < new Date();
+      const title = m ? `${m.name} — ${isPastMeeting ? 'Meeting Record' : 'Upcoming Meeting'}` : 'Kalamazoo Public Meeting';
+      const text  = m
+        ? isPastMeeting
+          ? `Meeting Record\n\n${m.name}\n\n📅 ${m.display}\n\n📋 View Meeting Documents`
+          : `Upcoming Meeting\n\n${m.name}\n\n📅 ${m.display}${m.time ? ' at ' + m.time : ''}\n\n📍 ${locationText}`
+        : 'Kalamazoo Public Meeting';
     const isMobileShare = window.innerWidth < 640;
     // Native share sheet on mobile only; desktop always copies link
     if (isMobileShare && navigator.share) {
