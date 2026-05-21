@@ -668,7 +668,18 @@ footer a:hover { color: var(--gold-lt); }
       (cal.meetings || []).forEach(m => {
         if (!m.date) return;
         const slug  = DETAIL_SLUG[m.abbr] || m.abbr.toLowerCase();
-        const entry = { abbr:m.abbr, name:m.name, date:m.date, display:m.display||m.date, time:m.time||null, location:m.location||null, detailPage:`board-${slug}.html` };
+        const entry = {
+          abbr:       m.abbr,
+          name:       m.name,
+          date:       m.date,
+          display:    m.display || m.date,
+          time:       m.time    || null,
+          location:   m.location || null,
+          detailPage: `board-${slug}.html`,
+          youtubeUrl: m.youtube_url || null,
+          agendaUrl:  m.agenda_url  || null,
+          minutesUrl: m.minutes_url || null,
+        };
         if (!meetingsByDate[m.date]) meetingsByDate[m.date] = [];
         meetingsByDate[m.date].push(entry);
         totalUpcoming++;
@@ -999,13 +1010,34 @@ footer a:hover { color: var(--gold-lt); }
           ${m.name} board page
           <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
-        <div class="modal-actions${hasStream ? ' has-stream' : ''}${isPast ? ' is-past' : ''}">
-          ${hasStream ? `<a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
+        <div class="modal-actions${hasStream && !isPast ? ' has-stream' : ''}">
+          ${hasStream && !isPast ? `<a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
             <span class="modal-action-btn-row">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1-.8-2.2-.8-2.7-.9C16.9 2.5 12 2.5 12 2.5s-4.9 0-7.7.2c-.5.1-1.7.1-2.7.9C.8 4.3.5 6.2.5 6.2S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1 .8 2.4.8 3 .9C6.8 21 12 21 12 21s4.9 0 7.7-.3c.5-.1 1.7-.1 2.7-.9.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.8V8.9l7.3 3-7.3 2.9z"/></svg>
               Watch Live
             </span>
             <span class="modal-action-sub">Stream on YouTube</span>
+          </a>` : ''}
+          ${isPast && m.youtubeUrl ? `<a class="modal-action-btn watch" href="${m.youtubeUrl}" target="_blank" rel="noopener">
+            <span class="modal-action-btn-row">
+              <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1-.8-2.2-.8-2.7-.9C16.9 2.5 12 2.5 12 2.5s-4.9 0-7.7.2c-.5.1-1.7.1-2.7.9C.8 4.3.5 6.2.5 6.2S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1 .8 2.4.8 3 .9C6.8 21 12 21 12 21s4.9 0 7.7-.3c.5-.1 1.7-.1 2.7-.9.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.8V8.9l7.3 3-7.3 2.9z"/></svg>
+              Watch Recording
+            </span>
+            <span class="modal-action-sub">View on YouTube</span>
+          </a>` : ''}
+          ${isPast && m.agendaUrl ? `<a class="modal-action-btn addcal" href="${m.agendaUrl}" target="_blank" rel="noopener">
+            <span class="modal-action-btn-row">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              View Agenda
+            </span>
+            <span class="modal-action-sub">Official document</span>
+          </a>` : ''}
+          ${isPast && m.minutesUrl ? `<a class="modal-action-btn addcal" href="${m.minutesUrl}" target="_blank" rel="noopener">
+            <span class="modal-action-btn-row">
+              <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+              View Minutes
+            </span>
+            <span class="modal-action-sub">Official document</span>
           </a>` : ''}
           <button class="modal-action-btn copylink" onclick="calShareMeeting('${m.date}','${m.abbr}',this)">
             <span class="modal-action-btn-row">
@@ -1084,9 +1116,10 @@ footer a:hover { color: var(--gold-lt); }
     const meetings=meetingsByDate[dateStr]||[];
     const m=meetings.find(x=>x.abbr===abbr)||meetings[0];
     const location = m && m.location ? m.location + ', Kalamazoo, MI' : null;
-    const title = m ? `${m.name} — Public Meeting` : 'Kalamazoo Public Meeting';
+    const isPastMeeting = m && new Date(m.date + 'T23:59:59') < new Date();
+    const title = m ? `${m.name} — ${isPastMeeting ? 'Meeting Record' : 'Public Meeting'}` : 'Kalamazoo Public Meeting';
     const text  = m
-      ? `Upcoming public meeting\n${m.name}\n${m.display}${m.time ? ' at ' + m.time : ''}${location ? '\n' + location : ''}`
+      ? `${isPastMeeting ? 'Public meeting record' : 'Upcoming public meeting'}\n${m.name}\n${m.display}${!isPastMeeting && m.time ? ' at ' + m.time : ''}${location ? '\n' + location : ''}`
       : 'Kalamazoo public meeting';
     const isMobileShare = window.innerWidth < 640;
     // Native share sheet on mobile only; desktop always copies link
