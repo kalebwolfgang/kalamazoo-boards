@@ -1107,9 +1107,9 @@ footer a:hover { color: var(--gold-lt); }
           <div class="modal-meeting-badge" style="background:${color}"><span>${m.abbr}</span></div>
           <div class="modal-meeting-info">
             <div class="modal-meeting-name">${m.name}</div>
+            ${m.time ? `<div class="modal-meeting-sub">${m.time}</div>` : ''}
           </div>
-       </div>
-        ${m.time ? `<div class="modal-meeting-sub">${m.time}</div>` : ''}
+        </div>
         <div class="modal-detail-row">
           <span class="modal-detail-icon">
   <svg viewBox="0 0 24 24" fill="currentColor">
