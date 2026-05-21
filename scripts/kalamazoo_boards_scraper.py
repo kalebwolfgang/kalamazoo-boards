@@ -1252,9 +1252,6 @@ def run_board(board: dict, start_iso: str, end_iso: str, api_key: str | None) ->
     }
     if board.get("youtube"):
         output["recordings"] = merged_recordings
-    }
-    if board.get("youtube"):
-        output["recordings"] = merged_recordings
 
     board["output"].parent.mkdir(parents=True, exist_ok=True)
     with board["output"].open("w", encoding="utf-8") as f:
