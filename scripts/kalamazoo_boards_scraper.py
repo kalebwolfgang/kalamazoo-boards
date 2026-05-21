@@ -1184,6 +1184,25 @@ def build_calendar_json() -> None:
 
             all_meetings.append(entry)
 
+        # Recordings without corresponding document entries
+        # Catches meetings that have a YouTube recording but no agenda/minutes posted yet
+        for rec in data.get("recordings", []):
+            date_iso = rec.get("date")
+            if not date_iso or date_iso < lookback_iso:
+                continue
+            if date_iso in seen_dates:
+                continue
+            seen_dates.add(date_iso)
+            all_meetings.append({
+                "date":        date_iso,
+                "display":     format_display_date_long(date_iso),
+                "time":        board.get("time") or None,
+                "location":    get_meeting_location(key, date_iso, {}),
+                "abbr":        abbr,
+                "name":        name,
+                "youtube_url": rec["youtube_url"],
+            })
+
     all_meetings.sort(key=lambda m: m["date"])
 
     out_path = Path("data") / "calendar.json"
