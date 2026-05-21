@@ -1025,8 +1025,8 @@ footer a:hover { color: var(--gold-lt); }
             <div class="modal-meeting-name">${m.name}</div>
             ${m.time ? `<div class="modal-meeting-sub">${m.time}</div>` : ''}
           </div>
-        </div>
-        ${m.location ? `<div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>` : ''}
+       </div>
+        <div class="modal-detail-row"><span class="modal-detail-icon">📍</span><span>${m.location}</span></div>
         <a class="modal-board-link" href="${m.detailPage}">
           ${m.name} board page
           <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
