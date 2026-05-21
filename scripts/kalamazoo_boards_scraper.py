@@ -49,6 +49,7 @@ BOARDS = [
         "youtube_search_query": "Civil Rights Board",
         "youtube_title_filter": ["civil rights board", "civil rights"],
         "youtube_tolerance":    3,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
     },
     {
         "key":         "bra",
@@ -57,6 +58,7 @@ BOARDS = [
         "keywords":    ["brownfield redevelopment authority"],
         "output":      Path("data") / "bra.json",
         "youtube":     False,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Brownfield-Redevelopment-Authority",
     },
     {
         "key":                    "cpsrab",
@@ -72,6 +74,7 @@ BOARDS = [
         "youtube_title_filter":   ["citizens public safety", "cpsrab"],
         "youtube_tolerance":      3,
         "schedule":               ("monthly", "tuesday", 2, None),
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board",
     },
     {
         "key":         "dda",
@@ -80,6 +83,7 @@ BOARDS = [
         "keywords":    ["downtown development authority", "dda"],
         "output":      Path("data") / "dda.json",
         "youtube":     False,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Downtown-Development-Authority",
     },
     {
         "key":         "dega",
@@ -88,6 +92,7 @@ BOARDS = [
         "keywords":    ["downtown economic growth authority", "dega"],
         "output":      Path("data") / "dega.json",
         "youtube":     False,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Downtown-Economic-Growth-Authority",
     },
     {
         "key":         "edc",
@@ -96,6 +101,7 @@ BOARDS = [
         "keywords":    ["economic development corporation", "edc"],
         "output":      Path("data") / "edc.json",
         "youtube":     False,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Economic-Development-Corporation",
     },
     {
         "key":         "ec",
@@ -118,6 +124,7 @@ BOARDS = [
         "youtube_search_query": "Environmental Concerns Committee",
         "youtube_title_filter": ["environmental concerns committee", "environmental concerns"],
         "youtube_tolerance":    3,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Environmental-Concerns-Committee",
     },
     {
         "key":         "hdc",
@@ -131,6 +138,7 @@ BOARDS = [
         "youtube_title_filter": ["historic district"],
         "youtube_tolerance":    3,
         "schedule":    ("monthly", "tuesday", 3, None),
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Historic-District-Commission",
     },
     {
         "key":         "hpc",
@@ -144,6 +152,7 @@ BOARDS = [
         "youtube_title_filter": ["historic preservation commission", "historical preservation commission"],
         "youtube_tolerance":    3,
         "schedule":    ("monthly", "wednesday", 2, None),
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Historic-Preservation-Commission",
     },
     {
         "key":         "locc",
@@ -167,6 +176,7 @@ BOARDS = [
         "youtube_title_filter": ["natural features protection"],
         "youtube_tolerance":    3,
         "schedule":    ("monthly", "tuesday", 4, None),
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Natural-Features-Protection-Review-Board",
     },
     {
         "key":         "pc",
@@ -179,6 +189,7 @@ BOARDS = [
         "youtube_search_query": "Planning Commission Kalamazoo",
         "youtube_title_filter": ["planning commission"],
         "youtube_tolerance":    3,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Planning-Commission",
     },
     {
         "key":         "zba",
@@ -191,6 +202,7 @@ BOARDS = [
         "youtube_search_query": "Zoning Board of Appeals Kalamazoo",
         "youtube_title_filter": ["zoning board of appeals", "zoning board"],
         "youtube_tolerance":    3,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Zoning-Board-of-Appeals",
     },
     {
         "key":         "pension-board",
@@ -200,6 +212,7 @@ BOARDS = [
         "output":      Path("data") / "pension-board.json",
         "youtube":     False,
         "preserve_upcoming": True,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Employee-Retirement-System-Board-of-Trustees",
     },
     {
         "key":              "prab",
@@ -289,6 +302,7 @@ BOARDS = [
         "keywords":    ["northside cultural business district", "northside cultural", "ncbda"],
         "output":      Path("data") / "ncbda.json",
         "youtube":     False,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Northside-Cultural-Business-District-Authority-Board",
     },
     {
         "key":         "spk",
@@ -298,6 +312,7 @@ BOARDS = [
         "output":      Path("data") / "spk.json",
         "youtube":     False,
         "preserve_upcoming": True,
+        "web_url": "https://www.kalamazoocity.org/Government/Boards-Commissions/SPK-Organizing-Committee",
     },
 ]
 
@@ -421,6 +436,96 @@ def get_meeting_location(key: str, date_iso: str, meeting: dict) -> str | None:
             return "Eastern Hills Golf Club, Kalamazoo"
         return "Milham Park Golf Club, Kalamazoo"
     return BOARD_LOCATIONS.get(key)
+
+
+# ---------------------------------------------------------------------------
+# City website metadata scraping (time + location for all boards)
+# ---------------------------------------------------------------------------
+def scrape_city_web_info(url: str) -> dict:
+    """
+    Scrape meeting time and location from a city board page.
+    Returns dict with 'time' and/or 'location' if found, empty dict on failure.
+    """
+    try:
+        r = requests.get(url, timeout=30)
+        r.raise_for_status()
+        text = r.text
+        result = {}
+
+        # Time: "Next date: Wednesday, June 03, 2026 | 05:00 PM\n to 07:00 PM"
+        time_m = re.search(
+            r'Next date:[^|]+\|\s*(\d{1,2}:\d{2}\s+[AP]M)\s*\n?\s*to\s*(\d{1,2}:\d{2}\s+[AP]M)',
+            text, re.IGNORECASE
+        )
+        if time_m:
+            result['time'] = f"{time_m.group(1).strip()} \u2013 {time_m.group(2).strip()}"
+
+        # Location: section after "## Location"
+        loc_m = re.search(
+            r'##\s*Location\s*\n+(.*?)(?=\n##|\Z)',
+            text, re.IGNORECASE | re.DOTALL
+        )
+        if loc_m:
+            loc_raw = loc_m.group(1)
+            # Remove markdown links
+            loc_raw = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', loc_raw)
+            # Remove zip + city from end of lines
+            loc_raw = re.sub(r',?\s*Kalamazoo,?\s*\d{5}[^,\n]*', '', loc_raw)
+            # Clean lines
+            lines = [
+                l.strip() for l in loc_raw.split('\n')
+                if l.strip()
+                and not re.match(r'^[\d.,\s-]+$', l.strip())
+                and 'View Map' not in l
+                and 'Skip to' not in l
+                and not l.strip().startswith('#')
+            ]
+            if lines:
+                location = ', '.join(lines[:2])
+                location = location.replace('Kalamazoo City Hall, Second Floor', 'City Hall Second Floor')
+                location = location.replace('Kalamazoo City Hall', 'City Hall')
+                location = re.sub(r'\bStreet\b', 'St', location)
+                location = re.sub(r'\bAvenue\b', 'Ave', location)
+                location = re.sub(r',\s*,', ',', location)
+                location = re.sub(r'\s+', ' ', location).strip().rstrip(',')
+                result['location'] = location
+
+        return result
+    except Exception as e:
+        print(f"    WARNING: Could not scrape board info from {url}: {e}")
+        return {}
+
+def refresh_board_metadata(boards_to_run: list) -> None:
+    """
+    Fetch current time and location for each board from the city website.
+    Updates BOARD_TIMES and BOARD_LOCATIONS in place.
+    Only refreshes boards in boards_to_run so --board crb doesn't fetch all 25 pages.
+    """
+    skip_location = {"prab", "kmga"}   # dynamic per-meeting location, never overwrite
+    skip_time     = {"locc"}           # "On Call" is intentional
+
+    print("\nRefreshing board metadata from city website...")
+    updated = 0
+    for board in boards_to_run:
+        url = board.get("web_url")
+        if not url:
+            continue
+
+        key = board["key"]
+        info = scrape_city_web_info(url)
+
+        if info.get("time") and key not in skip_time:
+            BOARD_TIMES[key] = info["time"]
+            board["time"]    = info["time"]
+            print(f"    {key.upper()}: time → {info['time']}")
+            updated += 1
+
+        if info.get("location") and key not in skip_location:
+            BOARD_LOCATIONS[key] = info["location"]
+            print(f"    {key.upper()}: location → {info['location']}")
+            updated += 1
+
+    print(f"    Done. {updated} value(s) refreshed.")
 
 
 # ---------------------------------------------------------------------------
@@ -1367,6 +1472,7 @@ def main():
         if not boards_to_run:
             raise SystemExit(f"Unknown board key: {args.board}. Available: {[b['key'] for b in BOARDS]}")
 
+    refresh_board_metadata(boards_to_run)
     needs_youtube = any(b.get("youtube") for b in boards_to_run)
     api_key       = get_youtube_key() if needs_youtube else None
 
