@@ -37,7 +37,9 @@
       "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2752/files/agenda/5070",
-      "meeting_type": "Environmental Concerns Committee"
+      "meeting_type": "Environmental Concerns Committee",
+      "youtube_id": "P7suPTOXaSI",
+      "youtube_url": "https://www.youtube.com/watch?v=P7suPTOXaSI"
     },
     {
       "date": "2026-04-15",
@@ -45,10 +47,12 @@
       "event_id": 2751,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2751/files/agenda/4941",
       "link_label": "Agenda",
-      "meeting_type": "Environmental Concerns Committee",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2751/files/agenda/4941"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2751/files/agenda/4941",
+      "meeting_type": "Environmental Concerns Committee",
+      "youtube_id": "ez2cYMMUU_c",
+      "youtube_url": "https://www.youtube.com/watch?v=ez2cYMMUU_c"
     },
     {
       "date": "2026-03-18",
@@ -56,10 +60,12 @@
       "event_id": 2750,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2750/files/agenda/4872",
       "link_label": "Agenda & Minutes",
-      "meeting_type": "Environmental Concerns Committee",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2750/files/agenda/4964",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2750/files/agenda/4872"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2750/files/agenda/4872",
+      "meeting_type": "Environmental Concerns Committee",
+      "youtube_id": "fAIolW2GqoI",
+      "youtube_url": "https://www.youtube.com/watch?v=fAIolW2GqoI"
     },
     {
       "date": "2025-12-17",
@@ -67,10 +73,12 @@
       "event_id": 2498,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2498/files/agenda/4592",
       "link_label": "Agenda",
-      "meeting_type": "Environmental Concerns Committee",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2498/files/agenda/4592"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2498/files/agenda/4592",
+      "meeting_type": "Environmental Concerns Committee",
+      "youtube_id": "hwaajOUXjPg",
+      "youtube_url": "https://www.youtube.com/watch?v=hwaajOUXjPg"
     },
     {
       "date": "2025-11-19",

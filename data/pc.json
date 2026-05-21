@@ -35,25 +35,29 @@
   "meetings": [
     {
       "date": "2026-05-07",
-      "display": "May 7, 2026",
+      "display": "May 07, 2026",
       "event_id": 2587,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995",
       "link_label": "Agenda",
-      "meeting_type": "Planning Commission",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995",
+      "meeting_type": "Planning Commission - Regular Meeting",
+      "youtube_id": "RGquK8ZfqZ8",
+      "youtube_url": "https://www.youtube.com/watch?v=RGquK8ZfqZ8"
     },
     {
       "date": "2026-04-08",
-      "display": "April 8, 2026",
+      "display": "April 08, 2026",
       "event_id": 2586,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2586/files/agenda/4912",
       "link_label": "Agenda",
-      "meeting_type": "Planning Commission",
       "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2586/files/agenda/4912"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2586/files/agenda/4912",
+      "meeting_type": "Planning Commission - Regular Meeting",
+      "youtube_id": "nYZIdSr5HiE",
+      "youtube_url": "https://www.youtube.com/watch?v=nYZIdSr5HiE"
     },
     {
       "date": "2026-03-05",
@@ -68,25 +72,29 @@
     },
     {
       "date": "2026-02-05",
-      "display": "February 5, 2026",
+      "display": "February 05, 2026",
       "event_id": 2584,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/4676",
       "link_label": "Agenda & Minutes",
-      "meeting_type": "Planning Commission",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/5001",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/4676"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/4676",
+      "meeting_type": "Planning Commission - Regular Meeting",
+      "youtube_id": "Ll2NxzysY0c",
+      "youtube_url": "https://www.youtube.com/watch?v=Ll2NxzysY0c"
     },
     {
       "date": "2025-12-04",
-      "display": "December 4, 2025",
+      "display": "December 04, 2025",
       "event_id": 1444,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4476",
       "link_label": "Agenda & Minutes",
-      "meeting_type": "Planning Commission",
       "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4883",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4476"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4476",
+      "meeting_type": "Planning Commission - Regular Meeting",
+      "youtube_id": "pEsDkjNXzw4",
+      "youtube_url": "https://www.youtube.com/watch?v=pEsDkjNXzw4"
     },
     {
       "date": "2025-11-06",
