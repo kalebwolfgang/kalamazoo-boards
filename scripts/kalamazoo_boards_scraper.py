@@ -885,7 +885,7 @@ def merge_meetings(existing: list, scraped: list) -> tuple:
         if preserved:
             stats["preserved"] += len(preserved)
         changed = any(by_key[k].get(f) != merged.get(f)
-                      for f in ("url", "cancelled", "minutes_url", "agenda_url"))
+                      for f in ("url", "cancelled", "minutes_url", "agenda_url", "youtube_id", "youtube_url"))
         if changed:
             by_key[k] = merged
             stats["updated"] += 1
