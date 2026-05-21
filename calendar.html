@@ -408,7 +408,12 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-board-link:hover { color: var(--navy); border-bottom-color: var(--navy); }
 .modal-board-link svg { transition: transform 0.12s; }
 .modal-board-link:hover svg { transform: translateX(2px); }
-.modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+.modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
 .modal-actions.has-stream .modal-action-btn:last-child { grid-column: 1 / -1; }
 .modal-actions.is-past:not(.has-stream) .modal-action-btn { grid-column: 1 / -1; }
 .modal-action-btn {
