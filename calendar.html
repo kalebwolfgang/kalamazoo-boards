@@ -19,9 +19,9 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy:      #0d4f63;
-  --navy-mid:  #1a7a97;
-  --navy-light:#2596be;
+  --navy:      #2d6b4a;
+  --navy-mid:  #3a8860;
+  --navy-light:#4a9068;
   --gold:      #c9921a;
   --gold-lt:   #e8b84b;
   --green:     #2d6b4a;
@@ -93,7 +93,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .cal-wrap { max-width: 1400px; margin: 0 auto; padding: clamp(20px,4vw,36px) var(--pad-x) clamp(48px,8vw,100px); }
 
 /* ── Two-column layout ── */
-.cal-layout { display: flex; gap: 20px; align-items: flex-start; }
+.cal-layout { display: flex; gap: 20px; align-items: stretch; }
 .cal-main    { flex: 1; min-width: 0; }
 
 /* ── Controls ── */
@@ -159,7 +159,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 
 /* Tighter cells — content flows top-down, no bottom-push */
 .cal-cell {
-  min-height: 100px; padding: 10px 10px 8px;
+  min-height: 150px; padding: 10px 10px 8px;
   border-right: none; border-bottom: 1px solid var(--border);
   background: var(--white); transition: background 0.1s;
   cursor: default; display: flex; flex-direction: column; gap: 4px;
@@ -224,8 +224,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
    ══════════════════════════════════════════ */
 .cal-sidebar {
   width: 280px; flex-shrink: 0;
-  position: sticky; top: 76px;
-  max-height: calc(100vh - 96px);
   display: flex; flex-direction: column;
   background: var(--white); border: 1px solid var(--border);
   border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
