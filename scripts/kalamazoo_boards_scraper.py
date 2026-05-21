@@ -112,6 +112,7 @@ BOARDS = [
         "youtube":     False,
         "upcoming_from_web": True,
         "web_url":     "https://www.kalamazoocity.org/Government/Boards-Commissions/Election-Commission",
+        "parse_locations": True,
     },
     {
         "key":         "ecc",
