@@ -738,7 +738,7 @@ def transform_event(event: dict, board: dict) -> dict | None:
         "isCancelled": cancelled,
         "minutes_url": build_doc_url(event_id, minutes_file_id) if minutes_file_id else None,
         "agenda_url":  build_doc_url(event_id, agenda_file_id) if agenda_file_id else None,
-        "location":    extract_cc_location(event),
+        "location":    get_cc_location_override(event, board),
         "sourceUrl":   source_url,
         "scrapedAt":   None,
     }
