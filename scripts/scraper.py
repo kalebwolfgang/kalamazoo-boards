@@ -93,7 +93,7 @@ BOARDS = [
         "keywords":     ["brownfield redevelopment authority"],
         "output":       Path("data") / "bra.json",
         "youtube":      False,
-        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Brownfield-Redevelopment-Authority",
+        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Brownfield-Redevelopment-Authority-Economic-Development-Corporation",
     },
     {
         "key":                    "cpsrab",
