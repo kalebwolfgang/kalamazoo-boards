@@ -278,7 +278,7 @@ BOARDS = [
         "location":    "City Hall, 241 W South St",
         "category_id": 42,
         "keywords":    ["employees retirement system", "retirement system", "pension"],
-        "output":      Path("data") / "pension-board.json",
+        "output":      Path("data") / "ersb.json",
         "youtube":     False,
         "preserve_upcoming": True,
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Employee-Retirement-System-Board-of-Trustees-Pension-Board",
