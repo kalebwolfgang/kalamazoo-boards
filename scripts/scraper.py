@@ -730,11 +730,15 @@ def events_to_upcoming(events: list[dict], board: dict) -> list[dict]:
     upcoming = []
     for event in events:
         date_only = event["startDateTime"].split("T")[0]
-        upcoming.append({
+        item: dict = {
             "date":    date_only,
             "display": format_display_date_long(date_only),
             "time":    board.get("time", "TBD"),
-        })
+        }
+        loc = extract_cc_location(event)
+        if loc:
+            item["location"] = loc
+        upcoming.append(item)
     upcoming.sort(key=lambda m: m["date"])
     return upcoming
 
