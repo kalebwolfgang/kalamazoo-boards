@@ -123,7 +123,7 @@ BOARDS = [
         "keywords":    ["downtown development authority", "dda"],
         "output":      Path("data") / "dda.json",
         "youtube":     False,
-        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Downtown-Development-Authority",
+        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Downtown-Development-Authority-Downtown-Economic-Growth-Authority",
     },
     {
         "key":         "dega",
