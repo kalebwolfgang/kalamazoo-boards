@@ -1,8 +1,10 @@
 name: Weekly Boards Scraper
+
 on:
   schedule:
     - cron: '0 14 * * 1'  # Every Monday at 9:00 AM ET (14:00 UTC)
   workflow_dispatch:
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -11,16 +13,34 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Install dependencies
-        run: pip install requests
+        run: pip install requests jsonschema
+
       - name: Run scraper
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-        run: python scripts/kalamazoo_boards_scraper.py
+          SMTP_HOST:       ${{ secrets.SMTP_HOST }}
+          SMTP_PORT:       ${{ secrets.SMTP_PORT }}
+          SMTP_USER:       ${{ secrets.SMTP_USER }}
+          SMTP_PASS:       ${{ secrets.SMTP_PASS }}
+          NOTIFY_EMAIL:    ${{ secrets.NOTIFY_EMAIL }}
+        run: python scripts/scraper.py
+
+      - name: Validate schemas and build calendar
+        env:
+          SMTP_HOST:    ${{ secrets.SMTP_HOST }}
+          SMTP_PORT:    ${{ secrets.SMTP_PORT }}
+          SMTP_USER:    ${{ secrets.SMTP_USER }}
+          SMTP_PASS:    ${{ secrets.SMTP_PASS }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+        run: python scripts/build.py
+
       - name: Commit updated data files
         run: |
           git config user.name "github-actions[bot]"
