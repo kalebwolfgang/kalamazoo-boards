@@ -597,6 +597,28 @@ def extract_cc_location(event: dict) -> str | None:
     return location or None
 
 
+def get_cc_location_override(event: dict, board: dict) -> str | None:
+    """
+    Returns a CivicClerk location only when it represents a genuinely different
+    venue from the board's static default — detected by comparing street numbers.
+
+    Same street number = formatting variation only, use static default.
+    Different street number = genuine location change, use CivicClerk address.
+    """
+    cc_loc = extract_cc_location(event)
+    if not cc_loc:
+        return None
+
+    static_loc = board.get("location") or ""
+    cc_num     = re.search(r"\b(\d{2,5})\b", cc_loc)
+    static_num = re.search(r"\b(\d{2,5})\b", static_loc)
+
+    if cc_num and static_num and cc_num.group(1) == static_num.group(1):
+        return None
+
+    return cc_loc if cc_num else None
+
+
 def get_meeting_location(board: dict, date_iso: str, meeting: dict) -> str | None:
     """Resolve the display location for a single meeting."""
     # Per-meeting override (e.g. EC, PRAB web-scraped locations)
