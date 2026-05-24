@@ -148,7 +148,7 @@ BOARDS = [
         "keywords":     ["economic development corporation", "edc"],
         "output":       Path("data") / "edc.json",
         "youtube":      False,
-        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Economic-Development-Corporation",
+        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Brownfield-Redevelopment-Authority-Economic-Development-Corporation",
     },
     {
         "key":            "ec",
