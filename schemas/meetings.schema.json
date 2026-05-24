@@ -64,8 +64,8 @@
         "scrapedAt":    { "type": ["string", "null"] },
         "sourceUrl":    { "type": ["string", "null"] },
         "meeting_type": { "type": "string" },
-        "youtube_id":   { "type": "string" },
-        "youtube_url":  { "type": "string" },
+        "youtube_id":   { "type": ["string", "null"] },
+        "youtube_url":  { "type": ["string", "null"] },
         "hasRecordings": {
           "type": "boolean",
           "description": "True when YouTube recordings exist for this meeting."
