@@ -120,7 +120,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 }
 .cal-nav-btn:disabled { opacity: 0.25; cursor: not-allowed; }
 
-/* Mobile filter button — top-left of calendar grid on mobile */
+/* Mobile filter button */
 .cal-filter-btn-mobile {
   display: none; align-items: center; gap: 6px;
   background: var(--white); border: 1.5px solid var(--border); border-radius: 20px;
@@ -157,7 +157,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
   color: var(--muted); border-bottom: 2px solid var(--gold); background: var(--white);
 }
 
-/* Tighter cells — content flows top-down, no bottom-push */
 .cal-cell {
   min-height: 125px; padding: 10px 10px 8px;
   border-right: none; border-bottom: 1px solid var(--border);
@@ -185,7 +184,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
   display: inline-flex; align-items: center; justify-content: center; line-height: 1;
 }
 
-/* Pills — sit directly under the date */
 .cal-board-pills { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .cal-board-pill {
   display: inline-flex; align-items: center;
@@ -231,7 +229,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
   margin-top: 64px;
 }
 
-/* Sidebar toggle header */
 .sidebar-toggle {
   display: flex; align-items: center; justify-content: space-between;
   padding: 10px 13px; background: var(--cream); border: none;
@@ -250,14 +247,12 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .sidebar-chevron { color: var(--navy); transition: transform 0.22s ease; flex-shrink: 0; }
 .sidebar-chevron.is-collapsed { transform: rotate(-90deg); }
 
-/* Sidebar scrollable body — capped to ~15 items visible */
 .sidebar-body { flex: 1; overflow-y: auto; overflow-x: hidden; }
 .sidebar-body::-webkit-scrollbar { width: 4px; }
 .sidebar-body::-webkit-scrollbar-track { background: transparent; }
 .sidebar-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 .sidebar-body.is-collapsed { display: none; }
 
-/* Section headers */
 .sb-section-hd {
   display: flex; align-items: center; justify-content: space-between;
   padding: 8px 13px 5px; position: sticky; top: 0; z-index: 1; background: var(--white);
@@ -277,7 +272,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
   line-height: 1.5; border-bottom: 1px solid var(--border-lt); font-style: italic;
 }
 
-/* All Boards special item */
 .board-item--all {
   background: var(--cream); border-left: 3px solid transparent;
   padding: 11px 14px; gap: 10px;
@@ -289,7 +283,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .board-item--all-active:hover { background: var(--green) !important; opacity: 0.92; }
 .board-dot-all { display: flex; align-items: center; flex-shrink: 0; }
 
-/* Board items */
 .board-item {
   display: flex; align-items: center; gap: 9px; width: 100%;
   padding: 9px 14px; background: none; border: none; cursor: pointer;
@@ -308,7 +301,6 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .board-item--engaged .board-action { color: rgba(45,107,74,0.4); }
 .board-item--engaged:hover .board-action { color: var(--green); }
 
-/* ── Responsive: sidebar becomes slide-in drawer on mobile ── */
 @media (max-width: 860px) {
   .cal-sidebar { display: none; }
   .cal-filter-btn-mobile { display: flex; margin-bottom: 12px; margin-top: 16px; }
@@ -365,73 +357,27 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-meeting-badge { width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .modal-meeting-badge span { font-size: 9px; font-weight: 700; color: white; letter-spacing: 0.05em; text-align: center; line-height: 1.2; }
 .modal-meeting-info { min-width: 0; }
-.modal-meeting-name {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.35;
-  margin-bottom: 0;
-}
-.modal-meeting-sub {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.45;
-  margin: 0;
-}
-.modal-detail-row {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: 14px;
-  color: var(--body);
-  margin-bottom: 0;
-  line-height: 1.5;
-}
-.modal-detail-icon {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  margin-top: 3px;
-  opacity: 0.7;
-}
+.modal-meeting-name { font-size: 17px; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 0; }
+.modal-meeting-sub { font-size: 14px; color: var(--muted); line-height: 1.45; margin: 0; }
+.modal-detail-row { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--body); margin-bottom: 0; line-height: 1.5; }
+.modal-detail-icon { flex-shrink: 0; width: 16px; height: 16px; margin-top: 3px; opacity: 0.7; }
 .modal-board-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--navy-mid);
-  text-decoration: none;
- margin: 0; align-self: flex-start;
-  border-bottom: 1px solid rgba(26,122,151,0.3);
-  padding-bottom: 2px;
+  display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 500;
+  color: var(--navy-mid); text-decoration: none; margin: 0; align-self: flex-start;
+  border-bottom: 1px solid rgba(26,122,151,0.3); padding-bottom: 2px;
   transition: color 0.12s, border-color 0.12s;
 }
 .modal-board-link:hover { color: var(--navy); border-bottom-color: var(--navy); }
 .modal-board-link svg { transition: transform 0.12s; }
 .modal-board-link:hover svg { transform: translateX(2px); }
-.modal-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 16px;
-}
+.modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
 .modal-actions.has-stream .modal-action-btn:last-child { grid-column: 1 / -1; }
 .modal-actions.is-past:not(.has-stream) .modal-action-btn { grid-column: 1 / -1; }
 .modal-action-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1px;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 10px 12px;
-  border-radius: 3px;
-  border: 1px solid var(--border);
-  cursor: pointer;
-  font-family: 'IBM Plex Sans', sans-serif;
-  transition: background 0.15s, border-color 0.15s;
-  text-decoration: none;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
+  font-size: 12px; font-weight: 600; padding: 10px 12px; border-radius: 3px;
+  border: 1px solid var(--border); cursor: pointer; font-family: 'IBM Plex Sans', sans-serif;
+  transition: background 0.15s, border-color 0.15s; text-decoration: none;
 }
 .modal-action-btn-row { display: flex; align-items: center; gap: 5px; }
 .modal-action-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.01em; opacity: 0.75; }
@@ -462,13 +408,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 24px var(--pad-x); text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
 footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
 footer a:hover { color: var(--gold-lt); }
-/* Modal spacing fix */
-.modal-meeting {
-  padding: 14px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+.modal-meeting { padding: 14px 20px; display: flex; flex-direction: column; gap: 8px; }
 .modal-meeting-name { margin-bottom: 0; }
 .modal-meeting-sub { margin: 0; }
 .modal-detail-row { margin-bottom: 0; }
@@ -526,9 +466,6 @@ footer a:hover { color: var(--gold-lt); }
 </div>
 
 <div class="cal-wrap">
-
-      <!-- Count + mobile filter -->
-
   <div class="cal-layout">
 
     <!-- Filter Sidebar (LEFT) -->
@@ -550,8 +487,6 @@ footer a:hover { color: var(--gold-lt); }
 
     <!-- Main calendar (RIGHT) -->
     <div class="cal-main">
-
-      <!-- Centered month navigation — over calendar grid -->
       <div class="cal-controls">
         <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -562,7 +497,6 @@ footer a:hover { color: var(--gold-lt); }
         </button>
       </div>
 
-      <!-- Mobile filter — top-left of calendar, hidden on desktop -->
       <button class="cal-filter-btn-mobile" id="btn-filter-mobile" aria-label="Filter by board">
         <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
         Filter
@@ -633,71 +567,21 @@ footer a:hover { color: var(--gold-lt); }
 
   const MONTHS     = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DAYS_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const DETAIL_SLUG = { 'PB': 'pension-board' };
-  const LIVESTREAM_BOARDS = new Set(['CPSRAB','CRB','ECC','HDC','HPC','NFP','PC','ZBA']);
 
-  const BOARD_PALETTE = [
-    '#3a5e7a',  // BBA   - slate blue (building/concrete)
-    '#6a5038',  // BOR   - warm brown (property assessment)
-    '#5a6a2a',  // BRA   - olive green (brownfield → reclamation)
-    '#5a2a7a',  // CDAAC - community purple
-    '#1a3a6a',  // CPSRAB- deep navy (public safety oversight)
-    '#8a2020',  // CRB   - justice red (civil rights)
-    '#b07a14',  // DDA   - downtown gold (prosperity)
-    '#8a6010',  // DEGA  - growth amber (economic expansion)
-    '#2a3a8a',  // EC    - democracy blue (elections)
-    '#2d6b4a',  // ECC   - forest green (environment)
-    '#1a6a5a',  // EDC   - prosperity teal (economic development)
-    '#8a4a28',  // HDC   - brick terracotta (historic architecture)
-    '#6e3020',  // HPC   - preservation clay (older, deeper)
-    '#4a7a28',  // KMGA  - fairway green (golf)
-    '#4a3a58',  // LOCC  - governance slate purple
-    '#7a2a6a',  // NCBDA - cultural magenta (arts & culture)
-    '#1a5e35',  // NFP   - deep emerald (natural features)
-    '#1a2a60',  // PB    - midnight navy (pension/long-term trust)
-    '#1e4a7a',  // PC    - blueprint blue (planning)
-    '#3d7a3a',  // PRAB  - parks green (recreation)
-    '#2a5a7a',  // RIC   - investment blue-teal (finance)
-    '#b83a1a',  // SPK   - shared prosperity orange-red (energy/warmth)
-    '#7a4a10',  // TRB   - traffic amber (roads)
-    '#234d28',  // TRE   - deep forest (trees)
-    '#4a6a8a',  // ZBA   - zoning steel blue (appeals)
-  ];
+  // Board data from boards.json — populated in loadData
+  // Replaces hardcoded BOARD_PALETTE, ALL_BOARDS, LIVESTREAM_BOARDS, DETAIL_SLUG
+  let boardMap  = {};  // abbr → full board object
+  let allBoards = [];  // ordered list for sidebar (from boards.json, PCIC/CSAC filtered)
 
-  // All 25 boards — permanent, alphabetical by abbreviation
-  const ALL_BOARDS = [
-    { abbr: 'BBA',    name: 'Building Board of Appeals' },
-    { abbr: 'BOR',    name: 'Board of Review for Assessments' },
-    { abbr: 'BRA',    name: 'Brownfield Redevelopment Authority' },
-    { abbr: 'CDAAC',  name: 'Community Development Act Advisory Committee' },
-    { abbr: 'CPSRAB', name: 'Citizens Public Safety Review and Appeal Board' },
-    { abbr: 'CRB',    name: 'Civil Rights Board' },
-    { abbr: 'DDA',    name: 'Downtown Development Authority' },
-    { abbr: 'DEGA',   name: 'Downtown Economic Growth Authority' },
-    { abbr: 'EC',     name: 'Election Commission' },
-    { abbr: 'ECC',    name: 'Environmental Concerns Committee' },
-    { abbr: 'EDC',    name: 'Economic Development Corporation' },
-    { abbr: 'HDC',    name: 'Historic District Commission' },
-    { abbr: 'HPC',    name: 'Historic Preservation Commission' },
-    { abbr: 'KMGA',   name: 'Kalamazoo Municipal Golf Association' },
-    { abbr: 'LOCC',   name: 'Local Officers Compensation Commission' },
-    { abbr: 'NCBDA',  name: 'Northside Cultural Business District Authority Board' },
-    { abbr: 'NFP',    name: 'Natural Features Protection Review Board' },
-    { abbr: 'PB',     name: 'Employee Retirement System Board of Trustees' },
-    { abbr: 'PC',     name: 'Planning Commission' },
-    { abbr: 'PRAB',   name: 'Parks & Recreation Advisory Board' },
-    { abbr: 'RIC',    name: 'Retirement Investment Committee / Perpetual Care Investment Committee' },
-    { abbr: 'SPK',    name: 'SPK Organizing Committee' },
-    { abbr: 'TRB',    name: 'Traffic Board' },
-    { abbr: 'TRE',    name: 'Tree Committee' },
-    { abbr: 'ZBA',    name: 'Zoning Board of Appeals' },
-  ];
-  const boardColorMap = {};
-  let   boardColorIdx = 0;
+  // Deterministic fallback color when boards.json is unavailable
+  function fallbackColor(abbr) {
+    let hash = 0;
+    for (let i = 0; i < abbr.length; i++) hash = abbr.charCodeAt(i) + ((hash << 5) - hash);
+    return `hsl(${Math.abs(hash) % 360}, 35%, 32%)`;
+  }
 
   function getBoardColor(abbr) {
-    if (!(abbr in boardColorMap)) boardColorMap[abbr] = BOARD_PALETTE[boardColorIdx++ % BOARD_PALETTE.length];
-    return boardColorMap[abbr];
+    return boardMap[abbr]?.color || fallbackColor(abbr);
   }
 
   /* STATE */
@@ -707,12 +591,8 @@ footer a:hover { color: var(--gold-lt); }
   let currentMonth = TODAY.getMonth();
   let meetingsByDate = {};
   let totalUpcoming  = 0;
-  let allBoards      = ALL_BOARDS; // permanent list — all 25 boards always shown
   let dataLoaded     = false;
-
-  // Pre-assign colors in alphabetical order so they're stable regardless of data load order
-  ALL_BOARDS.forEach(b => getBoardColor(b.abbr));
-  let activeFilters  = new Set();  // empty = show all
+  let activeFilters  = new Set();
   let sidebarOpen    = true;
 
   /* HELPERS */
@@ -734,26 +614,47 @@ footer a:hover { color: var(--gold-lt); }
     return activeFilters.size === 0 ? all : all.filter(m => activeFilters.has(m.abbr));
   }
 
-  /* LOAD DATA */
+  /* ══════════════════════════════════════════
+     LOAD DATA — dual fetch with graceful degradation
+     Scenario A: both succeed            → full render
+     Scenario B: calendar fails          → empty grid, sidebar works
+     Scenario C: boards.json fails       → grid works, fallback colors, empty sidebar
+     Scenario D: both fail               → error state
+     ══════════════════════════════════════════ */
   async function loadData() {
-    try {
-      const res = await fetch('data/calendar.json');
-      if (!res.ok) throw new Error('calendar.json not found');
-      const cal = await res.json();
+    const loadingEl = document.getElementById('cal-loading');
+    const viewEl    = document.getElementById('view-month');
+
+    const [calResult, boardsResult] = await Promise.allSettled([
+      fetch('data/calendar.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }),
+      fetch('boards.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    ]);
+
+    const calOk    = calResult.status === 'fulfilled';
+    const boardsOk = boardsResult.status === 'fulfilled';
+
+    // Build boardMap — drives colors, slugs, hasRecordings, sidebar list
+    if (boardsOk) {
+      const raw = boardsResult.value.filter(b => b.abbr !== 'PCIC' && b.abbr !== 'CSAC');
+      raw.forEach(b => { boardMap[b.abbr] = b; });
+      allBoards = raw;
+    } else {
+      console.warn('boards.json failed — board colors and filters degraded:', boardsResult.reason);
+    }
+
+    // Process calendar meetings
+    if (calOk) {
       meetingsByDate = {}; totalUpcoming = 0;
-      (cal.meetings || []).forEach(m => {
+      (calResult.value.meetings || []).forEach(m => {
         if (!m.date) return;
-        const slug  = DETAIL_SLUG[m.abbr] || m.abbr.toLowerCase();
-        const fallbackLocation = cal.metadata && cal.metadata[m.abbr] && cal.metadata[m.abbr].location;
-        const finalLocation = m.location || fallbackLocation || "Location TBD";
-        
+        const slug  = boardMap[m.abbr]?.slug || m.abbr.toLowerCase();
         const entry = {
           abbr:       m.abbr,
           name:       m.name,
           date:       m.date,
           display:    m.display || m.date,
           time:       m.time    || null,
-          location:   finalLocation,
+          location:   m.location || 'Location TBD',
           detailPage: `board-${slug}.html`,
           youtubeUrl: m.youtube_url || null,
           agendaUrl:  m.agenda_url  || null,
@@ -763,16 +664,23 @@ footer a:hover { color: var(--gold-lt); }
         meetingsByDate[m.date].push(entry);
         totalUpcoming++;
       });
-      dataLoaded = true;
-      document.getElementById('cal-loading').style.display = 'none';
-      document.getElementById('view-month').style.display  = 'block';
-      renderSidebar();
-      render();
-      requestAnimationFrame(syncSidebarHeight);
-    } catch(err) {
-      console.error('Calendar load error:', err);
-      document.getElementById('cal-loading').innerHTML = '<p class="cal-state-text" style="color:#dc2626">Unable to load meeting data. Please refresh and try again.</p>';
+    } else {
+      console.warn('calendar.json failed — grid will be empty:', calResult.reason);
     }
+
+    // Both failed — show error
+    if (!calOk && !boardsOk) {
+      loadingEl.innerHTML = '<p class="cal-state-text" style="color:#dc2626">Unable to load meeting data. Please refresh and try again.</p>';
+      return;
+    }
+
+    // At least one succeeded — show UI
+    dataLoaded = true;
+    loadingEl.style.display = 'none';
+    viewEl.style.display    = 'block';
+    renderSidebar();
+    render();
+    requestAnimationFrame(syncSidebarHeight);
   }
 
   /* ══════════════════════════
@@ -785,9 +693,8 @@ footer a:hover { color: var(--gold-lt); }
     if (!body) return;
 
     const isFiltered = activeFilters.size > 0;
+    const mobileBtn  = document.getElementById('btn-filter-mobile');
 
-    // Badges
-    const mobileBtn = document.getElementById('btn-filter-mobile');
     if (isFiltered) {
       badge.textContent = activeFilters.size; badge.style.display = 'inline-flex';
       mobBadge.textContent = activeFilters.size; mobBadge.style.display = 'inline-flex';
@@ -797,7 +704,6 @@ footer a:hover { color: var(--gold-lt); }
       if (mobileBtn) mobileBtn.classList.remove('is-filtered');
     }
 
-    // Sort alphabetically — engaged first, then available
     const sorted    = [...allBoards].sort((a,b) => a.abbr.localeCompare(b.abbr));
     const engaged   = sorted.filter(b =>  activeFilters.has(b.abbr));
     const available = sorted.filter(b => !activeFilters.has(b.abbr));
@@ -805,45 +711,31 @@ footer a:hover { color: var(--gold-lt); }
     let html = '';
 
     if (isFiltered) {
-      // All Boards option at top — shown as inactive/available
       html += buildAllBoardsItem(false);
       html += `<div class="sb-divider"></div>`;
-
-      // Engaged section
       html += `<div class="sb-section-hd sb-section-hd--engaged">
         <span class="sb-section-hd-label">Showing only</span>
         <button class="sb-clear-btn" id="sb-clear">Clear all</button>
       </div>`;
       engaged.forEach(b => { html += buildBoardItem(b, true); });
-
       html += `<div class="sb-divider"></div>`;
-
-      // Available section
-      html += `<div class="sb-section-hd">
-        <span class="sb-section-hd-label">Available</span>
-      </div>`;
+      html += `<div class="sb-section-hd"><span class="sb-section-hd-label">Available</span></div>`;
       available.forEach(b => { html += buildBoardItem(b, false); });
-
     } else {
-      // All Boards option at top — shown as active (default)
       html += buildAllBoardsItem(true);
       html += `<div class="sb-divider"></div>`;
       html += `<div class="sb-all-note">Tap a board below to filter the calendar to that board's meetings only.</div>`;
-      html += `<div class="sb-section-hd">
-        <span class="sb-section-hd-label">All Boards</span>
-      </div>`;
+      html += `<div class="sb-section-hd"><span class="sb-section-hd-label">All Boards</span></div>`;
       sorted.forEach(b => { html += buildBoardItem(b, false); });
     }
 
     body.innerHTML = html;
 
-    // All Boards button
     const allBtn = document.getElementById('sb-all-boards-btn');
     if (allBtn) allBtn.addEventListener('click', () => {
       activeFilters.clear(); renderSidebar(); render();
     });
 
-    // Board click handlers
     body.querySelectorAll('[data-board-abbr]').forEach(btn => {
       btn.addEventListener('click', () => {
         const abbr = btn.dataset.boardAbbr;
@@ -886,12 +778,9 @@ footer a:hover { color: var(--gold-lt); }
 
   /* Sidebar collapse toggle */
   document.getElementById('sidebar-toggle').addEventListener('click', () => {
-    // On mobile: close the drawer entirely
     if (document.getElementById('cal-sidebar').classList.contains('mobile-open')) {
-      closeMobileSidebar();
-      return;
+      closeMobileSidebar(); return;
     }
-    // On desktop: collapse/expand the board list
     sidebarOpen = !sidebarOpen;
     document.getElementById('sidebar-body').classList.toggle('is-collapsed', !sidebarOpen);
     document.getElementById('sidebar-chevron').classList.toggle('is-collapsed', !sidebarOpen);
@@ -910,7 +799,7 @@ footer a:hover { color: var(--gold-lt); }
     document.getElementById('sidebar-overlay').classList.remove('open');
     document.body.style.overflow = '';
   }
-  /* Sync sidebar height to match calendar grid — calendar drives the height */
+
   function syncSidebarHeight() {
     const main    = document.getElementById('view-month');
     const sidebar = document.getElementById('cal-sidebar');
@@ -1032,8 +921,6 @@ footer a:hover { color: var(--gold-lt); }
     });
   }
 
-  // Parse actual end time from range strings like "5:00 PM – 7:00 PM"
-  // Falls back to startMins + 90 if no end time is present
   function getEndMins(timeStr, startMins) {
     if (timeStr) {
       const parts = timeStr.split(/\u2013|\u2014|\s+-\s+/);
@@ -1046,42 +933,38 @@ footer a:hover { color: var(--gold-lt); }
   }
 
   function buildGCalUrl(m) {
-    const dateRaw = m.date.replace(/-/g,'');
-    const mins    = parseTimeToMinutes(m.time);
-    let dates;
-    if (mins!==null) {
-      const endMins = getEndMins(m.time, mins);
-      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
-      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
-      dates = `${dateRaw}T${sh}${sm}00/${dateRaw}T${eh}${em}00`;
-    } else { dates = `${dateRaw}/${dateRaw}`; }
+    const dateRaw = m.date.replace(/-/g,'');
+    const mins    = parseTimeToMinutes(m.time);
+    let dates;
+    if (mins!==null) {
+      const endMins = getEndMins(m.time, mins);
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
+      dates = `${dateRaw}T${sh}${sm}00/${dateRaw}T${eh}${em}00`;
+    } else { dates = `${dateRaw}/${dateRaw}`; }
+    const locString = m.location === 'Location TBD' ? m.location : m.location + ', Kalamazoo, MI';
+    const params = new URLSearchParams({action:'TEMPLATE',text:`${m.name} — City of Kalamazoo`,dates,details:`Public meeting of the ${m.name}. More info: ${window.location.origin}/${m.detailPage}`,location:locString});
+    return `https://calendar.google.com/calendar/render?${params.toString()}`;
+  }
 
-    const locString = m.location === "Location TBD" ? m.location : m.location + ", Kalamazoo, MI";
-
-    const params = new URLSearchParams({action:'TEMPLATE',text:`${m.name} — City of Kalamazoo`,dates,details:`Public meeting of the ${m.name}. More info: ${window.location.origin}/${m.detailPage}`,location:locString});
-    return `https://calendar.google.com/calendar/render?${params.toString()}`;
-  }
-
-  function generateICSContent(m) {
-    const dateRaw = m.date.replace(/-/g,'');
-    const mins    = parseTimeToMinutes(m.time);
-    let dtStart, dtEnd;
-    if (mins !== null) {
-      const endMins = getEndMins(m.time, mins);
-      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
-      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
-      dtStart=`${dateRaw}T${sh}${sm}00`; dtEnd=`${dateRaw}T${eh}${em}00`;
-    } else { dtStart=dtEnd=dateRaw; }
-
-    const locString = m.location === "Location TBD" ? m.location : m.location + ", Kalamazoo, MI";
-
-    return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//City of Kalamazoo Boards & Commissions//EN',
-      'BEGIN:VEVENT', `UID:${m.abbr}-${m.date}@kalamazoocity-boards`,
-      `DTSTART:${dtStart}`, `DTEND:${dtEnd}`,
-      `SUMMARY:${m.name} — City of Kalamazoo`,
-      `LOCATION:${locString}`,
-      'END:VEVENT','END:VCALENDAR'].join('\r\n');
-  }
+  function generateICSContent(m) {
+    const dateRaw = m.date.replace(/-/g,'');
+    const mins    = parseTimeToMinutes(m.time);
+    let dtStart, dtEnd;
+    if (mins !== null) {
+      const endMins = getEndMins(m.time, mins);
+      const sh=String(Math.floor(mins/60)).padStart(2,'0'),    sm=String(mins%60).padStart(2,'0');
+      const eh=String(Math.floor(endMins/60)).padStart(2,'0'), em=String(endMins%60).padStart(2,'0');
+      dtStart=`${dateRaw}T${sh}${sm}00`; dtEnd=`${dateRaw}T${eh}${em}00`;
+    } else { dtStart=dtEnd=dateRaw; }
+    const locString = m.location === 'Location TBD' ? m.location : m.location + ', Kalamazoo, MI';
+    return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//City of Kalamazoo Boards & Commissions//EN',
+      'BEGIN:VEVENT', `UID:${m.abbr}-${m.date}@kalamazoocity-boards`,
+      `DTSTART:${dtStart}`, `DTEND:${dtEnd}`,
+      `SUMMARY:${m.name} — City of Kalamazoo`,
+      `LOCATION:${locString}`,
+      'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  }
 
   function downloadICS(m) {
     const content = generateICSContent(m);
@@ -1094,12 +977,12 @@ footer a:hover { color: var(--gold-lt); }
 
   function buildMeetingHTML(meetings) {
     const isMobile = window.innerWidth < 640;
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     return meetings.map(m => {
       const color = getBoardColor(m.abbr);
-      const hasStream = LIVESTREAM_BOARDS.has(m.abbr);
-      const isPast = new Date(m.date + 'T23:59:59') < TODAY;
+      // hasRecordings from boards.json — no hardcoded LIVESTREAM_BOARDS set needed
+      const hasStream = boardMap[m.abbr]?.hasRecordings === true;
+      const isPast    = new Date(m.date + 'T23:59:59') < TODAY;
 
       return `<div class="modal-meeting" style="border-left-color:${color}">
         <div class="modal-meeting-top">
@@ -1115,7 +998,7 @@ footer a:hover { color: var(--gold-lt); }
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
             </svg>
           </span>
-          <span${m.location === "Location TBD" ? ' style="font-style: italic; opacity: 0.7;"' : ''}>${m.location}</span>
+          <span${m.location === 'Location TBD' ? ' style="font-style: italic; opacity: 0.7;"' : ''}>${m.location}</span>
         </div>
         <a class="modal-board-link" href="${m.detailPage}">
           ${m.name} board page
@@ -1218,26 +1101,24 @@ footer a:hover { color: var(--gold-lt); }
     const shareUrl=url.toString();
     const meetings=meetingsByDate[dateStr]||[];
     const m=meetings.find(x=>x.abbr===abbr)||meetings[0];
-      
-      let locationText = '';
-      if (m && m.location) {
-        locationText = m.location === "Location TBD" ? m.location : m.location + ', Kalamazoo, MI';
-      }
-      
-      const isPastMeeting = m && new Date(m.date + 'T23:59:59') < new Date();
-      const title = m ? `${m.name} — ${isPastMeeting ? 'Meeting Record' : 'Upcoming Meeting'}` : 'Kalamazoo Public Meeting';
-      const text  = m
-        ? isPastMeeting
-          ? `Meeting Record\n\n${m.name}\n\n📅 ${m.display}\n\n📋 View Meeting Documents`
-          : `Upcoming Meeting\n\n${m.name}\n\n📅 ${m.display}${m.time ? ' at ' + m.time : ''}\n\n📍 ${locationText}`
-        : 'Kalamazoo Public Meeting';
+    let locationText = '';
+    if (m && m.location) {
+      locationText = m.location === 'Location TBD' ? m.location : m.location + ', Kalamazoo, MI';
+    }
+    const isPastMeeting = m && new Date(m.date + 'T23:59:59') < new Date();
+    const title = m ? `${m.name} — ${isPastMeeting ? 'Meeting Record' : 'Upcoming Meeting'}` : 'Kalamazoo Public Meeting';
+    const text  = m
+      ? isPastMeeting
+        ? `Meeting Record\n\n${m.name}\n\n📅 ${m.display}\n\n📋 View Meeting Documents`
+        : `Upcoming Meeting\n\n${m.name}\n\n📅 ${m.display}${m.time ? ' at ' + m.time : ''}\n\n📍 ${locationText}`
+      : 'Kalamazoo Public Meeting';
     const isMobileShare = window.innerWidth < 640;
-    // Native share sheet on mobile only; desktop always copies link
     if (isMobileShare && navigator.share) {
       navigator.share({title,text,url:shareUrl}).catch(()=>{}); return;
     }
-    // Fallback: copy link
-    navigator.clipboard.writeText(shareUrl).then(()=>showToast('Link copied to clipboard')).catch(()=>{ const ta=document.createElement('textarea'); ta.value=shareUrl; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('Link copied to clipboard'); });
+    navigator.clipboard.writeText(shareUrl)
+      .then(()=>showToast('Link copied to clipboard'))
+      .catch(()=>{ const ta=document.createElement('textarea'); ta.value=shareUrl; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('Link copied to clipboard'); });
   };
 
   function showToast(msg) { const t=document.getElementById('cal-toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2400); }
