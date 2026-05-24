@@ -273,7 +273,7 @@ BOARDS = [
     {
         "key":         "pension-board",
         "name":        "Employee Retirement System Board of Trustees",
-        "abbr":        "PB",
+        "abbr":        "ERSB",
         "time":        "8:00 AM \u2013 9:00 AM",
         "location":    "City Hall, 241 W South St",
         "category_id": 42,
