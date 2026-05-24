@@ -25,34 +25,34 @@ UID:EDC-2026-06-18@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260618T074500
 DTEND;TZID=America/Detroit:20260618T093000
 SUMMARY:Economic Development Corporation — City of Kalamazoo
-LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
+LOCATION:City Hall, 241 W. South St
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-08-20@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260820T074500
 DTEND;TZID=America/Detroit:20260820T093000
 SUMMARY:Economic Development Corporation — City of Kalamazoo
-LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
+LOCATION:245 N. Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-09-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260917T074500
 DTEND;TZID=America/Detroit:20260917T093000
 SUMMARY:Economic Development Corporation — City of Kalamazoo
-LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
+LOCATION:245 N. Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-10-15@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261015T074500
 DTEND;TZID=America/Detroit:20261015T093000
 SUMMARY:Economic Development Corporation — City of Kalamazoo
-LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
+LOCATION:245 N. Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-11-19@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261119T074500
 DTEND;TZID=America/Detroit:20261119T093000
 SUMMARY:Economic Development Corporation — City of Kalamazoo
-LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
+LOCATION:245 N. Rose St, Suite 100
 END:VEVENT
 END:VCALENDAR
