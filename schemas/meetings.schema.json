@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kalebwolfgang.github.io/kalamazoo-boards/schemas/meetings.schema.json",
+  "title": "Kalamazoo Boards — per-board meeting data file",
+  "description": "Schema for data/<board>.json files produced by scraper.py.",
+  "type": "object",
+  "required": ["last_updated", "metadata", "upcoming_meetings"],
+  "additionalProperties": false,
+  "properties": {
+    "last_updated": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "ISO date this file was last written."
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["time", "location"],
+      "additionalProperties": false,
+      "properties": {
+        "time":                { "type": "string" },
+        "location":            { "type": ["string", "null"] },
+        "session_note":        { "type": "string" },
+        "meetingScheduleNote": { "type": "string" }
+      }
+    },
+    "upcoming_meetings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/upcomingMeeting" }
+    },
+    "meetings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/pastMeeting" }
+    },
+    "recordings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/recording" }
+    }
+  },
+  "$defs": {
+    "upcomingMeeting": {
+      "type": "object",
+      "required": ["date", "display"],
+      "additionalProperties": false,
+      "properties": {
+        "date":     { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "display":  { "type": "string" },
+        "time":     { "type": "string" },
+        "location": { "type": "string" }
+      }
+    },
+    "pastMeeting": {
+      "type": "object",
+      "required": ["date", "display"],
+      "additionalProperties": false,
+      "properties": {
+        "date":         { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "display":      { "type": "string" },
+        "event_id":     { "type": "integer" },
+        "url":          { "type": ["string", "null"] },
+        "link_label":   { "type": "string" },
+        "isCancelled":  { "type": "boolean" },
+        "minutes_url":  { "type": ["string", "null"] },
+        "agenda_url":   { "type": ["string", "null"] },
+        "scrapedAt":    { "type": ["string", "null"] },
+        "sourceUrl":    { "type": ["string", "null"] },
+        "meeting_type": { "type": "string" },
+        "youtube_id":   { "type": "string" },
+        "youtube_url":  { "type": "string" },
+        "hasRecordings": {
+          "type": "boolean",
+          "description": "True when YouTube recordings exist for this meeting."
+        },
+        "title": { "type": "string" }
+      },
+      "not": {
+        "required": ["hasRecording"],
+        "description": "Typo guard: 'hasRecording' (singular) is never valid. Use 'hasRecordings'."
+      }
+    },
+    "recording": {
+      "type": "object",
+      "required": ["date", "display", "youtube_id", "youtube_url"],
+      "additionalProperties": false,
+      "properties": {
+        "date":        { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "display":     { "type": "string" },
+        "youtube_id":  { "type": "string" },
+        "youtube_url": { "type": "string" },
+        "title":       { "type": "string" },
+        "scrapedAt":   { "type": ["string", "null"] }
+      }
+    }
+  }
+}
