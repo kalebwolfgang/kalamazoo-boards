@@ -281,7 +281,7 @@ BOARDS = [
         "output":      Path("data") / "pension-board.json",
         "youtube":     False,
         "preserve_upcoming": True,
-        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Employee-Retirement-System-Board-of-Trustees",
+        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Employee-Retirement-System-Board-of-Trustees-Pension-Board",
     },
     {
         "key":             "prab",
