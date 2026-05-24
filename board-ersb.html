@@ -589,7 +589,7 @@ const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 fetch('boards.json')
   .then(r => r.json())
   .then(boards => {
-    const board = boards.find(b => b.abbr === 'PB');
+    const board = boards.find(b => b.abbr === 'ERSB');
     if (!board) return;
     const members = board.members;
 
