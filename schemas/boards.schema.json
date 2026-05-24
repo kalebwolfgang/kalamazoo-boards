@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kalebwolfgang.github.io/kalamazoo-boards/schemas/boards.schema.json",
+  "title": "Kalamazoo Boards — boards.json",
+  "description": "Array of board/commission objects with member roster data.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["abbr", "name", "members"],
+    "additionalProperties": false,
+    "properties": {
+      "abbr":        { "type": "string",  "minLength": 1 },
+      "name":        { "type": "string",  "minLength": 1 },
+      "category":    { "type": "string" },
+      "seats":       { "type": "integer", "minimum": 1 },
+      "maxMembers":  { "type": "integer", "minimum": 1 },
+      "notes":       { "type": "string" },
+      "members": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/member" }
+      }
+    }
+  },
+  "$defs": {
+    "member": {
+      "type": "object",
+      "required": ["position", "isVacant"],
+      "additionalProperties": false,
+      "properties": {
+        "position":            { "type": "integer",           "minimum": 1 },
+        "firstName":           { "type": ["string", "null"] },
+        "lastName":            { "type": ["string", "null"] },
+        "role":                { "type": ["string", "null"] },
+        "positionRequirement": { "type": ["string", "null"] },
+        "termStart":           { "type": ["string", "null"] },
+        "termEnd":             { "type": ["string", "null"] },
+        "residency":           { "type": ["string", "null"] },
+        "isVacant":            { "type": "boolean" },
+        "notes":               { "type": ["string", "null"] }
+      }
+    }
+  }
+}
