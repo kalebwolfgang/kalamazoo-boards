@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Boards & Commissions — City of Kalamazoo</title>
+  <meta name="description" content="Every seat on every board — see who serves on all 25 City of Kalamazoo boards and commissions, track vacancies, and apply to serve.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="City of Kalamazoo — Boards &amp; Commissions">
+  <meta property="og:title" content="Boards &amp; Commissions — City of Kalamazoo">
+  <meta property="og:description" content="Every seat on every board — see who serves on all 25 City of Kalamazoo boards and commissions, track vacancies, and apply to serve.">
+  <meta property="og:url" content="https://kalebwolfgang.github.io/kalamazoo-boards/index.html">
+  <meta property="og:image" content="https://kalebwolfgang.github.io/kalamazoo-boards/og-index.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Boards &amp; Commissions — City of Kalamazoo">
+  <meta name="twitter:description" content="Every seat on every board — see who serves on all 25 City of Kalamazoo boards and commissions, track vacancies, and apply to serve.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -456,7 +466,7 @@
     </a>
     <div class="nav-right">
       <a class="nav-link" href="calendar.html">Calendar</a>
-            <a class="nav-link" href="index.html">All Boards</a>
+      <a class="nav-link" href="index.html">All Boards</a>
       <a class="nav-link" href="faq.html">FAQ</a>
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
     </div>
@@ -556,13 +566,7 @@ const SIX_MO = new Date(TODAY);
 SIX_MO.setMonth(SIX_MO.getMonth() + 6);
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-const categoryMap = {
-  'Authorities': ['BRA', 'DDA', 'DEGA', 'EDC', 'NCBDA'],
-  'Quasi-Judicial Commissions': ['BOR', 'BBA', 'ZBA'],
-  'Type 2 Advisory Boards': ['PC', 'Pension Board', 'RIC', 'EC', 'HDC', 'KMGA', 'LOCC', 'NFP'],
-  'Type 1 Advisory Boards': ['CPSRAB', 'CRB', 'CDAAC', 'ECC', 'HPC', 'PRAB', 'SPK', 'TRB', 'TRE']
-};
-
+// Category display definitions — presentation layer, lives here not in boards.json
 const categoryDefs = {
   'Authorities': 'Legally distinct entities with independent statutory power, the ability to acquire property, and dedicated economic or tax-increment financing control.',
   'Quasi-Judicial Commissions': 'Bodies that function similarly to a court to hear formal evidence, evaluate appeals, grant variances, and issue binding legal rulings.',
@@ -576,35 +580,6 @@ const categoryOrder = [
   'Type 2 Advisory Boards',
   'Type 1 Advisory Boards'
 ];
-
-const detailPages = {
-  'BBA':    'board-bba.html',
-  'BOR':    'board-bor.html',
-  'BRA':    'board-bra.html',
-  'CDAAC':  'board-cdaac.html',
-  'CPSRAB': 'board-cpsrab.html',
-  'CRB':    'board-crb.html',
-  'DDA':    'board-dda.html',
-  'DEGA':   'board-dega.html',
-  'EC':           'board-ec.html',
-  'ECC':          'board-ecc.html',
-  'EDC':          'board-edc.html',
-  'HDC':          'board-hdc.html',
-  'HPC':          'board-hpc.html',
-  'Pension Board': 'board-pension-board.html',
-  'KMGA':         'board-kmga.html',
-  'LOCC':         'board-locc.html',
-  'NCBDA':        'board-ncbda.html',
-  'NFP':          'board-nfp.html',
-  'PC':           'board-pc.html',
-  'PRAB':         'board-prab.html',
-  'RIC':          'board-ric.html',
-  'SPK':          'board-spk.html',
-  'TRB':          'board-trb.html',
-  'TRE':          'board-tre.html',
-  'ZBA':          'board-zba.html',
-  'PCIC':         'board-ric.html'
-};
 
 function seatStatus(m) {
   if (m.isVacant) return 'vacant';
@@ -640,18 +615,11 @@ function getBoardCounts(board) {
   let nVac = 0, nTrans = 0, nSeat = 0;
   board.members.forEach(m => {
     const ds = displayStatus(seatStatus(m));
-    if (ds === 'open')          nVac++;
+    if (ds === 'open')               nVac++;
     else if (ds === 'transitioning') nTrans++;
-    else                        nSeat++;
+    else                             nSeat++;
   });
   return { nVac, nTrans, nSeat };
-}
-
-function getCategoryForBoard(abbr) {
-  for (const [cat, abbrs] of Object.entries(categoryMap)) {
-    if (abbrs.includes(abbr)) return cat;
-  }
-  return null;
 }
 
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
@@ -742,8 +710,9 @@ function buildBoardPanel(board, index) {
     }
   }
 
-  const detailLink = detailPages[board.abbr]
-    ? `<a class="board-detail-link" href="${detailPages[board.abbr]}">View Details <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>`
+  // Use slug from boards.json — no hardcoded detailPages map needed
+  const detailLink = board.slug
+    ? `<a class="board-detail-link" href="board-${board.slug}.html">View Details <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>`
     : '';
 
   const panel = document.createElement('div');
@@ -856,19 +825,15 @@ fetch('boards.json')
 
       const container = document.createElement('div');
       container.className = 'flat-boards';
-
-      sorted.forEach((board, i) => {
-        container.appendChild(buildBoardPanel(board, i));
-      });
-
+      sorted.forEach((board, i) => { container.appendChild(buildBoardPanel(board, i)); });
       list.appendChild(container);
     }
 
-    /* grouped by legal classification */
+    /* grouped by legal classification — reads legalClassification from boards.json */
     function renderClassification() {
       categoryOrder.forEach((categoryName, catIndex) => {
-        const allowedAbbrs = categoryMap[categoryName];
-        let categoryBoards = boards.filter(b => allowedAbbrs.includes(b.abbr));
+        // Filter using the legalClassification field — no hardcoded map needed
+        let categoryBoards = boards.filter(b => b.legalClassification === categoryName);
         categoryBoards.sort((a, b) => a.name.localeCompare(b.name));
 
         if (categoryBoards.length === 0) return;
@@ -891,11 +856,7 @@ fetch('boards.json')
 
         const boardsContainer = document.createElement('div');
         boardsContainer.className = 'category-boards';
-
-        categoryBoards.forEach((board, i) => {
-          boardsContainer.appendChild(buildBoardPanel(board, i));
-        });
-
+        categoryBoards.forEach((board, i) => { boardsContainer.appendChild(buildBoardPanel(board, i)); });
         section.appendChild(boardsContainer);
         list.appendChild(section);
       });
@@ -920,7 +881,6 @@ fetch('boards.json')
         const groupBoards = boards.filter(board => {
           const filledMembers = board.members.filter(m => !m.isVacant);
           if (filledMembers.length === 0) {
-            /* if no filled seats, check vacant seat residency data or default to open */
             const residentSeats = board.members.filter(m => m.residency === 'Resident').length;
             return group.key === 'required'
               ? residentSeats === board.members.length && board.members.length > 0
@@ -932,7 +892,6 @@ fetch('boards.json')
         });
 
         groupBoards.sort((a, b) => a.name.localeCompare(b.name));
-
         if (groupBoards.length === 0) return;
 
         const section = document.createElement('div');
@@ -952,11 +911,7 @@ fetch('boards.json')
 
         const boardsContainer = document.createElement('div');
         boardsContainer.className = 'category-boards';
-
-        groupBoards.forEach((board, i) => {
-          boardsContainer.appendChild(buildBoardPanel(board, i));
-        });
-
+        groupBoards.forEach((board, i) => { boardsContainer.appendChild(buildBoardPanel(board, i)); });
         section.appendChild(boardsContainer);
         list.appendChild(section);
       });
@@ -999,7 +954,6 @@ fetch('boards.json')
         if (match) totalVisible++;
       });
 
-      /* hide empty category sections when in classification mode */
       allSections.forEach(section => {
         const panels = section.querySelectorAll('.board-panel');
         let visibleInCat = 0;
