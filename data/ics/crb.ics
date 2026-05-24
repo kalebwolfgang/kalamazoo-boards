@@ -25,20 +25,20 @@ UID:CRB-2026-06-03@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260603T170000
 DTEND;TZID=America/Detroit:20260603T190000
 SUMMARY:Civil Rights Board — City of Kalamazoo
-LOCATION:Department of Diversity, Equity, and Inclusion, 241 W. South St
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CRB-2026-08-05@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260805T170000
 DTEND;TZID=America/Detroit:20260805T190000
 SUMMARY:Civil Rights Board — City of Kalamazoo
-LOCATION:Department of Diversity, Equity, and Inclusion, 241 W. South St
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CRB-2026-10-07@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261007T170000
 DTEND;TZID=America/Detroit:20261007T190000
 SUMMARY:Civil Rights Board — City of Kalamazoo
-LOCATION:Department of Diversity, Equity, and Inclusion, 241 W. South St
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 END:VCALENDAR
