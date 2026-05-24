@@ -400,7 +400,7 @@ BOARDS = [
         "keywords":    ["northside cultural business district", "northside cultural", "ncbda"],
         "output":      Path("data") / "ncbda.json",
         "youtube":     False,
-        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Northside-Cultural-Business-District-Authority-Board",
+        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Northside-Cultural-Business-District-Authority-NCBDA",
     },
     {
         "key":         "spk",
