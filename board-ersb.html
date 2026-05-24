@@ -694,7 +694,7 @@ fetch('boards.json')
   .catch(err => console.error('Could not load boards.json:', err));
 
 // ── Load data/pension-board.json → render upcoming meetings and minutes
-fetch('data/pension-board.json')
+fetch('data/ersb.json')
   .then(r => r.json())
   .then(pb => {
 
