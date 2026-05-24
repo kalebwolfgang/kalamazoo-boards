@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "07:00 PM – 09:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -12,7 +12,7 @@
     },
     {
       "date": "2026-07-09",
-      "display": "Thursday, July 09, 2026",
+      "display": "Thursday, July 9, 2026",
       "time": "07:00 PM – 09:00 PM"
     },
     {
@@ -27,7 +27,7 @@
     },
     {
       "date": "2026-10-08",
-      "display": "Thursday, October 08, 2026",
+      "display": "Thursday, October 8, 2026",
       "time": "07:00 PM – 09:00 PM"
     },
     {
@@ -43,12 +43,12 @@
       "event_id": 2617,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2617/files/agenda/5019",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2617/files/agenda/5019",
       "meeting_type": "Zoning Board of Appeals",
       "youtube_id": "MJm6950nnCI",
-      "youtube_url": "https://www.youtube.com/watch?v=MJm6950nnCI"
+      "youtube_url": "https://www.youtube.com/watch?v=MJm6950nnCI",
+      "isCancelled": false
     },
     {
       "date": "2026-04-09",
@@ -56,12 +56,12 @@
       "event_id": 2616,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2616/files/agenda/4916",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2616/files/agenda/4916",
       "meeting_type": "Zoning Board of Appeals",
       "youtube_id": "HjTiRtfIl74",
-      "youtube_url": "https://www.youtube.com/watch?v=HjTiRtfIl74"
+      "youtube_url": "https://www.youtube.com/watch?v=HjTiRtfIl74",
+      "isCancelled": false
     },
     {
       "date": "2026-02-12",
@@ -69,12 +69,12 @@
       "event_id": 2614,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2614/files/agenda/4708",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2614/files/agenda/4708",
       "meeting_type": "Zoning Board of Appeals",
       "youtube_id": "8YBJPJYdbUE",
-      "youtube_url": "https://www.youtube.com/watch?v=8YBJPJYdbUE"
+      "youtube_url": "https://www.youtube.com/watch?v=8YBJPJYdbUE",
+      "isCancelled": false
     },
     {
       "date": "2026-01-08",
@@ -82,12 +82,12 @@
       "event_id": 1459,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1459/files/agenda/4602",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1459/files/agenda/4602",
       "meeting_type": "Zoning Board of Appeals",
       "youtube_id": "Duf282qycCY",
-      "youtube_url": "https://www.youtube.com/watch?v=Duf282qycCY"
+      "youtube_url": "https://www.youtube.com/watch?v=Duf282qycCY",
+      "isCancelled": false
     },
     {
       "date": "2025-12-11",
@@ -95,12 +95,12 @@
       "event_id": 1457,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1457/files/agenda/4523",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1457/files/agenda/4523",
       "meeting_type": "Zoning Board of Appeals",
       "youtube_id": "7ix8a6uqWV8",
-      "youtube_url": "https://www.youtube.com/watch?v=7ix8a6uqWV8"
+      "youtube_url": "https://www.youtube.com/watch?v=7ix8a6uqWV8",
+      "isCancelled": false
     },
     {
       "date": "2025-11-13",
@@ -109,9 +109,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1456/files/agenda/4423",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1456/files/agenda/4423"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1456/files/agenda/4423",
+      "isCancelled": false
     },
     {
       "date": "2025-10-09",
@@ -120,9 +120,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1455/files/agenda/4324",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1455/files/agenda/4324"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1455/files/agenda/4324",
+      "isCancelled": false
     },
     {
       "date": "2025-09-11",
@@ -131,9 +131,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1454/files/agenda/4240",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1454/files/agenda/4240"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1454/files/agenda/4240",
+      "isCancelled": false
     },
     {
       "date": "2025-08-14",
@@ -142,9 +142,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1453/files/agenda/4135",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1453/files/agenda/4135"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1453/files/agenda/4135",
+      "isCancelled": false
     },
     {
       "date": "2025-07-10",
@@ -153,9 +153,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1452/files/agenda/4049",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1452/files/agenda/4049"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1452/files/agenda/4049",
+      "isCancelled": false
     },
     {
       "date": "2025-06-12",
@@ -164,9 +164,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1451/files/agenda/3952",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1451/files/agenda/3952"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1451/files/agenda/3952",
+      "isCancelled": false
     },
     {
       "date": "2025-05-08",
@@ -175,9 +175,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1450/files/agenda/3873",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1450/files/agenda/3873"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1450/files/agenda/3873",
+      "isCancelled": false
     },
     {
       "date": "2025-03-13",
@@ -186,9 +186,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1448/files/agenda/3683",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1448/files/agenda/3683"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1448/files/agenda/3683",
+      "isCancelled": false
     },
     {
       "date": "2025-02-13",
@@ -197,9 +197,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1447/files/agenda/3571",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1447/files/agenda/3571"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1447/files/agenda/3571",
+      "isCancelled": false
     },
     {
       "date": "2025-01-09",
@@ -208,9 +208,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1446/files/agenda/3500",
       "link_label": "View notice",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": true,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1446/files/agenda/3500"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1446/files/agenda/3500",
+      "isCancelled": true
     },
     {
       "date": "2024-12-12",
@@ -219,9 +219,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1002/files/agenda/3425",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1002/files/agenda/3425"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1002/files/agenda/3425",
+      "isCancelled": false
     },
     {
       "date": "2024-09-12",
@@ -230,9 +230,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/999/files/agenda/3127",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/999/files/agenda/3127"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/999/files/agenda/3127",
+      "isCancelled": false
     },
     {
       "date": "2024-07-11",
@@ -241,9 +241,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/997/files/agenda/2993",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/997/files/agenda/2993"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/997/files/agenda/2993",
+      "isCancelled": false
     },
     {
       "date": "2024-06-13",
@@ -252,9 +252,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/996/files/agenda/2916",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/996/files/agenda/2916"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/996/files/agenda/2916",
+      "isCancelled": false
     },
     {
       "date": "2024-05-09",
@@ -263,9 +263,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/995/files/agenda/2830",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/995/files/agenda/2830"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/995/files/agenda/2830",
+      "isCancelled": false
     },
     {
       "date": "2024-04-11",
@@ -274,9 +274,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/994/files/agenda/2769",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/994/files/agenda/2769"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/994/files/agenda/2769",
+      "isCancelled": false
     },
     {
       "date": "2024-03-14",
@@ -285,9 +285,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/993/files/agenda/2682",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/993/files/agenda/2682"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/993/files/agenda/2682",
+      "isCancelled": false
     },
     {
       "date": "2024-02-08",
@@ -296,9 +296,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/992/files/agenda/2583",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/992/files/agenda/2583"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/992/files/agenda/2583",
+      "isCancelled": false
     },
     {
       "date": "2024-01-11",
@@ -307,9 +307,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/991/files/agenda/2507",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/991/files/agenda/2507"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/991/files/agenda/2507",
+      "isCancelled": false
     },
     {
       "date": "2023-12-14",
@@ -318,9 +318,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/774/files/agenda/2471",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/774/files/agenda/2471"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/774/files/agenda/2471",
+      "isCancelled": false
     },
     {
       "date": "2023-11-09",
@@ -329,9 +329,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/773/files/agenda/2357",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/773/files/agenda/2357"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/773/files/agenda/2357",
+      "isCancelled": false
     },
     {
       "date": "2023-09-14",
@@ -340,9 +340,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/771/files/agenda/2218",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/771/files/agenda/2218"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/771/files/agenda/2218",
+      "isCancelled": false
     },
     {
       "date": "2023-08-10",
@@ -351,9 +351,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/770/files/agenda/2123",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/770/files/agenda/2123"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/770/files/agenda/2123",
+      "isCancelled": false
     },
     {
       "date": "2023-07-13",
@@ -362,9 +362,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/769/files/agenda/2075",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/769/files/agenda/2075"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/769/files/agenda/2075",
+      "isCancelled": false
     },
     {
       "date": "2023-06-08",
@@ -373,9 +373,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/768/files/agenda/2018",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/768/files/agenda/2018"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/768/files/agenda/2018",
+      "isCancelled": false
     },
     {
       "date": "2023-05-11",
@@ -384,9 +384,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/767/files/agenda/1971",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/767/files/agenda/1971"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/767/files/agenda/1971",
+      "isCancelled": false
     },
     {
       "date": "2023-04-13",
@@ -395,9 +395,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/766/files/agenda/1883",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/766/files/agenda/1883"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/766/files/agenda/1883",
+      "isCancelled": false
     },
     {
       "date": "2023-03-09",
@@ -406,9 +406,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/765/files/agenda/1778",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/765/files/agenda/1778"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/765/files/agenda/1778",
+      "isCancelled": false
     },
     {
       "date": "2023-02-09",
@@ -417,9 +417,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/764/files/agenda/1718",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/764/files/agenda/1718"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/764/files/agenda/1718",
+      "isCancelled": false
     },
     {
       "date": "2023-01-12",
@@ -428,9 +428,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/763/files/agenda/1667",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/763/files/agenda/1667"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/763/files/agenda/1667",
+      "isCancelled": false
     },
     {
       "date": "2022-12-08",
@@ -439,9 +439,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/574/files/agenda/1594",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/574/files/agenda/1594"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/574/files/agenda/1594",
+      "isCancelled": false
     },
     {
       "date": "2022-10-20",
@@ -450,9 +450,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/572/files/agenda/1536",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/572/files/agenda/1536"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/572/files/agenda/1536",
+      "isCancelled": false
     },
     {
       "date": "2022-09-08",
@@ -461,9 +461,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/571/files/agenda/1481",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/571/files/agenda/1481"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/571/files/agenda/1481",
+      "isCancelled": false
     },
     {
       "date": "2022-08-11",
@@ -472,9 +472,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/527/files/agenda/1438",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/527/files/agenda/1438"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/527/files/agenda/1438",
+      "isCancelled": false
     },
     {
       "date": "2022-07-14",
@@ -483,9 +483,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/526/files/agenda/1410",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/526/files/agenda/1410"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/526/files/agenda/1410",
+      "isCancelled": false
     },
     {
       "date": "2022-06-09",
@@ -494,9 +494,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/525/files/agenda/1355",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/525/files/agenda/1355"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/525/files/agenda/1355",
+      "isCancelled": false
     },
     {
       "date": "2022-05-12",
@@ -505,9 +505,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/567/files/agenda/1336",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/567/files/agenda/1336"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/567/files/agenda/1336",
+      "isCancelled": false
     },
     {
       "date": "2022-04-14",
@@ -516,9 +516,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/566/files/agenda/1302",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/566/files/agenda/1302"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/566/files/agenda/1302",
+      "isCancelled": false
     },
     {
       "date": "2022-03-10",
@@ -527,9 +527,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/565/files/agenda/1256",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/565/files/agenda/1256"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/565/files/agenda/1256",
+      "isCancelled": false
     },
     {
       "date": "2022-02-10",
@@ -538,9 +538,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/521/files/agenda/1221",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/521/files/agenda/1221"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/521/files/agenda/1221",
+      "isCancelled": false
     },
     {
       "date": "2022-01-13",
@@ -549,9 +549,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/520/files/agenda/1197",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/520/files/agenda/1197"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/520/files/agenda/1197",
+      "isCancelled": false
     },
     {
       "date": "2021-12-09",
@@ -560,9 +560,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/410/files/agenda/1140",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/410/files/agenda/1140"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/410/files/agenda/1140",
+      "isCancelled": false
     },
     {
       "date": "2021-11-18",
@@ -571,9 +571,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/409/files/agenda/1121",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/409/files/agenda/1121"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/409/files/agenda/1121",
+      "isCancelled": false
     },
     {
       "date": "2021-10-14",
@@ -582,9 +582,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/408/files/agenda/1075",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/408/files/agenda/1075"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/408/files/agenda/1075",
+      "isCancelled": false
     },
     {
       "date": "2021-09-09",
@@ -593,9 +593,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/407/files/agenda/1012",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/407/files/agenda/1012"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/407/files/agenda/1012",
+      "isCancelled": false
     },
     {
       "date": "2021-08-12",
@@ -604,9 +604,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/406/files/agenda/943",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/406/files/agenda/943"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/406/files/agenda/943",
+      "isCancelled": false
     },
     {
       "date": "2021-05-13",
@@ -615,9 +615,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/403/files/agenda/857",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/403/files/agenda/1071",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/403/files/agenda/857"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/403/files/agenda/857",
+      "isCancelled": false
     },
     {
       "date": "2021-04-08",
@@ -626,9 +626,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/402/files/agenda/814",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/402/files/agenda/814"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/402/files/agenda/814",
+      "isCancelled": false
     },
     {
       "date": "2021-03-11",
@@ -637,9 +637,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/401/files/agenda/791",
       "link_label": "Agenda",
       "meeting_type": "Zoning Board of Appeals",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/401/files/agenda/791"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/401/files/agenda/791",
+      "isCancelled": false
     }
   ],
   "recordings": [

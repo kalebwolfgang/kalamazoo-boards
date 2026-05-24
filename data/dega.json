@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "3:00 PM – 5:00 PM",
     "location": "City Hall, 241 W South St"
@@ -43,10 +43,10 @@
       "event_id": 2653,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2653/files/agenda/5017",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2653/files/agenda/5017",
-      "meeting_type": "Downtown Economic Growth Authority Board"
+      "meeting_type": "Downtown Economic Growth Authority Board",
+      "isCancelled": false
     },
     {
       "date": "2026-04-20",
@@ -54,10 +54,10 @@
       "event_id": 2652,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2652/files/agenda/4971",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2652/files/agenda/5040",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2652/files/agenda/4971",
-      "meeting_type": "Downtown Economic Growth Authority Board"
+      "meeting_type": "Downtown Economic Growth Authority Board",
+      "isCancelled": false
     },
     {
       "date": "2026-03-16",
@@ -66,9 +66,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2651/files/agenda/4845",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2651/files/agenda/4975",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2651/files/agenda/4845"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2651/files/agenda/4845",
+      "isCancelled": false
     },
     {
       "date": "2026-02-16",
@@ -77,9 +77,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2650/files/agenda/4748",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2650/files/agenda/4875",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2650/files/agenda/4748"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2650/files/agenda/4748",
+      "isCancelled": false
     },
     {
       "date": "2026-01-12",
@@ -88,9 +88,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2649/files/agenda/4626",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2649/files/agenda/4858",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2649/files/agenda/4626"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2649/files/agenda/4626",
+      "isCancelled": false
     },
     {
       "date": "2025-12-15",
@@ -99,9 +99,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1364/files/agenda/4559",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1364/files/agenda/4559"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1364/files/agenda/4559",
+      "isCancelled": false
     },
     {
       "date": "2025-11-17",
@@ -110,9 +110,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1363/files/agenda/4445",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1363/files/agenda/4583",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1363/files/agenda/4445"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1363/files/agenda/4445",
+      "isCancelled": false
     },
     {
       "date": "2025-10-20",
@@ -121,9 +121,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1362/files/agenda/4368",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1362/files/agenda/4368"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1362/files/agenda/4368",
+      "isCancelled": false
     },
     {
       "date": "2025-09-15",
@@ -132,9 +132,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1361/files/agenda/4268",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1361/files/agenda/4413",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1361/files/agenda/4268"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1361/files/agenda/4268",
+      "isCancelled": false
     },
     {
       "date": "2025-08-18",
@@ -143,9 +143,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1360/files/agenda/4172",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1360/files/agenda/4281",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1360/files/agenda/4172"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1360/files/agenda/4172",
+      "isCancelled": false
     },
     {
       "date": "2025-07-21",
@@ -154,9 +154,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1359/files/agenda/4099",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1359/files/agenda/4192",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1359/files/agenda/4099"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1359/files/agenda/4099",
+      "isCancelled": false
     },
     {
       "date": "2025-06-16",
@@ -165,9 +165,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1358/files/agenda/3986",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1358/files/agenda/4115",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1358/files/agenda/3986"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1358/files/agenda/3986",
+      "isCancelled": false
     },
     {
       "date": "2025-05-19",
@@ -176,9 +176,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1357/files/agenda/3906",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1357/files/agenda/3992",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1357/files/agenda/3906"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1357/files/agenda/3906",
+      "isCancelled": false
     },
     {
       "date": "2025-04-21",
@@ -187,9 +187,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1356/files/agenda/3839",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1356/files/agenda/3839"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1356/files/agenda/3839",
+      "isCancelled": false
     },
     {
       "date": "2025-03-17",
@@ -198,9 +198,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1355/files/agenda/3709",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1355/files/agenda/3862",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1355/files/agenda/3709"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1355/files/agenda/3709",
+      "isCancelled": false
     },
     {
       "date": "2025-02-17",
@@ -209,9 +209,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1354/files/agenda/3627",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1354/files/agenda/3860",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1354/files/agenda/3627"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1354/files/agenda/3627",
+      "isCancelled": false
     },
     {
       "date": "2025-01-27",
@@ -220,9 +220,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1353/files/agenda/3550",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1353/files/agenda/3550"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1353/files/agenda/3550",
+      "isCancelled": false
     },
     {
       "date": "2024-12-16",
@@ -231,9 +231,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1095/files/agenda/3451",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1095/files/agenda/3583",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1095/files/agenda/3451"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1095/files/agenda/3451",
+      "isCancelled": false
     },
     {
       "date": "2024-11-18",
@@ -242,9 +242,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1094/files/agenda/3360",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1094/files/agenda/3475",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1094/files/agenda/3360"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1094/files/agenda/3360",
+      "isCancelled": false
     },
     {
       "date": "2024-10-21",
@@ -253,9 +253,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1093/files/agenda/3261",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1093/files/agenda/3370",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1093/files/agenda/3261"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1093/files/agenda/3261",
+      "isCancelled": false
     },
     {
       "date": "2024-09-16",
@@ -264,9 +264,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1092/files/agenda/3144",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1092/files/agenda/3289",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1092/files/agenda/3144"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1092/files/agenda/3144",
+      "isCancelled": false
     },
     {
       "date": "2024-08-19",
@@ -275,9 +275,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1091/files/agenda/3083",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1091/files/agenda/3870",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1091/files/agenda/3083"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1091/files/agenda/3083",
+      "isCancelled": false
     },
     {
       "date": "2024-06-17",
@@ -286,9 +286,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1089/files/agenda/2940",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1089/files/agenda/3114",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1089/files/agenda/2940"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1089/files/agenda/2940",
+      "isCancelled": false
     },
     {
       "date": "2024-05-20",
@@ -297,9 +297,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1088/files/agenda/2860",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1088/files/agenda/2967",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1088/files/agenda/2860"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1088/files/agenda/2860",
+      "isCancelled": false
     },
     {
       "date": "2024-04-15",
@@ -308,9 +308,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1087/files/agenda/2794",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1087/files/agenda/3046",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1087/files/agenda/2794"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1087/files/agenda/2794",
+      "isCancelled": false
     },
     {
       "date": "2024-03-18",
@@ -319,9 +319,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1086/files/agenda/2711",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1086/files/agenda/3045",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1086/files/agenda/2711"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1086/files/agenda/2711",
+      "isCancelled": false
     },
     {
       "date": "2024-02-19",
@@ -330,9 +330,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1085/files/agenda/2623",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1085/files/agenda/2777",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1085/files/agenda/2623"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1085/files/agenda/2623",
+      "isCancelled": false
     },
     {
       "date": "2024-01-16",
@@ -341,9 +341,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1096/files/agenda/2528",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1096/files/agenda/2631",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1096/files/agenda/2528"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1096/files/agenda/2528",
+      "isCancelled": false
     },
     {
       "date": "2023-12-18",
@@ -352,9 +352,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/815/files/agenda/2467",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/815/files/agenda/2590",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/815/files/agenda/2467"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/815/files/agenda/2467",
+      "isCancelled": false
     },
     {
       "date": "2023-11-20",
@@ -363,9 +363,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/675/files/agenda/2383",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/675/files/agenda/2588",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/675/files/agenda/2383"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/675/files/agenda/2383",
+      "isCancelled": false
     },
     {
       "date": "2023-10-16",
@@ -374,9 +374,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/674/files/agenda/2301",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/674/files/agenda/2454",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/674/files/agenda/2301"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/674/files/agenda/2301",
+      "isCancelled": false
     },
     {
       "date": "2023-09-18",
@@ -385,9 +385,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/673/files/agenda/2244",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/673/files/agenda/2339",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/673/files/agenda/2244"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/673/files/agenda/2244",
+      "isCancelled": false
     },
     {
       "date": "2023-08-21",
@@ -396,9 +396,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/672/files/agenda/2164",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/672/files/agenda/2298",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/672/files/agenda/2164"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/672/files/agenda/2164",
+      "isCancelled": false
     },
     {
       "date": "2023-07-17",
@@ -407,9 +407,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/671/files/agenda/2090",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/671/files/agenda/2297",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/671/files/agenda/2090"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/671/files/agenda/2090",
+      "isCancelled": false
     },
     {
       "date": "2023-05-15",
@@ -418,9 +418,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/669/files/agenda/1987",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/669/files/agenda/2106",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/669/files/agenda/1987"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/669/files/agenda/1987",
+      "isCancelled": false
     },
     {
       "date": "2023-04-17",
@@ -429,9 +429,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/668/files/agenda/1915",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/668/files/agenda/2021",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/668/files/agenda/1915"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/668/files/agenda/1915",
+      "isCancelled": false
     },
     {
       "date": "2023-03-20",
@@ -440,9 +440,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/667/files/agenda/1824",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/667/files/agenda/1968",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/667/files/agenda/1824"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/667/files/agenda/1824",
+      "isCancelled": false
     },
     {
       "date": "2023-01-17",
@@ -451,9 +451,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/665/files/agenda/1684",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/665/files/agenda/1834",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/665/files/agenda/1684"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/665/files/agenda/1684",
+      "isCancelled": false
     },
     {
       "date": "2022-12-19",
@@ -462,9 +462,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/704/files/agenda/1649",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Downtown Economic Growth Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/704/files/agenda/1832",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/704/files/agenda/1649"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/704/files/agenda/1649",
+      "isCancelled": false
     }
   ]
 }

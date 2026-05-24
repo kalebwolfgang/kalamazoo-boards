@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "04:00 PM – 06:00 PM",
-    "location": "City Commission Chambers, City Hall, 241 W South St"
+    "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
     {
@@ -43,12 +43,12 @@
       "event_id": 2765,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2765/files/agenda/4999",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2765/files/agenda/5064",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2765/files/agenda/4999",
       "meeting_type": "Natural Features Protection Review Board",
       "youtube_id": "luo2Fw6cbW4",
-      "youtube_url": "https://www.youtube.com/watch?v=luo2Fw6cbW4"
+      "youtube_url": "https://www.youtube.com/watch?v=luo2Fw6cbW4",
+      "isCancelled": false
     },
     {
       "date": "2026-04-28",
@@ -57,9 +57,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2725/files/agenda/4977",
       "link_label": "View notice",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": true,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2725/files/agenda/4977"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2725/files/agenda/4977",
+      "isCancelled": true
     },
     {
       "date": "2026-03-24",
@@ -67,12 +67,12 @@
       "event_id": 2724,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2724/files/agenda/4901",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2724/files/agenda/5044",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2724/files/agenda/4901",
       "meeting_type": "Natural Features Protection Review Board",
       "youtube_id": "8NJJCzQqlE0",
-      "youtube_url": "https://www.youtube.com/watch?v=8NJJCzQqlE0"
+      "youtube_url": "https://www.youtube.com/watch?v=8NJJCzQqlE0",
+      "isCancelled": false
     },
     {
       "date": "2026-02-24",
@@ -80,12 +80,12 @@
       "event_id": 2723,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2723/files/agenda/4781",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2723/files/agenda/4827",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2723/files/agenda/4781",
       "meeting_type": "Natural Features Protection Review Board",
       "youtube_id": "Ro4ZJPd_fT8",
-      "youtube_url": "https://www.youtube.com/watch?v=Ro4ZJPd_fT8"
+      "youtube_url": "https://www.youtube.com/watch?v=Ro4ZJPd_fT8",
+      "isCancelled": false
     },
     {
       "date": "2026-01-27",
@@ -93,12 +93,12 @@
       "event_id": 2722,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2722/files/agenda/4672",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2722/files/agenda/4828",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2722/files/agenda/4672",
       "meeting_type": "Natural Features Protection Review Board",
       "youtube_id": "st7STRp_RyE",
-      "youtube_url": "https://www.youtube.com/watch?v=st7STRp_RyE"
+      "youtube_url": "https://www.youtube.com/watch?v=st7STRp_RyE",
+      "isCancelled": false
     },
     {
       "date": "2025-12-16",
@@ -106,12 +106,12 @@
       "event_id": 2527,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2527/files/agenda/4568",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2527/files/agenda/4681",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2527/files/agenda/4568",
       "meeting_type": "Natural Features Protection Review Board",
       "youtube_id": "X1ibjbAoNMM",
-      "youtube_url": "https://www.youtube.com/watch?v=X1ibjbAoNMM"
+      "youtube_url": "https://www.youtube.com/watch?v=X1ibjbAoNMM",
+      "isCancelled": false
     },
     {
       "date": "2025-11-25",
@@ -119,12 +119,12 @@
       "event_id": 1414,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1414/files/agenda/4466",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1414/files/agenda/4657",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1414/files/agenda/4466",
       "meeting_type": "Natural Features Protection Review Board",
       "youtube_id": "MVOlJzxNIpU",
-      "youtube_url": "https://www.youtube.com/watch?v=MVOlJzxNIpU"
+      "youtube_url": "https://www.youtube.com/watch?v=MVOlJzxNIpU",
+      "isCancelled": false
     },
     {
       "date": "2025-10-28",
@@ -133,9 +133,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1413/files/agenda/4462",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1413/files/agenda/4462",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1413/files/agenda/4402"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1413/files/agenda/4402",
+      "isCancelled": false
     },
     {
       "date": "2025-09-23",
@@ -144,9 +144,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1412/files/agenda/4463",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1412/files/agenda/4463",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1412/files/agenda/4292"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1412/files/agenda/4292",
+      "isCancelled": false
     },
     {
       "date": "2025-08-26",
@@ -155,9 +155,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1411/files/agenda/4313",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1411/files/agenda/4313",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1411/files/agenda/4195"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1411/files/agenda/4195",
+      "isCancelled": false
     },
     {
       "date": "2025-07-22",
@@ -166,9 +166,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1410/files/agenda/4231",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1410/files/agenda/4231",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1410/files/agenda/4102"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1410/files/agenda/4102",
+      "isCancelled": false
     },
     {
       "date": "2025-06-24",
@@ -177,9 +177,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1409/files/agenda/4134",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1409/files/agenda/4134",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1409/files/agenda/3995"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1409/files/agenda/3995",
+      "isCancelled": false
     },
     {
       "date": "2025-05-28",
@@ -188,9 +188,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1408/files/agenda/4133",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1408/files/agenda/4133",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1408/files/agenda/3923"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1408/files/agenda/3923",
+      "isCancelled": false
     },
     {
       "date": "2025-04-22",
@@ -199,9 +199,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1407/files/agenda/4132",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1407/files/agenda/4132",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1407/files/agenda/3832"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1407/files/agenda/3832",
+      "isCancelled": false
     },
     {
       "date": "2025-03-25",
@@ -210,9 +210,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1406/files/agenda/4131",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1406/files/agenda/4131",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1406/files/agenda/3739"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1406/files/agenda/3739",
+      "isCancelled": false
     },
     {
       "date": "2025-02-25",
@@ -221,9 +221,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1405/files/agenda/4130",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1405/files/agenda/4130",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1405/files/agenda/3643"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1405/files/agenda/3643",
+      "isCancelled": false
     },
     {
       "date": "2025-01-28",
@@ -232,9 +232,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1404/files/agenda/4129",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1404/files/agenda/4129",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1404/files/agenda/3552"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1404/files/agenda/3552",
+      "isCancelled": false
     },
     {
       "date": "2024-12-10",
@@ -243,9 +243,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/937/files/agenda/3489",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/937/files/agenda/3489",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/937/files/agenda/3423"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/937/files/agenda/3423",
+      "isCancelled": false
     },
     {
       "date": "2024-11-26",
@@ -254,9 +254,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/936/files/agenda/3488",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/936/files/agenda/3488",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/936/files/agenda/3386"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/936/files/agenda/3386",
+      "isCancelled": false
     },
     {
       "date": "2024-10-22",
@@ -265,9 +265,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/935/files/agenda/3416",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/935/files/agenda/3416",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/935/files/agenda/3283"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/935/files/agenda/3283",
+      "isCancelled": false
     },
     {
       "date": "2024-07-23",
@@ -276,9 +276,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/932/files/agenda/3290",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/932/files/agenda/3290",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/932/files/agenda/3026"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/932/files/agenda/3026",
+      "isCancelled": false
     },
     {
       "date": "2024-05-28",
@@ -287,9 +287,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/930/files/agenda/3048",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/930/files/agenda/3048",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/930/files/agenda/3291"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/930/files/agenda/3291",
+      "isCancelled": false
     },
     {
       "date": "2024-02-29",
@@ -298,9 +298,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/927/files/agenda/2891",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/927/files/agenda/2891",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/927/files/agenda/2629"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/927/files/agenda/2629",
+      "isCancelled": false
     },
     {
       "date": "2024-01-23",
@@ -309,9 +309,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/926/files/agenda/2679",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Natural Features Protection Review Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/926/files/agenda/2679",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/926/files/agenda/2556"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/926/files/agenda/2556",
+      "isCancelled": false
     }
   ],
   "recordings": [

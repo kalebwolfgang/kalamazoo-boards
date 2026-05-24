@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "8:00 AM – 9:00 AM",
     "location": "City Hall, 241 W South St"
@@ -29,9 +29,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2596/files",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Pension Board",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": null
+      "agenda_url": null,
+      "isCancelled": false
     },
     {
       "date": "2025-12-10",
@@ -40,9 +40,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2503/files/agenda/4502",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Pension Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2503/files/agenda/4699",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2503/files/agenda/4502"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2503/files/agenda/4502",
+      "isCancelled": false
     },
     {
       "date": "2025-09-03",
@@ -51,9 +51,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2502/files",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Pension Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2502/files/agenda/4668",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2502/files/agenda/4668"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2502/files/agenda/4668",
+      "isCancelled": false
     },
     {
       "date": "2025-06-04",
@@ -62,9 +62,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2501/files",
       "link_label": "Meeting Record",
       "meeting_type": "Pension Board",
-      "cancelled": true,
       "minutes_url": null,
-      "agenda_url": null
+      "agenda_url": null,
+      "isCancelled": true
     },
     {
       "date": "2025-03-05",
@@ -73,9 +73,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2500/files",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Pension Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2500/files/agenda/4697",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2500/files/agenda/3668"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2500/files/agenda/3668",
+      "isCancelled": false
     },
     {
       "date": "2024-12-11",
@@ -84,9 +84,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1143/files",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Pension Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1143/files/agenda/4696",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1143/files/agenda/4696"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1143/files/agenda/4696",
+      "isCancelled": false
     },
     {
       "date": "2024-09-04",
@@ -95,9 +95,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1142/files",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Pension Board",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": null
+      "agenda_url": null,
+      "isCancelled": false
     },
     {
       "date": "2024-06-05",
@@ -106,9 +106,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1141/files",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Pension Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1141/files/agenda/4695",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1141/files/agenda/4695"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1141/files/agenda/4695",
+      "isCancelled": false
     },
     {
       "date": "2024-03-13",
@@ -117,9 +117,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1140/files",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Pension Board",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1140/files/agenda/4694",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1140/files/agenda/4694"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1140/files/agenda/4694",
+      "isCancelled": false
     }
   ]
 }

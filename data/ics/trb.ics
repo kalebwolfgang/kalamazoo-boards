@@ -25,6 +25,6 @@ UID:TRB-2026-06-15@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260615T110000
 DTEND;TZID=America/Detroit:20260615T120000
 SUMMARY:Traffic Board — City of Kalamazoo
-LOCATION:Kalamazoo Public Services, 415 Stockbridge Ave
+LOCATION:Kalamazoo Public Services, 415 E Stockbridge Ave
 END:VEVENT
 END:VCALENDAR

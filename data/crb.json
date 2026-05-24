@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "05:00 PM – 07:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -7,17 +7,17 @@
   "upcoming_meetings": [
     {
       "date": "2026-06-03",
-      "display": "Wednesday, June 03, 2026",
+      "display": "Wednesday, June 3, 2026",
       "time": "05:00 PM – 07:00 PM"
     },
     {
       "date": "2026-08-05",
-      "display": "Wednesday, August 05, 2026",
+      "display": "Wednesday, August 5, 2026",
       "time": "05:00 PM – 07:00 PM"
     },
     {
       "date": "2026-10-07",
-      "display": "Wednesday, October 07, 2026",
+      "display": "Wednesday, October 7, 2026",
       "time": "05:00 PM – 07:00 PM"
     }
   ],
@@ -28,11 +28,11 @@
       "event_id": 2602,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2602/files/agenda/4905",
       "youtube_id": "EHLmMUNh2ic",
-      "youtube_url": "https://www.youtube.com/watch?v=EHLmMUNh2ic"
+      "youtube_url": "https://www.youtube.com/watch?v=EHLmMUNh2ic",
+      "isCancelled": false
     },
     {
       "date": "2026-02-04",
@@ -40,11 +40,11 @@
       "event_id": 2600,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4680",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4915",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2600/files/agenda/4680",
       "youtube_id": "AyZ7Xlchn0g",
-      "youtube_url": "https://www.youtube.com/watch?v=AyZ7Xlchn0g"
+      "youtube_url": "https://www.youtube.com/watch?v=AyZ7Xlchn0g",
+      "isCancelled": false
     },
     {
       "date": "2025-12-03",
@@ -52,11 +52,11 @@
       "event_id": 2472,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4496",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4701",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2472/files/agenda/4496",
       "youtube_id": "S-fbz2QWogk",
-      "youtube_url": "https://www.youtube.com/watch?v=S-fbz2QWogk"
+      "youtube_url": "https://www.youtube.com/watch?v=S-fbz2QWogk",
+      "isCancelled": false
     },
     {
       "date": "2025-10-01",
@@ -64,11 +64,11 @@
       "event_id": 2470,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4700",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2470/files/agenda/4300",
       "youtube_id": "tlmv3vpCP7A",
-      "youtube_url": "https://www.youtube.com/watch?v=tlmv3vpCP7A"
+      "youtube_url": "https://www.youtube.com/watch?v=tlmv3vpCP7A",
+      "isCancelled": false
     },
     {
       "date": "2025-08-06",
@@ -76,11 +76,11 @@
       "event_id": 2468,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4116",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4707",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2468/files/agenda/4116",
       "youtube_id": "wyMIZJ_dFrY",
-      "youtube_url": "https://www.youtube.com/watch?v=wyMIZJ_dFrY"
+      "youtube_url": "https://www.youtube.com/watch?v=wyMIZJ_dFrY",
+      "isCancelled": false
     },
     {
       "date": "2025-06-04",
@@ -88,11 +88,11 @@
       "event_id": 2466,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2466/files/agenda/3926",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2466/files/agenda/4702",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2466/files/agenda/3926",
       "youtube_id": "OJVi3FyK8YE",
-      "youtube_url": "https://www.youtube.com/watch?v=OJVi3FyK8YE"
+      "youtube_url": "https://www.youtube.com/watch?v=OJVi3FyK8YE",
+      "isCancelled": false
     },
     {
       "date": "2025-04-30",
@@ -100,11 +100,11 @@
       "event_id": 2510,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/3858",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/4703",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2510/files/agenda/3858",
       "youtube_id": "9QghnWyUTPM",
-      "youtube_url": "https://www.youtube.com/watch?v=9QghnWyUTPM"
+      "youtube_url": "https://www.youtube.com/watch?v=9QghnWyUTPM",
+      "isCancelled": false
     },
     {
       "date": "2025-04-02",
@@ -112,9 +112,9 @@
       "event_id": 2464,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2464/files/agenda/3748",
       "link_label": "Agenda",
-      "cancelled": true,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2464/files/agenda/3748"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2464/files/agenda/3748",
+      "isCancelled": true
     },
     {
       "date": "2025-02-05",
@@ -122,11 +122,11 @@
       "event_id": 2462,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2462/files/agenda/3556",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2462/files/agenda/4704",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2462/files/agenda/3556",
       "youtube_id": "WEL6x-IqZDM",
-      "youtube_url": "https://www.youtube.com/watch?v=WEL6x-IqZDM"
+      "youtube_url": "https://www.youtube.com/watch?v=WEL6x-IqZDM",
+      "isCancelled": false
     },
     {
       "date": "2024-12-04",
@@ -134,9 +134,9 @@
       "event_id": 1052,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1052/files/agenda/3398",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1052/files/agenda/3398"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1052/files/agenda/3398",
+      "isCancelled": false
     },
     {
       "date": "2024-10-02",
@@ -144,11 +144,11 @@
       "event_id": 1050,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1050/files/agenda/3179",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1050/files/agenda/3179",
       "youtube_id": "-HHCaV8nAbc",
-      "youtube_url": "https://www.youtube.com/watch?v=-HHCaV8nAbc"
+      "youtube_url": "https://www.youtube.com/watch?v=-HHCaV8nAbc",
+      "isCancelled": false
     },
     {
       "date": "2024-08-07",
@@ -156,11 +156,11 @@
       "event_id": 1048,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1048/files/agenda/3049",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1048/files/agenda/4141",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1048/files/agenda/3049",
       "youtube_id": "sZispkBntfQ",
-      "youtube_url": "https://www.youtube.com/watch?v=sZispkBntfQ"
+      "youtube_url": "https://www.youtube.com/watch?v=sZispkBntfQ",
+      "isCancelled": false
     },
     {
       "date": "2024-06-05",
@@ -168,11 +168,11 @@
       "event_id": 1046,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1046/files/agenda/2878",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1046/files/agenda/4140",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1046/files/agenda/2878",
       "youtube_id": "sjBbRZ3C6lA",
-      "youtube_url": "https://www.youtube.com/watch?v=sjBbRZ3C6lA"
+      "youtube_url": "https://www.youtube.com/watch?v=sjBbRZ3C6lA",
+      "isCancelled": false
     },
     {
       "date": "2024-04-03",
@@ -180,11 +180,11 @@
       "event_id": 1044,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1044/files/agenda/2748",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1044/files/agenda/3036",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1044/files/agenda/2748",
       "youtube_id": "ouv106OKGWA",
-      "youtube_url": "https://www.youtube.com/watch?v=ouv106OKGWA"
+      "youtube_url": "https://www.youtube.com/watch?v=ouv106OKGWA",
+      "isCancelled": false
     },
     {
       "date": "2024-02-07",
@@ -192,11 +192,11 @@
       "event_id": 1042,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1042/files/agenda/2575",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1042/files/agenda/3037",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1042/files/agenda/2575",
       "youtube_id": "7a_ngfYjjnA",
-      "youtube_url": "https://www.youtube.com/watch?v=7a_ngfYjjnA"
+      "youtube_url": "https://www.youtube.com/watch?v=7a_ngfYjjnA",
+      "isCancelled": false
     },
     {
       "date": "2023-12-06",
@@ -204,11 +204,11 @@
       "event_id": 882,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/882/files/agenda/2397",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/882/files/agenda/3034",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/882/files/agenda/2397",
       "youtube_id": "WY_WPU4DmmU",
-      "youtube_url": "https://www.youtube.com/watch?v=WY_WPU4DmmU"
+      "youtube_url": "https://www.youtube.com/watch?v=WY_WPU4DmmU",
+      "isCancelled": false
     },
     {
       "date": "2023-11-01",
@@ -216,11 +216,11 @@
       "event_id": 881,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/881/files/agenda/2340",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/881/files/agenda/3033",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/881/files/agenda/2340",
       "youtube_id": "KW-MLKpqvc8",
-      "youtube_url": "https://www.youtube.com/watch?v=KW-MLKpqvc8"
+      "youtube_url": "https://www.youtube.com/watch?v=KW-MLKpqvc8",
+      "isCancelled": false
     },
     {
       "date": "2023-10-04",
@@ -228,11 +228,11 @@
       "event_id": 870,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/2253",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/3030",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/870/files/agenda/2253",
       "youtube_id": "ez7bJo5V5NM",
-      "youtube_url": "https://www.youtube.com/watch?v=ez7bJo5V5NM"
+      "youtube_url": "https://www.youtube.com/watch?v=ez7bJo5V5NM",
+      "isCancelled": false
     },
     {
       "date": "2023-09-06",
@@ -240,9 +240,9 @@
       "event_id": 879,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/879/files/agenda/2195",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/879/files/agenda/2948",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/879/files/agenda/2195"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/879/files/agenda/2195",
+      "isCancelled": false
     },
     {
       "date": "2023-08-02",
@@ -250,11 +250,11 @@
       "event_id": 869,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/869/files/agenda/2118",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/869/files/agenda/2947",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/869/files/agenda/2118",
       "youtube_id": "1n9rQncA8ac",
-      "youtube_url": "https://www.youtube.com/watch?v=1n9rQncA8ac"
+      "youtube_url": "https://www.youtube.com/watch?v=1n9rQncA8ac",
+      "isCancelled": false
     },
     {
       "date": "2023-06-07",
@@ -262,11 +262,11 @@
       "event_id": 868,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/868/files/agenda/2028",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/868/files/agenda/2028",
       "youtube_id": "bF7OxOMgO3o",
-      "youtube_url": "https://www.youtube.com/watch?v=bF7OxOMgO3o"
+      "youtube_url": "https://www.youtube.com/watch?v=bF7OxOMgO3o",
+      "isCancelled": false
     },
     {
       "date": "2023-04-24",
@@ -274,11 +274,11 @@
       "event_id": 867,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/867/files/agenda/1849",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/867/files/agenda/2031",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/867/files/agenda/1849",
       "youtube_id": "cks4bZtoUBY",
-      "youtube_url": "https://www.youtube.com/watch?v=cks4bZtoUBY"
+      "youtube_url": "https://www.youtube.com/watch?v=cks4bZtoUBY",
+      "isCancelled": false
     },
     {
       "date": "2023-02-01",
@@ -286,11 +286,11 @@
       "event_id": 866,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/866/files/agenda/1710",
       "link_label": "Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/866/files/agenda/1943",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/866/files/agenda/1710",
       "youtube_id": "DuCelMA3YXQ",
-      "youtube_url": "https://www.youtube.com/watch?v=DuCelMA3YXQ"
+      "youtube_url": "https://www.youtube.com/watch?v=DuCelMA3YXQ",
+      "isCancelled": false
     }
   ],
   "recordings": [

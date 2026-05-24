@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "12:30 PM – 2:00 PM",
     "location": "City Hall, 241 W South St"
@@ -34,9 +34,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2514/files/agenda/4414",
       "link_label": "Agenda",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2514/files/agenda/4414"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2514/files/agenda/4414",
+      "isCancelled": false
     },
     {
       "date": "2025-09-08",
@@ -45,9 +45,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2513/files/agenda/4246",
       "link_label": "Agenda",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2513/files/agenda/4246"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2513/files/agenda/4246",
+      "isCancelled": false
     },
     {
       "date": "2025-07-14",
@@ -56,9 +56,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2512/files/agenda/4067",
       "link_label": "Agenda",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2512/files/agenda/4067"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2512/files/agenda/4067",
+      "isCancelled": false
     },
     {
       "date": "2025-03-10",
@@ -67,9 +67,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2505/files/agenda/3680",
       "link_label": "Agenda",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2505/files/agenda/3680"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2505/files/agenda/3680",
+      "isCancelled": false
     },
     {
       "date": "2025-01-13",
@@ -78,9 +78,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2461/files/agenda/3525",
       "link_label": "Agenda & Minutes",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2461/files/agenda/3720",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2461/files/agenda/3525"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2461/files/agenda/3525",
+      "isCancelled": false
     },
     {
       "date": "2024-11-04",
@@ -89,9 +89,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1083/files/agenda/3301",
       "link_label": "Agenda & Minutes",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1083/files/agenda/3719",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1083/files/agenda/3301"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1083/files/agenda/3301",
+      "isCancelled": false
     },
     {
       "date": "2024-09-09",
@@ -100,9 +100,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/946/files/agenda/3129",
       "link_label": "Agenda & Minutes",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/946/files/agenda/3434",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/946/files/agenda/3129"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/946/files/agenda/3129",
+      "isCancelled": false
     },
     {
       "date": "2024-07-01",
@@ -111,9 +111,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/945/files/agenda/2971",
       "link_label": "Agenda & Minutes",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/945/files/agenda/3313",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/945/files/agenda/2971"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/945/files/agenda/2971",
+      "isCancelled": false
     },
     {
       "date": "2024-05-06",
@@ -122,9 +122,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1080/files/agenda/2828",
       "link_label": "Agenda & Minutes",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1080/files/agenda/3312",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1080/files/agenda/2828"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1080/files/agenda/2828",
+      "isCancelled": false
     },
     {
       "date": "2024-03-04",
@@ -133,9 +133,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/943/files/agenda/2666",
       "link_label": "Agenda & Minutes",
       "meeting_type": "SPK Organizing Committee",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/943/files/agenda/3311",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/943/files/agenda/2666"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/943/files/agenda/2666",
+      "isCancelled": false
     }
   ]
 }

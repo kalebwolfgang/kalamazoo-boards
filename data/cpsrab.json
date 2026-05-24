@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "6:00 PM – 8:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -7,7 +7,7 @@
   "upcoming_meetings": [
     {
       "date": "2026-06-09",
-      "display": "Tuesday, June 09, 2026",
+      "display": "Tuesday, June 9, 2026",
       "time": "6:00 PM – 8:00 PM"
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "date": "2026-09-08",
-      "display": "Tuesday, September 08, 2026",
+      "display": "Tuesday, September 8, 2026",
       "time": "6:00 PM – 8:00 PM"
     },
     {
@@ -43,7 +43,7 @@
       "agenda_url": null,
       "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/april-14-2026.pdf",
       "link_label": "Minutes",
-      "cancelled": false
+      "isCancelled": false
     },
     {
       "date": "2026-03-10",
@@ -51,7 +51,7 @@
       "agenda_url": null,
       "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/march-10-2026.pdf",
       "link_label": "Minutes",
-      "cancelled": false
+      "isCancelled": false
     },
     {
       "date": "2026-02-10",
@@ -59,7 +59,7 @@
       "agenda_url": null,
       "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/february-10-2026.pdf",
       "link_label": "Minutes",
-      "cancelled": false
+      "isCancelled": false
     },
     {
       "date": "2026-01-13",
@@ -67,7 +67,7 @@
       "agenda_url": null,
       "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/january-13-2026.pdf",
       "link_label": "Minutes",
-      "cancelled": false
+      "isCancelled": false
     },
     {
       "date": "2025-12-09",
@@ -75,7 +75,7 @@
       "agenda_url": null,
       "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/december-9-2025.pdf",
       "link_label": "Minutes",
-      "cancelled": false
+      "isCancelled": false
     },
     {
       "date": "2025-10-14",

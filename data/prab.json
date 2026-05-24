@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "05:30 PM – 07:30 PM",
     "location": "TBD"
@@ -7,30 +7,30 @@
   "upcoming_meetings": [
     {
       "date": "2026-06-02",
-      "display": "Tuesday, June 02, 2026",
+      "display": "Tuesday, June 2, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Spring Valley Park"
     },
     {
       "date": "2026-07-07",
-      "display": "Tuesday, July 07, 2026",
+      "display": "Tuesday, July 7, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Southside Park"
     },
     {
       "date": "2026-08-04",
-      "display": "Tuesday, August 04, 2026",
+      "display": "Tuesday, August 4, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Axtell Creek Park"
     },
     {
       "date": "2026-09-08",
-      "display": "Tuesday, September 08, 2026",
+      "display": "Tuesday, September 8, 2026",
       "time": "05:30 PM – 07:30 PM"
     },
     {
       "date": "2026-10-06",
-      "display": "Tuesday, October 06, 2026",
+      "display": "Tuesday, October 6, 2026",
       "time": "05:30 PM – 07:30 PM"
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "date": "2026-12-08",
-      "display": "Tuesday, December 08, 2026",
+      "display": "Tuesday, December 8, 2026",
       "time": "05:30 PM – 07:30 PM"
     }
   ]

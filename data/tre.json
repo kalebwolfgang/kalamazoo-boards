@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "02:00 PM – 04:00 PM",
     "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave"
@@ -7,37 +7,37 @@
   "upcoming_meetings": [
     {
       "date": "2026-06-02",
-      "display": "Tuesday, June 02, 2026",
+      "display": "Tuesday, June 2, 2026",
       "time": "02:00 PM – 04:00 PM"
     },
     {
       "date": "2026-07-07",
-      "display": "Tuesday, July 07, 2026",
+      "display": "Tuesday, July 7, 2026",
       "time": "02:00 PM – 04:00 PM"
     },
     {
       "date": "2026-08-04",
-      "display": "Tuesday, August 04, 2026",
+      "display": "Tuesday, August 4, 2026",
       "time": "02:00 PM – 04:00 PM"
     },
     {
       "date": "2026-09-01",
-      "display": "Tuesday, September 01, 2026",
+      "display": "Tuesday, September 1, 2026",
       "time": "02:00 PM – 04:00 PM"
     },
     {
       "date": "2026-10-06",
-      "display": "Tuesday, October 06, 2026",
+      "display": "Tuesday, October 6, 2026",
       "time": "02:00 PM – 04:00 PM"
     },
     {
       "date": "2026-11-03",
-      "display": "Tuesday, November 03, 2026",
+      "display": "Tuesday, November 3, 2026",
       "time": "02:00 PM – 04:00 PM"
     },
     {
       "date": "2026-12-01",
-      "display": "Tuesday, December 01, 2026",
+      "display": "Tuesday, December 1, 2026",
       "time": "02:00 PM – 04:00 PM"
     }
   ]

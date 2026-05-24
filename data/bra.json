@@ -1,8 +1,9 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "07:45 AM – 09:30 AM",
-    "location": "CPED Main Conference Room, 245 N Rose St, Suite 100"
+    "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+    "session_note": "Meets immediately following EDC"
   },
   "upcoming_meetings": [
     {
@@ -24,6 +25,11 @@
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
       "time": "07:45 AM – 09:30 AM"
+    },
+    {
+      "date": "2026-11-19",
+      "display": "Thursday, November 19, 2026",
+      "time": "07:45 AM – 09:30 AM"
     }
   ],
   "meetings": [
@@ -33,10 +39,10 @@
       "event_id": 2702,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2702/files/agenda/5088",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2702/files/agenda/5088",
-      "meeting_type": "Brownfield Redevelopment Authority Board of Directors"
+      "meeting_type": "Brownfield Redevelopment Authority Board of Directors",
+      "isCancelled": false
     },
     {
       "date": "2026-04-16",
@@ -45,9 +51,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2701/files/agenda/4943",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2701/files/agenda/4943"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2701/files/agenda/4943",
+      "isCancelled": false
     },
     {
       "date": "2026-03-19",
@@ -56,9 +62,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2700/files/agenda/4888",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2700/files/agenda/4888"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2700/files/agenda/4888",
+      "isCancelled": false
     },
     {
       "date": "2026-02-19",
@@ -67,9 +73,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2699/files/agenda/4769",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2699/files/agenda/4769"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2699/files/agenda/4769",
+      "isCancelled": false
     },
     {
       "date": "2026-01-15",
@@ -78,9 +84,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2698/files/agenda/4636",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2698/files/agenda/4636"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2698/files/agenda/4636",
+      "isCancelled": false
     },
     {
       "date": "2025-12-18",
@@ -89,9 +95,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1325/files/agenda/4590",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1325/files/agenda/4590"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1325/files/agenda/4590",
+      "isCancelled": false
     },
     {
       "date": "2025-11-20",
@@ -100,9 +106,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1324/files/agenda/4458",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1324/files/agenda/4458"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1324/files/agenda/4458",
+      "isCancelled": false
     },
     {
       "date": "2025-10-16",
@@ -111,9 +117,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1323/files/agenda/4354",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1323/files/agenda/4354"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1323/files/agenda/4354",
+      "isCancelled": false
     },
     {
       "date": "2025-10-09",
@@ -122,9 +128,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2523/files/agenda/4338",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2523/files/agenda/4375",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2523/files/agenda/4338"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2523/files/agenda/4338",
+      "isCancelled": false
     },
     {
       "date": "2025-10-02",
@@ -133,9 +139,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2521/files/agenda/4307",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2521/files/agenda/4374",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2521/files/agenda/4307"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2521/files/agenda/4307",
+      "isCancelled": false
     },
     {
       "date": "2025-09-18",
@@ -144,9 +150,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1322/files/agenda/4276",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1322/files/agenda/4391",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1322/files/agenda/4276"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1322/files/agenda/4276",
+      "isCancelled": false
     },
     {
       "date": "2025-08-21",
@@ -155,9 +161,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1321/files/agenda/4183",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1321/files/agenda/4316",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1321/files/agenda/4183"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1321/files/agenda/4183",
+      "isCancelled": false
     },
     {
       "date": "2025-06-26",
@@ -166,9 +172,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1319/files/agenda/4009",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1319/files/agenda/4237",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1319/files/agenda/4009"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1319/files/agenda/4009",
+      "isCancelled": false
     },
     {
       "date": "2025-05-29",
@@ -177,9 +183,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2516/files/agenda/3921",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2516/files/agenda/4236",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2516/files/agenda/3921"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2516/files/agenda/3921",
+      "isCancelled": false
     },
     {
       "date": "2025-05-15",
@@ -188,9 +194,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1318/files/agenda/3891",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1318/files/agenda/4235",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1318/files/agenda/3891"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1318/files/agenda/3891",
+      "isCancelled": false
     },
     {
       "date": "2025-04-17",
@@ -199,9 +205,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1317/files/agenda/3828",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1317/files/agenda/3898",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1317/files/agenda/3828"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1317/files/agenda/3828",
+      "isCancelled": false
     },
     {
       "date": "2025-03-20",
@@ -210,9 +216,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1316/files/agenda/3725",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1316/files/agenda/3853",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1316/files/agenda/3725"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1316/files/agenda/3725",
+      "isCancelled": false
     },
     {
       "date": "2025-02-20",
@@ -221,9 +227,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1315/files/agenda/3633",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1315/files/agenda/3816",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1315/files/agenda/3633"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1315/files/agenda/3633",
+      "isCancelled": false
     },
     {
       "date": "2025-01-16",
@@ -232,9 +238,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1065/files/agenda/3527",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1065/files/agenda/3649",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1065/files/agenda/3527"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1065/files/agenda/3527",
+      "isCancelled": false
     },
     {
       "date": "2024-12-19",
@@ -243,9 +249,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1064/files/agenda/3490",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1064/files/agenda/3536",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1064/files/agenda/3490"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1064/files/agenda/3490",
+      "isCancelled": false
     },
     {
       "date": "2024-11-21",
@@ -254,9 +260,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1063/files/agenda/3378",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1063/files/agenda/3504",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1063/files/agenda/3378"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1063/files/agenda/3378",
+      "isCancelled": false
     },
     {
       "date": "2024-10-17",
@@ -265,9 +271,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1062/files/agenda/3251",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1062/files/agenda/3382",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1062/files/agenda/3251"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1062/files/agenda/3251",
+      "isCancelled": false
     },
     {
       "date": "2024-09-19",
@@ -276,9 +282,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1061/files/agenda/3168",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1061/files/agenda/3268",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1061/files/agenda/3168"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1061/files/agenda/3168",
+      "isCancelled": false
     },
     {
       "date": "2024-08-15",
@@ -287,9 +293,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1060/files/agenda/3069",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1060/files/agenda/3181",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1060/files/agenda/3069"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1060/files/agenda/3069",
+      "isCancelled": false
     },
     {
       "date": "2024-06-20",
@@ -298,9 +304,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1058/files/agenda/2964",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1058/files/agenda/3076",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1058/files/agenda/2964"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1058/files/agenda/2964",
+      "isCancelled": false
     },
     {
       "date": "2024-06-04",
@@ -309,9 +315,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1188/files/agenda/2907",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1188/files/agenda/2907"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1188/files/agenda/2907",
+      "isCancelled": false
     },
     {
       "date": "2024-05-16",
@@ -320,9 +326,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1057/files/agenda/2848",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1057/files/agenda/2996",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1057/files/agenda/2848"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1057/files/agenda/2848",
+      "isCancelled": false
     },
     {
       "date": "2024-04-18",
@@ -331,9 +337,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1056/files/agenda/2806",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1056/files/agenda/2856",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1056/files/agenda/2806"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1056/files/agenda/2806",
+      "isCancelled": false
     },
     {
       "date": "2024-03-21",
@@ -342,9 +348,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1055/files/agenda/2726",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1055/files/agenda/2821",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1055/files/agenda/2726"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1055/files/agenda/2726",
+      "isCancelled": false
     },
     {
       "date": "2024-02-15",
@@ -353,9 +359,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1054/files/agenda/2603",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1054/files/agenda/2735",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1054/files/agenda/2603"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1054/files/agenda/2603",
+      "isCancelled": false
     },
     {
       "date": "2024-01-18",
@@ -364,9 +370,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/865/files/agenda/2540",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/865/files/agenda/2615",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/865/files/agenda/2540"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/865/files/agenda/2540",
+      "isCancelled": false
     },
     {
       "date": "2023-12-21",
@@ -375,9 +381,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/864/files/agenda/2490",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/864/files/agenda/2490"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/864/files/agenda/2490",
+      "isCancelled": false
     },
     {
       "date": "2023-11-16",
@@ -386,9 +392,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/863/files/agenda/2370",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/863/files/agenda/2370"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/863/files/agenda/2370",
+      "isCancelled": false
     },
     {
       "date": "2023-10-19",
@@ -397,9 +403,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/862/files/agenda/2325",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/862/files/agenda/2325"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/862/files/agenda/2325",
+      "isCancelled": false
     },
     {
       "date": "2023-09-21",
@@ -408,9 +414,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/861/files/agenda/2248",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/861/files/agenda/2248"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/861/files/agenda/2248",
+      "isCancelled": false
     },
     {
       "date": "2023-08-17",
@@ -419,9 +425,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/860/files/agenda/2153",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/860/files/agenda/2153"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/860/files/agenda/2153",
+      "isCancelled": false
     },
     {
       "date": "2023-07-20",
@@ -430,9 +436,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/859/files/agenda/2103",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/859/files/agenda/2103"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/859/files/agenda/2103",
+      "isCancelled": false
     },
     {
       "date": "2023-06-15",
@@ -441,9 +447,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/858/files/agenda/2043",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/858/files/agenda/2043"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/858/files/agenda/2043",
+      "isCancelled": false
     },
     {
       "date": "2023-05-18",
@@ -452,9 +458,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/857/files/agenda/1997",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/857/files/agenda/1997"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/857/files/agenda/1997",
+      "isCancelled": false
     },
     {
       "date": "2023-05-04",
@@ -463,9 +469,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/856/files/agenda/1963",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/856/files/agenda/1963"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/856/files/agenda/1963",
+      "isCancelled": false
     },
     {
       "date": "2023-03-16",
@@ -474,9 +480,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/855/files/agenda/1804",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/855/files/agenda/1804"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/855/files/agenda/1804",
+      "isCancelled": false
     },
     {
       "date": "2023-02-16",
@@ -485,9 +491,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/854/files/agenda/1736",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/854/files/agenda/1736"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/854/files/agenda/1736",
+      "isCancelled": false
     },
     {
       "date": "2023-01-19",
@@ -496,9 +502,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/853/files/agenda/1693",
       "link_label": "Agenda",
       "meeting_type": "Brownfield Redevelopment Authority",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/853/files/agenda/1693"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/853/files/agenda/1693",
+      "isCancelled": false
     }
   ]
 }

@@ -21,13 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:BRA-2026-05-21@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260521T074500
-DTEND;TZID=America/Detroit:20260521T093000
-SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
-LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
-END:VEVENT
-BEGIN:VEVENT
 UID:BRA-2026-06-18@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260618T074500
 DTEND;TZID=America/Detroit:20260618T093000
@@ -52,6 +45,13 @@ BEGIN:VEVENT
 UID:BRA-2026-10-15@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261015T074500
 DTEND;TZID=America/Detroit:20261015T093000
+SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
+LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
+END:VEVENT
+BEGIN:VEVENT
+UID:BRA-2026-11-19@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261119T074500
+DTEND;TZID=America/Detroit:20261119T093000
 SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT

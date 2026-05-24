@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-05-24T11:54:11.536652-04:00",
+  "totalMeetings": 507,
+  "byBoard": {
+    "crb": {
+      "meetings": 23
+    },
+    "bra": {
+      "meetings": 43
+    },
+    "cpsrab": {
+      "meetings": 45
+    },
+    "dda": {
+      "meetings": 36
+    },
+    "dega": {
+      "meetings": 39
+    },
+    "edc": {
+      "meetings": 40
+    },
+    "ec": {
+      "meetings": 14
+    },
+    "ecc": {
+      "meetings": 22
+    },
+    "hdc": {
+      "meetings": 37
+    },
+    "hpc": {
+      "meetings": 33
+    },
+    "locc": {
+      "meetings": 3
+    },
+    "nfp": {
+      "meetings": 24
+    },
+    "pc": {
+      "meetings": 53
+    },
+    "zba": {
+      "meetings": 54
+    },
+    "pension-board": {
+      "meetings": 9
+    },
+    "prab": {
+      "meetings": 0
+    },
+    "trb": {
+      "meetings": 0
+    },
+    "bor": {
+      "meetings": 0
+    },
+    "ric": {
+      "meetings": 0
+    },
+    "kmga": {
+      "meetings": 0
+    },
+    "tre": {
+      "meetings": 0
+    },
+    "bba": {
+      "meetings": 0
+    },
+    "cdaac": {
+      "meetings": 0
+    },
+    "ncbda": {
+      "meetings": 22
+    },
+    "spk": {
+      "meetings": 10
+    }
+  }
+}

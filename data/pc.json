@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "07:00 PM – 09:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -7,32 +7,32 @@
   "upcoming_meetings": [
     {
       "date": "2026-06-04",
-      "display": "Thursday, June 04, 2026",
+      "display": "Thursday, June 4, 2026",
       "time": "07:00 PM – 09:00 PM"
     },
     {
       "date": "2026-07-02",
-      "display": "Thursday, July 02, 2026",
+      "display": "Thursday, July 2, 2026",
       "time": "07:00 PM – 09:00 PM"
     },
     {
       "date": "2026-08-06",
-      "display": "Thursday, August 06, 2026",
+      "display": "Thursday, August 6, 2026",
       "time": "07:00 PM – 09:00 PM"
     },
     {
       "date": "2026-09-03",
-      "display": "Thursday, September 03, 2026",
+      "display": "Thursday, September 3, 2026",
       "time": "07:00 PM – 09:00 PM"
     },
     {
       "date": "2026-10-01",
-      "display": "Thursday, October 01, 2026",
+      "display": "Thursday, October 1, 2026",
       "time": "07:00 PM – 09:00 PM"
     },
     {
       "date": "2026-11-05",
-      "display": "Thursday, November 05, 2026",
+      "display": "Thursday, November 5, 2026",
       "time": "07:00 PM – 09:00 PM"
     }
   ],
@@ -43,12 +43,12 @@
       "event_id": 2587,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995",
       "meeting_type": "Planning Commission - Regular Meeting",
       "youtube_id": "RGquK8ZfqZ8",
-      "youtube_url": "https://www.youtube.com/watch?v=RGquK8ZfqZ8"
+      "youtube_url": "https://www.youtube.com/watch?v=RGquK8ZfqZ8",
+      "isCancelled": false
     },
     {
       "date": "2026-04-08",
@@ -56,12 +56,12 @@
       "event_id": 2586,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2586/files/agenda/4912",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2586/files/agenda/4912",
       "meeting_type": "Planning Commission - Regular Meeting",
       "youtube_id": "nYZIdSr5HiE",
-      "youtube_url": "https://www.youtube.com/watch?v=nYZIdSr5HiE"
+      "youtube_url": "https://www.youtube.com/watch?v=nYZIdSr5HiE",
+      "isCancelled": false
     },
     {
       "date": "2026-03-05",
@@ -70,9 +70,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2585/files/agenda/4817",
       "link_label": "View notice",
       "meeting_type": "Planning Commission",
-      "cancelled": true,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2585/files/agenda/4817"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2585/files/agenda/4817",
+      "isCancelled": true
     },
     {
       "date": "2026-02-05",
@@ -80,12 +80,12 @@
       "event_id": 2584,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/4676",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/5001",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2584/files/agenda/4676",
       "meeting_type": "Planning Commission - Regular Meeting",
       "youtube_id": "Ll2NxzysY0c",
-      "youtube_url": "https://www.youtube.com/watch?v=Ll2NxzysY0c"
+      "youtube_url": "https://www.youtube.com/watch?v=Ll2NxzysY0c",
+      "isCancelled": false
     },
     {
       "date": "2025-12-04",
@@ -93,12 +93,12 @@
       "event_id": 1444,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4476",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4883",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1444/files/agenda/4476",
       "meeting_type": "Planning Commission - Regular Meeting",
       "youtube_id": "pEsDkjNXzw4",
-      "youtube_url": "https://www.youtube.com/watch?v=pEsDkjNXzw4"
+      "youtube_url": "https://www.youtube.com/watch?v=pEsDkjNXzw4",
+      "isCancelled": false
     },
     {
       "date": "2025-11-06",
@@ -107,9 +107,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1443/files/agenda/4407",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1443/files/agenda/4882",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1443/files/agenda/4407"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1443/files/agenda/4407",
+      "isCancelled": false
     },
     {
       "date": "2025-09-04",
@@ -118,9 +118,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1441/files/agenda/4228",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1441/files/agenda/4881",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1441/files/agenda/4228"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1441/files/agenda/4228",
+      "isCancelled": false
     },
     {
       "date": "2025-07-09",
@@ -129,9 +129,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1439/files/agenda/4042",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1439/files/agenda/4880",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1439/files/agenda/4042"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1439/files/agenda/4042",
+      "isCancelled": false
     },
     {
       "date": "2025-05-01",
@@ -140,9 +140,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1437/files/agenda/3871",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1437/files/agenda/4879",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1437/files/agenda/3871"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1437/files/agenda/3871",
+      "isCancelled": false
     },
     {
       "date": "2025-04-09",
@@ -151,9 +151,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1436/files/agenda/3783",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1436/files/agenda/4878",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1436/files/agenda/3783"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1436/files/agenda/3783",
+      "isCancelled": false
     },
     {
       "date": "2025-03-06",
@@ -162,9 +162,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1435/files/agenda/3675",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1435/files/agenda/4848",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1435/files/agenda/3675"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1435/files/agenda/3675",
+      "isCancelled": false
     },
     {
       "date": "2025-02-06",
@@ -173,9 +173,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1434/files/agenda/3564",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1434/files/agenda/3718",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1434/files/agenda/3564"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1434/files/agenda/3564",
+      "isCancelled": false
     },
     {
       "date": "2024-12-18",
@@ -184,9 +184,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1313/files/agenda/3485",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1313/files/agenda/3598",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1313/files/agenda/3485"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1313/files/agenda/3485",
+      "isCancelled": false
     },
     {
       "date": "2024-12-11",
@@ -195,9 +195,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1245/files/agenda/3436",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1245/files/agenda/3599",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1245/files/agenda/3436"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1245/files/agenda/3436",
+      "isCancelled": false
     },
     {
       "date": "2024-11-07",
@@ -206,9 +206,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/988/files/agenda/3303",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/988/files/agenda/3596",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/988/files/agenda/3303"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/988/files/agenda/3303",
+      "isCancelled": false
     },
     {
       "date": "2024-10-03",
@@ -217,9 +217,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/987/files/agenda/3184",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/987/files/agenda/3593",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/987/files/agenda/3184"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/987/files/agenda/3184",
+      "isCancelled": false
     },
     {
       "date": "2024-07-08",
@@ -228,9 +228,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/984/files/agenda/2981",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/984/files/agenda/3592",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/984/files/agenda/2981"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/984/files/agenda/2981",
+      "isCancelled": false
     },
     {
       "date": "2024-06-06",
@@ -239,9 +239,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/983/files/agenda/2898",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/983/files/agenda/3591",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/983/files/agenda/2898"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/983/files/agenda/2898",
+      "isCancelled": false
     },
     {
       "date": "2024-05-02",
@@ -250,9 +250,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/982/files/agenda/2823",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/982/files/agenda/3590",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/982/files/agenda/2823"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/982/files/agenda/2823",
+      "isCancelled": false
     },
     {
       "date": "2024-04-04",
@@ -261,9 +261,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/981/files/agenda/2756",
       "link_label": "Agenda",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/981/files/agenda/2756"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/981/files/agenda/2756",
+      "isCancelled": false
     },
     {
       "date": "2024-03-07",
@@ -272,9 +272,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/980/files/agenda/2671",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/980/files/agenda/3589",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/980/files/agenda/2671"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/980/files/agenda/2671",
+      "isCancelled": false
     },
     {
       "date": "2024-02-01",
@@ -283,9 +283,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/979/files/agenda/2562",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/979/files/agenda/3588",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/979/files/agenda/2562"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/979/files/agenda/2562",
+      "isCancelled": false
     },
     {
       "date": "2024-01-04",
@@ -294,9 +294,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/786/files/agenda/2494",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/786/files/agenda/2655",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/786/files/agenda/2494"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/786/files/agenda/2494",
+      "isCancelled": false
     },
     {
       "date": "2023-12-07",
@@ -305,9 +305,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/785/files/agenda/2405",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/785/files/agenda/2654",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/785/files/agenda/2405"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/785/files/agenda/2405",
+      "isCancelled": false
     },
     {
       "date": "2023-10-09",
@@ -316,9 +316,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/783/files/agenda/2271",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/783/files/agenda/2653",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/783/files/agenda/2271"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/783/files/agenda/2271",
+      "isCancelled": false
     },
     {
       "date": "2023-09-07",
@@ -327,9 +327,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/782/files/agenda/2186",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/782/files/agenda/2652",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/782/files/agenda/2186"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/782/files/agenda/2186",
+      "isCancelled": false
     },
     {
       "date": "2023-08-03",
@@ -338,9 +338,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/781/files/agenda/2113",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/781/files/agenda/2651",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/781/files/agenda/2113"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/781/files/agenda/2113",
+      "isCancelled": false
     },
     {
       "date": "2023-07-20",
@@ -349,9 +349,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/780/files/agenda/2094",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/780/files/agenda/2650",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/780/files/agenda/2094"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/780/files/agenda/2094",
+      "isCancelled": false
     },
     {
       "date": "2023-06-01",
@@ -360,9 +360,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/779/files/agenda/2000",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/779/files/agenda/2649",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/779/files/agenda/2000"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/779/files/agenda/2000",
+      "isCancelled": false
     },
     {
       "date": "2023-05-04",
@@ -371,9 +371,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/778/files/agenda/1946",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/778/files/agenda/2648",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/778/files/agenda/1946"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/778/files/agenda/1946",
+      "isCancelled": false
     },
     {
       "date": "2023-04-06",
@@ -382,9 +382,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/777/files/agenda/1845",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/777/files/agenda/2647",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/777/files/agenda/1845"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/777/files/agenda/1845",
+      "isCancelled": false
     },
     {
       "date": "2023-03-02",
@@ -393,9 +393,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/776/files/agenda/1766",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/776/files/agenda/2646",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/776/files/agenda/1766"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/776/files/agenda/1766",
+      "isCancelled": false
     },
     {
       "date": "2023-02-02",
@@ -404,9 +404,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/775/files/agenda/1708",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/775/files/agenda/2645",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/775/files/agenda/1708"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/775/files/agenda/1708",
+      "isCancelled": false
     },
     {
       "date": "2022-12-01",
@@ -415,9 +415,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/586/files/agenda/1596",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/586/files/agenda/2644",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/586/files/agenda/1596"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/586/files/agenda/1596",
+      "isCancelled": false
     },
     {
       "date": "2022-11-03",
@@ -426,9 +426,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/585/files/agenda/1558",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/585/files/agenda/2643",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/585/files/agenda/1558"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/585/files/agenda/1558",
+      "isCancelled": false
     },
     {
       "date": "2022-09-01",
@@ -437,9 +437,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/583/files/agenda/1467",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/583/files/agenda/2642",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/583/files/agenda/1467"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/583/files/agenda/1467",
+      "isCancelled": false
     },
     {
       "date": "2022-08-04",
@@ -448,9 +448,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/582/files/agenda/1434",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/582/files/agenda/2641",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/582/files/agenda/1434"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/582/files/agenda/1434",
+      "isCancelled": false
     },
     {
       "date": "2022-07-07",
@@ -459,9 +459,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/581/files/agenda/1392",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/581/files/agenda/2640",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/581/files/agenda/1392"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/581/files/agenda/1392",
+      "isCancelled": false
     },
     {
       "date": "2022-06-22",
@@ -470,9 +470,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/635/files/agenda/1373",
       "link_label": "Agenda",
       "meeting_type": "Special Meeting",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/635/files/agenda/1373"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/635/files/agenda/1373",
+      "isCancelled": false
     },
     {
       "date": "2022-06-02",
@@ -481,9 +481,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/580/files/agenda/1350",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/580/files/agenda/2639",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/580/files/agenda/1350"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/580/files/agenda/1350",
+      "isCancelled": false
     },
     {
       "date": "2022-05-05",
@@ -492,9 +492,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/579/files/agenda/1331",
       "link_label": "Agenda",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/579/files/agenda/1331"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/579/files/agenda/1331",
+      "isCancelled": false
     },
     {
       "date": "2022-04-07",
@@ -503,9 +503,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/578/files/agenda/1279",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/578/files/agenda/2638",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/578/files/agenda/1279"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/578/files/agenda/1279",
+      "isCancelled": false
     },
     {
       "date": "2022-03-03",
@@ -514,9 +514,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/577/files/agenda/1252",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/577/files/agenda/2637",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/577/files/agenda/1252"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/577/files/agenda/1252",
+      "isCancelled": false
     },
     {
       "date": "2022-02-03",
@@ -525,9 +525,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/440/files/agenda/1207",
       "link_label": "Agenda",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/440/files/agenda/1207"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/440/files/agenda/1207",
+      "isCancelled": false
     },
     {
       "date": "2022-01-06",
@@ -536,9 +536,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/439/files/agenda/1188",
       "link_label": "Agenda",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/439/files/agenda/1188"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/439/files/agenda/1188",
+      "isCancelled": false
     },
     {
       "date": "2021-12-02",
@@ -547,9 +547,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/398/files/agenda/1138",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/398/files/agenda/2636",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/398/files/agenda/1138"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/398/files/agenda/1138",
+      "isCancelled": false
     },
     {
       "date": "2021-11-04",
@@ -558,9 +558,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/397/files/agenda/1107",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/397/files/agenda/2635",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/397/files/agenda/1107"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/397/files/agenda/1107",
+      "isCancelled": false
     },
     {
       "date": "2021-10-07",
@@ -569,9 +569,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/396/files/agenda/1066",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/396/files/agenda/2634",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/396/files/agenda/1066"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/396/files/agenda/1066",
+      "isCancelled": false
     },
     {
       "date": "2021-08-09",
@@ -580,9 +580,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/394/files/agenda/939",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/394/files/agenda/2633",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/394/files/agenda/939"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/394/files/agenda/939",
+      "isCancelled": false
     },
     {
       "date": "2021-07-01",
@@ -591,9 +591,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/393/files/agenda/904",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/393/files/agenda/999",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/393/files/agenda/904"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/393/files/agenda/904",
+      "isCancelled": false
     },
     {
       "date": "2021-06-03",
@@ -602,9 +602,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/392/files/agenda/869",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/392/files/agenda/998",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/392/files/agenda/869"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/392/files/agenda/869",
+      "isCancelled": false
     },
     {
       "date": "2021-04-21",
@@ -613,9 +613,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/390/files/agenda/839",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/390/files/agenda/997",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/390/files/agenda/839"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/390/files/agenda/839",
+      "isCancelled": false
     },
     {
       "date": "2021-03-04",
@@ -624,9 +624,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/389/files/agenda/778",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Planning Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/389/files/agenda/996",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/389/files/agenda/778"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/389/files/agenda/778",
+      "isCancelled": false
     }
   ],
   "recordings": [

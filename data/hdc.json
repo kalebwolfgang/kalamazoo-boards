@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "05:00 PM – 07:00 PM",
-    "location": "City Commission Chambers, City Hall, 241 W South St"
+    "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
     {
@@ -43,12 +43,12 @@
       "event_id": 2739,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2739/files/agenda/5072",
       "link_label": "Agenda",
-      "cancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2739/files/agenda/5072",
       "meeting_type": "Historic District Commission",
       "youtube_id": "23qij2LxnIg",
-      "youtube_url": "https://www.youtube.com/watch?v=23qij2LxnIg"
+      "youtube_url": "https://www.youtube.com/watch?v=23qij2LxnIg",
+      "isCancelled": false
     },
     {
       "date": "2026-04-21",
@@ -56,12 +56,12 @@
       "event_id": 2738,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2738/files/agenda/4954",
       "link_label": "Agenda & Minutes",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2738/files/agenda/5056",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2738/files/agenda/4954",
       "meeting_type": "Historic District Commission",
       "youtube_id": "SHyZSytY4uI",
-      "youtube_url": "https://www.youtube.com/watch?v=SHyZSytY4uI"
+      "youtube_url": "https://www.youtube.com/watch?v=SHyZSytY4uI",
+      "isCancelled": false
     },
     {
       "date": "2026-03-17",
@@ -70,11 +70,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2737/files/agenda/4849",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2737/files/agenda/4938",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2737/files/agenda/4849",
       "youtube_id": "Hdp1U0Q79-0",
-      "youtube_url": "https://www.youtube.com/watch?v=Hdp1U0Q79-0"
+      "youtube_url": "https://www.youtube.com/watch?v=Hdp1U0Q79-0",
+      "isCancelled": false
     },
     {
       "date": "2026-02-17",
@@ -83,9 +83,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2736/overview",
       "link_label": "Meeting Overview",
       "meeting_type": "Historic District Commission",
-      "cancelled": true,
       "minutes_url": null,
-      "agenda_url": null
+      "agenda_url": null,
+      "isCancelled": true
     },
     {
       "date": "2025-12-16",
@@ -94,9 +94,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1390/files/agenda/4566",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1390/files/agenda/4638",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1390/files/agenda/4566"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1390/files/agenda/4566",
+      "isCancelled": false
     },
     {
       "date": "2025-11-18",
@@ -105,9 +105,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1389/overview",
       "link_label": "Meeting Overview",
       "meeting_type": "Historic District Commission",
-      "cancelled": true,
       "minutes_url": null,
-      "agenda_url": null
+      "agenda_url": null,
+      "isCancelled": true
     },
     {
       "date": "2025-10-21",
@@ -116,11 +116,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1388/files/agenda/4384",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1388/files/agenda/4565",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1388/files/agenda/4384",
       "youtube_id": "kycYp86Qpds",
-      "youtube_url": "https://www.youtube.com/watch?v=kycYp86Qpds"
+      "youtube_url": "https://www.youtube.com/watch?v=kycYp86Qpds",
+      "isCancelled": false
     },
     {
       "date": "2025-09-16",
@@ -129,11 +129,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1387/files/agenda/4270",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1387/files/agenda/4303",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1387/files/agenda/4270",
       "youtube_id": "cBXhbxUtN2o",
-      "youtube_url": "https://www.youtube.com/watch?v=cBXhbxUtN2o"
+      "youtube_url": "https://www.youtube.com/watch?v=cBXhbxUtN2o",
+      "isCancelled": false
     },
     {
       "date": "2025-08-19",
@@ -142,9 +142,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1386/overview",
       "link_label": "Meeting Overview",
       "meeting_type": "Historic District Commission",
-      "cancelled": true,
       "minutes_url": null,
-      "agenda_url": null
+      "agenda_url": null,
+      "isCancelled": true
     },
     {
       "date": "2025-07-15",
@@ -153,11 +153,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1385/files/agenda/4063",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1385/files/agenda/4126",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1385/files/agenda/4063",
       "youtube_id": "o685bhEMwJQ",
-      "youtube_url": "https://www.youtube.com/watch?v=o685bhEMwJQ"
+      "youtube_url": "https://www.youtube.com/watch?v=o685bhEMwJQ",
+      "isCancelled": false
     },
     {
       "date": "2025-06-17",
@@ -166,11 +166,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1384/files/agenda/3984",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1384/files/agenda/4020",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1384/files/agenda/3984",
       "youtube_id": "7SaucBV1Vy4",
-      "youtube_url": "https://www.youtube.com/watch?v=7SaucBV1Vy4"
+      "youtube_url": "https://www.youtube.com/watch?v=7SaucBV1Vy4",
+      "isCancelled": false
     },
     {
       "date": "2025-05-20",
@@ -179,11 +179,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1383/files/agenda/3909",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1383/files/agenda/3961",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1383/files/agenda/3909",
       "youtube_id": "F1s809ZhTwg",
-      "youtube_url": "https://www.youtube.com/watch?v=F1s809ZhTwg"
+      "youtube_url": "https://www.youtube.com/watch?v=F1s809ZhTwg",
+      "isCancelled": false
     },
     {
       "date": "2025-04-15",
@@ -192,11 +192,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1382/files/agenda/3819",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1382/files/agenda/3868",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1382/files/agenda/3819",
       "youtube_id": "OVFO1OgPa3E",
-      "youtube_url": "https://www.youtube.com/watch?v=OVFO1OgPa3E"
+      "youtube_url": "https://www.youtube.com/watch?v=OVFO1OgPa3E",
+      "isCancelled": false
     },
     {
       "date": "2025-03-18",
@@ -205,11 +205,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1381/files/agenda/3699",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1381/files/agenda/3744",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1381/files/agenda/3699",
       "youtube_id": "cN5rfZu5N88",
-      "youtube_url": "https://www.youtube.com/watch?v=cN5rfZu5N88"
+      "youtube_url": "https://www.youtube.com/watch?v=cN5rfZu5N88",
+      "isCancelled": false
     },
     {
       "date": "2025-02-18",
@@ -218,11 +218,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1380/files/agenda/3616",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1380/files/agenda/3646",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1380/files/agenda/3616",
       "youtube_id": "kkIPZfVsFcA",
-      "youtube_url": "https://www.youtube.com/watch?v=kkIPZfVsFcA"
+      "youtube_url": "https://www.youtube.com/watch?v=kkIPZfVsFcA",
+      "isCancelled": false
     },
     {
       "date": "2025-01-21",
@@ -231,9 +231,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1379/files/agenda/3532",
       "link_label": "Agenda",
       "meeting_type": "Historic District Commission",
-      "cancelled": true,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1379/files/agenda/3532"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1379/files/agenda/3532",
+      "isCancelled": true
     },
     {
       "date": "2024-12-17",
@@ -242,11 +242,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1135/files/agenda/3456",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1135/files/agenda/3495",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1135/files/agenda/3456",
       "youtube_id": "I7R-qapINQA",
-      "youtube_url": "https://www.youtube.com/watch?v=I7R-qapINQA"
+      "youtube_url": "https://www.youtube.com/watch?v=I7R-qapINQA",
+      "isCancelled": false
     },
     {
       "date": "2024-11-19",
@@ -255,11 +255,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1134/files/agenda/3353",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1134/files/agenda/3408",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1134/files/agenda/3353",
       "youtube_id": "798s0WI67no",
-      "youtube_url": "https://www.youtube.com/watch?v=798s0WI67no"
+      "youtube_url": "https://www.youtube.com/watch?v=798s0WI67no",
+      "isCancelled": false
     },
     {
       "date": "2024-10-15",
@@ -268,11 +268,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1133/files/agenda/3345",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1133/files/agenda/3285",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1133/files/agenda/3345",
       "youtube_id": "62xz6nAK8v0",
-      "youtube_url": "https://www.youtube.com/watch?v=62xz6nAK8v0"
+      "youtube_url": "https://www.youtube.com/watch?v=62xz6nAK8v0",
+      "isCancelled": false
     },
     {
       "date": "2024-08-20",
@@ -281,11 +281,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1131/files/agenda/3088",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1131/files/agenda/3118",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1131/files/agenda/3088",
       "youtube_id": "uvUTactTYFA",
-      "youtube_url": "https://www.youtube.com/watch?v=uvUTactTYFA"
+      "youtube_url": "https://www.youtube.com/watch?v=uvUTactTYFA",
+      "isCancelled": false
     },
     {
       "date": "2024-07-16",
@@ -294,11 +294,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1130/files/agenda/3012",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1130/files/agenda/3028",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1130/files/agenda/3012",
       "youtube_id": "M9Tj-Xz6Aw4",
-      "youtube_url": "https://www.youtube.com/watch?v=M9Tj-Xz6Aw4"
+      "youtube_url": "https://www.youtube.com/watch?v=M9Tj-Xz6Aw4",
+      "isCancelled": false
     },
     {
       "date": "2024-06-18",
@@ -307,11 +307,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1190/files/agenda/2934",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1190/files/agenda/2970",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1190/files/agenda/2934",
       "youtube_id": "yQDIjHIzfh8",
-      "youtube_url": "https://www.youtube.com/watch?v=yQDIjHIzfh8"
+      "youtube_url": "https://www.youtube.com/watch?v=yQDIjHIzfh8",
+      "isCancelled": false
     },
     {
       "date": "2024-05-21",
@@ -320,11 +320,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1128/files/agenda/2874",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1128/files/agenda/2909",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1128/files/agenda/2874",
       "youtube_id": "5wQ-OxIARyo",
-      "youtube_url": "https://www.youtube.com/watch?v=5wQ-OxIARyo"
+      "youtube_url": "https://www.youtube.com/watch?v=5wQ-OxIARyo",
+      "isCancelled": false
     },
     {
       "date": "2024-04-16",
@@ -333,11 +333,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1127/files/agenda/2783",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1127/files/agenda/2854",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1127/files/agenda/2783",
       "youtube_id": "ypQ0aIXxdfk",
-      "youtube_url": "https://www.youtube.com/watch?v=ypQ0aIXxdfk"
+      "youtube_url": "https://www.youtube.com/watch?v=ypQ0aIXxdfk",
+      "isCancelled": false
     },
     {
       "date": "2024-03-19",
@@ -346,11 +346,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1126/files/agenda/2717",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1126/files/agenda/2740",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1126/files/agenda/2717",
       "youtube_id": "Up-qasMGEOA",
-      "youtube_url": "https://www.youtube.com/watch?v=Up-qasMGEOA"
+      "youtube_url": "https://www.youtube.com/watch?v=Up-qasMGEOA",
+      "isCancelled": false
     },
     {
       "date": "2024-02-20",
@@ -359,11 +359,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/801/files/agenda/2618",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/801/files/agenda/2739",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/801/files/agenda/2618",
       "youtube_id": "V3LdVAk4oVM",
-      "youtube_url": "https://www.youtube.com/watch?v=V3LdVAk4oVM"
+      "youtube_url": "https://www.youtube.com/watch?v=V3LdVAk4oVM",
+      "isCancelled": false
     },
     {
       "date": "2024-01-16",
@@ -372,11 +372,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/800/files/agenda/2519",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/800/files/agenda/2602",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/800/files/agenda/2519",
       "youtube_id": "QsYeiZvePjI",
-      "youtube_url": "https://www.youtube.com/watch?v=QsYeiZvePjI"
+      "youtube_url": "https://www.youtube.com/watch?v=QsYeiZvePjI",
+      "isCancelled": false
     },
     {
       "date": "2023-12-19",
@@ -385,11 +385,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/799/files/agenda/2481",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/799/files/agenda/2493",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/799/files/agenda/2481",
       "youtube_id": "3HDSesL9CQ0",
-      "youtube_url": "https://www.youtube.com/watch?v=3HDSesL9CQ0"
+      "youtube_url": "https://www.youtube.com/watch?v=3HDSesL9CQ0",
+      "isCancelled": false
     },
     {
       "date": "2023-10-17",
@@ -398,11 +398,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/797/files/agenda/2312",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/797/files/agenda/2345",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/797/files/agenda/2312",
       "youtube_id": "pfpLQWvSXO0",
-      "youtube_url": "https://www.youtube.com/watch?v=pfpLQWvSXO0"
+      "youtube_url": "https://www.youtube.com/watch?v=pfpLQWvSXO0",
+      "isCancelled": false
     },
     {
       "date": "2023-08-15",
@@ -411,11 +411,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/795/files/agenda/2144",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/795/files/agenda/2188",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/795/files/agenda/2144",
       "youtube_id": "1vpGbx1Rp18",
-      "youtube_url": "https://www.youtube.com/watch?v=1vpGbx1Rp18"
+      "youtube_url": "https://www.youtube.com/watch?v=1vpGbx1Rp18",
+      "isCancelled": false
     },
     {
       "date": "2023-07-18",
@@ -424,11 +424,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/794/files/agenda/2080",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/794/files/agenda/2108",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/794/files/agenda/2080",
       "youtube_id": "w082OBdTUis",
-      "youtube_url": "https://www.youtube.com/watch?v=w082OBdTUis"
+      "youtube_url": "https://www.youtube.com/watch?v=w082OBdTUis",
+      "isCancelled": false
     },
     {
       "date": "2023-06-22",
@@ -437,11 +437,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/793/files/agenda/2057",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/793/files/agenda/2064",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/793/files/agenda/2057",
       "youtube_id": "OFwCO5FXDys",
-      "youtube_url": "https://www.youtube.com/watch?v=OFwCO5FXDys"
+      "youtube_url": "https://www.youtube.com/watch?v=OFwCO5FXDys",
+      "isCancelled": false
     },
     {
       "date": "2023-05-16",
@@ -450,11 +450,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/792/files/agenda/1991",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/792/files/agenda/2030",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/792/files/agenda/1991",
       "youtube_id": "pkFec3qHaY8",
-      "youtube_url": "https://www.youtube.com/watch?v=pkFec3qHaY8"
+      "youtube_url": "https://www.youtube.com/watch?v=pkFec3qHaY8",
+      "isCancelled": false
     },
     {
       "date": "2023-04-18",
@@ -463,11 +463,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/791/files/agenda/1911",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/791/files/agenda/1933",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/791/files/agenda/1911",
       "youtube_id": "AlrOmrWg8eo",
-      "youtube_url": "https://www.youtube.com/watch?v=AlrOmrWg8eo"
+      "youtube_url": "https://www.youtube.com/watch?v=AlrOmrWg8eo",
+      "isCancelled": false
     },
     {
       "date": "2023-03-21",
@@ -476,11 +476,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/790/files/agenda/1814",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/790/files/agenda/1853",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/790/files/agenda/1814",
       "youtube_id": "OZPcItsHjpA",
-      "youtube_url": "https://www.youtube.com/watch?v=OZPcItsHjpA"
+      "youtube_url": "https://www.youtube.com/watch?v=OZPcItsHjpA",
+      "isCancelled": false
     },
     {
       "date": "2023-02-21",
@@ -489,11 +489,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/789/files/agenda/1751",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/789/files/agenda/1788",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/789/files/agenda/1751",
       "youtube_id": "ZJ-2X2VAWx8",
-      "youtube_url": "https://www.youtube.com/watch?v=ZJ-2X2VAWx8"
+      "youtube_url": "https://www.youtube.com/watch?v=ZJ-2X2VAWx8",
+      "isCancelled": false
     },
     {
       "date": "2023-01-31",
@@ -502,11 +502,11 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/788/files/agenda/1695",
       "link_label": "Minutes",
       "meeting_type": "Historic District Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/788/files/agenda/1730",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/788/files/agenda/1695",
       "youtube_id": "AGqWDSXdEAM",
-      "youtube_url": "https://www.youtube.com/watch?v=AGqWDSXdEAM"
+      "youtube_url": "https://www.youtube.com/watch?v=AGqWDSXdEAM",
+      "isCancelled": false
     }
   ],
   "recordings": [

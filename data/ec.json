@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "metadata": {
     "time": "09:00 AM – 10:00 AM",
     "location": "TBD"
@@ -7,13 +7,13 @@
   "upcoming_meetings": [
     {
       "date": "2026-07-09",
-      "display": "Thursday, July 09, 2026",
+      "display": "Thursday, July 9, 2026",
       "time": "09:00 AM – 10:00 AM",
       "location": "City Records Center, 3001 S Burdick St"
     },
     {
       "date": "2026-10-08",
-      "display": "Thursday, October 08, 2026",
+      "display": "Thursday, October 8, 2026",
       "time": "09:00 AM – 10:00 AM",
       "location": "City Records Center, 3001 S Burdick St"
     }
@@ -26,9 +26,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2763/files/agenda/4918",
       "link_label": "Agenda",
       "meeting_type": "Election Commission Meeting - Public Accuracy Test",
-      "cancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2763/files/agenda/4918"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2763/files/agenda/4918",
+      "isCancelled": false
     },
     {
       "date": "2026-02-25",
@@ -37,9 +37,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2749/files/agenda/4783",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Election Commission Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2749/files/agenda/4925",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2749/files/agenda/4783"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2749/files/agenda/4783",
+      "isCancelled": false
     },
     {
       "date": "2025-12-17",
@@ -48,9 +48,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2613/files/agenda/4575",
       "link_label": "Agenda & Minutes",
       "meeting_type": "City Election Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2613/files/agenda/4650",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2613/files/agenda/4575"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2613/files/agenda/4575",
+      "isCancelled": false
     },
     {
       "date": "2025-10-09",
@@ -59,9 +59,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2522/files/agenda/4347",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Election Commission Meeting - Public Accuracy Test",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2522/files/agenda/4372",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2522/files/agenda/4347"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2522/files/agenda/4347",
+      "isCancelled": false
     },
     {
       "date": "2024-10-17",
@@ -70,9 +70,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1222/files/agenda/3264",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Election Commission Meeting - Public Accuracy Test",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1222/files/agenda/3294",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1222/files/agenda/3264"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1222/files/agenda/3264",
+      "isCancelled": false
     },
     {
       "date": "2024-10-14",
@@ -81,9 +81,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1221/files/agenda/3239",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Election Commission Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1221/files/agenda/3293",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1221/files/agenda/3239"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1221/files/agenda/3239",
+      "isCancelled": false
     },
     {
       "date": "2024-07-19",
@@ -92,9 +92,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1193/files/agenda/3021",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Election Commission Meeting - Public Accuracy Test",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1193/files/agenda/3039",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1193/files/agenda/3021"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1193/files/agenda/3021",
+      "isCancelled": false
     },
     {
       "date": "2024-07-15",
@@ -103,9 +103,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1192/files/agenda/3008",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Election Commission Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1192/files/agenda/3016",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1192/files/agenda/3008"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1192/files/agenda/3008",
+      "isCancelled": false
     },
     {
       "date": "2024-07-03",
@@ -114,9 +114,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1191/files/agenda/2988",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Election Commission Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1191/files/agenda/3017",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1191/files/agenda/2988"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1191/files/agenda/2988",
+      "isCancelled": false
     },
     {
       "date": "2024-02-01",
@@ -125,9 +125,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/1111/files/agenda/2572",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Election Commission Meeting - Public Accuracy Test",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/1111/files/agenda/3018",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1111/files/agenda/2572"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/1111/files/agenda/2572",
+      "isCancelled": false
     },
     {
       "date": "2023-11-02",
@@ -136,9 +136,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/886/files/agenda/2353",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Election Commission Meeting - Public Accuracy Test",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/886/files/agenda/2362",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/886/files/agenda/2353"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/886/files/agenda/2353",
+      "isCancelled": false
     },
     {
       "date": "2023-08-30",
@@ -147,9 +147,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/878/files/agenda/2189",
       "link_label": "Agenda & Minutes",
       "meeting_type": "City Election Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/878/files/agenda/2220",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/878/files/agenda/2189"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/878/files/agenda/2189",
+      "isCancelled": false
     },
     {
       "date": "2023-04-10",
@@ -158,9 +158,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/875/files/agenda/1885",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Election Commission",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/875/files/agenda/1889",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/875/files/agenda/1885"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/875/files/agenda/1885",
+      "isCancelled": false
     },
     {
       "date": "2023-03-03",
@@ -169,9 +169,9 @@
       "url": "https://kalamazoomi.portal.civicclerk.com/event/873/files/agenda/1784",
       "link_label": "Agenda & Minutes",
       "meeting_type": "Special Election Commission Meeting",
-      "cancelled": false,
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/873/files/agenda/1887",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/873/files/agenda/1784"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/873/files/agenda/1784",
+      "isCancelled": false
     }
   ]
 }

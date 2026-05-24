@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-05-21",
+  "last_updated": "2026-05-24",
   "meetings": [
     {
       "date": "2026-04-01",
-      "display": "Wednesday, April 01, 2026",
-      "time": "05:00 PM – 07:00 PM",
+      "display": "Wednesday, April 1, 2026",
+      "time": "5:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
       "name": "Civil Rights Board",
@@ -13,8 +13,8 @@
     },
     {
       "date": "2026-04-08",
-      "display": "Wednesday, April 08, 2026",
-      "time": "07:00 PM – 09:00 PM",
+      "display": "Wednesday, April 8, 2026",
+      "time": "7:00 PM – 9:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission",
@@ -23,8 +23,8 @@
     },
     {
       "date": "2026-04-09",
-      "display": "Thursday, April 09, 2026",
-      "time": "09:00 AM – 10:00 AM",
+      "display": "Thursday, April 9, 2026",
+      "time": "9:00 AM",
       "location": null,
       "abbr": "EC",
       "name": "Election Commission",
@@ -32,8 +32,8 @@
     },
     {
       "date": "2026-04-09",
-      "display": "Thursday, April 09, 2026",
-      "time": "07:00 PM – 09:00 PM",
+      "display": "Thursday, April 9, 2026",
+      "time": "7:00 PM – 9:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals",
@@ -52,8 +52,8 @@
     {
       "date": "2026-04-15",
       "display": "Wednesday, April 15, 2026",
-      "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "time": "4:30 PM – 6:30 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee",
       "youtube_url": "https://www.youtube.com/watch?v=ez2cYMMUU_c",
@@ -62,7 +62,7 @@
     {
       "date": "2026-04-16",
       "display": "Thursday, April 16, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "7:45 AM – 9:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority",
@@ -71,7 +71,7 @@
     {
       "date": "2026-04-16",
       "display": "Thursday, April 16, 2026",
-      "time": "7:45 AM",
+      "time": "7:45 AM – 9:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation",
@@ -80,7 +80,7 @@
     {
       "date": "2026-04-20",
       "display": "Monday, April 20, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "3:00 PM – 5:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority",
@@ -100,8 +100,8 @@
     {
       "date": "2026-04-21",
       "display": "Tuesday, April 21, 2026",
-      "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "time": "5:00 PM – 7:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission",
       "youtube_url": "https://www.youtube.com/watch?v=SHyZSytY4uI",
@@ -111,7 +111,7 @@
     {
       "date": "2026-04-22",
       "display": "Wednesday, April 22, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "6:00 PM – 8:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission",
@@ -122,17 +122,18 @@
     {
       "date": "2026-04-28",
       "display": "Tuesday, April 28, 2026",
-      "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "time": "4:00 PM – 6:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2725/files/agenda/4977"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2725/files/agenda/4977",
+      "isCancelled": true
     },
     {
       "date": "2026-05-07",
-      "display": "Thursday, May 07, 2026",
-      "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "display": "Thursday, May 7, 2026",
+      "time": "4:00 PM – 6:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board",
       "youtube_url": "https://www.youtube.com/watch?v=luo2Fw6cbW4",
@@ -141,8 +142,8 @@
     },
     {
       "date": "2026-05-07",
-      "display": "Thursday, May 07, 2026",
-      "time": "07:00 PM – 09:00 PM",
+      "display": "Thursday, May 7, 2026",
+      "time": "7:00 PM – 9:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission",
@@ -152,7 +153,7 @@
     {
       "date": "2026-05-11",
       "display": "Monday, May 11, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "3:00 PM – 5:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority",
@@ -187,7 +188,7 @@
     {
       "date": "2026-05-13",
       "display": "Wednesday, May 13, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "6:00 PM – 8:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission",
@@ -197,7 +198,7 @@
     {
       "date": "2026-05-14",
       "display": "Thursday, May 14, 2026",
-      "time": "07:00 PM – 09:00 PM",
+      "time": "7:00 PM – 9:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals",
@@ -207,8 +208,8 @@
     {
       "date": "2026-05-19",
       "display": "Tuesday, May 19, 2026",
-      "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "time": "5:00 PM – 7:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission",
       "youtube_url": "https://www.youtube.com/watch?v=23qij2LxnIg",
@@ -217,8 +218,8 @@
     {
       "date": "2026-05-20",
       "display": "Wednesday, May 20, 2026",
-      "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "time": "4:30 PM – 6:30 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee",
       "youtube_url": "https://www.youtube.com/watch?v=P7suPTOXaSI",
@@ -227,7 +228,7 @@
     {
       "date": "2026-05-21",
       "display": "Thursday, May 21, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "7:45 AM – 9:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority",
@@ -236,25 +237,17 @@
     {
       "date": "2026-05-21",
       "display": "Thursday, May 21, 2026",
-      "time": "7:45 AM",
+      "time": "7:45 AM – 9:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2690/files/agenda/5082"
     },
     {
-      "date": "2026-05-21",
-      "display": "Thursday, May 21, 2026",
-      "time": "12:00 PM – 02:00 PM",
-      "location": "Milham Park Golf Club, Kalamazoo",
-      "abbr": "KMGA",
-      "name": "Kalamazoo Municipal Golf Association"
-    },
-    {
       "date": "2026-05-26",
       "display": "Tuesday, May 26, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
@@ -268,7 +261,7 @@
     },
     {
       "date": "2026-06-02",
-      "display": "Tuesday, June 02, 2026",
+      "display": "Tuesday, June 2, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Spring Valley Park",
       "abbr": "PRAB",
@@ -276,7 +269,7 @@
     },
     {
       "date": "2026-06-02",
-      "display": "Tuesday, June 02, 2026",
+      "display": "Tuesday, June 2, 2026",
       "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
@@ -284,7 +277,7 @@
     },
     {
       "date": "2026-06-03",
-      "display": "Wednesday, June 03, 2026",
+      "display": "Wednesday, June 3, 2026",
       "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
@@ -300,7 +293,7 @@
     },
     {
       "date": "2026-06-04",
-      "display": "Thursday, June 04, 2026",
+      "display": "Thursday, June 4, 2026",
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
@@ -308,7 +301,7 @@
     },
     {
       "date": "2026-06-09",
-      "display": "Tuesday, June 09, 2026",
+      "display": "Tuesday, June 9, 2026",
       "time": "6:00 PM – 8:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
@@ -350,7 +343,7 @@
       "date": "2026-06-15",
       "display": "Monday, June 15, 2026",
       "time": "11:00 AM – 12:00 PM",
-      "location": "Kalamazoo Public Services, 415 Stockbridge Ave",
+      "location": "Kalamazoo Public Services, 415 E Stockbridge Ave",
       "abbr": "TRB",
       "name": "Traffic Board"
     },
@@ -358,7 +351,7 @@
       "date": "2026-06-16",
       "display": "Tuesday, June 16, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
     },
@@ -366,7 +359,7 @@
       "date": "2026-06-17",
       "display": "Wednesday, June 17, 2026",
       "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
     },
@@ -381,7 +374,7 @@
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "7:45 AM",
+      "time": "7:45 AM – 9:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
@@ -398,7 +391,7 @@
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -414,7 +407,7 @@
       "date": "2026-06-23",
       "display": "Tuesday, June 23, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
@@ -428,7 +421,7 @@
     },
     {
       "date": "2026-07-02",
-      "display": "Thursday, July 02, 2026",
+      "display": "Thursday, July 2, 2026",
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
@@ -436,7 +429,7 @@
     },
     {
       "date": "2026-07-07",
-      "display": "Tuesday, July 07, 2026",
+      "display": "Tuesday, July 7, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Southside Park",
       "abbr": "PRAB",
@@ -444,7 +437,7 @@
     },
     {
       "date": "2026-07-07",
-      "display": "Tuesday, July 07, 2026",
+      "display": "Tuesday, July 7, 2026",
       "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
@@ -452,7 +445,7 @@
     },
     {
       "date": "2026-07-08",
-      "display": "Wednesday, July 08, 2026",
+      "display": "Wednesday, July 8, 2026",
       "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
@@ -460,7 +453,7 @@
     },
     {
       "date": "2026-07-09",
-      "display": "Thursday, July 09, 2026",
+      "display": "Thursday, July 9, 2026",
       "time": "09:00 AM – 10:00 AM",
       "location": "City Records Center, 3001 S Burdick St",
       "abbr": "EC",
@@ -468,7 +461,7 @@
     },
     {
       "date": "2026-07-09",
-      "display": "Thursday, July 09, 2026",
+      "display": "Thursday, July 9, 2026",
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
@@ -510,7 +503,7 @@
       "date": "2026-07-15",
       "display": "Wednesday, July 15, 2026",
       "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
     },
@@ -526,7 +519,7 @@
       "date": "2026-07-16",
       "display": "Thursday, July 16, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -542,7 +535,7 @@
       "date": "2026-07-21",
       "display": "Tuesday, July 21, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
     },
@@ -550,13 +543,13 @@
       "date": "2026-07-28",
       "display": "Tuesday, July 28, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
     {
       "date": "2026-08-04",
-      "display": "Tuesday, August 04, 2026",
+      "display": "Tuesday, August 4, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Axtell Creek Park",
       "abbr": "PRAB",
@@ -564,7 +557,7 @@
     },
     {
       "date": "2026-08-04",
-      "display": "Tuesday, August 04, 2026",
+      "display": "Tuesday, August 4, 2026",
       "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
@@ -572,7 +565,7 @@
     },
     {
       "date": "2026-08-05",
-      "display": "Wednesday, August 05, 2026",
+      "display": "Wednesday, August 5, 2026",
       "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
@@ -580,7 +573,7 @@
     },
     {
       "date": "2026-08-06",
-      "display": "Thursday, August 06, 2026",
+      "display": "Thursday, August 6, 2026",
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
@@ -630,7 +623,7 @@
       "date": "2026-08-18",
       "display": "Tuesday, August 18, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
     },
@@ -638,7 +631,7 @@
       "date": "2026-08-19",
       "display": "Wednesday, August 19, 2026",
       "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
     },
@@ -653,7 +646,7 @@
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "7:45 AM",
+      "time": "7:45 AM – 9:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
@@ -670,7 +663,7 @@
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -686,7 +679,7 @@
       "date": "2026-08-25",
       "display": "Tuesday, August 25, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
@@ -700,7 +693,7 @@
     },
     {
       "date": "2026-09-01",
-      "display": "Tuesday, September 01, 2026",
+      "display": "Tuesday, September 1, 2026",
       "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
@@ -716,7 +709,7 @@
     },
     {
       "date": "2026-09-03",
-      "display": "Thursday, September 03, 2026",
+      "display": "Thursday, September 3, 2026",
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
@@ -724,7 +717,7 @@
     },
     {
       "date": "2026-09-08",
-      "display": "Tuesday, September 08, 2026",
+      "display": "Tuesday, September 8, 2026",
       "time": "6:00 PM – 8:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
@@ -732,7 +725,7 @@
     },
     {
       "date": "2026-09-08",
-      "display": "Tuesday, September 08, 2026",
+      "display": "Tuesday, September 8, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
@@ -740,7 +733,7 @@
     },
     {
       "date": "2026-09-09",
-      "display": "Wednesday, September 09, 2026",
+      "display": "Wednesday, September 9, 2026",
       "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
@@ -766,7 +759,7 @@
       "date": "2026-09-15",
       "display": "Tuesday, September 15, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
     },
@@ -774,7 +767,7 @@
       "date": "2026-09-16",
       "display": "Wednesday, September 16, 2026",
       "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
     },
@@ -789,7 +782,7 @@
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "7:45 AM",
+      "time": "7:45 AM – 9:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
@@ -806,7 +799,7 @@
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -838,7 +831,7 @@
       "date": "2026-09-22",
       "display": "Tuesday, September 22, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
@@ -852,7 +845,7 @@
     },
     {
       "date": "2026-10-01",
-      "display": "Thursday, October 01, 2026",
+      "display": "Thursday, October 1, 2026",
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
@@ -860,7 +853,7 @@
     },
     {
       "date": "2026-10-06",
-      "display": "Tuesday, October 06, 2026",
+      "display": "Tuesday, October 6, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
@@ -868,7 +861,7 @@
     },
     {
       "date": "2026-10-06",
-      "display": "Tuesday, October 06, 2026",
+      "display": "Tuesday, October 6, 2026",
       "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
@@ -876,7 +869,7 @@
     },
     {
       "date": "2026-10-07",
-      "display": "Wednesday, October 07, 2026",
+      "display": "Wednesday, October 7, 2026",
       "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
@@ -884,7 +877,7 @@
     },
     {
       "date": "2026-10-08",
-      "display": "Thursday, October 08, 2026",
+      "display": "Thursday, October 8, 2026",
       "time": "09:00 AM – 10:00 AM",
       "location": "City Records Center, 3001 S Burdick St",
       "abbr": "EC",
@@ -892,7 +885,7 @@
     },
     {
       "date": "2026-10-08",
-      "display": "Thursday, October 08, 2026",
+      "display": "Thursday, October 8, 2026",
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
@@ -925,7 +918,7 @@
     {
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
-      "time": "7:45 AM",
+      "time": "7:45 AM – 9:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
@@ -942,7 +935,7 @@
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -974,7 +967,7 @@
       "date": "2026-10-20",
       "display": "Tuesday, October 20, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
     },
@@ -982,7 +975,7 @@
       "date": "2026-10-21",
       "display": "Wednesday, October 21, 2026",
       "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
     },
@@ -998,13 +991,13 @@
       "date": "2026-10-27",
       "display": "Tuesday, October 27, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
     {
       "date": "2026-11-03",
-      "display": "Tuesday, November 03, 2026",
+      "display": "Tuesday, November 3, 2026",
       "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
@@ -1012,7 +1005,7 @@
     },
     {
       "date": "2026-11-05",
-      "display": "Thursday, November 05, 2026",
+      "display": "Thursday, November 5, 2026",
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
@@ -1078,9 +1071,33 @@
       "date": "2026-11-17",
       "display": "Tuesday, November 17, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
+    },
+    {
+      "date": "2026-11-18",
+      "display": "Wednesday, November 18, 2026",
+      "time": "04:30 PM – 06:30 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "ECC",
+      "name": "Environmental Concerns Committee"
+    },
+    {
+      "date": "2026-11-19",
+      "display": "Thursday, November 19, 2026",
+      "time": "07:45 AM – 09:30 AM",
+      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "abbr": "BRA",
+      "name": "Brownfield Redevelopment Authority"
+    },
+    {
+      "date": "2026-11-19",
+      "display": "Thursday, November 19, 2026",
+      "time": "7:45 AM – 9:30 AM",
+      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "abbr": "EDC",
+      "name": "Economic Development Corporation"
     },
     {
       "date": "2026-11-19",
@@ -1094,7 +1111,7 @@
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -1107,8 +1124,16 @@
       "name": "Community Development Act Advisory Committee"
     },
     {
+      "date": "2026-11-19",
+      "display": "Thursday, November 19, 2026",
+      "time": "6:00 PM – 7:00 PM",
+      "location": "Northside Association for Community Development, 612 N Park St",
+      "abbr": "NCBDA",
+      "name": "Northside Cultural Business District Authority Board"
+    },
+    {
       "date": "2026-12-01",
-      "display": "Tuesday, December 01, 2026",
+      "display": "Tuesday, December 1, 2026",
       "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
@@ -1116,7 +1141,7 @@
     },
     {
       "date": "2026-12-02",
-      "display": "Wednesday, December 02, 2026",
+      "display": "Wednesday, December 2, 2026",
       "time": "11:00 AM – 12:00 PM",
       "location": "W.E. Upjohn Institute, 300 S Westnedge Ave",
       "abbr": "RIC",
@@ -1124,7 +1149,7 @@
     },
     {
       "date": "2026-12-08",
-      "display": "Tuesday, December 08, 2026",
+      "display": "Tuesday, December 8, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
@@ -1150,7 +1175,7 @@
       "date": "2026-12-17",
       "display": "Thursday, December 17, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall, 241 W South St",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     }
