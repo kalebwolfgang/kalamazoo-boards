@@ -715,11 +715,11 @@ def transform_event(event: dict, board: dict) -> dict | None:
         "link_label":  "Agenda & Minutes" if minutes_file_id else "Agenda",
         "isCancelled": cancelled,
         "minutes_url": build_doc_url(event_id, minutes_file_id) if minutes_file_id else None,
-        "agenda_url":  build_doc_url(event_id, agenda_file_id)  if agenda_file_id  else None,
+        "agenda_url":  build_doc_url(event_id, agenda_file_id) if agenda_file_id else None,
+        "location":    extract_cc_location(event),
         "sourceUrl":   source_url,
         "scrapedAt":   None,
     }
-
     if board.get("key") != "crb":
         record["meeting_type"] = normalize_meeting_type(event.get("eventName", ""))
 
