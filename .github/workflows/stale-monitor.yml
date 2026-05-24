@@ -1,0 +1,123 @@
+name: Stale Scraper Monitor
+
+on:
+  schedule:
+    - cron: '0 16 * * 1'  # Every Monday at 11:00 AM ET (16:00 UTC) — runs 2h after main scraper
+  workflow_dispatch:
+
+# Intentionally does NOT checkout the repo.
+# Fetches the live deployed meta.json directly from GitHub Pages.
+# Runs even if the main pipeline is broken.
+
+jobs:
+  check-stale:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check meta.json lastUpdated
+        env:
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          SMTP_HOST:    ${{ secrets.SMTP_HOST }}
+          SMTP_PORT:    ${{ secrets.SMTP_PORT }}
+          SMTP_USER:    ${{ secrets.SMTP_USER }}
+          SMTP_PASS:    ${{ secrets.SMTP_PASS }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, smtplib, os, sys
+          from datetime import datetime, timezone, timedelta
+          from email.mime.text import MIMEText
+          from urllib.request import urlopen, Request
+          from urllib.error import URLError
+
+          META_URL   = "https://kalebwolfgang.github.io/kalamazoo-boards/data/meta.json"
+          STALE_DAYS = 9
+          ACTIONS_URL = "https://github.com/kalebwolfgang/kalamazoo-boards/actions"
+
+
+          def send_email(subject, body):
+              host      = os.environ.get("SMTP_HOST", "").strip()
+              port      = int(os.environ.get("SMTP_PORT", "587"))
+              user      = os.environ.get("SMTP_USER", "").strip()
+              password  = os.environ.get("SMTP_PASS", "").strip()
+              recipient = os.environ.get("NOTIFY_EMAIL", "").strip()
+              if not all([host, user, password, recipient]):
+                  print(f"[email] Not configured — would have sent: {subject}")
+                  return
+              msg = MIMEText(body)
+              msg["Subject"] = subject
+              msg["From"]    = user
+              msg["To"]      = recipient
+              try:
+                  with smtplib.SMTP(host, port) as server:
+                      server.ehlo()
+                      server.starttls()
+                      server.login(user, password)
+                      server.sendmail(user, [recipient], msg.as_string())
+                  print(f"[email] Sent: {subject}")
+              except Exception as exc:
+                  print(f"[email] Failed to send: {exc}")
+
+
+          # Fetch meta.json
+          try:
+              req = Request(META_URL, headers={"Cache-Control": "no-cache"})
+              with urlopen(req, timeout=15) as resp:
+                  meta = json.load(resp)
+          except URLError as exc:
+              send_email(
+                  "[kalamazoo-boards] WARNING: meta.json unreachable",
+                  f"Could not fetch {META_URL}.\n\nError: {exc}\n\n"
+                  f"This may indicate a deployment failure or that GitHub Pages is down.\n"
+                  f"Check pipeline: {ACTIONS_URL}",
+              )
+              sys.exit(1)
+          except Exception as exc:
+              send_email(
+                  "[kalamazoo-boards] WARNING: meta.json parse error",
+                  f"Fetched {META_URL} but could not parse JSON.\n\nError: {exc}",
+              )
+              sys.exit(1)
+
+
+          # Validate lastUpdated field
+          last_updated_str = meta.get("lastUpdated")
+          if not last_updated_str:
+              send_email(
+                  "[kalamazoo-boards] WARNING: meta.json missing lastUpdated",
+                  f"meta.json was fetched but 'lastUpdated' field is missing or null.\n"
+                  f"Raw content: {json.dumps(meta)[:500]}",
+              )
+              sys.exit(1)
+
+          try:
+              last_updated = datetime.fromisoformat(last_updated_str)
+          except ValueError as exc:
+              send_email(
+                  "[kalamazoo-boards] WARNING: meta.json lastUpdated unparseable",
+                  f"lastUpdated value '{last_updated_str}' could not be parsed as ISO 8601.\n"
+                  f"Error: {exc}",
+              )
+              sys.exit(1)
+
+          if last_updated.tzinfo is None:
+              last_updated = last_updated.replace(tzinfo=timezone.utc)
+
+          now      = datetime.now(timezone.utc)
+          age_days = (now - last_updated).days
+
+          print(f"meta.json lastUpdated: {last_updated_str}")
+          print(f"Age: {age_days} day(s)  |  Threshold: {STALE_DAYS} day(s)")
+
+          if age_days >= STALE_DAYS:
+              send_email(
+                  f"[kalamazoo-boards] WARNING: Scraper pipeline has not run in {age_days} days",
+                  f"data/meta.json reports lastUpdated: {last_updated_str}\n"
+                  f"That is {age_days} day(s) ago (alert threshold: {STALE_DAYS} days).\n\n"
+                  f"The scraper pipeline may have silently failed to run or deploy.\n\n"
+                  f"Check Actions: {ACTIONS_URL}\n"
+                  f"meta.json URL: {META_URL}",
+              )
+              print(f"ALERT: Pipeline is stale ({age_days} days). Email sent.")
+              sys.exit(1)
+          else:
+              print(f"OK: Pipeline is current ({age_days} day(s) since last run).")
+          PYEOF
