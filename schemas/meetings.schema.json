@@ -64,6 +64,7 @@
         "scrapedAt":    { "type": ["string", "null"] },
         "sourceUrl":    { "type": ["string", "null"] },
         "meeting_type": { "type": "string" },
+        "location":     { "type": ["string", "null"] },
         "youtube_id":   { "type": ["string", "null"] },
         "youtube_url":  { "type": ["string", "null"] },
         "hasRecordings": {
