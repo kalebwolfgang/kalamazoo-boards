@@ -111,7 +111,7 @@ BOARDS = [
         "youtube_title_filter":   ["citizens public safety", "cpsrab"],
         "youtube_tolerance":      3,
         "schedule":               ("monthly", "tuesday", 2, None),
-        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board",
+        "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB",
     },
     {
         "key":         "dda",
