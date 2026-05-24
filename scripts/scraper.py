@@ -580,6 +580,23 @@ def refresh_board_metadata(boards_to_run: list) -> dict:
 # Meeting location resolver (used by build.py via import)
 # ---------------------------------------------------------------------------
 
+def extract_cc_location(event: dict) -> str | None:
+    """Extract and normalize a location string from a CivicClerk event object."""
+    loc = event.get("eventLocation")
+    if not loc:
+        return None
+    parts = [loc.get("address1") or "", loc.get("address2") or ""]
+    parts = [p.strip() for p in parts if p and p.strip()]
+    if not parts:
+        return None
+    location = ", ".join(parts)
+    location = re.sub(r"\bStreet\b", "St",  location)
+    location = re.sub(r"\bAvenue\b", "Ave", location)
+    location = re.sub(r"\b415 Stockbridge\b", "415 E Stockbridge", location)
+    location = re.sub(r"\s+", " ", location).strip()
+    return location or None
+
+
 def get_meeting_location(board: dict, date_iso: str, meeting: dict) -> str | None:
     """Resolve the display location for a single meeting."""
     # Per-meeting override (e.g. EC, PRAB web-scraped locations)
