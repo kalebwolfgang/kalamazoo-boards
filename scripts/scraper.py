@@ -757,7 +757,7 @@ def events_to_upcoming(events: list[dict], board: dict) -> list[dict]:
             "display": format_display_date_long(date_only),
             "time":    board.get("time", "TBD"),
         }
-        loc = extract_cc_location(event)
+        loc = get_cc_location_override(event, board)
         if loc:
             item["location"] = loc
         upcoming.append(item)
