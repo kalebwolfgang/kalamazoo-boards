@@ -432,7 +432,8 @@ def send_alert_email(subject: str, body: str) -> None:
     Optional:          SMTP_PORT (default 587)
     """
     host      = os.environ.get("SMTP_HOST", "").strip()
-    port      = int(os.environ.get("SMTP_PORT", "587"))
+    port_str  = os.environ.get("SMTP_PORT", "").strip()
+    port      = int(port_str) if port_str else 587
     user      = os.environ.get("SMTP_USER", "").strip()
     password  = os.environ.get("SMTP_PASS", "").strip()
     recipient = os.environ.get("NOTIFY_EMAIL", "").strip()
