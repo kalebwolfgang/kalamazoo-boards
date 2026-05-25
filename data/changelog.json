@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-05-24T16:45:44.214784+00:00",
-  "runId": "4239f54a",
+  "timestamp": "2026-05-25T02:12:52.540026+00:00",
+  "runId": "7c4c0bcb",
   "validationPassed": true,
   "changes": [
     {
@@ -74,7 +74,7 @@
       "upcoming": 6
     },
     {
-      "board": "pension-board",
+      "board": "ersb",
       "meetings": 9,
       "upcoming": 3
     },

@@ -56,7 +56,7 @@ SUMMARY:Civil Rights Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
-UID:PB-2026-06-03@kalamazoocity-boards
+UID:ERSB-2026-06-03@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260603T080000
 DTEND;TZID=America/Detroit:20260603T090000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
@@ -420,7 +420,7 @@ SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
-UID:PB-2026-09-02@kalamazoocity-boards
+UID:ERSB-2026-09-02@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260902T080000
 DTEND;TZID=America/Detroit:20260902T090000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
@@ -819,7 +819,7 @@ SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
-UID:PB-2026-12-09@kalamazoocity-boards
+UID:ERSB-2026-12-09@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261209T080000
 DTEND;TZID=America/Detroit:20261209T090000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
