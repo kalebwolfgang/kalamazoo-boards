@@ -271,7 +271,7 @@ BOARDS = [
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Zoning-Board-of-Appeals",
     },
     {
-        "key":         "pension-board",
+        "key":         "ersb",
         "name":        "Employee Retirement System Board of Trustees",
         "abbr":        "ERSB",
         "time":        "8:00 AM \u2013 9:00 AM",
