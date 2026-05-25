@@ -15,7 +15,11 @@
       "seats":       { "type": "integer", "minimum": 1 },
       "maxMembers":  { "type": "integer", "minimum": 1 },
       "notes":           { "type": "string" },
-      "description":     { "type": "string" },
+      "description":        { "type": "string" },
+      "color":              { "type": "string" },
+      "slug":               { "type": "string" },
+      "legalClassification":{ "type": "string" },
+      "hasRecordings":      { "type": "boolean" },
       "meetingSchedule": { "type": "string" },
       "members": {
         "type": "array",
