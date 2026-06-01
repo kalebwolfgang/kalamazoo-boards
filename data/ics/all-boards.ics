@@ -21,20 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:NFP-2026-05-26@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260526T160000
-DTEND;TZID=America/Detroit:20260526T180000
-SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:RIC-2026-05-27@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260527T110000
-DTEND;TZID=America/Detroit:20260527T120000
-SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
-LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
-END:VEVENT
-BEGIN:VEVENT
 UID:PRAB-2026-06-02@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260602T173000
 DTEND;TZID=America/Detroit:20260602T193000
@@ -796,6 +782,13 @@ DTSTART;TZID=America/Detroit:20261119T180000
 DTEND;TZID=America/Detroit:20261119T190000
 SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
 LOCATION:Northside Association for Community Development, 612 N Park St
+END:VEVENT
+BEGIN:VEVENT
+UID:NFP-2026-11-24@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261124T160000
+DTEND;TZID=America/Detroit:20261124T180000
+SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:TRE-2026-12-01@kalamazoocity-boards

@@ -21,13 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:NFP-2026-05-26@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260526T160000
-DTEND;TZID=America/Detroit:20260526T180000
-SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:NFP-2026-06-23@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260623T160000
 DTEND;TZID=America/Detroit:20260623T180000
@@ -59,6 +52,13 @@ BEGIN:VEVENT
 UID:NFP-2026-10-27@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261027T160000
 DTEND;TZID=America/Detroit:20261027T180000
+SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:NFP-2026-11-24@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261124T160000
+DTEND;TZID=America/Detroit:20261124T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT

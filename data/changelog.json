@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-05-25T16:16:16.746979+00:00",
-  "runId": "25f39735",
+  "timestamp": "2026-06-01T19:19:12.436812+00:00",
+  "runId": "f3b26f5d",
   "validationPassed": true,
   "changes": [
     {
@@ -96,7 +96,7 @@
     {
       "board": "ric",
       "meetings": 0,
-      "upcoming": 3
+      "upcoming": 2
     },
     {
       "board": "kmga",

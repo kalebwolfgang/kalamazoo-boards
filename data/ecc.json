@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-25",
+  "last_updated": "2026-06-01",
   "metadata": {
     "time": "04:30 PM – 06:30 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -55,13 +55,16 @@
       "display": "April 15, 2026",
       "event_id": 2751,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2751/files/agenda/4941",
-      "link_label": "Agenda",
-      "minutes_url": null,
+      "link_label": "Agenda & Minutes",
+      "isCancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2751/files/agenda/5143",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2751/files/agenda/4941",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2751/overview",
+      "scrapedAt": null,
       "meeting_type": "Environmental Concerns Committee",
       "youtube_id": "ez2cYMMUU_c",
-      "youtube_url": "https://www.youtube.com/watch?v=ez2cYMMUU_c",
-      "isCancelled": false
+      "youtube_url": "https://www.youtube.com/watch?v=ez2cYMMUU_c"
     },
     {
       "date": "2026-03-18",
