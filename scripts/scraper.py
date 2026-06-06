@@ -1232,6 +1232,29 @@ def _detect_notice_boards(text: str) -> list[str]:
     return found
 
 
+def _extract_notice_dates(text: str) -> list[str]:
+    """Extract all ISO date strings from notice text."""
+    pattern = re.compile(
+        r"(January|February|March|April|May|June|July|August"
+        r"|September|October|November|December)"
+        r"\s+(\d{1,2}),?\s+(\d{4})",
+        re.IGNORECASE,
+    )
+    results, seen = [], set()
+    for m in pattern.finditer(text):
+        try:
+            d = datetime.strptime(
+                f"{m.group(1)} {m.group(2)} {m.group(3)}", "%B %d %Y"
+            ).date()
+            iso = d.strftime("%Y-%m-%d")
+            if iso not in seen:
+                results.append(iso)
+                seen.add(iso)
+        except ValueError:
+            continue
+    return results
+
+
 # ---------------------------------------------------------------------------
 # Per-board runners
 # ---------------------------------------------------------------------------
