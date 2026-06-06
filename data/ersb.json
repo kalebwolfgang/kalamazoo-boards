@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-01",
+  "last_updated": "2026-06-06",
   "metadata": {
     "time": "08:00 AM – 09:00 AM",
     "location": "City Hall, 241 W South St"
@@ -22,6 +22,20 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-06-03",
+      "display": "June 3, 2026",
+      "event_id": 2597,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2597/files/agenda/5099",
+      "link_label": "Agenda",
+      "isCancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2597/files/agenda/5099",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2597/overview",
+      "scrapedAt": "2026-06-06T21:50:32.541893+00:00",
+      "meeting_type": "Employees Retirement System Board of Trustees (Pension Board)"
+    },
     {
       "date": "2026-03-04",
       "display": "March 4, 2026",

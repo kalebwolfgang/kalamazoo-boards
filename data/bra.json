@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-01",
+  "last_updated": "2026-06-06",
   "metadata": {
     "time": "07:45 AM – 09:30 AM",
     "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
@@ -11,6 +11,12 @@
       "display": "Thursday, June 18, 2026",
       "time": "07:45 AM – 09:30 AM",
       "location": "City Hall, 241 W. South St"
+    },
+    {
+      "date": "2026-06-25",
+      "display": "Thursday, June 25, 2026",
+      "time": "07:45 AM – 09:30 AM",
+      "location": "Station 2, 1007 E. Alcott St., Community Room"
     },
     {
       "date": "2026-08-20",

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-01",
+  "last_updated": "2026-06-06",
   "meetings": [
     {
       "date": "2026-05-07",
@@ -116,28 +116,15 @@
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2690/files/agenda/5082"
     },
     {
-      "date": "2026-06-02",
-      "display": "Tuesday, June 2, 2026",
-      "time": "05:30 PM – 07:30 PM",
-      "location": "Spring Valley Park",
-      "abbr": "PRAB",
-      "name": "Parks & Recreation Advisory Board"
-    },
-    {
-      "date": "2026-06-02",
-      "display": "Tuesday, June 2, 2026",
-      "time": "02:00 PM – 04:00 PM",
-      "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
-      "abbr": "TRE",
-      "name": "Tree Committee"
-    },
-    {
       "date": "2026-06-03",
       "display": "Wednesday, June 3, 2026",
-      "time": "05:00 PM – 07:00 PM",
+      "time": "5:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
-      "name": "Civil Rights Board"
+      "name": "Civil Rights Board",
+      "youtube_url": "https://www.youtube.com/watch?v=4auZiu-x1Ng",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2604/files/agenda/5106",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2604/files/agenda/5107"
     },
     {
       "date": "2026-06-03",
@@ -150,10 +137,12 @@
     {
       "date": "2026-06-04",
       "display": "Thursday, June 4, 2026",
-      "time": "07:00 PM – 09:00 PM",
+      "time": "7:00 PM – 9:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
-      "name": "Planning Commission"
+      "name": "Planning Commission",
+      "youtube_url": "https://www.youtube.com/watch?v=XMoH2zdF7Z8",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2588/files/agenda/5131"
     },
     {
       "date": "2026-06-09",
@@ -266,6 +255,14 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
+    },
+    {
+      "date": "2026-06-25",
+      "display": "Thursday, June 25, 2026",
+      "time": "07:45 AM – 09:30 AM",
+      "location": "Station 2, 1007 E. Alcott St., Community Room",
+      "abbr": "BRA",
+      "name": "Brownfield Redevelopment Authority"
     },
     {
       "date": "2026-06-25",
@@ -1002,6 +999,14 @@
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
+    },
+    {
+      "date": "2026-12-02",
+      "display": "Wednesday, December 2, 2026",
+      "time": "05:00 PM – 07:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "CRB",
+      "name": "Civil Rights Board"
     },
     {
       "date": "2026-12-02",

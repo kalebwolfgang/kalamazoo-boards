@@ -21,41 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:PRAB-2026-06-02@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260602T173000
-DTEND;TZID=America/Detroit:20260602T193000
-SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
-LOCATION:Spring Valley Park
-END:VEVENT
-BEGIN:VEVENT
-UID:TRE-2026-06-02@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260602T140000
-DTEND;TZID=America/Detroit:20260602T160000
-SUMMARY:Tree Committee — City of Kalamazoo
-LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
-END:VEVENT
-BEGIN:VEVENT
-UID:CRB-2026-06-03@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260603T170000
-DTEND;TZID=America/Detroit:20260603T190000
-SUMMARY:Civil Rights Board — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:ERSB-2026-06-03@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260603T080000
-DTEND;TZID=America/Detroit:20260603T090000
-SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:PC-2026-06-04@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260604T190000
-DTEND;TZID=America/Detroit:20260604T210000
-SUMMARY:Planning Commission — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:CPSRAB-2026-06-09@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260609T180000
 DTEND;TZID=America/Detroit:20260609T200000
@@ -152,6 +117,13 @@ DTSTART;TZID=America/Detroit:20260623T160000
 DTEND;TZID=America/Detroit:20260623T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:BRA-2026-06-25@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20260625T074500
+DTEND;TZID=America/Detroit:20260625T093000
+SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
+LOCATION:Station 2, 1007 E. Alcott St., Community Room
 END:VEVENT
 BEGIN:VEVENT
 UID:CDAAC-2026-06-25@kalamazoocity-boards
@@ -796,6 +768,13 @@ DTSTART;TZID=America/Detroit:20261201T140000
 DTEND;TZID=America/Detroit:20261201T160000
 SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:CRB-2026-12-02@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261202T170000
+DTEND;TZID=America/Detroit:20261202T190000
+SUMMARY:Civil Rights Board — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:RIC-2026-12-02@kalamazoocity-boards
