@@ -1261,7 +1261,147 @@ def _extract_moved_location(text: str) -> str | None:
     if m:
         return m.group(1).strip().rstrip(".,")
     return None
+def _extract_special_meeting_info(text: str) -> tuple[str | None, str | None]:
+    """Return (time_str, location_str) from a special-meeting notice."""
+    time_m = re.search(r"\bat\s+(\d{1,2}:\d{2}\s*[aApP]\.?[mM]\.?)", text)
+    time_str = None
+    if time_m:
+        t = time_m.group(1).strip().rstrip(".")
+        t = re.sub(r"a\.m\.?", "AM", t, flags=re.IGNORECASE)
+        t = re.sub(r"p\.m\.?", "PM", t, flags=re.IGNORECASE)
+        time_str = t
 
+    loc_m = re.search(
+        r"(?:take place (?:at|in)|meet (?:at|in))\s+(.+?)(?:\.\s+The purpose|\.?\s*$)",
+        text, re.IGNORECASE,
+    )
+    loc_str = loc_m.group(1).strip().rstrip(".,") if loc_m else None
+    return time_str, loc_str
+
+
+def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> None:
+    """
+    Fetch the Special Meeting Notices page and apply changes to per-board
+    data/*.json files.
+
+    Handles three notice types:
+      cancelled       — sets isCancelled: True on the matching upcoming date
+      location_change — updates location on the matching upcoming date
+      special_meeting — adds or updates an entry in upcoming_meetings
+    """
+    print(f"\n{'='*60}\n  Special Meeting Notices\n{'='*60}")
+    print(f"  Fetching {SPECIAL_NOTICES_URL}...")
+
+    try:
+        r = requests.get(SPECIAL_NOTICES_URL, timeout=30)
+        r.raise_for_status()
+    except Exception as exc:
+        msg = f"Could not fetch Special Meeting Notices page: {exc}"
+        print(f"  WARNING: {msg}")
+        dom_alerts.append(msg)
+        return
+
+    html = r.text.replace("\u200b", "")
+
+    notice_pattern = re.compile(
+        r'<a\s[^>]*href="(/Government/Boards-Commissions/Special-Meeting-Notices/[^"]+)"[^>]*>(.*?)</a>',
+        re.IGNORECASE | re.DOTALL,
+    )
+
+    notices_applied = 0
+
+    for match in notice_pattern.finditer(html):
+        raw_text = re.sub(r"<[^>]+>", " ", match.group(2))
+        raw_text = re.sub(r"\s+", " ", raw_text).strip()
+        if not raw_text or len(raw_text) < 10:
+            continue
+
+        boards = _detect_notice_boards(raw_text)
+        dates  = _extract_notice_dates(raw_text)
+
+        if not boards or not dates:
+            continue
+
+        text_lc = raw_text.lower()
+        if "cancel" in text_lc:
+            notice_type = "cancelled"
+        elif "moved" in text_lc or "location change" in text_lc:
+            notice_type = "location_change"
+        else:
+            notice_type = "special_meeting"
+
+        for abbr in boards:
+            board = next((b for b in BOARDS if b.get("abbr") == abbr), None)
+            if not board or not board["output"].exists():
+                continue
+
+            with board["output"].open("r", encoding="utf-8") as f:
+                data = json.load(f)
+
+            upcoming = data.get("upcoming_meetings", [])
+            changed  = False
+
+            if notice_type == "cancelled":
+                for date_iso in dates:
+                    existing = next((m for m in upcoming if m["date"] == date_iso), None)
+                    if existing:
+                        if not existing.get("isCancelled"):
+                            existing["isCancelled"] = True
+                            changed = True
+                            print(f"  CANCELLED: {abbr} {date_iso}")
+                    else:
+                        upcoming.append({
+                            "date":        date_iso,
+                            "display":     format_display_date_long(date_iso),
+                            "time":        board.get("time", "TBD"),
+                            "isCancelled": True,
+                        })
+                        upcoming.sort(key=lambda m: m["date"])
+                        changed = True
+                        print(f"  CANCELLED (added): {abbr} {date_iso}")
+
+            elif notice_type == "location_change":
+                new_loc = _extract_moved_location(raw_text)
+                if new_loc:
+                    for date_iso in dates:
+                        existing = next((m for m in upcoming if m["date"] == date_iso), None)
+                        if existing and existing.get("location") != new_loc:
+                            existing["location"] = new_loc
+                            changed = True
+                            print(f"  LOCATION CHANGE: {abbr} {date_iso} → {new_loc}")
+
+            elif notice_type == "special_meeting":
+                time_str, loc_str = _extract_special_meeting_info(raw_text)
+                for date_iso in dates:
+                    existing = next((m for m in upcoming if m["date"] == date_iso), None)
+                    if existing:
+                        if time_str and existing.get("time") != time_str:
+                            existing["time"] = time_str
+                            changed = True
+                        if loc_str and existing.get("location") != loc_str:
+                            existing["location"] = loc_str
+                            changed = True
+                        if changed:
+                            print(f"  SPECIAL (updated): {abbr} {date_iso}")
+                    else:
+                        new_entry: dict = {
+                            "date":    date_iso,
+                            "display": format_display_date_long(date_iso),
+                            "time":    time_str or board.get("time", "TBD"),
+                        }
+                        if loc_str:
+                            new_entry["location"] = loc_str
+                        upcoming.append(new_entry)
+                        upcoming.sort(key=lambda m: m["date"])
+                        changed = True
+                        print(f"  SPECIAL (added): {abbr} {date_iso}")
+
+            if changed:
+                data["upcoming_meetings"] = upcoming
+                _write_output(board, data)
+                notices_applied += 1
+
+    print(f"  Applied {notices_applied} notice change(s) across boards.")
 
 # ---------------------------------------------------------------------------
 # Per-board runners
