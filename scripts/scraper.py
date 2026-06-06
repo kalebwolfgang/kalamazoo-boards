@@ -1255,6 +1255,14 @@ def _extract_notice_dates(text: str) -> list[str]:
     return results
 
 
+def _extract_moved_location(text: str) -> str | None:
+    """Pull new location from a location-change notice."""
+    m = re.search(r"moved to meet in\s+(.+)", text, re.IGNORECASE)
+    if m:
+        return m.group(1).strip().rstrip(".,")
+    return None
+
+
 # ---------------------------------------------------------------------------
 # Per-board runners
 # ---------------------------------------------------------------------------
