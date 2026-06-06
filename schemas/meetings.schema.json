@@ -38,16 +38,18 @@
   },
   "$defs": {
     "upcomingMeeting": {
-      "type": "object",
-      "required": ["date", "display"],
-      "additionalProperties": false,
-      "properties": {
-        "date":     { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
-        "display":  { "type": "string" },
-        "time":     { "type": "string" },
-        "location": { "type": "string" }
-      }
-    },
+       "type": "object",
+       "required": ["date", "display"],
+       "additionalProperties": false,
+       "properties": {
+         "date":        { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+         "display":     { "type": "string" },
+         "time":        { "type": "string" },
+         "location":    { "type": "string" },
+         "isCancelled": { "type": "boolean" },
+         "agenda_url":  { "type": ["string", "null"] }
+       }
+     },
     "pastMeeting": {
       "type": "object",
       "required": ["date", "display"],
