@@ -421,6 +421,40 @@ BOARDS = [
 # Fast key lookup — used by build.py and watchdog
 BOARDS_BY_KEY: dict = {b["key"]: b for b in BOARDS}
 
+# Maps text fragments from Special Meeting Notices to board abbrs.
+# Order matters — more specific fragments listed first.
+NOTICE_BOARD_MAP = [
+    ("citizens public safety review",          "CPSRAB"),
+    ("citizen public safety review",           "CPSRAB"),
+    ("csprab",                                 "CPSRAB"),
+    ("zoning board of appeals",                "ZBA"),
+    ("planning commission",                    "PC"),
+    ("civil rights board",                     "CRB"),
+    ("brownfield redevelopment authority",     "BRA"),
+    ("economic development corporation",       "EDC"),
+    ("downtown economic growth authority",     "DEGA"),
+    ("downtown development authority",         "DDA"),
+    ("environmental concerns committee",       "ECC"),
+    ("historic district commission",           "HDC"),
+    ("historic preservation commission",       "HPC"),
+    ("natural features protection",            "NFP"),
+    ("parks and recreation advisory",          "PRAB"),
+    ("parks & recreation advisory",            "PRAB"),
+    ("traffic board",                          "TRB"),
+    ("tree committee",                         "TRE"),
+    ("building board of appeals",              "BBA"),
+    ("community development act",              "CDAAC"),
+    ("northside cultural business",            "NCBDA"),
+    ("shared prosperity kalamazoo",            "SPK"),
+    ("spk organizing committee",               "SPK"),
+    ("employee retirement system",             "ERSB"),
+    ("pension board",                          "ERSB"),
+    ("board of review",                        "BOR"),
+    ("election commission",                    "EC"),
+    ("local officers compensation",            "LOCC"),
+    ("retirement investment committee",        "RIC"),
+    ("kalamazoo municipal golf",               "KMGA"),
+]
 
 # ---------------------------------------------------------------------------
 # Alert email
