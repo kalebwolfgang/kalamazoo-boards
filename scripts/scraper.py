@@ -48,6 +48,7 @@ CITY_BASE_URL           = "https://www.kalamazoocity.org"
 CITY_YOUTUBE_CHANNEL_ID = "UCIgXSSXLSDxThVaaiRMsR5Q"
 CIVICCLERK_TENANT       = "kalamazoomi"
 MINUTES_AGENDAS_URL     = f"{CITY_BASE_URL}/Government/Boards-Commissions/Minutes-Agendas"
+SPECIAL_NOTICES_URL     = f"{CITY_BASE_URL}/Government/Boards-Commissions/Special-Meeting-Notices"
 LOOKBACK_MONTHS         = 6
 LOOKAHEAD_MONTHS        = 6
 PRESERVE_IF_EMPTY       = ("agenda_url", "minutes_url", "youtube_id", "youtube_url", "scrapedAt")
