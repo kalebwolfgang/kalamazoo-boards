@@ -1218,9 +1218,23 @@ def build_metadata(board: dict) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Per-board runners
+# Special Meeting Notices helpers
 # ---------------------------------------------------------------------------
 
+def _detect_notice_boards(text: str) -> list[str]:
+    """Return list of board abbrs mentioned in notice text."""
+    text_lower = text.lower()
+    found, seen = [], set()
+    for fragment, abbr in NOTICE_BOARD_MAP:
+        if fragment in text_lower and abbr not in seen:
+            found.append(abbr)
+            seen.add(abbr)
+    return found
+
+
+# ---------------------------------------------------------------------------
+# Per-board runners
+# ---------------------------------------------------------------------------
 def run_web_docs_and_youtube_board(
     board: dict, start_iso: str, end_iso: str, api_key: str
 ) -> None:
