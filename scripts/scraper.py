@@ -1804,6 +1804,9 @@ def main() -> None:
             )
             raise
 
+    # Apply special meeting notices (cancellations, location changes, special meetings)
+    scrape_and_apply_special_notices(boards_to_run, dom_alerts)
+
     # Watchdog + state snapshot (full runs only)
     if not single_board:
         run_watchdog(boards_to_run, prev_state, dom_alerts)
