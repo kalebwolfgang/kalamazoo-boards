@@ -193,7 +193,6 @@ BOARDS = [
         "youtube_search_query": "Historic District Commission",
         "youtube_title_filter": ["historic district"],
         "youtube_tolerance":    3,
-        "schedule":    ("monthly", "tuesday", 3, None),
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Historic-District-Commission",
     },
     {
