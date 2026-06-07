@@ -1525,13 +1525,21 @@ def run_web_scrape_board(board: dict, dom_alerts: list) -> None:
     name = board["name"]
     print(f"\n{'='*60}\n  {name}\n{'='*60}")
 
-    print("  Step 1: Scraping upcoming meetings from city website...")
-    upcoming = scrape_web_upcoming(board, dom_alerts)
+    url = board["web_url"]
+    print(f"  Step 1: Fetching board page from city website...")
+    print(f"    [Web] Fetching {url}...")
+    try:
+        r = requests.get(url, timeout=30)
+        r.raise_for_status()
+        html = r.text
+    except Exception as exc:
+        print(f"    WARNING: Could not fetch {url}: {exc}")
+        return
 
-    print("  Step 2: Scraping recent past meetings from city website...")
-    past_scraped = scrape_web_past_meetings(board)
+    upcoming     = scrape_web_upcoming(board, dom_alerts, html=html)
+    past_scraped = scrape_web_past_meetings(board, html=html)
 
-    print("  Step 3: Writing...")
+    print("  Step 2: Writing...")
     existing      = load_existing(board["output"])
     existing_meetings = existing.get("meetings", [])
     existing_dates    = {m.get("date") for m in existing_meetings}
