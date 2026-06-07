@@ -1051,6 +1051,10 @@ footer a:hover { color: var(--gold-lt); }
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
           Location Changed
         </div>` : ''}
+        ${JOINT_BOARDS[m.abbr] ? `<div style="background:#e0f2fe;border:1px solid #7dd3fc;border-radius:3px;padding:8px 12px;font-size:12px;font-weight:600;color:#0369a1;display:flex;align-items:flex-start;gap:6px;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:1px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <span>${JOINT_BOARDS[m.abbr]}</span>
+        </div>` : ''}
         <div class="modal-actions${hasStream && !isPast && !m.isCancelled ? ' has-stream' : ''}${!isPast && !m.isCancelled && m.agendaUrl ? ' has-agenda' : ''}">
           ${hasStream && !isPast && !m.isCancelled ? `<a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
             <span class="modal-action-btn-row">
