@@ -1377,6 +1377,14 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
         boards = _detect_notice_boards(raw_text)
         dates  = _extract_notice_dates(raw_text)
 
+        # Expand to include joint board partners
+        seen_abbrs = set(boards)
+        for abbr in list(boards):
+            for partner in JOINT_BOARD_MAP.get(abbr, []):
+                if partner not in seen_abbrs:
+                    boards.append(partner)
+                    seen_abbrs.add(partner)
+
         if not boards or not dates:
             continue
 
