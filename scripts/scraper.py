@@ -1430,6 +1430,9 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
                         if loc_str and existing.get("location") != loc_str:
                             existing["location"] = loc_str
                             changed = True
+                        if not existing.get("isSpecial"):
+                            existing["isSpecial"] = True
+                            changed = True
                         if changed:
                             print(f"  SPECIAL (updated): {abbr} {date_iso}")
                     else:
@@ -1437,6 +1440,7 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
                             "date":    date_iso,
                             "display": format_display_date_long(date_iso),
                             "time":    time_str or board.get("time", "TBD"),
+                            "isSpecial": True,
                         }
                         if loc_str:
                             new_entry["location"] = loc_str
