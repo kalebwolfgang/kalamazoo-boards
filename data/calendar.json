@@ -142,7 +142,8 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizens Public Safety Review and Appeal Board",
+      "isCancelled": true
     },
     {
       "date": "2026-06-10",
@@ -158,7 +159,8 @@
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
-      "name": "Zoning Board of Appeals"
+      "name": "Zoning Board of Appeals",
+      "isCancelled": true
     },
     {
       "date": "2026-06-15",
@@ -179,8 +181,8 @@
     {
       "date": "2026-06-15",
       "display": "Monday, June 15, 2026",
-      "time": "11:00 AM – 12:00 PM",
-      "location": "Kalamazoo Public Services, 415 E Stockbridge Ave",
+      "time": "11:00 AM",
+      "location": "special session on Monday, June 15, 2026, at 11:00 a.m. This meeting will take place in the Main Conference Room at Public Services, 415 Stockbridge Avenue",
       "abbr": "TRB",
       "name": "Traffic Board"
     },
@@ -204,7 +206,7 @@
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "City Hall, 241 W. South St",
+      "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
     },
@@ -212,7 +214,7 @@
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "City Hall, 241 W. South St",
+      "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
     },
@@ -251,8 +253,8 @@
     {
       "date": "2026-06-25",
       "display": "Thursday, June 25, 2026",
-      "time": "07:45 AM – 09:30 AM",
-      "location": "Station 2, 1007 E. Alcott St., Community Room",
+      "time": "8:00 AM",
+      "location": "special session on Thursday, June 25, 2026, at 8:00 a.m. This meeting will take place at Station 2, 1007 E. Alcott St. in the Community Room",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
     },
@@ -334,7 +336,8 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizens Public Safety Review and Appeal Board",
+      "isCancelled": true
     },
     {
       "date": "2026-07-15",
