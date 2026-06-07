@@ -1,8 +1,7 @@
-name: Weekly Boards Scraper
-
+name: Boards Scraper
 on:
   schedule:
-    - cron: '0 14 * * 1'  # Every Monday at 9:00 AM ET (14:00 UTC)
+    - cron: '0 14 * * 1,3,5'  # Mon, Wed, Fri at 9:00 AM ET (14:00 UTC)
   workflow_dispatch:
 
 jobs:
