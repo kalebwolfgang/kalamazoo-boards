@@ -649,16 +649,17 @@ footer a:hover { color: var(--gold-lt); }
         if (!m.date) return;
         const slug  = boardMap[m.abbr]?.slug || m.abbr.toLowerCase();
         const entry = {
-          abbr:       m.abbr,
-          name:       m.name,
-          date:       m.date,
-          display:    m.display || m.date,
-          time:       m.time    || null,
-          location:   m.location || 'Location TBD',
-          detailPage: `board-${slug}.html`,
-          youtubeUrl: m.youtube_url || null,
-          agendaUrl:  m.agenda_url  || null,
-          minutesUrl: m.minutes_url || null,
+          abbr:        m.abbr,
+          name:        m.name,
+          date:        m.date,
+          display:     m.display || m.date,
+          time:        m.time    || null,
+          location:    m.location || 'Location TBD',
+          detailPage:  `board-${slug}.html`,
+          youtubeUrl:  m.youtube_url  || null,
+          agendaUrl:   m.agenda_url   || null,
+          minutesUrl:  m.minutes_url  || null,
+          isCancelled: m.isCancelled  || false,
         };
         if (!meetingsByDate[m.date]) meetingsByDate[m.date] = [];
         meetingsByDate[m.date].push(entry);
