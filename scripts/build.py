@@ -250,6 +250,9 @@ def _ics_event(m: dict) -> str:
 
     lines = ["BEGIN:VEVENT", f"UID:{m['abbr']}-{m['date']}@kalamazoocity-boards"]
 
+    if m.get("isCancelled"):
+        lines.append("STATUS:CANCELLED")
+
     if is_all_day:
         lines.append(f"DTSTART;VALUE=DATE:{dtstart}")
     else:
