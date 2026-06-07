@@ -152,6 +152,10 @@ def build_calendar_json() -> dict:
             }
             if meeting.get("isCancelled"):
                 entry["isCancelled"] = True
+            if meeting.get("isSpecial"):
+                entry["isSpecial"] = True
+            if meeting.get("locationChanged"):
+                entry["locationChanged"] = True
             if meeting.get("agenda_url"):
                 entry["agenda_url"] = meeting["agenda_url"]
             all_meetings.append(entry)
