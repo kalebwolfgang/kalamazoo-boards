@@ -208,7 +208,6 @@ BOARDS = [
         "youtube_search_query": "Historic Preservation Commission",
         "youtube_title_filter": ["historic preservation commission", "historical preservation commission"],
         "youtube_tolerance":    3,
-        "schedule":    ("monthly", "wednesday", 2, None),
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Historic-Preservation-Commission",
     },
     {
