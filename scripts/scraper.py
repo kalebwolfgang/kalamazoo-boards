@@ -1309,7 +1309,7 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
     html = r.text.replace("\u200b", "")
 
     notice_pattern = re.compile(
-        r'<a\s[^>]*href="(/Government/Boards-Commissions/Special-Meeting-Notices/[^"]+)"[^>]*>(.*?)</a>',
+        r'<a\s[^>]*href="(?:https?://[^/]+)?(/Government/Boards-Commissions/Special-Meeting-Notices/[^"]+)"[^>]*>(.*?)</a>',
         re.IGNORECASE | re.DOTALL,
     )
 
