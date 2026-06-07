@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-07T00:35:29.345954+00:00",
-  "runId": "0b8fdd3e",
+  "timestamp": "2026-06-07T03:26:58.278187+00:00",
+  "runId": "2fc28822",
   "validationPassed": true,
   "changes": [
     {
@@ -80,12 +80,12 @@
     },
     {
       "board": "prab",
-      "meetings": 0,
+      "meetings": 2,
       "upcoming": 6
     },
     {
       "board": "trb",
-      "meetings": 0,
+      "meetings": 1,
       "upcoming": 1
     },
     {
@@ -95,22 +95,22 @@
     },
     {
       "board": "ric",
-      "meetings": 0,
+      "meetings": 1,
       "upcoming": 2
     },
     {
       "board": "kmga",
-      "meetings": 0,
+      "meetings": 2,
       "upcoming": 7
     },
     {
       "board": "tre",
-      "meetings": 0,
+      "meetings": 2,
       "upcoming": 6
     },
     {
       "board": "bba",
-      "meetings": 0,
+      "meetings": 1,
       "upcoming": 7
     },
     {

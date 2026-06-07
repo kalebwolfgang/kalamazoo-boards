@@ -15,5 +15,11 @@
       "display": "Wednesday, December 2, 2026",
       "time": "11:00 AM – 12:00 PM"
     }
+  ],
+  "meetings": [
+    {
+      "date": "2026-05-27",
+      "display": "May 27, 2026"
+    }
   ]
 }

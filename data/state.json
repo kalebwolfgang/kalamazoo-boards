@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-06T20:35:28.978132-04:00",
-  "totalMeetings": 510,
+  "timestamp": "2026-06-06T23:26:57.941392-04:00",
+  "totalMeetings": 519,
   "byBoard": {
     "crb": {
       "meetings": 24
@@ -48,25 +48,25 @@
       "meetings": 10
     },
     "prab": {
-      "meetings": 0
+      "meetings": 2
     },
     "trb": {
-      "meetings": 0
+      "meetings": 1
     },
     "bor": {
       "meetings": 0
     },
     "ric": {
-      "meetings": 0
+      "meetings": 1
     },
     "kmga": {
-      "meetings": 0
+      "meetings": 2
     },
     "tre": {
-      "meetings": 0
+      "meetings": 2
     },
     "bba": {
-      "meetings": 0
+      "meetings": 1
     },
     "cdaac": {
       "meetings": 0

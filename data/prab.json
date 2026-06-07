@@ -37,5 +37,15 @@
       "display": "Tuesday, December 8, 2026",
       "time": "05:30 PM – 07:30 PM"
     }
+  ],
+  "meetings": [
+    {
+      "date": "2026-06-02",
+      "display": "June 2, 2026"
+    },
+    {
+      "date": "2026-05-05",
+      "display": "May 5, 2026"
+    }
   ]
 }

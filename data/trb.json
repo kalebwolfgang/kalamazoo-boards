@@ -12,5 +12,11 @@
       "time": "11:00 AM",
       "location": "special session on Monday, June 15, 2026, at 11:00 a.m. This meeting will take place in the Main Conference Room at Public Services, 415 Stockbridge Avenue"
     }
+  ],
+  "meetings": [
+    {
+      "date": "2026-04-21",
+      "display": "April 21, 2026"
+    }
   ]
 }
