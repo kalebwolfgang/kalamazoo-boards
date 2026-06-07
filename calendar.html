@@ -1114,7 +1114,14 @@ footer a:hover { color: var(--gold-lt); }
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     if (isIOS) { downloadICS(m); }
     else { window.open(buildGCalUrl(m), '_blank'); }
-  };
+    document.getElementById('cal-disclaimer-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+};
+
+document.getElementById('cal-disclaimer-btn').addEventListener('click', () => {
+    document.getElementById('cal-disclaimer-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+});
 
   window.calShareMeeting = function(dateStr, abbr) {
     const url=new URL(window.location.href); url.searchParams.set('date',dateStr); url.searchParams.set('board',abbr);
