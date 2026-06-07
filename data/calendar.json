@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-06",
+  "last_updated": "2026-06-07",
   "meetings": [
     {
       "date": "2026-05-07",
@@ -39,14 +39,6 @@
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2653/files/agenda/5017"
-    },
-    {
-      "date": "2026-05-11",
-      "display": "Monday, May 11, 2026",
-      "time": "12:30 PM – 2:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "SPK",
-      "name": "SPK Organizing Committee"
     },
     {
       "date": "2026-05-12",
@@ -337,14 +329,6 @@
       "name": "Downtown Economic Growth Authority"
     },
     {
-      "date": "2026-07-13",
-      "display": "Monday, July 13, 2026",
-      "time": "12:30 PM – 2:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "SPK",
-      "name": "SPK Organizing Committee"
-    },
-    {
       "date": "2026-07-14",
       "display": "Tuesday, July 14, 2026",
       "time": "06:00 PM – 08:00 PM",
@@ -599,14 +583,6 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
-    },
-    {
-      "date": "2026-09-14",
-      "display": "Monday, September 14, 2026",
-      "time": "12:30 PM – 2:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "SPK",
-      "name": "SPK Organizing Committee"
     },
     {
       "date": "2026-09-15",
@@ -865,14 +841,6 @@
       "name": "Planning Commission"
     },
     {
-      "date": "2026-11-09",
-      "display": "Monday, November 9, 2026",
-      "time": "12:30 PM – 2:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "SPK",
-      "name": "SPK Organizing Committee"
-    },
-    {
       "date": "2026-11-10",
       "display": "Tuesday, November 10, 2026",
       "time": "06:00 PM – 08:00 PM",
@@ -1015,6 +983,14 @@
       "location": "W.E. Upjohn Institute, 300 S Westnedge Ave",
       "abbr": "RIC",
       "name": "Retirement Investment Committee / Perpetual Care Investment Committee"
+    },
+    {
+      "date": "2026-12-03",
+      "display": "Thursday, December 3, 2026",
+      "time": "07:00 PM – 09:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "PC",
+      "name": "Planning Commission"
     },
     {
       "date": "2026-12-08",

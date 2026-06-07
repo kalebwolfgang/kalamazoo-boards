@@ -189,13 +189,6 @@ SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
-UID:SPK-2026-07-13@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260713T123000
-DTEND;TZID=America/Detroit:20260713T140000
-SUMMARY:SPK Organizing Committee — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:CPSRAB-2026-07-14@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260714T180000
 DTEND;TZID=America/Detroit:20260714T200000
@@ -418,13 +411,6 @@ DTSTART;TZID=America/Detroit:20260910T190000
 DTEND;TZID=America/Detroit:20260910T210000
 SUMMARY:Zoning Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:SPK-2026-09-14@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260914T123000
-DTEND;TZID=America/Detroit:20260914T140000
-SUMMARY:SPK Organizing Committee — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HDC-2026-09-15@kalamazoocity-boards
@@ -651,13 +637,6 @@ SUMMARY:Planning Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
-UID:SPK-2026-11-09@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261109T123000
-DTEND;TZID=America/Detroit:20261109T140000
-SUMMARY:SPK Organizing Committee — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:CPSRAB-2026-11-10@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261110T180000
 DTEND;TZID=America/Detroit:20261110T200000
@@ -782,6 +761,13 @@ DTSTART;TZID=America/Detroit:20261202T110000
 DTEND;TZID=America/Detroit:20261202T120000
 SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
 LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:PC-2026-12-03@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261203T190000
+DTEND;TZID=America/Detroit:20261203T210000
+SUMMARY:Planning Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-12-08@kalamazoocity-boards
