@@ -414,6 +414,13 @@ footer a:hover { color: var(--gold-lt); }
 .modal-meeting-sub { margin: 0; }
 .modal-detail-row { margin-bottom: 0; }
 .modal-board-link { margin: 0; align-self: flex-start; }
+.cal-disclaimer-overlay { position: fixed; inset: 0; background: rgba(13,79,99,0.45); z-index: 900; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+.cal-disclaimer-overlay.open { opacity: 1; pointer-events: all; }
+.cal-disclaimer { background: var(--white); border-radius: 4px; max-width: 380px; width: 100%; padding: 28px 24px; text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,0.22); }
+.cal-disclaimer-icon { font-size: 28px; margin-bottom: 12px; }
+.cal-disclaimer-text { font-size: 15px; color: var(--body); line-height: 1.6; margin-bottom: 20px; }
+.cal-disclaimer-btn { background: var(--green); color: white; border: none; border-radius: 3px; padding: 10px 24px; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+.cal-disclaimer-btn:hover { background: var(--green-mid); }
 </style>
 </head>
 <body>
