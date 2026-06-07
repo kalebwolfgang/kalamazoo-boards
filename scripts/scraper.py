@@ -1057,6 +1057,48 @@ def scrape_web_upcoming(board: dict, dom_alerts: list) -> list[dict]:
     return upcoming
 
 
+def scrape_web_past_meetings(board: dict) -> list[dict]:
+    """
+    Scrape recent past meeting dates from a city website board page.
+    Returns minimal meeting records for dates within the last 2 months.
+    Used by web_scrape boards that have no CivicClerk history.
+    """
+    url = board.get("web_url")
+    if not url:
+        return []
+    try:
+        r = requests.get(url, timeout=30)
+        r.raise_for_status()
+    except Exception as exc:
+        print(f"    WARNING: Could not fetch past meetings from {url}: {exc}")
+        return []
+
+    today        = date.today()
+    lookback_iso = (today - timedelta(days=60)).strftime("%Y-%m-%d")
+    past         = []
+    seen: set    = set()
+
+    pattern = r"(\w+day,\s+\w+\s+\d{1,2},\s+\d{4})\s*\|"
+    for match in re.findall(pattern, r.text):
+        match_clean = re.sub(r"\s+", " ", match.strip())
+        if match_clean in seen:
+            continue
+        seen.add(match_clean)
+        try:
+            d        = datetime.strptime(match_clean, "%A, %B %d, %Y").date()
+            date_iso = d.strftime("%Y-%m-%d")
+            if lookback_iso <= date_iso and d < today:
+                past.append({
+                    "date":    date_iso,
+                    "display": format_display_date(date_iso),
+                })
+        except ValueError:
+            continue
+
+    past.sort(key=lambda m: m["date"], reverse=True)
+    if past:
+        print(f"    Found {len(past)} past meeting(s) in lookback window")
+    return past
 # ---------------------------------------------------------------------------
 # YouTube helpers
 # ---------------------------------------------------------------------------
