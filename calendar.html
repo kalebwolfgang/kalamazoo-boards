@@ -588,10 +588,12 @@ footer a:hover { color: var(--gold-lt); }
   const MONTHS     = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DAYS_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const JOINT_BOARDS = {
-    "BRA": "EDC meets first at 7:45 AM — Brownfield Redevelopment Authority meets immediately following. Both boards share the same membership.",
-    "EDC": "EDC meets first at 7:45 AM — Brownfield Redevelopment Authority meets immediately following. Both boards share the same membership.",
+    "BRA":  "EDC meets first at 7:45 AM — Brownfield Redevelopment Authority meets immediately following. Both boards share the same membership.",
+    "EDC":  "EDC meets first at 7:45 AM — Brownfield Redevelopment Authority meets immediately following. Both boards share the same membership.",
+    "DDA":  "DDA and DEGA meet jointly with the same membership and schedule. Each board operates under separate statutory authority with its own development and TIF plan.",
+    "DEGA": "DDA and DEGA meet jointly with the same membership and schedule. Each board operates under separate statutory authority with its own development and TIF plan.",
   };
-  const JOINT_ORDER = { "EDC": 1, "BRA": 2 };
+  const JOINT_ORDER = { "EDC": 1, "BRA": 2, "DDA": 3, "DEGA": 4 };
   // Board data from boards.json — populated in loadData
   // Replaces hardcoded BOARD_PALETTE, ALL_BOARDS, LIVESTREAM_BOARDS, DETAIL_SLUG
   let boardMap  = {};  // abbr → full board object
