@@ -46,8 +46,10 @@
          "display":     { "type": "string" },
          "time":        { "type": "string" },
          "location":    { "type": "string" },
-         "isCancelled": { "type": "boolean" },
-         "agenda_url":  { "type": ["string", "null"] }
+         "isCancelled":     { "type": "boolean" },
+            "isSpecial":       { "type": "boolean" },
+            "locationChanged": { "type": "boolean" },
+            "agenda_url":      { "type": ["string", "null"] }
        }
      },
     "pastMeeting": {
