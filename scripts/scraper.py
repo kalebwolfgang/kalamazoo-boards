@@ -1816,6 +1816,7 @@ def main() -> None:
     if not single_board:
         run_watchdog(boards_to_run, prev_state, dom_alerts)
         save_state(boards_to_run)
+
     write_meta_json()
     print("\nDone. Run scripts/build.py to validate schemas and build calendar.json / ICS files.")
 
