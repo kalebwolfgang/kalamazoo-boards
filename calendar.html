@@ -949,7 +949,8 @@ footer a:hover { color: var(--gold-lt); }
       dates = `${dateRaw}T${sh}${sm}00/${dateRaw}T${eh}${em}00`;
     } else { dates = `${dateRaw}/${dateRaw}`; }
     const locString = m.location === 'Location TBD' ? m.location : m.location + ', Kalamazoo, MI';
-    const params = new URLSearchParams({action:'TEMPLATE',text:`${m.name} — City of Kalamazoo`,dates,details:`Public meeting of the ${m.name}. More info: ${window.location.origin}/${m.detailPage}`,location:locString});
+    const checkUrl = `${window.location.origin}${window.location.pathname}?date=${m.date}&board=${m.abbr}`;
+    const params = new URLSearchParams({action:'TEMPLATE',text:`${m.name} — City of Kalamazoo`,dates,details:`Public meeting of the ${m.name}.\n\n⚠ This event does not update automatically if the meeting is cancelled or rescheduled. Always verify the meeting is still on before attending:\n${checkUrl}\n\nMore info: ${window.location.origin}/${m.detailPage}`,location:locString});
     return `https://calendar.google.com/calendar/render?${params.toString()}`;
   }
 
