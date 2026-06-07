@@ -417,8 +417,10 @@ BOARDS = [
 
 # Boards that always share meetings — changes to one automatically apply to the other
 JOINT_BOARD_MAP: dict = {
-    "BRA": ["EDC"],
-    "EDC": ["BRA"],
+    "BRA":  ["EDC"],
+    "EDC":  ["BRA"],
+    "DDA":  ["DEGA"],
+    "DEGA": ["DDA"],
 }
 
 # Fast key lookup — used by build.py and watchdog
