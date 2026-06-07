@@ -236,7 +236,6 @@ BOARDS = [
         "youtube_search_query": "Natural Features Protection Review Board",
         "youtube_title_filter": ["natural features protection"],
         "youtube_tolerance":    3,
-        "schedule":    ("monthly", "tuesday", 4, None),
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Natural-Features-Protection-Review-Board",
     },
     {
