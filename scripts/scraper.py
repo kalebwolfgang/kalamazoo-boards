@@ -1415,6 +1415,7 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
                         existing = next((m for m in upcoming if m["date"] == date_iso), None)
                         if existing and existing.get("location") != new_loc:
                             existing["location"] = new_loc
+                            existing["locationChanged"] = True
                             changed = True
                             print(f"  LOCATION CHANGE: {abbr} {date_iso} → {new_loc}")
 
