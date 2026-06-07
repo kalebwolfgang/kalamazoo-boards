@@ -1039,6 +1039,14 @@ footer a:hover { color: var(--gold-lt); }
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
           Meeting Cancelled
         </div>` : ''}
+        ${m.isSpecial ? `<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:8px 12px;font-size:12px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Special Session
+        </div>` : ''}
+        ${m.locationChanged ? `<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:8px 12px;font-size:12px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+          Location Changed
+        </div>` : ''}
         <div class="modal-actions${hasStream && !isPast && !m.isCancelled ? ' has-stream' : ''}${!isPast && !m.isCancelled && m.agendaUrl ? ' has-agenda' : ''}">
           ${hasStream && !isPast && !m.isCancelled ? `<a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
             <span class="modal-action-btn-row">
