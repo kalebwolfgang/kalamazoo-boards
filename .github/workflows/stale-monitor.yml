@@ -29,7 +29,7 @@ jobs:
           from urllib.error import URLError
 
           META_URL   = "https://kalebwolfgang.github.io/kalamazoo-boards/data/meta.json"
-          STALE_DAYS = 9
+          STALE_DAYS = 5
           ACTIONS_URL = "https://github.com/kalebwolfgang/kalamazoo-boards/actions"
 
 
