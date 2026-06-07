@@ -1005,14 +1005,16 @@ def scrape_location_overrides(text: str) -> dict:
     return overrides
 
 
-def scrape_web_upcoming(board: dict, dom_alerts: list) -> list[dict]:
+def scrape_web_upcoming(board: dict, dom_alerts: list, html: str | None = None) -> list[dict]:
     """Scrape upcoming meeting dates from a city website board page."""
     url = board["web_url"]
-    print(f"    [Web] Fetching {url}...")
-    r = requests.get(url, timeout=30)
-    r.raise_for_status()
+    if html is None:
+        print(f"    [Web] Fetching {url}...")
+        r = requests.get(url, timeout=30)
+        r.raise_for_status()
+        html = r.text
 
-    if not check_dom_integrity(r.text):
+    if not check_dom_integrity(html):
         msg = f"{board['name']} ({board['key']}) — no date|pipe pattern at {url}"
         dom_alerts.append(msg)
         print(f"    WARNING: DOM structure check failed for {board['key'].upper()}")
