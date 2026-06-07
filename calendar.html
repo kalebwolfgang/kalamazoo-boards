@@ -1009,6 +1009,10 @@ footer a:hover { color: var(--gold-lt); }
           ${m.name} board page
           <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
+        ${m.isCancelled ? `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:3px;padding:8px 12px;font-size:12px;font-weight:700;color:#dc2626;letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+          Meeting Cancelled
+        </div>` : ''}
         <div class="modal-actions${hasStream && !isPast ? ' has-stream' : ''}">
           ${hasStream && !isPast && !m.isCancelled ? `<a class="modal-action-btn watch" href="https://www.youtube.com/@KalamazooCityTV"
             <span class="modal-action-btn-row">
