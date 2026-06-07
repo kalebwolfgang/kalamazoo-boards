@@ -1031,7 +1031,7 @@ def scrape_web_upcoming(board: dict, dom_alerts: list, html: str | None = None) 
                   f"{list(location_overrides.values())}")
 
     pattern = r"(\w+day,\s+\w+\s+\d{1,2},\s+\d{4})\s*\|"
-    for match in re.findall(pattern, r.text):
+    for match in re.findall(pattern, html):
         match_clean = re.sub(r"\s+", " ", match.strip())
         if match_clean in seen:
             continue
