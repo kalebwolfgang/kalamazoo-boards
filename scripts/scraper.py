@@ -786,7 +786,9 @@ def transform_event(event: dict, board: dict) -> dict | None:
 def events_to_upcoming(events: list[dict], board: dict) -> list[dict]:
     upcoming = []
     for event in events:
-        date_only = event["startDateTime"].split("T")[0]
+        date_only       = event["startDateTime"].split("T")[0]
+        published_files = event.get("publishedFiles", [])
+        agenda_file_id  = find_file_id(published_files, "Agenda")
         item: dict = {
             "date":    date_only,
             "display": format_display_date_long(date_only),
@@ -795,6 +797,8 @@ def events_to_upcoming(events: list[dict], board: dict) -> list[dict]:
         loc = get_cc_location_override(event, board)
         if loc:
             item["location"] = loc
+        if agenda_file_id:
+            item["agenda_url"] = build_doc_url(event["id"], agenda_file_id)
         upcoming.append(item)
     upcoming.sort(key=lambda m: m["date"])
     return upcoming
