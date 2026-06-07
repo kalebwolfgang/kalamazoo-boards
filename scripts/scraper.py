@@ -1056,7 +1056,7 @@ def scrape_web_upcoming(board: dict, dom_alerts: list, html: str | None = None) 
     return upcoming
 
 
-def scrape_web_past_meetings(board: dict) -> list[dict]:
+def scrape_web_past_meetings(board: dict, html: str | None = None) -> list[dict]:
     """
     Scrape recent past meeting dates from a city website board page.
     Returns minimal meeting records for dates within the last 2 months.
@@ -1065,12 +1065,14 @@ def scrape_web_past_meetings(board: dict) -> list[dict]:
     url = board.get("web_url")
     if not url:
         return []
-    try:
-        r = requests.get(url, timeout=30)
-        r.raise_for_status()
-    except Exception as exc:
-        print(f"    WARNING: Could not fetch past meetings from {url}: {exc}")
-        return []
+    if html is None:
+        try:
+            r = requests.get(url, timeout=30)
+            r.raise_for_status()
+            html = r.text
+        except Exception as exc:
+            print(f"    WARNING: Could not fetch past meetings from {url}: {exc}")
+            return []
 
     today        = date.today()
     lookback_iso = (today - timedelta(days=60)).strftime("%Y-%m-%d")
@@ -1078,7 +1080,7 @@ def scrape_web_past_meetings(board: dict) -> list[dict]:
     seen: set    = set()
 
     pattern = r"(\w+day,\s+\w+\s+\d{1,2},\s+\d{4})\s*\|"
-    for match in re.findall(pattern, r.text):
+    for match in re.findall(pattern, html):
         match_clean = re.sub(r"\s+", " ", match.strip())
         if match_clean in seen:
             continue
