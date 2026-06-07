@@ -314,6 +314,15 @@
     {
       "date": "2026-06-25",
       "display": "Thursday, June 25, 2026",
+      "time": "8:00 AM",
+      "location": "Station 2, 1007 E",
+      "abbr": "EDC",
+      "name": "Economic Development Corporation",
+      "isSpecial": true
+    },
+    {
+      "date": "2026-06-25",
+      "display": "Thursday, June 25, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, City Hall Second Floor, 241 W South St",
       "abbr": "CDAAC",

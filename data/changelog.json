@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-07T16:45:11.751423+00:00",
-  "runId": "24466d49",
+  "timestamp": "2026-06-07T16:56:52.354310+00:00",
+  "runId": "2458590a",
   "validationPassed": true,
   "changes": [
     {
@@ -31,7 +31,7 @@
     {
       "board": "edc",
       "meetings": 40,
-      "upcoming": 5
+      "upcoming": 6
     },
     {
       "board": "ec",
