@@ -949,7 +949,8 @@ footer a:hover { color: var(--gold-lt); }
     return [...meetings].sort((a,b) => {
       const ta=parseTimeToMinutes(a.time), tb=parseTimeToMinutes(b.time);
       if (ta===null && tb===null) return 0; if (ta===null) return 1; if (tb===null) return -1;
-      return ta-tb;
+      if (ta !== tb) return ta-tb;
+      return (JOINT_ORDER[a.abbr] || 99) - (JOINT_ORDER[b.abbr] || 99);
     });
   }
 
