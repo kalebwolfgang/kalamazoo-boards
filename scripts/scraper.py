@@ -1613,6 +1613,19 @@ def run_board(
     elif board.get("schedule"):
         print("  Step 2: Computing upcoming meetings from schedule rule...")
         upcoming = compute_upcoming_schedule(board)
+        # Overlay agenda URLs from CivicClerk future events where available
+        if future_events:
+            cc_agenda_map = {}
+            for event in future_events:
+                date_only      = event["startDateTime"].split("T")[0]
+                agenda_file_id = find_file_id(event.get("publishedFiles", []), "Agenda")
+                if agenda_file_id:
+                    cc_agenda_map[date_only] = build_doc_url(event["id"], agenda_file_id)
+            if cc_agenda_map:
+                for item in upcoming:
+                    if item["date"] in cc_agenda_map:
+                        item["agenda_url"] = cc_agenda_map[item["date"]]
+                print(f"    Overlaid {len(cc_agenda_map)} agenda URL(s) from CivicClerk")
     elif board.get("preserve_upcoming"):
         existing_check = load_existing(board["output"])
         upcoming = existing_check.get("upcoming_meetings", [])
