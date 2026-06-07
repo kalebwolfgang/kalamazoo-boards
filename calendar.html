@@ -372,6 +372,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .modal-board-link:hover svg { transform: translateX(2px); }
 .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
 .modal-actions.has-stream .modal-action-btn:last-child { grid-column: 1 / -1; }
+.modal-actions.has-stream.has-agenda .modal-action-btn:last-child { grid-column: auto; }
 .modal-actions.is-past:not(.has-stream) .modal-action-btn { grid-column: 1 / -1; }
 .modal-action-btn {
   display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
