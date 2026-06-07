@@ -877,7 +877,11 @@ footer a:hover { color: var(--gold-lt); }
         const show = unique.slice(0,3), extra = unique.length-3;
         html += `<div class="cal-board-pills" aria-hidden="true">`;
         show.forEach(m => {
-          html += `<span class="cal-board-pill" style="background:${getBoardColor(m.abbr)}"><span class="cal-board-pill-abbr">${m.abbr}</span></span>`;
+          if (m.isCancelled) {
+            html += `<span class="cal-board-pill" style="background:#e5e7eb;color:#9ca3af;text-decoration:line-through;text-decoration-color:#9ca3af;text-decoration-thickness:1.5px"><span class="cal-board-pill-abbr">${m.abbr}</span></span>`;
+          } else {
+            html += `<span class="cal-board-pill" style="background:${getBoardColor(m.abbr)}"><span class="cal-board-pill-abbr">${m.abbr}</span></span>`;
+          }
         });
         if (extra > 0) html += `<span class="cal-more-pill">+${extra} more</span>`;
         html += `</div>`;
