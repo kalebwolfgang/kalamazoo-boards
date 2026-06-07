@@ -1025,7 +1025,7 @@ def scrape_web_upcoming(board: dict, dom_alerts: list, html: str | None = None) 
 
     location_overrides: dict = {}
     if board.get("parse_locations"):
-        location_overrides = scrape_location_overrides(r.text)
+        location_overrides = scrape_location_overrides(html)
         if location_overrides:
             print(f"    Found {len(location_overrides)} location override(s): "
                   f"{list(location_overrides.values())}")
