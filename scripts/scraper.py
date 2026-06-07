@@ -1261,6 +1261,7 @@ def _extract_moved_location(text: str) -> str | None:
     if m:
         return m.group(1).strip().rstrip(".,")
     return None
+  
 def _extract_special_meeting_info(text: str) -> tuple[str | None, str | None]:
     """Return (time_str, location_str) from a special-meeting notice."""
     time_m = re.search(r"\bat\s+(\d{1,2}:\d{2}\s*[aApP]\.?[mM]\.?)", text)
