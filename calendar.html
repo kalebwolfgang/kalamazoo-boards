@@ -680,7 +680,9 @@ footer a:hover { color: var(--gold-lt); }
           youtubeUrl:  m.youtube_url  || null,
           agendaUrl:   m.agenda_url   || null,
           minutesUrl:  m.minutes_url  || null,
-          isCancelled: m.isCancelled  || false,
+          isCancelled:     m.isCancelled     || false,
+          isSpecial:       m.isSpecial       || false,
+          locationChanged: m.locationChanged || false,
         };
         if (!meetingsByDate[m.date]) meetingsByDate[m.date] = [];
         meetingsByDate[m.date].push(entry);
