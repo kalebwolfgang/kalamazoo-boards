@@ -965,11 +965,13 @@ footer a:hover { color: var(--gold-lt); }
       dtStart=`${dateRaw}T${sh}${sm}00`; dtEnd=`${dateRaw}T${eh}${em}00`;
     } else { dtStart=dtEnd=dateRaw; }
     const locString = m.location === 'Location TBD' ? m.location : m.location + ', Kalamazoo, MI';
+    const checkUrl = `${window.location.origin}${window.location.pathname}?date=${m.date}&board=${m.abbr}`;
     return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//City of Kalamazoo Boards & Commissions//EN',
       'BEGIN:VEVENT', `UID:${m.abbr}-${m.date}@kalamazoocity-boards`,
       `DTSTART:${dtStart}`, `DTEND:${dtEnd}`,
       `SUMMARY:${m.name} — City of Kalamazoo`,
       `LOCATION:${locString}`,
+      `DESCRIPTION:Public meeting of the ${m.name}.\\n\\n⚠ This event does not update automatically. Always verify the meeting is still on before attending:\\n${checkUrl}`,
       'END:VEVENT','END:VCALENDAR'].join('\r\n');
   }
 
