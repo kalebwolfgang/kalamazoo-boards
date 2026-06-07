@@ -1320,10 +1320,14 @@ def _extract_special_meeting_info(text: str) -> tuple[str | None, str | None]:
         time_str = t
 
     loc_m = re.search(
-        r"(?:take place (?:at|in)|meet (?:at|in))\s+(.+?)(?:\.\s+The purpose|\.?\s*$)",
+        r"(?:take place (?:at|in)|meet (?:at|in)|held (?:at|in))\s+(.+?)(?=\.\s+[A-Z]|\Z)",
         text, re.IGNORECASE,
     )
-    loc_str = loc_m.group(1).strip().rstrip(".,") if loc_m else None
+    if loc_m:
+        loc_str = loc_m.group(1).strip().rstrip(".,")
+        loc_str = re.sub(r"^the\s+", "", loc_str, flags=re.IGNORECASE)
+    else:
+        loc_str = None
     return time_str, loc_str
 
 
