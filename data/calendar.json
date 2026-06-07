@@ -709,20 +709,20 @@
       "name": "Downtown Economic Growth Authority"
     },
     {
-      "date": "2026-09-22",
-      "display": "Tuesday, September 22, 2026",
-      "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "NFP",
-      "name": "Natural Features Protection Review Board"
-    },
-    {
       "date": "2026-09-24",
       "display": "Thursday, September 24, 2026",
       "time": "05:30 PM – 07:30 PM",
       "location": "Community Room, City Hall Second Floor, 241 W South St",
       "abbr": "CDAAC",
       "name": "Community Development Act Advisory Committee"
+    },
+    {
+      "date": "2026-09-29",
+      "display": "Tuesday, September 29, 2026",
+      "time": "04:00 PM – 06:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "NFP",
+      "name": "Natural Features Protection Review Board"
     },
     {
       "date": "2026-10-01",

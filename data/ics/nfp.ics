@@ -42,9 +42,9 @@ SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
-UID:NFP-2026-09-22@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260922T160000
-DTEND;TZID=America/Detroit:20260922T180000
+UID:NFP-2026-09-29@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20260929T160000
+DTEND;TZID=America/Detroit:20260929T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT

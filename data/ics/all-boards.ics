@@ -479,18 +479,18 @@ SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
-UID:NFP-2026-09-22@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260922T160000
-DTEND;TZID=America/Detroit:20260922T180000
-SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:CDAAC-2026-09-24@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260924T173000
 DTEND;TZID=America/Detroit:20260924T193000
 SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
 LOCATION:Community Room, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:NFP-2026-09-29@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20260929T160000
+DTEND;TZID=America/Detroit:20260929T180000
+SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PC-2026-10-01@kalamazoocity-boards
