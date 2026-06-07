@@ -696,6 +696,18 @@ footer a:hover { color: var(--gold-lt); }
       console.warn('calendar.json failed — grid will be empty:', calResult.reason);
     }
 
+    // Sort each date's meetings by time so grid pills match popup order
+    Object.keys(meetingsByDate).forEach(ds => {
+      meetingsByDate[ds].sort((a, b) => {
+        const ta = parseTimeToMinutes(a.time), tb = parseTimeToMinutes(b.time);
+        if (ta === null && tb === null) return 0;
+        if (ta === null) return 1;
+        if (tb === null) return -1;
+        if (ta !== tb) return ta - tb;
+        return (JOINT_ORDER[a.abbr] || 99) - (JOINT_ORDER[b.abbr] || 99);
+      });
+    });
+
     // Both failed — show error
     if (!calOk && !boardsOk) {
       loadingEl.innerHTML = '<p class="cal-state-text" style="color:#dc2626">Unable to load meeting data. Please refresh and try again.</p>';
