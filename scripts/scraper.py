@@ -1527,19 +1527,32 @@ def run_web_scrape_board(board: dict, dom_alerts: list) -> None:
     print("  Step 1: Scraping upcoming meetings from city website...")
     upcoming = scrape_web_upcoming(board, dom_alerts)
 
-    print("  Step 2: Writing...")
-    existing = load_existing(board["output"])
+    print("  Step 2: Scraping recent past meetings from city website...")
+    past_scraped = scrape_web_past_meetings(board)
+
+    print("  Step 3: Writing...")
+    existing      = load_existing(board["output"])
+    existing_meetings = existing.get("meetings", [])
+    existing_dates    = {m.get("date") for m in existing_meetings}
+    new_past          = [m for m in past_scraped if m["date"] not in existing_dates]
+    if new_past:
+        print(f"    Adding {len(new_past)} new past meeting(s) to archive")
+    merged_meetings = sorted(
+        existing_meetings + new_past,
+        key=lambda m: m["date"],
+        reverse=True,
+    )
 
     output: dict = {
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "metadata":          build_metadata(board),
         "upcoming_meetings": upcoming,
     }
-    if existing.get("meetings"):
-        output["meetings"] = existing["meetings"]
+    if merged_meetings:
+        output["meetings"] = merged_meetings
 
     _write_output(board, output)
-    print(f"  Wrote {board['output']}  ({len(upcoming)} upcoming)")
+    print(f"  Wrote {board['output']}  ({len(upcoming)} upcoming, {len(merged_meetings)} meetings)")
 
 
 def run_board(
