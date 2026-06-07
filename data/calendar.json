@@ -233,7 +233,8 @@
       "time": "11:00 AM",
       "location": "special session on Monday, June 15, 2026, at 11:00 a.m. This meeting will take place in the Main Conference Room at Public Services, 415 Stockbridge Avenue",
       "abbr": "TRB",
-      "name": "Traffic Board"
+      "name": "Traffic Board",
+      "isSpecial": true
     },
     {
       "date": "2026-06-16",
@@ -257,7 +258,8 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority"
+      "name": "Brownfield Redevelopment Authority",
+      "locationChanged": true
     },
     {
       "date": "2026-06-18",
@@ -265,7 +267,8 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "EDC",
-      "name": "Economic Development Corporation"
+      "name": "Economic Development Corporation",
+      "locationChanged": true
     },
     {
       "date": "2026-06-18",
@@ -305,7 +308,8 @@
       "time": "8:00 AM",
       "location": "special session on Thursday, June 25, 2026, at 8:00 a.m. This meeting will take place at Station 2, 1007 E. Alcott St. in the Community Room",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority"
+      "name": "Brownfield Redevelopment Authority",
+      "isSpecial": true
     },
     {
       "date": "2026-06-25",
