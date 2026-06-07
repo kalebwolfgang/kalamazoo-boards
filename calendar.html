@@ -612,8 +612,9 @@ footer a:hover { color: var(--gold-lt); }
   let meetingsByDate = {};
   let totalUpcoming  = 0;
   let dataLoaded     = false;
-  let activeFilters  = new Set();
-  let sidebarOpen    = true;
+  let activeFilters         = new Set();
+  let sidebarOpen           = true;
+  let pendingCalendarAction = null;
 
   /* HELPERS */
   function isSameDay(a, b) {
