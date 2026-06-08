@@ -1050,7 +1050,9 @@ footer a:hover { color: var(--gold-lt); }
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
             </svg>
           </span>
-          <span${m.location === 'Location TBD' ? ' style="font-style: italic; opacity: 0.7;"' : ''}>${m.location}</span>
+         <span${m.location === 'Location TBD' ? ' style="font-style: italic; opacity: 0.7;"' : ''}>
+            ${m.locationChanged ? `<span style="display:block;font-size:11px;font-weight:600;color:#92400e;margin-bottom:2px;">New meeting location:</span>` : ''}${m.location}
+          </span>
         </div>
         <a class="modal-board-link" href="${m.detailPage}">
           ${m.name} board page
