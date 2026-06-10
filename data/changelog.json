@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-08T17:28:03.475332+00:00",
-  "runId": "e4a55845",
+  "timestamp": "2026-06-10T17:27:07.790172+00:00",
+  "runId": "e4f07ab4",
   "validationPassed": true,
   "changes": [
     {
@@ -16,7 +16,7 @@
     {
       "board": "cpsrab",
       "meetings": 45,
-      "upcoming": 6
+      "upcoming": 7
     },
     {
       "board": "dda",
@@ -50,8 +50,8 @@
     },
     {
       "board": "hpc",
-      "meetings": 33,
-      "upcoming": 6
+      "meetings": 34,
+      "upcoming": 5
     },
     {
       "board": "locc",

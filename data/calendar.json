@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-08",
+  "last_updated": "2026-06-10",
   "meetings": [
     {
       "date": "2026-05-05",
@@ -93,7 +93,8 @@
       "abbr": "HDC",
       "name": "Historic District Commission",
       "youtube_url": "https://www.youtube.com/watch?v=23qij2LxnIg",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2739/files/agenda/5072"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2739/files/agenda/5072",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2739/files/agenda/5152"
     },
     {
       "date": "2026-05-20",
@@ -196,7 +197,7 @@
     {
       "date": "2026-06-10",
       "display": "Wednesday, June 10, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "6:00 PM – 8:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission",
@@ -1056,6 +1057,14 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
+    },
+    {
+      "date": "2026-12-08",
+      "display": "Tuesday, December 8, 2026",
+      "time": "06:00 PM – 08:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "CPSRAB",
+      "name": "Citizens Public Safety Review and Appeal Board"
     },
     {
       "date": "2026-12-08",

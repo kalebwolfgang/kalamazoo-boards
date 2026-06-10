@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-08",
+  "last_updated": "2026-06-10",
   "metadata": {
     "time": "05:00 PM – 07:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -42,13 +42,16 @@
       "display": "May 19, 2026",
       "event_id": 2739,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2739/files/agenda/5072",
-      "link_label": "Agenda",
-      "minutes_url": null,
+      "link_label": "Agenda & Minutes",
+      "isCancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2739/files/agenda/5152",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2739/files/agenda/5072",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2739/overview",
+      "scrapedAt": null,
       "meeting_type": "Historic District Commission",
       "youtube_id": "23qij2LxnIg",
-      "youtube_url": "https://www.youtube.com/watch?v=23qij2LxnIg",
-      "isCancelled": false
+      "youtube_url": "https://www.youtube.com/watch?v=23qij2LxnIg"
     },
     {
       "date": "2026-04-21",
