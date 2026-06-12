@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-06-10",
+  "last_updated": "2026-06-12",
   "metadata": {
     "time": "07:00 PM – 09:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-06-11",
-      "display": "Thursday, June 11, 2026",
-      "time": "07:00 PM – 09:00 PM",
-      "isCancelled": true
-    },
     {
       "date": "2026-07-09",
       "display": "Thursday, July 9, 2026",

@@ -21,21 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:HPC-2026-06-10@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260610T180000
-DTEND;TZID=America/Detroit:20260610T200000
-SUMMARY:Historic Preservation Commission — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:ZBA-2026-06-11@kalamazoocity-boards
-STATUS:CANCELLED
-DTSTART;TZID=America/Detroit:20260611T190000
-DTEND;TZID=America/Detroit:20260611T210000
-SUMMARY:Zoning Board of Appeals — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:DDA-2026-06-15@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260615T150000
 DTEND;TZID=America/Detroit:20260615T170000
@@ -135,6 +120,7 @@ LOCATION:Community Room, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PC-2026-07-02@kalamazoocity-boards
+STATUS:CANCELLED
 DTSTART;TZID=America/Detroit:20260702T190000
 DTEND;TZID=America/Detroit:20260702T210000
 SUMMARY:Planning Commission — City of Kalamazoo

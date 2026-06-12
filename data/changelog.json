@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-10T17:27:07.790172+00:00",
-  "runId": "e4f07ab4",
+  "timestamp": "2026-06-12T16:49:08.743454+00:00",
+  "runId": "b5d14282",
   "validationPassed": true,
   "changes": [
     {
@@ -71,7 +71,7 @@
     {
       "board": "zba",
       "meetings": 54,
-      "upcoming": 6
+      "upcoming": 5
     },
     {
       "board": "ersb",
