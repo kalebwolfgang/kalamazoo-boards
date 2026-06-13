@@ -191,9 +191,9 @@ footer a:hover { color: var(--gold-lt); }
 /* Member table status dots */
 .member-dot { width: 16px; height: 16px; display: inline-block; }
 .member-dot.vacant        { background: transparent; border: 2px solid #dc2626; border-radius: 0; }
-.member-dot.holdover      { background: #dc2626; border-radius: 50%; }
+.member-dot.holdover      { background: #dc2626; border-radius: 2px; }
 .member-dot.transitioning { background: #d97706; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
-.member-dot.seated        { background: #15803d; border-radius: 2px; }
+.member-dot.seated        { background: #15803d; border-radius: 50%; }
 
 /* ──────────────────────────────────────────────────
    ACCORDION (shared: faq + board pages)
