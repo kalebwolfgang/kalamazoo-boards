@@ -803,9 +803,9 @@ fetch('boards.json')
     /* Initial render */
     renderBoards('alpha');
   })
-  .catch(err => {
+  .catch(() => {
   document.getElementById('boards-list').innerHTML =
-    `<p style="color:red;padding:40px;font-size:18px">Could not load boards.json — ${err.message}</p>`;
+    `<p style="padding:60px var(--pad-x);text-align:center;color:var(--muted);font-size:16px">Could not load board data — please try refreshing the page.</p>`;
 });
 </script>
 </body>
