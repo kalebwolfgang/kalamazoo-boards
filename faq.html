@@ -6,71 +6,16 @@
   <title>FAQ — Boards &amp; Commissions · City of Kalamazoo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:       #0d4f63;
-      --navy-mid:   #1a7a97;
-      --navy-light: #2596be;
-      --gold:       #c9921a;
-      --gold-lt:    #e8b84b;
-      --cream:      #f5f2ec;
-      --cream-dk:   #ebe6db;
-      --white:      #ffffff;
-      --text:       #1c2333;
-      --body:       #374151;
-      --muted:      #6b7280;
-      --border:     #ddd8ce;
-      --border-lt:  #eee9e0;
-      --pad-x: clamp(16px, 4vw, 40px);
-    }
-
-    html { scroll-behavior: smooth; }
-    body { font-family: 'IBM Plex Sans', sans-serif; background: var(--cream); color: var(--text); font-size: 18px; line-height: 1.6; }
-
-    .topbar { background: var(--navy-mid); padding: 6px var(--pad-x); font-size: 13px; color: rgba(255,255,255,0.5); }
-    .topbar-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .topbar a { color: rgba(255,255,255,0.5); text-decoration: none; }
-    .topbar a:hover { color: var(--gold-lt); }
-
-    nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 200; }
-    .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x); height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
-    .nav-seal { width: 32px; height: 32px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--navy); flex-shrink: 0; }
-    .nav-title-wrap { min-width: 0; }
-    .nav-title-main { color: white; font-size: 16px; font-weight: 500; display: block; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .nav-title-sub  { color: rgba(255,255,255,0.4); font-size: 13px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .nav-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
-    .nav-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 15px; transition: color 0.15s; white-space: nowrap; }
-    .nav-link:hover { color: var(--gold-lt); }
-    .nav-apply { background: var(--gold); color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; padding: 7px 14px; border-radius: 2px; transition: background 0.15s; white-space: nowrap; }
-    .nav-apply:hover { background: var(--gold-lt); }
-
-    .nav-secondary { display: none; }
-    @media (max-width: 600px) {
-      .nav-inner .nav-link { display: none; }
-      .nav-secondary { display: flex; background: rgba(0,0,0,0.18); border-top: 1px solid rgba(255,255,255,0.07); }
-      .nav-secondary-inner { max-width: 1400px; margin: 0 auto; width: 100%; padding: 0 var(--pad-x); display: flex; }
-      .nav-secondary-link { flex: 1; display: flex; align-items: center; justify-content: center; padding: 9px 12px; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; border-right: 1px solid rgba(255,255,255,0.07); transition: background 0.15s, color 0.15s; }
-      .nav-secondary-link:last-child { border-right: none; }
-      .nav-secondary-link:hover, .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
-      .nav-secondary-link.active { color: var(--gold-lt); }
-    }
-
-    .breadcrumb { background: var(--white); border-bottom: 1px solid var(--border); padding: 9px var(--pad-x); font-size: 14px; color: var(--muted); overflow-x: auto; white-space: nowrap; }
-    .breadcrumb-inner { max-width: 1400px; margin: 0 auto; display: flex; gap: 8px; align-items: center; }
-    .breadcrumb a { color: var(--navy-light); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
-    .bc-sep { color: var(--border); }
-
-    .page-header { background: var(--navy); padding: clamp(28px, 5vw, 48px) var(--pad-x) clamp(24px, 4vw, 44px); }
+    /* ── PAGE HEADER (faq-specific layout + overrides) ── */
     .page-header-inner { max-width: 1400px; margin: 0 auto; }
     .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 38px); font-weight: 600; color: white; line-height: 1.2; margin-bottom: 10px; }
     .page-header p { color: rgba(255,255,255,0.5); font-size: clamp(15px, 2.5vw, 18px); font-weight: 300; max-width: 560px; line-height: 1.7; }
 
     .main-wrap { max-width: 1400px; margin: 0 auto; padding: clamp(28px, 5vw, 72px) var(--pad-x) clamp(48px, 8vw, 120px); display: flex; flex-direction: column; gap: clamp(32px, 5vw, 72px); }
 
+    /* ── VACANCY WIDGET ── */
     .vac-section { background: var(--white); border: 1px solid var(--border); border-left: 4px solid #dc2626; border-radius: 4px; overflow: hidden; }
     .vac-section-head { padding: 14px clamp(16px, 3vw, 24px); display: flex; align-items: center; justify-content: space-between; background: var(--navy); gap: 12px; }
     .vac-section-head h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: white; }
@@ -86,29 +31,23 @@
     .vac-cell-name { font-size: clamp(13px, 2vw, 15px); color: var(--muted); line-height: 1.4; margin-bottom: 12px; flex: 1; }
     .vac-cell-badge { display: inline-block; font-size: 13px; font-weight: 600; padding: 3px 9px; border-radius: 10px; background: #fef2f2; color: #dc2626; align-self: flex-start; }
 
-    .accordion { border: 1px solid var(--border); border-left: 4px solid var(--navy); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    .acc-item { border-bottom: 1px solid var(--border); }
-    .acc-item:last-child { border-bottom: none; }
-    .acc-trigger { width: 100%; background: var(--white); border: none; padding: clamp(14px, 3vw, 20px) clamp(16px, 3vw, 22px); display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: 'IBM Plex Sans', sans-serif; font-size: clamp(15px, 2.5vw, 17px); font-weight: 600; color: var(--navy); cursor: pointer; text-align: left; transition: background 0.15s, color 0.15s; }
-    .acc-trigger:hover { background: var(--cream); }
-    .acc-trigger[aria-expanded="true"] { background: var(--cream-dk); border-bottom: 1px solid var(--border); }
+    /* ── ACCORDION (faq-specific overrides on top of styles.css base) ── */
+    .accordion { border-left: 4px solid var(--navy); }
+    .acc-trigger { font-size: clamp(15px, 2.5vw, 17px); }
     .acc-trigger-left { display: flex; align-items: center; gap: 10px; }
     .acc-icon { font-size: clamp(16px, 2.5vw, 20px); flex-shrink: 0; }
     .acc-meta { font-size: clamp(12px, 2vw, 14px); color: var(--muted); font-weight: 400; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     @media (max-width: 480px) { .acc-meta { display: none; } }
-    .acc-chevron { flex-shrink: 0; transition: transform 0.22s ease; color: var(--muted); }
-    .acc-trigger[aria-expanded="true"] .acc-chevron { transform: rotate(180deg); color: var(--gold); }
-    .acc-panel[hidden] { display: none; }
     .acc-panel-inner { padding: clamp(20px, 4vw, 36px) clamp(16px, 4vw, 36px); }
 
     .about-text p { font-size: clamp(15px, 2.5vw, 18px); color: var(--body); line-height: 1.75; margin-bottom: 12px; }
     .about-text p:last-child { margin-bottom: 0; }
+
+    /* ── BOARD TYPE CHIPS ── */
     .type-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
     @media (max-width: 768px) { .type-chips { grid-template-columns: 1fr; } }
     .type-chip { padding: clamp(16px, 3vw, 20px); border-radius: 4px; border: 1px solid var(--border); font-size: clamp(14px, 2.5vw, 16px); color: var(--body); line-height: 1.6; background: var(--white); }
     .type-chip strong { display: block; font-size: clamp(12px, 2vw, 14px); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
-    
-    /* Updated Categories CSS */
     .type-chip.authority { border-left: 4px solid #0f766e; }
     .type-chip.authority strong { color: #0f766e; }
     .type-chip.quasi    { border-left: 4px solid #92400e; }
@@ -118,6 +57,7 @@
     .type-chip.type1    { border-left: 4px solid #1d4ed8; }
     .type-chip.type1 strong { color: #1d4ed8; }
 
+    /* ── ELIGIBILITY TABLE ── */
     .elig-table { width: 100%; border-collapse: collapse; font-size: clamp(14px, 2.5vw, 17px); }
     .elig-table tr { border-bottom: 1px solid var(--border-lt); }
     .elig-table tr:last-child { border-bottom: none; }
@@ -126,10 +66,12 @@
     .elig-table td:last-child { color: var(--body); }
     @media (max-width: 480px) { .elig-table, .elig-table tbody, .elig-table tr, .elig-table td { display: block; width: 100%; } .elig-table td:first-child { padding-bottom: 2px; padding-right: 12px; } .elig-table td:last-child { padding-top: 0; } .elig-table tr { padding: 10px 0; } }
 
+    /* ── DEFINITION SECTIONS ── */
     .def-section { margin-bottom: 28px; }
     .def-section:last-child { margin-bottom: 0; }
     .def-section h4 { font-size: clamp(15px, 2.5vw, 18px); font-weight: 600; color: var(--navy); margin-bottom: 10px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
 
+    /* ── TIME COMMITMENT GRID ── */
     .commit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (max-width: 480px) { .commit-grid { grid-template-columns: 1fr; } }
     .cg { display: flex; gap: 14px; align-items: flex-start; padding: clamp(12px, 2.5vw, 16px); background: var(--cream); border-radius: 3px; border: 1px solid var(--border); }
@@ -137,6 +79,7 @@
     .cg h4 { font-size: clamp(14px, 2.5vw, 17px); font-weight: 600; color: var(--text); margin-bottom: 3px; }
     .cg p  { font-size: clamp(13px, 2vw, 16px); color: var(--muted); line-height: 1.55; }
 
+    /* ── HOW TO APPLY STEPS ── */
     .steps { display: flex; flex-direction: column; }
     .step { display: grid; grid-template-columns: 32px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--border-lt); align-items: start; }
     .step:last-child { border-bottom: none; }
@@ -145,9 +88,9 @@
     .step p  { font-size: clamp(14px, 2.5vw, 17px); color: var(--muted); line-height: 1.6; }
     .step-note { display: inline-block; margin-top: 5px; font-size: 13px; color: var(--gold); background: #fdf3e0; padding: 2px 8px; border-radius: 2px; }
 
+    /* ── BOTTOM ROW CARDS ── */
     .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     @media (max-width: 640px) { .bottom-row { grid-template-columns: 1fr; } }
-
     .sc { background: var(--white); border: 1px solid var(--border); border-left: 4px solid #475569; overflow: hidden; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
     .sc.apply-sc { border-left-color: var(--gold); }
     .sc-head { padding: 11px clamp(14px, 3vw, 18px); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: white; background: var(--navy); }
@@ -156,7 +99,6 @@
     .apply-sc .sc-body p { font-size: clamp(14px, 2.5vw, 17px); color: var(--body); line-height: 1.65; margin-bottom: 14px; }
     .btn-sb { display: block; width: 100%; background: var(--navy); color: white; text-decoration: none; text-align: center; font-size: clamp(14px, 2.5vw, 17px); font-weight: 600; padding: 10px 0; border-radius: 2px; transition: background 0.15s; }
     .btn-sb:hover { background: var(--navy-mid); }
-
     .cr-row { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--border-lt); font-size: clamp(14px, 2.5vw, 17px); }
     .cr-row:last-child { border-bottom: none; padding-bottom: 0; }
     .cr-row-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
@@ -165,7 +107,7 @@
     .cr-row-body a { color: var(--navy-light); text-decoration: none; }
     .cr-row-body a:hover { text-decoration: underline; }
 
-    /* Language toggle for board type definitions */
+    /* ── LANGUAGE TOGGLE ── */
     .lang-toggle-wrap { margin-top: 24px; margin-bottom: 8px; background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 4px; padding: clamp(14px, 3vw, 18px) clamp(14px, 3vw, 20px); box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
     .lang-toggle-prompt { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .lang-toggle-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--gold); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; }
@@ -178,10 +120,6 @@
     .lang-btn.active:hover { background: var(--navy); }
     .lang-btn-sub { display: block; font-size: 12px; font-weight: 400; opacity: 0.75; margin-top: 2px; }
     .txt-plain[hidden], .txt-legal[hidden] { display: none; }
-
-    footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 24px var(--pad-x); text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
-    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
-    footer a:hover { color: var(--gold-lt); }
   </style>
 </head>
 <body>
@@ -199,15 +137,15 @@
     </a>
     <div class="nav-right">
       <a class="nav-link" href="calendar.html">Calendar</a>
-            <a class="nav-link" href="index.html">All Boards</a>
-      <a class="nav-link" href="faq.html">FAQ</a>
+      <a class="nav-link" href="index.html">All Boards</a>
+      <a class="nav-link active" href="faq.html">FAQ</a>
       <a class="nav-apply" href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission" target="_blank">Apply to Serve</a>
     </div>
   </div>
   <div class="nav-secondary">
     <div class="nav-secondary-inner">
       <a class="nav-secondary-link" href="calendar.html">Calendar</a>
-        <a class="nav-secondary-link" href="index.html">All Boards</a>
+      <a class="nav-secondary-link" href="index.html">All Boards</a>
       <a class="nav-secondary-link active" href="faq.html">FAQ</a>
     </div>
   </div>
@@ -350,20 +288,21 @@
           <div class="def-section">
             <h4>The members table columns</h4>
             <table class="elig-table">
-              <tr><td>Dot</td><td>A colored circle representing the seat's current status (open, transitioning, or seated).</td></tr>
+              <tr><td>Dot</td><td>A shape indicator representing the seat's current status — a circle for vacant, a triangle for transitioning, a hollow square for holdover, or a filled square for seated.</td></tr>
               <tr><td>Name</td><td>The appointed member's name. It may include a role subtitle (like Chair or Vice Chair) when relevant.</td></tr>
               <tr><td>Type</td><td>Specifies the seat category, such as Voting, Ex-Officio, At-Large, Neighborhood Rep, or City Commissioner.</td></tr>
               <tr><td>Residency</td><td>Indicates what residency status is being tracked for the seat (e.g., City resident vs. Non-resident).</td></tr>
               <tr><td>Term End</td><td>The specific date an active term concludes. "Permanent" indicates no term limit, and "By office held" means the term is tied directly to another position.</td></tr>
-              <tr><td>Status Badge</td><td>A quick visual indicator defining if the seat is Open, Transitioning, or Seated.</td></tr>
+              <tr><td>Status Badge</td><td>A quick visual indicator defining if the seat is Vacant, Holdover, Transitioning, or Seated.</td></tr>
             </table>
           </div>
 
           <div class="def-section">
             <h4>Seat status explained</h4>
             <table class="elig-table">
-              <tr><td>Open</td><td>The seat is entirely vacant with no current member serving in that capacity.</td></tr>
-              <tr><td>Transitioning</td><td>The member's term has either expired or ends within 6 months. They are typically still serving as a holdover pending reappointment or replacement.</td></tr>
+              <tr><td>Vacant</td><td>The seat is entirely unfilled with no current member serving.</td></tr>
+              <tr><td>Holdover</td><td>The member's official term has expired but they continue to legally serve and vote because a successor hasn't been appointed yet.</td></tr>
+              <tr><td>Transitioning</td><td>The member's term ends within 6 months. They are actively serving and their term will be opening soon.</td></tr>
               <tr><td>Seated</td><td>The member is currently active and serving securely within their appointed term dates.</td></tr>
             </table>
           </div>
@@ -371,7 +310,6 @@
           <div class="def-section">
             <h4>Key terminology</h4>
             <table class="elig-table">
-              <tr><td>Holdover</td><td>A member whose official term has expired but continues to legally serve and vote because the vacancy process takes time and a successor hasn't been appointed yet.</td></tr>
               <tr><td>Ex-officio</td><td>A member who serves on a board by virtue of holding another specific office, rather than by direct appointment to the board itself.</td></tr>
               <tr><td>Term limit vs. term end</td><td>The "term end" is the exact date a specific term expires. The "term limit" is the maximum number of consecutive terms a member is legally allowed to serve.</td></tr>
               <tr><td>Permanent appointment</td><td>An appointment with no fixed expiration date; the member serves indefinitely (often applied to certain ex-officio seats).</td></tr>
