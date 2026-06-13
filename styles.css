@@ -177,9 +177,8 @@ footer a:hover { color: var(--gold-lt); }
   border-radius: 0;
 }
 .seat-dot.holdover, .seat-dot-hdr.holdover {
-  background: transparent;
-  border: 2px solid var(--orange);
-  border-radius: 3px;
+  background: #dc2626; border-radius: 50%;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15);
 }
 .seat-dot.seated, .seat-dot-hdr.seated {
   background: #15803d; border-radius: 3px;
