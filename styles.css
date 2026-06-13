@@ -159,7 +159,6 @@ footer a:hover { color: var(--gold-lt); }
 }
 @media (hover: hover) {
   .seat-dot:hover,     .seat-dot-hdr:hover     { transform: scale(1.25); filter: brightness(1.15) drop-shadow(0 2px 5px rgba(0,0,0,0.3)); }
-  .seat-dot.holdover:hover, .seat-dot-hdr.holdover:hover { filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
 }
 .seat-dot:focus, .seat-dot-hdr:focus { outline: 2px solid var(--gold-lt); outline-offset: 2px; }
 
