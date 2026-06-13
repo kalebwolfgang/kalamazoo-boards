@@ -117,7 +117,7 @@ footer a:hover { color: var(--gold-lt); }
 .tooltip-req  { color: rgba(255,255,255,0.55); font-size: 13px; margin-bottom: 6px; font-style: italic; }
 .tooltip-term { font-size: 15px; }
 .tooltip-term.vacant        { color: #f87171; font-weight: 600; font-size: 16px; }
-.tooltip-term.holdover      { color: #fb923c; font-weight: 600; }
+.tooltip-term.holdover      { color: #f87171; font-weight: 600; }
 .tooltip-term.transitioning { color: var(--gold-lt); }
 .tooltip-term.seated        { color: #86efac; }
 .tooltip-res  { color: rgba(255,255,255,0.45); font-size: 13px; margin-top: 5px; }
@@ -127,7 +127,7 @@ footer a:hover { color: var(--gold-lt); }
 .tt-role { color: var(--gold-lt); font-size: 13px; margin-bottom: 5px; }
 .tt-term { font-size: 14px; }
 .tt-term.vacant        { color: #f87171; font-weight: 600; }
-.tt-term.holdover      { color: #fb923c; font-weight: 600; }
+.tt-term.holdover      { color: #f87171; font-weight: 600; }
 .tt-term.transitioning { color: var(--gold-lt); }
 .tt-term.seated        { color: #86efac; }
 .tt-res { color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 4px; }
