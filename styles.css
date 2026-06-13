@@ -169,8 +169,7 @@ footer a:hover { color: var(--gold-lt); }
 
 /* Status shapes */
 .seat-dot.vacant, .seat-dot-hdr.vacant {
-  background: #dc2626; border-radius: 50%;
-  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15);
+  background: transparent; border: 2px solid #dc2626; border-radius: 0;
 }
 .seat-dot.transitioning, .seat-dot-hdr.transitioning {
   background: #d97706;
