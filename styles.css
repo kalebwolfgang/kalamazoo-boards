@@ -145,8 +145,8 @@ footer a:hover { color: var(--gold-lt); }
 
 /* ──────────────────────────────────────────────────
    SEAT STATUS INDICATOR SYSTEM — Four shapes
-   Vacant: hollow square / Holdover: filled circle
-   Transitioning: triangle / Seated: filled square
+   Vacant: hollow square / Holdover: filled square
+   Transitioning: triangle / Seated: filled circle
    ────────────────────────────────────────────────── */
 
 /* Base shared rules */
