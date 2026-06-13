@@ -782,7 +782,10 @@ fetch('boards.json')
     /* Initial render */
     renderBoards('alpha');
   })
-  .catch(err => console.error('Could not load boards.json:', err));
+  .catch(err => {
+  document.getElementById('boards-list').innerHTML =
+    `<p style="color:red;padding:40px;font-size:18px">Could not load boards.json — ${err.message}</p>`;
+});
 </script>
 </body>
 </html>
