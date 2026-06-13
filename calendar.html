@@ -1072,8 +1072,8 @@ body { font-size: 16px; }
     const meetings = meetingsByDate[dateStr] || [];
     const m = meetings.find(x => x.abbr === abbr) || meetings[0];
     if (!m) return;
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    pendingCalendarAction = isIOS ? () => downloadICS(m) : () => window.open(buildGCalUrl(m), '_blank');
+    const isMobile = /iPad|iPhone|iPod|Android/.test(navigator.userAgent);
+    pendingCalendarAction = isMobile ? () => downloadICS(m) : () => window.open(buildGCalUrl(m), '_blank');
     document.getElementById('cal-disclaimer-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   };
