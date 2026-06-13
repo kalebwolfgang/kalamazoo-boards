@@ -199,23 +199,6 @@
 /* ── NO RESULTS ── */
 .no-results { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 18px; display: none; }
 .no-results strong { color: var(--navy); }
-
-/* ── LETTER DOTS ── */
-.seat-dot { display: flex; align-items: center; justify-content: center; }
-.seat-dot.transitioning { background: transparent; clip-path: none; }
-.seat-dot.transitioning::before {
-  content: ''; position: absolute; inset: 0;
-  background: #d97706; clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-.dot-letter {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: clamp(9px, 1.8vw, 11px); font-weight: 700; line-height: 1;
-  position: relative; z-index: 1; pointer-events: none; letter-spacing: 0;
-}
-.seat-dot.vacant .dot-letter       { color: #dc2626; }
-.seat-dot.holdover .dot-letter     { color: #fff; }
-.seat-dot.transitioning .dot-letter { color: #1c2333; }
-.seat-dot.seated .dot-letter       { color: #fff; }
 </style>
 </head>
 <body>
