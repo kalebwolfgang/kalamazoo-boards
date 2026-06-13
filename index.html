@@ -450,10 +450,6 @@ function buildBoardPanel(board, index) {
         ? `Position ${m.position}: open seat${m.positionRequirement ? ' — ' + m.positionRequirement : ''}`
         : `Position ${m.position}: ${name}, ${m.role}`
     );
-    const letter = document.createElement('span');
-    letter.className = 'dot-letter';
-    letter.textContent = ds === 'vacant' ? 'V' : ds === 'holdover' ? 'H' : ds === 'transitioning' ? 'T' : 'S';
-    dot.appendChild(letter);
     seatsRow.appendChild(dot);
   });
 
