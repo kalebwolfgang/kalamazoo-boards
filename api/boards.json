@@ -9,6 +9,7 @@
     "slug": "bor",
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -122,6 +123,7 @@
     "slug": "bra",
     "legalClassification": "Authorities",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -256,6 +258,7 @@
     "slug": "bba",
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -368,6 +371,7 @@
     "slug": "cpsrab",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -513,6 +517,7 @@
     "slug": "crb",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -625,6 +630,7 @@
     "slug": "cdaac",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -737,6 +743,7 @@
     "slug": "dda",
     "legalClassification": "Authorities",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -871,6 +878,7 @@
     "slug": "dega",
     "legalClassification": "Authorities",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -984,6 +992,7 @@
     "slug": "edc",
     "legalClassification": "Authorities",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1118,6 +1127,7 @@
     "slug": "ec",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1164,6 +1174,7 @@
     "slug": "ersb",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1232,6 +1243,7 @@
     "slug": "ecc",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1366,6 +1378,7 @@
     "slug": "hdc",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1456,6 +1469,7 @@
     "slug": "hpc",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1546,6 +1560,7 @@
     "slug": "ric",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1636,6 +1651,7 @@
     "slug": "kmga",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1781,6 +1797,7 @@
     "slug": "locc",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1871,6 +1888,7 @@
     "slug": "nfp",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -1961,6 +1979,7 @@
     "slug": "ncbda",
     "legalClassification": "Authorities",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -2073,6 +2092,7 @@
     "slug": "prab",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -2185,6 +2205,7 @@
     "slug": "pc",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -2297,6 +2318,7 @@
     "slug": "spk",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -2431,6 +2453,7 @@
     "slug": "trb",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -2510,6 +2533,7 @@
     "slug": "tre",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
@@ -2578,6 +2602,7 @@
     "slug": "zba",
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": true,
+    "bodyType": "appointed",
     "members": [
       {
         "position": 1,
