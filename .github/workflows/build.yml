@@ -36,10 +36,14 @@ on:
       - "boards.json"
       - "content/**"
       - "scripts/build.py"
+      - "schemas/boards.schema.json"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     # Only run when triggered by a successful scraper, or on a direct push.
     # This prevents the build from running when the scraper itself fails.
@@ -56,8 +60,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          # Fetch the full repo so build.py can read all board-*.html files.
-          # Using the default depth (1) is fine since we only need current files.
           ref: main
 
       - name: Set up Python
@@ -70,8 +72,6 @@ jobs:
 
       - name: Run build pipeline
         env:
-          # Pass alert email secrets so build.py can send validation failure
-          # emails even when triggered from this workflow.
           SMTP_HOST:    ${{ secrets.SMTP_HOST }}
           SMTP_PORT:    ${{ secrets.SMTP_PORT }}
           SMTP_USER:    ${{ secrets.SMTP_USER }}
@@ -83,15 +83,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Stage all build outputs.
-          # board-*.html: only files with marker comments will have changed.
-          # sitemap.xml, search-index.json, api/: always regenerated.
           git add board-*.html sitemap.xml search-index.json api/ || true
-
-          # Only commit if something actually changed.
-          # [skip ci] prevents this commit from re-triggering the push path.
           git diff --staged --quiet || \
             git commit -m "auto: build update $(date +'%Y-%m-%d') [skip ci]"
-
           git push
