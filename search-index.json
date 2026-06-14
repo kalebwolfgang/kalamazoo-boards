@@ -1,0 +1,177 @@
+[
+  {
+    "id": "board-bor",
+    "type": "board",
+    "title": "Board of Review for Assessments",
+    "url": "board-bor.html",
+    "content": "Meeting records, member roster, and transparency information for the Board of Review for Assessments, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-bra",
+    "type": "board",
+    "title": "Brownfield Redevelopment Authority Board",
+    "url": "board-bra.html",
+    "content": "Meeting records, member roster, and transparency information for the Brownfield Redevelopment Authority Board, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-bba",
+    "type": "board",
+    "title": "Building Board of Appeals",
+    "url": "board-bba.html",
+    "content": "Meeting records, member roster, and transparency information for the Building Board of Appeals, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-cpsrab",
+    "type": "board",
+    "title": "Citizen-Public Safety Review and Appeals Board",
+    "url": "board-cpsrab.html",
+    "content": "Provides independent community oversight of the Kalamazoo Department of Public Safety. Hears appeals of complaint investigations conducted by the Office of Professional Standards and advises the City Manager on policies, procedures, and community relations."
+  },
+  {
+    "id": "board-crb",
+    "type": "board",
+    "title": "Civil Rights Board",
+    "url": "board-crb.html",
+    "content": "Meeting records, member roster, and transparency information for the Civil Rights Board, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-cdaac",
+    "type": "board",
+    "title": "Community Development Act Advisory Committee",
+    "url": "board-cdaac.html",
+    "content": "Meeting records, member roster, and transparency information for the Community Development Act Advisory Committee, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-dda",
+    "type": "board",
+    "title": "Downtown Development Authority Board",
+    "url": "board-dda.html",
+    "content": "Meeting records, member roster, and transparency information for the Downtown Development Authority Board, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-dega",
+    "type": "board",
+    "title": "Downtown Economic Growth Authority Board",
+    "url": "board-dega.html",
+    "content": "Meeting records, member roster, and transparency information for the Downtown Economic Growth Authority Board, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-edc",
+    "type": "board",
+    "title": "Economic Development Corporation Board",
+    "url": "board-edc.html",
+    "content": "Meeting records, member roster, and transparency information for the Economic Development Corporation Board, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-ec",
+    "type": "board",
+    "title": "Election Commission",
+    "url": "board-ec.html",
+    "content": "Meeting records, member roster, and transparency information for the Election Commission, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-ersb",
+    "type": "board",
+    "title": "Employee Retirement System Board of Trustees",
+    "url": "board-ersb.html",
+    "content": "Meeting records, member roster, and transparency information for the Employee Retirement System Board of Trustees, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-ecc",
+    "type": "board",
+    "title": "Environmental Concerns Committee",
+    "url": "board-ecc.html",
+    "content": "Meeting records, member roster, and transparency information for the Environmental Concerns Committee, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-hdc",
+    "type": "board",
+    "title": "Historic District Commission",
+    "url": "board-hdc.html",
+    "content": "Meeting records, member roster, and transparency information for the Historic District Commission, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-hpc",
+    "type": "board",
+    "title": "Historic Preservation Commission",
+    "url": "board-hpc.html",
+    "content": "Meeting records, member roster, and transparency information for the Historic Preservation Commission, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-ric",
+    "type": "board",
+    "title": "Investment Committee of the Retirement System",
+    "url": "board-ric.html",
+    "content": "Meeting records, member roster, and transparency information for the Investment Committee of the Retirement System, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-kmga",
+    "type": "board",
+    "title": "Kalamazoo Municipal Golf Association",
+    "url": "board-kmga.html",
+    "content": "Meeting records, member roster, and transparency information for the Kalamazoo Municipal Golf Association, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-locc",
+    "type": "board",
+    "title": "Local Officers Compensation Commission",
+    "url": "board-locc.html",
+    "content": "Meeting records, member roster, and transparency information for the Local Officers Compensation Commission, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-nfp",
+    "type": "board",
+    "title": "Natural Features Protection Review Board",
+    "url": "board-nfp.html",
+    "content": "Meeting records, member roster, and transparency information for the Natural Features Protection Review Board, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-ncbda",
+    "type": "board",
+    "title": "Northside Cultural Business District Authority Board",
+    "url": "board-ncbda.html",
+    "content": "Meeting records, member roster, and transparency information for the Northside Cultural Business District Authority Board, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-prab",
+    "type": "board",
+    "title": "Parks and Recreation Advisory Board",
+    "url": "board-prab.html",
+    "content": "Meeting records, member roster, and transparency information for the Parks and Recreation Advisory Board, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-pc",
+    "type": "board",
+    "title": "Planning Commission",
+    "url": "board-pc.html",
+    "content": "Meeting records, member roster, and transparency information for the Planning Commission, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-spk",
+    "type": "board",
+    "title": "Shared Prosperity Kalamazoo Organizing Committee",
+    "url": "board-spk.html",
+    "content": "Meeting records, member roster, and transparency information for the Shared Prosperity Kalamazoo Organizing Committee, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-trb",
+    "type": "board",
+    "title": "Traffic Board",
+    "url": "board-trb.html",
+    "content": "Meeting records, member roster, and transparency information for the Traffic Board, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-tre",
+    "type": "board",
+    "title": "Tree Committee",
+    "url": "board-tre.html",
+    "content": "Meeting records, member roster, and transparency information for the Tree Committee, a City of Kalamazoo board or commission."
+  },
+  {
+    "id": "board-zba",
+    "type": "board",
+    "title": "Zoning Board of Appeals",
+    "url": "board-zba.html",
+    "content": "Meeting records, member roster, and transparency information for the Zoning Board of Appeals, a City of Kalamazoo board or commission."
+  }
+]

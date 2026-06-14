@@ -1,0 +1,106 @@
+[
+  {
+    "abbr": "ECC",
+    "name": "Environmental Concerns Committee",
+    "slug": "ecc",
+    "vacantSeats": 5,
+    "totalSeats": 11,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-ecc.html"
+  },
+  {
+    "abbr": "CPSRAB",
+    "name": "Citizen-Public Safety Review and Appeals Board",
+    "slug": "cpsrab",
+    "vacantSeats": 2,
+    "totalSeats": 12,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-cpsrab.html"
+  },
+  {
+    "abbr": "CDAAC",
+    "name": "Community Development Act Advisory Committee",
+    "slug": "cdaac",
+    "vacantSeats": 2,
+    "totalSeats": 9,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-cdaac.html"
+  },
+  {
+    "abbr": "DDA",
+    "name": "Downtown Development Authority Board",
+    "slug": "dda",
+    "vacantSeats": 2,
+    "totalSeats": 11,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-dda.html"
+  },
+  {
+    "abbr": "HDC",
+    "name": "Historic District Commission",
+    "slug": "hdc",
+    "vacantSeats": 2,
+    "totalSeats": 7,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-hdc.html"
+  },
+  {
+    "abbr": "SPK",
+    "name": "Shared Prosperity Kalamazoo Organizing Committee",
+    "slug": "spk",
+    "vacantSeats": 2,
+    "totalSeats": 11,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-spk.html"
+  },
+  {
+    "abbr": "TRB",
+    "name": "Traffic Board",
+    "slug": "trb",
+    "vacantSeats": 2,
+    "totalSeats": 6,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-trb.html"
+  },
+  {
+    "abbr": "BOR",
+    "name": "Board of Review for Assessments",
+    "slug": "bor",
+    "vacantSeats": 1,
+    "totalSeats": 9,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-bor.html"
+  },
+  {
+    "abbr": "CRB",
+    "name": "Civil Rights Board",
+    "slug": "crb",
+    "vacantSeats": 1,
+    "totalSeats": 9,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-crb.html"
+  },
+  {
+    "abbr": "RIC",
+    "name": "Investment Committee of the Retirement System",
+    "slug": "ric",
+    "vacantSeats": 1,
+    "totalSeats": 7,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-ric.html"
+  },
+  {
+    "abbr": "NCBDA",
+    "name": "Northside Cultural Business District Authority Board",
+    "slug": "ncbda",
+    "vacantSeats": 1,
+    "totalSeats": 9,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-ncbda.html"
+  },
+  {
+    "abbr": "PRAB",
+    "name": "Parks and Recreation Advisory Board",
+    "slug": "prab",
+    "vacantSeats": 1,
+    "totalSeats": 9,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-prab.html"
+  },
+  {
+    "abbr": "TRE",
+    "name": "Tree Committee",
+    "slug": "tre",
+    "vacantSeats": 1,
+    "totalSeats": 5,
+    "url": "https://kalebwolfgang.github.io/kalamazoo-boards/board-tre.html"
+  }
+]

@@ -1,0 +1,132 @@
+{
+  "timestamp": "2026-06-12T16:49:08.743454+00:00",
+  "runId": "b5d14282",
+  "validationPassed": true,
+  "changes": [
+    {
+      "board": "crb",
+      "meetings": 24,
+      "upcoming": 3
+    },
+    {
+      "board": "bra",
+      "meetings": 43,
+      "upcoming": 6
+    },
+    {
+      "board": "cpsrab",
+      "meetings": 45,
+      "upcoming": 7
+    },
+    {
+      "board": "dda",
+      "meetings": 36,
+      "upcoming": 6
+    },
+    {
+      "board": "dega",
+      "meetings": 39,
+      "upcoming": 6
+    },
+    {
+      "board": "edc",
+      "meetings": 40,
+      "upcoming": 6
+    },
+    {
+      "board": "ec",
+      "meetings": 14,
+      "upcoming": 2
+    },
+    {
+      "board": "ecc",
+      "meetings": 22,
+      "upcoming": 6
+    },
+    {
+      "board": "hdc",
+      "meetings": 37,
+      "upcoming": 6
+    },
+    {
+      "board": "hpc",
+      "meetings": 34,
+      "upcoming": 5
+    },
+    {
+      "board": "locc",
+      "meetings": 3,
+      "upcoming": 0
+    },
+    {
+      "board": "nfp",
+      "meetings": 24,
+      "upcoming": 6
+    },
+    {
+      "board": "pc",
+      "meetings": 54,
+      "upcoming": 6
+    },
+    {
+      "board": "zba",
+      "meetings": 54,
+      "upcoming": 5
+    },
+    {
+      "board": "ersb",
+      "meetings": 10,
+      "upcoming": 3
+    },
+    {
+      "board": "prab",
+      "meetings": 2,
+      "upcoming": 6
+    },
+    {
+      "board": "trb",
+      "meetings": 1,
+      "upcoming": 1
+    },
+    {
+      "board": "bor",
+      "meetings": 0,
+      "upcoming": 0
+    },
+    {
+      "board": "ric",
+      "meetings": 1,
+      "upcoming": 2
+    },
+    {
+      "board": "kmga",
+      "meetings": 2,
+      "upcoming": 7
+    },
+    {
+      "board": "tre",
+      "meetings": 2,
+      "upcoming": 6
+    },
+    {
+      "board": "bba",
+      "meetings": 1,
+      "upcoming": 7
+    },
+    {
+      "board": "cdaac",
+      "meetings": 0,
+      "upcoming": 4
+    },
+    {
+      "board": "ncbda",
+      "meetings": 22,
+      "upcoming": 6
+    },
+    {
+      "board": "spk",
+      "meetings": 10,
+      "upcoming": 0
+    }
+  ]
+}
