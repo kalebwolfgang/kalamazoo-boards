@@ -1,0 +1,93 @@
+# .github/workflows/build.yml
+#
+# Build pipeline — runs build.py to generate board HTML, sitemap,
+# search index, and API endpoints.
+#
+# Triggers:
+#   1. After the scraper workflow completes (keeps generated content
+#      current after every data update).
+#   2. On push to main when source files that drive the build change
+#      (boards.json, content files, or build.py itself).
+#
+# The scraper workflow (fetch-meetings.yml) already runs build.py for
+# calendar.json and ICS generation. This workflow handles the HTML and
+# artifact outputs and commits them separately so the commit history
+# stays legible: data commits from the scraper, build commits from here.
+
+name: Build
+
+on:
+  # Run after every successful scraper run so generated content
+  # reflects the latest meeting data.
+  workflow_run:
+    workflows: ["Boards Scraper"]
+    types: [completed]
+
+  # Also run on direct pushes when the files build.py reads have changed.
+  # paths filter avoids infinite loops: build outputs (board-*.html,
+  # sitemap.xml, etc.) are not listed here, so a build commit does not
+  # re-trigger this workflow.
+  push:
+    branches: [main]
+    paths:
+      - "boards.json"
+      - "content/**"
+      - "scripts/build.py"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Only run when triggered by a successful scraper, or on a direct push.
+    # This prevents the build from running when the scraper itself fails.
+    if: >
+      github.event_name == 'push' ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success')
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          # Fetch the full repo so build.py can read all board-*.html files.
+          # Using the default depth (1) is fine since we only need current files.
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests jsonschema
+
+      - name: Run build pipeline
+        env:
+          # Pass alert email secrets so build.py can send validation failure
+          # emails even when triggered from this workflow.
+          SMTP_HOST:    ${{ secrets.SMTP_HOST }}
+          SMTP_PORT:    ${{ secrets.SMTP_PORT }}
+          SMTP_USER:    ${{ secrets.SMTP_USER }}
+          SMTP_PASS:    ${{ secrets.SMTP_PASS }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+        run: python scripts/build.py
+
+      - name: Commit build artifacts
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stage all build outputs.
+          # board-*.html: only files with marker comments will have changed.
+          # sitemap.xml, search-index.json, api/: always regenerated.
+          git add board-*.html sitemap.xml search-index.json api/ || true
+
+          # Only commit if something actually changed.
+          # [skip ci] prevents this commit from re-triggering the push path.
+          git diff --staged --quiet || \
+            git commit -m "auto: build update $(date +'%Y-%m-%d') [skip ci]"
+
+          git push
