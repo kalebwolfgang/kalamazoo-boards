@@ -17,6 +17,9 @@
 name: Build
 
 on:
+  # Manual trigger — use the "Run workflow" button in GitHub Actions.
+  workflow_dispatch:
+
   # Run after every successful scraper run so generated content
   # reflects the latest meeting data.
   workflow_run:
