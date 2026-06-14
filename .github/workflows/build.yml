@@ -45,6 +45,7 @@ jobs:
     # This prevents the build from running when the scraper itself fails.
     if: >
       github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'workflow_run' &&
        github.event.workflow_run.conclusion == 'success')
 
