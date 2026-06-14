@@ -20,6 +20,7 @@
       "slug":               { "type": "string" },
       "legalClassification":{ "type": "string" },
       "hasRecordings":      { "type": "boolean" },
+      "bodyType":           { "type": "string", "enum": ["appointed", "elected"] },
       "meetingSchedule": { "type": "string" },
       "members": {
         "type": "array",
