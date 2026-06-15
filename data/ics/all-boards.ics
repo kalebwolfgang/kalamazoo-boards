@@ -135,6 +135,7 @@ LOCATION:Southside Park
 END:VEVENT
 BEGIN:VEVENT
 UID:TRE-2026-07-07@kalamazoocity-boards
+STATUS:CANCELLED
 DTSTART;TZID=America/Detroit:20260707T140000
 DTEND;TZID=America/Detroit:20260707T160000
 SUMMARY:Tree Committee — City of Kalamazoo
@@ -772,11 +773,25 @@ SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
+UID:HPC-2026-12-09@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261209T180000
+DTEND;TZID=America/Detroit:20261209T200000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
 UID:ERSB-2026-12-09@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261209T080000
 DTEND;TZID=America/Detroit:20261209T090000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:ZBA-2026-12-10@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261210T190000
+DTEND;TZID=America/Detroit:20261210T210000
+SUMMARY:Zoning Board of Appeals — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-12-17@kalamazoocity-boards

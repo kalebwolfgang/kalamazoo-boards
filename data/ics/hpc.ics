@@ -55,4 +55,11 @@ DTEND;TZID=America/Detroit:20261111T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
+BEGIN:VEVENT
+UID:HPC-2026-12-09@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261209T180000
+DTEND;TZID=America/Detroit:20261209T200000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
+END:VEVENT
 END:VCALENDAR

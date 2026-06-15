@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-06-12",
+  "last_updated": "2026-06-15",
   "metadata": {
     "time": "03:00 PM – 05:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-06-15",
-      "display": "Monday, June 15, 2026",
-      "time": "03:00 PM – 05:00 PM",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2665/files/agenda/5166"
-    },
     {
       "date": "2026-07-13",
       "display": "Monday, July 13, 2026",
@@ -38,6 +32,20 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-06-15",
+      "display": "June 15, 2026",
+      "event_id": 2665,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2665/files/agenda/5166",
+      "link_label": "Agenda",
+      "isCancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2665/files/agenda/5166",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2665/overview",
+      "scrapedAt": "2026-06-15T18:43:33.219822+00:00",
+      "meeting_type": "Downtown Development Authority Board"
+    },
     {
       "date": "2026-05-11",
       "display": "May 11, 2026",
