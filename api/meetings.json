@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-06-14",
+  "lastUpdated": "2026-06-15",
   "meetings": [
     {
       "date": "2026-06-15",
       "display": "Monday, June 15, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "3:00 PM – 5:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority",
@@ -13,10 +13,11 @@
     {
       "date": "2026-06-15",
       "display": "Monday, June 15, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "3:00 PM – 5:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
-      "name": "Downtown Economic Growth Authority"
+      "name": "Downtown Economic Growth Authority",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2654/files/agenda/5174"
     },
     {
       "date": "2026-06-15",
@@ -34,7 +35,7 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2740/files/agenda/5157"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2740/files/agenda/5170"
     },
     {
       "date": "2026-06-17",
@@ -60,7 +61,8 @@
       "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "EDC",
       "name": "Economic Development Corporation",
-      "locationChanged": true
+      "locationChanged": true,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2691/files/agenda/5179"
     },
     {
       "date": "2026-06-18",
@@ -143,7 +145,8 @@
       "time": "02:00 PM – 04:00 PM",
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
-      "name": "Tree Committee"
+      "name": "Tree Committee",
+      "isCancelled": true
     },
     {
       "date": "2026-07-08",
@@ -869,10 +872,26 @@
     {
       "date": "2026-12-09",
       "display": "Wednesday, December 9, 2026",
+      "time": "06:00 PM – 08:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "HPC",
+      "name": "Historic Preservation Commission"
+    },
+    {
+      "date": "2026-12-09",
+      "display": "Wednesday, December 9, 2026",
       "time": "8:00 AM – 9:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "ERSB",
       "name": "Employee Retirement System Board of Trustees"
+    },
+    {
+      "date": "2026-12-10",
+      "display": "Thursday, December 10, 2026",
+      "time": "07:00 PM – 09:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "ZBA",
+      "name": "Zoning Board of Appeals"
     },
     {
       "date": "2026-12-17",
