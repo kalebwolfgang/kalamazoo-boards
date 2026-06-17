@@ -1,49 +1,14 @@
 {
-  "lastUpdated": "2026-06-15",
+  "lastUpdated": "2026-06-17",
   "meetings": [
-    {
-      "date": "2026-06-15",
-      "display": "Monday, June 15, 2026",
-      "time": "3:00 PM – 5:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "DDA",
-      "name": "Downtown Development Authority",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2665/files/agenda/5166"
-    },
-    {
-      "date": "2026-06-15",
-      "display": "Monday, June 15, 2026",
-      "time": "3:00 PM – 5:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "DEGA",
-      "name": "Downtown Economic Growth Authority",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2654/files/agenda/5174"
-    },
-    {
-      "date": "2026-06-15",
-      "display": "Monday, June 15, 2026",
-      "time": "11:00 AM",
-      "location": "Main Conference Room at Public Services, 415 Stockbridge Avenue",
-      "abbr": "TRB",
-      "name": "Traffic Board",
-      "isSpecial": true
-    },
-    {
-      "date": "2026-06-16",
-      "display": "Tuesday, June 16, 2026",
-      "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "HDC",
-      "name": "Historic District Commission",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2740/files/agenda/5170"
-    },
     {
       "date": "2026-06-17",
       "display": "Wednesday, June 17, 2026",
       "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
-      "name": "Environmental Concerns Committee"
+      "name": "Environmental Concerns Committee",
+      "isCancelled": true
     },
     {
       "date": "2026-06-18",
@@ -52,7 +17,8 @@
       "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority",
-      "locationChanged": true
+      "locationChanged": true,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2703/files/agenda/5181"
     },
     {
       "date": "2026-06-18",
@@ -62,7 +28,7 @@
       "abbr": "EDC",
       "name": "Economic Development Corporation",
       "locationChanged": true,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2691/files/agenda/5179"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2691/files/agenda/5196"
     },
     {
       "date": "2026-06-18",
@@ -78,7 +44,8 @@
       "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
-      "name": "Building Board of Appeals"
+      "name": "Building Board of Appeals",
+      "isCancelled": true
     },
     {
       "date": "2026-06-18",
@@ -86,7 +53,8 @@
       "time": "06:00 PM – 07:00 PM",
       "location": "Northside Association for Community Development, 612 N Park St",
       "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board"
+      "name": "Northside Cultural Business District Authority Board",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2715/files/agenda/5194"
     },
     {
       "date": "2026-06-23",
