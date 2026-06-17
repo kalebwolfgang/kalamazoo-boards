@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-15",
+  "last_updated": "2026-06-17",
   "metadata": {
     "time": "04:30 PM – 06:30 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -8,7 +8,8 @@
     {
       "date": "2026-06-17",
       "display": "Wednesday, June 17, 2026",
-      "time": "04:30 PM – 06:30 PM"
+      "time": "04:30 PM – 06:30 PM",
+      "isCancelled": true
     },
     {
       "date": "2026-07-15",
@@ -37,6 +38,20 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-06-17",
+      "display": "June 17, 2026",
+      "event_id": 2753,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2753/files/agenda/5191",
+      "link_label": "Agenda",
+      "isCancelled": true,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2753/files/agenda/5191",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2753/overview",
+      "scrapedAt": "2026-06-17T16:57:42.645590+00:00",
+      "meeting_type": "Environmental Concerns Committee - CANCELLED"
+    },
     {
       "date": "2026-05-20",
       "display": "May 20, 2026",

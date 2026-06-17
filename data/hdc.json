@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-06-15",
+  "last_updated": "2026-06-17",
   "metadata": {
     "time": "05:00 PM – 07:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-06-16",
-      "display": "Tuesday, June 16, 2026",
-      "time": "05:00 PM – 07:00 PM",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2740/files/agenda/5170"
-    },
     {
       "date": "2026-07-21",
       "display": "Tuesday, July 21, 2026",
@@ -38,6 +32,22 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-06-16",
+      "display": "June 16, 2026",
+      "event_id": 2740,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2740/files/agenda/5170",
+      "link_label": "Agenda",
+      "isCancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2740/files/agenda/5170",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2740/overview",
+      "scrapedAt": "2026-06-17T16:57:47.942672+00:00",
+      "meeting_type": "Historic District Commission",
+      "youtube_id": "1js6nudG-ns",
+      "youtube_url": "https://www.youtube.com/watch?v=1js6nudG-ns"
+    },
     {
       "date": "2026-05-19",
       "display": "May 19, 2026",
@@ -514,6 +524,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-06-16",
+      "display": "June 16, 2026",
+      "youtube_id": "1js6nudG-ns",
+      "youtube_url": "https://www.youtube.com/watch?v=1js6nudG-ns",
+      "title": "June 16, 2026 Historic District Commission"
+    },
     {
       "date": "2026-05-19",
       "display": "May 19, 2026",

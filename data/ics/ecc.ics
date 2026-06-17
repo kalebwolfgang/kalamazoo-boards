@@ -22,6 +22,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:ECC-2026-06-17@kalamazoocity-boards
+STATUS:CANCELLED
 DTSTART;TZID=America/Detroit:20260617T163000
 DTEND;TZID=America/Detroit:20260617T183000
 SUMMARY:Environmental Concerns Committee — City of Kalamazoo
