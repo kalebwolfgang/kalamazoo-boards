@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-06-17",
+  "last_updated": "2026-06-19",
   "metadata": {
     "time": "12:00 PM – 02:00 PM",
     "location": "TBD"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-06-18",
-      "display": "Thursday, June 18, 2026",
-      "time": "12:00 PM – 02:00 PM"
-    },
     {
       "date": "2026-07-16",
       "display": "Thursday, July 16, 2026",
@@ -42,6 +37,10 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-06-18",
+      "display": "June 18, 2026"
+    },
     {
       "date": "2026-05-21",
       "display": "May 21, 2026"

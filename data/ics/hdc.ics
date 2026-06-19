@@ -55,4 +55,11 @@ DTEND;TZID=America/Detroit:20261117T190000
 SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
+BEGIN:VEVENT
+UID:HDC-2026-12-15@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261215T170000
+DTEND;TZID=America/Detroit:20261215T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
 END:VCALENDAR

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-17",
+  "last_updated": "2026-06-19",
   "meetings": [
     {
       "date": "2026-05-05",
@@ -244,36 +244,35 @@
     {
       "date": "2026-06-17",
       "display": "Wednesday, June 17, 2026",
-      "time": "04:30 PM – 06:30 PM",
+      "time": "4:30 PM – 6:30 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2753/files/agenda/5191",
       "isCancelled": true
     },
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "07:45 AM – 09:30 AM",
-      "location": "Community Room at City Hall, 241 W. South Street",
+      "time": "7:45 AM – 9:30 AM",
+      "location": "City Hall, 241 W. South St",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority",
-      "locationChanged": true,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2703/files/agenda/5181"
     },
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "07:45 AM – 09:30 AM",
-      "location": "Community Room at City Hall, 241 W. South Street",
+      "time": "7:45 AM – 9:30 AM",
+      "location": "City Hall, 241 W. South St",
       "abbr": "EDC",
       "name": "Economic Development Corporation",
-      "locationChanged": true,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2691/files/agenda/5196"
     },
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "12:00 PM – 02:00 PM",
+      "time": "12:00 PM – 2:00 PM",
       "location": "Milham Park Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -281,16 +280,7 @@
     {
       "date": "2026-06-18",
       "display": "Thursday, June 18, 2026",
-      "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "BBA",
-      "name": "Building Board of Appeals",
-      "isCancelled": true
-    },
-    {
-      "date": "2026-06-18",
-      "display": "Thursday, June 18, 2026",
-      "time": "06:00 PM – 07:00 PM",
+      "time": "6:00 PM – 7:00 PM",
       "location": "Northside Association for Community Development, 612 N Park St",
       "abbr": "NCBDA",
       "name": "Northside Cultural Business District Authority Board",
@@ -544,7 +534,7 @@
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "08:00 AM – 10:00 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
@@ -552,7 +542,7 @@
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "08:00 AM – 10:00 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
@@ -672,7 +662,7 @@
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "08:00 AM – 10:00 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
@@ -680,7 +670,7 @@
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "08:00 AM – 10:00 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
@@ -808,7 +798,7 @@
     {
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "08:00 AM – 10:00 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
@@ -816,7 +806,7 @@
     {
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "08:00 AM – 10:00 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
@@ -976,7 +966,7 @@
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "08:00 AM – 10:00 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
@@ -984,7 +974,7 @@
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
-      "time": "07:45 AM – 09:30 AM",
+      "time": "08:00 AM – 10:00 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
@@ -1100,6 +1090,14 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
+    },
+    {
+      "date": "2026-12-15",
+      "display": "Tuesday, December 15, 2026",
+      "time": "05:00 PM – 07:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "HDC",
+      "name": "Historic District Commission"
     },
     {
       "date": "2026-12-17",
