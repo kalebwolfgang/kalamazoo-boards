@@ -49,9 +49,7 @@
   </div>
 </div>
 
-<div class="page-header"><!-- GENERATED_BODY_START --><!-- GENERATED_BODY_END --></div>
-
-<div class="gov-strip"><div class="gov-inner"></div></div>
+<!-- GENERATED_BODY_START --><!-- GENERATED_BODY_END -->
 
 <div class="board-body">
   <div class="acc-list">
@@ -148,7 +146,13 @@
 <div class="members-section">
   <div class="members-inner">
     <div class="members-heading">Board Members</div>
-    <!-- GENERATED_TABLE_START --><!-- GENERATED_TABLE_END -->
+    <div class="members-table-outer" id="members-table-outer">
+      <div class="members-table-wrap" id="members-table-wrap">
+        <table class="members-table">
+          <!-- GENERATED_TABLE_START --><!-- GENERATED_TABLE_END -->
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 <!-- renderStaffLiaison() appends staff note after .members-section -->
@@ -199,7 +203,7 @@ const BOARD = {
     { value: '2nd Tuesday Monthly', label: 'Meeting Schedule' },
     { value: 'Up to 12 Members',    label: 'Board Size'       },
     { value: '3 Years',             label: 'Term Length'      }
-    /* Slot 4 \u2014 Seat Status \u2014 injected by build.py */
+    /* Slot 4 \u2014 Seat Status \u2014 computed at runtime by renderGovStrip() */
   ],
   meeting: {
     note:     'Meets the 2nd Tuesday of each month at 6:00 p.m. All meetings open to the public.',
