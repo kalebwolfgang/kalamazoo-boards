@@ -1,3 +1,4 @@
+
 {
   "abbr": "CPSRAB",
   "accordions": [
@@ -182,26 +183,6 @@
               "desc": "New members complete an orientation session within their first 90 days covering public safety policies, the complaint process, police authority, and use of force. Members must also attend the Kalamazoo Regional Citizens Academy within their first year of service."
             }
           ]
-        },
-        {
-          "type": "field",
-          "label": "Citizenship",
-          "value": "U.S. citizen or legal U.S. resident required."
-        },
-        {
-          "type": "field",
-          "label": "Residency",
-          "value": "Full-time City of Kalamazoo residents have first priority. Non-residents with identifiable interests in the City are eligible."
-        },
-        {
-          "type": "field",
-          "label": "Time Commitment",
-          "value": "Approximately 5–8 hours per calendar quarter: monthly evening meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year."
-        },
-        {
-          "type": "field",
-          "label": "Terms",
-          "value": "3-year terms, limited to 2 consecutive terms. A 1-year hiatus is required before reappointment."
         }
       ]
     }
