@@ -601,8 +601,8 @@ footer a:hover { color: var(--gold-lt); }
  
 /* ── FEEDBACK / REPORT ERROR SECTION ── */
 .feedback-bar {
-  background: var(--cream);
-  border-top: 3px solid var(--navy);
+  background: var(--white);
+  border-top: 3px solid var(--gold);
   border-bottom: 1px solid var(--border);
   padding: clamp(24px, 4vw, 36px) var(--pad-x);
 }
