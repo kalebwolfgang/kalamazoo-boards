@@ -337,7 +337,10 @@ function renderSpecialCta() {
         <p class="special-cta-desc">${cta.desc}</p>
       </div>
       ${cta.btnUrl
-        ? `<div class="special-cta-action"><a class="special-cta-btn" href="${cta.btnUrl}" target="_blank" rel="noopener">${cta.btnText || 'Learn More \u2192'}</a></div>`
+        ? `<div class="special-cta-action">
+            <a class="special-cta-btn" href="${cta.btnUrl}" target="_blank" rel="noopener">${cta.btnText || 'Learn More \u2192'}</a>
+            ${cta.btnNote ? `<div class="special-cta-note">${cta.btnNote}</div>` : ''}
+           </div>`
         : ''}
     </div>`;
  
@@ -804,17 +807,37 @@ function renderUpcomingMeetings(data) {
  
   window._upcomingMeetings = upcoming;
  
+  /* Filled map pin — matches calendar.html modal exactly */
+  const SVG_PIN_FILLED = `<svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>`;
+  const SVG_CANCEL     = `<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>`;
+  const SVG_STAR       = `<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+  const SVG_PIN_BANNER = `<svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>`;
+ 
+  const BANNER = (bg, border, color, icon, text) =>
+    `<div style="background:${bg};border:1px solid ${border};border-radius:3px;padding:8px 12px;margin-top:8px;font-size:12px;font-weight:700;color:${color};letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">${icon}${text}</div>`;
+ 
   el.innerHTML = upcoming.slice(0, 3).map((m, i) => {
-    const cancelled = m.isCancelled || m.cancelled || false;
+    const cancelled  = m.isCancelled  || m.cancelled      || false;
+    const locChanged = m.isLocationChanged || m.locationChanged || false;
+    const loc        = m.location || (BOARD.meeting && BOARD.meeting.location) || '';
+    const mapsUrl    = BOARD.meeting && BOARD.meeting.mapsUrl ? BOARD.meeting.mapsUrl : null;
+    const locIsTBD   = loc === 'Location TBD';
+    const locColor   = locChanged ? '#92400e' : 'var(--navy-light)';
+    const locLinkable = mapsUrl && !locIsTBD && !cancelled;
     return `
       <div class="meeting-item${cancelled ? ' meeting-canceled' : ''}">
         ${i === 0 ? '<span class="next-badge">Next</span>' : ''}
         <div class="meeting-date">${m.display || m.date}</div>
-        ${m.time     ? `<div class="meeting-time">${m.time}</div>` : ''}
-        ${m.location ? `<div class="meeting-time" style="margin-top:3px;font-size:13px">${m.location}</div>` : ''}
-        ${cancelled  ? '<div style="margin-top:6px;font-size:11px;font-weight:700;color:#dc2626;letter-spacing:0.06em;text-transform:uppercase">Cancelled</div>' : ''}
-        ${m.isSpecialSession ? '<div style="margin-top:6px;background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:5px 9px;font-size:11px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase">Special Session</div>' : ''}
-        ${(m.isLocationChanged || m.locationChanged) ? '<div style="margin-top:6px;background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:5px 9px;font-size:11px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase">Location Changed</div>' : ''}
+        ${m.time ? `<div class="meeting-time">${m.time}</div>` : ''}
+        ${loc ? `<div style="margin-top:6px">
+          ${locChanged ? `<span style="display:block;font-size:11px;font-weight:600;color:#92400e;margin-bottom:2px;">New meeting location:</span>` : ''}
+          ${locLinkable
+            ? `<a href="${mapsUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:14px;color:${locColor};text-decoration:none;font-weight:500">${SVG_PIN_FILLED} ${loc}</a>`
+            : `<span style="display:inline-flex;align-items:center;gap:5px;font-size:14px;color:${locColor}${locIsTBD ? ';font-style:italic;opacity:0.7' : ''}">${SVG_PIN_FILLED} ${loc}</span>`}
+        </div>` : ''}
+        ${cancelled  ? BANNER('#fee2e2','#fca5a5','#dc2626',SVG_CANCEL,'Meeting Cancelled') : ''}
+        ${m.isSpecialSession ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_STAR,'Special Session') : ''}
+        ${locChanged  ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_PIN_BANNER,'Location Changed') : ''}
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;align-items:center">
           ${m.agenda_url && !cancelled
             ? `<a href="${m.agenda_url}" target="_blank" rel="noopener" style="font-size:13px;color:var(--navy-light);text-decoration:none;display:inline-flex;align-items:center;gap:4px">${SVG_EXT} Agenda</a>`
