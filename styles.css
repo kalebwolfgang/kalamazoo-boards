@@ -598,22 +598,39 @@ footer a:hover { color: var(--gold-lt); }
 /* ── APPLY SECTION (legacy — pre-Task 9 boards) ── */
 .apply-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
  
-/* ── FEEDBACK / REPORT ERROR BAR ── */
+/* ── FEEDBACK / REPORT ERROR SECTION ── */
 .feedback-bar {
-  background: var(--cream-dk);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 22px var(--pad-x);
+  background: var(--white);
+  border-top: 3px solid var(--navy);
+  padding: clamp(24px, 4vw, 36px) var(--pad-x);
 }
 .feedback-bar-inner {
   max-width: 1400px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: center;
-  gap: 10px; flex-wrap: wrap;
-  font-size: 15px; color: var(--body);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
 }
-.feedback-link { color: var(--navy-light); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
-.feedback-link:hover { text-decoration: underline; }
-.feedback-link--soon { color: var(--muted); font-weight: 500; cursor: default; opacity: 0.8; }
+.feedback-content {
+  display: flex; align-items: flex-start; gap: 14px; flex: 1; min-width: 0;
+}
+.feedback-heading {
+  display: block; font-size: 16px; font-weight: 700;
+  color: var(--navy); margin-bottom: 4px;
+}
+.feedback-desc {
+  font-size: 14px; color: var(--body); line-height: 1.6;
+}
+.feedback-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--navy); color: white; text-decoration: none;
+  padding: 11px 22px; border-radius: 3px;
+  font-size: 14px; font-weight: 600; white-space: nowrap; flex-shrink: 0;
+  transition: background 0.15s;
+}
+.feedback-btn:hover { background: var(--navy-mid); color: white; }
+.feedback-btn--soon {
+  background: var(--cream-dk); color: var(--muted);
+  border: 1px solid var(--border); cursor: default;
+}
  
 /* ── EMAIL SUBSCRIBE CARD (renders when BOARD.subscribeEnabled = true) ── */
 .subscribe-desc { font-size: 14px; color: var(--body); line-height: 1.6; margin-bottom: 14px; }
