@@ -78,8 +78,14 @@ let pendingCalendarAction = null;
 
   /* 3. TODO Task 16: injectPWATags(); */
 
-  /* 4. Gov strip */
+  /* 4. Gov strip + synchronous page sections */
   renderGovStrip();
+  renderApplyToServe();
+  renderSpecialCta();
+  renderMembersSubhead();
+  renderStaffLiaison();
+  renderDocuments();
+  renderExternalLinks();
 
   /* 5. Accordion handlers (must run before deep link) */
   initAccordions();
