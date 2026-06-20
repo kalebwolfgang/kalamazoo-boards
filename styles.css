@@ -1,4 +1,3 @@
-
 /* =============================================================
    Kalamazoo Boards & Commissions — Shared Stylesheet
    Task 3: Extracted from inline CSS across all pages
@@ -584,6 +583,36 @@ footer a:hover { color: var(--gold-lt); }
  
 /* ── APPLY SECTION (legacy — pre-Task 9 boards) ── */
 .apply-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+ 
+/* ── FEEDBACK / REPORT ERROR BAR ── */
+.feedback-bar {
+  max-width: 1400px; margin: 0 auto;
+  padding: 20px var(--pad-x);
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--muted);
+  border-top: 1px solid var(--border-lt);
+}
+.feedback-link { color: var(--navy-light); font-weight: 500; text-decoration: none; }
+.feedback-link:hover { text-decoration: underline; }
+.feedback-link--soon { color: var(--muted); opacity: 0.7; cursor: default; }
+ 
+/* ── EMAIL SUBSCRIBE CARD (renders when BOARD.subscribeEnabled = true) ── */
+.subscribe-desc { font-size: 14px; color: var(--body); line-height: 1.6; margin-bottom: 14px; }
+.subscribe-form { display: flex; flex-direction: column; gap: 8px; }
+.subscribe-input {
+  width: 100%; padding: 9px 12px;
+  border: 1px solid var(--border); border-radius: 3px;
+  font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; color: var(--body);
+  background: var(--white);
+}
+.subscribe-input:focus { outline: none; border-color: var(--navy-light); }
+.subscribe-input::placeholder { color: var(--muted); }
+.subscribe-btn {
+  background: var(--navy); color: var(--gold-lt); border: none; border-radius: 3px;
+  padding: 10px 16px; font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.15s;
+}
+.subscribe-btn:hover { background: var(--navy-mid); }
  
 /* ──────────────────────────────────────────────────
    PRINT STYLES
