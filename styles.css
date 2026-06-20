@@ -446,6 +446,49 @@ footer a:hover { color: var(--gold-lt); }
   .cal-disclaimer-btn { width: 100%; padding: 13px 24px; }
 }
 
+/* ── VACANCY ALERT ── */
+.vacancy-alert {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fee2e2; border: 1px solid #fca5a5; border-radius: 3px;
+  padding: 6px 12px; font-size: 13px; font-weight: 600; color: #991b1b;
+  margin-bottom: 16px;
+}
+.vacancy-alert a { color: #991b1b; text-decoration: underline; }
+
+/* ── SPECIAL CTA ── */
+.special-cta { background: var(--navy); border-top: 3px solid var(--gold); }
+.special-cta-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: clamp(24px, 4vw, 40px) var(--pad-x);
+  display: flex; flex-direction: column; gap: 24px;
+}
+@media (min-width: 800px) {
+  .special-cta-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 48px; }
+}
+.special-cta-eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--gold-lt); margin-bottom: 8px; }
+.special-cta-heading { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3.5vw, 26px); font-weight: 600; color: white; margin-bottom: 10px; line-height: 1.2; }
+.special-cta-desc { font-size: clamp(15px, 2.5vw, 17px); color: rgba(255,255,255,0.6); max-width: 620px; line-height: 1.65; }
+.special-cta-btn { display: inline-block; background: var(--gold); color: var(--navy); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; transition: background 0.15s; white-space: nowrap; flex-shrink: 0; align-self: flex-start; }
+.special-cta-btn:hover { background: var(--gold-lt); }
+
+/* ── EXTERNAL LINKS (sidebar card) ── */
+.ext-link-item { padding: 12px 0; border-bottom: 1px solid var(--border-lt); }
+.ext-link-item:last-child { border-bottom: none; padding-bottom: 0; }
+.ext-link-url { display: inline-flex; align-items: center; gap: 5px; font-size: 14px; font-weight: 600; color: var(--navy-light); text-decoration: none; transition: color 0.15s; }
+.ext-link-url:hover { color: var(--gold); }
+.ext-link-sub { font-size: 13px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+
+/* ── KEY DOCUMENTS LINKS ── */
+.doc-link { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: var(--navy-light); font-size: 15px; transition: color 0.15s; }
+.doc-link:last-child { border-bottom: none; padding-bottom: 0; }
+.doc-link:hover { color: var(--gold); }
+.doc-link svg { flex-shrink: 0; color: var(--muted); }
+.doc-link:hover svg { color: var(--gold); }
+.pdf-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 2px; margin-left: auto; flex-shrink: 0; }
+
+/* ── APPLY SECTION ── */
+.apply-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
 /* ──────────────────────────────────────────────────
    PRINT STYLES
    ────────────────────────────────────────────────── */
