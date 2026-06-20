@@ -304,21 +304,20 @@ footer a:hover { color: var(--gold-lt); }
 .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; color: var(--navy-light); text-decoration: none; }
 .map-link:hover { text-decoration: underline; }
  
-/* Watch Live — solid red, unmissable */
+/* Watch Live — solid red, sits at top of sidebar card above meeting list */
 .watch-live-btn {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 16px;
+  padding: 14px 18px;
   background: #dc2626;
-  border-radius: 3px;
   color: white;
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  margin-top: 20px;
   line-height: 1.3;
   transition: background 0.15s;
+  border-radius: 0;        /* flush with card edges */
 }
 .watch-live-btn:hover { background: #b91c1c; color: white; }
 .watch-live-sub {
@@ -330,28 +329,25 @@ footer a:hover { color: var(--gold-lt); }
   letter-spacing: 0.01em;
 }
  
-/* Add to Calendar — real button, not a ghost link */
+/* Add to Calendar — solid green, clearly an action button */
 .add-cal-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   font-size: 14px;
-  font-weight: 500;
-  color: var(--navy-light);
-  background: rgba(37,150,190,0.07);
-  border: 1px solid rgba(37,150,190,0.22);
+  font-weight: 600;
+  color: white;
+  background: var(--green);
+  border: none;
   border-radius: 3px;
-  padding: 7px 11px;
+  padding: 9px 14px;
   cursor: pointer;
   font-family: 'IBM Plex Sans', sans-serif;
   white-space: nowrap;
-  transition: background 0.15s, border-color 0.15s;
+  line-height: 1;
+  transition: background 0.15s;
 }
-.add-cal-btn:hover {
-  background: rgba(37,150,190,0.13);
-  border-color: rgba(37,150,190,0.4);
-  color: var(--navy);
-}
+.add-cal-btn:hover { background: var(--green-mid); color: white; }
  
 /* ── BOTTOM CARDS GRID ──
    4-card layout at 1100px+:
@@ -617,3 +613,4 @@ footer a:hover { color: var(--gold-lt); }
   .h-scroll-track { display: none; }
   .staff-note { background: white; border: 1px solid #ccc; }
 }
+ 
