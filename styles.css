@@ -1,4 +1,3 @@
-
 /* =============================================================
    Kalamazoo Boards & Commissions — Shared Stylesheet
    Task 3: Extracted from inline CSS across all pages
@@ -304,6 +303,10 @@ footer a:hover { color: var(--gold-lt); }
 .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; color: var(--navy-light); text-decoration: none; }
 .map-link:hover { text-decoration: underline; }
  
+/* Meeting info bar — schedule note between gov strip and Watch Live banner */
+.meeting-info-bar { background: var(--cream-dk); border-bottom: 1px solid var(--border-lt); }
+.meeting-info-inner { max-width: 1400px; margin: 0 auto; padding: 11px var(--pad-x); display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--body); line-height: 1.5; }
+ 
 /* Watch Live — full-width bar between gov strip and board body */
 .watch-live-bar {
   max-width: 1400px;
@@ -599,39 +602,44 @@ footer a:hover { color: var(--gold-lt); }
 /* ── APPLY SECTION (legacy — pre-Task 9 boards) ── */
 .apply-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
  
-/* ── FEEDBACK / REPORT ERROR SECTION ── */
+/* ── FEEDBACK / REPORT ERROR — styled like the grant CTA section ── */
 .feedback-bar {
-  background: var(--white);
+  background: var(--navy);
   border-top: 3px solid var(--gold);
-  border-bottom: 1px solid var(--border);
-  padding: clamp(24px, 4vw, 36px) var(--pad-x);
+  padding: clamp(24px, 4vw, 40px) var(--pad-x);
 }
 .feedback-bar-inner {
   max-width: 1400px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 24px; flex-wrap: wrap;
+  display: flex; flex-direction: column; gap: 24px;
 }
-.feedback-content {
-  display: flex; align-items: flex-start; gap: 14px; flex: 1; min-width: 0;
+@media (min-width: 800px) {
+  .feedback-bar-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 48px; }
+}
+.feedback-eyebrow {
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.09em; color: var(--gold-lt); margin-bottom: 8px;
 }
 .feedback-heading {
-  display: block; font-size: 16px; font-weight: 700;
-  color: var(--navy); margin-bottom: 4px;
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 3.5vw, 26px); font-weight: 600;
+  color: white; margin-bottom: 10px; line-height: 1.2;
 }
 .feedback-desc {
-  font-size: 14px; color: var(--body); line-height: 1.6;
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 620px;
 }
 .feedback-btn {
   display: inline-flex; align-items: center; gap: 6px;
-  background: var(--navy); color: white; text-decoration: none;
-  padding: 11px 22px; border-radius: 3px;
-  font-size: 14px; font-weight: 600; white-space: nowrap; flex-shrink: 0;
-  transition: background 0.15s;
+  background: var(--gold); color: var(--navy); text-decoration: none;
+  padding: 14px 32px; border-radius: 3px;
+  font-size: 16px; font-weight: 700; white-space: nowrap; flex-shrink: 0;
+  transition: background 0.15s; align-self: flex-start;
 }
-.feedback-btn:hover { background: var(--navy-mid); color: white; }
+.feedback-btn:hover { background: var(--gold-lt); color: var(--navy); }
 .feedback-btn--soon {
-  background: var(--cream-dk); color: var(--muted);
-  border: 1px solid var(--border); cursor: default;
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.12); cursor: default;
 }
  
 /* ── EMAIL SUBSCRIBE CARD (renders when BOARD.subscribeEnabled = true) ── */
