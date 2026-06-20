@@ -386,6 +386,15 @@ footer a:hover { color: var(--gold-lt); }
 .bottom-card.scrollable-card { overflow: hidden; }
 .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .bottom-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+ 
+/* Export icon button — appears in card header when BOARD.exportEnabled is true */
+.export-icon-btn {
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px; color: rgba(255,255,255,0.6); cursor: pointer;
+  padding: 3px 7px; display: inline-flex; align-items: center; margin-left: 6px;
+  transition: background 0.15s, color 0.15s; line-height: 1;
+}
+.export-icon-btn:hover { background: rgba(255,255,255,0.22); color: white; }
 .card-count-pill { margin-left: auto; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); white-space: nowrap; }
  
 /* Card filter bar */
