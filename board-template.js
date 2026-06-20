@@ -297,7 +297,7 @@ function renderSubscribeCta() {
   card.innerHTML = `
     <div class="sidebar-card-header">${SVG_BELL} Stay Updated</div>
     <div class="sidebar-card-body">
-      <p class="subscribe-desc">Get notified when new agendas are posted or board information changes.</p>
+      <p class="subscribe-desc">Meeting reminders, minutes and recordings after each session, and instant alerts for cancellations or location changes.</p>
       <div class="subscribe-form">
         <input type="email" class="subscribe-input" placeholder="your@email.com" aria-label="Email address">
         <button class="subscribe-btn" type="button">Subscribe \u2192</button>
@@ -317,8 +317,10 @@ function renderSubscribeCta() {
    form is live.
    ═══════════════════════════════════════════════════════════════ */
 function renderFeedbackBar() {
-  const footer = document.querySelector('footer');
-  if (!footer) return;
+  const membersSection = document.querySelector('.members-section');
+  const footer         = document.querySelector('footer');
+  const target         = membersSection || footer;
+  if (!target) return;
  
   const SVG_EDIT = `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`;
  
@@ -340,7 +342,7 @@ function renderFeedbackBar() {
       ${ctaHtml}
     </div>`;
  
-  footer.insertAdjacentElement('beforebegin', bar);
+  target.insertAdjacentElement('beforebegin', bar);
 }
  
  
