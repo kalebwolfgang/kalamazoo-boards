@@ -429,6 +429,9 @@ function renderExportSection() {
         <button class="export-dl-btn" id="export-recordings-btn" disabled>
           Recordings <span class="export-count" id="export-recordings-count">loading\u2026</span>
         </button>
+        <button class="export-dl-btn export-dl-btn--all" id="export-all-btn" disabled>
+          ${SVG_DOWNLOAD} Complete Record <span class="export-count" id="export-all-count">loading\u2026</span>
+        </button>
       </div>
     </div>`;
  
@@ -515,6 +518,99 @@ function downloadBoardHTML(type, data) {
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
   a.href = url; a.download = `${abbr}-${type}.html`; a.style.display = 'none';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+ 
+/* Activates the Complete Record button once BOTH data sets have loaded */
+function tryActivateCompleteBtn() {
+  const minutes    = window._minutesData;
+  const recordings = window._recordingsData;
+  if (!minutes || !recordings) return;
+ 
+  const btn   = document.getElementById('export-all-btn');
+  const count = document.getElementById('export-all-count');
+  if (!btn || !btn.disabled) return;
+  if (count) count.textContent = `${minutes.length + recordings.length} total`;
+  btn.disabled = false;
+  btn.addEventListener('click', () => downloadCompleteHTML(minutes, recordings));
+}
+ 
+function downloadCompleteHTML(minutes, recordings) {
+  const dateFmt = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  const abbr    = BOARD.abbr || '';
+ 
+  const css = `
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#f5f2ec;color:#374151}
+    .hdr{background:#0d4f63;padding:22px 32px;border-bottom:3px solid #c9921a}
+    .hdr h1{color:#fff;font-size:20px;font-weight:700;margin-bottom:4px}
+    .hdr p{color:rgba(255,255,255,.55);font-size:13px}
+    .wrap{max-width:960px;margin:0 auto;padding:28px 24px 56px}
+    .meta{font-size:12px;color:#9ca3af;margin-bottom:24px}
+    .section{margin-bottom:48px}
+    .section-title{font-size:16px;font-weight:700;color:#0d4f63;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #c9921a}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+    th{background:#0d4f63;color:rgba(255,255,255,.72);padding:11px 16px;text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+    td{padding:11px 16px;border-bottom:1px solid #eee9e0;font-size:14px;vertical-align:middle}
+    tr:last-child td{border-bottom:none}
+    a{color:#2596be;text-decoration:none}
+    a:hover{text-decoration:underline;color:#0d4f63}
+    .dim{color:#d1d5db}
+    .badge{display:inline-block;background:#fee2e2;color:#991b1b;font-size:11px;font-weight:700;padding:2px 8px;border-radius:2px}`;
+ 
+  const minuteRows = minutes.map(m => {
+    const cancelled  = m.isCancelled || m.cancelled;
+    const minutesUrl = m.minutes_url || m.pdf_url || '';
+    const agendaUrl  = m.agenda_url || '';
+    return `<tr>
+      <td>${m.display || m.date}</td>
+      <td>${minutesUrl ? `<a href="${minutesUrl}" target="_blank">Download PDF</a>` : '<span class="dim">\u2014</span>'}</td>
+      <td>${agendaUrl  ? `<a href="${agendaUrl}"  target="_blank">Download PDF</a>` : '<span class="dim">\u2014</span>'}</td>
+      <td>${cancelled  ? '<span class="badge">Cancelled</span>' : ''}</td></tr>`;
+  }).join('');
+ 
+  const recordingRows = recordings.map(r => {
+    const url = r.youtube_url || (r.youtube_id ? `https://youtube.com/watch?v=${r.youtube_id}` : '');
+    return `<tr>
+      <td>${r.display || r.date}</td>
+      <td>${r.title || r.display || r.date}</td>
+      <td>${url ? `<a href="${url}" target="_blank">Watch on YouTube</a>` : '<span class="dim">\u2014</span>'}</td></tr>`;
+  }).join('');
+ 
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>${abbr} \u2014 Complete Board Record</title>
+  <style>${css}</style>
+</head>
+<body>
+  <div class="hdr">
+    <h1>${abbr} \u2014 Complete Board Record</h1>
+    <p>City of Kalamazoo Boards &amp; Commissions</p>
+  </div>
+  <div class="wrap">
+    <p class="meta">Exported ${dateFmt} \u00b7 ${minutes.length} minutes + ${recordings.length} recordings \u00b7 Source: publicsense.net</p>
+    <div class="section">
+      <div class="section-title">Minutes &amp; Agendas</div>
+      <table><thead><tr><th>Date</th><th>Minutes</th><th>Agenda</th><th>Notes</th></tr></thead>
+      <tbody>${minuteRows}</tbody></table>
+    </div>
+    <div class="section">
+      <div class="section-title">Meeting Recordings</div>
+      <table><thead><tr><th>Date</th><th>Title</th><th>YouTube</th></tr></thead>
+      <tbody>${recordingRows}</tbody></table>
+    </div>
+  </div>
+</body>
+</html>`;
+ 
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = `${abbr}-complete-record.html`; a.style.display = 'none';
   document.body.appendChild(a); a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
@@ -1155,6 +1251,7 @@ function renderMinutes(data) {
       btn.disabled = false;
       btn.addEventListener('click', () => downloadBoardHTML('minutes', window._minutesData || []));
     }
+    tryActivateCompleteBtn();
   }
 }
  
@@ -1241,6 +1338,7 @@ function renderRecordings(data) {
       btn.disabled = false;
       btn.addEventListener('click', () => downloadBoardHTML('recordings', window._recordingsData || []));
     }
+    tryActivateCompleteBtn();
   }
 }
  
