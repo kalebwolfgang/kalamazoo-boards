@@ -673,6 +673,10 @@ function renderBodyItems(items) {
     } else if (item.type === 'list') {
       flushFields();
       out.push(`<ul>${(item.items || []).map(li => `<li>${li}</li>`).join('')}</ul>`);
+    } else if (item.type === 'heading') {
+      flushFields();
+      out.push(`<h4>${item.text}</h4>`);
+    }
     } else if (item.type === 'field') {
       fieldGroup.push(
         `<div class="req-card">` +
