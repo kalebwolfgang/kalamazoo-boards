@@ -1,0 +1,187 @@
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kalebwolfgang.github.io/kalamazoo-boards/schemas/content.schema.json",
+  "title": "Kalamazoo Boards — content/{abbr}.json",
+  "description": "Accordion text content and structured metadata for a single board page.",
+  "type": "object",
+  "required": [
+    "abbr",
+    "accordions"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "abbr": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accordions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "anchor"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          },
+          "open": {
+            "type": "boolean"
+          },
+          "body": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/bodyItem"
+            }
+          }
+        }
+      }
+    },
+    "howToJoin": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "appointingAuthority": {
+          "type": "string"
+        },
+        "eligibility": {
+          "type": "string"
+        },
+        "residency": {
+          "type": "string"
+        },
+        "meetingFrequency": {
+          "type": "string"
+        },
+        "timeCommitment": {
+          "type": "string"
+        }
+      }
+    },
+    "howToRun": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "electionCycle": {
+          "type": "string"
+        },
+        "nextElectionDate": {
+          "type": "string"
+        },
+        "candidateFilingDeadline": {
+          "type": "string"
+        },
+        "filingRequirements": {
+          "type": "string"
+        },
+        "qualifyingPetition": {
+          "type": "string"
+        },
+        "electionsInfoUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "publicCommentGuide": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "remote": {
+          "type": "string"
+        },
+        "signUp": {
+          "type": "string"
+        },
+        "timeLimit": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "bodyItem": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "text"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "paragraph"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "items"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "list"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "label",
+            "value"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "field"
+            },
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "text"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "heading"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
