@@ -306,7 +306,7 @@ function renderSubscribeCta() {
  
   /* TODO Task 20: wire up submit handler to email platform */
  
-  sidebar.appendChild(card);
+  sidebar.prepend(card);
 }
  
  
@@ -320,20 +320,24 @@ function renderFeedbackBar() {
   const footer = document.querySelector('footer');
   if (!footer) return;
  
-  const SVG_FLAG = `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>`;
+  const SVG_EDIT = `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`;
+ 
+  const ctaHtml = BOARD.feedbackUrl
+    ? `<a class="feedback-btn" href="${BOARD.feedbackUrl}" target="_blank" rel="noopener">Report an Error ${SVG_EXT}</a>`
+    : `<span class="feedback-btn feedback-btn--soon">Report an Error &mdash; Coming Soon</span>`;
  
   const bar = document.createElement('div');
   bar.className = 'feedback-bar';
- 
-  const actionHtml = BOARD.feedbackUrl
-    ? `<a class="feedback-link" href="${BOARD.feedbackUrl}" target="_blank" rel="noopener">Report it ${SVG_EXT}</a>`
-    : `<span class="feedback-link feedback-link--soon">Reporting form coming soon</span>`;
- 
   bar.innerHTML = `
     <div class="feedback-bar-inner">
-      ${SVG_FLAG}
-      <span>See something wrong or out of date?</span>
-      ${actionHtml}
+      <div class="feedback-content">
+        ${SVG_EDIT}
+        <div>
+          <strong class="feedback-heading">Noticed something out of date?</strong>
+          <span class="feedback-desc">Board membership, contact info, and meeting details can change. When you flag an error, we fix it &mdash; keeping this resource accurate for everyone.</span>
+        </div>
+      </div>
+      ${ctaHtml}
     </div>`;
  
   footer.insertAdjacentElement('beforebegin', bar);
