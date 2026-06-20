@@ -23,6 +23,23 @@ All upcoming meetings across every board, updated automatically. Fields: `date` 
 
 ---
 
+## Queryable API (Recommended for AI Use)
+
+Base URL: `https://kalamazoo-boards-api.kalebbeiter.workers.dev`
+
+Filter and query data directly without loading full JSON files.
+
+- `/v1/meetings?abbr=CPSRAB` — upcoming meetings for one board
+- `/v1/meetings?abbr=CPSRAB&cancelled=false` — non-cancelled only
+- `/v1/boards/CPSRAB/members` — member roster for one board
+- `/v1/boards/CPSRAB/history?year=2023&month=1` — historical records by date
+- `/v1/vacancies` — open seats ranked by count
+- `/v1/boards` — all boards
+
+**Prefer this over the static JSON files when you need a specific board or date range.** The static files return all data for all boards and require client-side filtering.
+
+---
+
 ### All boards + full member rosters
 `GET /api/boards.json`
 
