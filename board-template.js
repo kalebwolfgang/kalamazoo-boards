@@ -671,7 +671,7 @@ function renderApplyToServe() {
       </div>
       <div>
         <a class="apply-standalone-btn"
-           href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission"
+           href="${BOARD.applyUrl || 'https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission'}"
            target="_blank" rel="noopener">Apply to Serve \u2192</a>
         <div class="subscribe-slot" style="display:none;margin-top:12px"></div>
       </div>
