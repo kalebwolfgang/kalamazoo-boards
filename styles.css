@@ -1,3 +1,4 @@
+
 /* =============================================================
    Kalamazoo Boards & Commissions — Shared Stylesheet
    Task 3: Extracted from inline CSS across all pages
@@ -390,14 +391,14 @@ footer a:hover { color: var(--gold-lt); }
 .export-section { max-width: 1400px; margin: 0 auto; padding: clamp(16px, 2.5vw, 24px) var(--pad-x) 0; }
 .export-section-inner {
   background: var(--white); border: 1px solid var(--border); border-radius: 4px;
-  padding: 14px 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  padding: 14px 20px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
 }
 .export-label {
   display: flex; align-items: center; gap: 7px;
   font-size: 13px; font-weight: 600; color: var(--muted);
   text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0;
 }
-.export-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.export-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .export-dl-btn {
   display: inline-flex; align-items: center; gap: 7px;
   background: none; border: 1px solid var(--border); border-radius: 3px;
@@ -407,7 +408,10 @@ footer a:hover { color: var(--gold-lt); }
 }
 .export-dl-btn:hover:not(:disabled) { background: var(--cream); border-color: var(--navy-light); color: var(--navy); }
 .export-dl-btn:disabled { opacity: 0.45; cursor: default; }
+.export-dl-btn--all { background: var(--navy); color: var(--gold-lt); border-color: var(--navy); }
+.export-dl-btn--all:hover:not(:disabled) { background: var(--navy-mid); border-color: var(--navy-mid); color: white; }
 .export-count { color: var(--muted); font-weight: 400; margin-left: 3px; }
+.export-dl-btn--all .export-count { color: rgba(255,255,255,0.5); }
 .card-count-pill { margin-left: auto; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); white-space: nowrap; }
  
 /* Card filter bar */
