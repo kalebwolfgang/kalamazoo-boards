@@ -436,7 +436,8 @@ function renderExportSection() {
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
           <span>Board Data</span>
         </div>
-        <p class="export-intro-desc">Complete archive of meetings, minutes, and recordings.</p>
+        <p class="export-intro-desc">Complete archive of CPSRAB meetings \u2014 minutes PDFs, agendas, and YouTube recordings.</p>
+        <p class="export-intro-sub">Useful for journalism, research, or tracking public safety oversight. No login required.</p>
       </div>
       <div class="export-buttons">
         <div class="export-btn-row">
