@@ -987,8 +987,6 @@ function drawMinutes(meetings, year, el, countEl) {
   }).join('')
     || `<div style="padding:18px;font-size:14px;color:var(--muted)">No records found for this year.</div>`;
 }
-  if (el._refreshScrollbar) el._refreshScrollbar();
-}
 
 /* ─────────────────────────────────────────────────────────────
    RECORDINGS
@@ -1033,8 +1031,6 @@ function renderRecordings(data) {
   }
 
   drawRecordings(recordings, 'all', el, countEl);
-  if (el._refreshScrollbar) el._refreshScrollbar();
-}
 
 function drawRecordings(recordings, year, el, countEl) {
   const filtered = year === 'all'
