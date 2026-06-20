@@ -398,7 +398,6 @@ footer a:hover { color: var(--gold-lt); }
   text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0;
 }
 .export-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; align-items: center; }
-.export-btn-group { display: inline-flex; align-items: center; gap: 5px; }
 .export-dl-btn {
   display: inline-flex; align-items: center; gap: 7px;
   background: none; border: 1px solid var(--border); border-radius: 3px;
@@ -412,15 +411,15 @@ footer a:hover { color: var(--gold-lt); }
 .export-dl-btn--all:hover:not(:disabled) { background: var(--navy-mid); border-color: var(--navy-mid); color: white; }
 .export-count { color: var(--muted); font-weight: 400; margin-left: 3px; }
 .export-dl-btn--all .export-count { color: rgba(255,255,255,0.5); }
-.export-csv-link {
-  background: none; border: none; cursor: pointer; padding: 0;
-  font-size: 11px; font-weight: 700; color: var(--muted);
-  font-family: 'IBM Plex Sans', sans-serif;
+.export-count { color: var(--muted); font-weight: 400; margin-left: 3px; }
+.export-fmt {
+  display: inline-block; font-size: 10px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.05em;
-  transition: color 0.15s; line-height: 1;
+  padding: 2px 5px; border-radius: 2px; margin-left: 5px;
 }
-.export-csv-link:hover:not(:disabled) { color: var(--navy-light); }
-.export-csv-link:disabled { opacity: 0.3; cursor: default; }
+.export-fmt--csv  { background: rgba(37,150,190,0.12); color: var(--navy-light); }
+.export-fmt--html { background: rgba(201,146,26,0.15); color: var(--gold); }
+.export-dl-btn--all .export-fmt--html { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
  
 /* Remove click focus ring from header seat dots */
 .seat-dot-hdr:focus { outline: none; }
