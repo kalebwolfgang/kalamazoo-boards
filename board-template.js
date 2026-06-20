@@ -333,10 +333,35 @@ function injectAnalytics() {
 function renderGovStrip() {
   const inner = document.querySelector('.gov-inner');
   if (!inner || !Array.isArray(BOARD.govStrip) || !BOARD.govStrip.length) return;
-  inner.innerHTML = BOARD.govStrip
+
+  const items = [...BOARD.govStrip];
+
+  /* Slot 4 — Seat Status — computed from dot grid injected by build.py */
+  if (BOARD.bodyType !== 'elected') {
+    const nVacant   = document.querySelectorAll('.seat-dot-hdr.vacant').length;
+    const nHoldover = document.querySelectorAll('.seat-dot-hdr.holdover').length;
+    const nTrans    = document.querySelectorAll('.seat-dot-hdr.transitioning').length;
+    let slot4, color;
+    if (nVacant > 0) {
+      slot4 = `${nVacant} Open Seat${nVacant > 1 ? 's' : ''}`;
+      color = '#f87171';
+    } else if (nHoldover > 0) {
+      slot4 = `${nHoldover} In Holdover`;
+      color = '#f87171';
+    } else if (nTrans > 0) {
+      slot4 = `${nTrans} Transitioning`;
+      color = 'var(--gold-lt)';
+    } else {
+      slot4 = '\u2713 Fully Seated';
+      color = '#86efac';
+    }
+    items.push({ value: slot4, label: 'Seat Status', _color: color });
+  }
+
+  inner.innerHTML = items
     .map(item => `
       <div class="gov-item">
-        <div class="gov-value">${item.value}</div>
+        <div class="gov-value"${item._color ? ` style="color:${item._color}"` : ''}>${item.value}</div>
         <div class="gov-label">${item.label}</div>
       </div>`)
     .join('');
