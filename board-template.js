@@ -109,6 +109,203 @@ let pendingCalendarAction = null;
   fetchLastUpdated();
 })();
 
+/* ═══════════════════════════════════════════════════════════════
+   MEMBERS SUBHEAD + VACANCY ALERT
+   Reads BOARD.membersSubhead and injects below the members heading.
+   Counts vacant dots from build.py output and shows alert if > 0.
+   ═══════════════════════════════════════════════════════════════ */
+function renderMembersSubhead() {
+  const inner = document.querySelector('.members-inner');
+  if (!inner) return;
+  const heading = inner.querySelector('.members-heading');
+  if (!heading) return;
+
+  if (BOARD.membersSubhead) {
+    const sub = document.createElement('p');
+    sub.className = 'members-subhead';
+    sub.textContent = BOARD.membersSubhead;
+    heading.insertAdjacentElement('afterend', sub);
+  }
+
+  const vacantCount = document.querySelectorAll('.seat-dot-hdr[data-termcls="vacant"]').length;
+  if (vacantCount > 0) {
+    const alert = document.createElement('div');
+    alert.className = 'vacancy-alert';
+    alert.innerHTML = `<strong>${vacantCount} open seat${vacantCount > 1 ? 's' : ''}</strong> — <a href="#apply-to-serve">apply now</a>`;
+    const insertAfter = inner.querySelector('.members-subhead') || heading;
+    insertAfter.insertAdjacentElement('afterend', alert);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   STAFF LIAISON
+   Renders 0, 1, or 2 liaison blocks after .members-section.
+   Shows board email below liaison block if BOARD.boardEmail is set.
+   ═══════════════════════════════════════════════════════════════ */
+function renderStaffLiaison() {
+  const liaisons = Array.isArray(BOARD.staffLiaison)
+    ? BOARD.staffLiaison
+    : (BOARD.staffLiaison ? [BOARD.staffLiaison] : []);
+  if (!liaisons.length) return;
+
+  const membersSection = document.querySelector('.members-section');
+  if (!membersSection) return;
+
+  const icon = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
+
+  const rows = liaisons.map(l => `
+    <div class="staff-liaison-row">
+      <span class="staff-liaison-name">${l.name}</span>
+      ${l.title ? `<span class="staff-liaison-role">${l.title}</span>` : ''}
+      ${l.email ? `<span class="staff-liaison-email"><a href="mailto:${l.email}">${l.email}</a></span>` : ''}
+    </div>
+    ${l.note ? `<div style="font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5">${l.note}</div>` : ''}
+  `).join('');
+
+  const boardEmailHtml = BOARD.boardEmail
+    ? `<div style="margin-top:8px;font-size:13px">Board email: <a href="mailto:${BOARD.boardEmail}" style="color:var(--navy-light)">${BOARD.boardEmail}</a></div>`
+    : '';
+
+  const wrap = document.createElement('div');
+  wrap.className = 'staff-note-wrap';
+  wrap.innerHTML = `<div class="staff-note">${icon}<div><strong>Staff Liaison${liaisons.length > 1 ? 's' : ''}:</strong><div class="staff-liaisons">${rows}</div>${boardEmailHtml}</div></div>`;
+
+  membersSection.insertAdjacentElement('afterend', wrap);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   KEY DOCUMENTS CARD
+   Appends a Key Documents card to .bottom-cards-grid.
+   Skipped for ECC, HDC, HPC — those have static Key Documents
+   in the sidebar of their thin HTML.
+   ═══════════════════════════════════════════════════════════════ */
+function renderDocuments() {
+  const docs = BOARD.documents;
+  if (!docs || !docs.length) return;
+  if (['ECC', 'HDC', 'HPC'].includes(BOARD.abbr)) return;
+
+  const grid = document.querySelector('.bottom-cards-grid');
+  if (!grid) return;
+
+  const card = document.createElement('div');
+  card.className = 'bottom-card';
+  card.innerHTML = `
+    <div class="bottom-card-header">
+      ${SVG_DOC} Key Documents
+    </div>
+    <div class="bottom-card-body">
+      ${docs.map(d => `
+        <a class="doc-link" href="${d.href}" target="_blank" rel="noopener">
+          ${SVG_DOC}
+          <span>${d.text}</span>
+          ${d.pdf ? '<span class="pdf-badge">PDF</span>' : ''}
+        </a>`).join('')}
+    </div>`;
+
+  grid.appendChild(card);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   EXTERNAL LINKS CARD
+   Appends an External Resources card to .sidebar.
+   Currently only CPSRAB has external links, but universal.
+   ═══════════════════════════════════════════════════════════════ */
+function renderExternalLinks() {
+  const links = BOARD.externalLinks;
+  if (!links || !links.length) return;
+
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+
+  const card = document.createElement('div');
+  card.className = 'sidebar-card';
+  card.innerHTML = `
+    <div class="sidebar-card-header">External Resources</div>
+    <div class="sidebar-card-body">
+      ${links.map(l => `
+        <div class="ext-link-item">
+          <a class="ext-link-url" href="${l.href}" target="_blank" rel="noopener">
+            ${l.text} ${SVG_EXT}
+          </a>
+          ${l.sub ? `<div class="ext-link-sub">${l.sub}</div>` : ''}
+        </div>`).join('')}
+    </div>`;
+
+  sidebar.appendChild(card);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   APPLY TO SERVE SECTION
+   Injects before .members-section.
+   Skipped when BOARD.hasApply is false (EC, TRB).
+   Reserves a hidden .subscribe-slot for Task 20.
+   ═══════════════════════════════════════════════════════════════ */
+function renderApplyToServe() {
+  if (!BOARD.hasApply) return;
+
+  const membersSection = document.querySelector('.members-section');
+  if (!membersSection) return;
+
+  const section = document.createElement('div');
+  section.className = 'apply-section';
+  section.id = 'apply-to-serve';
+  section.innerHTML = `
+    <div class="apply-standalone-inner">
+      <div class="apply-standalone-text">
+        <div class="apply-standalone-heading">Apply to Serve</div>
+        <p class="apply-standalone-desc">${BOARD.applyText || ''}</p>
+      </div>
+      <div>
+        <a class="apply-standalone-btn"
+           href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission"
+           target="_blank" rel="noopener">Apply Now →</a>
+        <div class="subscribe-slot" style="display:none;margin-top:12px"></div>
+      </div>
+    </div>`;
+
+  if (BOARD.subscribeEnabled) {
+    section.querySelector('.subscribe-slot').style.display = '';
+    /* TODO Task 20: populate subscribe flow */
+  }
+
+  membersSection.insertAdjacentElement('beforebegin', section);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SPECIAL CTA SECTION
+   Injects before #apply-to-serve (or .members-section if no apply).
+   CRB has btnUrl: null — renders section without a button.
+   type maps to visual treatment via .special-cta--{type} in styles.css.
+   ═══════════════════════════════════════════════════════════════ */
+function renderSpecialCta() {
+  const cta = BOARD.specialCta;
+  if (!cta) return;
+
+  const target = document.getElementById('apply-to-serve')
+    || document.querySelector('.members-section');
+  if (!target) return;
+
+  const section = document.createElement('div');
+  section.className = `special-cta special-cta--${cta.type || 'default'}`;
+  section.innerHTML = `
+    <div class="special-cta-inner">
+      <div>
+        ${cta.eyebrow ? `<div class="special-cta-eyebrow">${cta.eyebrow}</div>` : ''}
+        <div class="special-cta-heading">${cta.heading}</div>
+        <p class="special-cta-desc">${cta.desc}</p>
+      </div>
+      ${cta.btnUrl
+        ? `<a class="special-cta-btn" href="${cta.btnUrl}" target="_blank" rel="noopener">${cta.btnText || 'Learn More →'}</a>`
+        : ''}
+    </div>`;
+
+  target.insertAdjacentElement('beforebegin', section);
+}
 
 /* ═══════════════════════════════════════════════════════════════
    ANALYTICS INJECTION
