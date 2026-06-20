@@ -860,7 +860,9 @@ function renderUpcomingMeetings(data) {
         <div class="meeting-date">${m.display || m.date}</div>
         ${m.time     ? `<div class="meeting-time">${m.time}</div>` : ''}
         ${m.location ? `<div class="meeting-time" style="margin-top:3px;font-size:13px">${m.location}</div>` : ''}
-        ${cancelled  ? '<div style="margin-top:6px;font-size:11px;font-weight:700;color:#dc2626;letter-spacing:0.06em;text-transform:uppercase">Cancelled</div>' : ''}
+        ${cancelled ? '<div style="margin-top:6px;font-size:11px;font-weight:700;color:#dc2626;letter-spacing:0.06em;text-transform:uppercase">Cancelled</div>' : ''}
+        ${m.isSpecialSession ? '<div style="margin-top:6px;background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:5px 9px;font-size:11px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase">Special Session</div>' : ''}
+        ${(m.isLocationChanged || m.locationChanged) ? '<div style="margin-top:6px;background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:5px 9px;font-size:11px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase">Location Changed</div>' : ''}
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;align-items:center">
           ${m.agenda_url && !cancelled
             ? `<a href="${m.agenda_url}" target="_blank" rel="noopener" style="font-size:13px;color:var(--navy-light);text-decoration:none;display:inline-flex;align-items:center;gap:4px">${SVG_EXT} Agenda</a>`
