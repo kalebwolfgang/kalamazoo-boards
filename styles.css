@@ -1,3 +1,4 @@
+
 /* =============================================================
    Kalamazoo Boards & Commissions — Shared Stylesheet
    Task 3: Extracted from inline CSS across all pages
@@ -638,8 +639,11 @@ footer a:hover { color: var(--gold-lt); }
 }
 .feedback-btn:hover { background: var(--gold-lt); color: var(--navy); }
 .feedback-btn--soon {
-  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.35);
-  border: 1px solid rgba(255,255,255,0.12); cursor: default;
+  background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.22); cursor: default;
+}
+@media (min-width: 800px) {
+  .feedback-btn, .feedback-btn--soon { align-self: center; }
 }
  
 /* ── EMAIL SUBSCRIBE CARD (renders when BOARD.subscribeEnabled = true) ── */
