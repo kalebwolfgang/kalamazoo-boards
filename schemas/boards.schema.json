@@ -22,6 +22,27 @@
       "hasRecordings":      { "type": "boolean" },
       "bodyType":           { "type": "string", "enum": ["appointed", "elected"] },
       "meetingSchedule": { "type": "string" },
+      "boardEmail":      { "type": ["string", "null"] },
+      "subscribeEnabled":{ "type": "boolean" },
+      "jointWith":       { "type": ["string", "null"] },
+      "relatedBoards": {
+        "oneOf": [
+          { "type": "null" },
+          {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["abbr", "label"],
+              "additionalProperties": false,
+              "properties": {
+                "abbr":  { "type": "string" },
+                "label": { "type": "string" }
+              }
+            }
+          }
+        ]
+      },
+      "reportUrl":       { "type": ["string", "null"] },
       "members": {
         "type": "array",
         "items": { "$ref": "#/$defs/member" }
