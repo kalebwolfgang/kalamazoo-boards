@@ -235,6 +235,8 @@ footer a:hover { color: var(--gold-lt); }
 .board-badge { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
 .board-abbr-large { font-family: 'Playfair Display', serif; font-size: clamp(36px, 7vw, 52px); font-weight: 600; color: var(--gold); line-height: 1; }
 .page-header-desc { color: rgba(255,255,255,0.58); font-size: clamp(15px, 2.5vw, 18px); font-weight: 300; max-width: 620px; line-height: 1.65; }
+.page-header-inner { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+@media (min-width: 900px) { .page-header-inner { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; } }
 
 /* Seat stat boxes (board page header) */
 .header-seat-block { flex-shrink: 0; }
