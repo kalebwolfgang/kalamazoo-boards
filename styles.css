@@ -2,10 +2,10 @@
    Kalamazoo Boards & Commissions — Shared Stylesheet
    Task 3: Extracted from inline CSS across all pages
    ============================================================= */
- 
+
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
 /* ── DESIGN TOKENS ── */
 :root {
   --navy:        #0d4f63;
@@ -30,7 +30,7 @@
   --board-color: var(--navy-light);
   --pad-x: clamp(16px, 4vw, 40px);
 }
- 
+
 /* ── BASE ── */
 html { scroll-behavior: smooth; }
 body {
@@ -40,13 +40,13 @@ body {
   font-size: 18px;
   line-height: 1.6;
 }
- 
+
 /* ── TOPBAR ── */
 .topbar { background: var(--navy-mid); padding: 6px var(--pad-x); font-size: 13px; color: rgba(255,255,255,0.5); }
 .topbar-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 .topbar a { color: rgba(255,255,255,0.5); text-decoration: none; }
 .topbar a:hover { color: var(--gold-lt); }
- 
+
 /* ── NAV ── */
 nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 200; }
 .nav-inner {
@@ -69,7 +69,7 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
 .nav-link.active { color: white; }
 .nav-apply { background: var(--gold); color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; padding: 7px 14px; border-radius: 2px; transition: background 0.15s; white-space: nowrap; }
 .nav-apply:hover { background: var(--gold-lt); }
- 
+
 /* ── MOBILE NAV SECONDARY STRIP ── */
 .nav-secondary { display: none; }
 @media (max-width: 600px) {
@@ -86,23 +86,23 @@ nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: s
   .nav-secondary-link:hover, .nav-secondary-link:active { background: rgba(255,255,255,0.07); color: var(--gold-lt); }
   .nav-secondary-link.active { color: var(--gold-lt); }
 }
- 
+
 /* ── BREADCRUMB ── */
 .breadcrumb { background: var(--white); border-bottom: 1px solid var(--border); padding: 9px var(--pad-x); font-size: 14px; color: var(--muted); overflow-x: auto; white-space: nowrap; }
 .breadcrumb-inner { max-width: 1400px; margin: 0 auto; display: flex; gap: 8px; align-items: center; }
 .breadcrumb a { color: var(--navy-light); text-decoration: none; }
 .breadcrumb a:hover { text-decoration: underline; }
 .bc-sep { color: var(--border); }
- 
+
 /* ── PAGE HEADER (base) ── */
 .page-header { background: var(--navy); padding: clamp(28px, 5vw, 48px) var(--pad-x) clamp(24px, 4vw, 44px); }
 .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 44px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 8px; }
- 
+
 /* ── FOOTER ── */
 footer { background: var(--navy-mid); border-top: 3px solid var(--gold); padding: 24px var(--pad-x); text-align: center; font-size: 14px; color: rgba(255,255,255,0.4); }
 footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
 footer a:hover { color: var(--gold-lt); }
- 
+
 /* ──────────────────────────────────────────────────
    TOOLTIP (index + board pages)
    ────────────────────────────────────────────────── */
@@ -121,7 +121,7 @@ footer a:hover { color: var(--gold-lt); }
 .tooltip-term.transitioning { color: var(--gold-lt); }
 .tooltip-term.seated        { color: #86efac; }
 .tooltip-res  { color: rgba(255,255,255,0.45); font-size: 13px; margin-top: 5px; }
- 
+
 /* Board page tooltip alias classes */
 .tt-name { font-weight: 600; font-size: 16px; margin-bottom: 2px; }
 .tt-role { color: var(--gold-lt); font-size: 13px; margin-bottom: 5px; }
@@ -131,7 +131,7 @@ footer a:hover { color: var(--gold-lt); }
 .tt-term.transitioning { color: var(--gold-lt); }
 .tt-term.seated        { color: #86efac; }
 .tt-res { color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 4px; }
- 
+
 @media (max-width: 600px) {
   .tooltip {
     position: fixed; bottom: 0; left: 0; right: 0; max-width: 100%; border-radius: 12px 12px 0 0;
@@ -142,7 +142,7 @@ footer a:hover { color: var(--gold-lt); }
   .tooltip-close { float: right; cursor: pointer; color: rgba(255,255,255,0.5); font-size: 20px; line-height: 1; padding: 0 0 4px 12px; }
 }
 @media (min-width: 601px) { .tooltip-close { display: none; } }
- 
+
 /* ──────────────────────────────────────────────────
    SEAT STATUS INDICATOR SYSTEM — Four shapes
    Vacant: hollow square / Holdover: filled square
@@ -162,10 +162,10 @@ footer a:hover { color: var(--gold-lt); }
   .seat-dot:hover, .seat-dot-hdr:hover { transform: scale(1.25); filter: brightness(1.15) drop-shadow(0 2px 5px rgba(0,0,0,0.3)); }
 }
 .seat-dot:focus, .seat-dot-hdr:focus { outline: 2px solid var(--gold-lt); outline-offset: 2px; }
- 
+
 .seat-dot     { width: clamp(22px, 4vw, 30px); height: clamp(22px, 4vw, 30px); }
 .seat-dot-hdr { width: clamp(16px, 3vw, 20px); height: clamp(16px, 3vw, 20px); }
- 
+
 .seat-dot.vacant, .seat-dot-hdr.vacant {
   background: transparent; border: 2px solid #dc2626; border-radius: 0;
 }
@@ -182,13 +182,13 @@ footer a:hover { color: var(--gold-lt); }
   background: transparent; border: 2px dashed var(--muted); opacity: 0.55; border-radius: 3px;
 }
 @media (hover: hover) { .seat-dot.expandable:hover { filter: none; opacity: 0.85; } }
- 
+
 .member-dot { width: 16px; height: 16px; display: inline-block; }
 .member-dot.vacant        { background: transparent; border: 2px solid #dc2626; border-radius: 0; }
 .member-dot.holdover      { background: #dc2626; border-radius: 2px; }
 .member-dot.transitioning { background: #d97706; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
 .member-dot.seated        { background: #15803d; border-radius: 50%; }
- 
+
 /* ──────────────────────────────────────────────────
    ACCORDION (shared: faq + board pages)
    ────────────────────────────────────────────────── */
@@ -217,18 +217,18 @@ footer a:hover { color: var(--gold-lt); }
 .acc-panel-inner a:hover { color: var(--gold); text-decoration: underline; }
 .acc-panel-inner h4 { font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; margin: 20px 0 8px; }
 .acc-panel-inner h4:first-child { margin-top: 0; }
- 
+
 /* ──────────────────────────────────────────────────
    BOARD PAGE TEMPLATE CSS
    ────────────────────────────────────────────────── */
- 
+
 /* Page header — board variant */
 .board-badge { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
 .board-abbr-large { font-family: 'Playfair Display', serif; font-size: clamp(36px, 7vw, 52px); font-weight: 600; color: var(--gold); line-height: 1; }
 .page-header-desc { color: rgba(255,255,255,0.58); font-size: clamp(15px, 2.5vw, 18px); font-weight: 300; max-width: 620px; line-height: 1.65; }
 .page-header-inner { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
 @media (min-width: 900px) { .page-header-inner { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; } }
- 
+
 /* Seat stat boxes */
 .header-seat-block { flex-shrink: 0; }
 .seat-stat-row { display: flex; gap: 2px; margin-bottom: 16px; }
@@ -241,7 +241,7 @@ footer a:hover { color: var(--gold-lt); }
 .seat-stat-n.yellow { color: var(--gold-lt); }
 .seat-stat-n.green  { color: #86efac; }
 .seat-stat-lbl { font-size: clamp(9px, 2vw, 11px); color: rgba(255,255,255,0.38); letter-spacing: 0.05em; text-transform: uppercase; }
- 
+
 /* Header dot grid — nowrap, scrollable, scrollbar hidden */
 .header-dots { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 8px; padding-bottom: 4px; scrollbar-width: none; -ms-overflow-style: none; }
 .header-dots::-webkit-scrollbar { display: none; }
@@ -252,7 +252,7 @@ footer a:hover { color: var(--gold-lt); }
 .dl-dot.holdover      { background: #dc2626; border-radius: 1px; }
 .dl-dot.transitioning { background: #d97706; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
 .dl-dot.seated        { background: #15803d; border-radius: 50%; }
- 
+
 /* Governance strip */
 .gov-strip { background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.07); overflow-x: auto; }
 .gov-inner { max-width: 1400px; margin: 0 auto; display: flex; min-width: min-content; }
@@ -260,18 +260,18 @@ footer a:hover { color: var(--gold-lt); }
 .gov-item:last-child { border-right: none; }
 .gov-value { font-size: clamp(15px, 2.5vw, 20px); font-weight: 700; color: var(--gold-lt); margin-bottom: 4px; line-height: 1.2; }
 .gov-label { font-size: clamp(10px, 1.8vw, 12px); color: rgba(255,255,255,0.42); text-transform: uppercase; letter-spacing: 0.06em; }
- 
+
 /* Board body two-column layout */
 .board-body { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--pad-x) 0; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
 @media (min-width: 900px) { .board-body { grid-template-columns: 1fr 340px; gap: 48px; } }
- 
+
 /* Requirement cards */
 .req-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
 @media (min-width: 600px) { .req-grid { grid-template-columns: 1fr 1fr; } }
 .req-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--board-color); border-radius: 3px; padding: 14px 16px; }
 .req-card-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
 .req-card-value { font-size: 15px; color: var(--body); line-height: 1.55; }
- 
+
 /* Sidebar */
 .sidebar { display: flex; flex-direction: column; gap: 22px; }
 .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
@@ -283,16 +283,16 @@ footer a:hover { color: var(--gold-lt); }
 .meeting-date { font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.4; }
 .meeting-time { font-size: 14px; color: var(--muted); margin-top: 2px; }
 .meeting-note { font-size: 13px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
- 
+
 /* Meeting schedule note — bigger, at the top of the sidebar card */
 .meeting-schedule-note { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 16px; line-height: 1.5; padding-bottom: 14px; border-bottom: 1px solid var(--border-lt); }
- 
+
 .meeting-location { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-lt); }
 .location-name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
 .location-addr { font-size: 13px; color: var(--muted); line-height: 1.6; }
 .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; color: var(--navy-light); text-decoration: none; }
 .map-link:hover { text-decoration: underline; }
- 
+
 /* ── BOTTOM CARDS GRID ──
    4-card layout at 1100px+:
    Card 1 (Minutes)    — col 1, row 1
@@ -303,8 +303,8 @@ footer a:hover { color: var(--gold-lt); }
 .bottom-cards { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 40px) var(--pad-x) clamp(48px, 8vw, 80px); display: grid; grid-template-columns: 1fr; gap: 20px; }
 @media (min-width: 700px) { .bottom-cards { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1100px) {
-  .bottom-cards { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 360px auto; gap: 28px; }
-  .bottom-card:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 3; }
+  .bottom-cards { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: minmax(0, auto) minmax(0, auto); gap: 28px; }
+  .bottom-card:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 3; height: 0; min-height: 100%; }
   .bottom-card:nth-child(4) { grid-column: 1 / 3; grid-row: 2 / 3; }
 }
 .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
@@ -313,7 +313,7 @@ footer a:hover { color: var(--gold-lt); }
 .bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .bottom-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
 .card-count-pill { margin-left: auto; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); white-space: nowrap; }
- 
+
 /* Card filter bar */
 .card-filter-bar { display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--cream); border-bottom: 1px solid var(--border); flex-shrink: 0; }
 .card-filter-select {
@@ -325,7 +325,7 @@ footer a:hover { color: var(--gold-lt); }
 }
 .card-filter-select:focus { outline: none; border-color: var(--navy-light); }
 .card-filter-count { font-size: 12px; color: var(--muted); margin-left: auto; }
- 
+
 /* Minutes & document list items */
 .minutes-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; transition: color 0.15s; }
 .minutes-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
@@ -337,7 +337,7 @@ footer a:hover { color: var(--gold-lt); }
 .minutes-sublabel { font-size: 12px; color: var(--muted); }
 .minutes-action { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
 .minutes-item:hover .minutes-action { color: var(--gold); }
- 
+
 /* Apply standalone card (4th bottom card) */
 .apply-standalone-inner { padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px); display: flex; flex-direction: column; gap: 20px; height: 100%; }
 @media (min-width: 600px) { .apply-standalone-inner { flex-direction: row; align-items: center; gap: 48px; } }
@@ -346,7 +346,7 @@ footer a:hover { color: var(--gold-lt); }
 .apply-standalone-desc { font-size: clamp(14px, 2.5vw, 16px); color: var(--body); line-height: 1.65; }
 .apply-standalone-btn { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
 .apply-standalone-btn:hover { background: var(--navy-mid); color: white; }
- 
+
 /* Recording items */
 .recording-item { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: inherit; }
 .recording-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
@@ -360,7 +360,7 @@ footer a:hover { color: var(--gold-lt); }
 .rec-watch { font-size: 13px; color: var(--navy-light); margin-top: 6px; display: flex; align-items: center; gap: 5px; }
 .recording-item:hover .rec-date  { color: var(--gold); }
 .recording-item:hover .rec-watch { color: var(--gold); }
- 
+
 /* Scrollable card containers */
 .scrollable-wrap { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
 .scrollable-wrap::after {
@@ -375,20 +375,20 @@ footer a:hover { color: var(--gold-lt); }
 .scrollable-card-body .recording-item { margin: 0; padding: 14px 24px 14px 18px; border-bottom: 1px solid var(--border-lt) !important; border-radius: 0; }
 .scrollable-card-body .minutes-item:last-child,
 .scrollable-card-body .recording-item:last-child { border-bottom: none !important; }
- 
+
 /* Hard height limits — ~3.5 items visible at mobile/tablet */
 .scrollable-minutes    { max-height: 259px; }
 .scrollable-recordings { max-height: 290px; }
 /* At 1100px+ recordings fills the tall nth-child(3) column */
 @media (min-width: 1100px) { .scrollable-recordings { max-height: none; } }
- 
+
 /* Custom scroll indicators */
 .scroll-track { position: absolute; top: 0; right: 0; bottom: 0; width: 6px; background: #e0dbd2; border-left: 1px solid var(--border); z-index: 2; pointer-events: none; border-radius: 0 0 4px 0; }
 .scroll-thumb { position: absolute; right: 0; width: 6px; background: #1c2333; border-radius: 3px; min-height: 24px; transition: background 0.15s; }
 .h-scroll-track { height: 6px; background: #e0dbd2; border: 1px solid var(--border); border-radius: 3px; position: relative; margin-bottom: 8px; }
 .h-scroll-thumb { position: absolute; top: 0; height: 6px; background: #1c2333; border-radius: 3px; min-width: 32px; }
 @media (min-width: 900px) { .h-scroll-track { display: none; } }
- 
+
 /* Members section */
 .members-section { background: var(--white); border-top: 1px solid var(--border); padding: clamp(32px, 6vw, 56px) var(--pad-x) clamp(40px, 7vw, 72px); }
 .members-inner { max-width: 1400px; margin: 0 auto; }
@@ -415,7 +415,7 @@ footer a:hover { color: var(--gold-lt); }
 .members-table th:nth-child(2), .members-table td:nth-child(2) { position: sticky; left: 44px; z-index: 3; }
 .members-table thead th:first-child, .members-table thead th:nth-child(2) { background: var(--navy); }
 .members-table td:nth-child(2), .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.1); }
- 
+
 .member-name { font-weight: 600; color: var(--navy); font-size: 15px; }
 .member-name.vacant { color: var(--muted); font-weight: 400; font-style: italic; }
 .member-role-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
@@ -426,7 +426,7 @@ footer a:hover { color: var(--gold-lt); }
 .status-badge.transitioning { background: #fef3c7; color: #92400e; }
 .status-badge.seated        { background: #dcfce7; color: #166534; }
 .status-badge.open          { background: #fee2e2; color: #991b1b; }
- 
+
 .staff-note-wrap { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x) clamp(32px, 5vw, 48px); }
 .staff-note { background: var(--cream-dk); border: 1px solid var(--border); border-radius: 3px; padding: 14px 18px; font-size: 14px; color: var(--muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
 .staff-note strong { color: var(--body); }
@@ -436,10 +436,10 @@ footer a:hover { color: var(--gold-lt); }
 .staff-liaison-role { color: var(--muted); font-size: 13px; }
 .staff-liaison-email { font-size: 13px; color: var(--muted); }
 .staff-liaison-email a { color: var(--navy-light); }
- 
+
 /* ── CANCELLATION ── */
 .meeting-canceled .minutes-date { text-decoration: line-through; opacity: 0.6; }
- 
+
 /* ── CALENDAR DISCLAIMER POPUP ── */
 .cal-disclaimer-overlay { position: fixed; inset: 0; background: rgba(13,79,99,0.45); z-index: 900; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
 .cal-disclaimer-overlay.open { opacity: 1; pointer-events: all; }
@@ -452,7 +452,7 @@ footer a:hover { color: var(--gold-lt); }
   .cal-disclaimer { padding: 24px 18px; }
   .cal-disclaimer-btn { width: 100%; padding: 13px 24px; }
 }
- 
+
 /* ── VACANCY ALERT ── */
 .vacancy-alert {
   display: inline-flex; align-items: center; gap: 6px;
@@ -461,7 +461,7 @@ footer a:hover { color: var(--gold-lt); }
   margin-bottom: 16px;
 }
 .vacancy-alert a { color: #991b1b; text-decoration: underline; }
- 
+
 /* ── SPECIAL CTA ──
    Outer .special-cta is transparent — just provides spacing.
    The colored rounded box is .special-cta-inner.
@@ -491,10 +491,10 @@ footer a:hover { color: var(--gold-lt); }
 }
 .special-cta-btn:hover { background: #b91c1c; border-color: rgba(255,255,255,0.55); }
 .special-cta-note { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
- 
+
 /* Appeal type — dark crimson rounded box */
 .special-cta--appeal .special-cta-inner { background: #7f1d1d; }
- 
+
 /* ── PROCESS STEPS (How Appeals Work) ── */
 .process-steps { display: flex; flex-direction: column; margin-top: 14px; }
 .process-step { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border-lt); }
@@ -503,14 +503,14 @@ footer a:hover { color: var(--gold-lt); }
 .step-body { flex: 1; }
 .step-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
 .step-desc { font-size: 14px; color: var(--body); line-height: 1.6; }
- 
+
 /* ── EXTERNAL LINKS (sidebar card) ── */
 .ext-link-item { padding: 12px 0; border-bottom: 1px solid var(--border-lt); }
 .ext-link-item:last-child { border-bottom: none; padding-bottom: 0; }
 .ext-link-url { display: inline-flex; align-items: center; gap: 5px; font-size: 14px; font-weight: 600; color: var(--navy-light); text-decoration: none; transition: color 0.15s; }
 .ext-link-url:hover { color: var(--gold); }
 .ext-link-sub { font-size: 13px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
- 
+
 /* ── KEY DOCUMENTS LINKS ── */
 .doc-link { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; color: var(--navy-light); font-size: 15px; transition: color 0.15s; }
 .doc-link:last-child { border-bottom: none; padding-bottom: 0; }
@@ -518,10 +518,10 @@ footer a:hover { color: var(--gold-lt); }
 .doc-link svg { flex-shrink: 0; color: var(--muted); }
 .doc-link:hover svg { color: var(--gold); }
 .pdf-badge { font-size: 11px; font-weight: 700; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 2px; margin-left: auto; flex-shrink: 0; }
- 
+
 /* ── APPLY SECTION (legacy — pre-Task 9 boards) ── */
 .apply-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
- 
+
 /* ──────────────────────────────────────────────────
    PRINT STYLES
    ────────────────────────────────────────────────── */
@@ -532,20 +532,20 @@ footer a:hover { color: var(--gold-lt); }
   .card-filter-bar, .map-link,
   .scroll-track, .h-scroll-track,
   .board-detail-link, .bottom-cards, footer { display: none !important; }
- 
+
   body { background: white; color: black; font-size: 12pt; line-height: 1.5; }
- 
+
   .page-header { background: white !important; border-bottom: 2px solid black; padding: 16px 0; }
   .page-header h1, .board-abbr-large { color: black; }
   .page-header-desc { color: #333; }
- 
+
   .gov-strip { background: #f0f0f0; border: 1px solid #ccc; }
   .gov-value { color: #333; }
   .gov-label { color: #666; }
- 
+
   .board-body { display: block; }
   .sidebar { display: none; }
- 
+
   .members-section { border-top: 2px solid black; padding: 16px 0; }
   .members-table-wrap { overflow: visible; }
   .members-table { min-width: 100%; }
@@ -553,8 +553,7 @@ footer a:hover { color: var(--gold-lt); }
   .members-table th:nth-child(2), .members-table td:nth-child(2) { position: static; box-shadow: none; }
   .members-table td { background: white !important; border: 1px solid #ccc; }
   .members-table th { background: #f0f0f0 !important; color: black; }
- 
+
   .h-scroll-track { display: none; }
   .staff-note { background: white; border: 1px solid #ccc; }
 }
- 
