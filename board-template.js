@@ -701,7 +701,6 @@ function renderBodyItems(items) {
     } else if (item.type === 'heading') {
       flushFields();
       out.push(`<h4>${item.text}</h4>`);
-    }
     } else if (item.type === 'field') {
       fieldGroup.push(
         `<div class="req-card">` +
