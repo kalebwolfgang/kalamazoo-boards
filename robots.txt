@@ -1,0 +1,15 @@
+# Kalamazoo Boards & Commissions — PublicSense
+# Public civic transparency resource. All data freely accessible.
+
+User-agent: *
+Allow: /
+
+# Machine-readable data endpoints
+# All boards + members:     /api/boards.json
+# Upcoming meetings:        /api/meetings.json
+# Open vacancies:           /api/vacancies.json
+# Build metadata:           /api/changelog.json
+# Per-board history:        /data/[abbr].json (e.g. /data/cpsrab.json)
+# Queryable API:            https://kalamazoo-boards-api.kalebbeiter.workers.dev
+
+Sitemap: https://kalebwolfgang.github.io/kalamazoo-boards/sitemap.xml
