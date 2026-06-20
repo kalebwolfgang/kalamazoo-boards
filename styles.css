@@ -303,12 +303,19 @@ footer a:hover { color: var(--gold-lt); }
 .map-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; color: var(--navy-light); text-decoration: none; }
 .map-link:hover { text-decoration: underline; }
  
-/* Watch Live — standalone above Upcoming Meetings, styled like a sidebar card */
+/* Watch Live — full-width bar between gov strip and board body */
+.watch-live-bar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(20px, 3.5vw, 40px) var(--pad-x) 0;
+}
 .watch-live-btn {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 14px 18px;
+  width: 100%;
+  box-sizing: border-box;
   background: #dc2626;
   border-radius: 4px;
   border: 1.5px solid rgba(255,255,255,0.25);
@@ -505,7 +512,14 @@ footer a:hover { color: var(--gold-lt); }
 /* ── CALENDAR DISCLAIMER POPUP ── */
 .cal-disclaimer-overlay { position: fixed; inset: 0; background: rgba(13,79,99,0.45); z-index: 900; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
 .cal-disclaimer-overlay.open { opacity: 1; pointer-events: all; }
-.cal-disclaimer { background: var(--white); border-radius: 4px; max-width: 380px; width: 100%; padding: 28px 24px; text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,0.22); }
+.cal-disclaimer { background: var(--white); border-radius: 4px; max-width: 380px; width: 100%; padding: 28px 24px; text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,0.22); position: relative; }
+.cal-disclaimer-close {
+  position: absolute; top: 10px; right: 12px;
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); padding: 4px; display: flex; align-items: center;
+  border-radius: 2px; line-height: 1; transition: color 0.15s, background 0.15s;
+}
+.cal-disclaimer-close:hover { color: var(--navy); background: var(--cream); }
 .cal-disclaimer-icon { font-size: 28px; margin-bottom: 12px; }
 .cal-disclaimer-text { font-size: 15px; color: var(--body); line-height: 1.6; margin-bottom: 20px; }
 .cal-disclaimer-btn { background: var(--green); color: white; border: none; border-radius: 3px; padding: 10px 24px; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
@@ -586,15 +600,20 @@ footer a:hover { color: var(--gold-lt); }
  
 /* ── FEEDBACK / REPORT ERROR BAR ── */
 .feedback-bar {
-  max-width: 1400px; margin: 0 auto;
-  padding: 20px var(--pad-x);
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; color: var(--muted);
-  border-top: 1px solid var(--border-lt);
+  background: var(--cream-dk);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 22px var(--pad-x);
 }
-.feedback-link { color: var(--navy-light); font-weight: 500; text-decoration: none; }
+.feedback-bar-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; flex-wrap: wrap;
+  font-size: 15px; color: var(--body);
+}
+.feedback-link { color: var(--navy-light); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
 .feedback-link:hover { text-decoration: underline; }
-.feedback-link--soon { color: var(--muted); opacity: 0.7; cursor: default; }
+.feedback-link--soon { color: var(--muted); font-weight: 500; cursor: default; opacity: 0.8; }
  
 /* ── EMAIL SUBSCRIBE CARD (renders when BOARD.subscribeEnabled = true) ── */
 .subscribe-desc { font-size: 14px; color: var(--body); line-height: 1.6; margin-bottom: 14px; }
