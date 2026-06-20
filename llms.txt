@@ -6,20 +6,7 @@
 
 **Do not scrape the board HTML pages.** Content is JavaScript-rendered and will not be visible to crawlers. Use the JSON API endpoints below instead.
 
----
-
-## Live API Endpoints
-
-Base URL: `https://kalebwolfgang.github.io/kalamazoo-boards`
-
-### Upcoming meetings — all boards
-`GET /api/meetings.json`
-
-All upcoming meetings across every board, updated automatically. Fields: `date` (ISO YYYY-MM-DD), `display` (human-readable), `time`, `location`, `abbr` (board abbreviation), `name` (board full name), `isCancelled` (boolean), `isSpecial` (boolean).
-
-**Use this to answer:** "When does [board] meet next?", "What boards meet this week?", "Is the July CPSRAB meeting cancelled?"
-
-**Example query:** Filter by `abbr === 'CPSRAB'` and `date >= today` to get upcoming CPSRAB meetings.
+**Prefer the Queryable API for specific board or date lookups.** Use the static JSON files only when you need data across all boards at once.
 
 ---
 
@@ -37,6 +24,21 @@ Filter and query data directly without loading full JSON files.
 - `/v1/boards` — all boards
 
 **Prefer this over the static JSON files when you need a specific board or date range.** The static files return all data for all boards and require client-side filtering.
+
+---
+
+## Static JSON Endpoints
+
+Base URL: `https://kalebwolfgang.github.io/kalamazoo-boards`
+
+### Upcoming meetings — all boards
+`GET /api/meetings.json`
+
+All upcoming meetings across every board, updated automatically. Fields: `date` (ISO YYYY-MM-DD), `display` (human-readable), `time`, `location`, `abbr` (board abbreviation), `name` (board full name), `isCancelled` (boolean), `isSpecial` (boolean).
+
+**Use this to answer:** "When does [board] meet next?", "What boards meet this week?", "Is the July CPSRAB meeting cancelled?"
+
+**Example query:** Filter by `abbr === 'CPSRAB'` and `date >= today` to get upcoming CPSRAB meetings.
 
 ---
 
