@@ -436,20 +436,20 @@ function renderExportSection() {
         <span>Download backlog data</span>
       </div>
       <div class="export-actions">
-        <div class="export-btn-group">
-          <button class="export-dl-btn" id="export-minutes-btn" disabled>
-            ${SVG_DOWNLOAD} Minutes &amp; Agendas <span class="export-count" id="export-minutes-count">loading\u2026</span>
-          </button>
-          <button class="export-csv-link" id="export-minutes-csv" disabled title="Download as CSV for Google Sheets / Excel">csv</button>
-        </div>
-        <div class="export-btn-group">
-          <button class="export-dl-btn" id="export-recordings-btn" disabled>
-            ${SVG_DOWNLOAD} Recordings <span class="export-count" id="export-recordings-count">loading\u2026</span>
-          </button>
-          <button class="export-csv-link" id="export-recordings-csv" disabled title="Download as CSV for Google Sheets / Excel">csv</button>
-        </div>
+        <button class="export-dl-btn" id="export-minutes-btn" disabled>
+          ${SVG_DOWNLOAD} Minutes &amp; Agendas
+          <span class="export-count" id="export-minutes-count">loading\u2026</span>
+          <span class="export-fmt export-fmt--csv">CSV</span>
+        </button>
+        <button class="export-dl-btn" id="export-recordings-btn" disabled>
+          ${SVG_DOWNLOAD} Recordings
+          <span class="export-count" id="export-recordings-count">loading\u2026</span>
+          <span class="export-fmt export-fmt--csv">CSV</span>
+        </button>
         <button class="export-dl-btn export-dl-btn--all" id="export-all-btn" disabled>
-          ${SVG_DOWNLOAD} Complete Record <span class="export-count" id="export-all-count">loading\u2026</span>
+          ${SVG_DOWNLOAD} Complete Record
+          <span class="export-count" id="export-all-count">loading\u2026</span>
+          <span class="export-fmt export-fmt--html">HTML</span>
         </button>
       </div>
     </div>`;
@@ -1263,22 +1263,18 @@ function renderMinutes(data) {
  
   /* Activate export section buttons once data is available */
   if (BOARD.exportEnabled) {
-    const btn     = document.getElementById('export-minutes-btn');
-    const csvBtn  = document.getElementById('export-minutes-csv');
-    const count   = document.getElementById('export-minutes-count');
+    const btn   = document.getElementById('export-minutes-btn');
+    const count = document.getElementById('export-minutes-count');
     if (btn) {
       if (count) count.textContent = `${meetings.length} record${meetings.length !== 1 ? 's' : ''}`;
       btn.disabled = false;
-      btn.addEventListener('click', () => downloadBoardHTML('minutes', window._minutesData || []));
-    }
-    if (csvBtn) {
-      csvBtn.disabled = false;
-      csvBtn.addEventListener('click', () => {
-        const rows = [['Date', 'Display', 'Minutes URL', 'Agenda URL', 'Cancelled']];
+      btn.addEventListener('click', () => {
+        const rows = [['Date', 'Minutes PDF', 'Agenda PDF', 'Status']];
         (window._minutesData || []).forEach(m => rows.push([
-          m.date || '', m.display || m.date || '',
-          m.minutes_url || m.pdf_url || '', m.agenda_url || '',
-          m.isCancelled || m.cancelled ? 'Yes' : ''
+          m.date || '',
+          m.minutes_url || m.pdf_url || '',
+          m.agenda_url || '',
+          m.isCancelled || m.cancelled ? 'Cancelled' : 'Active'
         ]));
         downloadCSV(rows, `${BOARD.abbr}-minutes.csv`);
       });
@@ -1363,20 +1359,15 @@ function renderRecordings(data) {
  
   /* Activate export section buttons once data is available */
   if (BOARD.exportEnabled) {
-    const btn    = document.getElementById('export-recordings-btn');
-    const csvBtn = document.getElementById('export-recordings-csv');
-    const count  = document.getElementById('export-recordings-count');
+    const btn   = document.getElementById('export-recordings-btn');
+    const count = document.getElementById('export-recordings-count');
     if (btn) {
       if (count) count.textContent = `${recordings.length} recording${recordings.length !== 1 ? 's' : ''}`;
       btn.disabled = false;
-      btn.addEventListener('click', () => downloadBoardHTML('recordings', window._recordingsData || []));
-    }
-    if (csvBtn) {
-      csvBtn.disabled = false;
-      csvBtn.addEventListener('click', () => {
-        const rows = [['Date', 'Title', 'YouTube URL']];
+      btn.addEventListener('click', () => {
+        const rows = [['Date', 'YouTube URL']];
         (window._recordingsData || []).forEach(r => rows.push([
-          r.date || '', r.title || r.display || r.date || '',
+          r.date || '',
           r.youtube_url || (r.youtube_id ? `https://youtube.com/watch?v=${r.youtube_id}` : '')
         ]));
         downloadCSV(rows, `${BOARD.abbr}-recordings.csv`);
