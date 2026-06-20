@@ -72,13 +72,13 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
- 
+
 <div class="topbar">
   <div class="topbar-inner">
     <a href="index.html">City of Kalamazoo</a>
   </div>
 </div>
- 
+
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
@@ -103,7 +103,7 @@
     </div>
   </div>
 </nav>
- 
+
 <div class="breadcrumb">
   <div class="breadcrumb-inner">
     <a href="index.html">All Boards</a>
@@ -111,7 +111,7 @@
     <span>Citizen-Public Safety Review and Appeals Board</span>
   </div>
 </div>
- 
+
 <!-- GENERATED_BODY_START -->
 <div class="page-header">
   <div class="page-header-inner">
@@ -151,47 +151,47 @@
     </div>
   </div>
 </div>
- 
+
 <div class="gov-strip">
   <div class="gov-inner">
     <!-- populated at runtime by board-template.js from BOARD.govStrip -->
   </div>
 </div>
 <!-- GENERATED_BODY_END -->
- 
+
 <div class="board-body">
   <div class="acc-list">
     <div class="accordion">
- 
+
       <!-- About & Mission opens by default — no hidden, aria-expanded=true -->
       <div class="acc-item" id="about-mission">
         <button class="acc-trigger" aria-expanded="true">About &amp; Mission<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="acc-panel"><div class="acc-panel-inner"></div></div>
       </div>
- 
+
       <div class="acc-item" id="roles-responsibilities">
         <button class="acc-trigger" aria-expanded="false">Roles &amp; Responsibilities<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="acc-panel" hidden><div class="acc-panel-inner"></div></div>
       </div>
- 
+
       <div class="acc-item" id="membership-requirements">
         <button class="acc-trigger" aria-expanded="false">Membership Requirements<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="acc-panel" hidden><div class="acc-panel-inner"></div></div>
       </div>
- 
+
       <div class="acc-item" id="how-appeals-work">
         <button class="acc-trigger" aria-expanded="false">How Appeals Work<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="acc-panel" hidden><div class="acc-panel-inner"></div></div>
       </div>
- 
+
       <div class="acc-item" id="how-to-join">
         <button class="acc-trigger" aria-expanded="false">How to Apply<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="acc-panel" hidden><div class="acc-panel-inner"></div></div>
       </div>
- 
+
     </div>
   </div>
- 
+
   <aside class="sidebar">
     <div class="sidebar-card">
       <div class="sidebar-card-header">
@@ -205,9 +205,9 @@
     <!-- renderExternalLinks() appends External Resources card here -->
   </aside>
 </div>
- 
+
 <div class="bottom-cards">
- 
+
   <!-- Card 1: Minutes & Agendas -->
   <div class="bottom-card scrollable-card" style="display:flex;flex-direction:column;">
     <div class="bottom-card-header">
@@ -219,7 +219,7 @@
       <div class="scrollable-card-body scrollable-minutes" id="scroll-minutes"></div>
     </div>
   </div>
- 
+
   <!-- Card 3: Meeting Recordings (nth-child 3 after Key Docs inserted by JS) -->
   <div class="bottom-card scrollable-card" style="display:flex;flex-direction:column;">
     <div class="bottom-card-header">
@@ -235,12 +235,12 @@
       <div class="scrollable-card-body scrollable-recordings" id="scroll-recordings"></div>
     </div>
   </div>
- 
+
   <!-- renderDocuments() inserts Key Documents after Card 1 (becomes Card 2) -->
   <!-- renderApplyToServe() appends Apply to Serve as Card 4 -->
- 
+
 </div>
- 
+
 <div class="members-section">
   <div class="members-inner">
     <div class="members-heading">Board Members</div>
@@ -270,7 +270,7 @@
   </div>
 </div>
 <!-- renderStaffLiaison() appends staff note after .members-section -->
- 
+
 <div id="tooltip" class="tooltip">
   <span class="tooltip-close" id="tooltip-close" aria-label="Close">&#x2715;</span>
   <div class="tt-name" id="tt-name"></div>
@@ -278,11 +278,11 @@
   <div class="tt-term" id="tt-term"></div>
   <div class="tt-res"  id="tt-res"></div>
 </div>
- 
+
 <footer>
   <p>City of Kalamazoo — Boards &amp; Commissions | <a href="tel:+12693376200">(269) 337-6200</a> | <a href="index.html">All Boards</a></p>
 </footer>
- 
+
 <script>
 const BOARD = {
   abbr:            'CPSRAB',
@@ -290,6 +290,7 @@ const BOARD = {
   bodyType:        'appointed',
   hasRecordings:   true,
   hasApply:        true,
+  applyUrl:        'https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission',
   applyHeading:    'Serve on the Citizen-Public Safety Review and Appeals Board',
   applyText:       'The CPSRAB seeks community members committed to equitable public safety and community trust. Members are appointed by the City Manager and serve 3-year terms. Diverse backgrounds in law, social work, community organizing, and public safety are valued.',
   membersSubhead:  'Up to 12 seats \u2014 6 diverse organization representatives + 6 at-large; 3-year terms, max 2 consecutive',
@@ -346,4 +347,3 @@ const BOARD = {
 <script src="board-template.js"></script>
 </body>
 </html>
- 
