@@ -227,7 +227,7 @@ function renderMembersSubhead() {
   if (vacantCount > 0) {
     const alert = document.createElement('div');
     alert.className = 'vacancy-alert';
-    alert.innerHTML = `<strong>${vacantCount} open seat${vacantCount > 1 ? 's' : ''}</strong> \u2014 <a href="#apply-to-serve">apply now</a>`;
+    alert.innerHTML = `<strong>${vacantCount} open seat${vacantCount > 1 ? 's' : ''}</strong> \u2014 <a href="${BOARD.applyUrl || 'https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission'}" target="_blank" rel="noopener">apply now</a>`;
     const insertAfter = inner.querySelector('.members-subhead') || heading;
     insertAfter.insertAdjacentElement('afterend', alert);
   }
