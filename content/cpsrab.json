@@ -1,0 +1,127 @@
+{
+  "abbr": "CPSRAB",
+
+  "accordions": [
+    {
+      "title": "About & Mission",
+      "anchor": "about-mission",
+      "open": true,
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "The Citizens Public Safety Review and Appeal Board (CPSRAB) provides an opportunity for community members to participate in the oversight of the Kalamazoo Department of Public Safety (KDPS). Created by the City Manager pursuant to the authority granted by the Kalamazoo City Charter, the Board receives citizen input on appeals filed after KDPS complaint investigations and can inquire into any conduct of a public safety officer in the absence of a complaint."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Board serves three primary purposes: building community trust and credibility in the public safety complaint process; providing an independent review of complaint dispositions that citizens choose to appeal; and advising the City Manager on improvements to policies, procedures, and community outreach related to the complaint process."
+        },
+        {
+          "type": "paragraph",
+          "text": "For more information about the Board, its work, and annual reports, visit the Board's independent website: <a href=\"https://www.kalamazoocpsrab.org/\" target=\"_blank\" rel=\"noopener\">kalamazoocpsrab.org</a>."
+        }
+      ]
+    },
+    {
+      "title": "Roles & Responsibilities",
+      "anchor": "roles-responsibilities",
+      "body": [
+        { "type": "heading", "text": "Review" },
+        {
+          "type": "list",
+          "items": [
+            "Receive copies of PCR complaints (with personal information redacted) upon request",
+            "Be updated monthly on the progress of all active complaint investigations by the Office of Professional Standards",
+            "Inquire about any complaint investigation, regardless of the Chief's finding, in the absence of a formal appeal",
+            "Review the complaint reporting process and recommend improvements to the Chief and City Manager"
+          ]
+        },
+        { "type": "heading", "text": "Advisory" },
+        {
+          "type": "list",
+          "items": [
+            "Monitor the overall fairness of the complaint process for both citizens and public safety employees",
+            "Recommend improvements to the City Manager on policies and procedures implicated in the complaint process",
+            "Assist the Department of Public Safety in preparing community outreach materials about the complaint process",
+            "Establish subcommittees to research and address public safety and community relations issues"
+          ]
+        },
+        { "type": "heading", "text": "Reporting" },
+        {
+          "type": "list",
+          "items": [
+            "Prepare an annual review covering the number and types of complaints, and assess the thoroughness, accountability, and responsiveness of the complaint process",
+            "Issue reports on police/community relations, racial profiling, and other community climate concerns as needed"
+          ]
+        },
+        { "type": "heading", "text": "Community Outreach" },
+        {
+          "type": "list",
+          "items": [
+            "Hold meetings with community leaders and neighborhood associations at least annually",
+            "Organize public forums to discuss community climate and develop action agendas with the Public Safety Chief",
+            "Work with KDPS and community organizations to anticipate and prevent problems through data analysis and recommendations"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Membership Requirements",
+      "anchor": "membership-requirements",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "The Board consists of <strong>up to 12 members</strong> appointed by the City Manager — up to 6 from diverse organizations representing diverse populations and up to 6 at-large members. A quorum requires 51% of active members present."
+        },
+        { "type": "field", "label": "Appointment",      "value": "All members are appointed by the City Manager. The Chair is named annually by the City Manager; the Vice Chair is recommended by the Chair and approved by the City Manager." },
+        { "type": "field", "label": "Term Length",      "value": "Members serve 3-year terms, limited to 2 consecutive terms. A 1-year hiatus is required before reappointment." },
+        { "type": "field", "label": "Residency",        "value": "Full-time City of Kalamazoo residents receive first priority. Non-residents with identifiable interests located in the City receive second priority." },
+        { "type": "field", "label": "Time Commitment",  "value": "Approximately 5-8 hours per calendar quarter, including monthly meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year." },
+        { "type": "field", "label": "Disqualifiers",    "value": "Members may not hold political office, be a current City employee, work for another law enforcement agency, be a retired or former law enforcement officer, or be an immediate family member of any KDPS personnel." },
+        { "type": "field", "label": "Orientation",      "value": "Members must attend an orientation session within their first 90 days and attend the Kalamazoo Regional Citizens Academy within the first year of service." }
+      ]
+    },
+    {
+      "title": "How Appeals Work",
+      "anchor": "how-appeals-work",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "CPSRAB reviews appeals of complaint findings made by the Chief of Public Safety after investigation by the Office of Professional Standards. The Board may only recommend changes to findings of exonerated, unfounded, or not sustained."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>File a Complaint</strong> — Submit a PCR complaint with KDPS online, in person, by mail, phone, or email. OPS receives and investigates the complaint.",
+            "<strong>OPS Investigation</strong> — OPS investigates within 45 days. Upon completion, the Chief makes a final finding and notifies the complainant within 10 business days.",
+            "<strong>File an Appeal</strong> — If unsatisfied with the Chief's finding, file an appeal with the City Manager within 15 business days of receiving the decision.",
+            "<strong>CPSRAB Hearing</strong> — The City Manager refers qualifying appeals to CPSRAB. A hearing is scheduled within 30 business days and held within 60.",
+            "<strong>Board Recommendation</strong> — The Board submits a written report to the City Manager within 14 business days recommending to sustain or reverse the Chief's finding."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "How to Join",
+      "anchor": "how-to-join"
+    },
+    {
+      "title": "Public Comment Guide",
+      "anchor": "public-comment"
+    }
+  ],
+
+  "howToJoin": {
+    "appointingAuthority": "City Manager",
+    "eligibility": "Must be a Kalamazoo resident (first priority). Current KDPS employees, those holding political office, current city employees, law enforcement agency workers, retired or former law enforcement officers, and immediate family members of any KDPS personnel are ineligible.",
+    "residency": "Full-time City of Kalamazoo residents receive first priority. Non-residents with identifiable interests in the City are also eligible.",
+    "meetingFrequency": "2nd Tuesday of each month at 6:00 p.m.",
+    "timeCommitment": "Approximately 5-8 hours per calendar quarter, including monthly meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year."
+  },
+
+  "publicCommentGuide": {
+    "location": "City Commission Chambers, City Hall Second Floor, 241 W South Street",
+    "remote": "Zoom link available on the city website agenda posting for each meeting",
+    "signUp": "Sign up at the door before the meeting begins",
+    "timeLimit": "3 minutes per speaker"
+  }
+}
