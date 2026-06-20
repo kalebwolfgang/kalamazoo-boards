@@ -925,8 +925,6 @@ function renderMinutes(data) {
   }
 
   drawMinutes(meetings, 'all', el, null);
-  if (el._refreshScrollbar) el._refreshScrollbar();
-}
 
 function drawMinutes(meetings, year, el, countEl) {
   const filtered = year === 'all'
