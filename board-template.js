@@ -1032,6 +1032,8 @@ function renderRecordings(data) {
   }
 
   drawRecordings(recordings, 'all', el, countEl);
+  if (el._refreshScrollbar) el._refreshScrollbar();
+}
 
 function drawRecordings(recordings, year, el, countEl) {
   const filtered = year === 'all'
