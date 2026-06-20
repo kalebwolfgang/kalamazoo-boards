@@ -23,8 +23,10 @@
    Change these two constants to swap analytics providers
    across all 25+ board pages in a single edit.
    ───────────────────────────────────────────────────────────── */
-const ANALYTICS_TOKEN = '2d2238a3d3d7465c86da4cd5a0854e8e';
-const ANALYTICS_SRC   = 'https://static.cloudflareinsights.com/beacon.min.js';
+const ANALYTICS_TOKEN  = '2d2238a3d3d7465c86da4cd5a0854e8e';  
+const ANALYTICS_SRC    = 'https://static.cloudflareinsights.com/beacon.min.js';
+const UMAMI_WEBSITE_ID = '507d2340-9a98-4f50-848e-14ac20c833ad';
+const UMAMI_SCRIPT_URL = 'https://cloud.umami.is/script.js';
 
 /* ─────────────────────────────────────────────────────────────
    PWA CONFIG — Task 16 placeholder
