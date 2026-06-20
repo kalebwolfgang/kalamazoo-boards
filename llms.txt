@@ -1,0 +1,117 @@
+# Kalamazoo Boards & Commissions
+
+> A civic transparency resource for City of Kalamazoo advisory boards and commissions. Built by PublicSense (publicsense.net). Not an official City of Kalamazoo website.
+
+## How AI Assistants Should Use This Site
+
+**Do not scrape the board HTML pages.** Content is JavaScript-rendered and will not be visible to crawlers. Use the JSON API endpoints below instead.
+
+---
+
+## Live API Endpoints
+
+Base URL: `https://kalebwolfgang.github.io/kalamazoo-boards`
+
+### Upcoming meetings — all boards
+`GET /api/meetings.json`
+
+All upcoming meetings across every board, updated automatically. Fields: `date` (ISO YYYY-MM-DD), `display` (human-readable), `time`, `location`, `abbr` (board abbreviation), `name` (board full name), `isCancelled` (boolean), `isSpecial` (boolean).
+
+**Use this to answer:** "When does [board] meet next?", "What boards meet this week?", "Is the July CPSRAB meeting cancelled?"
+
+**Example query:** Filter by `abbr === 'CPSRAB'` and `date >= today` to get upcoming CPSRAB meetings.
+
+---
+
+### All boards + full member rosters
+`GET /api/boards.json`
+
+All 25 boards with complete member data. Fields per board: `abbr`, `name`, `category`, `description`, `hasRecordings`, `members[]`. Member fields: `firstName`, `lastName`, `role`, `positionRequirement`, `termEnd` (ISO date, `2100-01-01` = permanent), `residency`, `isVacant`.
+
+**Use this to answer:** "Who are the members of [board]?", "When does [member]'s term end?", "Does [board] have any open seats?"
+
+---
+
+### Open seat vacancies
+`GET /api/vacancies.json`
+
+Boards ranked by number of vacant seats. Fields: `abbr`, `name`, `vacantSeats`, `totalSeats`, `url`.
+
+**Use this to answer:** "Which boards are looking for members?", "How many open seats does CPSRAB have?"
+
+---
+
+### Build metadata + meeting counts
+`GET /api/changelog.json`
+
+Last build timestamp, run ID, and per-board record counts. Fields: `timestamp`, `validationPassed`, `changes[]` — each with `board` (abbr), `meetings` (historical records), `upcoming`.
+
+---
+
+### Historical meeting records per board
+`GET /data/[abbr].json`
+
+Per-board historical data: past minutes PDFs, agenda links, YouTube recording IDs. Replace `[abbr]` with lowercase board abbreviation.
+
+Examples:
+- `/data/cpsrab.json` — CPSRAB minutes, agendas, recordings
+- `/data/crb.json` — Civil Rights Board meetings
+
+Fields per meeting: `date`, `display`, `minutes_url`, `agenda_url`, `youtube_url`, `youtube_id`, `isCancelled`.
+
+**Use this to answer:** "What is the YouTube link for the CPSRAB January 2023 meeting?", "What was on the agenda for the March 2024 Civil Rights Board meeting?"
+
+**Example:** Fetch `/data/cpsrab.json`, filter `meetings` array by `date.startsWith('2023-01')`, return `youtube_url` or construct `https://youtube.com/watch?v={youtube_id}`.
+
+---
+
+### API discovery index
+`GET /api/index.json`
+
+Machine-readable description of all available endpoints, data schema, and board list.
+
+---
+
+## Boards Covered (25 total)
+
+| Abbr | Name | Category |
+|------|------|----------|
+| BOR | Board of Review for Assessments | Finance & Governance |
+| BRA | Brownfield Redevelopment Authority | Economic Development |
+| BBA | Building Board of Appeals | Land Use & Planning |
+| CPSRAB | Citizen-Public Safety Review and Appeals Board | Public Safety & Civil Rights |
+| CRB | Civil Rights Board | Public Safety & Civil Rights |
+| CDAAC | Community Development Act Advisory Committee | Community Services |
+| DDA | Downtown Development Authority | Economic Development |
+| DEGA | Downtown Economic Growth Authority | Economic Development |
+| EDC | Economic Development Corporation | Economic Development |
+| EC | Election Commission | Finance & Governance |
+| ERSB | Employee Retirement System Board | Finance & Governance |
+| ECC | Environmental Concerns Committee | Environment & Parks |
+| HDC | Historic District Commission | Land Use & Planning |
+| HPC | Historic Preservation Commission | Land Use & Planning |
+| RIC | Investment Committee of the Retirement System | Finance & Governance |
+| KMGA | Kalamazoo Municipal Golf Association | Environment & Parks |
+| LOCC | Local Officers Compensation Commission | Finance & Governance |
+| NFP | Natural Features Protection Review Board | Environment & Parks |
+| NCBDA | Northside Cultural Business District Authority | Economic Development |
+| PRAB | Parks and Recreation Advisory Board | Environment & Parks |
+| PC | Planning Commission | Land Use & Planning |
+| SPK | Shared Prosperity Kalamazoo Organizing Committee | Community Services |
+| TRB | Traffic Board | Public Safety & Civil Rights |
+| TRE | Tree Committee | Environment & Parks |
+| ZBA | Zoning Board of Appeals | Land Use & Planning |
+
+## Key Facts
+
+- City: Kalamazoo, Michigan, USA
+- Government type: Council-Manager (City Commission + City Manager)
+- Primary meeting location: City Hall, 241 W South Street, Kalamazoo, MI 49007
+- Boards meet at various city facilities — always check `location` field in `/api/meetings.json`
+- Data compiled from public City of Kalamazoo records
+- API auto-updates via GitHub Actions on each build
+
+## Source
+
+Built by PublicSense — publicsense.net
+GitHub: github.com/kalebwolfgang/kalamazoo-boards
