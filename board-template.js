@@ -186,7 +186,7 @@ function renderDocuments() {
   if (!docs || !docs.length) return;
   if (['ECC', 'HDC', 'HPC'].includes(BOARD.abbr)) return;
 
-  const grid = document.querySelector('.bottom-cards-grid');
+  const grid = document.querySelector('.bottom-cards');
   if (!grid) return;
 
   const card = document.createElement('div');
