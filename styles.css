@@ -393,7 +393,12 @@ footer a:hover { color: var(--gold-lt); }
   padding: 28px 32px; display: grid; grid-template-columns: 2fr 1fr;
   gap: 56px; align-items: start;
 }
-@media (max-width: 700px) { .export-section-inner { grid-template-columns: 1fr; } }
+@media (max-width: 700px) {
+  .export-section-inner { grid-template-columns: 1fr; }
+  .export-buttons { justify-self: center; align-items: center; }
+  .export-btn-row { align-items: center; }
+  .export-btn-note { text-align: center; }
+}
 .export-intro { min-width: 0; }
 .export-intro-label {
   display: flex; align-items: center; gap: 8px;
