@@ -1,3 +1,4 @@
+
 /* ═══════════════════════════════════════════════════════════════
    board-template.js
    Runtime engine for all board detail pages.
@@ -38,6 +39,9 @@ const SVG_EXT = `<svg width="12" height="12" fill="none" stroke="currentColor" s
 const SVG_CAL = `<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>`;
 const SVG_DOC = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
 const SVG_PLY = `<svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+const SVG_YT  = `<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1-.8-2.2-.8-2.7-.9C16.9 2.5 12 2.5 12 2.5s-4.9 0-7.7.2c-.5.1-1.7.1-2.7.9C.8 4.3.5 6.2.5 6.2S.2 8.4.2 10.6v2.1c0 2.2.3 4.4.3 4.4s.3 1.9 1.1 2.7c1 .8 2.4.8 3 .9C6.8 21 12 21 12 21s4.9 0 7.7-.3c.5-.1 1.7-.1 2.7-.9.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.4v-2.1c0-2.2-.3-4.4-.3-4.4zM9.7 14.8V8.9l7.3 3-7.3 2.9z"/></svg>`;
+const SVG_CHEV_R    = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;opacity:0.75"><polyline points="9 18 15 12 9 6"/></svg>`;
+const SVG_DOWNLOAD  = `<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
  
 let pendingCalendarAction = null;
  
@@ -63,6 +67,7 @@ let pendingCalendarAction = null;
  
   renderGovStrip();
   renderMeetingInfoBar();
+  renderWatchLiveBar();
  
   /* Synchronous page sections — order matters:
      1. Apply appends to .bottom-cards as 3rd card
@@ -171,6 +176,34 @@ function renderMeetingInfoBar() {
     </div>`;
  
   govStrip.insertAdjacentElement('afterend', bar);
+}
+ 
+ 
+/* ═══════════════════════════════════════════════════════════════
+   WATCH LIVE BAR
+   Full-width YouTube link rendered between the gov strip and the
+   board body. Controlled by BOARD.watchLiveUrl — null or missing
+   means no button renders. Inserts beforebegin of .board-body so
+   it always appears after any meeting-info-bar.
+   ═══════════════════════════════════════════════════════════════ */
+function renderWatchLiveBar() {
+  if (!BOARD.watchLiveUrl) return;
+  const boardBody = document.querySelector('.board-body');
+  if (!boardBody) return;
+ 
+  const bar = document.createElement('div');
+  bar.className = 'watch-live-bar';
+  bar.innerHTML = `
+    <a class="watch-live-btn" href="${BOARD.watchLiveUrl}" target="_blank" rel="noopener">
+      ${SVG_YT}
+      <span style="flex:1">
+        Watch Live &amp; Past Recordings
+        <span class="watch-live-sub">Kalamazoo City TV on YouTube</span>
+      </span>
+      ${SVG_CHEV_R}
+    </a>`;
+ 
+  boardBody.insertAdjacentElement('beforebegin', bar);
 }
  
  
@@ -363,6 +396,47 @@ function renderFeedbackBar() {
     </div>`;
  
   target.insertAdjacentElement('beforebegin', bar);
+}
+ 
+ 
+/* ═══════════════════════════════════════════════════════════════
+   EXPORT DATA
+   Adds a download icon to Minutes and Recordings card headers
+   when BOARD.exportEnabled is true. Reads from window._minutesData
+   and window._recordingsData set during rendering. Generates CSV
+   via Blob — no server needed, pure client-side.
+   Task placeholder: set exportEnabled: false until ready to ship.
+   ═══════════════════════════════════════════════════════════════ */
+function renderExportButton(scrollId, filename, getRows) {
+  if (!BOARD.exportEnabled) return;
+  const scrollEl = document.getElementById(scrollId);
+  if (!scrollEl) return;
+  const header = scrollEl.closest('.bottom-card')?.querySelector('.bottom-card-header');
+  if (!header) return;
+ 
+  const btn = document.createElement('button');
+  btn.className = 'export-icon-btn';
+  btn.title     = `Export as CSV`;
+  btn.setAttribute('aria-label', 'Export data as CSV');
+  btn.innerHTML = SVG_DOWNLOAD;
+  btn.addEventListener('click', () => {
+    const rows = getRows();
+    if (rows && rows.length > 1) downloadCSV(rows, filename);
+  });
+  header.appendChild(btn);
+}
+ 
+function downloadCSV(rows, filename) {
+  const csv  = rows.map(r =>
+    r.map(c => `"${String(c ?? '').replace(/"/g, '""')}"`).join(',')
+  ).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = filename; a.style.display = 'none';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
  
  
@@ -966,6 +1040,8 @@ function renderMinutes(data) {
     return;
   }
  
+  window._minutesData = meetings; /* stored for CSV export */
+ 
   const years = [...new Set(meetings.map(m => m.date.slice(0, 4)))].sort((a, b) => b - a);
   if (years.length > 1) {
     const card = el.closest('.bottom-card');
@@ -988,6 +1064,18 @@ function renderMinutes(data) {
  
   drawMinutes(meetings, 'all', el, null);
   if (el._refreshScrollbar) el._refreshScrollbar();
+ 
+  renderExportButton('scroll-minutes', `${BOARD.abbr}-minutes.csv`, () => {
+    const rows = [['Date', 'Display', 'Minutes URL', 'Agenda URL', 'Cancelled']];
+    (window._minutesData || []).forEach(m => rows.push([
+      m.date || '',
+      m.display || m.date || '',
+      m.minutes_url || m.pdf_url || '',
+      m.agenda_url || '',
+      m.isCancelled || m.cancelled ? 'Yes' : ''
+    ]));
+    return rows;
+  });
 }
  
 function drawMinutes(meetings, year, el, countEl) {
@@ -1046,6 +1134,8 @@ function renderRecordings(data) {
     return;
   }
  
+  window._recordingsData = recordings; /* stored for CSV export */
+ 
   if (pill) pill.textContent = `${recordings.length} recording${recordings.length !== 1 ? 's' : ''}`;
  
   const years = [...new Set(recordings.map(r => r.date.slice(0, 4)))].sort((a, b) => b - a);
@@ -1061,6 +1151,15 @@ function renderRecordings(data) {
  
   drawRecordings(recordings, 'all', el, countEl);
   if (el._refreshScrollbar) el._refreshScrollbar();
+ 
+  renderExportButton('scroll-recordings', `${BOARD.abbr}-recordings.csv`, () => {
+    const rows = [['Date', 'Title', 'YouTube URL']];
+    (window._recordingsData || []).forEach(r => {
+      const url = r.youtube_url || (r.youtube_id ? `https://youtube.com/watch?v=${r.youtube_id}` : '');
+      rows.push([r.date || '', r.title || r.date || '', url]);
+    });
+    return rows;
+  });
 }
  
 function drawRecordings(recordings, year, el, countEl) {
