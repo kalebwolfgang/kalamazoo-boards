@@ -10,6 +10,11 @@
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -124,6 +129,16 @@
     "legalClassification": "Authorities",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": "EDC",
+    "relatedBoards": [
+      {
+        "abbr": "EDC",
+        "label": "Shares membership with EDC"
+      }
+    ],
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -259,6 +274,11 @@
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -372,6 +392,11 @@
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -518,6 +543,11 @@
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -631,6 +661,11 @@
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -744,6 +779,16 @@
     "legalClassification": "Authorities",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": "DEGA",
+    "relatedBoards": [
+      {
+        "abbr": "DEGA",
+        "label": "Shares membership with DEGA"
+      }
+    ],
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -879,6 +924,16 @@
     "legalClassification": "Authorities",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": "DDA",
+    "relatedBoards": [
+      {
+        "abbr": "DDA",
+        "label": "Shares membership with DDA"
+      }
+    ],
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -993,6 +1048,16 @@
     "legalClassification": "Authorities",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": "BRA",
+    "relatedBoards": [
+      {
+        "abbr": "BRA",
+        "label": "Shares membership with BRA"
+      }
+    ],
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1128,6 +1193,11 @@
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1175,6 +1245,11 @@
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1244,6 +1319,11 @@
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1379,6 +1459,11 @@
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1470,6 +1555,11 @@
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1561,6 +1651,11 @@
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1652,6 +1747,11 @@
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1798,6 +1898,11 @@
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1889,6 +1994,11 @@
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1980,6 +2090,11 @@
     "legalClassification": "Authorities",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2093,6 +2208,11 @@
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2206,6 +2326,11 @@
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2319,6 +2444,11 @@
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2454,6 +2584,11 @@
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2534,6 +2669,11 @@
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2603,6 +2743,11 @@
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": true,
     "bodyType": "appointed",
+    "boardEmail": null,
+    "subscribeEnabled": false,
+    "jointWith": null,
+    "relatedBoards": null,
+    "reportUrl": null,
     "members": [
       {
         "position": 1,
