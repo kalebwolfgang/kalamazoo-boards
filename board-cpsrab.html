@@ -1,4 +1,4 @@
-
+cpsrab · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,12 +151,7 @@
       </div>
  
       <div class="acc-item" id="how-to-join">
-        <button class="acc-trigger" aria-expanded="false">How to Join<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="acc-panel" hidden><div class="acc-panel-inner"></div></div>
-      </div>
- 
-      <div class="acc-item" id="public-comment">
-        <button class="acc-trigger" aria-expanded="false">Public Comment Guide<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <button class="acc-trigger" aria-expanded="false">How to Apply<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="acc-panel" hidden><div class="acc-panel-inner"></div></div>
       </div>
  
@@ -179,6 +174,10 @@
           <a class="map-link" href="https://maps.google.com/?q=241+W+South+Street,+Kalamazoo,+MI+49007" target="_blank" rel="noopener">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             View on Google Maps
+          </a>
+          <a class="map-link" href="https://www.youtube.com/@KalamazooCityTV" target="_blank" rel="noopener">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            Watch Live on YouTube
           </a>
         </div>
       </div>
@@ -290,10 +289,11 @@ const BOARD = {
   specialCta: {
     type:    'appeal',
     eyebrow: 'Community Members',
-    heading: 'Appeal a Public Safety Decision',
-    desc:    'If you filed a complaint with KDPS and disagree with the Chief\u2019s finding, you may appeal to the City Manager within 15 business days. The CPSRAB reviews appeals and makes recommendations to the City Manager.',
+    heading: 'Disagree with the Chief\u2019s Finding?',
+    desc:    'If you filed a complaint with KDPS and the Chief\u2019s investigation found the officer exonerated, unfounded, or not sustained \u2014 and you disagree \u2014 you have 15 business days from receiving the decision to file an appeal with the City Manager. CPSRAB reviews qualifying appeals and submits a written recommendation.',
     btnText: 'Visit CPSRAB.org \u2192',
-    btnUrl:  'https://www.kalamazoocpsrab.org/'
+    btnUrl:  'https://www.kalamazoocpsrab.org/',
+    btnNote: 'For OPS-investigated complaints decided by the Chief of Public Safety'
   },
   govStrip: [
     { value: '2nd Tuesday Monthly', label: 'Meeting Schedule' },
