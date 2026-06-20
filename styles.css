@@ -221,6 +221,8 @@ footer a:hover { color: var(--gold-lt); }
 .acc-panel-inner li:last-child { margin-bottom: 0; }
 .acc-panel-inner a { color: var(--navy-light); }
 .acc-panel-inner a:hover { color: var(--gold); text-decoration: underline; }
+.acc-panel-inner h4 { font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; margin: 20px 0 8px; }
+.acc-panel-inner h4:first-child { margin-top: 0; }
 
 /* ──────────────────────────────────────────────────
    BOARD PAGE TEMPLATE CSS
