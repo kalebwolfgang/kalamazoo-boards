@@ -1,0 +1,68 @@
+
+{
+  "version": "1.0",
+  "name": "Kalamazoo Boards & Commissions API",
+  "description": "Public JSON API for City of Kalamazoo advisory boards and commissions",
+  "source": "PublicSense — publicsense.net",
+  "base_url": "https://kalebwolfgang.github.io/kalamazoo-boards",
+  "note": "Static JSON files auto-updated by GitHub Actions. No authentication. Full CORS access.",
+  "ai_note": "Do not scrape HTML pages — JavaScript-rendered. Use these JSON endpoints for all queries.",
+  "endpoints": {
+    "meetings": {
+      "url": "/api/meetings.json",
+      "description": "All upcoming meetings across every board — date, time, location, abbr, isCancelled"
+    },
+    "boards": {
+      "url": "/api/boards.json",
+      "description": "All boards with full member rosters — abbr, name, members[], termEnd, isVacant"
+    },
+    "vacancies": {
+      "url": "/api/vacancies.json",
+      "description": "Boards ranked by open seat count — abbr, vacantSeats, totalSeats"
+    },
+    "changelog": {
+      "url": "/api/changelog.json",
+      "description": "Build metadata + per-board meeting and upcoming counts"
+    },
+    "board_data": {
+      "url": "/data/{abbr}.json",
+      "description": "Historical records per board — minutes PDFs, agenda links, YouTube recordings",
+      "example": "/data/cpsrab.json"
+    }
+  },
+  "common_queries": {
+    "next_meeting": "GET /api/meetings.json → filter abbr === 'CPSRAB' and date >= today → first result",
+    "board_members": "GET /api/boards.json → find abbr === 'CPSRAB' → members array",
+    "open_seats": "GET /api/vacancies.json → boards where vacantSeats > 0",
+    "historical_recording": "GET /data/cpsrab.json → filter meetings by date → youtube_url or youtube_id",
+    "week_meetings": "GET /api/meetings.json → filter date within next 7 days"
+  },
+  "meeting_schema": {
+    "date": "ISO date YYYY-MM-DD",
+    "display": "Human-readable date",
+    "time": "Time range string",
+    "location": "Full location and address",
+    "abbr": "Board abbreviation",
+    "name": "Board full name",
+    "isCancelled": "boolean",
+    "isSpecial": "boolean"
+  },
+  "member_schema": {
+    "firstName": "string (empty if vacant)",
+    "lastName": "string (empty if vacant)",
+    "role": "Member / Chair / Vice Chair / etc.",
+    "positionRequirement": "Seat type or special requirement",
+    "termEnd": "ISO date — 2100-01-01 means permanent",
+    "residency": "Resident / Non-Resident / empty",
+    "isVacant": "boolean"
+  },
+  "historical_meeting_schema": {
+    "date": "ISO date YYYY-MM-DD",
+    "display": "Human-readable date",
+    "minutes_url": "Direct PDF URL or null",
+    "agenda_url": "Direct PDF URL or null",
+    "youtube_url": "YouTube watch URL or null",
+    "youtube_id": "YouTube ID — construct https://youtube.com/watch?v={id}",
+    "isCancelled": "boolean"
+  }
+}
