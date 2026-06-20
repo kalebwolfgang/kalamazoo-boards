@@ -431,26 +431,35 @@ function renderExportSection() {
   section.className = 'export-section';
   section.innerHTML = `
     <div class="export-section-inner">
-      <div class="export-label">
-        ${SVG_DOWNLOAD}
-        <span>Download backlog data</span>
+      <div class="export-intro">
+        <strong class="export-intro-heading">Researching this board?</strong>
+        <p class="export-intro-desc">The complete historical record is available as structured downloads — useful for journalism, public records research, or accountability work.</p>
       </div>
-      <div class="export-actions">
-        <button class="export-dl-btn" id="export-minutes-btn" disabled>
-          ${SVG_DOWNLOAD} Minutes &amp; Agendas
-          <span class="export-count" id="export-minutes-count">loading\u2026</span>
-          <span class="export-fmt export-fmt--csv">CSV</span>
-        </button>
-        <button class="export-dl-btn" id="export-recordings-btn" disabled>
-          ${SVG_DOWNLOAD} Recordings
-          <span class="export-count" id="export-recordings-count">loading\u2026</span>
-          <span class="export-fmt export-fmt--csv">CSV</span>
-        </button>
-        <button class="export-dl-btn export-dl-btn--all" id="export-all-btn" disabled>
-          ${SVG_DOWNLOAD} Complete Record
-          <span class="export-count" id="export-all-count">loading\u2026</span>
-          <span class="export-fmt export-fmt--html">HTML</span>
-        </button>
+      <div class="export-buttons">
+        <div class="export-btn-row">
+          <button class="export-dl-btn" id="export-minutes-btn" disabled>
+            ${SVG_DOWNLOAD} Minutes &amp; Agendas
+            <span class="export-count" id="export-minutes-count">loading\u2026</span>
+            <span class="export-fmt export-fmt--csv">CSV</span>
+          </button>
+          <span class="export-btn-note">For data work \u2014 open with any spreadsheet app or import to Google Sheets</span>
+        </div>
+        <div class="export-btn-row">
+          <button class="export-dl-btn" id="export-recordings-btn" disabled>
+            ${SVG_DOWNLOAD} Recordings
+            <span class="export-count" id="export-recordings-count">loading\u2026</span>
+            <span class="export-fmt export-fmt--csv">CSV</span>
+          </button>
+          <span class="export-btn-note">For data work \u2014 open with any spreadsheet app or import to Google Sheets</span>
+        </div>
+        <div class="export-btn-row">
+          <button class="export-dl-btn export-dl-btn--all" id="export-all-btn" disabled>
+            ${SVG_DOWNLOAD} Complete Record
+            <span class="export-count" id="export-all-count">loading\u2026</span>
+            <span class="export-fmt export-fmt--html">HTML</span>
+          </button>
+          <span class="export-btn-note">Opens directly in any browser \u2014 read, print, or share</span>
+        </div>
       </div>
     </div>`;
  
