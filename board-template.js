@@ -1,4 +1,3 @@
-
 /* ═══════════════════════════════════════════════════════════════
    board-template.js
    Runtime engine for all board detail pages.
@@ -74,6 +73,8 @@ let pendingCalendarAction = null;
   renderStaffLiaison();
   renderDocuments();
   renderExternalLinks();
+  renderSubscribeCta();
+  renderFeedbackBar();
  
   initAccordions();
   handleDeepLink();
@@ -273,6 +274,66 @@ function renderExternalLinks() {
     </div>`;
  
   sidebar.appendChild(card);
+}
+ 
+ 
+/* ═══════════════════════════════════════════════════════════════
+   EMAIL SUBSCRIBE CTA
+   Renders a sidebar card when BOARD.subscribeEnabled is true.
+   Currently false for all boards — flip the flag when the
+   email platform is wired up. Task 20 placeholder.
+   ═══════════════════════════════════════════════════════════════ */
+function renderSubscribeCta() {
+  if (!BOARD.subscribeEnabled) return;
+ 
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+ 
+  const SVG_BELL = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>`;
+ 
+  const card = document.createElement('div');
+  card.className = 'sidebar-card';
+  card.innerHTML = `
+    <div class="sidebar-card-header">${SVG_BELL} Stay Updated</div>
+    <div class="sidebar-card-body">
+      <p class="subscribe-desc">Get notified when new agendas are posted or board information changes.</p>
+      <div class="subscribe-form">
+        <input type="email" class="subscribe-input" placeholder="your@email.com" aria-label="Email address">
+        <button class="subscribe-btn" type="button">Subscribe \u2192</button>
+      </div>
+    </div>`;
+ 
+  /* TODO Task 20: wire up submit handler to email platform */
+ 
+  sidebar.appendChild(card);
+}
+ 
+ 
+/* ═══════════════════════════════════════════════════════════════
+   FEEDBACK / REPORT ERROR BAR
+   Persistent across all board pages. BOARD.feedbackUrl controls
+   the link destination — null shows "coming soon" until the
+   form is live.
+   ═══════════════════════════════════════════════════════════════ */
+function renderFeedbackBar() {
+  const footer = document.querySelector('footer');
+  if (!footer) return;
+ 
+  const SVG_FLAG = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>`;
+ 
+  const bar = document.createElement('div');
+  bar.className = 'feedback-bar';
+ 
+  const actionHtml = BOARD.feedbackUrl
+    ? `<a class="feedback-link" href="${BOARD.feedbackUrl}" target="_blank" rel="noopener">Report it \u2192</a>`
+    : `<span class="feedback-link feedback-link--soon">Reporting form coming soon</span>`;
+ 
+  bar.innerHTML = `
+    ${SVG_FLAG}
+    <span>See something wrong or out of date?</span>
+    ${actionHtml}`;
+ 
+  footer.insertAdjacentElement('beforebegin', bar);
 }
  
  
