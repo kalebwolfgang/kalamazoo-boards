@@ -108,11 +108,17 @@ let pendingCalendarAction = null;
    ANALYTICS INJECTION
    ═══════════════════════════════════════════════════════════════ */
 function injectAnalytics() {
-  const s = document.createElement('script');
-  s.defer = true;
-  s.src   = ANALYTICS_SRC;
-  s.setAttribute('data-cf-beacon', JSON.stringify({ token: ANALYTICS_TOKEN }));
-  document.head.appendChild(s);
+  const cf = document.createElement('script');
+  cf.defer = true;
+  cf.src   = ANALYTICS_SRC;
+  cf.setAttribute('data-cf-beacon', JSON.stringify({ token: ANALYTICS_TOKEN }));
+  document.head.appendChild(cf);
+
+  const um = document.createElement('script');
+  um.defer = true;
+  um.src   = UMAMI_SCRIPT_URL;
+  um.setAttribute('data-website-id', UMAMI_WEBSITE_ID);
+  document.head.appendChild(um);
 }
 
 
