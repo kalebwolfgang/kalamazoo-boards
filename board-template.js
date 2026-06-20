@@ -1,4 +1,3 @@
-
 /* ═══════════════════════════════════════════════════════════════
    board-template.js
    Runtime engine for all board detail pages.
@@ -63,6 +62,7 @@ let pendingCalendarAction = null;
   injectAnalytics();
  
   renderGovStrip();
+  renderMeetingInfoBar();
  
   /* Synchronous page sections — order matters:
      1. Apply appends to .bottom-cards as 3rd card
@@ -147,6 +147,30 @@ function renderGovStrip() {
         <div class="gov-label">${item.label}</div>
       </div>`)
     .join('');
+}
+ 
+ 
+/* ═══════════════════════════════════════════════════════════════
+   MEETING INFO BAR
+   Optional one-line schedule note rendered between the gov strip
+   and the Watch Live banner. Controlled by BOARD.meetingNote.
+   ═══════════════════════════════════════════════════════════════ */
+function renderMeetingInfoBar() {
+  if (!BOARD.meetingNote) return;
+  const govStrip = document.querySelector('.gov-strip');
+  if (!govStrip) return;
+ 
+  const SVG_CAL_SM = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--muted)"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`;
+ 
+  const bar = document.createElement('div');
+  bar.className = 'meeting-info-bar';
+  bar.innerHTML = `
+    <div class="meeting-info-inner">
+      ${SVG_CAL_SM}
+      <span>${BOARD.meetingNote}</span>
+    </div>`;
+ 
+  govStrip.insertAdjacentElement('afterend', bar);
 }
  
  
@@ -322,22 +346,18 @@ function renderFeedbackBar() {
   const target         = membersSection || footer;
   if (!target) return;
  
-  const SVG_EDIT = `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`;
- 
   const ctaHtml = BOARD.feedbackUrl
-    ? `<a class="feedback-btn" href="${BOARD.feedbackUrl}" target="_blank" rel="noopener">Report an Error ${SVG_EXT}</a>`
-    : `<span class="feedback-btn feedback-btn--soon">Report an Error &mdash; Coming Soon</span>`;
+    ? `<a class="feedback-btn" href="${BOARD.feedbackUrl}" target="_blank" rel="noopener">Report an Error \u2192</a>`
+    : `<span class="feedback-btn feedback-btn--soon">Report an Error \u2014 Coming Soon</span>`;
  
   const bar = document.createElement('div');
   bar.className = 'feedback-bar';
   bar.innerHTML = `
     <div class="feedback-bar-inner">
-      <div class="feedback-content">
-        ${SVG_EDIT}
-        <div>
-          <strong class="feedback-heading">Noticed something out of date?</strong>
-          <span class="feedback-desc">Board membership, contact info, and meeting details can change. When you flag an error, we fix it &mdash; keeping this resource accurate for everyone.</span>
-        </div>
+      <div>
+        <div class="feedback-eyebrow">Board Information</div>
+        <strong class="feedback-heading">Noticed something out of date?</strong>
+        <p class="feedback-desc">Board membership, contact info, and meeting details can change. When you flag an error, we fix it \u2014 keeping this resource accurate for everyone.</p>
       </div>
       ${ctaHtml}
     </div>`;
