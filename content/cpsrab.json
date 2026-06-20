@@ -1,6 +1,6 @@
+
 {
   "abbr": "CPSRAB",
-
   "accordions": [
     {
       "title": "About & Mission",
@@ -25,7 +25,10 @@
       "title": "Roles & Responsibilities",
       "anchor": "roles-responsibilities",
       "body": [
-        { "type": "heading", "text": "Review" },
+        {
+          "type": "heading",
+          "text": "Review"
+        },
         {
           "type": "list",
           "items": [
@@ -35,7 +38,10 @@
             "Review the complaint reporting process and recommend improvements to the Chief and City Manager"
           ]
         },
-        { "type": "heading", "text": "Advisory" },
+        {
+          "type": "heading",
+          "text": "Advisory"
+        },
         {
           "type": "list",
           "items": [
@@ -45,7 +51,10 @@
             "Establish subcommittees to research and address public safety and community relations issues"
           ]
         },
-        { "type": "heading", "text": "Reporting" },
+        {
+          "type": "heading",
+          "text": "Reporting"
+        },
         {
           "type": "list",
           "items": [
@@ -53,7 +62,10 @@
             "Issue reports on police/community relations, racial profiling, and other community climate concerns as needed"
           ]
         },
-        { "type": "heading", "text": "Community Outreach" },
+        {
+          "type": "heading",
+          "text": "Community Outreach"
+        },
         {
           "type": "list",
           "items": [
@@ -72,12 +84,36 @@
           "type": "paragraph",
           "text": "The Board consists of <strong>up to 12 members</strong> appointed by the City Manager — up to 6 from diverse organizations representing diverse populations and up to 6 at-large members. A quorum requires 51% of active members present."
         },
-        { "type": "field", "label": "Appointment",      "value": "All members are appointed by the City Manager. The Chair is named annually by the City Manager; the Vice Chair is recommended by the Chair and approved by the City Manager." },
-        { "type": "field", "label": "Term Length",      "value": "Members serve 3-year terms, limited to 2 consecutive terms. A 1-year hiatus is required before reappointment." },
-        { "type": "field", "label": "Residency",        "value": "Full-time City of Kalamazoo residents receive first priority. Non-residents with identifiable interests located in the City receive second priority." },
-        { "type": "field", "label": "Time Commitment",  "value": "Approximately 5-8 hours per calendar quarter, including monthly meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year." },
-        { "type": "field", "label": "Disqualifiers",    "value": "Members may not hold political office, be a current City employee, work for another law enforcement agency, be a retired or former law enforcement officer, or be an immediate family member of any KDPS personnel." },
-        { "type": "field", "label": "Orientation",      "value": "Members must attend an orientation session within their first 90 days and attend the Kalamazoo Regional Citizens Academy within the first year of service." }
+        {
+          "type": "field",
+          "label": "Appointment",
+          "value": "All members are appointed by the City Manager. The Chair is named annually by the City Manager; the Vice Chair is recommended by the Chair and approved by the City Manager."
+        },
+        {
+          "type": "field",
+          "label": "Term Length",
+          "value": "Members serve 3-year terms, limited to 2 consecutive terms. A 1-year hiatus is required before reappointment."
+        },
+        {
+          "type": "field",
+          "label": "Residency",
+          "value": "Full-time City of Kalamazoo residents receive first priority. Non-residents with identifiable interests located in the City receive second priority."
+        },
+        {
+          "type": "field",
+          "label": "Time Commitment",
+          "value": "Approximately 5-8 hours per calendar quarter, including monthly meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year."
+        },
+        {
+          "type": "field",
+          "label": "Disqualifiers",
+          "value": "Members may not hold political office, be a current City employee, work for another law enforcement agency, be a retired or former law enforcement officer, or be an immediate family member of any KDPS personnel."
+        },
+        {
+          "type": "field",
+          "label": "Orientation",
+          "value": "Members must attend an orientation session within their first 90 days and attend the Kalamazoo Regional Citizens Academy within the first year of service."
+        }
       ]
     },
     {
@@ -89,13 +125,28 @@
           "text": "CPSRAB reviews appeals of complaint findings made by the Chief of Public Safety after investigation by the Office of Professional Standards. The Board may only recommend changes to findings of exonerated, unfounded, or not sustained."
         },
         {
-          "type": "list",
+          "type": "steps",
           "items": [
-            "<strong>File a Complaint</strong> — Submit a PCR complaint with KDPS online, in person, by mail, phone, or email. OPS receives and investigates the complaint.",
-            "<strong>OPS Investigation</strong> — OPS investigates within 45 days. Upon completion, the Chief makes a final finding and notifies the complainant within 10 business days.",
-            "<strong>File an Appeal</strong> — If unsatisfied with the Chief's finding, file an appeal with the City Manager within 15 business days of receiving the decision.",
-            "<strong>CPSRAB Hearing</strong> — The City Manager refers qualifying appeals to CPSRAB. A hearing is scheduled within 30 business days and held within 60.",
-            "<strong>Board Recommendation</strong> — The Board submits a written report to the City Manager within 14 business days recommending to sustain or reverse the Chief's finding."
+            {
+              "title": "File a Complaint",
+              "desc": "Submit a PCR complaint with KDPS online, in person, by mail, phone, or email. OPS receives and investigates the complaint."
+            },
+            {
+              "title": "OPS Investigation",
+              "desc": "OPS investigates within 45 days. Upon completion, the Chief makes a final finding and notifies the complainant within 10 business days."
+            },
+            {
+              "title": "File an Appeal",
+              "desc": "If unsatisfied with the Chief's finding, file an appeal with the City Manager within 15 business days of receiving the decision."
+            },
+            {
+              "title": "CPSRAB Hearing",
+              "desc": "The City Manager refers qualifying appeals to CPSRAB. A hearing is scheduled within 30 business days and held within 60."
+            },
+            {
+              "title": "Board Recommendation",
+              "desc": "The Board submits a written report to the City Manager within 14 business days recommending to sustain or reverse the Chief's finding."
+            }
           ]
         }
       ]
@@ -109,15 +160,12 @@
       "anchor": "public-comment"
     }
   ],
-
   "howToJoin": {
-    "appointingAuthority": "City Manager",
     "eligibility": "Must be a Kalamazoo resident (first priority). Current KDPS employees, those holding political office, current city employees, law enforcement agency workers, retired or former law enforcement officers, and immediate family members of any KDPS personnel are ineligible.",
     "residency": "Full-time City of Kalamazoo residents receive first priority. Non-residents with identifiable interests in the City are also eligible.",
     "meetingFrequency": "2nd Tuesday of each month at 6:00 p.m.",
     "timeCommitment": "Approximately 5-8 hours per calendar quarter, including monthly meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year."
   },
-
   "publicCommentGuide": {
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South Street",
     "remote": "Zoom link available on the city website agenda posting for each meeting",
