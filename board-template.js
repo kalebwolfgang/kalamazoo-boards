@@ -23,14 +23,13 @@
    Change these two constants to swap analytics providers
    across all 25+ board pages in a single edit.
    ───────────────────────────────────────────────────────────── */
-const ANALYTICS_TOKEN  = '2d2238a3d3d7465c86da4cd5a0854e8e';  
+const ANALYTICS_TOKEN  = '2d2238a3d3d7465c86da4cd5a0854e8e';
 const ANALYTICS_SRC    = 'https://static.cloudflareinsights.com/beacon.min.js';
 const UMAMI_WEBSITE_ID = '507d2340-9a98-4f50-848e-14ac20c833ad';
 const UMAMI_SCRIPT_URL = 'https://cloud.umami.is/script.js';
 
 /* ─────────────────────────────────────────────────────────────
    PWA CONFIG — Task 16 placeholder
-   Define PWA_TAGS here and inject in init() once Task 16 is built.
    ───────────────────────────────────────────────────────────── */
 // TODO Task 16:
 // const PWA_MANIFEST = '/kalamazoo-boards/manifest.json';
@@ -44,19 +43,16 @@ const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct
 const MONTHS_LONG  = ['January','February','March','April','May','June',
                       'July','August','September','October','November','December'];
 
-/* Shared SVG icons — defined here so template strings can reference them */
 const SVG_EXT = `<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
 const SVG_CAL = `<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>`;
 const SVG_DOC = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
 const SVG_PLY = `<svg width="20" height="20" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
 
-/* Module-level state for disclaimer popup */
 let pendingCalendarAction = null;
 
 
 /* ═══════════════════════════════════════════════════════════════
-   INIT — runs synchronously on script load
-   All called functions are hoisted declarations below.
+   INIT
    ═══════════════════════════════════════════════════════════════ */
 (function init() {
   if (typeof BOARD === 'undefined') {
@@ -66,19 +62,14 @@ let pendingCalendarAction = null;
 
   const { abbr, color, bodyType = 'appointed' } = BOARD;
 
-  /* 1. CSS variable fallback — if build pipeline didn't inject it */
   const existing = getComputedStyle(document.documentElement)
     .getPropertyValue('--board-color').trim();
   if (!existing) {
     document.documentElement.style.setProperty('--board-color', color);
   }
 
-  /* 2. Analytics */
   injectAnalytics();
 
-  /* 3. TODO Task 16: injectPWATags(); */
-
-  /* 4. Gov strip + synchronous page sections */
   renderGovStrip();
   renderApplyToServe();
   renderSpecialCta();
@@ -87,32 +78,82 @@ let pendingCalendarAction = null;
   renderDocuments();
   renderExternalLinks();
 
-  /* 5. Accordion handlers (must run before deep link) */
   initAccordions();
   handleDeepLink();
-
-  /* 6. Custom scrollbars */
   initScrollbars();
-
-  /* 7. Tooltip */
   initTooltip();
-
-  /* 8. Disclaimer popup */
   injectDisclaimerPopup();
 
-  /* 9. Add-to-Calendar click delegation */
   document.addEventListener('click', handleCalendarClick);
 
-  /* 10. Parallel async fetches */
   fetchContent(abbr, bodyType);
   fetchMeetingData(abbr);
   fetchLastUpdated();
 })();
 
+
+/* ═══════════════════════════════════════════════════════════════
+   ANALYTICS
+   ═══════════════════════════════════════════════════════════════ */
+function injectAnalytics() {
+  const cf = document.createElement('script');
+  cf.defer = true;
+  cf.src   = ANALYTICS_SRC;
+  cf.setAttribute('data-cf-beacon', JSON.stringify({ token: ANALYTICS_TOKEN }));
+  document.head.appendChild(cf);
+
+  const um = document.createElement('script');
+  um.defer = true;
+  um.src   = UMAMI_SCRIPT_URL;
+  um.setAttribute('data-website-id', UMAMI_WEBSITE_ID);
+  document.head.appendChild(um);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   GOV STRIP
+   Slot 4 (Seat Status) is computed at runtime from the dot grid
+   injected by build.py into the page header.
+   ═══════════════════════════════════════════════════════════════ */
+function renderGovStrip() {
+  const inner = document.querySelector('.gov-inner');
+  if (!inner || !Array.isArray(BOARD.govStrip) || !BOARD.govStrip.length) return;
+
+  const items = [...BOARD.govStrip];
+
+  if (BOARD.bodyType !== 'elected') {
+    const nVacant   = document.querySelectorAll('.seat-dot-hdr.vacant').length;
+    const nHoldover = document.querySelectorAll('.seat-dot-hdr.holdover').length;
+    const nTrans    = document.querySelectorAll('.seat-dot-hdr.transitioning').length;
+    let slot4, color;
+    if (nVacant > 0) {
+      slot4 = `${nVacant} Open Seat${nVacant > 1 ? 's' : ''}`;
+      color = '#f87171';
+    } else if (nHoldover > 0) {
+      slot4 = `${nHoldover} In Holdover`;
+      color = '#f87171';
+    } else if (nTrans > 0) {
+      slot4 = `${nTrans} Transitioning`;
+      color = 'var(--gold-lt)';
+    } else {
+      slot4 = '\u2713 Fully Seated';
+      color = '#86efac';
+    }
+    items.push({ value: slot4, label: 'Seat Status', _color: color });
+  }
+
+  inner.innerHTML = items
+    .map(item => `
+      <div class="gov-item">
+        <div class="gov-value"${item._color ? ` style="color:${item._color}"` : ''}>${item.value}</div>
+        <div class="gov-label">${item.label}</div>
+      </div>`)
+    .join('');
+}
+
+
 /* ═══════════════════════════════════════════════════════════════
    MEMBERS SUBHEAD + VACANCY ALERT
-   Reads BOARD.membersSubhead and injects below the members heading.
-   Counts vacant dots from build.py output and shows alert if > 0.
    ═══════════════════════════════════════════════════════════════ */
 function renderMembersSubhead() {
   const inner = document.querySelector('.members-inner');
@@ -131,7 +172,7 @@ function renderMembersSubhead() {
   if (vacantCount > 0) {
     const alert = document.createElement('div');
     alert.className = 'vacancy-alert';
-    alert.innerHTML = `<strong>${vacantCount} open seat${vacantCount > 1 ? 's' : ''}</strong> — <a href="#apply-to-serve">apply now</a>`;
+    alert.innerHTML = `<strong>${vacantCount} open seat${vacantCount > 1 ? 's' : ''}</strong> \u2014 <a href="#apply-to-serve">apply now</a>`;
     const insertAfter = inner.querySelector('.members-subhead') || heading;
     insertAfter.insertAdjacentElement('afterend', alert);
   }
@@ -140,8 +181,6 @@ function renderMembersSubhead() {
 
 /* ═══════════════════════════════════════════════════════════════
    STAFF LIAISON
-   Renders 0, 1, or 2 liaison blocks after .members-section.
-   Shows board email below liaison block if BOARD.boardEmail is set.
    ═══════════════════════════════════════════════════════════════ */
 function renderStaffLiaison() {
   const liaisons = Array.isArray(BOARD.staffLiaison)
@@ -177,9 +216,7 @@ function renderStaffLiaison() {
 
 /* ═══════════════════════════════════════════════════════════════
    KEY DOCUMENTS CARD
-   Appends a Key Documents card to .bottom-cards-grid.
-   Skipped for ECC, HDC, HPC — those have static Key Documents
-   in the sidebar of their thin HTML.
+   Skipped for ECC, HDC, HPC (static Key Documents in sidebar).
    ═══════════════════════════════════════════════════════════════ */
 function renderDocuments() {
   const docs = BOARD.documents;
@@ -210,8 +247,6 @@ function renderDocuments() {
 
 /* ═══════════════════════════════════════════════════════════════
    EXTERNAL LINKS CARD
-   Appends an External Resources card to .sidebar.
-   Currently only CPSRAB has external links, but universal.
    ═══════════════════════════════════════════════════════════════ */
 function renderExternalLinks() {
   const links = BOARD.externalLinks;
@@ -239,10 +274,8 @@ function renderExternalLinks() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   APPLY TO SERVE SECTION
-   Injects before .members-section.
+   APPLY TO SERVE
    Skipped when BOARD.hasApply is false (EC, TRB).
-   Reserves a hidden .subscribe-slot for Task 20.
    ═══════════════════════════════════════════════════════════════ */
 function renderApplyToServe() {
   if (!BOARD.hasApply) return;
@@ -262,7 +295,7 @@ function renderApplyToServe() {
       <div>
         <a class="apply-standalone-btn"
            href="https://www.kalamazoocity.org/Government/Boards-Commissions/Apply-to-Join-a-Board-or-Commission"
-           target="_blank" rel="noopener">Apply Now →</a>
+           target="_blank" rel="noopener">Apply Now \u2192</a>
         <div class="subscribe-slot" style="display:none;margin-top:12px"></div>
       </div>
     </div>`;
@@ -277,10 +310,8 @@ function renderApplyToServe() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   SPECIAL CTA SECTION
-   Injects before #apply-to-serve (or .members-section if no apply).
+   SPECIAL CTA
    CRB has btnUrl: null — renders section without a button.
-   type maps to visual treatment via .special-cta--{type} in styles.css.
    ═══════════════════════════════════════════════════════════════ */
 function renderSpecialCta() {
   const cta = BOARD.specialCta;
@@ -300,79 +331,16 @@ function renderSpecialCta() {
         <p class="special-cta-desc">${cta.desc}</p>
       </div>
       ${cta.btnUrl
-        ? `<a class="special-cta-btn" href="${cta.btnUrl}" target="_blank" rel="noopener">${cta.btnText || 'Learn More →'}</a>`
+        ? `<a class="special-cta-btn" href="${cta.btnUrl}" target="_blank" rel="noopener">${cta.btnText || 'Learn More \u2192'}</a>`
         : ''}
     </div>`;
 
   target.insertAdjacentElement('beforebegin', section);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   ANALYTICS INJECTION
-   ═══════════════════════════════════════════════════════════════ */
-function injectAnalytics() {
-  const cf = document.createElement('script');
-  cf.defer = true;
-  cf.src   = ANALYTICS_SRC;
-  cf.setAttribute('data-cf-beacon', JSON.stringify({ token: ANALYTICS_TOKEN }));
-  document.head.appendChild(cf);
-
-  const um = document.createElement('script');
-  um.defer = true;
-  um.src   = UMAMI_SCRIPT_URL;
-  um.setAttribute('data-website-id', UMAMI_WEBSITE_ID);
-  document.head.appendChild(um);
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   GOV STRIP
-   Renders BOARD.govStrip array into .gov-inner.
-   build.py leaves .gov-inner empty; board-template.js fills it.
-   ═══════════════════════════════════════════════════════════════ */
-function renderGovStrip() {
-  const inner = document.querySelector('.gov-inner');
-  if (!inner || !Array.isArray(BOARD.govStrip) || !BOARD.govStrip.length) return;
-
-  const items = [...BOARD.govStrip];
-
-  /* Slot 4 — Seat Status — computed from dot grid injected by build.py */
-  if (BOARD.bodyType !== 'elected') {
-    const nVacant   = document.querySelectorAll('.seat-dot-hdr.vacant').length;
-    const nHoldover = document.querySelectorAll('.seat-dot-hdr.holdover').length;
-    const nTrans    = document.querySelectorAll('.seat-dot-hdr.transitioning').length;
-    let slot4, color;
-    if (nVacant > 0) {
-      slot4 = `${nVacant} Open Seat${nVacant > 1 ? 's' : ''}`;
-      color = '#f87171';
-    } else if (nHoldover > 0) {
-      slot4 = `${nHoldover} In Holdover`;
-      color = '#f87171';
-    } else if (nTrans > 0) {
-      slot4 = `${nTrans} Transitioning`;
-      color = 'var(--gold-lt)';
-    } else {
-      slot4 = '\u2713 Fully Seated';
-      color = '#86efac';
-    }
-    items.push({ value: slot4, label: 'Seat Status', _color: color });
-  }
-
-  inner.innerHTML = items
-    .map(item => `
-      <div class="gov-item">
-        <div class="gov-value"${item._color ? ` style="color:${item._color}"` : ''}>${item.value}</div>
-        <div class="gov-label">${item.label}</div>
-      </div>`)
-    .join('');
-}
-
 
 /* ═══════════════════════════════════════════════════════════════
    ACCORDION SYSTEM
-   build.py renders accordion shells with aria-expanded="false"
-   and hidden panels. board-template.js attaches toggle handlers.
-   Multiple accordions may be open simultaneously.
    ═══════════════════════════════════════════════════════════════ */
 function initAccordions() {
   document.querySelectorAll('.acc-trigger').forEach(btn => {
@@ -382,7 +350,6 @@ function initAccordions() {
       btn.setAttribute('aria-expanded', String(next));
       btn.nextElementSibling.hidden = !next;
 
-      /* Sync URL hash with open accordion */
       const item = btn.closest('.acc-item');
       if (item?.id) {
         if (next) {
@@ -408,7 +375,6 @@ function handleDeepLink() {
   trigger.setAttribute('aria-expanded', 'true');
   panel.hidden = false;
 
-  /* Smooth scroll after a tick so layout has settled */
   setTimeout(() => {
     const top = item.getBoundingClientRect().top + window.scrollY - 72;
     window.scrollTo({ top, behavior: 'smooth' });
@@ -418,9 +384,6 @@ function handleDeepLink() {
 
 /* ═══════════════════════════════════════════════════════════════
    CUSTOM SCROLLBARS
-   Vertical:   minutes card, recordings card
-   Horizontal: members table
-   Both hidden on touch devices — native scroll is used instead.
    ═══════════════════════════════════════════════════════════════ */
 function initScrollbars() {
   [
@@ -438,7 +401,6 @@ function initScrollbars() {
 }
 
 function initVerticalScrollbar(el, wrap) {
-  /* Skip on touch devices */
   if (window.matchMedia('(pointer: coarse)').matches) return;
 
   const track = document.createElement('div'); track.className = 'scroll-track';
@@ -463,7 +425,6 @@ function initVerticalScrollbar(el, wrap) {
   new ResizeObserver(update).observe(el);
   update();
 
-  /* Expose so content renders can trigger a refresh */
   el._refreshScrollbar = update;
 }
 
@@ -489,7 +450,6 @@ function initHorizontalScrollbar(wrap, outer) {
   new ResizeObserver(update).observe(wrap);
   update();
 
-  /* Prevent rubber-band overscroll at horizontal boundaries on iOS */
   let startX = 0, startY = 0, isHoriz = null;
   wrap.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
@@ -513,17 +473,6 @@ function initHorizontalScrollbar(wrap, outer) {
 
 /* ═══════════════════════════════════════════════════════════════
    TOOLTIP SYSTEM
-   Desktop: follows cursor on .seat-dot-hdr hover.
-            Flips left if within 180px of right edge.
-            Flips up if within 80px of bottom.
-   Mobile:  bottom sheet slides up on tap.
-            Closes on tap outside or X button.
-   Data attributes set by build.py on each .seat-dot-hdr:
-     data-name    — member name or "Open Seat"
-     data-role    — member role / position title
-     data-term    — formatted term text
-     data-termcls — CSS class: vacant | holdover | transitioning | seated
-     data-res     — residency requirement
    ═══════════════════════════════════════════════════════════════ */
 function initTooltip() {
   const tooltip = document.getElementById('tooltip');
@@ -553,7 +502,6 @@ function initTooltip() {
     }
   }
 
-  /* Desktop — follow cursor */
   document.addEventListener('mousemove', e => {
     if (isTouch()) return;
     const dot = e.target?.classList?.contains('seat-dot-hdr') ? e.target : null;
@@ -575,7 +523,6 @@ function initTooltip() {
     lastDot = null;
   });
 
-  /* Mobile — bottom sheet tap */
   document.addEventListener('click', e => {
     if (!isTouch()) return;
     const dot = e.target?.classList?.contains('seat-dot-hdr') ? e.target : null;
@@ -588,7 +535,6 @@ function initTooltip() {
     }
   });
 
-  /* Keyboard */
   document.addEventListener('keydown', e => {
     if ((e.key === 'Enter' || e.key === ' ') && e.target?.classList?.contains('seat-dot-hdr')) {
       e.preventDefault();
@@ -604,9 +550,7 @@ function initTooltip() {
 
 /* ═══════════════════════════════════════════════════════════════
    SEAT STATUS UTILITIES
-   Must stay logically consistent with the Python equivalent
-   in build.py. If the logic changes, change both files.
-   Only called for bodyType: "appointed" boards.
+   Must stay logically consistent with build.py _seat_status().
    ═══════════════════════════════════════════════════════════════ */
 function seatStatus(member) {
   const today   = new Date();
@@ -627,10 +571,6 @@ function fmtDate(iso) {
 
 /* ═══════════════════════════════════════════════════════════════
    CONTENT FETCH — content/{abbr}.json
-   Populates accordion bodies, How to Join / How to Run section,
-   and Public Comment Guide.
-   On failure: injects a brief error note into empty panels.
-               Page structure stays intact — no broken layout.
    ═══════════════════════════════════════════════════════════════ */
 function fetchContent(abbr, bodyType) {
   fetch(`content/${abbr.toLowerCase()}.json`)
@@ -641,7 +581,6 @@ function fetchContent(abbr, bodyType) {
       renderPublicCommentGuide(content.publicCommentGuide);
     })
     .catch(() => {
-      /* Leave accordion shells visible but flag empty ones */
       document.querySelectorAll('.acc-panel-inner').forEach(panel => {
         if (!panel.textContent.trim()) {
           panel.innerHTML =
@@ -658,11 +597,10 @@ function renderAccordionBodies(accordions) {
     const item = document.getElementById(acc.anchor);
     if (!item) return;
     const panel = item.querySelector('.acc-panel-inner');
-    if (!panel || panel.textContent.trim()) return; /* skip if already populated */
+    if (!panel || panel.textContent.trim()) return;
 
     panel.innerHTML = renderBodyItems(acc.body || []);
 
-    /* Open if flagged in content file */
     if (acc.open) {
       const trigger  = item.querySelector('.acc-trigger');
       const accPanel = item.querySelector('.acc-panel');
@@ -672,15 +610,6 @@ function renderAccordionBodies(accordions) {
   });
 }
 
-/*
- * Renders a body items array into HTML.
- * Supported types:
- *   paragraph — { type: "paragraph", text: "..." }
- *   list      — { type: "list", items: ["...", "..."] }
- *   field     — { type: "field", label: "...", value: "..." }
- *
- * Consecutive field items are automatically grouped into a .req-grid.
- */
 function renderBodyItems(items) {
   const out        = [];
   let   fieldGroup = [];
@@ -715,11 +644,6 @@ function renderBodyItems(items) {
   return out.join('');
 }
 
-/*
- * Renders How to Join (appointed) or How to Run (elected)
- * into the accordion with the matching anchor id.
- * Anchor convention: "how-to-join" | "how-to-run"
- */
 function renderHowToSection(content, bodyType) {
   const isElected = bodyType === 'elected';
   const anchor    = isElected ? 'how-to-run' : 'how-to-join';
@@ -734,7 +658,6 @@ function renderHowToSection(content, bodyType) {
   let fields = [];
 
   if (isElected) {
-    /* howToRun fields */
     fields = [
       data.electionCycle            && { label: 'Election Cycle',      value: data.electionCycle },
       data.nextElectionDate         && { label: 'Next Election',        value: data.nextElectionDate },
@@ -747,7 +670,6 @@ function renderHowToSection(content, bodyType) {
       },
     ].filter(Boolean);
   } else {
-    /* howToJoin fields */
     fields = [
       data.appointingAuthority && { label: 'Appointing Authority', value: data.appointingAuthority },
       data.eligibility         && { label: 'Eligibility',          value: data.eligibility },
@@ -770,10 +692,6 @@ function renderHowToSection(content, bodyType) {
   }
 }
 
-/*
- * Renders the Public Comment Guide into the accordion
- * with id="public-comment".
- */
 function renderPublicCommentGuide(guide) {
   if (!guide) return;
   const item  = document.getElementById('public-comment');
@@ -804,16 +722,6 @@ function renderPublicCommentGuide(guide) {
 
 /* ═══════════════════════════════════════════════════════════════
    MEETING DATA FETCH — data/{abbr}.json
-
-   On success renders:
-     - Upcoming meetings in sidebar card
-     - Minutes & Agendas scrollable card
-     - Recordings card (only if BOARD.hasRecordings === true)
-
-   On ANY failure (404, network, parse error):
-     Removes all three cards from the DOM entirely.
-     No empty cards, no broken layout, no error states.
-     This is a hard requirement — several boards have no data file.
    ═══════════════════════════════════════════════════════════════ */
 function fetchMeetingData(abbr) {
   fetch(`data/${abbr.toLowerCase()}.json`)
@@ -824,12 +732,10 @@ function fetchMeetingData(abbr) {
       if (BOARD.hasRecordings) {
         renderRecordings(data);
       } else {
-        /* Board doesn't have recordings — remove card shell */
         removeCard('scroll-recordings');
       }
     })
     .catch(() => {
-      /* Hard requirement: remove all three cards, no error UI */
       const sidebar = document.querySelector('.sidebar .sidebar-card');
       if (sidebar) sidebar.remove();
       removeCard('scroll-minutes');
@@ -837,7 +743,6 @@ function fetchMeetingData(abbr) {
     });
 }
 
-/* Removes the .bottom-card that contains a given element id */
 function removeCard(childId) {
   const child = document.getElementById(childId);
   if (child) {
@@ -846,13 +751,6 @@ function removeCard(childId) {
   }
 }
 
-/* ─────────────────────────────────────────────────────────────
-   UPCOMING MEETINGS
-   Supports both data formats:
-     Old: { upcoming_meetings: [...] }
-     New: meetings array filtered by date >= today
-   Shows up to 4 meetings. First one gets "Next" badge.
-   ───────────────────────────────────────────────────────────── */
 function renderUpcomingMeetings(data) {
   const el = document.getElementById('upcoming-meetings-list');
   if (!el) return;
@@ -877,7 +775,6 @@ function renderUpcomingMeetings(data) {
     return;
   }
 
-  /* Store for Add to Calendar handler */
   window._upcomingMeetings = upcoming;
 
   el.innerHTML = upcoming.slice(0, 4).map((m, i) => {
@@ -888,7 +785,7 @@ function renderUpcomingMeetings(data) {
         <div class="meeting-date">${m.display || m.date}</div>
         ${m.time     ? `<div class="meeting-time">${m.time}</div>` : ''}
         ${m.location ? `<div class="meeting-time" style="margin-top:3px;font-size:13px">${m.location}</div>` : ''}
-        ${cancelled ? '<div style="margin-top:6px;font-size:11px;font-weight:700;color:#dc2626;letter-spacing:0.06em;text-transform:uppercase">Cancelled</div>' : ''}
+        ${cancelled  ? '<div style="margin-top:6px;font-size:11px;font-weight:700;color:#dc2626;letter-spacing:0.06em;text-transform:uppercase">Cancelled</div>' : ''}
         ${m.isSpecialSession ? '<div style="margin-top:6px;background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:5px 9px;font-size:11px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase">Special Session</div>' : ''}
         ${(m.isLocationChanged || m.locationChanged) ? '<div style="margin-top:6px;background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:5px 9px;font-size:11px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase">Location Changed</div>' : ''}
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;align-items:center">
@@ -903,11 +800,6 @@ function renderUpcomingMeetings(data) {
   }).join('');
 }
 
-/* ─────────────────────────────────────────────────────────────
-   MINUTES & AGENDAS
-   Shows past meetings sorted newest-first.
-   Handles both isCancelled (new) and cancelled (old) field names.
-   ───────────────────────────────────────────────────────────── */
 function renderMinutes(data) {
   const el   = document.getElementById('scroll-minutes');
   const pill = document.getElementById('pill-meetings');
@@ -931,7 +823,6 @@ function renderMinutes(data) {
     return;
   }
 
-  /* Year filter */
   const years = [...new Set(meetings.map(m => m.date.slice(0, 4)))].sort((a, b) => b - a);
   if (years.length > 1) {
     const card = el.closest('.bottom-card');
@@ -952,7 +843,7 @@ function renderMinutes(data) {
     }
   }
 
- drawMinutes(meetings, 'all', el, null);
+  drawMinutes(meetings, 'all', el, null);
   if (el._refreshScrollbar) el._refreshScrollbar();
 }
 
@@ -989,12 +880,6 @@ function drawMinutes(meetings, year, el, countEl) {
     || `<div style="padding:18px;font-size:14px;color:var(--muted)">No records found for this year.</div>`;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   RECORDINGS
-   Only called if BOARD.hasRecordings === true.
-   If the data file has no recordings, removes the card entirely.
-   Year filter dropdown is populated from actual recording dates.
-   ───────────────────────────────────────────────────────────── */
 function renderRecordings(data) {
   const el      = document.getElementById('scroll-recordings');
   const pill    = document.getElementById('pill-recordings');
@@ -1002,8 +887,6 @@ function renderRecordings(data) {
   const countEl = document.getElementById('recordings-filter-count');
   if (!el) return;
 
-  /* Build recordings list — prefer explicit recordings field,
-     fall back to past meetings with youtube data */
   let recordings = [];
   if (Array.isArray(data.recordings) && data.recordings.length) {
     recordings = data.recordings;
@@ -1019,7 +902,6 @@ function renderRecordings(data) {
 
   if (pill) pill.textContent = `${recordings.length} recording${recordings.length !== 1 ? 's' : ''}`;
 
-  /* Populate year filter */
   const years = [...new Set(recordings.map(r => r.date.slice(0, 4)))].sort((a, b) => b - a);
   if (yearSel) {
     yearSel.innerHTML =
@@ -1061,15 +943,13 @@ function drawRecordings(recordings, year, el, countEl) {
           <div class="rec-watch">${SVG_EXT} Watch on YouTube</div>
         </div>
       </a>`;
-  }).join('') ||
-  `<div style="padding:18px;font-size:14px;color:var(--muted)">No recordings found for this year.</div>`;
+  }).join('')
+    || `<div style="padding:18px;font-size:14px;color:var(--muted)">No recordings found for this year.</div>`;
 }
 
 
 /* ═══════════════════════════════════════════════════════════════
    LAST UPDATED
-   Fetches data/meta.json and appends "Data last updated: [date]"
-   to the topbar. Fails silently if meta.json is unavailable.
    ═══════════════════════════════════════════════════════════════ */
 function fetchLastUpdated() {
   fetch('data/meta.json')
@@ -1086,14 +966,12 @@ function fetchLastUpdated() {
       span.textContent   = `Data last updated: ${label}`;
       topbar.appendChild(span);
     })
-    .catch(() => {}); /* Fail silently */
+    .catch(() => {});
 }
 
 
 /* ═══════════════════════════════════════════════════════════════
    DISCLAIMER POPUP
-   Injected into the DOM on init. Same popup as calendar.html.
-   CSS lives in styles.css (.cal-disclaimer-overlay, .cal-disclaimer etc.)
    ═══════════════════════════════════════════════════════════════ */
 function injectDisclaimerPopup() {
   const overlay = document.createElement('div');
@@ -1101,7 +979,7 @@ function injectDisclaimerPopup() {
   overlay.id        = 'board-disclaimer-overlay';
   overlay.innerHTML = `
     <div class="cal-disclaimer">
-      <div class="cal-disclaimer-icon">⚠</div>
+      <div class="cal-disclaimer-icon">\u26a0</div>
       <p class="cal-disclaimer-text">This event won't update automatically if the meeting is cancelled or rescheduled. Always check back on this site before attending.</p>
       <button class="cal-disclaimer-btn" id="board-disclaimer-btn">I understand</button>
     </div>`;
@@ -1113,7 +991,6 @@ function injectDisclaimerPopup() {
     if (pendingCalendarAction) { pendingCalendarAction(); pendingCalendarAction = null; }
   });
 
-  /* Close on backdrop click */
   overlay.addEventListener('click', e => {
     if (e.target === overlay) {
       overlay.classList.remove('open');
@@ -1126,10 +1003,6 @@ function injectDisclaimerPopup() {
 
 /* ═══════════════════════════════════════════════════════════════
    ADD TO CALENDAR
-   Shows disclaimer popup first, then fires the calendar action.
-   Mobile (iOS + Android): ICS download → opens native calendar app.
-   Desktop: Google Calendar URL.
-   TODO Task 4 custom events: fire 'add_to_calendar' analytics event.
    ═══════════════════════════════════════════════════════════════ */
 function handleCalendarClick(e) {
   const btn = e.target.closest('.add-cal-btn');
@@ -1138,8 +1011,6 @@ function handleCalendarClick(e) {
   const meetings = window._upcomingMeetings || [];
   const m        = meetings.find(x => x.date === date);
   if (!m) return;
-
-  /* TODO Task 4: window.cf_beacon && window.cf_beacon('event', { name: 'add_to_calendar' }); */
 
   const isMobile = /iPad|iPhone|iPod|Android/.test(navigator.userAgent);
   pendingCalendarAction = isMobile
@@ -1153,11 +1024,6 @@ function handleCalendarClick(e) {
   }
 }
 
-/*
- * ICS download — used on mobile so Add to Calendar opens the native
- * calendar app (iOS Calendar, Android default calendar, etc.)
- * Not exposed as a standalone download link anywhere on the page.
- */
 function downloadICS(m) {
   const dateRaw  = m.date.replace(/-/g, '');
   const meeting  = BOARD.meeting || {};
@@ -1176,7 +1042,7 @@ function downloadICS(m) {
     `UID:${BOARD.abbr}-${m.date}@kalamazoocity-boards`,
     `DTSTART:${dtStart}`,
     `DTEND:${dtEnd}`,
-    `SUMMARY:${BOARD.abbr} — City of Kalamazoo`,
+    `SUMMARY:${BOARD.abbr} \u2014 City of Kalamazoo`,
     `LOCATION:${location ? location + ', Kalamazoo, MI' : 'Kalamazoo, MI'}`,
     `DESCRIPTION:Public meeting of the ${BOARD.abbr}.`,
     'END:VEVENT', 'END:VCALENDAR',
@@ -1200,10 +1066,10 @@ function buildGCalUrl(m) {
   const pageUrl  = window.location.href.split('?')[0];
   const params   = new URLSearchParams({
     action:   'TEMPLATE',
-    text:     `${BOARD.abbr} — City of Kalamazoo`,
+    text:     `${BOARD.abbr} \u2014 City of Kalamazoo`,
     dates:    m.time ? buildDateRange(dateRaw, m.time) : `${dateRaw}/${dateRaw}`,
     details:  `Public meeting of the ${BOARD.abbr}.\n\n` +
-              `⚠ This event does not update automatically if the meeting is cancelled or rescheduled. ` +
+              `\u26a0 This event does not update automatically if the meeting is cancelled or rescheduled. ` +
               `Always verify before attending:\n${pageUrl}`,
     location: location ? `${location}, Kalamazoo, MI` : 'Kalamazoo, MI',
   });
@@ -1211,7 +1077,7 @@ function buildGCalUrl(m) {
 }
 
 function buildDateRange(dateRaw, timeStr) {
-  const parts = timeStr.split(/[–—]|\s+-\s+/);
+  const parts = timeStr.split(/[\u2013\u2014]|\s+-\s+/);
   const start = parseTimeTo6(parts[0]?.trim() || '');
   const end   = parts[1] ? parseTimeTo6(parts[1].trim()) : addMins(start, 90);
   return `${dateRaw}T${start}/${dateRaw}T${end}`;
