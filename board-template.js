@@ -81,6 +81,7 @@ let pendingCalendarAction = null;
   renderExternalLinks();
   renderSubscribeCta();
   renderFeedbackBar();
+  renderExportSection();
  
   initAccordions();
   handleDeepLink();
@@ -400,40 +401,120 @@ function renderFeedbackBar() {
  
  
 /* ═══════════════════════════════════════════════════════════════
-   EXPORT DATA
-   Adds a download icon to Minutes and Recordings card headers
-   when BOARD.exportEnabled is true. Reads from window._minutesData
-   and window._recordingsData set during rendering. Generates CSV
-   via Blob — no server needed, pure client-side.
-   Task placeholder: set exportEnabled: false until ready to ship.
+   EXPORT DATA SECTION
+   Renders a labeled section below .bottom-cards with download
+   buttons for Minutes and Recordings. Controlled by
+   BOARD.exportEnabled — false means nothing renders.
+   Buttons start disabled and activate as each data fetch lands.
+   Downloads an HTML file (opens in any browser, clickable links,
+   printable as PDF — no software required).
    ═══════════════════════════════════════════════════════════════ */
-function renderExportButton(scrollId, filename, getRows) {
+function renderExportSection() {
   if (!BOARD.exportEnabled) return;
-  const scrollEl = document.getElementById(scrollId);
-  if (!scrollEl) return;
-  const header = scrollEl.closest('.bottom-card')?.querySelector('.bottom-card-header');
-  if (!header) return;
+  const bottomCards = document.querySelector('.bottom-cards');
+  if (!bottomCards) return;
  
-  const btn = document.createElement('button');
-  btn.className = 'export-icon-btn';
-  btn.title     = `Export as CSV`;
-  btn.setAttribute('aria-label', 'Export data as CSV');
-  btn.innerHTML = SVG_DOWNLOAD;
-  btn.addEventListener('click', () => {
-    const rows = getRows();
-    if (rows && rows.length > 1) downloadCSV(rows, filename);
-  });
-  header.appendChild(btn);
+  const section = document.createElement('div');
+  section.className = 'export-section';
+  section.innerHTML = `
+    <div class="export-section-inner">
+      <div class="export-label">
+        ${SVG_DOWNLOAD}
+        <span>Download backlog data</span>
+      </div>
+      <div class="export-actions">
+        <button class="export-dl-btn" id="export-minutes-btn" disabled>
+          Minutes &amp; Agendas <span class="export-count" id="export-minutes-count">loading\u2026</span>
+        </button>
+        <button class="export-dl-btn" id="export-recordings-btn" disabled>
+          Recordings <span class="export-count" id="export-recordings-count">loading\u2026</span>
+        </button>
+      </div>
+    </div>`;
+ 
+  bottomCards.insertAdjacentElement('afterend', section);
 }
  
-function downloadCSV(rows, filename) {
-  const csv  = rows.map(r =>
-    r.map(c => `"${String(c ?? '').replace(/"/g, '""')}"`).join(',')
-  ).join('\n');
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+function downloadBoardHTML(type, data) {
+  if (!data.length) return;
+  const dateFmt = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  const abbr    = BOARD.abbr || '';
+ 
+  const sharedStyles = `
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#f5f2ec;color:#374151}
+    .hdr{background:#0d4f63;padding:22px 32px;border-bottom:3px solid #c9921a}
+    .hdr h1{color:#fff;font-size:20px;font-weight:700;margin-bottom:4px}
+    .hdr p{color:rgba(255,255,255,.55);font-size:13px}
+    .wrap{max-width:900px;margin:28px auto 56px;padding:0 24px}
+    .meta{font-size:12px;color:#9ca3af;margin-bottom:16px}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+    th{background:#0d4f63;color:rgba(255,255,255,.72);padding:11px 16px;text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+    td{padding:11px 16px;border-bottom:1px solid #eee9e0;font-size:14px;vertical-align:middle}
+    tr:last-child td{border-bottom:none}
+    a{color:#2596be;text-decoration:none}
+    a:hover{text-decoration:underline;color:#0d4f63}
+    .dim{color:#d1d5db}
+    .badge{display:inline-block;background:#fee2e2;color:#991b1b;font-size:11px;font-weight:700;padding:2px 8px;border-radius:2px}`;
+ 
+  let title, heading, rows, headers;
+ 
+  if (type === 'minutes') {
+    title   = `${abbr} — Minutes & Agendas`;
+    heading = `Minutes &amp; Agendas`;
+    headers = ['Date', 'Minutes', 'Agenda', 'Notes'];
+    rows    = data.map(m => {
+      const cancelled  = m.isCancelled || m.cancelled;
+      const minutesUrl = m.minutes_url || m.pdf_url || '';
+      const agendaUrl  = m.agenda_url || '';
+      return `<tr>
+        <td>${m.display || m.date}</td>
+        <td>${minutesUrl ? `<a href="${minutesUrl}" target="_blank">Download PDF</a>` : '<span class="dim">\u2014</span>'}</td>
+        <td>${agendaUrl  ? `<a href="${agendaUrl}"  target="_blank">Download PDF</a>` : '<span class="dim">\u2014</span>'}</td>
+        <td>${cancelled  ? '<span class="badge">Cancelled</span>' : ''}</td>
+      </tr>`;
+    });
+  } else {
+    title   = `${abbr} — Meeting Recordings`;
+    heading = `Meeting Recordings`;
+    headers = ['Date', 'Title', 'YouTube'];
+    rows    = data.map(r => {
+      const url = r.youtube_url || (r.youtube_id ? `https://youtube.com/watch?v=${r.youtube_id}` : '');
+      return `<tr>
+        <td>${r.display || r.date}</td>
+        <td>${r.title || r.display || r.date}</td>
+        <td>${url ? `<a href="${url}" target="_blank">Watch on YouTube</a>` : '<span class="dim">\u2014</span>'}</td>
+      </tr>`;
+    });
+  }
+ 
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>${title}</title>
+  <style>${sharedStyles}</style>
+</head>
+<body>
+  <div class="hdr">
+    <h1>${abbr} \u2014 ${heading}</h1>
+    <p>City of Kalamazoo Boards &amp; Commissions</p>
+  </div>
+  <div class="wrap">
+    <p class="meta">Exported ${dateFmt} \u00b7 ${data.length} record${data.length !== 1 ? 's' : ''} \u00b7 Source: publicsense.net</p>
+    <table>
+      <thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+      <tbody>${rows.join('\n')}</tbody>
+    </table>
+  </div>
+</body>
+</html>`;
+ 
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8;' });
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
-  a.href = url; a.download = filename; a.style.display = 'none';
+  a.href = url; a.download = `${abbr}-${type}.html`; a.style.display = 'none';
   document.body.appendChild(a); a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
@@ -1065,17 +1146,16 @@ function renderMinutes(data) {
   drawMinutes(meetings, 'all', el, null);
   if (el._refreshScrollbar) el._refreshScrollbar();
  
-  renderExportButton('scroll-minutes', `${BOARD.abbr}-minutes.csv`, () => {
-    const rows = [['Date', 'Display', 'Minutes URL', 'Agenda URL', 'Cancelled']];
-    (window._minutesData || []).forEach(m => rows.push([
-      m.date || '',
-      m.display || m.date || '',
-      m.minutes_url || m.pdf_url || '',
-      m.agenda_url || '',
-      m.isCancelled || m.cancelled ? 'Yes' : ''
-    ]));
-    return rows;
-  });
+  /* Activate export section button once data is available */
+  if (BOARD.exportEnabled) {
+    const btn   = document.getElementById('export-minutes-btn');
+    const count = document.getElementById('export-minutes-count');
+    if (btn) {
+      if (count) count.textContent = `${meetings.length} record${meetings.length !== 1 ? 's' : ''}`;
+      btn.disabled = false;
+      btn.addEventListener('click', () => downloadBoardHTML('minutes', window._minutesData || []));
+    }
+  }
 }
  
 function drawMinutes(meetings, year, el, countEl) {
@@ -1152,14 +1232,16 @@ function renderRecordings(data) {
   drawRecordings(recordings, 'all', el, countEl);
   if (el._refreshScrollbar) el._refreshScrollbar();
  
-  renderExportButton('scroll-recordings', `${BOARD.abbr}-recordings.csv`, () => {
-    const rows = [['Date', 'Title', 'YouTube URL']];
-    (window._recordingsData || []).forEach(r => {
-      const url = r.youtube_url || (r.youtube_id ? `https://youtube.com/watch?v=${r.youtube_id}` : '');
-      rows.push([r.date || '', r.title || r.date || '', url]);
-    });
-    return rows;
-  });
+  /* Activate export section button once data is available */
+  if (BOARD.exportEnabled) {
+    const btn   = document.getElementById('export-recordings-btn');
+    const count = document.getElementById('export-recordings-count');
+    if (btn) {
+      if (count) count.textContent = `${recordings.length} recording${recordings.length !== 1 ? 's' : ''}`;
+      btn.disabled = false;
+      btn.addEventListener('click', () => downloadBoardHTML('recordings', window._recordingsData || []));
+    }
+  }
 }
  
 function drawRecordings(recordings, year, el, countEl) {
