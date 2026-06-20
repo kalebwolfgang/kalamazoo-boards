@@ -47,9 +47,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "appointingAuthority": {
-          "type": "string"
-        },
         "eligibility": {
           "type": "string"
         },
@@ -178,6 +175,38 @@
             },
             "text": {
               "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "items"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "steps"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "desc"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "desc": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
         }
