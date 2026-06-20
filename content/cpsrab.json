@@ -1,4 +1,4 @@
-
+N
 {
   "abbr": "CPSRAB",
   "accordions": [
@@ -152,24 +152,59 @@
       ]
     },
     {
-      "title": "How to Join",
-      "anchor": "how-to-join"
-    },
-    {
-      "title": "Public Comment Guide",
-      "anchor": "public-comment"
+      "title": "How to Apply",
+      "anchor": "how-to-join",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "Community members are invited to apply for one of up to 12 seats — up to 6 representing diverse organizations and up to 6 at-large. Applications are reviewed by the City Manager's Office; candidates selected to move forward will be notified and may be interviewed before final appointment."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "Review requirements and disqualifiers",
+              "desc": "Must be a U.S. citizen or legal U.S. resident. City of Kalamazoo residents have first priority; non-residents with identifiable city interests are eligible. Ineligible if you are a current KDPS or city employee, work for another law enforcement agency, are a retired or former law enforcement officer, an immediate family member of KDPS personnel, hold or are seeking political office, or are currently on probation, parole, or subject to an active personal protection order."
+            },
+            {
+              "title": "Prepare your materials",
+              "desc": "Write a brief statement describing your relevant experience and your reasons for wanting to serve. A background check form is also required as part of the application."
+            },
+            {
+              "title": "Submit your application",
+              "desc": "Apply online at <a href=\"https://www.kalamazoocpsrab.org/join-cpsrab\" target=\"_blank\" rel=\"noopener\">kalamazoocpsrab.org/join-cpsrab</a>, by email at <a href=\"mailto:cpsrab@kalamazoocity.org\">cpsrab@kalamazoocity.org</a>, by calling 311 or (269) 337-8000, or in person at City Hall, 241 W South Street."
+            },
+            {
+              "title": "Interview and selection",
+              "desc": "The City Manager or their designee may schedule an interview with selected candidates. All applicants will be notified of the outcome. The City Manager makes the final appointment."
+            },
+            {
+              "title": "Orientation and onboarding",
+              "desc": "New members complete an orientation session within their first 90 days covering public safety policies, the complaint process, police authority, and use of force. Members must also attend the Kalamazoo Regional Citizens Academy within their first year of service."
+            }
+          ]
+        },
+        {
+          "type": "field",
+          "label": "Citizenship",
+          "value": "U.S. citizen or legal U.S. resident required."
+        },
+        {
+          "type": "field",
+          "label": "Residency",
+          "value": "Full-time City of Kalamazoo residents have first priority. Non-residents with identifiable interests in the City are eligible."
+        },
+        {
+          "type": "field",
+          "label": "Time Commitment",
+          "value": "Approximately 5–8 hours per calendar quarter: monthly evening meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year."
+        },
+        {
+          "type": "field",
+          "label": "Terms",
+          "value": "3-year terms, limited to 2 consecutive terms. A 1-year hiatus is required before reappointment."
+        }
+      ]
     }
-  ],
-  "howToJoin": {
-    "eligibility": "Must be a Kalamazoo resident (first priority). Current KDPS employees, those holding political office, current city employees, law enforcement agency workers, retired or former law enforcement officers, and immediate family members of any KDPS personnel are ineligible.",
-    "residency": "Full-time City of Kalamazoo residents receive first priority. Non-residents with identifiable interests in the City are also eligible.",
-    "meetingFrequency": "2nd Tuesday of each month at 6:00 p.m.",
-    "timeCommitment": "Approximately 5-8 hours per calendar quarter, including monthly meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year."
-  },
-  "publicCommentGuide": {
-    "location": "City Commission Chambers, City Hall Second Floor, 241 W South Street",
-    "remote": "Zoom link available on the city website agenda posting for each meeting",
-    "signUp": "Sign up at the door before the meeting begins",
-    "timeLimit": "3 minutes per speaker"
-  }
+  ]
 }
