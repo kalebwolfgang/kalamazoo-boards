@@ -28,6 +28,41 @@
     "content": "Provides independent community oversight of the Kalamazoo Department of Public Safety. Hears appeals of complaint investigations conducted by the Office of Professional Standards and advises the City Manager on policies, procedures, and community relations."
   },
   {
+    "id": "board-cpsrab-about-mission",
+    "type": "section",
+    "title": "Citizen-Public Safety Review and Appeals Board — About & Mission",
+    "url": "board-cpsrab.html#about-mission",
+    "content": "The Citizens Public Safety Review and Appeal Board (CPSRAB) provides an opportunity for community members to participate in the oversight of the Kalamazoo Department of Public Safety (KDPS). Created by the City Manager pursuant to the authority granted by the Kalamazoo City Charter, the Board receives citizen input on appeals filed after KDPS complaint investigations and can inquire into any conduct of a public safety officer in the absence of a complaint. The Board serves three primary purposes: building community trust and credibility in the public safety complaint process; providing an independent review of complaint dispositions that citizens choose to appeal; and advising the City Manager on improvements to policies, procedures, and community outreach related to the complaint process. For more information about the Board, its work, and annual reports, visit the Board's independent website: <a href=\"https://www.kalamazoocpsrab.org/\" target=\"_blank\" rel=\"noopener\">kalamazoocpsrab.org</a>."
+  },
+  {
+    "id": "board-cpsrab-roles-responsibilities",
+    "type": "section",
+    "title": "Citizen-Public Safety Review and Appeals Board — Roles & Responsibilities",
+    "url": "board-cpsrab.html#roles-responsibilities",
+    "content": "Receive copies of PCR complaints (with personal information redacted) upon request Be updated monthly on the progress of all active complaint investigations by the Office of Professional Standards Inquire about any complaint investigation, regardless of the Chief's finding, in the absence of a formal appeal Review the complaint reporting process and recommend improvements to the Chief and City Manager Monitor the overall fairness of the complaint process for both citizens and public safety employees Recommend improvements to the City Manager on policies and procedures implicated in the complaint process Assist the Department of Public Safety in preparing community outreach materials about the complaint process Establish subcommittees to research and address public safety and community relations issues Prepare an annual review covering the number and types of complaints, and assess the thoroughness, accountability, and responsiveness of the complaint process Issue reports on police/community relations, racial profiling, and other community climate concerns as needed Hold meetings with community leaders and neighborhood associations at least annually Organize public forums to discuss community climate and develop action agendas with the Public Safety Chief Work with KDPS and community organizations to anticipate and prevent problems through data analysis and recommendations"
+  },
+  {
+    "id": "board-cpsrab-membership-requirements",
+    "type": "section",
+    "title": "Citizen-Public Safety Review and Appeals Board — Membership Requirements",
+    "url": "board-cpsrab.html#membership-requirements",
+    "content": "The Board consists of <strong>up to 12 members</strong> appointed by the City Manager — up to 6 from diverse organizations representing diverse populations and up to 6 at-large members. A quorum requires 51% of active members present. Appointment All members are appointed by the City Manager. The Chair is named annually by the City Manager; the Vice Chair is recommended by the Chair and approved by the City Manager. Term Length Members serve 3-year terms, limited to 2 consecutive terms. A 1-year hiatus is required before reappointment. Residency Full-time City of Kalamazoo residents receive first priority. Non-residents with identifiable interests located in the City receive second priority. Time Commitment Approximately 5-8 hours per calendar quarter, including monthly meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year. Disqualifiers Members may not hold political office, be a current City employee, work for another law enforcement agency, be a retired or former law enforcement officer, or be an immediate family member of any KDPS personnel. Orientation Members must attend an orientation session within their first 90 days and attend the Kalamazoo Regional Citizens Academy within the first year of service."
+  },
+  {
+    "id": "board-cpsrab-how-appeals-work",
+    "type": "section",
+    "title": "Citizen-Public Safety Review and Appeals Board — How Appeals Work",
+    "url": "board-cpsrab.html#how-appeals-work",
+    "content": "CPSRAB reviews appeals of complaint findings made by the Chief of Public Safety after investigation by the Office of Professional Standards. The Board may only recommend changes to findings of exonerated, unfounded, or not sustained."
+  },
+  {
+    "id": "board-cpsrab-how-to-join",
+    "type": "section",
+    "title": "Citizen-Public Safety Review and Appeals Board — How to Apply",
+    "url": "board-cpsrab.html#how-to-join",
+    "content": "Community members are invited to apply for one of up to 12 seats — up to 6 representing diverse organizations and up to 6 at-large. Applications are reviewed by the City Manager's Office; candidates selected to move forward will be notified and may be interviewed before final appointment. Citizenship U.S. citizen or legal U.S. resident required. Residency Full-time City of Kalamazoo residents have first priority. Non-residents with identifiable interests in the City are eligible. Time Commitment Approximately 5–8 hours per calendar quarter: monthly evening meetings, two KDPS ride-alongs or hiring events per year, and two community outreach events per year. Terms 3-year terms, limited to 2 consecutive terms. A 1-year hiatus is required before reappointment."
+  },
+  {
     "id": "board-crb",
     "type": "board",
     "title": "Civil Rights Board",
