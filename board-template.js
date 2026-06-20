@@ -899,12 +899,45 @@ function renderMinutes(data) {
   if (!meetings.length) {
     el.innerHTML =
       '<div style="padding:18px;font-size:14px;color:var(--muted)">No meeting records found.</div>';
-    /* Refresh scrollbar */
     if (el._refreshScrollbar) el._refreshScrollbar();
     return;
   }
 
-  el.innerHTML = meetings.map(m => {
+  /* Year filter */
+  const years = [...new Set(meetings.map(m => m.date.slice(0, 4)))].sort((a, b) => b - a);
+  if (years.length > 1) {
+    const card = el.closest('.bottom-card');
+    if (card && !card.querySelector('.card-filter-bar')) {
+      const bar = document.createElement('div');
+      bar.className = 'card-filter-bar';
+      bar.innerHTML = `
+        <select class="card-filter-select" id="minutes-year-select">
+          <option value="all">All years</option>
+          ${years.map(y => `<option value="${y}">${y}</option>`).join('')}
+        </select>
+        <span class="card-filter-count" id="minutes-filter-count"></span>`;
+      el.parentElement.insertBefore(bar, el);
+      document.getElementById('minutes-year-select').addEventListener('change', function () {
+        drawMinutes(meetings, this.value, el, document.getElementById('minutes-filter-count'));
+        if (el._refreshScrollbar) el._refreshScrollbar();
+      });
+    }
+  }
+
+  drawMinutes(meetings, 'all', el, null);
+  if (el._refreshScrollbar) el._refreshScrollbar();
+}
+
+function drawMinutes(meetings, year, el, countEl) {
+  const filtered = year === 'all'
+    ? meetings
+    : meetings.filter(m => m.date.slice(0, 4) === year);
+
+  if (countEl) {
+    countEl.textContent = filtered.length !== meetings.length ? `${filtered.length} shown` : '';
+  }
+
+  el.innerHTML = filtered.map(m => {
     const cancelled = m.isCancelled || m.cancelled || false;
     const url       = m.minutes_url || m.agenda_url || m.url;
     const label     = m.link_label  ||
@@ -918,14 +951,15 @@ function renderMinutes(data) {
         <div class="minutes-date">${m.display || m.date}</div>
         <div class="minutes-sublabel">${BOARD.abbr}</div>
         ${!cancelled && url  ? `<div class="minutes-action">${SVG_EXT} ${label}</div>` : ''}
-        ${cancelled          ? '<div class="minutes-sublabel" style="color:#dc2626;font-weight:600;margin-top:3px">Cancelled</div>' : ''}
+        ${cancelled ? '<div class="minutes-sublabel" style="color:#dc2626;font-weight:600;margin-top:3px">Cancelled</div>' : ''}
       </div>`;
 
     return url
       ? `<a class="minutes-item${cancelled ? ' meeting-canceled' : ''}" href="${url}" target="_blank" rel="noopener">${inner}</a>`
       : `<div class="minutes-item${cancelled ? ' meeting-canceled' : ''}">${inner}</div>`;
-  }).join('');
-
+  }).join('')
+    || `<div style="padding:18px;font-size:14px;color:var(--muted)">No records found for this year.</div>`;
+}
   if (el._refreshScrollbar) el._refreshScrollbar();
 }
 
