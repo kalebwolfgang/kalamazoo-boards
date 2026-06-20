@@ -838,12 +838,12 @@ function renderUpcomingMeetings(data) {
         ${cancelled  ? BANNER('#fee2e2','#fca5a5','#dc2626',SVG_CANCEL,'Meeting Cancelled') : ''}
         ${m.isSpecialSession ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_STAR,'Special Session') : ''}
         ${locChanged  ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_PIN_BANNER,'Location Changed') : ''}
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;align-items:center">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">
           ${m.agenda_url && !cancelled
             ? `<a href="${m.agenda_url}" target="_blank" rel="noopener" style="font-size:13px;color:var(--navy-light);text-decoration:none;display:inline-flex;align-items:center;gap:4px">${SVG_EXT} Agenda</a>`
             : ''}
           ${!cancelled
-            ? `<button class="add-cal-btn" data-date="${m.date}" style="font-size:13px;background:none;border:none;cursor:pointer;color:var(--navy-light);padding:0;display:inline-flex;align-items:center;gap:4px;font-family:inherit">${SVG_CAL} Add to Calendar</button>`
+            ? `<button class="add-cal-btn" data-date="${m.date}">${SVG_CAL} Add to Calendar</button>`
             : ''}
         </div>
       </div>`;
