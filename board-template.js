@@ -1,3 +1,4 @@
+
 /* ═══════════════════════════════════════════════════════════════
    board-template.js
    Runtime engine for all board detail pages.
@@ -319,19 +320,21 @@ function renderFeedbackBar() {
   const footer = document.querySelector('footer');
   if (!footer) return;
  
-  const SVG_FLAG = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>`;
+  const SVG_FLAG = `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>`;
  
   const bar = document.createElement('div');
   bar.className = 'feedback-bar';
  
   const actionHtml = BOARD.feedbackUrl
-    ? `<a class="feedback-link" href="${BOARD.feedbackUrl}" target="_blank" rel="noopener">Report it \u2192</a>`
+    ? `<a class="feedback-link" href="${BOARD.feedbackUrl}" target="_blank" rel="noopener">Report it ${SVG_EXT}</a>`
     : `<span class="feedback-link feedback-link--soon">Reporting form coming soon</span>`;
  
   bar.innerHTML = `
-    ${SVG_FLAG}
-    <span>See something wrong or out of date?</span>
-    ${actionHtml}`;
+    <div class="feedback-bar-inner">
+      ${SVG_FLAG}
+      <span>See something wrong or out of date?</span>
+      ${actionHtml}
+    </div>`;
  
   footer.insertAdjacentElement('beforebegin', bar);
 }
@@ -1091,23 +1094,35 @@ function fetchLastUpdated() {
    DISCLAIMER POPUP
    ═══════════════════════════════════════════════════════════════ */
 function injectDisclaimerPopup() {
+  const SVG_CLOSE = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+ 
   const overlay = document.createElement('div');
   overlay.className = 'cal-disclaimer-overlay';
   overlay.id        = 'board-disclaimer-overlay';
   overlay.innerHTML = `
     <div class="cal-disclaimer">
+      <button class="cal-disclaimer-close" id="board-disclaimer-close" aria-label="Cancel">${SVG_CLOSE}</button>
       <div class="cal-disclaimer-icon">\u26a0</div>
       <p class="cal-disclaimer-text">This event won't update automatically if the meeting is cancelled or rescheduled. Always check back on this site before attending.</p>
-      <button class="cal-disclaimer-btn" id="board-disclaimer-btn">I understand</button>
+      <button class="cal-disclaimer-btn" id="board-disclaimer-btn">Add to Calendar</button>
     </div>`;
   document.body.appendChild(overlay);
  
+  /* "Add to Calendar" — proceeds and opens calendar */
   document.getElementById('board-disclaimer-btn').addEventListener('click', () => {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
     if (pendingCalendarAction) { pendingCalendarAction(); pendingCalendarAction = null; }
   });
  
+  /* X button — cancels without opening calendar */
+  document.getElementById('board-disclaimer-close').addEventListener('click', () => {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    pendingCalendarAction = null;
+  });
+ 
+  /* Click outside modal — also cancels */
   overlay.addEventListener('click', e => {
     if (e.target === overlay) {
       overlay.classList.remove('open');
