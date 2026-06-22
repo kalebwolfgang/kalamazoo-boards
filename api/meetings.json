@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20",
+  "lastUpdated": "2026-06-22",
   "meetings": [
     {
       "date": "2026-06-23",
@@ -7,7 +7,8 @@
       "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
-      "name": "Natural Features Protection Review Board"
+      "name": "Natural Features Protection Review Board",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2727/files/agenda/5200"
     },
     {
       "date": "2026-06-25",
@@ -815,6 +816,30 @@
       "name": "Historic District Commission"
     },
     {
+      "date": "2026-12-16",
+      "display": "Wednesday, December 16, 2026",
+      "time": "04:30 PM – 06:30 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "ECC",
+      "name": "Environmental Concerns Committee"
+    },
+    {
+      "date": "2026-12-17",
+      "display": "Thursday, December 17, 2026",
+      "time": "08:00 AM – 10:00 AM",
+      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "abbr": "BRA",
+      "name": "Brownfield Redevelopment Authority"
+    },
+    {
+      "date": "2026-12-17",
+      "display": "Thursday, December 17, 2026",
+      "time": "08:00 AM – 10:00 AM",
+      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "abbr": "EDC",
+      "name": "Economic Development Corporation"
+    },
+    {
       "date": "2026-12-17",
       "display": "Thursday, December 17, 2026",
       "time": "12:00 PM – 02:00 PM",
@@ -829,6 +854,22 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
+    },
+    {
+      "date": "2026-12-17",
+      "display": "Thursday, December 17, 2026",
+      "time": "06:00 PM – 07:00 PM",
+      "location": "Northside Association for Community Development, 612 N Park St",
+      "abbr": "NCBDA",
+      "name": "Northside Cultural Business District Authority Board"
+    },
+    {
+      "date": "2026-12-18",
+      "display": "Friday, December 18, 2026",
+      "time": "04:00 PM – 06:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "NFP",
+      "name": "Natural Features Protection Review Board"
     }
   ]
 }
