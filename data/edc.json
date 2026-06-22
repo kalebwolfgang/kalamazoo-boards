@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-19",
+  "last_updated": "2026-06-22",
   "metadata": {
     "time": "08:00 AM – 10:00 AM",
     "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
@@ -31,6 +31,11 @@
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
+      "time": "08:00 AM – 10:00 AM"
+    },
+    {
+      "date": "2026-12-17",
+      "display": "Thursday, December 17, 2026",
       "time": "08:00 AM – 10:00 AM"
     }
   ],
