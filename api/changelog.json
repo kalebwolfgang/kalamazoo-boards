@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-22T18:16:31.898009+00:00",
-  "runId": "a565ad4e",
+  "timestamp": "2026-06-24T16:27:11.890950+00:00",
+  "runId": "8d03336b",
   "validationPassed": true,
   "changes": [
     {
@@ -60,8 +60,8 @@
     },
     {
       "board": "nfp",
-      "meetings": 24,
-      "upcoming": 7
+      "meetings": 25,
+      "upcoming": 6
     },
     {
       "board": "pc",
