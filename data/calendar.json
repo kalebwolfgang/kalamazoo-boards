@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-22",
+  "last_updated": "2026-06-24",
   "meetings": [
     {
       "date": "2026-05-05",
@@ -289,11 +289,12 @@
     {
       "date": "2026-06-23",
       "display": "Tuesday, June 23, 2026",
-      "time": "04:00 PM – 06:00 PM",
+      "time": "4:00 PM – 6:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2727/files/agenda/5200"
+      "youtube_url": "https://www.youtube.com/watch?v=TwoKZMcdwkg",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2727/files/agenda/5204"
     },
     {
       "date": "2026-06-25",
@@ -302,7 +303,8 @@
       "location": "Station 2, 1007 E. Alcott St",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority",
-      "isSpecial": true
+      "isSpecial": true,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2767/files/agenda/5205"
     },
     {
       "date": "2026-06-25",
