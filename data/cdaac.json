@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-06-24",
+  "last_updated": "2026-06-26",
   "metadata": {
     "time": "05:30 PM – 07:30 PM",
     "location": "Community Room, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-06-25",
-      "display": "Thursday, June 25, 2026",
-      "time": "05:30 PM – 07:30 PM"
-    },
     {
       "date": "2026-09-24",
       "display": "Thursday, September 24, 2026",
@@ -24,6 +19,12 @@
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
       "time": "05:30 PM – 07:30 PM"
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2026-06-25",
+      "display": "June 25, 2026"
     }
   ]
 }

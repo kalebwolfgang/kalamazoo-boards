@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-24T16:27:11.890950+00:00",
-  "runId": "8d03336b",
+  "timestamp": "2026-06-26T16:22:47.949426+00:00",
+  "runId": "02d4ef0a",
   "validationPassed": true,
   "changes": [
     {
@@ -10,8 +10,8 @@
     },
     {
       "board": "bra",
-      "meetings": 44,
-      "upcoming": 6
+      "meetings": 45,
+      "upcoming": 5
     },
     {
       "board": "cpsrab",
@@ -21,17 +21,17 @@
     {
       "board": "dda",
       "meetings": 37,
-      "upcoming": 5
+      "upcoming": 6
     },
     {
       "board": "dega",
       "meetings": 40,
-      "upcoming": 5
+      "upcoming": 6
     },
     {
       "board": "edc",
       "meetings": 41,
-      "upcoming": 6
+      "upcoming": 5
     },
     {
       "board": "ec",
@@ -115,8 +115,8 @@
     },
     {
       "board": "cdaac",
-      "meetings": 0,
-      "upcoming": 4
+      "meetings": 1,
+      "upcoming": 3
     },
     {
       "board": "ncbda",

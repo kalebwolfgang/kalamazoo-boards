@@ -1,42 +1,35 @@
 {
-  "last_updated": "2026-06-24",
+  "last_updated": "2026-06-26",
   "metadata": {
-    "time": "08:00 AM – 10:00 AM",
+    "time": "07:45 AM – 09:30 AM",
     "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
     "session_note": "BRA meets immediately following"
   },
   "upcoming_meetings": [
     {
-      "date": "2026-06-25",
-      "display": "Thursday, June 25, 2026",
-      "time": "8:00 AM",
-      "isSpecial": true,
-      "location": "Station 2, 1007 E. Alcott St"
-    },
-    {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "08:00 AM – 10:00 AM"
+      "time": "07:45 AM – 09:30 AM"
     },
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "08:00 AM – 10:00 AM"
+      "time": "07:45 AM – 09:30 AM"
     },
     {
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
-      "time": "08:00 AM – 10:00 AM"
+      "time": "07:45 AM – 09:30 AM"
     },
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
-      "time": "08:00 AM – 10:00 AM"
+      "time": "07:45 AM – 09:30 AM"
     },
     {
       "date": "2026-12-17",
       "display": "Thursday, December 17, 2026",
-      "time": "08:00 AM – 10:00 AM"
+      "time": "07:45 AM – 09:30 AM"
     }
   ],
   "meetings": [
