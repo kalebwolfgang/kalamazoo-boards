@@ -1,15 +1,6 @@
 {
-  "lastUpdated": "2026-07-01",
+  "lastUpdated": "2026-07-03",
   "meetings": [
-    {
-      "date": "2026-07-02",
-      "display": "Thursday, July 2, 2026",
-      "time": "07:00 PM – 09:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "PC",
-      "name": "Planning Commission",
-      "isCancelled": true
-    },
     {
       "date": "2026-07-07",
       "display": "Tuesday, July 7, 2026",
@@ -49,7 +40,8 @@
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
-      "name": "Zoning Board of Appeals"
+      "name": "Zoning Board of Appeals",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2619/files/agenda/5214"
     },
     {
       "date": "2026-07-13",
