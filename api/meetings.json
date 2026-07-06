@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03",
+  "lastUpdated": "2026-07-06",
   "meetings": [
     {
       "date": "2026-07-07",
@@ -90,7 +90,8 @@
       "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
-      "name": "Building Board of Appeals"
+      "name": "Building Board of Appeals",
+      "isCancelled": true
     },
     {
       "date": "2026-07-16",
