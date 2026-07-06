@@ -94,6 +94,7 @@ LOCATION:Milham Park Golf Club, Kalamazoo
 END:VEVENT
 BEGIN:VEVENT
 UID:BBA-2026-07-16@kalamazoocity-boards
+STATUS:CANCELLED
 DTSTART;TZID=America/Detroit:20260716T160000
 DTEND;TZID=America/Detroit:20260716T180000
 SUMMARY:Building Board of Appeals — City of Kalamazoo
