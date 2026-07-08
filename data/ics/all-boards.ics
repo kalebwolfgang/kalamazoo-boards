@@ -21,21 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:PRAB-2026-07-07@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260707T173000
-DTEND;TZID=America/Detroit:20260707T193000
-SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
-LOCATION:Southside Park
-END:VEVENT
-BEGIN:VEVENT
-UID:TRE-2026-07-07@kalamazoocity-boards
-STATUS:CANCELLED
-DTSTART;TZID=America/Detroit:20260707T140000
-DTEND;TZID=America/Detroit:20260707T160000
-SUMMARY:Tree Committee — City of Kalamazoo
-LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
-END:VEVENT
-BEGIN:VEVENT
 UID:HPC-2026-07-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260708T180000
 DTEND;TZID=America/Detroit:20260708T200000
@@ -113,6 +98,12 @@ DTSTART;TZID=America/Detroit:20260721T170000
 DTEND;TZID=America/Detroit:20260721T190000
 SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:BOR-2026-07-22@kalamazoocity-boards
+DTSTART;VALUE=DATE:20260722
+SUMMARY:Board of Review for Assessments — City of Kalamazoo
+LOCATION:Third Floor Conference Room, City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NFP-2026-07-28@kalamazoocity-boards

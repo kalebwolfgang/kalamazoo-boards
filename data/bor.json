@@ -1,9 +1,15 @@
 {
-  "last_updated": "2026-07-06",
+  "last_updated": "2026-07-08",
   "metadata": {
     "time": "TBD",
     "location": "Third Floor Conference Room, City Hall, 241 W South St",
     "meetingScheduleNote": "Seasonal — March hearings, July and December corrections"
   },
-  "upcoming_meetings": []
+  "upcoming_meetings": [
+    {
+      "date": "2026-07-22",
+      "display": "Wednesday, July 22, 2026",
+      "time": "TBD"
+    }
+  ]
 }

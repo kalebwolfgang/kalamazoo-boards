@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-07-06",
+  "last_updated": "2026-07-08",
   "metadata": {
     "time": "05:30 PM – 07:30 PM",
     "location": "TBD"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-07-07",
-      "display": "Tuesday, July 7, 2026",
-      "time": "05:30 PM – 07:30 PM",
-      "location": "Southside Park"
-    },
     {
       "date": "2026-08-04",
       "display": "Tuesday, August 4, 2026",
@@ -39,6 +33,10 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-07-07",
+      "display": "July 7, 2026"
+    },
     {
       "date": "2026-06-02",
       "display": "June 2, 2026"

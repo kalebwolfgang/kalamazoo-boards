@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-06T12:56:18.727440-04:00",
-  "totalMeetings": 532,
+  "timestamp": "2026-07-08T12:05:19.018562-04:00",
+  "totalMeetings": 534,
   "byBoard": {
     "crb": {
       "meetings": 24
@@ -30,7 +30,7 @@
       "meetings": 38
     },
     "hpc": {
-      "meetings": 34
+      "meetings": 35
     },
     "locc": {
       "meetings": 3
@@ -48,7 +48,7 @@
       "meetings": 10
     },
     "prab": {
-      "meetings": 2
+      "meetings": 3
     },
     "trb": {
       "meetings": 2

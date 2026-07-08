@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-06",
+  "last_updated": "2026-07-08",
   "meetings": [
     {
       "date": "2026-06-02",
@@ -62,7 +62,8 @@
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2677/files/agenda/5150"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2677/files/agenda/5150",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2677/files/agenda/5225"
     },
     {
       "date": "2026-06-15",
@@ -153,7 +154,8 @@
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board",
       "youtube_url": "https://www.youtube.com/watch?v=TwoKZMcdwkg",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2727/files/agenda/5204"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2727/files/agenda/5204",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2727/files/agenda/5224"
     },
     {
       "date": "2026-06-25",
@@ -175,27 +177,19 @@
     {
       "date": "2026-07-07",
       "display": "Tuesday, July 7, 2026",
-      "time": "05:30 PM – 07:30 PM",
-      "location": "Southside Park",
+      "time": "5:30 PM – 7:30 PM",
+      "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
     },
     {
-      "date": "2026-07-07",
-      "display": "Tuesday, July 7, 2026",
-      "time": "02:00 PM – 04:00 PM",
-      "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
-      "abbr": "TRE",
-      "name": "Tree Committee",
-      "isCancelled": true
-    },
-    {
       "date": "2026-07-08",
       "display": "Wednesday, July 8, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "6:00 PM – 8:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
-      "name": "Historic Preservation Commission"
+      "name": "Historic Preservation Commission",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2678/files/agenda/5228"
     },
     {
       "date": "2026-07-09",
@@ -279,6 +273,14 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
+    },
+    {
+      "date": "2026-07-22",
+      "display": "Wednesday, July 22, 2026",
+      "time": "TBD",
+      "location": "Third Floor Conference Room, City Hall, 241 W South St",
+      "abbr": "BOR",
+      "name": "Board of Review for Assessments"
     },
     {
       "date": "2026-07-28",

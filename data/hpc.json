@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-07-06",
+  "last_updated": "2026-07-08",
   "metadata": {
     "time": "06:00 PM – 08:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-07-08",
-      "display": "Wednesday, July 8, 2026",
-      "time": "06:00 PM – 08:00 PM"
-    },
     {
       "date": "2026-08-12",
       "display": "Wednesday, August 12, 2026",
@@ -38,13 +33,27 @@
   ],
   "meetings": [
     {
+      "date": "2026-07-08",
+      "display": "July 8, 2026",
+      "event_id": 2678,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2678/files/agenda/5228",
+      "link_label": "Agenda",
+      "isCancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2678/files/agenda/5228",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2678/overview",
+      "scrapedAt": "2026-07-08T16:04:32.068770+00:00",
+      "meeting_type": "Historic Preservation Commission"
+    },
+    {
       "date": "2026-06-10",
       "display": "June 10, 2026",
       "event_id": 2677,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2677/files/agenda/5150",
-      "link_label": "Agenda",
+      "link_label": "Agenda & Minutes",
       "isCancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2677/files/agenda/5225",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2677/files/agenda/5150",
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2677/overview",
