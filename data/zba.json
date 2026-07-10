@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-07-08",
+  "last_updated": "2026-07-10",
   "metadata": {
     "time": "07:00 PM – 09:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-07-09",
-      "display": "Thursday, July 9, 2026",
-      "time": "07:00 PM – 09:00 PM",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2619/files/agenda/5214"
-    },
     {
       "date": "2026-08-13",
       "display": "Thursday, August 13, 2026",
@@ -38,6 +32,22 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-07-09",
+      "display": "July 9, 2026",
+      "event_id": 2619,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2619/files/agenda/5214",
+      "link_label": "Agenda",
+      "isCancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2619/files/agenda/5214",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2619/overview",
+      "scrapedAt": "2026-07-10T16:28:38.236072+00:00",
+      "meeting_type": "Zoning Board of Appeals",
+      "youtube_id": "uq4IrMfRRGg",
+      "youtube_url": "https://www.youtube.com/watch?v=uq4IrMfRRGg"
+    },
     {
       "date": "2026-05-14",
       "display": "May 14, 2026",
@@ -644,6 +654,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-07-09",
+      "display": "July 9, 2026",
+      "youtube_id": "uq4IrMfRRGg",
+      "youtube_url": "https://www.youtube.com/watch?v=uq4IrMfRRGg",
+      "title": "July 9, 2026 Zoning Board of Appeals"
+    },
     {
       "date": "2026-05-14",
       "display": "May 14, 2026",

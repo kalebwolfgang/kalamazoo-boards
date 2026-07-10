@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-08T12:05:19.018562-04:00",
-  "totalMeetings": 534,
+  "timestamp": "2026-07-10T12:28:56.209454-04:00",
+  "totalMeetings": 535,
   "byBoard": {
     "crb": {
       "meetings": 24
@@ -42,7 +42,7 @@
       "meetings": 54
     },
     "zba": {
-      "meetings": 54
+      "meetings": 55
     },
     "ersb": {
       "meetings": 10

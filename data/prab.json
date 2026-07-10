@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-08",
+  "last_updated": "2026-07-10",
   "metadata": {
     "time": "05:30 PM – 07:30 PM",
     "location": "TBD"
@@ -8,8 +8,15 @@
     {
       "date": "2026-08-04",
       "display": "Tuesday, August 4, 2026",
-      "time": "05:30 PM – 07:30 PM",
-      "location": "Axtell Creek Park"
+      "time": "5:30 PM",
+      "isSpecial": true
+    },
+    {
+      "date": "2026-08-05",
+      "display": "Wednesday, August 5, 2026",
+      "time": "5:30 PM",
+      "location": "Axtell Creek Park",
+      "isSpecial": true
     },
     {
       "date": "2026-09-08",

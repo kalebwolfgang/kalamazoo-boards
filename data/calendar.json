@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-08",
+  "last_updated": "2026-07-10",
   "meetings": [
     {
       "date": "2026-06-02",
@@ -189,23 +189,17 @@
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2678/files/agenda/5228"
+      "youtube_url": "https://www.youtube.com/watch?v=IO_JR0lfpPA",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2678/files/agenda/5230"
     },
     {
       "date": "2026-07-09",
       "display": "Thursday, July 9, 2026",
-      "time": "09:00 AM – 10:00 AM",
-      "location": "City Records Center, 3001 S Burdick St",
-      "abbr": "EC",
-      "name": "Election Commission"
-    },
-    {
-      "date": "2026-07-09",
-      "display": "Thursday, July 9, 2026",
-      "time": "07:00 PM – 09:00 PM",
+      "time": "7:00 PM – 9:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals",
+      "youtube_url": "https://www.youtube.com/watch?v=uq4IrMfRRGg",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2619/files/agenda/5214"
     },
     {
@@ -234,8 +228,8 @@
       "isCancelled": true
     },
     {
-      "date": "2026-07-15",
-      "display": "Wednesday, July 15, 2026",
+      "date": "2026-07-16",
+      "display": "Thursday, July 16, 2026",
       "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
@@ -293,10 +287,11 @@
     {
       "date": "2026-08-04",
       "display": "Tuesday, August 4, 2026",
-      "time": "05:30 PM – 07:30 PM",
-      "location": "Axtell Creek Park",
+      "time": "5:30 PM",
+      "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
-      "name": "Parks & Recreation Advisory Board"
+      "name": "Parks & Recreation Advisory Board",
+      "isSpecial": true
     },
     {
       "date": "2026-08-04",
@@ -313,6 +308,15 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
       "name": "Civil Rights Board"
+    },
+    {
+      "date": "2026-08-05",
+      "display": "Wednesday, August 5, 2026",
+      "time": "5:30 PM",
+      "location": "Axtell Creek Park",
+      "abbr": "PRAB",
+      "name": "Parks & Recreation Advisory Board",
+      "isSpecial": true
     },
     {
       "date": "2026-08-06",
@@ -382,7 +386,7 @@
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "City Hall Community Room, 241 W. South St",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority"
     },
@@ -390,7 +394,7 @@
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "City Hall Community Room, 241 W. South St",
       "abbr": "EDC",
       "name": "Economic Development Corporation"
     },

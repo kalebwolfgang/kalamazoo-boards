@@ -25,6 +25,13 @@ UID:PRAB-2026-08-04@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260804T173000
 DTEND;TZID=America/Detroit:20260804T193000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+LOCATION:Community Room, Mayors' Riverfront Park
+END:VEVENT
+BEGIN:VEVENT
+UID:PRAB-2026-08-05@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20260805T173000
+DTEND;TZID=America/Detroit:20260805T193000
+SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Axtell Creek Park
 END:VEVENT
 BEGIN:VEVENT
