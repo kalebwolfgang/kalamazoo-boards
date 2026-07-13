@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-10",
+  "last_updated": "2026-07-13",
   "meetings": [
     {
       "date": "2026-06-02",
@@ -205,18 +205,20 @@
     {
       "date": "2026-07-13",
       "display": "Monday, July 13, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "3:00 PM – 5:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
-      "name": "Downtown Development Authority"
+      "name": "Downtown Development Authority",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2666/files/agenda/5236"
     },
     {
       "date": "2026-07-13",
       "display": "Monday, July 13, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "3:00 PM – 5:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
-      "name": "Downtown Economic Growth Authority"
+      "name": "Downtown Economic Growth Authority",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2655/files/agenda/5234"
     },
     {
       "date": "2026-07-14",
@@ -228,12 +230,22 @@
       "isCancelled": true
     },
     {
-      "date": "2026-07-16",
-      "display": "Thursday, July 16, 2026",
-      "time": "04:30 PM – 06:30 PM",
+      "date": "2026-07-15",
+      "display": "Wednesday, July 15, 2026",
+      "time": "4:30 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
-      "name": "Environmental Concerns Committee"
+      "name": "Environmental Concerns Committee",
+      "isSpecial": true
+    },
+    {
+      "date": "2026-07-16",
+      "display": "Thursday, July 16, 2026",
+      "time": "4:30 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "ECC",
+      "name": "Environmental Concerns Committee",
+      "isSpecial": true
     },
     {
       "date": "2026-07-16",
@@ -473,7 +485,7 @@
     {
       "date": "2026-09-08",
       "display": "Tuesday, September 8, 2026",
-      "time": "05:30 PM – 07:30 PM",
+      "time": "05:30 PM – 07:00 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -593,7 +605,7 @@
     {
       "date": "2026-10-06",
       "display": "Tuesday, October 6, 2026",
-      "time": "05:30 PM – 07:30 PM",
+      "time": "05:30 PM – 07:00 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -761,7 +773,7 @@
     {
       "date": "2026-11-10",
       "display": "Tuesday, November 10, 2026",
-      "time": "05:30 PM – 07:30 PM",
+      "time": "05:30 PM – 07:00 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -913,7 +925,7 @@
     {
       "date": "2026-12-08",
       "display": "Tuesday, December 8, 2026",
-      "time": "05:30 PM – 07:30 PM",
+      "time": "05:30 PM – 07:00 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board"
@@ -1021,6 +1033,14 @@
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority"
+    },
+    {
+      "date": "2027-01-07",
+      "display": "Thursday, January 7, 2027",
+      "time": "07:00 PM – 09:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "PC",
+      "name": "Planning Commission"
     }
   ]
 }

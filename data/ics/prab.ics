@@ -37,28 +37,28 @@ END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-09-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260908T173000
-DTEND;TZID=America/Detroit:20260908T193000
+DTEND;TZID=America/Detroit:20260908T190000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-10-06@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261006T173000
-DTEND;TZID=America/Detroit:20261006T193000
+DTEND;TZID=America/Detroit:20261006T190000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-11-10@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261110T173000
-DTEND;TZID=America/Detroit:20261110T193000
+DTEND;TZID=America/Detroit:20261110T190000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-12-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261208T173000
-DTEND;TZID=America/Detroit:20261208T193000
+DTEND;TZID=America/Detroit:20261208T190000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT

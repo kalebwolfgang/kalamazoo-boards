@@ -21,6 +21,13 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
+UID:ECC-2026-07-15@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20260715T163000
+DTEND;TZID=America/Detroit:20260715T183000
+SUMMARY:Environmental Concerns Committee — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
 UID:ECC-2026-07-16@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260716T163000
 DTEND;TZID=America/Detroit:20260716T183000
