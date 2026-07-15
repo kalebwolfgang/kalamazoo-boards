@@ -21,14 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:CPSRAB-2026-07-14@kalamazoocity-boards
-STATUS:CANCELLED
-DTSTART;TZID=America/Detroit:20260714T180000
-DTEND;TZID=America/Detroit:20260714T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:CPSRAB-2026-08-11@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260811T180000
 DTEND;TZID=America/Detroit:20260811T200000
@@ -60,6 +52,13 @@ BEGIN:VEVENT
 UID:CPSRAB-2026-12-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261208T180000
 DTEND;TZID=America/Detroit:20261208T200000
+SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:CPSRAB-2027-01-12@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20270112T180000
+DTEND;TZID=America/Detroit:20270112T200000
 SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT

@@ -21,28 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:DDA-2026-07-13@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260713T150000
-DTEND;TZID=America/Detroit:20260713T170000
-SUMMARY:Downtown Development Authority — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:DEGA-2026-07-13@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260713T150000
-DTEND;TZID=America/Detroit:20260713T170000
-SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:CPSRAB-2026-07-14@kalamazoocity-boards
-STATUS:CANCELLED
-DTSTART;TZID=America/Detroit:20260714T180000
-DTEND;TZID=America/Detroit:20260714T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:ECC-2026-07-15@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260715T163000
 DTEND;TZID=America/Detroit:20260715T183000
@@ -128,6 +106,7 @@ LOCATION:Axtell Creek Park
 END:VEVENT
 BEGIN:VEVENT
 UID:PC-2026-08-06@kalamazoocity-boards
+STATUS:CANCELLED
 DTSTART;TZID=America/Detroit:20260806T190000
 DTEND;TZID=America/Detroit:20260806T210000
 SUMMARY:Planning Commission — City of Kalamazoo
@@ -747,6 +726,13 @@ UID:PC-2027-01-07@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20270107T190000
 DTEND;TZID=America/Detroit:20270107T210000
 SUMMARY:Planning Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:CPSRAB-2027-01-12@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20270112T180000
+DTEND;TZID=America/Detroit:20270112T200000
+SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 END:VCALENDAR

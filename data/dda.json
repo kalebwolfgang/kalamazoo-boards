@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-13",
+  "last_updated": "2026-07-15",
   "metadata": {
     "time": "03:00 PM – 05:00 PM",
     "location": "City Hall, 241 W South St"
@@ -51,9 +51,9 @@
       "display": "June 15, 2026",
       "event_id": 2665,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2665/files/agenda/5166",
-      "link_label": "Agenda",
+      "link_label": "Agenda & Minutes",
       "isCancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2665/files/agenda/5242",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2665/files/agenda/5166",
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2665/overview",
