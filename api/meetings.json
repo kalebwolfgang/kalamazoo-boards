@@ -1,33 +1,6 @@
 {
-  "lastUpdated": "2026-07-13",
+  "lastUpdated": "2026-07-15",
   "meetings": [
-    {
-      "date": "2026-07-13",
-      "display": "Monday, July 13, 2026",
-      "time": "3:00 PM – 5:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "DDA",
-      "name": "Downtown Development Authority",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2666/files/agenda/5236"
-    },
-    {
-      "date": "2026-07-13",
-      "display": "Monday, July 13, 2026",
-      "time": "3:00 PM – 5:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "DEGA",
-      "name": "Downtown Economic Growth Authority",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2655/files/agenda/5234"
-    },
-    {
-      "date": "2026-07-14",
-      "display": "Tuesday, July 14, 2026",
-      "time": "06:00 PM – 08:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board",
-      "isCancelled": true
-    },
     {
       "date": "2026-07-15",
       "display": "Wednesday, July 15, 2026",
@@ -44,7 +17,8 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee",
-      "isSpecial": true
+      "isSpecial": true,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2754/files/agenda/5240"
     },
     {
       "date": "2026-07-16",
@@ -135,7 +109,8 @@
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
-      "name": "Planning Commission"
+      "name": "Planning Commission",
+      "isCancelled": true
     },
     {
       "date": "2026-08-11",
@@ -840,6 +815,14 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
+    },
+    {
+      "date": "2027-01-12",
+      "display": "Tuesday, January 12, 2027",
+      "time": "06:00 PM – 08:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "CPSRAB",
+      "name": "Citizens Public Safety Review and Appeal Board"
     }
   ]
 }
