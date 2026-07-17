@@ -1,50 +1,6 @@
 {
-  "lastUpdated": "2026-07-15",
+  "lastUpdated": "2026-07-17",
   "meetings": [
-    {
-      "date": "2026-07-15",
-      "display": "Wednesday, July 15, 2026",
-      "time": "4:30 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "ECC",
-      "name": "Environmental Concerns Committee",
-      "isSpecial": true
-    },
-    {
-      "date": "2026-07-16",
-      "display": "Thursday, July 16, 2026",
-      "time": "4:30 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "ECC",
-      "name": "Environmental Concerns Committee",
-      "isSpecial": true,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2754/files/agenda/5240"
-    },
-    {
-      "date": "2026-07-16",
-      "display": "Thursday, July 16, 2026",
-      "time": "12:00 PM – 02:00 PM",
-      "location": "Milham Park Golf Club, Kalamazoo",
-      "abbr": "KMGA",
-      "name": "Kalamazoo Municipal Golf Association"
-    },
-    {
-      "date": "2026-07-16",
-      "display": "Thursday, July 16, 2026",
-      "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "BBA",
-      "name": "Building Board of Appeals",
-      "isCancelled": true
-    },
-    {
-      "date": "2026-07-16",
-      "display": "Thursday, July 16, 2026",
-      "time": "06:00 PM – 07:00 PM",
-      "location": "Northside Association for Community Development, 612 N Park St",
-      "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board"
-    },
     {
       "date": "2026-07-21",
       "display": "Tuesday, July 21, 2026",
