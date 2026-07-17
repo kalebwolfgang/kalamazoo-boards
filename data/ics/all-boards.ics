@@ -21,42 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:ECC-2026-07-15@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260715T163000
-DTEND;TZID=America/Detroit:20260715T183000
-SUMMARY:Environmental Concerns Committee — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:ECC-2026-07-16@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260716T163000
-DTEND;TZID=America/Detroit:20260716T183000
-SUMMARY:Environmental Concerns Committee — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:KMGA-2026-07-16@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260716T120000
-DTEND;TZID=America/Detroit:20260716T140000
-SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
-LOCATION:Milham Park Golf Club, Kalamazoo
-END:VEVENT
-BEGIN:VEVENT
-UID:BBA-2026-07-16@kalamazoocity-boards
-STATUS:CANCELLED
-DTSTART;TZID=America/Detroit:20260716T160000
-DTEND;TZID=America/Detroit:20260716T180000
-SUMMARY:Building Board of Appeals — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:NCBDA-2026-07-16@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260716T180000
-DTEND;TZID=America/Detroit:20260716T190000
-SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
-LOCATION:Northside Association for Community Development, 612 N Park St
-END:VEVENT
-BEGIN:VEVENT
 UID:HDC-2026-07-21@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260721T170000
 DTEND;TZID=America/Detroit:20260721T190000
