@@ -1664,34 +1664,16 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
                 time_str, _ = _extract_special_meeting_info(raw_text)
 
                 if old_iso and new_iso and old_iso != new_iso:
-                    # The old date is cancelled, not deleted. A resident who
-                    # saw it needs to know it moved rather than find it gone.
-                    old_entry = next((m for m in upcoming if m["date"] == old_iso), None)
-                    if old_entry:
-                        if not old_entry.get("isCancelled"):
-                            old_entry["isCancelled"] = True
-                            changed = True
-                        if old_entry.get("rescheduledTo") != new_iso:
-                            old_entry["rescheduledTo"] = new_iso
-                            changed = True
-                        # A rescheduled meeting is no longer a special session.
-                        if old_entry.pop("isSpecial", None) is not None:
-                            changed = True
-                        # It is absent from the city calendar for a known
-                        # reason now, so clear any unexplained-absence flag.
-                        if old_entry.pop("notOnCityCalendar", None) is not None:
-                            changed = True
-                        print(f"  RESCHEDULED (old cancelled): {abbr} {old_iso} -> {new_iso}")
-                    else:
-                        upcoming.append({
-                            "date":          old_iso,
-                            "display":       format_display_date_long(old_iso),
-                            "time":          board.get("time", "TBD"),
-                            "isCancelled":   True,
-                            "rescheduledTo": new_iso,
-                        })
+                    # A reschedule is NOT a cancellation. The meeting is still
+                    # happening, one day later. Showing the old date struck
+                    # through would read as "the August meeting was cancelled",
+                    # which is false. The old date is removed outright and the
+                    # new date carries a note saying where it moved from.
+                    before = len(upcoming)
+                    upcoming[:] = [m for m in upcoming if m["date"] != old_iso]
+                    if len(upcoming) != before:
                         changed = True
-                        print(f"  RESCHEDULED (old added as cancelled): {abbr} {old_iso}")
+                        print(f"  RESCHEDULED (old date removed): {abbr} {old_iso} -> {new_iso}")
 
                     new_entry = next((m for m in upcoming if m["date"] == new_iso), None)
                     if new_entry:
@@ -1704,10 +1686,14 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
                         if new_entry.get("rescheduledFrom") != old_iso:
                             new_entry["rescheduledFrom"] = old_iso
                             changed = True
-                        # The new date IS on the city calendar, so it is not
-                        # a special session either; it is the regular meeting.
+                        # This is the board's regular meeting on a new date,
+                        # not an extra special session.
                         if new_entry.pop("isSpecial", None) is not None:
                             changed = True
+                        # Its absence from the old date is explained now.
+                        if new_entry.pop("notOnCityCalendar", None) is not None:
+                            changed = True
+                        print(f"  RESCHEDULED (new date noted): {abbr} {new_iso}")
                     else:
                         entry = {
                             "date":            new_iso,
