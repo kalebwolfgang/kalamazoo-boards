@@ -49,14 +49,6 @@ SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
-UID:PRAB-2026-08-04@kalamazoocity-boards
-STATUS:CANCELLED
-DTSTART;TZID=America/Detroit:20260804T173000
-DTEND;TZID=America/Detroit:20260804T190000
-SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
-LOCATION:Community Room, Mayors' Riverfront Park
-END:VEVENT
-BEGIN:VEVENT
 UID:TRE-2026-08-04@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260804T140000
 DTEND;TZID=America/Detroit:20260804T160000
