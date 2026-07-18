@@ -950,6 +950,16 @@ function fmtDate(iso) {
   return `${MONTHS_SHORT[+m - 1]} ${+d}, ${y}`;
 }
 
+/* "2026-08-04" -> "Tuesday, August 4" */
+function fmtLongDate(iso) {
+  if (!iso) return '';
+  const parts = iso.split('-').map(Number);
+  const dt = new Date(parts[0], parts[1] - 1, parts[2]);
+  if (isNaN(dt.getTime())) return iso;
+  const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  return `${DAYS[dt.getDay()]}, ${MONTHS_LONG[dt.getMonth()]} ${dt.getDate()}`;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    CONTENT FETCH — content/{abbr}.json
@@ -1196,6 +1206,7 @@ function renderUpcomingMeetings(data) {
     const cancelled  = m.isCancelled  || m.cancelled      || false;
     const locChanged = m.isLocationChanged || m.locationChanged || false;
     const unverified = m.notOnCityCalendar || false;
+    const movedFrom  = m.rescheduledFrom || null;
     const loc        = m.location || (BOARD.meeting && BOARD.meeting.location) || '';
     const mapsUrl    = BOARD.meeting && BOARD.meeting.mapsUrl ? BOARD.meeting.mapsUrl : null;
     const locIsTBD   = loc === 'Location TBD';
@@ -1213,6 +1224,7 @@ function renderUpcomingMeetings(data) {
             : `<span style="display:inline-flex;align-items:center;gap:5px;font-size:14px;color:${locColor}${locIsTBD ? ';font-style:italic;opacity:0.7' : ''}">${SVG_PIN_FILLED} ${loc}</span>`}
         </div>` : ''}
         ${cancelled  ? BANNER('#fee2e2','#fca5a5','#dc2626',SVG_CANCEL,'Meeting Cancelled') : ''}
+        ${movedFrom && !cancelled ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CAL,'Rescheduled from ' + fmtLongDate(movedFrom)) : ''}
         ${m.isSpecialSession ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_STAR,'Special Session') : ''}
         ${locChanged  ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_PIN_BANNER,'Location Changed') : ''}
         ${unverified && !cancelled ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CAL,'No Longer On City Calendar \u2014 Verifying') : ''}
