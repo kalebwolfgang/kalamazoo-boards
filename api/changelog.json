@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-18T18:41:55.218073+00:00",
-  "runId": "b078e033",
+  "timestamp": "2026-07-18T18:58:41.331714+00:00",
+  "runId": "120b3a05",
   "validationPassed": true,
   "changes": [
     {
@@ -81,7 +81,7 @@
     {
       "board": "prab",
       "meetings": 3,
-      "upcoming": 6
+      "upcoming": 5
     },
     {
       "board": "trb",
