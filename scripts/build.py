@@ -222,6 +222,8 @@ def build_calendar_json() -> dict:
                 entry["isSpecial"] = True
             if meeting.get("locationChanged"):
                 entry["locationChanged"] = True
+            if meeting.get("notOnCityCalendar"):
+                entry["notOnCityCalendar"] = True
             if meeting.get("agenda_url"):
                 entry["agenda_url"] = meeting["agenda_url"]
             all_meetings.append(entry)
@@ -833,11 +835,13 @@ def _appointed_rows(members: list[dict], today: _date, six_mo: _date) -> list[st
         type_lbl  = _member_type_label(m)
         res_val   = _esc(m.get("residency") or "\u2014") if not is_vac else "\u2014"
         term_raw  = m.get("termEnd")
-        term_disp = (
-            "Permanent"
-            if (not term_raw or term_raw == "2100-01-01")
-            else (_fmt_date_short(term_raw) or "\u2014")
-        )
+        # A vacant seat has no term, so it must never render as "Permanent".
+        if is_vac:
+            term_disp = "\u2014"
+        elif not term_raw or term_raw == "2100-01-01":
+            term_disp = "Permanent"
+        else:
+            term_disp = _fmt_date_short(term_raw) or "\u2014"
         ds_label  = _STATUS_LABELS.get(s, "Seated")
         role_sub  = (
             m.get("positionRequirement")
