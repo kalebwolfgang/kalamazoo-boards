@@ -22,7 +22,8 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:BOR-2026-07-22@kalamazoocity-boards
-DTSTART;VALUE=DATE:20260722
+DTSTART;TZID=America/Detroit:20260722T093000
+DTEND;TZID=America/Detroit:20260722T113000
 SUMMARY:Board of Review for Assessments — City of Kalamazoo
 LOCATION:Third Floor Conference Room, City Hall, 241 W South St
 END:VEVENT

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-17",
+  "last_updated": "2026-07-18",
   "metadata": {
     "time": "07:00 PM – 09:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -49,6 +49,20 @@
       "youtube_url": "https://www.youtube.com/watch?v=uq4IrMfRRGg"
     },
     {
+      "date": "2026-06-11",
+      "display": "June 11, 2026",
+      "event_id": 2618,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2618/overview",
+      "link_label": "Meeting Record",
+      "isCancelled": true,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2618/overview",
+      "scrapedAt": "2026-07-18T18:22:42.202625+00:00",
+      "meeting_type": "Zoning Board of Appeals - CANCELLED"
+    },
+    {
       "date": "2026-05-14",
       "display": "May 14, 2026",
       "event_id": 2617,
@@ -73,6 +87,20 @@
       "youtube_id": "HjTiRtfIl74",
       "youtube_url": "https://www.youtube.com/watch?v=HjTiRtfIl74",
       "isCancelled": false
+    },
+    {
+      "date": "2026-03-12",
+      "display": "March 12, 2026",
+      "event_id": 2615,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2615/overview",
+      "link_label": "Meeting Record",
+      "isCancelled": true,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2615/overview",
+      "scrapedAt": "2026-07-18T18:22:42.202647+00:00",
+      "meeting_type": "Zoning Board of Appeals - CANCELLED"
     },
     {
       "date": "2026-02-12",

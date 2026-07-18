@@ -1,24 +1,26 @@
 {
-  "last_updated": "2026-07-17",
+  "last_updated": "2026-07-18",
   "metadata": {
-    "time": "08:00 AM – 09:00 AM",
+    "time": "02:30 PM – 03:30 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
     {
-      "date": "2026-06-03",
-      "display": "Wednesday, June 3, 2026",
-      "time": "8:00 AM – 9:00 AM"
+      "date": "2026-07-22",
+      "display": "Wednesday, July 22, 2026",
+      "time": "2:30 PM",
+      "isSpecial": true,
+      "location": "Community Room at City Hall, 241 W. South Street"
     },
     {
       "date": "2026-09-02",
       "display": "Wednesday, September 2, 2026",
-      "time": "8:00 AM – 9:00 AM"
+      "time": "02:30 PM – 03:30 PM"
     },
     {
       "date": "2026-12-09",
       "display": "Wednesday, December 9, 2026",
-      "time": "8:00 AM – 9:00 AM"
+      "time": "02:30 PM – 03:30 PM"
     }
   ],
   "meetings": [
@@ -40,12 +42,15 @@
       "date": "2026-03-04",
       "display": "March 4, 2026",
       "event_id": 2596,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2596/files",
-      "link_label": "Agenda & Minutes",
-      "meeting_type": "Pension Board",
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2596/overview",
+      "link_label": "Meeting Record",
+      "isCancelled": false,
       "minutes_url": null,
       "agenda_url": null,
-      "isCancelled": false
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2596/overview",
+      "scrapedAt": null,
+      "meeting_type": "Employees Retirement System Board of Trustees (Pension Board)"
     },
     {
       "date": "2025-12-10",

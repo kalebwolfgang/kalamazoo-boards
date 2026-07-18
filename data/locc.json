@@ -1,8 +1,9 @@
 {
-  "last_updated": "2026-07-17",
+  "last_updated": "2026-07-18",
   "metadata": {
     "time": "On Call",
-    "location": "City Hall, 241 W South St"
+    "location": "City Hall, 241 W South St",
+    "meetingScheduleNote": "Meets biennially, typically in December of odd-numbered years"
   },
   "upcoming_meetings": [],
   "meetings": [

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-17T11:18:55.771254-04:00",
-  "totalMeetings": 539,
+  "timestamp": "2026-07-18T14:23:04.009851-04:00",
+  "totalMeetings": 548,
   "byBoard": {
     "crb": {
       "meetings": 24
@@ -27,22 +27,22 @@
       "meetings": 24
     },
     "hdc": {
-      "meetings": 38
+      "meetings": 39
     },
     "hpc": {
-      "meetings": 35
+      "meetings": 36
     },
     "locc": {
       "meetings": 3
     },
     "nfp": {
-      "meetings": 25
+      "meetings": 26
     },
     "pc": {
-      "meetings": 54
+      "meetings": 55
     },
     "zba": {
-      "meetings": 55
+      "meetings": 57
     },
     "ersb": {
       "meetings": 10
@@ -72,7 +72,7 @@
       "meetings": 1
     },
     "ncbda": {
-      "meetings": 23
+      "meetings": 26
     },
     "spk": {
       "meetings": 10

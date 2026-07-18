@@ -28,8 +28,16 @@ SUMMARY:Historic District Commission — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
+UID:ERSB-2026-07-22@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20260722T143000
+DTEND;TZID=America/Detroit:20260722T163000
+SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
+LOCATION:Community Room at City Hall, 241 W. South Street
+END:VEVENT
+BEGIN:VEVENT
 UID:BOR-2026-07-22@kalamazoocity-boards
-DTSTART;VALUE=DATE:20260722
+DTSTART;TZID=America/Detroit:20260722T093000
+DTEND;TZID=America/Detroit:20260722T113000
 SUMMARY:Board of Review for Assessments — City of Kalamazoo
 LOCATION:Third Floor Conference Room, City Hall, 241 W South St
 END:VEVENT
@@ -183,8 +191,8 @@ LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
 END:VEVENT
 BEGIN:VEVENT
 UID:ERSB-2026-09-02@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260902T080000
-DTEND;TZID=America/Detroit:20260902T090000
+DTSTART;TZID=America/Detroit:20260902T143000
+DTEND;TZID=America/Detroit:20260902T153000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -603,8 +611,8 @@ LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ERSB-2026-12-09@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261209T080000
-DTEND;TZID=America/Detroit:20261209T090000
+DTSTART;TZID=America/Detroit:20261209T143000
+DTEND;TZID=America/Detroit:20261209T153000
 SUMMARY:Employee Retirement System Board of Trustees — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
