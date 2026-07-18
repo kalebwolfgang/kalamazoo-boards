@@ -27,6 +27,7 @@ Output:
 """
 
 import argparse
+import calendar as _cal
 import json
 import os
 import re
@@ -216,11 +217,11 @@ BOARDS = [
         "abbr":        "LOCC",
         "time":        "On Call",
         "location":    "City Hall, 241 W South St",
+        "meetingScheduleNote": "Meets biennially, typically in December of odd-numbered years",
         "category_id": 31,
         "keywords":    ["local officers compensation commission", "locc"],
         "output":      Path("data") / "locc.json",
         "youtube":     False,
-        "upcoming_web_override_cc": True,
         "web_url":     f"{CITY_BASE_URL}/Government/Boards-Commissions/Local-Officers-Compensation-Commission",
     },
     {
@@ -278,7 +279,6 @@ BOARDS = [
         "keywords":    ["employees retirement system", "retirement system", "pension"],
         "output":      Path("data") / "ersb.json",
         "youtube":     False,
-        "preserve_upcoming": True,
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Employee-Retirement-System-Board-of-Trustees-Pension-Board",
     },
     {
@@ -460,6 +460,183 @@ NOTICE_BOARD_MAP = [
     ("retirement investment committee",        "RIC"),
     ("kalamazoo municipal golf",               "KMGA"),
 ]
+
+# ---------------------------------------------------------------------------
+# City OpenCities calendar API
+#
+# The city's public Meeting Calendar is driven by a JSON endpoint that returns
+# every board's scheduled meetings in one request. This is a more reliable
+# source for UPCOMING meetings than scraping each board page, because:
+#   - it is structured data, not HTML that changes shape
+#   - it covers all boards in one call
+#   - it reflects reschedules the individual board pages can lag on
+#
+# It CANNOT report cancellations: the city deletes cancelled meetings from the
+# calendar rather than flagging them. Cancellations still come from the
+# Special Meeting Notices page.
+#
+# See city-calendar-guids.md for the full endpoint write-up.
+# ---------------------------------------------------------------------------
+
+CITY_CALENDAR_API = f"{CITY_BASE_URL}/ocapi/calendars/getcalendaritems"
+
+# Maps the city's calendar GUID to the board key(s) it covers.
+# Some GUIDs cover two boards that meet jointly, so the value is a list.
+CALENDAR_GUID_TO_KEYS: dict = {
+    "8a94186d-ac1c-45b1-85bc-daa5c52759b6": ["bor"],
+    "8bff707f-08ca-47d9-90d3-8d79173a2da9": ["bra", "edc"],
+    "5717d235-cb63-409c-98c5-a03cc931045f": ["bba"],
+    "4f6c81c4-d50f-468d-a48e-94cbd0da5ee9": ["cpsrab"],
+    "33a42050-0578-40da-a879-5c3c5437dc23": ["crb"],
+    "1566d40b-f693-4502-925b-988cfa27c8e6": ["cdaac"],
+    "242a06a0-01f8-46a5-9b14-900431eeaebc": ["dda", "dega"],
+    "37fa9a05-02f4-497b-a7bc-ee573438f8ec": ["ec"],
+    "5b0ed74d-906e-49fb-adad-723c1fc6bd37": ["ersb"],
+    "2b9cfd53-08b3-4afc-b09e-5d5b4fbaf4f6": ["ecc"],
+    "3aa2e0ce-10ac-4fca-bc5c-b413b64a1460": ["hdc"],
+    "6dd970e4-2431-4f9a-a28f-f77cebf95915": ["hpc"],
+    "1cc139a6-b9ac-4207-9f2e-ea61daace5f8": ["kmga"],
+    "963f8951-271e-435d-94c2-2843156b01de": ["nfp"],
+    "56cdfeb0-54b1-45eb-8102-dd7cb502791a": ["ncbda"],
+    "b2efea5c-beaa-4ac8-bd5f-1afbcb39010f": ["prab"],
+    "e82c3360-619a-49db-a77e-7bfbe0ef5fd3": ["pc"],
+    "daba9346-1643-4321-b6e7-b7a5a316b3d1": ["ric"],
+    "7932cef7-751c-4c20-8103-763d140e7824": ["spk"],
+    "0fcb9329-3695-44dc-bf45-fbd335f4da06": ["trb"],
+    "7117a554-117f-4e39-a6dd-812bb1806640": ["tre"],
+    "2f814ffb-cd8c-4123-b93f-78f057d745ae": ["zba"],
+}
+
+# On the city calendar but not covered by this site. Kept for documentation
+# and so a future decision to track them is a one-line change.
+CALENDAR_GUID_UNTRACKED: dict = {
+    "5f43d047-0e0b-46ad-9736-88db3ed55748": "City Commission",
+    "eb7c079f-f92e-4d0a-a296-3002065bbcdf": "FFE Committees",
+    "3523f276-1b74-488c-86de-e374e8e22ee7": "Utility Policy Committee",
+    "4edfa16f-c9d4-4869-a60c-caa6e21ad7ed": "Water System Advisory Council",
+}
+
+# LOCC has no calendar GUID. The city does not publish it on the Meeting
+# Calendar at all (its schedule is "On Call"), so the API cannot be a
+# completeness check for that board. It stays on CivicClerk alone.
+CALENDAR_UNCOVERED_KEYS = {"locc"}
+
+
+def _month_windows(start: date, months: int) -> list[tuple]:
+    """Yield (first_day, last_day) date pairs for `months` months from start."""
+    windows = []
+    y, m = start.year, start.month
+    for _ in range(months):
+        last_day = _cal.monthrange(y, m)[1]
+        windows.append((date(y, m, 1), date(y, m, last_day)))
+        m += 1
+        if m > 12:
+            m = 1
+            y += 1
+    return windows
+
+
+def _post_calendar(guids: list[str], start: date, end: date) -> dict | None:
+    """
+    POST one request to the city calendar API.
+    Returns the parsed payload, or None on transport or API-level failure.
+    """
+    body = {
+        "LanguageCode": "en-US",
+        "Ids":          guids,
+        "StartDate":    start.strftime("%Y-%m-%d"),
+        "EndDate":      end.strftime("%Y-%m-%d"),
+    }
+    try:
+        r = requests.post(CITY_CALENDAR_API, json=body, timeout=30)
+        r.raise_for_status()
+        payload = r.json()
+    except Exception as exc:
+        print(f"    WARNING: calendar API request failed: {exc}")
+        return None
+
+    if not payload.get("success"):
+        # The endpoint intermittently returns
+        # "Index must be within the bounds of the List" for certain
+        # board/date combinations. Caller retries in smaller batches.
+        return None
+    return payload
+
+
+def fetch_city_calendar(months: int = LOOKAHEAD_MONTHS) -> dict:
+    """
+    Fetch upcoming meetings for every mapped board from the city calendar API.
+
+    Queries month by month because the endpoint fails on wide date ranges.
+    If a whole-month request fails, retries each board individually so one
+    bad board does not cost the entire month.
+
+    Returns a dict with:
+      "meetings":     { board_key: { "YYYY-MM-DD": {"time": ..., "name": ...} } }
+      "window_start": first date queried (ISO)
+      "window_end":   last date queried (ISO)
+      "failed":       list of requests that could not be retrieved
+
+    Times are formatted to match the site's existing style (e.g. "5:30 PM").
+    """
+    print("\nFetching city calendar API...")
+    all_guids = list(CALENDAR_GUID_TO_KEYS.keys())
+    by_board: dict = {}
+    windows = _month_windows(date.today().replace(day=1), months)
+    failures = []
+
+    for start, end in windows:
+        payload = _post_calendar(all_guids, start, end)
+
+        if payload is None:
+            # Retry board by board to isolate the failure.
+            print(f"    {start:%Y-%m}: batch failed, retrying per board...")
+            payload = {"data": []}
+            for guid in all_guids:
+                single = _post_calendar([guid], start, end)
+                if single is None:
+                    failures.append(f"{start:%Y-%m} guid {guid}")
+                    continue
+                payload["data"].extend(single.get("data", []))
+
+        for day in payload.get("data", []):
+            for item in day.get("Items", []):
+                guid = item.get("CalendarId")
+                keys = CALENDAR_GUID_TO_KEYS.get(guid)
+                if not keys:
+                    continue
+                dt_raw = item.get("DateTime", "")
+                try:
+                    dt = datetime.strptime(dt_raw, "%m/%d/%Y %I:%M:%S %p")
+                except ValueError:
+                    print(f"    WARNING: unparseable DateTime {dt_raw!r}")
+                    continue
+                iso = dt.strftime("%Y-%m-%d")
+                # "5:30 PM" — strip the leading zero to match site formatting.
+                time_str = dt.strftime("%I:%M %p").lstrip("0")
+                for key in keys:
+                    slot = by_board.setdefault(key, {})
+                    # A board can meet twice in one day (e.g. City Commission
+                    # 5:00 and 7:00). Keep the earliest as the headline time.
+                    if iso not in slot or time_str < slot[iso]["time"]:
+                        slot[iso] = {"time": time_str, "name": item.get("Name", "")}
+
+    total = sum(len(v) for v in by_board.values())
+    print(f"    Retrieved {total} meeting(s) across {len(by_board)} board(s)")
+    if failures:
+        print(f"    WARNING: {len(failures)} calendar request(s) failed")
+
+    # The caller must know which window was actually queried. Anything outside
+    # it cannot be judged present or absent, so it must not be flagged.
+    window_start = windows[0][0].isoformat() if windows else None
+    window_end   = windows[-1][1].isoformat() if windows else None
+    return {
+        "meetings":     by_board,
+        "window_start": window_start,
+        "window_end":   window_end,
+        "failed":       failures,
+    }
+
 
 # ---------------------------------------------------------------------------
 # Alert email
@@ -761,20 +938,31 @@ def transform_event(event: dict, board: dict) -> dict | None:
     name_lower      = event.get("eventName", "").lower()
     cancelled       = "cancel" in name_lower
 
-    if not agenda_file_id and not minutes_file_id:
-        return None
+    # Previously: meetings with no agenda AND no minutes were discarded entirely.
+    # That silently deleted real meetings the city held but never posted documents
+    # for (e.g. Election Commission 2026-07-09). A meeting is a public record
+    # whether or not a PDF exists, so it is kept and simply carries no doc links.
 
     source_url = (
         f"https://{CIVICCLERK_TENANT}.portal.civicclerk.com"
         f"/event/{event_id}/overview"
     )
 
+    if minutes_file_id and agenda_file_id:
+        link_label = "Agenda & Minutes"
+    elif minutes_file_id:
+        link_label = "Minutes"
+    elif agenda_file_id:
+        link_label = "Agenda"
+    else:
+        link_label = "Meeting Record"
+
     record = {
         "date":        date_only,
         "display":     format_display_date(date_only),
         "event_id":    event_id,
         "url":         build_doc_url(event_id, agenda_file_id) if agenda_file_id else source_url,
-        "link_label":  "Agenda & Minutes" if minutes_file_id else "Agenda",
+        "link_label":  link_label,
         "isCancelled": cancelled,
         "minutes_url": build_doc_url(event_id, minutes_file_id) if minutes_file_id else None,
         "agenda_url":  build_doc_url(event_id, agenda_file_id) if agenda_file_id else None,
@@ -1476,6 +1664,148 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
 
     print(f"  Applied {notices_applied} notice change(s) across boards.")
 
+def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
+    """
+    Compare each board's upcoming_meetings against the city calendar API and
+    correct the differences. Runs AFTER all per-board scraping and AFTER
+    special notices have been applied.
+
+    Three cases:
+
+      1. In the API, not in our data
+         -> ADD it. This is how meetings the board-page scrapers miss get in
+            (e.g. ERSB 2026-07-22, which the city announced only in an inline
+            box on its own board page and never posted to the notices page).
+
+      2. In our data, gone from the API, already marked cancelled
+         -> KEEP as-is. The city deletes cancelled meetings from its calendar;
+            we deliberately keep and mark them. Absence is expected here.
+
+      3. In our data, gone from the API, NOT marked cancelled
+         -> KEEP and flag. Never delete. Something changed that no notice
+            explained: a silent cancellation, a reschedule, or a city error.
+            The meeting stays visible and the discrepancy is reported.
+
+    Only meetings INSIDE the window the API was actually queried for are
+    judged. A meeting scheduled beyond that window is not missing, merely
+    out of range, and must never be flagged.
+
+    If any calendar request failed, absence is not trustworthy, so case 3
+    is skipped entirely for that run. Additions are still safe.
+
+    Returns a list of human-readable discrepancy strings for the watchdog.
+    """
+    print(f"\n{'='*60}\n  Reconciling against city calendar\n{'='*60}")
+
+    api_by_board = calendar.get("meetings", {})
+    win_start    = calendar.get("window_start")
+    win_end      = calendar.get("window_end")
+    had_failures = bool(calendar.get("failed"))
+
+    if had_failures:
+        print("  NOTE: some calendar requests failed. Additions will still be "
+              "applied, but absences will not be flagged this run.")
+
+    today_iso = date.today().isoformat()
+    # Never judge absence before today or outside the queried window.
+    lower = max(today_iso, win_start) if win_start else today_iso
+    discrepancies: list[str] = []
+    added = updated = flagged = 0
+
+    for board in boards_to_run:
+        key = board["key"]
+        if key in CALENDAR_UNCOVERED_KEYS:
+            continue
+
+        api_meetings = api_by_board.get(key)
+        if api_meetings is None:
+            # No API data for this board at all. Could be legitimate (a board
+            # with nothing scheduled) or a failed request. Do not touch data.
+            continue
+
+        if not board["output"].exists():
+            continue
+        with board["output"].open("r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        upcoming = data.get("upcoming_meetings", [])
+        ours = {m["date"]: m for m in upcoming}
+        changed = False
+
+        # --- Case 1: API has it, we do not -> add ---------------------------
+        for iso, info in sorted(api_meetings.items()):
+            if iso < today_iso:
+                continue
+            if iso in ours:
+                continue
+            entry = {
+                "date":    iso,
+                "display": format_display_date_long(iso),
+                "time":    info["time"],
+            }
+            upcoming.append(entry)
+            ours[iso] = entry
+            changed = True
+            added += 1
+            msg = f"ADDED from city calendar: {board['abbr']} {iso} {info['time']}"
+            print(f"  {msg}")
+            discrepancies.append(msg)
+
+        # --- Time corrections ----------------------------------------------
+        for iso, info in api_meetings.items():
+            if iso < today_iso or iso not in ours:
+                continue
+            existing = ours[iso]
+            # Only correct when our stored time is a plain start time that
+            # disagrees. Ranges like "5:30 PM - 7:30 PM" carry an end time the
+            # API does not provide, so do not overwrite those with a bare time.
+            current = (existing.get("time") or "").strip()
+            if current and "\u2013" not in current and "-" not in current:
+                if current != info["time"]:
+                    existing["time"] = info["time"]
+                    changed = True
+                    updated += 1
+                    msg = (f"TIME CORRECTED from city calendar: {board['abbr']} "
+                           f"{iso} {current} -> {info['time']}")
+                    print(f"  {msg}")
+                    discrepancies.append(msg)
+
+        # --- Cases 2 and 3: we have it, API does not ------------------------
+        if not had_failures:
+            for iso, meeting in sorted(ours.items()):
+                if iso < lower:
+                    continue
+                if win_end and iso > win_end:
+                    continue  # beyond what we asked for; not evidence of absence
+                if iso in api_meetings:
+                    continue
+                if meeting.get("isCancelled"):
+                    continue  # Case 2: expected, already marked
+                # Case 3: unexplained disappearance. Keep it, flag it.
+                if not meeting.get("notOnCityCalendar"):
+                    meeting["notOnCityCalendar"] = True
+                    changed = True
+                flagged += 1
+                msg = (f"NOT ON CITY CALENDAR: {board['abbr']} {iso} "
+                       f"(kept and flagged; no notice explains its removal)")
+                print(f"  {msg}")
+                discrepancies.append(msg)
+
+        # Clear the flag if a previously-missing meeting reappears.
+        for iso, meeting in ours.items():
+            if iso in api_meetings and meeting.get("notOnCityCalendar"):
+                del meeting["notOnCityCalendar"]
+                changed = True
+
+        if changed:
+            upcoming.sort(key=lambda m: m["date"])
+            data["upcoming_meetings"] = upcoming
+            _write_output(board, data)
+
+    print(f"  Added {added}, corrected {updated}, flagged {flagged}.")
+    return discrepancies
+
+
 # ---------------------------------------------------------------------------
 # Per-board runners
 # ---------------------------------------------------------------------------
@@ -1898,9 +2228,27 @@ def main() -> None:
     # Apply special meeting notices (cancellations, location changes, special meetings)
     scrape_and_apply_special_notices(boards_to_run, dom_alerts)
 
+    # Cross-check every board against the city's own calendar API. This runs
+    # last so it sees the result of both scraping and notice application.
+    calendar_discrepancies: list = []
+    try:
+        city_calendar = fetch_city_calendar()
+        if city_calendar.get("meetings"):
+            calendar_discrepancies = reconcile_with_city_calendar(
+                boards_to_run, city_calendar
+            )
+        else:
+            msg = "City calendar API returned no data; reconciliation skipped."
+            print(f"  WARNING: {msg}")
+            dom_alerts.append(msg)
+    except Exception:
+        tb = traceback.format_exc()
+        print(f"  WARNING: calendar reconciliation failed:\n{tb}")
+        dom_alerts.append(f"Calendar reconciliation raised an exception:\n{tb}")
+
     # Watchdog + state snapshot (full runs only)
     if not single_board:
-        run_watchdog(boards_to_run, prev_state, dom_alerts)
+        run_watchdog(boards_to_run, prev_state, dom_alerts + calendar_discrepancies)
         save_state(boards_to_run)
 
     write_meta_json()
