@@ -1499,12 +1499,79 @@ def _extract_notice_dates(text: str) -> list[str]:
 
 
 def _extract_moved_location(text: str) -> str | None:
-    """Pull new location from a location-change notice."""
-    m = re.search(r"moved to meet in\s+(.+)", text, re.IGNORECASE)
-    if m:
-        return m.group(1).strip().rstrip(".,")
+    """Pull new location from a location-change or reschedule notice.
+
+    The city phrases these several ways:
+      "has been MOVED to meet in <place>"
+      "has been RESCHEDULED to meet on <day>, <date>, at <time> in <place>"
+    """
+    patterns = [
+        r"moved to meet (?:in|at)\s+(.+)",
+        r"reschedul\w*\s+to\s+meet\s+on\s+.*?\bin\s+(?:the\s+)?(.+)",
+        r"reschedul\w*\s+to\s+meet\s+(?:in|at)\s+(?:the\s+)?(.+)",
+    ]
+    for pat in patterns:
+        m = re.search(pat, text, re.IGNORECASE)
+        if m:
+            loc = m.group(1).strip().rstrip(".,")
+            loc = re.sub(r"^the\s+", "", loc, flags=re.IGNORECASE)
+            if loc:
+                return loc
     return None
-  
+
+
+def _classify_notice(text: str) -> str:
+    """
+    Decide what a Special Meeting Notice is announcing.
+
+    Returns one of:
+      'rescheduled'     the meeting moved to a different DATE
+      'location_change' same date, different place
+      'cancelled'       the meeting will not happen
+      'special_meeting' a new meeting was added
+
+    Order matters. A reschedule notice says "RESCHEDULED" and carries two
+    dates; a location-only change says "RESCHEDULED" or "MOVED" but carries
+    one. A reschedule must be detected before 'special_meeting', otherwise
+    the new date gets added while the old one is left standing, which is
+    exactly what produced the duplicate PRAB August entry.
+    """
+    lc = text.lower()
+    dates = _extract_notice_dates(text)
+    is_move = ("reschedul" in lc) or ("moved" in lc) or ("location change" in lc)
+
+    if is_move and len(dates) >= 2:
+        return "rescheduled"
+    if is_move:
+        return "location_change"
+    if "cancel" in lc:
+        return "cancelled"
+    return "special_meeting"
+
+
+def _extract_reschedule_dates(text: str) -> tuple:
+    """
+    For a reschedule notice, determine which date is vacated and which is new.
+
+    The city writes these as:
+      "scheduled for <OLD>, ... has been RESCHEDULED to meet on <NEW>, ..."
+
+    Returns (old_iso, new_iso), or (None, None) if it cannot be determined.
+    """
+    dates = _extract_notice_dates(text)
+    if len(dates) < 2:
+        return (None, None)
+
+    split = re.search(r"reschedul\w*\s+to\s+meet", text, re.IGNORECASE)
+    if split:
+        before = _extract_notice_dates(text[: split.start()])
+        after  = _extract_notice_dates(text[split.start():])
+        if before and after:
+            return (before[0], after[0])
+
+    return (dates[0], dates[-1])
+
+
 def _extract_special_meeting_info(text: str) -> tuple[str | None, str | None]:
     """Return (time_str, location_str) from a special-meeting notice."""
     time_m = re.search(r"\bat\s+(\d{1,2}:\d{2}\s*[aApP]\.?[mM]\.?)", text)
@@ -1578,13 +1645,7 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
         if not boards or not dates:
             continue
 
-        text_lc = raw_text.lower()
-        if "cancel" in text_lc:
-            notice_type = "cancelled"
-        elif "moved" in text_lc or "location change" in text_lc:
-            notice_type = "location_change"
-        else:
-            notice_type = "special_meeting"
+        notice_type = _classify_notice(raw_text)
 
         for abbr in boards:
             board = next((b for b in BOARDS if b.get("abbr") == abbr), None)
@@ -1597,7 +1658,72 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
             upcoming = data.get("upcoming_meetings", [])
             changed  = False
 
-            if notice_type == "cancelled":
+            if notice_type == "rescheduled":
+                old_iso, new_iso = _extract_reschedule_dates(raw_text)
+                new_loc  = _extract_moved_location(raw_text)
+                time_str, _ = _extract_special_meeting_info(raw_text)
+
+                if old_iso and new_iso and old_iso != new_iso:
+                    # The old date is cancelled, not deleted. A resident who
+                    # saw it needs to know it moved rather than find it gone.
+                    old_entry = next((m for m in upcoming if m["date"] == old_iso), None)
+                    if old_entry:
+                        if not old_entry.get("isCancelled"):
+                            old_entry["isCancelled"] = True
+                            changed = True
+                        if old_entry.get("rescheduledTo") != new_iso:
+                            old_entry["rescheduledTo"] = new_iso
+                            changed = True
+                        # A rescheduled meeting is no longer a special session.
+                        if old_entry.pop("isSpecial", None) is not None:
+                            changed = True
+                        # It is absent from the city calendar for a known
+                        # reason now, so clear any unexplained-absence flag.
+                        if old_entry.pop("notOnCityCalendar", None) is not None:
+                            changed = True
+                        print(f"  RESCHEDULED (old cancelled): {abbr} {old_iso} -> {new_iso}")
+                    else:
+                        upcoming.append({
+                            "date":          old_iso,
+                            "display":       format_display_date_long(old_iso),
+                            "time":          board.get("time", "TBD"),
+                            "isCancelled":   True,
+                            "rescheduledTo": new_iso,
+                        })
+                        changed = True
+                        print(f"  RESCHEDULED (old added as cancelled): {abbr} {old_iso}")
+
+                    new_entry = next((m for m in upcoming if m["date"] == new_iso), None)
+                    if new_entry:
+                        if time_str and new_entry.get("time") != time_str:
+                            new_entry["time"] = time_str
+                            changed = True
+                        if new_loc and new_entry.get("location") != new_loc:
+                            new_entry["location"] = new_loc
+                            changed = True
+                        if new_entry.get("rescheduledFrom") != old_iso:
+                            new_entry["rescheduledFrom"] = old_iso
+                            changed = True
+                        # The new date IS on the city calendar, so it is not
+                        # a special session either; it is the regular meeting.
+                        if new_entry.pop("isSpecial", None) is not None:
+                            changed = True
+                    else:
+                        entry = {
+                            "date":            new_iso,
+                            "display":         format_display_date_long(new_iso),
+                            "time":            time_str or board.get("time", "TBD"),
+                            "rescheduledFrom": old_iso,
+                        }
+                        if new_loc:
+                            entry["location"] = new_loc
+                        upcoming.append(entry)
+                        changed = True
+                        print(f"  RESCHEDULED (new added): {abbr} {new_iso}")
+
+                    upcoming.sort(key=lambda m: m["date"])
+
+            elif notice_type == "cancelled":
                 for date_iso in dates:
                     existing = next((m for m in upcoming if m["date"] == date_iso), None)
                     if existing:
