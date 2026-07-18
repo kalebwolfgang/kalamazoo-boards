@@ -34,7 +34,10 @@ body { font-size: 16px; }
   .page-header-inner { display: block; grid-template-columns: none; }
 }
 .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px,5vw,38px); font-weight: 600; color: white; line-height: 1.2; margin-bottom: 8px; }
-.page-header p { color: rgba(255,255,255,0.6); font-size: clamp(14px,2.5vw,17px); font-weight: 300; max-width: 520px; line-height: 1.7; }
+/* Width scales with the viewport rather than a fixed 520px, so the line
+   count adapts: 2 lines on a wide desktop, 4 or 5 on a narrow phone.
+   The ch cap keeps the measure readable instead of running edge to edge. */
+.page-header p { color: rgba(255,255,255,0.6); font-size: clamp(14px,2.5vw,17px); font-weight: 300; max-width: min(105ch, 100%); line-height: 1.7; }
 .page-header-meta { display: flex; gap: 20px; flex-wrap: wrap; }
 .phm-stat { text-align: right; }
 .phm-stat-num { font-family: 'Playfair Display', serif; font-size: clamp(22px,4vw,32px); font-weight: 600; color: var(--gold-lt); line-height: 1; }
