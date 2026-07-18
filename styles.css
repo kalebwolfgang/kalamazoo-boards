@@ -34,6 +34,12 @@
      Instead each use site supplies --navy as the fallback via
      var(--board-color, var(--navy)), which applies only when the page
      never set the variable (index, calendar, faq). */
+  /* Foreground for text and icons sitting ON --board-color. Gold reads well
+     on the site navy but drops below AA on the lighter board colours (worst
+     case KMGA at 2.77:1), so anything on a board-coloured surface uses this
+     instead. White clears AA on all 26 boards, worst case 5.11:1. Gold is
+     still used everywhere it sits on navy, cream, or white. */
+  --on-board-color: #ffffff;
   --pad-x: clamp(16px, 4vw, 40px);
 }
 
@@ -113,7 +119,7 @@ footer a:hover { color: var(--gold-lt); }
    TOOLTIP (index + board pages)
    ────────────────────────────────────────────────── */
 .tooltip {
-  position: fixed; background: var(--navy); color: white; padding: 12px 16px; border-radius: 4px;
+  position: fixed; background: var(--board-color, var(--navy)); color: white; padding: 12px 16px; border-radius: 4px;
   font-size: 15px; line-height: 1.5; pointer-events: none; z-index: 9999; max-width: min(310px, 90vw);
   box-shadow: 0 6px 28px rgba(0,0,0,0.4); display: none;
 }
@@ -231,7 +237,7 @@ footer a:hover { color: var(--gold-lt); }
 /* Page header — board variant */
 .board-badge { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
 .board-abbr-large { font-family: 'Playfair Display', serif; font-size: clamp(36px, 7vw, 52px); font-weight: 600; color: var(--gold); line-height: 1; }
-.page-header-desc { color: rgba(255,255,255,0.58); font-size: clamp(15px, 2.5vw, 18px); font-weight: 300; max-width: 620px; line-height: 1.65; }
+.page-header-desc { color: rgba(255,255,255,0.90); font-size: clamp(15px, 2.5vw, 18px); font-weight: 300; max-width: 620px; line-height: 1.65; }
 .page-header-inner { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
 @media (min-width: 900px) { .page-header-inner { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; } }
 
@@ -265,7 +271,7 @@ footer a:hover { color: var(--gold-lt); }
 .gov-item { flex: 1; text-align: center; padding: clamp(14px, 3vw, 20px) clamp(12px, 2.5vw, 16px); border-right: 1px solid rgba(255,255,255,0.08); min-width: 110px; }
 .gov-item:last-child { border-right: none; }
 .gov-value { font-size: clamp(15px, 2.5vw, 20px); font-weight: 700; color: var(--gold-lt); margin-bottom: 4px; line-height: 1.2; }
-.gov-label { font-size: clamp(10px, 1.8vw, 12px); color: rgba(255,255,255,0.42); text-transform: uppercase; letter-spacing: 0.06em; }
+.gov-label { font-size: clamp(10px, 1.8vw, 12px); color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.06em; }
 
 /* Board body two-column layout */
 .board-body { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--pad-x) 0; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
@@ -431,7 +437,7 @@ footer a:hover { color: var(--gold-lt); }
 }
 .export-dl-btn:hover:not(:disabled) { background: var(--cream); border-color: var(--navy-light); color: var(--navy); }
 .export-dl-btn:disabled { opacity: 0.45; cursor: default; }
-.export-dl-btn--all { background: var(--board-color, var(--navy)); color: var(--gold-lt); border-color: var(--board-color, var(--navy)); }
+.export-dl-btn--all { background: var(--board-color, var(--navy)); color: var(--on-board-color); border-color: var(--board-color, var(--navy)); }
 .export-dl-btn--all:hover:not(:disabled) { background: var(--navy-mid); border-color: var(--navy-mid); color: white; }
 .export-count { color: var(--muted); font-weight: 400; margin-left: 3px; }
 .export-dl-btn--all .export-count { color: rgba(255,255,255,0.5); }
@@ -478,7 +484,7 @@ footer a:hover { color: var(--gold-lt); }
 .apply-standalone-text { flex: 1; }
 .apply-standalone-heading { font-family: 'Playfair Display', serif; font-size: clamp(18px, 3vw, 22px); font-weight: 600; color: var(--navy); margin-bottom: 10px; }
 .apply-standalone-desc { font-size: clamp(14px, 2.5vw, 16px); color: var(--body); line-height: 1.65; }
-.apply-standalone-btn { display: inline-block; background: var(--board-color, var(--navy)); color: var(--gold-lt); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
+.apply-standalone-btn { display: inline-block; background: var(--board-color, var(--navy)); color: var(--on-board-color); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
 .apply-standalone-btn:hover { background: var(--navy-mid); color: white; }
 
 /* Recording items */
@@ -640,7 +646,7 @@ footer a:hover { color: var(--gold-lt); }
 .process-steps { display: flex; flex-direction: column; margin-top: 14px; }
 .process-step { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border-lt); }
 .process-step:last-child { border-bottom: none; padding-bottom: 0; }
-.step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--board-color, var(--navy)); color: var(--gold-lt); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--board-color, var(--navy)); color: var(--on-board-color); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
 .step-body { flex: 1; }
 .step-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
 .step-desc { font-size: 14px; color: var(--body); line-height: 1.6; }
@@ -665,7 +671,7 @@ footer a:hover { color: var(--gold-lt); }
 
 /* ── FEEDBACK / REPORT ERROR — styled like the grant CTA section ── */
 .feedback-bar {
-  background: var(--navy);
+  background: var(--board-color, var(--navy));
   border-top: 3px solid var(--gold);
   padding: clamp(24px, 4vw, 40px) var(--pad-x);
 }
@@ -678,7 +684,7 @@ footer a:hover { color: var(--gold-lt); }
 }
 .feedback-eyebrow {
   font-size: 12px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.09em; color: var(--gold-lt); margin-bottom: 8px;
+  letter-spacing: 0.09em; color: var(--on-board-color); margin-bottom: 8px;
 }
 .feedback-heading {
   display: block;
@@ -688,16 +694,16 @@ footer a:hover { color: var(--gold-lt); }
 }
 .feedback-desc {
   font-size: clamp(14px, 2.5vw, 16px);
-  color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 620px;
+  color: rgba(255,255,255,0.90); line-height: 1.65; max-width: 620px;
 }
 .feedback-btn {
   display: inline-flex; align-items: center; gap: 6px;
-  background: var(--gold); color: var(--navy); text-decoration: none;
+  background: var(--gold); color: #2c2c2a; text-decoration: none;
   padding: 14px 32px; border-radius: 3px;
   font-size: 16px; font-weight: 700; white-space: nowrap; flex-shrink: 0;
   transition: background 0.15s; align-self: flex-start;
 }
-.feedback-btn:hover { background: var(--gold-lt); color: var(--navy); }
+.feedback-btn:hover { background: var(--gold-lt); color: #2c2c2a; }
 .feedback-btn--soon {
   background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7);
   border: 1px solid rgba(255,255,255,0.22); cursor: default;
@@ -718,7 +724,7 @@ footer a:hover { color: var(--gold-lt); }
 .subscribe-input:focus { outline: none; border-color: var(--navy-light); }
 .subscribe-input::placeholder { color: var(--muted); }
 .subscribe-btn {
-  background: var(--navy); color: var(--gold-lt); border: none; border-radius: 3px;
+  background: var(--board-color, var(--navy)); color: var(--on-board-color); border: none; border-radius: 3px;
   padding: 10px 16px; font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.15s;
 }
