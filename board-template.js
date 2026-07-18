@@ -75,6 +75,7 @@ let pendingCalendarAction = null;
   renderApplyToServe();
   renderSpecialCta();
   renderMembersSubhead();
+  renderJointBoardNote();
   renderStaffLiaison();
   renderDocuments();
   renderExternalLinks();
@@ -268,6 +269,43 @@ function renderStaffLiaison() {
   wrap.innerHTML = `<div class="staff-note">${icon}<div><strong>Staff Liaison${liaisons.length > 1 ? 's' : ''}:</strong><div class="staff-liaisons">${rows}</div>${boardEmailHtml}</div></div>`;
 
   membersSection.insertAdjacentElement('afterend', wrap);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   JOINT BOARD NOTE
+   Some boards are legally separate but always meet together and share
+   membership (EDC/BRA, DDA/DEGA). The scraper already applies notices
+   across both (JOINT_BOARD_MAP in scraper.py) and calendar.html shows a
+   joint banner, but the board pages had no equivalent, so a visitor on
+   board-dda.html saw no indication DEGA meets in the same session.
+   Driven by BOARD.jointWith plus optional BOARD.jointNote.
+   ═══════════════════════════════════════════════════════════════ */
+function renderJointBoardNote() {
+  if (!BOARD.jointWith) return;
+
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+
+  const partner = BOARD.jointWith;
+  const note = BOARD.jointNote ||
+    `This board meets jointly with ${partner} and shares the same membership. ` +
+    `Each board operates under separate statutory authority.`;
+
+  const partnerSlug = (BOARD.jointWithSlug || partner).toLowerCase();
+
+  const SVG_LINK = `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`;
+
+  const card = document.createElement('div');
+  card.className = 'sidebar-card joint-board-card';
+  card.innerHTML = `
+    <div class="sidebar-card-header">${SVG_LINK} Joint Meeting</div>
+    <div class="sidebar-card-body">
+      <p class="joint-board-note">${note}</p>
+      <a class="joint-board-link" href="board-${partnerSlug}.html">View ${partner} &rarr;</a>
+    </div>`;
+
+  sidebar.appendChild(card);
 }
 
 
