@@ -24,8 +24,15 @@ body { font-size: 16px; }
 /* Page header override: calendar uses green, not navy */
 .page-header { background: var(--green); }
 
-/* ── Page Header (calendar-specific layout) ── */
-.page-header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: flex-start; gap: 20px; flex-wrap: wrap; }
+/* ── Page Header (calendar-specific layout) ──
+   styles.css line 230 switches .page-header-inner to a two-column grid
+   (1fr auto) above 900px so board pages can put seat stats on the right.
+   This page has only one child, so that grid pushes the text off centre.
+   Force a single-column flow at every width. */
+.page-header-inner { max-width: 1400px; margin: 0 auto; display: block; }
+@media (min-width: 900px) {
+  .page-header-inner { display: block; grid-template-columns: none; }
+}
 .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px,5vw,38px); font-weight: 600; color: white; line-height: 1.2; margin-bottom: 8px; }
 .page-header p { color: rgba(255,255,255,0.6); font-size: clamp(14px,2.5vw,17px); font-weight: 300; max-width: 520px; line-height: 1.7; }
 .page-header-meta { display: flex; gap: 20px; flex-wrap: wrap; }
