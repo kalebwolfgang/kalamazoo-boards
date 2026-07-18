@@ -53,6 +53,16 @@
               "type": "boolean",
               "description": "True when this meeting is in our data but absent from the city calendar API with no notice explaining it. Kept and flagged rather than deleted."
             },
+            "rescheduledTo": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "Set on a cancelled meeting that was moved. Points at the new date."
+            },
+            "rescheduledFrom": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "Set on a meeting that replaced an earlier date. Points at the original."
+            },
             "agenda_url":      { "type": ["string", "null"] }
        }
      },
