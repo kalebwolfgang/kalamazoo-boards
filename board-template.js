@@ -160,10 +160,12 @@ function renderGovStrip() {
    Optional one-line schedule note rendered between the gov strip
    and the Watch Live banner. Controlled by BOARD.meetingNote.
    ═══════════════════════════════════════════════════════════════ */
-function renderMeetingInfoBar() {
-  if (!BOARD.meetingNote) return;
+function renderMeetingInfoBar(noteOverride) {
+  const note = noteOverride || BOARD.meetingNote;
+  if (!note) return;
   const govStrip = document.querySelector('.gov-strip');
   if (!govStrip) return;
+  if (document.querySelector('.meeting-info-bar')) return;
 
   const SVG_CAL_SM = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--muted)"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`;
 
@@ -172,7 +174,7 @@ function renderMeetingInfoBar() {
   bar.innerHTML = `
     <div class="meeting-info-inner">
       ${SVG_CAL_SM}
-      <span>${BOARD.meetingNote}</span>
+      <span>${note}</span>
     </div>`;
 
   govStrip.insertAdjacentElement('afterend', bar);
@@ -435,7 +437,7 @@ function renderExportSection() {
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
           <span>Board Data</span>
         </div>
-        <p class="export-intro-desc">Complete archive of CPSRAB meetings \u2014 minutes PDFs, agendas, and YouTube recordings.</p>
+        <p class="export-intro-desc">Complete archive of ${BOARD.abbr} meetings \u2014 minutes PDFs, agendas, and YouTube recordings.</p>
         <p class="export-intro-sub">Useful for journalism, research, or tracking public safety oversight.</p>
       </div>
       <div class="export-buttons">
@@ -1125,6 +1127,8 @@ function fetchMeetingData(abbr) {
   fetch(`data/${abbr.toLowerCase()}.json`)
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(data => {
+      const note = data.metadata && data.metadata.meetingScheduleNote;
+      if (note) renderMeetingInfoBar(note);
       renderUpcomingMeetings(data);
       renderMinutes(data);
       if (BOARD.hasRecordings) {
@@ -1191,6 +1195,7 @@ function renderUpcomingMeetings(data) {
   el.innerHTML = upcoming.slice(0, 3).map((m, i) => {
     const cancelled  = m.isCancelled  || m.cancelled      || false;
     const locChanged = m.isLocationChanged || m.locationChanged || false;
+    const unverified = m.notOnCityCalendar || false;
     const loc        = m.location || (BOARD.meeting && BOARD.meeting.location) || '';
     const mapsUrl    = BOARD.meeting && BOARD.meeting.mapsUrl ? BOARD.meeting.mapsUrl : null;
     const locIsTBD   = loc === 'Location TBD';
@@ -1210,6 +1215,7 @@ function renderUpcomingMeetings(data) {
         ${cancelled  ? BANNER('#fee2e2','#fca5a5','#dc2626',SVG_CANCEL,'Meeting Cancelled') : ''}
         ${m.isSpecialSession ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_STAR,'Special Session') : ''}
         ${locChanged  ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_PIN_BANNER,'Location Changed') : ''}
+        ${unverified && !cancelled ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CAL,'No Longer On City Calendar \u2014 Verifying') : ''}
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">
           ${m.agenda_url && !cancelled
             ? `<a href="${m.agenda_url}" target="_blank" rel="noopener" style="font-size:13px;color:var(--navy-light);text-decoration:none;display:inline-flex;align-items:center;gap:4px">${SVG_EXT} Agenda</a>`
