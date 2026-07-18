@@ -709,6 +709,15 @@ def scrape_city_web_info(url: str) -> dict:
         )
         if loc_m:
             loc_raw = loc_m.group(1)
+            # Drop map/skip links ENTIRELY before de-linking the rest.
+            # The OpenCities template renders "[View Map](...)" inline on the
+            # same line as the address whenever a board has one fixed venue.
+            # De-linking first turned it into the bare words "View Map", and
+            # the line filter below then discarded the whole line, address and
+            # all. That silently returned None for the majority of boards, so
+            # the hardcoded fallback was never actually refreshed.
+            loc_raw = re.sub(r"\[\s*View Map\s*\]\([^)]*\)", "", loc_raw, flags=re.IGNORECASE)
+            loc_raw = re.sub(r"\[\s*Skip to[^\]]*\]\([^)]*\)", "", loc_raw, flags=re.IGNORECASE)
             loc_raw = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", loc_raw)
             loc_raw = re.sub(r",?\s*Kalamazoo,?\s*\d{5}[^,\n]*", "", loc_raw)
             lines = [
@@ -740,7 +749,22 @@ def scrape_city_web_info(url: str) -> dict:
                 # Normalize: 415 Stockbridge → 415 E Stockbridge
                 location = re.sub(r"\b415 Stockbridge\b", "415 E Stockbridge", location)
 
-                result["location"] = location
+                # Some boards have no single venue and the city writes prose
+                # in this slot instead of an address ("Please see the detailed
+                # schedule above for each meeting's location."). That is not a
+                # location and must not be stored as one.
+                prose_markers = (
+                    "see the detailed schedule",
+                    "see description",
+                    "each meeting's location",
+                    "varies",
+                    "to be determined",
+                )
+                low = location.lower()
+                if any(p in low for p in prose_markers):
+                    result["location_is_prose"] = location
+                else:
+                    result["location"] = location
 
         return result
 
@@ -749,7 +773,7 @@ def scrape_city_web_info(url: str) -> dict:
         return {}
 
 
-def refresh_board_metadata(boards_to_run: list) -> dict:
+def refresh_board_metadata(boards_to_run: list, alerts: list | None = None) -> dict:
     """
     Fetch current time and location from the city website for each board.
     Updates the board dict in place and returns a summary of what changed.
@@ -759,12 +783,17 @@ def refresh_board_metadata(boards_to_run: list) -> dict:
 
     skip_time:     boards whose configured time must never be overwritten
     skip_location: boards with dynamic per-meeting locations
+
+    Any board whose location cannot be read from the city page is reported
+    through `alerts`. Silence there previously meant the hardcoded fallback
+    stayed in place indefinitely with no signal that it was never verified.
     """
     skip_location = {"prab", "kmga"}
     skip_time     = {"locc", "bor"}   # locc is intentional "On Call"; bor has multi-session days
 
     print("\nRefreshing board metadata from city website...")
     all_updates: dict = {}
+    unverified: list = []
 
     for board in boards_to_run:
         url = board.get("web_url")
@@ -780,16 +809,43 @@ def refresh_board_metadata(boards_to_run: list) -> dict:
             board_updates["time"] = info["time"]
             print(f"    {key.upper()}: time \u2192 {info['time']}")
 
-        if info.get("location") and key not in skip_location:
-            board["location"] = info["location"]
-            board_updates["location"] = info["location"]
-            print(f"    {key.upper()}: location \u2192 {info['location']}")
+        if key not in skip_location:
+            new_loc = info.get("location")
+            old_loc = board.get("location")
+            if new_loc:
+                if old_loc and new_loc != old_loc:
+                    msg = (f"LOCATION CHANGED: {board['abbr']} "
+                           f"{old_loc!r} -> {new_loc!r}")
+                    print(f"    {msg}")
+                    if alerts is not None:
+                        alerts.append(msg)
+                board["location"] = new_loc
+                board["locationVerifiedAt"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                board_updates["location"] = new_loc
+                print(f"    {key.upper()}: location \u2192 {new_loc}")
+            elif info.get("location_is_prose"):
+                # The city says the venue varies. Do not overwrite, but record
+                # that we looked and the page genuinely has no single address.
+                board["locationNote"] = info["location_is_prose"]
+                print(f"    {key.upper()}: location varies per meeting "
+                      f"({info['location_is_prose'][:60]})")
+            else:
+                unverified.append(f"{board['abbr']} ({url})")
 
         if board_updates:
             all_updates[key] = board_updates
 
     total = sum(len(v) for v in all_updates.values())
     print(f"    Done. {total} value(s) refreshed across {len(all_updates)} board(s).")
+
+    if unverified:
+        msg = ("Could not read a location from the city page for "
+               f"{len(unverified)} board(s); the stored value is unverified:\n  "
+               + "\n  ".join(unverified))
+        print(f"    WARNING: {msg}")
+        if alerts is not None:
+            alerts.append(msg)
+
     return all_updates
 
 
@@ -2317,13 +2373,14 @@ def main() -> None:
     # Load previous state before scraping (for watchdog comparison)
     prev_state = load_state() if not single_board else {}
 
+    dom_alerts: list = []
+
     # Refresh dynamic metadata from city website
-    refresh_board_metadata(boards_to_run)
+    refresh_board_metadata(boards_to_run, dom_alerts)
 
     needs_youtube = any(b.get("youtube") for b in boards_to_run)
     api_key       = get_youtube_key() if needs_youtube else None
 
-    dom_alerts: list = []
     for board in boards_to_run:
         try:
             run_board(board, start_iso, end_iso, api_key, dom_alerts)
