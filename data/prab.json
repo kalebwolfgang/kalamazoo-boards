@@ -8,16 +8,16 @@
     {
       "date": "2026-08-04",
       "display": "Tuesday, August 4, 2026",
-      "time": "5:30 PM",
-      "isSpecial": true,
-      "notOnCityCalendar": true
+      "time": "05:30 PM – 07:00 PM",
+      "isCancelled": true,
+      "rescheduledTo": "2026-08-05"
     },
     {
       "date": "2026-08-05",
       "display": "Wednesday, August 5, 2026",
       "time": "5:30 PM",
       "location": "Axtell Creek Park",
-      "isSpecial": true
+      "rescheduledFrom": "2026-08-04"
     },
     {
       "date": "2026-09-08",

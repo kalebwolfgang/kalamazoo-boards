@@ -22,8 +22,9 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:PRAB-2026-08-04@kalamazoocity-boards
+STATUS:CANCELLED
 DTSTART;TZID=America/Detroit:20260804T173000
-DTEND;TZID=America/Detroit:20260804T193000
+DTEND;TZID=America/Detroit:20260804T190000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT

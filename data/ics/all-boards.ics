@@ -50,8 +50,9 @@ LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-08-04@kalamazoocity-boards
+STATUS:CANCELLED
 DTSTART;TZID=America/Detroit:20260804T173000
-DTEND;TZID=America/Detroit:20260804T193000
+DTEND;TZID=America/Detroit:20260804T190000
 SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
@@ -138,14 +139,14 @@ UID:BRA-2026-08-20@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260820T074500
 DTEND;TZID=America/Detroit:20260820T093000
 SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
-LOCATION:City Hall Community Room, 241 W. South St
+LOCATION:Community Room at City Hall, 241 W. South Street
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-08-20@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260820T074500
 DTEND;TZID=America/Detroit:20260820T093000
 SUMMARY:Economic Development Corporation — City of Kalamazoo
-LOCATION:City Hall Community Room, 241 W. South St
+LOCATION:Community Room at City Hall, 241 W. South Street
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-08-20@kalamazoocity-boards
