@@ -7,12 +7,22 @@
       "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
-      "name": "Historic District Commission"
+      "name": "Historic District Commission",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2741/files/agenda/5251"
     },
     {
       "date": "2026-07-22",
       "display": "Wednesday, July 22, 2026",
-      "time": "TBD",
+      "time": "2:30 PM",
+      "location": "Community Room at City Hall, 241 W. South Street",
+      "abbr": "ERSB",
+      "name": "Employee Retirement System Board of Trustees",
+      "isSpecial": true
+    },
+    {
+      "date": "2026-07-22",
+      "display": "Wednesday, July 22, 2026",
+      "time": "9:30 AM",
       "location": "Third Floor Conference Room, City Hall, 241 W South St",
       "abbr": "BOR",
       "name": "Board of Review for Assessments"
@@ -32,7 +42,8 @@
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks & Recreation Advisory Board",
-      "isSpecial": true
+      "isSpecial": true,
+      "notOnCityCalendar": true
     },
     {
       "date": "2026-08-04",
@@ -162,7 +173,8 @@
       "time": "06:00 PM – 07:00 PM",
       "location": "Northside Association for Community Development, 612 N Park St",
       "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board"
+      "name": "Northside Cultural Business District Authority Board",
+      "notOnCityCalendar": true
     },
     {
       "date": "2026-08-25",
@@ -191,7 +203,7 @@
     {
       "date": "2026-09-02",
       "display": "Wednesday, September 2, 2026",
-      "time": "8:00 AM – 9:00 AM",
+      "time": "02:30 PM – 03:30 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "ERSB",
       "name": "Employee Retirement System Board of Trustees"
@@ -426,7 +438,8 @@
       "time": "06:00 PM – 07:00 PM",
       "location": "Northside Association for Community Development, 612 N Park St",
       "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board"
+      "name": "Northside Cultural Business District Authority Board",
+      "notOnCityCalendar": true
     },
     {
       "date": "2026-10-19",
@@ -602,7 +615,8 @@
       "time": "06:00 PM – 07:00 PM",
       "location": "Northside Association for Community Development, 612 N Park St",
       "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board"
+      "name": "Northside Cultural Business District Authority Board",
+      "notOnCityCalendar": true
     },
     {
       "date": "2026-11-24",
@@ -671,7 +685,7 @@
     {
       "date": "2026-12-09",
       "display": "Wednesday, December 9, 2026",
-      "time": "8:00 AM – 9:00 AM",
+      "time": "02:30 PM – 03:30 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "ERSB",
       "name": "Employee Retirement System Board of Trustees"
