@@ -224,6 +224,8 @@ def build_calendar_json() -> dict:
                 entry["locationChanged"] = True
             if meeting.get("notOnCityCalendar"):
                 entry["notOnCityCalendar"] = True
+            if meeting.get("rescheduledFrom"):
+                entry["rescheduledFrom"] = meeting["rescheduledFrom"]
             if meeting.get("agenda_url"):
                 entry["agenda_url"] = meeting["agenda_url"]
             all_meetings.append(entry)
