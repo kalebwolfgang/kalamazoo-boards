@@ -280,7 +280,10 @@ function renderStaffLiaison() {
 function renderDocuments() {
   const docs = BOARD.documents;
   if (!docs || !docs.length) return;
-  if (['ECC', 'HDC', 'HPC'].includes(BOARD.abbr)) return;
+  /* Set BOARD.hideKeyDocuments to true on a board whose documents are
+     already surfaced elsewhere on its page. Previously this was a
+     hardcoded list of board abbreviations inside this shared file. */
+  if (BOARD.hideKeyDocuments) return;
 
   const grid = document.querySelector('.bottom-cards');
   if (!grid) return;
@@ -428,6 +431,14 @@ function renderExportSection() {
   const bottomCards = document.querySelector('.bottom-cards');
   if (!bottomCards) return;
 
+  /* Boards with no recordings get a minutes-only export section. The
+     Recordings button is not rendered at all, and the archive blurb drops
+     the mention of recordings so it stays accurate per board. */
+  const hasRecs = BOARD.hasRecordings === true;
+  const archiveDesc = hasRecs
+    ? `Complete archive of ${BOARD.abbr} meetings \u2014 minutes PDFs, agendas, and YouTube recordings.`
+    : `Complete archive of ${BOARD.abbr} meetings \u2014 minutes PDFs and agendas.`;
+
   const section = document.createElement('div');
   section.className = 'export-section';
   section.innerHTML = `
@@ -437,8 +448,8 @@ function renderExportSection() {
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
           <span>Board Data</span>
         </div>
-        <p class="export-intro-desc">Complete archive of ${BOARD.abbr} meetings \u2014 minutes PDFs, agendas, and YouTube recordings.</p>
-        <p class="export-intro-sub">Useful for journalism, research, or tracking public safety oversight.</p>
+        <p class="export-intro-desc">${archiveDesc}</p>
+        ${BOARD.exportNote ? `<p class="export-intro-sub">${BOARD.exportNote}</p>` : ''}
       </div>
       <div class="export-buttons">
         <div class="export-btn-row">
@@ -449,6 +460,7 @@ function renderExportSection() {
           </button>
           <span class="export-btn-note">For data work \u2014 open with any spreadsheet app or import to Google Sheets</span>
         </div>
+        ${hasRecs ? `
         <div class="export-btn-row">
           <button class="export-dl-btn" id="export-recordings-btn" disabled>
             ${SVG_DOWNLOAD} Recordings
@@ -456,7 +468,7 @@ function renderExportSection() {
             <span class="export-fmt export-fmt--csv">CSV</span>
           </button>
           <span class="export-btn-note">For data work \u2014 open with any spreadsheet app or import to Google Sheets</span>
-        </div>
+        </div>` : ''}
         <div class="export-btn-row">
           <button class="export-dl-btn export-dl-btn--all" id="export-all-btn" disabled>
             ${SVG_DOWNLOAD} Complete Record
@@ -556,11 +568,16 @@ function downloadBoardHTML(type, data) {
   URL.revokeObjectURL(url);
 }
 
-/* Activates the Complete Record button once BOTH data sets have loaded */
+/* Activates the Complete Record button once the needed data has loaded.
+   On boards with recordings that means BOTH sets. On boards without, the
+   recordings fetch never populates, so waiting for it would leave the
+   button stuck on "loading" forever \u2014 minutes alone is enough. */
 function tryActivateCompleteBtn() {
+  const hasRecs    = BOARD.hasRecordings === true;
   const minutes    = window._minutesData;
-  const recordings = window._recordingsData;
-  if (!minutes || !recordings) return;
+  const recordings = hasRecs ? window._recordingsData : [];
+  if (!minutes) return;
+  if (hasRecs && !recordings) return;
 
   const btn   = document.getElementById('export-all-btn');
   const count = document.getElementById('export-all-count');
@@ -625,17 +642,18 @@ function downloadCompleteHTML(minutes, recordings) {
     <p>City of Kalamazoo Boards &amp; Commissions</p>
   </div>
   <div class="wrap">
-    <p class="meta">Exported ${dateFmt} \u00b7 ${minutes.length} minutes + ${recordings.length} recordings \u00b7 Source: publicsense.net</p>
+    <p class="meta">Exported ${dateFmt} \u00b7 ${minutes.length} minutes${recordings.length ? ` + ${recordings.length} recordings` : ''} \u00b7 Source: publicsense.net</p>
     <div class="section">
       <div class="section-title">Minutes &amp; Agendas</div>
       <table><thead><tr><th>Date</th><th>Minutes</th><th>Agenda</th><th>Notes</th></tr></thead>
       <tbody>${minuteRows}</tbody></table>
     </div>
+    ${recordings.length ? `
     <div class="section">
       <div class="section-title">Meeting Recordings</div>
       <table><thead><tr><th>Date</th><th>Title</th><th>YouTube</th></tr></thead>
       <tbody>${recordingRows}</tbody></table>
-    </div>
+    </div>` : ''}
   </div>
 </body>
 </html>`;
@@ -934,15 +952,13 @@ function initTooltip() {
 /* ═══════════════════════════════════════════════════════════════
    SEAT STATUS UTILITIES
    ═══════════════════════════════════════════════════════════════ */
-function seatStatus(member) {
-  const today   = new Date();
-  const sixMo   = new Date(); sixMo.setMonth(sixMo.getMonth() + 6);
-  const termEnd = new Date(member.termEnd);
-  if (member.isVacant)  return 'vacant';
-  if (termEnd < today)  return 'holdover';
-  if (termEnd < sixMo)  return 'transitioning';
-  return 'seated';
-}
+/* seatStatus() was removed. Seat status is computed at build time by
+   _seat_status() in scripts/build.py and baked into the member table and
+   dot grid, so this file never needed a copy. The copy that lived here was
+   never called and had drifted out of sync with the Python version (it was
+   missing the null / permanent-term guard), which made it a trap for
+   anyone who edited it believing it was live. Single source of truth is
+   now scripts/build.py. */
 
 function fmtDate(iso) {
   if (!iso || iso === '2100-01-01') return null;
@@ -1152,6 +1168,8 @@ function fetchMeetingData(abbr) {
       if (sidebar) sidebar.remove();
       removeCard('scroll-minutes');
       removeCard('scroll-recordings');
+      /* No data file means nothing to export. */
+      removeExportSection();
     });
 }
 
@@ -1161,6 +1179,22 @@ function removeCard(childId) {
     const card = child.closest('.bottom-card');
     if (card) card.remove();
   }
+}
+
+/* Removes a single export button and its explanatory note. Used when the
+   data behind that button turns out to be empty. */
+function removeExportButton(btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  const row = btn.closest('.export-btn-row');
+  if (row) row.remove();
+}
+
+/* Removes the entire export section. Used when a board has no exportable
+   data at all, or when its data file could not be loaded. */
+function removeExportSection() {
+  const section = document.querySelector('.export-section');
+  if (section) section.remove();
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -1259,14 +1293,17 @@ function renderMinutes(data) {
 
   if (pill) pill.textContent = `${meetings.length} meeting${meetings.length !== 1 ? 's' : ''}`;
 
+  window._minutesData = meetings; /* stored for CSV export */
+
   if (!meetings.length) {
     el.innerHTML =
       '<div style="padding:18px;font-size:14px;color:var(--muted)">No meeting records found.</div>';
     if (el._refreshScrollbar) el._refreshScrollbar();
+    /* No records to export. Remove the whole section rather than leaving
+       buttons disabled on "loading" forever. */
+    if (BOARD.exportEnabled) removeExportSection();
     return;
   }
-
-  window._minutesData = meetings; /* stored for CSV export */
 
   const years = [...new Set(meetings.map(m => m.date.slice(0, 4)))].sort((a, b) => b - a);
   if (years.length > 1) {
@@ -1364,12 +1401,16 @@ function renderRecordings(data) {
   }
   recordings.sort((a, b) => b.date.localeCompare(a.date));
 
+  window._recordingsData = recordings; /* stored for CSV export */
+
   if (!recordings.length) {
     removeCard('scroll-recordings');
+    /* Recordings button was rendered because BOARD.hasRecordings is true,
+       but none exist yet. Drop the button so it cannot hang on "loading". */
+    removeExportButton('export-recordings-btn');
+    tryActivateCompleteBtn();
     return;
   }
-
-  window._recordingsData = recordings; /* stored for CSV export */
 
   if (pill) pill.textContent = `${recordings.length} recording${recordings.length !== 1 ? 's' : ''}`;
 
