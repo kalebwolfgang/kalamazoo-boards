@@ -49,6 +49,10 @@
          "isCancelled":     { "type": "boolean" },
             "isSpecial":       { "type": "boolean" },
             "locationChanged": { "type": "boolean" },
+            "notOnCityCalendar": {
+              "type": "boolean",
+              "description": "True when this meeting is in our data but absent from the city calendar API with no notice explaining it. Kept and flagged rather than deleted."
+            },
             "agenda_url":      { "type": ["string", "null"] }
        }
      },
