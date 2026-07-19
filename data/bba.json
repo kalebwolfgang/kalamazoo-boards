@@ -33,6 +33,28 @@
   ],
   "meetings": [
     {
+      "date": "2026-07-16",
+      "display": "Thursday, July 16, 2026",
+      "link_label": "Cancelled",
+      "isCancelled": true,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-07-19T00:45:32.856037+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Building-Board-of-Appeals"
+    },
+    {
+      "date": "2026-06-18",
+      "display": "Thursday, June 18, 2026",
+      "link_label": "Cancelled",
+      "isCancelled": true,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-07-19T00:45:32.856046+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Building-Board-of-Appeals"
+    },
+    {
       "date": "2026-04-16",
       "display": "April 16, 2026"
     }
