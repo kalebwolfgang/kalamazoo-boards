@@ -398,7 +398,24 @@ def generate_ics_files(
         with open(Path(output_dir) / "all-boards.ics", "w", encoding="utf-8") as f:
             f.write(base_header + all_events + "\r\n" + footer)
 
-    print(f"  Wrote {len(by_board) + 1} ICS files to {output_dir}/")
+    # Remove ICS files for boards that no longer have upcoming meetings.
+    # Without this the file is simply never rewritten and goes stale: it keeps
+    # advertising meetings the site itself no longer lists, and anyone who
+    # subscribed to that calendar feed keeps seeing them. Only files this
+    # function is responsible for are considered.
+    expected = {f"{a.lower()}.ics" for a in by_board}
+    if meetings:
+        expected.add("all-boards.ics")
+
+    removed = 0
+    for stale in Path(output_dir).glob("*.ics"):
+        if stale.name not in expected:
+            stale.unlink()
+            removed += 1
+            print(f"  Removed stale {stale.name} (no upcoming meetings)")
+
+    print(f"  Wrote {len(by_board) + 1} ICS files to {output_dir}/"
+          + (f", removed {removed} stale" if removed else ""))
 
 
 # ---------------------------------------------------------------------------
