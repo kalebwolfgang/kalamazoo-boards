@@ -929,6 +929,8 @@ def process_board_files(boards_data: list[dict]) -> int:
     by_slug = {b.get("slug", ""): b for b in boards_data if b.get("slug")}
 
     updated = 0
+    unconverted: list = []
+    partial: list = []
     for path in sorted(Path(".").glob("board-*.html")):
         # Derive slug from filename "board-{slug}.html"
         slug  = path.stem[len("board-"):]
@@ -943,7 +945,20 @@ def process_board_files(boards_data: list[dict]) -> int:
         has_table = "<!-- GENERATED_TABLE_START -->" in original
 
         if not (has_head or has_body or has_table):
-            continue  # Fat-format page — skip silently
+            # Fat-format page, not yet converted. Expected during the conversion
+            # sprint; counted and reported at the end so progress is visible.
+            unconverted.append(path.name)
+            continue
+
+        # A page with SOME markers but not all is almost always a conversion
+        # mistake: the missing region silently keeps whatever stale HTML was
+        # there, which looks fine but never updates again. Warn loudly.
+        missing = [n for n, present in
+                   (("HEAD", has_head), ("BODY", has_body), ("TABLE", has_table))
+                   if not present]
+        if missing:
+            partial.append((path.name, missing))
+            print(f"  WARNING: {path.name} is missing marker(s): {', '.join(missing)}")
 
         content = original
         if has_head:
@@ -957,6 +972,16 @@ def process_board_files(boards_data: list[dict]) -> int:
             path.write_text(content, encoding="utf-8")
             updated += 1
             print(f"  Updated {path.name}")
+
+    if unconverted:
+        print(f"  {len(unconverted)} page(s) still in fat format "
+              f"({len(unconverted)} of {len(unconverted) + updated} remaining): "
+              + ", ".join(sorted(unconverted)))
+    if partial:
+        print(f"  {len(partial)} page(s) have INCOMPLETE markers and are NOT "
+              "being fully regenerated:")
+        for name, miss in partial:
+            print(f"     {name}: missing {', '.join(miss)}")
 
     return updated
 
