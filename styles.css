@@ -706,6 +706,28 @@ footer a:hover { color: var(--gold-lt); }
   .feedback-btn, .feedback-btn--soon { align-self: center; }
 }
 
+/* Skip link: hidden until focused, then pinned to the top-left so a keyboard
+   user can jump past the nav. Must be the first focusable element on the page. */
+.skip-link {
+  position: absolute; top: -100px; left: 8px; z-index: 10000;
+  background: var(--navy); color: #ffffff;
+  padding: 12px 20px; border-radius: 0 0 4px 4px;
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--gold-lt); outline-offset: 2px;
+}
+
+/* Visually hidden but read by screen readers. Used for the members-table
+   status-dot column header, which is empty on screen but must be labelled. */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
 /* ── JOINT BOARD CARD (renders when BOARD.jointWith is set) ── */
 .joint-board-note { font-size: 14px; color: var(--body); line-height: 1.6; margin-bottom: 12px; }
 .joint-board-link {
