@@ -6,37 +6,99 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["abbr", "name", "members"],
+    "required": [
+      "abbr",
+      "name",
+      "members"
+    ],
     "additionalProperties": false,
     "properties": {
-      "abbr":        { "type": "string",  "minLength": 1 },
-      "name":        { "type": "string",  "minLength": 1 },
-      "category":    { "type": "string" },
-      "seats":       { "type": "integer", "minimum": 1 },
-      "maxMembers":  { "type": "integer", "minimum": 1 },
-      "notes":           { "type": "string" },
-      "description":        { "type": "string" },
-      "color":              { "type": "string" },
-      "slug":               { "type": "string" },
-      "legalClassification":{ "type": "string" },
-      "hasRecordings":      { "type": "boolean" },
-      "bodyType":           { "type": "string", "enum": ["appointed", "elected"] },
-      "meetingSchedule": { "type": "string" },
-      "boardEmail":      { "type": ["string", "null"] },
-      "subscribeEnabled":{ "type": "boolean" },
-      "jointWith":       { "type": ["string", "null"] },
+      "abbr": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "category": {
+        "type": "string"
+      },
+      "seats": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "maxMembers": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "notes": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "color": {
+        "type": "string"
+      },
+      "slug": {
+        "type": "string"
+      },
+      "legalClassification": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "hasRecordings": {
+        "type": "boolean"
+      },
+      "bodyType": {
+        "type": "string",
+        "enum": [
+          "appointed",
+          "elected"
+        ]
+      },
+      "meetingSchedule": {
+        "type": "string"
+      },
+      "boardEmail": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "subscribeEnabled": {
+        "type": "boolean"
+      },
+      "jointWith": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
       "relatedBoards": {
         "oneOf": [
-          { "type": "null" },
+          {
+            "type": "null"
+          },
           {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["abbr", "label"],
+              "required": [
+                "abbr",
+                "label"
+              ],
               "additionalProperties": false,
               "properties": {
-                "abbr":  { "type": "string" },
-                "label": { "type": "string" }
+                "abbr": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -44,26 +106,97 @@
       },
       "members": {
         "type": "array",
-        "items": { "$ref": "#/$defs/member" }
+        "items": {
+          "$ref": "#/$defs/member"
+        }
+      },
+      "rosterLastChanged": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "ISO date the manually maintained roster for this board last actually changed (Task 11)."
+      },
+      "electionCycle": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "Elected bodies only (Task 21), e.g. 'Even years, November general election'."
       }
     }
   },
   "$defs": {
     "member": {
       "type": "object",
-      "required": ["position", "isVacant"],
+      "required": [
+        "position",
+        "isVacant"
+      ],
       "additionalProperties": false,
       "properties": {
-        "position":            { "type": "integer",           "minimum": 1 },
-        "firstName":           { "type": ["string", "null"] },
-        "lastName":            { "type": ["string", "null"] },
-        "role":                { "type": ["string", "null"] },
-        "positionRequirement": { "type": ["string", "null"] },
-        "termStart":           { "type": ["string", "null"] },
-        "termEnd":             { "type": ["string", "null"] },
-        "residency":           { "type": ["string", "null"] },
-        "isVacant":            { "type": "boolean" },
-        "notes":               { "type": ["string", "null"] }
+        "position": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "firstName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "positionRequirement": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "termStart": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "termEnd": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "residency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isVacant": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "vacantSince": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "ISO date this seat was first confirmed vacant, written after two consecutive runs (Task 13)."
+        }
       }
     }
   }
