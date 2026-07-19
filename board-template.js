@@ -1411,6 +1411,7 @@ function drawMinutes(meetings, year, el, countEl) {
         <div class="minutes-date">${m.display || m.date}</div>
         <div class="minutes-sublabel">${BOARD.abbr}</div>
         ${!cancelled && url  ? `<div class="minutes-action">${SVG_EXT} ${label}</div>` : ''}
+        ${!cancelled && !url ? `<div class="minutes-sublabel" style="font-style:italic;margin-top:3px">No documents posted</div>` : ''}
         ${cancelled ? '<div class="minutes-sublabel" style="color:#dc2626;font-weight:600;margin-top:3px">Cancelled</div>' : ''}
       </div>`;
 
