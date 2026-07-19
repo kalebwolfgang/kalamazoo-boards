@@ -57,7 +57,7 @@
       "time": "5:30 PM",
       "location": "Axtell Creek Park",
       "abbr": "PRAB",
-      "name": "Parks & Recreation Advisory Board",
+      "name": "Parks and Recreation Advisory Board",
       "rescheduledFrom": "2026-08-04"
     },
     {
@@ -75,7 +75,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizen-Public Safety Review and Appeals Board"
     },
     {
       "date": "2026-08-12",
@@ -99,7 +99,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
-      "name": "Downtown Development Authority"
+      "name": "Downtown Development Authority Board"
     },
     {
       "date": "2026-08-17",
@@ -107,7 +107,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
-      "name": "Downtown Economic Growth Authority"
+      "name": "Downtown Economic Growth Authority Board"
     },
     {
       "date": "2026-08-18",
@@ -131,7 +131,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority",
+      "name": "Brownfield Redevelopment Authority Board",
       "locationChanged": true
     },
     {
@@ -140,7 +140,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "EDC",
-      "name": "Economic Development Corporation",
+      "name": "Economic Development Corporation Board",
       "locationChanged": true
     },
     {
@@ -182,7 +182,7 @@
       "time": "11:00 AM – 12:00 PM",
       "location": "W.E. Upjohn Institute, 300 S Westnedge Ave",
       "abbr": "RIC",
-      "name": "Retirement Investment Committee / Perpetual Care Investment Committee"
+      "name": "Investment Committee of the Retirement System"
     },
     {
       "date": "2026-09-01",
@@ -214,7 +214,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizen-Public Safety Review and Appeals Board"
     },
     {
       "date": "2026-09-08",
@@ -222,7 +222,7 @@
       "time": "05:30 PM – 07:00 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
-      "name": "Parks & Recreation Advisory Board"
+      "name": "Parks and Recreation Advisory Board"
     },
     {
       "date": "2026-09-09",
@@ -262,7 +262,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority"
+      "name": "Brownfield Redevelopment Authority Board"
     },
     {
       "date": "2026-09-17",
@@ -270,7 +270,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
-      "name": "Economic Development Corporation"
+      "name": "Economic Development Corporation Board"
     },
     {
       "date": "2026-09-17",
@@ -302,7 +302,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
-      "name": "Downtown Development Authority"
+      "name": "Downtown Development Authority Board"
     },
     {
       "date": "2026-09-21",
@@ -310,7 +310,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
-      "name": "Downtown Economic Growth Authority"
+      "name": "Downtown Economic Growth Authority Board"
     },
     {
       "date": "2026-09-24",
@@ -342,7 +342,7 @@
       "time": "05:30 PM – 07:00 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
-      "name": "Parks & Recreation Advisory Board"
+      "name": "Parks and Recreation Advisory Board"
     },
     {
       "date": "2026-10-06",
@@ -382,7 +382,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizen-Public Safety Review and Appeals Board"
     },
     {
       "date": "2026-10-14",
@@ -398,7 +398,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority"
+      "name": "Brownfield Redevelopment Authority Board"
     },
     {
       "date": "2026-10-15",
@@ -406,7 +406,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
-      "name": "Economic Development Corporation"
+      "name": "Economic Development Corporation Board"
     },
     {
       "date": "2026-10-15",
@@ -439,7 +439,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
-      "name": "Downtown Development Authority"
+      "name": "Downtown Development Authority Board"
     },
     {
       "date": "2026-10-19",
@@ -447,7 +447,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
-      "name": "Downtown Economic Growth Authority"
+      "name": "Downtown Economic Growth Authority Board"
     },
     {
       "date": "2026-10-20",
@@ -503,7 +503,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizen-Public Safety Review and Appeals Board"
     },
     {
       "date": "2026-11-10",
@@ -511,7 +511,7 @@
       "time": "05:30 PM – 07:00 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
-      "name": "Parks & Recreation Advisory Board"
+      "name": "Parks and Recreation Advisory Board"
     },
     {
       "date": "2026-11-11",
@@ -535,7 +535,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
-      "name": "Downtown Development Authority"
+      "name": "Downtown Development Authority Board"
     },
     {
       "date": "2026-11-16",
@@ -543,7 +543,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
-      "name": "Downtown Economic Growth Authority"
+      "name": "Downtown Economic Growth Authority Board"
     },
     {
       "date": "2026-11-17",
@@ -567,7 +567,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority"
+      "name": "Brownfield Redevelopment Authority Board"
     },
     {
       "date": "2026-11-19",
@@ -575,7 +575,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
-      "name": "Economic Development Corporation"
+      "name": "Economic Development Corporation Board"
     },
     {
       "date": "2026-11-19",
@@ -640,7 +640,7 @@
       "time": "11:00 AM – 12:00 PM",
       "location": "W.E. Upjohn Institute, 300 S Westnedge Ave",
       "abbr": "RIC",
-      "name": "Retirement Investment Committee / Perpetual Care Investment Committee"
+      "name": "Investment Committee of the Retirement System"
     },
     {
       "date": "2026-12-03",
@@ -656,7 +656,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizen-Public Safety Review and Appeals Board"
     },
     {
       "date": "2026-12-08",
@@ -664,7 +664,7 @@
       "time": "05:30 PM – 07:00 PM",
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
-      "name": "Parks & Recreation Advisory Board"
+      "name": "Parks and Recreation Advisory Board"
     },
     {
       "date": "2026-12-09",
@@ -712,7 +712,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority"
+      "name": "Brownfield Redevelopment Authority Board"
     },
     {
       "date": "2026-12-17",
@@ -720,7 +720,7 @@
       "time": "07:45 AM – 09:30 AM",
       "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
       "abbr": "EDC",
-      "name": "Economic Development Corporation"
+      "name": "Economic Development Corporation Board"
     },
     {
       "date": "2026-12-17",
@@ -760,7 +760,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
-      "name": "Downtown Development Authority"
+      "name": "Downtown Development Authority Board"
     },
     {
       "date": "2026-12-21",
@@ -768,7 +768,7 @@
       "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
-      "name": "Downtown Economic Growth Authority"
+      "name": "Downtown Economic Growth Authority Board"
     },
     {
       "date": "2027-01-07",
@@ -784,7 +784,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizen-Public Safety Review and Appeals Board"
     }
   ]
 }
