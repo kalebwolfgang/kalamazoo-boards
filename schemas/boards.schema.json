@@ -78,32 +78,6 @@
           "null"
         ]
       },
-      "relatedBoards": {
-        "oneOf": [
-          {
-            "type": "null"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "abbr",
-                "label"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "abbr": {
-                  "type": "string"
-                },
-                "label": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ]
-      },
       "members": {
         "type": "array",
         "items": {
