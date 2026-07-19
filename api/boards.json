@@ -5,7 +5,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#6a5038",
+    "color": "#1f497a",
     "slug": "bor",
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": false,
@@ -14,7 +14,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -124,7 +123,7 @@
     "maxMembers": 13,
     "meetingSchedule": "",
     "description": "",
-    "color": "#5a6a2a",
+    "color": "#722c5d",
     "slug": "bra",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -138,7 +137,6 @@
         "label": "Shares membership with EDC"
       }
     ],
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -269,7 +267,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#3a5e7a",
+    "color": "#78471c",
     "slug": "bba",
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": false,
@@ -278,7 +276,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -387,7 +384,7 @@
     "category": "Public Safety & Civil Rights",
     "meetingSchedule": "",
     "description": "Provides independent community oversight of the Kalamazoo Department of Public Safety. Hears appeals of complaint investigations conducted by the Office of Professional Standards and advises the City Manager on policies, procedures, and community relations.",
-    "color": "#1a3a6a",
+    "color": "#81222c",
     "slug": "cpsrab",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
@@ -396,7 +393,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -538,7 +534,7 @@
     "category": "Public Safety & Civil Rights",
     "meetingSchedule": "",
     "description": "",
-    "color": "#8a2020",
+    "color": "#81222c",
     "slug": "crb",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
@@ -547,7 +543,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -656,7 +651,7 @@
     "category": "Community Services",
     "meetingSchedule": "",
     "description": "",
-    "color": "#5a2a7a",
+    "color": "#4b2f74",
     "slug": "cdaac",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -665,7 +660,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -774,7 +768,7 @@
     "category": "Economic Development",
     "meetingSchedule": "",
     "description": "",
-    "color": "#a03c5a",
+    "color": "#722c5d",
     "slug": "dda",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -788,7 +782,6 @@
         "label": "Shares membership with DEGA"
       }
     ],
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -919,7 +912,7 @@
     "category": "Economic Development",
     "meetingSchedule": "",
     "description": "",
-    "color": "#8a6010",
+    "color": "#722c5d",
     "slug": "dega",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -933,7 +926,6 @@
         "label": "Shares membership with DDA"
       }
     ],
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1043,7 +1035,7 @@
     "maxMembers": 13,
     "meetingSchedule": "",
     "description": "",
-    "color": "#1a6a5a",
+    "color": "#722c5d",
     "slug": "edc",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -1057,7 +1049,6 @@
         "label": "Shares membership with BRA"
       }
     ],
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1188,7 +1179,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#2a3a8a",
+    "color": "#1f497a",
     "slug": "ec",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -1197,7 +1188,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1240,7 +1230,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#1a2a60",
+    "color": "#1f497a",
     "slug": "ersb",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -1249,7 +1239,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1314,7 +1303,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#2d6b4a",
+    "color": "#1d633b",
     "slug": "ecc",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
@@ -1323,7 +1312,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1454,7 +1442,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#8a4a28",
+    "color": "#78471c",
     "slug": "hdc",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
@@ -1463,7 +1451,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1550,7 +1537,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#6e3020",
+    "color": "#78471c",
     "slug": "hpc",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
@@ -1559,7 +1546,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1646,7 +1632,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#2a5a7a",
+    "color": "#1f497a",
     "slug": "ric",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -1655,7 +1641,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1742,7 +1727,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#4a7a28",
+    "color": "#1d633b",
     "slug": "kmga",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -1751,7 +1736,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1893,7 +1877,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#4a3a58",
+    "color": "#1f497a",
     "slug": "locc",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -1902,7 +1886,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -1989,7 +1972,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#1a5e35",
+    "color": "#1d633b",
     "slug": "nfp",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
@@ -1998,7 +1981,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2085,7 +2067,7 @@
     "category": "Economic Development",
     "meetingSchedule": "",
     "description": "",
-    "color": "#7a2a6a",
+    "color": "#722c5d",
     "slug": "ncbda",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -2094,7 +2076,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2203,7 +2184,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#3d7a3a",
+    "color": "#1d633b",
     "slug": "prab",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -2212,7 +2193,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2321,7 +2301,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#1e4a7a",
+    "color": "#78471c",
     "slug": "pc",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
@@ -2330,7 +2310,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2439,7 +2418,7 @@
     "category": "Community Services",
     "meetingSchedule": "",
     "description": "",
-    "color": "#b83a1a",
+    "color": "#4b2f74",
     "slug": "spk",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -2448,7 +2427,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2579,7 +2557,7 @@
     "category": "Public Safety & Civil Rights",
     "meetingSchedule": "",
     "description": "",
-    "color": "#7a4a10",
+    "color": "#81222c",
     "slug": "trb",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -2588,7 +2566,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2664,7 +2641,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#234d28",
+    "color": "#1d633b",
     "slug": "tre",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -2673,7 +2650,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
@@ -2738,7 +2714,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#4a6a8a",
+    "color": "#78471c",
     "slug": "zba",
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": true,
@@ -2747,7 +2723,6 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
       {
         "position": 1,
