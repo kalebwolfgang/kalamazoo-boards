@@ -86,7 +86,7 @@ BOARDS = [
     },
     {
         "key":          "bra",
-        "name":         "Brownfield Redevelopment Authority",
+        "name":         "Brownfield Redevelopment Authority Board",
         "abbr":         "BRA",
         "time":         "7:45 AM \u2013 9:30 AM",
         "location":     "CPED Main Conference Room, 245 N Rose St, Suite 100",
@@ -99,7 +99,7 @@ BOARDS = [
     },
     {
         "key":                    "cpsrab",
-        "name":                   "Citizens Public Safety Review and Appeal Board",
+        "name":                   "Citizen-Public Safety Review and Appeals Board",
         "abbr":                   "CPSRAB",
         "time":                   "6:00 PM \u2013 8:00 PM",
         "location":               "City Commission Chambers, City Hall Second Floor, 241 W South St",
@@ -117,7 +117,7 @@ BOARDS = [
     },
     {
         "key":         "dda",
-        "name":        "Downtown Development Authority",
+        "name":        "Downtown Development Authority Board",
         "abbr":        "DDA",
         "time":        "3:00 PM \u2013 5:00 PM",
         "location":    "City Hall, 241 W South St",
@@ -129,7 +129,7 @@ BOARDS = [
     },
     {
         "key":         "dega",
-        "name":        "Downtown Economic Growth Authority",
+        "name":        "Downtown Economic Growth Authority Board",
         "abbr":        "DEGA",
         "time":        "3:00 PM \u2013 5:00 PM",
         "location":    "City Hall, 241 W South St",
@@ -141,7 +141,7 @@ BOARDS = [
     },
     {
         "key":          "edc",
-        "name":         "Economic Development Corporation",
+        "name":         "Economic Development Corporation Board",
         "abbr":         "EDC",
         "time":         "7:45 AM \u2013 9:30 AM",
         "location":     "CPED Main Conference Room, 245 N Rose St, Suite 100",
@@ -283,7 +283,7 @@ BOARDS = [
     },
     {
         "key":             "prab",
-        "name":            "Parks & Recreation Advisory Board",
+        "name":            "Parks and Recreation Advisory Board",
         "abbr":            "PRAB",
         "time":            "5:30 PM \u2013 7:30 PM",
         "location":        None,
@@ -325,7 +325,7 @@ BOARDS = [
     },
     {
         "key":         "ric",
-        "name":        "Retirement Investment Committee / Perpetual Care Investment Committee",
+        "name":        "Investment Committee of the Retirement System",
         "abbr":        "RIC",
         "time":        "11:00 AM \u2013 12:00 PM",
         "location":    "W.E. Upjohn Institute, 300 S Westnedge Ave",
@@ -402,7 +402,7 @@ BOARDS = [
     },
     {
     "key":         "spk",
-    "name":        "SPK Organizing Committee",
+    "name":        "Shared Prosperity Kalamazoo Organizing Committee",
     "abbr":        "SPK",
     "time":        "12:30 PM \u2013 2:00 PM",
     "location":    "City Hall, 241 W South St",
