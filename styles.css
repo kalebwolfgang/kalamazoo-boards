@@ -28,18 +28,12 @@
   --orange:      #c2410c;
   /* Per-board accent. The build pipeline injects
      <style>:root{--board-color:#hex;}</style> into each board page's head,
-     ABOVE this stylesheet. Do NOT declare --board-color here: an equal
-     specificity :root rule loading later would overwrite the board's own
-     value and every board page would render the same colour.
-     Instead each use site supplies --navy as the fallback via
-     var(--board-color, var(--navy)), which applies only when the page
-     never set the variable (index, calendar, faq). */
-  /* Foreground for text and icons sitting ON --board-color. Gold reads well
-     on the site navy but drops below AA on the lighter board colours (worst
-     case KMGA at 2.77:1), so anything on a board-coloured surface uses this
-     instead. White clears AA on all 26 boards, worst case 5.11:1. Gold is
-     still used everywhere it sits on navy, cream, or white. */
-  --on-board-color: #ffffff;
+     ABOVE this stylesheet, so --board-color must NOT be declared here: an
+     equal-specificity :root rule loading later would overwrite the page's own
+     value, which is why board colour never actually applied. Use sites carry
+     the fallback: var(--board-color, var(--navy)).
+     Board pages use the site navy for their chrome. The board's own colour is
+     reserved for small accents so a page does not become a wall of one colour. */
   --pad-x: clamp(16px, 4vw, 40px);
 }
 
@@ -60,7 +54,7 @@ body {
 .topbar a:hover { color: var(--gold-lt); }
 
 /* ── NAV ── */
-nav { background: var(--board-color, var(--navy)); border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 200; }
+nav { background: var(--navy); border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 200; }
 .nav-inner {
   max-width: 1400px; margin: 0 auto;
   padding: 0 var(--pad-x); height: 56px;
@@ -107,7 +101,7 @@ nav { background: var(--board-color, var(--navy)); border-bottom: 3px solid var(
 .bc-sep { color: var(--border); }
 
 /* ── PAGE HEADER (base) ── */
-.page-header { background: var(--board-color, var(--navy)); padding: clamp(28px, 5vw, 48px) var(--pad-x) clamp(24px, 4vw, 44px); }
+.page-header { background: var(--navy); padding: clamp(28px, 5vw, 48px) var(--pad-x) clamp(24px, 4vw, 44px); }
 .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 44px); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 8px; }
 
 /* ── FOOTER ── */
@@ -271,7 +265,7 @@ footer a:hover { color: var(--gold-lt); }
 .gov-item { flex: 1; text-align: center; padding: clamp(14px, 3vw, 20px) clamp(12px, 2.5vw, 16px); border-right: 1px solid rgba(255,255,255,0.08); min-width: 110px; }
 .gov-item:last-child { border-right: none; }
 .gov-value { font-size: clamp(15px, 2.5vw, 20px); font-weight: 700; color: var(--gold-lt); margin-bottom: 4px; line-height: 1.2; }
-.gov-label { font-size: clamp(10px, 1.8vw, 12px); color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.06em; }
+.gov-label { font-size: clamp(10px, 1.8vw, 12px); color: rgba(255,255,255,0.95); text-transform: uppercase; letter-spacing: 0.06em; }
 
 /* Board body two-column layout */
 .board-body { max-width: 1400px; margin: 0 auto; padding: clamp(24px, 4vw, 48px) var(--pad-x) 0; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
@@ -287,7 +281,7 @@ footer a:hover { color: var(--gold-lt); }
 /* Sidebar */
 .sidebar { display: flex; flex-direction: column; gap: 22px; }
 .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-.sidebar-card-header { background: var(--board-color, var(--navy)); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.90); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.sidebar-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.90); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
 .sidebar-card-body { padding: 18px; }
 .meeting-item { padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); }
 .meeting-item:last-of-type { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
@@ -395,7 +389,7 @@ footer a:hover { color: var(--gold-lt); }
 .bottom-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
 .bottom-card:nth-child(4) { border-left: 4px solid var(--gold); }
 .bottom-card.scrollable-card { overflow: hidden; }
-.bottom-card-header { background: var(--board-color, var(--navy)); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.90); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.bottom-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.90); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .bottom-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
 
 /* Export data section — 2/3 left + 1/3 right grid */
@@ -437,7 +431,7 @@ footer a:hover { color: var(--gold-lt); }
 }
 .export-dl-btn:hover:not(:disabled) { background: var(--cream); border-color: var(--navy-light); color: var(--navy); }
 .export-dl-btn:disabled { opacity: 0.45; cursor: default; }
-.export-dl-btn--all { background: var(--board-color, var(--navy)); color: var(--on-board-color); border-color: var(--board-color, var(--navy)); }
+.export-dl-btn--all { background: var(--navy); color: var(--gold-lt); border-color: var(--navy); }
 .export-dl-btn--all:hover:not(:disabled) { background: var(--navy-mid); border-color: var(--navy-mid); color: white; }
 .export-count { color: var(--muted); font-weight: 400; margin-left: 3px; }
 .export-dl-btn--all .export-count { color: rgba(255,255,255,0.5); }
@@ -484,7 +478,7 @@ footer a:hover { color: var(--gold-lt); }
 .apply-standalone-text { flex: 1; }
 .apply-standalone-heading { font-family: 'Playfair Display', serif; font-size: clamp(18px, 3vw, 22px); font-weight: 600; color: var(--navy); margin-bottom: 10px; }
 .apply-standalone-desc { font-size: clamp(14px, 2.5vw, 16px); color: var(--body); line-height: 1.65; }
-.apply-standalone-btn { display: inline-block; background: var(--board-color, var(--navy)); color: var(--on-board-color); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
+.apply-standalone-btn { display: inline-block; background: var(--navy); color: var(--gold-lt); text-decoration: none; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 3px; border: 1px solid var(--navy-light); transition: background 0.15s, color 0.15s; white-space: nowrap; }
 .apply-standalone-btn:hover { background: var(--navy-mid); color: white; }
 
 /* Recording items */
@@ -542,7 +536,7 @@ footer a:hover { color: var(--gold-lt); }
 .members-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: none; scrollbar-width: none; -ms-overflow-style: none; }
 .members-table-wrap::-webkit-scrollbar { display: none; }
 .members-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 560px; }
-.members-table thead { background: var(--board-color, var(--navy)); }
+.members-table thead { background: var(--navy); }
 .members-table th { padding: 12px 16px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.05em; text-align: left; white-space: nowrap; }
 .members-table th:first-child { width: 44px; text-align: center; }
 .members-table td { padding: 14px 16px; font-size: 15px; border-bottom: 1px solid var(--border-lt); vertical-align: middle; color: var(--body); background: var(--white); }
@@ -553,7 +547,7 @@ footer a:hover { color: var(--gold-lt); }
 }
 .members-table th:first-child, .members-table td:first-child { position: sticky; left: 0; z-index: 3; }
 .members-table th:nth-child(2), .members-table td:nth-child(2) { position: sticky; left: 44px; z-index: 3; }
-.members-table thead th:first-child, .members-table thead th:nth-child(2) { background: var(--board-color, var(--navy)); }
+.members-table thead th:first-child, .members-table thead th:nth-child(2) { background: var(--navy); }
 .members-table td:nth-child(2), .members-table th:nth-child(2) { box-shadow: 4px 0 8px -2px rgba(0,0,0,0.1); }
 
 .member-name { font-weight: 600; color: var(--navy); font-size: 15px; }
@@ -646,7 +640,7 @@ footer a:hover { color: var(--gold-lt); }
 .process-steps { display: flex; flex-direction: column; margin-top: 14px; }
 .process-step { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border-lt); }
 .process-step:last-child { border-bottom: none; padding-bottom: 0; }
-.step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--board-color, var(--navy)); color: var(--on-board-color); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: var(--gold-lt); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
 .step-body { flex: 1; }
 .step-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
 .step-desc { font-size: 14px; color: var(--body); line-height: 1.6; }
@@ -671,7 +665,7 @@ footer a:hover { color: var(--gold-lt); }
 
 /* ── FEEDBACK / REPORT ERROR — styled like the grant CTA section ── */
 .feedback-bar {
-  background: var(--board-color, var(--navy));
+  background: var(--navy);
   border-top: 3px solid var(--gold);
   padding: clamp(24px, 4vw, 40px) var(--pad-x);
 }
@@ -684,7 +678,7 @@ footer a:hover { color: var(--gold-lt); }
 }
 .feedback-eyebrow {
   font-size: 12px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.09em; color: var(--on-board-color); margin-bottom: 8px;
+  letter-spacing: 0.09em; color: var(--gold-lt); margin-bottom: 8px;
 }
 .feedback-heading {
   display: block;
@@ -732,7 +726,7 @@ footer a:hover { color: var(--gold-lt); }
 .subscribe-input:focus { outline: none; border-color: var(--navy-light); }
 .subscribe-input::placeholder { color: var(--muted); }
 .subscribe-btn {
-  background: var(--board-color, var(--navy)); color: var(--on-board-color); border: none; border-radius: 3px;
+  background: var(--navy); color: var(--gold-lt); border: none; border-radius: 3px;
   padding: 10px 16px; font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.15s;
 }
