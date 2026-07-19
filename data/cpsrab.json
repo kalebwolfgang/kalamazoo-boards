@@ -38,6 +38,28 @@
   ],
   "meetings": [
     {
+      "date": "2026-07-14",
+      "display": "Tuesday, July 14, 2026",
+      "link_label": "Cancelled",
+      "isCancelled": true,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-07-19T00:45:32.854913+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB"
+    },
+    {
+      "date": "2026-06-09",
+      "display": "Tuesday, June 9, 2026",
+      "link_label": "Cancelled",
+      "isCancelled": true,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-07-19T00:45:32.854901+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB"
+    },
+    {
       "date": "2026-04-14",
       "display": "April 14, 2026",
       "agenda_url": null,
