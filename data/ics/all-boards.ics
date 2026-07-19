@@ -66,7 +66,7 @@ BEGIN:VEVENT
 UID:PRAB-2026-08-05@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260805T173000
 DTEND;TZID=America/Detroit:20260805T193000
-SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+SUMMARY:Parks and Recreation Advisory Board — City of Kalamazoo
 LOCATION:Axtell Creek Park
 END:VEVENT
 BEGIN:VEVENT
@@ -81,7 +81,7 @@ BEGIN:VEVENT
 UID:CPSRAB-2026-08-11@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260811T180000
 DTEND;TZID=America/Detroit:20260811T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
@@ -102,14 +102,14 @@ BEGIN:VEVENT
 UID:DDA-2026-08-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260817T150000
 DTEND;TZID=America/Detroit:20260817T170000
-SUMMARY:Downtown Development Authority — City of Kalamazoo
+SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-08-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260817T150000
 DTEND;TZID=America/Detroit:20260817T170000
-SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
+SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
@@ -130,14 +130,14 @@ BEGIN:VEVENT
 UID:BRA-2026-08-20@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260820T074500
 DTEND;TZID=America/Detroit:20260820T093000
-SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
+SUMMARY:Brownfield Redevelopment Authority Board — City of Kalamazoo
 LOCATION:Community Room at City Hall, 241 W. South Street
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-08-20@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260820T074500
 DTEND;TZID=America/Detroit:20260820T093000
-SUMMARY:Economic Development Corporation — City of Kalamazoo
+SUMMARY:Economic Development Corporation Board — City of Kalamazoo
 LOCATION:Community Room at City Hall, 241 W. South Street
 END:VEVENT
 BEGIN:VEVENT
@@ -172,7 +172,7 @@ BEGIN:VEVENT
 UID:RIC-2026-08-26@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260826T110000
 DTEND;TZID=America/Detroit:20260826T120000
-SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
+SUMMARY:Investment Committee of the Retirement System — City of Kalamazoo
 LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
 END:VEVENT
 BEGIN:VEVENT
@@ -200,14 +200,14 @@ BEGIN:VEVENT
 UID:CPSRAB-2026-09-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260908T180000
 DTEND;TZID=America/Detroit:20260908T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-09-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260908T173000
 DTEND;TZID=America/Detroit:20260908T190000
-SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+SUMMARY:Parks and Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
@@ -242,14 +242,14 @@ BEGIN:VEVENT
 UID:BRA-2026-09-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260917T074500
 DTEND;TZID=America/Detroit:20260917T093000
-SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
+SUMMARY:Brownfield Redevelopment Authority Board — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-09-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260917T074500
 DTEND;TZID=America/Detroit:20260917T093000
-SUMMARY:Economic Development Corporation — City of Kalamazoo
+SUMMARY:Economic Development Corporation Board — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
@@ -277,14 +277,14 @@ BEGIN:VEVENT
 UID:DDA-2026-09-21@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260921T150000
 DTEND;TZID=America/Detroit:20260921T170000
-SUMMARY:Downtown Development Authority — City of Kalamazoo
+SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-09-21@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260921T150000
 DTEND;TZID=America/Detroit:20260921T170000
-SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
+SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
@@ -312,7 +312,7 @@ BEGIN:VEVENT
 UID:PRAB-2026-10-06@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261006T173000
 DTEND;TZID=America/Detroit:20261006T190000
-SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+SUMMARY:Parks and Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
@@ -347,7 +347,7 @@ BEGIN:VEVENT
 UID:CPSRAB-2026-10-13@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261013T180000
 DTEND;TZID=America/Detroit:20261013T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
@@ -361,14 +361,14 @@ BEGIN:VEVENT
 UID:BRA-2026-10-15@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261015T074500
 DTEND;TZID=America/Detroit:20261015T093000
-SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
+SUMMARY:Brownfield Redevelopment Authority Board — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-10-15@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261015T074500
 DTEND;TZID=America/Detroit:20261015T093000
-SUMMARY:Economic Development Corporation — City of Kalamazoo
+SUMMARY:Economic Development Corporation Board — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
@@ -396,14 +396,14 @@ BEGIN:VEVENT
 UID:DDA-2026-10-19@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261019T150000
 DTEND;TZID=America/Detroit:20261019T170000
-SUMMARY:Downtown Development Authority — City of Kalamazoo
+SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-10-19@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261019T150000
 DTEND;TZID=America/Detroit:20261019T170000
-SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
+SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
@@ -452,14 +452,14 @@ BEGIN:VEVENT
 UID:CPSRAB-2026-11-10@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261110T180000
 DTEND;TZID=America/Detroit:20261110T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-11-10@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261110T173000
 DTEND;TZID=America/Detroit:20261110T190000
-SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+SUMMARY:Parks and Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
@@ -480,14 +480,14 @@ BEGIN:VEVENT
 UID:DDA-2026-11-16@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261116T150000
 DTEND;TZID=America/Detroit:20261116T170000
-SUMMARY:Downtown Development Authority — City of Kalamazoo
+SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-11-16@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261116T150000
 DTEND;TZID=America/Detroit:20261116T170000
-SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
+SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
@@ -508,14 +508,14 @@ BEGIN:VEVENT
 UID:BRA-2026-11-19@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261119T074500
 DTEND;TZID=America/Detroit:20261119T093000
-SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
+SUMMARY:Brownfield Redevelopment Authority Board — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-11-19@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261119T074500
 DTEND;TZID=America/Detroit:20261119T093000
-SUMMARY:Economic Development Corporation — City of Kalamazoo
+SUMMARY:Economic Development Corporation Board — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
@@ -571,7 +571,7 @@ BEGIN:VEVENT
 UID:RIC-2026-12-02@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261202T110000
 DTEND;TZID=America/Detroit:20261202T120000
-SUMMARY:Retirement Investment Committee / Perpetual Care Investment Committee — City of Kalamazoo
+SUMMARY:Investment Committee of the Retirement System — City of Kalamazoo
 LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
 END:VEVENT
 BEGIN:VEVENT
@@ -585,14 +585,14 @@ BEGIN:VEVENT
 UID:CPSRAB-2026-12-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261208T180000
 DTEND;TZID=America/Detroit:20261208T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-12-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261208T173000
 DTEND;TZID=America/Detroit:20261208T190000
-SUMMARY:Parks & Recreation Advisory Board — City of Kalamazoo
+SUMMARY:Parks and Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
@@ -634,14 +634,14 @@ BEGIN:VEVENT
 UID:BRA-2026-12-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261217T074500
 DTEND;TZID=America/Detroit:20261217T093000
-SUMMARY:Brownfield Redevelopment Authority — City of Kalamazoo
+SUMMARY:Brownfield Redevelopment Authority Board — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-12-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261217T074500
 DTEND;TZID=America/Detroit:20261217T093000
-SUMMARY:Economic Development Corporation — City of Kalamazoo
+SUMMARY:Economic Development Corporation Board — City of Kalamazoo
 LOCATION:CPED Main Conference Room, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
@@ -676,14 +676,14 @@ BEGIN:VEVENT
 UID:DDA-2026-12-21@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261221T150000
 DTEND;TZID=America/Detroit:20261221T170000
-SUMMARY:Downtown Development Authority — City of Kalamazoo
+SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-12-21@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261221T150000
 DTEND;TZID=America/Detroit:20261221T170000
-SUMMARY:Downtown Economic Growth Authority — City of Kalamazoo
+SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
@@ -697,7 +697,7 @@ BEGIN:VEVENT
 UID:CPSRAB-2027-01-12@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20270112T180000
 DTEND;TZID=America/Detroit:20270112T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 END:VCALENDAR

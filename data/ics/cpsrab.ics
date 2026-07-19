@@ -1,7 +1,7 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//City of Kalamazoo Boards & Commissions//EN
-X-WR-CALNAME:Citizens Public Safety Review and Appeal Board
+X-WR-CALNAME:Citizen-Public Safety Review and Appeals Board
 X-WR-CALDESC:Public meetings of all City of Kalamazoo boards and commissions
 BEGIN:VTIMEZONE
 TZID:America/Detroit
@@ -24,42 +24,42 @@ BEGIN:VEVENT
 UID:CPSRAB-2026-08-11@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260811T180000
 DTEND;TZID=America/Detroit:20260811T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-09-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260908T180000
 DTEND;TZID=America/Detroit:20260908T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-10-13@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261013T180000
 DTEND;TZID=America/Detroit:20261013T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-11-10@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261110T180000
 DTEND;TZID=America/Detroit:20261110T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2026-12-08@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261208T180000
 DTEND;TZID=America/Detroit:20261208T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:CPSRAB-2027-01-12@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20270112T180000
 DTEND;TZID=America/Detroit:20270112T200000
-SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
+SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 END:VCALENDAR
