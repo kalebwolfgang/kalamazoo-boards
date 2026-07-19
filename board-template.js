@@ -1329,21 +1329,34 @@ function renderMinutes(data) {
       .sort((a, b) => b.date.localeCompare(a.date));
   }
 
-  if (pill) pill.textContent = `${meetings.length} meeting${meetings.length !== 1 ? 's' : ''}`;
+  /* The CSV export gets the COMPLETE record, including cancelled meetings and
+     meetings with no documents, so the download stays a full archive. */
+  window._minutesData = meetings;
 
-  window._minutesData = meetings; /* stored for CSV export */
+  /* The on-page card only lists meetings that actually have something to open.
+     A cancelled meeting produces no documents, and the city sometimes never
+     posts any for a meeting that did happen; either way there is nothing to
+     link to, so the row would be a dead entry. Those records still exist in
+     data/<board>.json and still appear on the calendar. */
+  const documented = meetings.filter(
+    m => !(m.isCancelled || m.cancelled) &&
+         (m.minutes_url || m.agenda_url || m.url)
+  );
 
-  if (!meetings.length) {
+  if (pill) pill.textContent = `${documented.length} meeting${documented.length !== 1 ? 's' : ''}`;
+
+  if (!documented.length) {
     el.innerHTML =
-      '<div style="padding:18px;font-size:14px;color:var(--muted)">No meeting records found.</div>';
+      '<div style="padding:18px;font-size:14px;color:var(--muted)">No meeting documents posted.</div>';
     if (el._refreshScrollbar) el._refreshScrollbar();
-    /* No records to export. Remove the whole section rather than leaving
-       buttons disabled on "loading" forever. */
-    if (BOARD.exportEnabled) removeExportSection();
+    /* The export section is only removed when there is nothing to export at
+       all. `meetings` may still hold cancelled or doc-less records, which the
+       CSV includes, so check that rather than the filtered display list. */
+    if (BOARD.exportEnabled && !meetings.length) removeExportSection();
     return;
   }
 
-  const years = [...new Set(meetings.map(m => m.date.slice(0, 4)))].sort((a, b) => b - a);
+  const years = [...new Set(documented.map(m => m.date.slice(0, 4)))].sort((a, b) => b - a);
   if (years.length > 1) {
     const card = el.closest('.bottom-card');
     if (card && !card.querySelector('.card-filter-bar')) {
@@ -1357,13 +1370,13 @@ function renderMinutes(data) {
         <span class="card-filter-count" id="minutes-filter-count"></span>`;
       el.parentElement.insertBefore(bar, el);
       document.getElementById('minutes-year-select').addEventListener('change', function () {
-        drawMinutes(meetings, this.value, el, document.getElementById('minutes-filter-count'));
+        drawMinutes(documented, this.value, el, document.getElementById('minutes-filter-count'));
         if (el._refreshScrollbar) el._refreshScrollbar();
       });
     }
   }
 
-  drawMinutes(meetings, 'all', el, null);
+  drawMinutes(documented, 'all', el, null);
   if (el._refreshScrollbar) el._refreshScrollbar();
 
   /* Activate export section buttons once data is available */
@@ -1398,11 +1411,9 @@ function drawMinutes(meetings, year, el, countEl) {
   }
 
   el.innerHTML = filtered.map(m => {
-    const cancelled = m.isCancelled || m.cancelled || false;
     const url       = m.minutes_url || m.agenda_url || m.url;
-    const label     = m.link_label  ||
-      (m.minutes_url ? 'View Minutes' : m.agenda_url ? 'View Agenda' : 'View Record');
-    const iconColor = cancelled ? 'var(--muted)' : 'var(--navy-light)';
+    const label     = 'View Meeting Documents';
+    const iconColor = 'var(--navy-light)';
     const docIcon   = `<svg width="16" height="16" fill="none" stroke="${iconColor}" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
 
     const inner = `
@@ -1410,16 +1421,12 @@ function drawMinutes(meetings, year, el, countEl) {
       <div class="minutes-info">
         <div class="minutes-date">${m.display || m.date}</div>
         <div class="minutes-sublabel">${BOARD.abbr}</div>
-        ${!cancelled && url  ? `<div class="minutes-action">${SVG_EXT} ${label}</div>` : ''}
-        ${!cancelled && !url ? `<div class="minutes-sublabel" style="font-style:italic;margin-top:3px">No documents posted</div>` : ''}
-        ${cancelled ? '<div class="minutes-sublabel" style="color:#dc2626;font-weight:600;margin-top:3px">Cancelled</div>' : ''}
+        <div class="minutes-action">${SVG_EXT} ${label}</div>
       </div>`;
 
-    return url
-      ? `<a class="minutes-item${cancelled ? ' meeting-canceled' : ''}" href="${url}" target="_blank" rel="noopener">${inner}</a>`
-      : `<div class="minutes-item${cancelled ? ' meeting-canceled' : ''}">${inner}</div>`;
+    return `<a class="minutes-item" href="${url}" target="_blank" rel="noopener">${inner}</a>`;
   }).join('')
-    || `<div style="padding:18px;font-size:14px;color:var(--muted)">No records found for this year.</div>`;
+    || `<div style="padding:18px;font-size:14px;color:var(--muted)">No meeting documents posted for this year.</div>`;
 }
 
 /* ─────────────────────────────────────────────────────────────
