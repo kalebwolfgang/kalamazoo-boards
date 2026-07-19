@@ -33,6 +33,17 @@
   ],
   "meetings": [
     {
+      "date": "2026-07-07",
+      "display": "Tuesday, July 7, 2026",
+      "link_label": "Cancelled",
+      "isCancelled": true,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-07-19T00:45:32.851151+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Tree-Committee"
+    },
+    {
       "date": "2026-06-02",
       "display": "June 2, 2026"
     },
