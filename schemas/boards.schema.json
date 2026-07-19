@@ -42,7 +42,6 @@
           }
         ]
       },
-      "reportUrl":       { "type": ["string", "null"] },
       "members": {
         "type": "array",
         "items": { "$ref": "#/$defs/member" }
