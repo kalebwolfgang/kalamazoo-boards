@@ -805,24 +805,24 @@ def generate_table(board: dict, today: _date, six_mo: _date) -> str:
     if body_type == "elected":
         thead = (
             "<thead><tr>"
-            "<th></th>"
-            "<th>Name</th>"
-            "<th>Ward / District</th>"
-            "<th>Election Year</th>"
-            "<th>Next Election</th>"
-            "<th>Status</th>"
+            '<th scope="col"><span class="sr-only">Seat status</span></th>'
+            '<th scope="col">Name</th>'
+            '<th scope="col">Ward / District</th>'
+            '<th scope="col">Election Year</th>'
+            '<th scope="col">Next Election</th>'
+            '<th scope="col">Status</th>'
             "</tr></thead>"
         )
         rows = _elected_rows(members)
     else:
         thead = (
             "<thead><tr>"
-            "<th></th>"
-            "<th>Name</th>"
-            "<th>Type</th>"
-            "<th>Residency</th>"
-            "<th>Term End</th>"
-            "<th>Status</th>"
+            '<th scope="col"><span class="sr-only">Seat status</span></th>'
+            '<th scope="col">Name</th>'
+            '<th scope="col">Type</th>'
+            '<th scope="col">Residency</th>'
+            '<th scope="col">Term End</th>'
+            '<th scope="col">Status</th>'
             "</tr></thead>"
         )
         rows = _appointed_rows(members, today, six_mo)
