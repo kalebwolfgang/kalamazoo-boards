@@ -5,7 +5,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#6a5038",
+    "color": "#1f497a",
     "slug": "bor",
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": false,
@@ -14,17 +14,106 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"James","lastName":"Lippincott","role":"Member","positionRequirement":"","termStart":"2024-02-01","termEnd":"2027-01-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Richard","lastName":"Skalski","role":"Alternate","positionRequirement":"","termStart":"2024-02-01","termEnd":"2027-01-31","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Linda","lastName":"Servis","role":"Member","positionRequirement":"","termStart":"2025-02-01","termEnd":"2028-01-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"H. Charles","lastName":"Kiplinger","role":"Member","positionRequirement":"","termStart":"2025-02-01","termEnd":"2028-01-31","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"Clyde","lastName":"Robinson","role":"Member","positionRequirement":"","termStart":"2024-02-01","termEnd":"2027-01-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Michael","lastName":"Anderson","role":"Member","positionRequirement":"","termStart":"2025-02-01","termEnd":"2028-01-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"William","lastName":"Gladstone III","role":"Member","positionRequirement":"","termStart":"2025-02-01","termEnd":"2028-01-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Donna","lastName":"Keller","role":"Member","positionRequirement":"","termStart":"2023-02-06","termEnd":"2026-01-31","residency":"Resident","isVacant":false},
-      {"position":9,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":null,"residency":"Resident","isVacant":true}
+      {
+        "position": 1,
+        "firstName": "James",
+        "lastName": "Lippincott",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-02-01",
+        "termEnd": "2027-01-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Richard",
+        "lastName": "Skalski",
+        "role": "Alternate",
+        "positionRequirement": "",
+        "termStart": "2024-02-01",
+        "termEnd": "2027-01-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Linda",
+        "lastName": "Servis",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-02-01",
+        "termEnd": "2028-01-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "H. Charles",
+        "lastName": "Kiplinger",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-02-01",
+        "termEnd": "2028-01-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Clyde",
+        "lastName": "Robinson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-02-01",
+        "termEnd": "2027-01-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Michael",
+        "lastName": "Anderson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-02-01",
+        "termEnd": "2028-01-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "William",
+        "lastName": "Gladstone III",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-02-01",
+        "termEnd": "2028-01-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Donna",
+        "lastName": "Keller",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-02-06",
+        "termEnd": "2026-01-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": null,
+        "residency": "Resident",
+        "isVacant": true
+      }
     ]
   },
   {
@@ -34,7 +123,7 @@
     "maxMembers": 13,
     "meetingSchedule": "",
     "description": "",
-    "color": "#5a6a2a",
+    "color": "#722c5d",
     "slug": "bra",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -42,20 +131,134 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": "EDC",
-    "relatedBoards": [{"abbr": "EDC", "label": "Shares membership with EDC"}],
-    "reportUrl": null,
+    "relatedBoards": [
+      {
+        "abbr": "EDC",
+        "label": "Shares membership with EDC"
+      }
+    ],
     "members": [
-      {"position":1,"firstName":"Kyle","lastName":"Gulau","role":"Chair","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Scott","lastName":"Petersen","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":3,"firstName":"Jason","lastName":"Novotny","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":4,"firstName":"Lucas","lastName":"Middleton","role":"Member","positionRequirement":"","termStart":"2020-07-06","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"Rachel","lastName":"Bair","role":"Vice Chair","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Sharon","lastName":"Ferraro","role":"Member","positionRequirement":"","termStart":"2022-08-15","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Michael","lastName":"Gurnee","role":"Member","positionRequirement":"","termStart":"2022-08-15","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Andrew","lastName":"Schipper","role":"Secretary/Treasurer","positionRequirement":"","termStart":"2022-08-15","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":9,"firstName":"Drew","lastName":"Duncan","role":"Member","positionRequirement":"City Commission Representative","termStart":"2025-11-17","termEnd":"2029-11-19","residency":"","isVacant":false},
-      {"position":10,"firstName":"T.J.","lastName":"Ward","role":"Member","positionRequirement":"","termStart":"2025-05-12","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":11,"firstName":"Eddie","lastName":"Warr","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Non-Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Kyle",
+        "lastName": "Gulau",
+        "role": "Chair",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Scott",
+        "lastName": "Petersen",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Jason",
+        "lastName": "Novotny",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Lucas",
+        "lastName": "Middleton",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2020-07-06",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Rachel",
+        "lastName": "Bair",
+        "role": "Vice Chair",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Sharon",
+        "lastName": "Ferraro",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-08-15",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Michael",
+        "lastName": "Gurnee",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-08-15",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Andrew",
+        "lastName": "Schipper",
+        "role": "Secretary/Treasurer",
+        "positionRequirement": "",
+        "termStart": "2022-08-15",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "Drew",
+        "lastName": "Duncan",
+        "role": "Member",
+        "positionRequirement": "City Commission Representative",
+        "termStart": "2025-11-17",
+        "termEnd": "2029-11-19",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 10,
+        "firstName": "T.J.",
+        "lastName": "Ward",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-05-12",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 11,
+        "firstName": "Eddie",
+        "lastName": "Warr",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -64,7 +267,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#3a5e7a",
+    "color": "#78471c",
     "slug": "bba",
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": false,
@@ -73,17 +276,106 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Khari","lastName":"Worthy","role":"Member","positionRequirement":"Historic District Property Owner","termStart":"2021-07-19","termEnd":"2024-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Benjamin","lastName":"Bierlein","role":"Member","positionRequirement":"","termStart":"2022-06-06","termEnd":"2025-03-31","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Jillian","lastName":"Hocking","role":"Member","positionRequirement":"Residential Facilities Management","termStart":"2022-06-06","termEnd":"2025-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":4,"firstName":"Ryan","lastName":"Long","role":"Member","positionRequirement":"Residential Construction Experience","termStart":"2022-06-06","termEnd":"2024-03-31","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"Matthew","lastName":"Maycroft","role":"Member","positionRequirement":"Construction Experience","termStart":"2022-06-06","termEnd":"2024-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Andrew","lastName":"Van Lente","role":"Member","positionRequirement":"Residential/commercial property leasing or maintenance experience","termStart":"2022-06-06","termEnd":"2025-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Richard","lastName":"Emig","role":"Member","positionRequirement":"","termStart":"2025-12-01","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Scott","lastName":"Brooks","role":"Ex-Officio Member","positionRequirement":"","termStart":"2020-11-26","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":9,"firstName":"Luis","lastName":"Pena","role":"Ex-Officio Member","positionRequirement":"","termStart":"2022-02-11","termEnd":"2100-01-01","residency":"","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Khari",
+        "lastName": "Worthy",
+        "role": "Member",
+        "positionRequirement": "Historic District Property Owner",
+        "termStart": "2021-07-19",
+        "termEnd": "2024-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Benjamin",
+        "lastName": "Bierlein",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-06-06",
+        "termEnd": "2025-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Jillian",
+        "lastName": "Hocking",
+        "role": "Member",
+        "positionRequirement": "Residential Facilities Management",
+        "termStart": "2022-06-06",
+        "termEnd": "2025-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Ryan",
+        "lastName": "Long",
+        "role": "Member",
+        "positionRequirement": "Residential Construction Experience",
+        "termStart": "2022-06-06",
+        "termEnd": "2024-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Matthew",
+        "lastName": "Maycroft",
+        "role": "Member",
+        "positionRequirement": "Construction Experience",
+        "termStart": "2022-06-06",
+        "termEnd": "2024-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Andrew",
+        "lastName": "Van Lente",
+        "role": "Member",
+        "positionRequirement": "Residential/commercial property leasing or maintenance experience",
+        "termStart": "2022-06-06",
+        "termEnd": "2025-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Richard",
+        "lastName": "Emig",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-12-01",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Scott",
+        "lastName": "Brooks",
+        "role": "Ex-Officio Member",
+        "positionRequirement": "",
+        "termStart": "2020-11-26",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "Luis",
+        "lastName": "Pena",
+        "role": "Ex-Officio Member",
+        "positionRequirement": "",
+        "termStart": "2022-02-11",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -92,7 +384,7 @@
     "category": "Public Safety & Civil Rights",
     "meetingSchedule": "",
     "description": "Provides independent community oversight of the Kalamazoo Department of Public Safety. Hears appeals of complaint investigations conducted by the Office of Professional Standards and advises the City Manager on policies, procedures, and community relations.",
-    "color": "#1a3a6a",
+    "color": "#81222c",
     "slug": "cpsrab",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
@@ -101,20 +393,139 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Teresa","lastName":"Thrash","role":"Member","positionRequirement":"Diverse Organization Representative — KVHFH","termStart":"2024-09-01","termEnd":"2027-08-31","residency":"Non-Resident","isVacant":false},
-      {"position":2,"firstName":"Ashley","lastName":"Huber","role":"Member","positionRequirement":"Diverse Organization Representative","termStart":"2025-03-01","termEnd":"2028-02-29","residency":"","isVacant":false},
-      {"position":3,"firstName":"Barbara","lastName":"Miller","role":"Member","positionRequirement":"","termStart":"2024-05-01","termEnd":"2027-04-30","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Christopher","lastName":"Caldwell","role":"Member","positionRequirement":"At-Large","termStart":"2024-01-01","termEnd":"2026-12-31","residency":"Non-Resident","isVacant":false},
-      {"position":5,"firstName":"Susan","lastName":"Stapleton","role":"Member","positionRequirement":"At-Large","termStart":"2024-01-01","termEnd":"2026-12-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Regina","lastName":"Miller","role":"Member","positionRequirement":"Diverse Organization Representative","termStart":"2025-03-01","termEnd":"2028-02-29","residency":"","isVacant":false},
-      {"position":7,"firstName":"Ebony","lastName":"Hemphill","role":"Member","positionRequirement":"At-Large","termStart":"2025-07-31","termEnd":"2028-06-30","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Larry","lastName":"Tolbert","role":"Member","positionRequirement":"At-Large","termStart":"2022-09-01","termEnd":"2025-09-30","residency":"Resident","isVacant":false},
-      {"position":9,"firstName":"Kevin","lastName":"Ferrara","role":"Member","positionRequirement":"Diverse Organization Representative — Senior Care Partners PACE","termStart":"2023-01-01","termEnd":"2026-12-31","residency":"Resident","isVacant":false},
-      {"position":10,"firstName":"Jason","lastName":"Allen","role":"Member","positionRequirement":"At-Large","termStart":"2023-07-01","termEnd":"2026-07-01","residency":"Non-Resident","isVacant":false},
-      {"position":11,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":null,"residency":"","isVacant":true},
-      {"position":12,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":null,"residency":"","isVacant":true}
+      {
+        "position": 1,
+        "firstName": "Teresa",
+        "lastName": "Thrash",
+        "role": "Member",
+        "positionRequirement": "Diverse Organization Representative — KVHFH",
+        "termStart": "2024-09-01",
+        "termEnd": "2027-08-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Ashley",
+        "lastName": "Huber",
+        "role": "Member",
+        "positionRequirement": "Diverse Organization Representative",
+        "termStart": "2025-03-01",
+        "termEnd": "2028-02-29",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Barbara",
+        "lastName": "Miller",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-05-01",
+        "termEnd": "2027-04-30",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Christopher",
+        "lastName": "Caldwell",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": "2024-01-01",
+        "termEnd": "2026-12-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Susan",
+        "lastName": "Stapleton",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": "2024-01-01",
+        "termEnd": "2026-12-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Regina",
+        "lastName": "Miller",
+        "role": "Member",
+        "positionRequirement": "Diverse Organization Representative",
+        "termStart": "2025-03-01",
+        "termEnd": "2028-02-29",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Ebony",
+        "lastName": "Hemphill",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": "2025-07-31",
+        "termEnd": "2028-06-30",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Larry",
+        "lastName": "Tolbert",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": "2022-09-01",
+        "termEnd": "2025-09-30",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "Kevin",
+        "lastName": "Ferrara",
+        "role": "Member",
+        "positionRequirement": "Diverse Organization Representative — Senior Care Partners PACE",
+        "termStart": "2023-01-01",
+        "termEnd": "2026-12-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 10,
+        "firstName": "Jason",
+        "lastName": "Allen",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": "2023-07-01",
+        "termEnd": "2026-07-01",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 11,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": null,
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 12,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": null,
+        "residency": "",
+        "isVacant": true
+      }
     ]
   },
   {
@@ -123,7 +534,7 @@
     "category": "Public Safety & Civil Rights",
     "meetingSchedule": "",
     "description": "",
-    "color": "#8a2020",
+    "color": "#81222c",
     "slug": "crb",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
@@ -132,17 +543,106 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Joshua","lastName":"DeBoer","role":"Member","positionRequirement":"","termStart":"2025-06-16","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Madison","lastName":"Lukeman","role":"Member","positionRequirement":"","termStart":"2023-05-15","termEnd":"2026-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":3,"firstName":"Eursla","lastName":"Moore-Doyle","role":"Member","positionRequirement":"","termStart":"2025-05-19","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2027-03-31","residency":"Resident","isVacant":true},
-      {"position":5,"firstName":"Willow","lastName":"Sipling","role":"Member","positionRequirement":"","termStart":"2025-06-16","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Sandra","lastName":"Calderon-Huezo","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Cathryn","lastName":"Phason","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":8,"firstName":"Tanya","lastName":"Hewitt-Smith","role":"Ex-Officio Member","positionRequirement":"","termStart":"2022-09-01","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":9,"firstName":"Stephanie","lastName":"Hoffman","role":"Ex-Officio Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2025-11-10","residency":"","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Joshua",
+        "lastName": "DeBoer",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-06-16",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Madison",
+        "lastName": "Lukeman",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-05-15",
+        "termEnd": "2026-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Eursla",
+        "lastName": "Moore-Doyle",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-05-19",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": true
+      },
+      {
+        "position": 5,
+        "firstName": "Willow",
+        "lastName": "Sipling",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-06-16",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Sandra",
+        "lastName": "Calderon-Huezo",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Cathryn",
+        "lastName": "Phason",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Tanya",
+        "lastName": "Hewitt-Smith",
+        "role": "Ex-Officio Member",
+        "positionRequirement": "",
+        "termStart": "2022-09-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "Stephanie",
+        "lastName": "Hoffman",
+        "role": "Ex-Officio Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2025-11-10",
+        "residency": "",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -151,7 +651,7 @@
     "category": "Community Services",
     "meetingSchedule": "",
     "description": "",
-    "color": "#5a2a7a",
+    "color": "#4b2f74",
     "slug": "cdaac",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -160,17 +660,106 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Tiffany","lastName":"Burns","role":"Member","positionRequirement":"Eastside Neighborhood Representative","termStart":"2024-04-01","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Jacquelyn","lastName":"Hobson","role":"Member","positionRequirement":"Edison Neighborhood Representative","termStart":"2025-03-17","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Vivian","lastName":"Segovia-Perez","role":"Member","positionRequirement":"At-Large","termStart":"2025-03-17","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"","lastName":"","role":"Member","positionRequirement":"Stuart Neighborhood Representative","termStart":null,"termEnd":"2026-03-31","residency":"","isVacant":true},
-      {"position":5,"firstName":"Kyle","lastName":"Ackerson","role":"Member","positionRequirement":"At-Large","termStart":"2025-12-15","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"","lastName":"","role":"Member","positionRequirement":"At-Large","termStart":null,"termEnd":"2027-03-31","residency":"","isVacant":true},
-      {"position":7,"firstName":"Tiyanna","lastName":"Williams","role":"Member","positionRequirement":"At-Large","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Stephanie","lastName":"Vallar","role":"Member","positionRequirement":"Northside Neighborhood Representative","termStart":"2022-06-21","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":9,"firstName":"Nathan","lastName":"Browning","role":"Member","positionRequirement":"At-Large","termStart":"2022-06-21","termEnd":"2028-03-31","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Tiffany",
+        "lastName": "Burns",
+        "role": "Member",
+        "positionRequirement": "Eastside Neighborhood Representative",
+        "termStart": "2024-04-01",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Jacquelyn",
+        "lastName": "Hobson",
+        "role": "Member",
+        "positionRequirement": "Edison Neighborhood Representative",
+        "termStart": "2025-03-17",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Vivian",
+        "lastName": "Segovia-Perez",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": "2025-03-17",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "Stuart Neighborhood Representative",
+        "termStart": null,
+        "termEnd": "2026-03-31",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 5,
+        "firstName": "Kyle",
+        "lastName": "Ackerson",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": "2025-12-15",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": null,
+        "termEnd": "2027-03-31",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 7,
+        "firstName": "Tiyanna",
+        "lastName": "Williams",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Stephanie",
+        "lastName": "Vallar",
+        "role": "Member",
+        "positionRequirement": "Northside Neighborhood Representative",
+        "termStart": "2022-06-21",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "Nathan",
+        "lastName": "Browning",
+        "role": "Member",
+        "positionRequirement": "At-Large",
+        "termStart": "2022-06-21",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -179,7 +768,7 @@
     "category": "Economic Development",
     "meetingSchedule": "",
     "description": "",
-    "color": "#a03c5a",
+    "color": "#722c5d",
     "slug": "dda",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -187,20 +776,134 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": "DEGA",
-    "relatedBoards": [{"abbr": "DEGA", "label": "Shares membership with DEGA"}],
-    "reportUrl": null,
+    "relatedBoards": [
+      {
+        "abbr": "DEGA",
+        "label": "Shares membership with DEGA"
+      }
+    ],
     "members": [
-      {"position":1,"firstName":"Jessica","lastName":"Thompson","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":2,"firstName":"Clarence","lastName":"Lloyd","role":"Member","positionRequirement":"","termStart":"2023-04-17","termEnd":"2027-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":3,"firstName":"Stanley","lastName":"Steppes","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Trisha","lastName":"Kidd","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2029-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":5,"firstName":"Rick","lastName":"Searing","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2029-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Curtis","lastName":"Aardema","role":"Member","positionRequirement":"","termStart":"2023-04-17","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Jeff","lastName":"Breneman","role":"Vice Chair","positionRequirement":"","termStart":"2023-04-17","termEnd":"2026-03-31","residency":"","isVacant":false},
-      {"position":8,"firstName":"Cheng Kidd","lastName":"Sun","role":"Member","positionRequirement":"","termStart":"2025-09-15","termEnd":"2029-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":9,"firstName":"David","lastName":"Anderson","role":"Ex-Officio Member","positionRequirement":"","termStart":"2026-02-03","termEnd":"2027-11-15","residency":"Resident","isVacant":false},
-      {"position":10,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":null,"residency":"","isVacant":true},
-      {"position":11,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":null,"residency":"","isVacant":true}
+      {
+        "position": 1,
+        "firstName": "Jessica",
+        "lastName": "Thompson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Clarence",
+        "lastName": "Lloyd",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2027-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Stanley",
+        "lastName": "Steppes",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Trisha",
+        "lastName": "Kidd",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2029-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Rick",
+        "lastName": "Searing",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2029-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Curtis",
+        "lastName": "Aardema",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Jeff",
+        "lastName": "Breneman",
+        "role": "Vice Chair",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2026-03-31",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Cheng Kidd",
+        "lastName": "Sun",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-09-15",
+        "termEnd": "2029-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "David",
+        "lastName": "Anderson",
+        "role": "Ex-Officio Member",
+        "positionRequirement": "",
+        "termStart": "2026-02-03",
+        "termEnd": "2027-11-15",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 10,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": null,
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 11,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": null,
+        "residency": "",
+        "isVacant": true
+      }
     ]
   },
   {
@@ -209,7 +912,7 @@
     "category": "Economic Development",
     "meetingSchedule": "",
     "description": "",
-    "color": "#8a6010",
+    "color": "#722c5d",
     "slug": "dega",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -217,18 +920,112 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": "DDA",
-    "relatedBoards": [{"abbr": "DDA", "label": "Shares membership with DDA"}],
-    "reportUrl": null,
+    "relatedBoards": [
+      {
+        "abbr": "DDA",
+        "label": "Shares membership with DDA"
+      }
+    ],
     "members": [
-      {"position":1,"firstName":"Jessica","lastName":"Thompson","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":2,"firstName":"Clarence","lastName":"Lloyd","role":"Member","positionRequirement":"","termStart":"2023-04-17","termEnd":"2027-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":3,"firstName":"Stanley","lastName":"Steppes","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Trisha","lastName":"Kidd","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2029-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":5,"firstName":"Rick","lastName":"Searing","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2029-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Curtis","lastName":"Aardema","role":"Member","positionRequirement":"","termStart":"2023-04-17","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Jeff","lastName":"Breneman","role":"Vice Chair","positionRequirement":"","termStart":"2023-04-17","termEnd":"2026-03-31","residency":"","isVacant":false},
-      {"position":8,"firstName":"Cheng Kidd","lastName":"Sun","role":"Member","positionRequirement":"","termStart":"2025-09-15","termEnd":"2029-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":9,"firstName":"David","lastName":"Anderson","role":"Ex-Officio Member","positionRequirement":"","termStart":"2026-02-03","termEnd":"2027-11-15","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Jessica",
+        "lastName": "Thompson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Clarence",
+        "lastName": "Lloyd",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2027-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Stanley",
+        "lastName": "Steppes",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Trisha",
+        "lastName": "Kidd",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2029-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Rick",
+        "lastName": "Searing",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2029-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Curtis",
+        "lastName": "Aardema",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Jeff",
+        "lastName": "Breneman",
+        "role": "Vice Chair",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2026-03-31",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Cheng Kidd",
+        "lastName": "Sun",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-09-15",
+        "termEnd": "2029-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "David",
+        "lastName": "Anderson",
+        "role": "Ex-Officio Member",
+        "positionRequirement": "",
+        "termStart": "2026-02-03",
+        "termEnd": "2027-11-15",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -238,7 +1035,7 @@
     "maxMembers": 13,
     "meetingSchedule": "",
     "description": "",
-    "color": "#1a6a5a",
+    "color": "#722c5d",
     "slug": "edc",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -246,20 +1043,134 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": "BRA",
-    "relatedBoards": [{"abbr": "BRA", "label": "Shares membership with BRA"}],
-    "reportUrl": null,
+    "relatedBoards": [
+      {
+        "abbr": "BRA",
+        "label": "Shares membership with BRA"
+      }
+    ],
     "members": [
-      {"position":1,"firstName":"Kyle","lastName":"Gulau","role":"Vice Chair","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Scott","lastName":"Petersen","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":3,"firstName":"Jason","lastName":"Novotny","role":"Chair","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":4,"firstName":"Lucas","lastName":"Middleton","role":"Chair","positionRequirement":"","termStart":"2020-07-06","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"Rachel","lastName":"Bair","role":"Secretary/Treasurer","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Sharon","lastName":"Ferraro","role":"Member","positionRequirement":"","termStart":"2022-08-15","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Michael","lastName":"Gurnee","role":"Member","positionRequirement":"","termStart":"2022-08-15","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Andrew","lastName":"Schipper","role":"Member","positionRequirement":"","termStart":"2022-08-15","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":9,"firstName":"Drew","lastName":"Duncan","role":"Member","positionRequirement":"City Commission Representative","termStart":"2025-11-17","termEnd":"2029-11-19","residency":"","isVacant":false},
-      {"position":10,"firstName":"T.J.","lastName":"Ward","role":"Member","positionRequirement":"","termStart":"2025-05-12","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":11,"firstName":"Eddie","lastName":"Warr","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2031-03-31","residency":"Non-Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Kyle",
+        "lastName": "Gulau",
+        "role": "Vice Chair",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Scott",
+        "lastName": "Petersen",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Jason",
+        "lastName": "Novotny",
+        "role": "Chair",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Lucas",
+        "lastName": "Middleton",
+        "role": "Chair",
+        "positionRequirement": "",
+        "termStart": "2020-07-06",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Rachel",
+        "lastName": "Bair",
+        "role": "Secretary/Treasurer",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Sharon",
+        "lastName": "Ferraro",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-08-15",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Michael",
+        "lastName": "Gurnee",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-08-15",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Andrew",
+        "lastName": "Schipper",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-08-15",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "Drew",
+        "lastName": "Duncan",
+        "role": "Member",
+        "positionRequirement": "City Commission Representative",
+        "termStart": "2025-11-17",
+        "termEnd": "2029-11-19",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 10,
+        "firstName": "T.J.",
+        "lastName": "Ward",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-05-12",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 11,
+        "firstName": "Eddie",
+        "lastName": "Warr",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2031-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -268,7 +1179,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#2a3a8a",
+    "color": "#1f497a",
     "slug": "ec",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -277,11 +1188,40 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Scott","lastName":"Borling","role":"Chair","positionRequirement":"","termStart":null,"termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":2,"firstName":"Aaron","lastName":"Leal","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":3,"firstName":"Aaron","lastName":"Powers","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2100-01-01","residency":"","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Scott",
+        "lastName": "Borling",
+        "role": "Chair",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Aaron",
+        "lastName": "Leal",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Aaron",
+        "lastName": "Powers",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -290,7 +1230,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#1a2a60",
+    "color": "#1f497a",
     "slug": "ersb",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -299,13 +1239,62 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Malcolm","lastName":"Hankins","role":"Member","positionRequirement":"","termStart":"2025-12-05","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":2,"firstName":"Chris","lastName":"Praedel","role":"Member","positionRequirement":"City Commission Representative","termStart":"2026-02-04","termEnd":"2027-11-16","residency":"","isVacant":false},
-      {"position":3,"firstName":"Randy","lastName":"Eberts","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Michelle","lastName":"Emig","role":"Member","positionRequirement":"","termStart":"2025-07-24","termEnd":"2028-03-31","residency":"","isVacant":false},
-      {"position":5,"firstName":"Charles","lastName":"Mason","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2027-03-31","residency":"","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Malcolm",
+        "lastName": "Hankins",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-12-05",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Chris",
+        "lastName": "Praedel",
+        "role": "Member",
+        "positionRequirement": "City Commission Representative",
+        "termStart": "2026-02-04",
+        "termEnd": "2027-11-16",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Randy",
+        "lastName": "Eberts",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Michelle",
+        "lastName": "Emig",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-07-24",
+        "termEnd": "2028-03-31",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Charles",
+        "lastName": "Mason",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2027-03-31",
+        "residency": "",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -314,7 +1303,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#2d6b4a",
+    "color": "#1d633b",
     "slug": "ecc",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
@@ -323,19 +1312,128 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"David","lastName":"Benac","role":"Co-Chair","positionRequirement":"","termStart":"2023-01-02","termEnd":"2026-01-01","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Thomas","lastName":"Dewhirst","role":"Member","positionRequirement":"","termStart":"2023-05-15","termEnd":"2026-01-01","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2027-01-01","residency":"","isVacant":true},
-      {"position":4,"firstName":"David","lastName":"DeBack","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2027-01-01","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":"2023-12-04","termEnd":"2027-01-01","residency":"Resident","isVacant":true},
-      {"position":6,"firstName":"John Eric","lastName":"Kreuzer","role":"Member","positionRequirement":"","termStart":"2025-01-27","termEnd":"2027-01-01","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Reeta","lastName":"Chandler","role":"Member","positionRequirement":"","termStart":"2025-01-27","termEnd":"2028-01-01","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2028-01-01","residency":"","isVacant":true},
-      {"position":9,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2028-01-01","residency":"","isVacant":true},
-      {"position":10,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":"2023-02-20","termEnd":"2026-01-01","residency":"Resident","isVacant":true},
-      {"position":11,"firstName":"Rachel","lastName":"Jondle","role":"Member","positionRequirement":"","termStart":"2023-05-15","termEnd":"2026-01-01","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "David",
+        "lastName": "Benac",
+        "role": "Co-Chair",
+        "positionRequirement": "",
+        "termStart": "2023-01-02",
+        "termEnd": "2026-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Thomas",
+        "lastName": "Dewhirst",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-05-15",
+        "termEnd": "2026-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2027-01-01",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 4,
+        "firstName": "David",
+        "lastName": "DeBack",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2027-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-12-04",
+        "termEnd": "2027-01-01",
+        "residency": "Resident",
+        "isVacant": true
+      },
+      {
+        "position": 6,
+        "firstName": "John Eric",
+        "lastName": "Kreuzer",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-01-27",
+        "termEnd": "2027-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Reeta",
+        "lastName": "Chandler",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-01-27",
+        "termEnd": "2028-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2028-01-01",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 9,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2028-01-01",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 10,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-02-20",
+        "termEnd": "2026-01-01",
+        "residency": "Resident",
+        "isVacant": true
+      },
+      {
+        "position": 11,
+        "firstName": "Rachel",
+        "lastName": "Jondle",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-05-15",
+        "termEnd": "2026-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -344,7 +1442,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#8a4a28",
+    "color": "#78471c",
     "slug": "hdc",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
@@ -353,15 +1451,84 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"James","lastName":"Johnson","role":"Member","positionRequirement":"","termStart":"2023-01-17","termEnd":"2026-01-01","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Daniel","lastName":"Kastner","role":"Member","positionRequirement":"","termStart":"2022-01-18","termEnd":"2025-01-01","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"","lastName":"","role":"Member","positionRequirement":"Architect","termStart":null,"termEnd":"2024-01-01","residency":"","isVacant":true},
-      {"position":4,"firstName":"Dana","lastName":"Underwood","role":"Member","positionRequirement":"","termStart":"2021-02-01","termEnd":"2024-01-01","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":"2023-03-20","termEnd":"2026-01-01","residency":"Resident","isVacant":true},
-      {"position":6,"firstName":"Katie","lastName":"Boertman","role":"Member","positionRequirement":"","termStart":"2024-09-16","termEnd":"2028-01-01","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Kristi","lastName":"Breisach","role":"Member","positionRequirement":"","termStart":"2022-12-05","termEnd":"2026-01-01","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "James",
+        "lastName": "Johnson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-01-17",
+        "termEnd": "2026-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Daniel",
+        "lastName": "Kastner",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-01-18",
+        "termEnd": "2025-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "Architect",
+        "termStart": null,
+        "termEnd": "2024-01-01",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 4,
+        "firstName": "Dana",
+        "lastName": "Underwood",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2021-02-01",
+        "termEnd": "2024-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-03-20",
+        "termEnd": "2026-01-01",
+        "residency": "Resident",
+        "isVacant": true
+      },
+      {
+        "position": 6,
+        "firstName": "Katie",
+        "lastName": "Boertman",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-09-16",
+        "termEnd": "2028-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Kristi",
+        "lastName": "Breisach",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-12-05",
+        "termEnd": "2026-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -370,7 +1537,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#6e3020",
+    "color": "#78471c",
     "slug": "hpc",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": true,
@@ -379,15 +1546,84 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Dusti","lastName":"Morton","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":2,"firstName":"Kaila","lastName":"Akina","role":"Member","positionRequirement":"","termStart":"2024-02-05","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Fred","lastName":"Edison","role":"Member","positionRequirement":"","termStart":"2023-04-01","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Melissa","lastName":"Paduk","role":"Member","positionRequirement":"","termStart":"2024-10-21","termEnd":"2026-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":5,"firstName":"Kyle","lastName":"Hibbard","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2027-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":6,"firstName":"Patrick","lastName":"Vail","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Eleanor","lastName":"Harris","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Dusti",
+        "lastName": "Morton",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Kaila",
+        "lastName": "Akina",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-02-05",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Fred",
+        "lastName": "Edison",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-04-01",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Melissa",
+        "lastName": "Paduk",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-10-21",
+        "termEnd": "2026-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Kyle",
+        "lastName": "Hibbard",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2027-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Patrick",
+        "lastName": "Vail",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Eleanor",
+        "lastName": "Harris",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -396,7 +1632,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#2a5a7a",
+    "color": "#1f497a",
     "slug": "ric",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -405,15 +1641,84 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Daniel","lastName":"DeMent","role":"Member","positionRequirement":"","termStart":"2023-08-07","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Randy","lastName":"Eberts","role":"Member","positionRequirement":"","termStart":"2023-07-17","termEnd":"2026-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":3,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":"2023-08-07","termEnd":"2026-03-31","residency":"Non-Resident","isVacant":true},
-      {"position":4,"firstName":"Dean","lastName":"Bergy","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":5,"firstName":"Joshua","lastName":"Sledge","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":6,"firstName":"Nick","lastName":"Griffith","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":7,"firstName":"Sandra","lastName":"Doctor","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Daniel",
+        "lastName": "DeMent",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-08-07",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Randy",
+        "lastName": "Eberts",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-07-17",
+        "termEnd": "2026-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-08-07",
+        "termEnd": "2026-03-31",
+        "residency": "Non-Resident",
+        "isVacant": true
+      },
+      {
+        "position": 4,
+        "firstName": "Dean",
+        "lastName": "Bergy",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Joshua",
+        "lastName": "Sledge",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Nick",
+        "lastName": "Griffith",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Sandra",
+        "lastName": "Doctor",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -422,7 +1727,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#4a7a28",
+    "color": "#1d633b",
     "slug": "kmga",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -431,20 +1736,139 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Curt","lastName":"Wiser","role":"President","positionRequirement":"","termStart":"2022-12-15","termEnd":"2025-12-31","residency":"Non-Resident","isVacant":false},
-      {"position":2,"firstName":"Patrick","lastName":"McVerry","role":"Ex-Officio Member","positionRequirement":"","termStart":"2022-04-01","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":3,"firstName":"Kevin","lastName":"O'Toole","role":"Member","positionRequirement":"","termStart":"2024-12-31","termEnd":"2027-12-31","residency":"Non-Resident","isVacant":false},
-      {"position":4,"firstName":"John","lastName":"Hambright","role":"Member","positionRequirement":"City Manager/Designee","termStart":"2022-02-16","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":5,"firstName":"Stephen","lastName":"Haase","role":"Member","positionRequirement":"","termStart":"2024-12-31","termEnd":"2027-12-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Steve","lastName":"Vicenzi","role":"Ex-Officio Member","positionRequirement":"","termStart":"2018-12-03","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":7,"firstName":"Mark","lastName":"Heineman","role":"Member","positionRequirement":"City Representative","termStart":"2023-01-01","termEnd":"2025-12-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"David","lastName":"Shields","role":"Member","positionRequirement":"","termStart":"2023-01-01","termEnd":"2025-12-31","residency":"Resident","isVacant":false},
-      {"position":9,"firstName":"John","lastName":"Bradshaw","role":"Vice President","positionRequirement":"","termStart":"2023-01-01","termEnd":"2026-12-31","residency":"Resident","isVacant":false},
-      {"position":10,"firstName":"Tania","lastName":"Brammer","role":"Member","positionRequirement":"","termStart":"2022-01-01","termEnd":"2025-12-31","residency":"Non-Resident","isVacant":false},
-      {"position":11,"firstName":"Larry","lastName":"Brathwaite","role":"Member","positionRequirement":"","termStart":"2023-12-31","termEnd":"2026-12-31","residency":"Resident","isVacant":false},
-      {"position":12,"firstName":"Erin","lastName":"Adams","role":"Member","positionRequirement":"","termStart":"2025-02-17","termEnd":"2028-01-01","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Curt",
+        "lastName": "Wiser",
+        "role": "President",
+        "positionRequirement": "",
+        "termStart": "2022-12-15",
+        "termEnd": "2025-12-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Patrick",
+        "lastName": "McVerry",
+        "role": "Ex-Officio Member",
+        "positionRequirement": "",
+        "termStart": "2022-04-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Kevin",
+        "lastName": "O'Toole",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-12-31",
+        "termEnd": "2027-12-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "John",
+        "lastName": "Hambright",
+        "role": "Member",
+        "positionRequirement": "City Manager/Designee",
+        "termStart": "2022-02-16",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Stephen",
+        "lastName": "Haase",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-12-31",
+        "termEnd": "2027-12-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Steve",
+        "lastName": "Vicenzi",
+        "role": "Ex-Officio Member",
+        "positionRequirement": "",
+        "termStart": "2018-12-03",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Mark",
+        "lastName": "Heineman",
+        "role": "Member",
+        "positionRequirement": "City Representative",
+        "termStart": "2023-01-01",
+        "termEnd": "2025-12-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "David",
+        "lastName": "Shields",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-01-01",
+        "termEnd": "2025-12-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "John",
+        "lastName": "Bradshaw",
+        "role": "Vice President",
+        "positionRequirement": "",
+        "termStart": "2023-01-01",
+        "termEnd": "2026-12-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 10,
+        "firstName": "Tania",
+        "lastName": "Brammer",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-01-01",
+        "termEnd": "2025-12-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 11,
+        "firstName": "Larry",
+        "lastName": "Brathwaite",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-12-31",
+        "termEnd": "2026-12-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 12,
+        "firstName": "Erin",
+        "lastName": "Adams",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-02-17",
+        "termEnd": "2028-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -453,7 +1877,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#4a3a58",
+    "color": "#1f497a",
     "slug": "locc",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -462,15 +1886,84 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Mark","lastName":"Liddle","role":"Member","positionRequirement":"Cannot be a City Commissioner, City staff, or immediate family of either","termStart":"2025-11-17","termEnd":"2031-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Barbara","lastName":"Miller","role":"Member","positionRequirement":"Cannot be a City Commissioner, City staff, or immediate family of either","termStart":"2025-11-17","termEnd":"2031-03-31","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Shirley","lastName":"Weathers-Love","role":"Member","positionRequirement":"Cannot be a City Commissioner, City staff, or immediate family of either","termStart":"2020-04-01","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Creed","lastName":"Stegall","role":"Member","positionRequirement":"Cannot be a City Commissioner, City staff, or immediate family of either","termStart":"2021-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"Nicholas","lastName":"Boyd","role":"Member","positionRequirement":"Cannot be a City Commissioner, City staff, or immediate family of either","termStart":"2021-12-06","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"William Hilton","lastName":"Reed","role":"Member","positionRequirement":"Cannot be a City Commissioner, City staff, or immediate family of either","termStart":"2025-11-17","termEnd":"2032-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Levi","lastName":"Weintraub","role":"Member","positionRequirement":"Cannot be a City Commissioner, City staff, or immediate family of either","termStart":"2025-11-17","termEnd":"2032-03-31","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Mark",
+        "lastName": "Liddle",
+        "role": "Member",
+        "positionRequirement": "Cannot be a City Commissioner, City staff, or immediate family of either",
+        "termStart": "2025-11-17",
+        "termEnd": "2031-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Barbara",
+        "lastName": "Miller",
+        "role": "Member",
+        "positionRequirement": "Cannot be a City Commissioner, City staff, or immediate family of either",
+        "termStart": "2025-11-17",
+        "termEnd": "2031-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Shirley",
+        "lastName": "Weathers-Love",
+        "role": "Member",
+        "positionRequirement": "Cannot be a City Commissioner, City staff, or immediate family of either",
+        "termStart": "2020-04-01",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Creed",
+        "lastName": "Stegall",
+        "role": "Member",
+        "positionRequirement": "Cannot be a City Commissioner, City staff, or immediate family of either",
+        "termStart": "2021-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Nicholas",
+        "lastName": "Boyd",
+        "role": "Member",
+        "positionRequirement": "Cannot be a City Commissioner, City staff, or immediate family of either",
+        "termStart": "2021-12-06",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "William Hilton",
+        "lastName": "Reed",
+        "role": "Member",
+        "positionRequirement": "Cannot be a City Commissioner, City staff, or immediate family of either",
+        "termStart": "2025-11-17",
+        "termEnd": "2032-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Levi",
+        "lastName": "Weintraub",
+        "role": "Member",
+        "positionRequirement": "Cannot be a City Commissioner, City staff, or immediate family of either",
+        "termStart": "2025-11-17",
+        "termEnd": "2032-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -479,7 +1972,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#1a5e35",
+    "color": "#1d633b",
     "slug": "nfp",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
@@ -488,15 +1981,84 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Tyler","lastName":"Bassett","role":"Member","positionRequirement":"","termStart":"2023-12-18","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Matt","lastName":"Hollander","role":"Member","positionRequirement":"","termStart":"2023-12-18","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Evangelia","lastName":"Murgia","role":"Member","positionRequirement":"","termStart":"2024-08-12","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Laura","lastName":"Fredrickson","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"Logan","lastName":"Rowe","role":"Member","positionRequirement":"","termStart":"2025-04-21","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Matt","lastName":"Stemple","role":"Member","positionRequirement":"","termStart":"2025-04-21","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Kyle","lastName":"Martin","role":"Chair","positionRequirement":"","termStart":"2022-04-01","termEnd":"2025-03-31","residency":"Non-Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Tyler",
+        "lastName": "Bassett",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-12-18",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Matt",
+        "lastName": "Hollander",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-12-18",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Evangelia",
+        "lastName": "Murgia",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-08-12",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Laura",
+        "lastName": "Fredrickson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Logan",
+        "lastName": "Rowe",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-21",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Matt",
+        "lastName": "Stemple",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-21",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Kyle",
+        "lastName": "Martin",
+        "role": "Chair",
+        "positionRequirement": "",
+        "termStart": "2022-04-01",
+        "termEnd": "2025-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -505,7 +2067,7 @@
     "category": "Economic Development",
     "meetingSchedule": "",
     "description": "",
-    "color": "#7a2a6a",
+    "color": "#722c5d",
     "slug": "ncbda",
     "legalClassification": "Authorities",
     "hasRecordings": false,
@@ -514,17 +2076,106 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"David","lastName":"Anderson","role":"Ex-Officio Member","positionRequirement":"","termStart":null,"termEnd":"2025-11-10","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Marilyn","lastName":"Pulley","role":"Member","positionRequirement":"","termStart":"2023-03-31","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Chad","lastName":"Dodd","role":"Member","positionRequirement":"","termStart":"2024-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2026-03-31","residency":"","isVacant":true},
-      {"position":5,"firstName":"Damian","lastName":"Henderson","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2030-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Kiar","lastName":"Gamsho","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2030-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":7,"firstName":"Ricky","lastName":"Thrash","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2030-03-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Tami","lastName":"Rey","role":"Member","positionRequirement":"","termStart":"2023-10-16","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":9,"firstName":"Mattie","lastName":"Jordan-Woods","role":"Member","positionRequirement":"","termStart":"2023-03-23","termEnd":"2027-03-31","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "David",
+        "lastName": "Anderson",
+        "role": "Ex-Officio Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2025-11-10",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Marilyn",
+        "lastName": "Pulley",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-03-31",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Chad",
+        "lastName": "Dodd",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2026-03-31",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 5,
+        "firstName": "Damian",
+        "lastName": "Henderson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2030-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Kiar",
+        "lastName": "Gamsho",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2030-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Ricky",
+        "lastName": "Thrash",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2030-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Tami",
+        "lastName": "Rey",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-10-16",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "Mattie",
+        "lastName": "Jordan-Woods",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-03-23",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -533,7 +2184,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#3d7a3a",
+    "color": "#1d633b",
     "slug": "prab",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -542,17 +2193,106 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Christopher","lastName":"Bol","role":"Member","positionRequirement":"","termStart":"2023-12-18","termEnd":"2027-01-01","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2025-01-01","residency":"","isVacant":true},
-      {"position":3,"firstName":"Joseph","lastName":"Buckman","role":"Member","positionRequirement":"","termStart":"2023-12-18","termEnd":"2027-01-01","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Riley","lastName":"Nilsson","role":"Member","positionRequirement":"Youth Representative","termStart":"2023-07-17","termEnd":"2027-01-01","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"Rachel","lastName":"Hughes-Nilsson","role":"Member","positionRequirement":"","termStart":"2024-01-01","termEnd":"2027-01-01","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Kazmira","lastName":"Herberger","role":"Chair","positionRequirement":"","termStart":"2026-01-26","termEnd":"2029-01-01","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Karen","lastName":"Wellman","role":"Member","positionRequirement":"","termStart":"2024-10-21","termEnd":"2028-01-01","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Isabela","lastName":"Ballez","role":"Member","positionRequirement":"","termStart":"2026-01-26","termEnd":"2029-01-01","residency":"Resident","isVacant":false},
-      {"position":9,"firstName":"Bjorn","lastName":"Nelson","role":"Member","positionRequirement":"Youth Representative","termStart":"2024-03-18","termEnd":"2027-01-01","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Christopher",
+        "lastName": "Bol",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-12-18",
+        "termEnd": "2027-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2025-01-01",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 3,
+        "firstName": "Joseph",
+        "lastName": "Buckman",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-12-18",
+        "termEnd": "2027-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Riley",
+        "lastName": "Nilsson",
+        "role": "Member",
+        "positionRequirement": "Youth Representative",
+        "termStart": "2023-07-17",
+        "termEnd": "2027-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Rachel",
+        "lastName": "Hughes-Nilsson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-01-01",
+        "termEnd": "2027-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Kazmira",
+        "lastName": "Herberger",
+        "role": "Chair",
+        "positionRequirement": "",
+        "termStart": "2026-01-26",
+        "termEnd": "2029-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Karen",
+        "lastName": "Wellman",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-10-21",
+        "termEnd": "2028-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Isabela",
+        "lastName": "Ballez",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2026-01-26",
+        "termEnd": "2029-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "Bjorn",
+        "lastName": "Nelson",
+        "role": "Member",
+        "positionRequirement": "Youth Representative",
+        "termStart": "2024-03-18",
+        "termEnd": "2027-01-01",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -561,7 +2301,7 @@
     "category": "Finance & Governance",
     "meetingSchedule": "",
     "description": "",
-    "color": "#2a5a7a",
+    "color": "#1f497a",
     "slug": "ric",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": false,
@@ -570,15 +2310,84 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Daniel","lastName":"DeMent","role":"Member","positionRequirement":"","termStart":"2023-08-07","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Randy","lastName":"Eberts","role":"Member","positionRequirement":"","termStart":"2023-07-17","termEnd":"2026-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":3,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":"2023-08-07","termEnd":"2026-03-31","residency":"Non-Resident","isVacant":true},
-      {"position":4,"firstName":"Dean","lastName":"Bergy","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":5,"firstName":"Joshua","lastName":"Sledge","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":6,"firstName":"Nick","lastName":"Griffith","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false},
-      {"position":7,"firstName":"Sandra","lastName":"Doctor","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Non-Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Daniel",
+        "lastName": "DeMent",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-08-07",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Randy",
+        "lastName": "Eberts",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-07-17",
+        "termEnd": "2026-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-08-07",
+        "termEnd": "2026-03-31",
+        "residency": "Non-Resident",
+        "isVacant": true
+      },
+      {
+        "position": 4,
+        "firstName": "Dean",
+        "lastName": "Bergy",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Joshua",
+        "lastName": "Sledge",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Nick",
+        "lastName": "Griffith",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Sandra",
+        "lastName": "Doctor",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Non-Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -587,7 +2396,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#1e4a7a",
+    "color": "#78471c",
     "slug": "pc",
     "legalClassification": "Type 2 Advisory Boards",
     "hasRecordings": true,
@@ -596,17 +2405,106 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Brian","lastName":"Pittelko","role":"Member","positionRequirement":"","termStart":"2023-03-23","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Jennifer","lastName":"Swan","role":"Member","positionRequirement":"","termStart":"2023-03-23","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Michelle","lastName":"Audette-Bauman","role":"Member","positionRequirement":"","termStart":"2024-05-13","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Roland","lastName":"Bissonnette","role":"Member","positionRequirement":"","termStart":"2025-09-15","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"Wendell","lastName":"Tolber","role":"Member","positionRequirement":"","termStart":"2024-05-13","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Christine","lastName":"Dascenzo","role":"Member","positionRequirement":"","termStart":"2023-06-20","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Zack","lastName":"Wilson","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Thomas","lastName":"Kostrzewa","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":9,"firstName":"Mitchell","lastName":"Curtiss","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Brian",
+        "lastName": "Pittelko",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-03-23",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Jennifer",
+        "lastName": "Swan",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-03-23",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Michelle",
+        "lastName": "Audette-Bauman",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-05-13",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Roland",
+        "lastName": "Bissonnette",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-09-15",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Wendell",
+        "lastName": "Tolber",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-05-13",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Christine",
+        "lastName": "Dascenzo",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-06-20",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Zack",
+        "lastName": "Wilson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Thomas",
+        "lastName": "Kostrzewa",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 9,
+        "firstName": "Mitchell",
+        "lastName": "Curtiss",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -615,7 +2513,7 @@
     "category": "Community Services",
     "meetingSchedule": "",
     "description": "",
-    "color": "#b83a1a",
+    "color": "#4b2f74",
     "slug": "spk",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -624,19 +2522,128 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Ben","lastName":"Damerow","role":"Member","positionRequirement":"","termStart":"2023-04-17","termEnd":"2026-03-31","residency":"","isVacant":false},
-      {"position":2,"firstName":"Patrese","lastName":"Griffin","role":"Member","positionRequirement":"","termStart":"2023-04-17","termEnd":"2026-03-31","residency":"","isVacant":false},
-      {"position":3,"firstName":"Carol","lastName":"McGlinn","role":"Vice Chair","positionRequirement":"","termStart":"2023-04-17","termEnd":"2026-03-31","residency":"","isVacant":false},
-      {"position":4,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2024-03-31","residency":"","isVacant":true},
-      {"position":5,"firstName":"Alyssa","lastName":"Stewart","role":"Member","positionRequirement":"","termStart":"2021-03-15","termEnd":"2024-03-31","residency":"","isVacant":false},
-      {"position":6,"firstName":"Bobby","lastName":"Hopewell","role":"Member","positionRequirement":"","termStart":"2021-03-15","termEnd":"2024-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Alonzo","lastName":"Wilson","role":"Member","positionRequirement":"","termStart":"2026-02-04","termEnd":"2027-11-16","residency":"","isVacant":false},
-      {"position":8,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2024-03-31","residency":"","isVacant":true},
-      {"position":9,"firstName":"Kym","lastName":"Hollars","role":"Member","positionRequirement":"","termStart":"2021-03-15","termEnd":"2024-03-31","residency":"","isVacant":false},
-      {"position":10,"firstName":"Brenda","lastName":"Hughes","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"","isVacant":false},
-      {"position":11,"firstName":"John","lastName":"Oliver","role":"Member","positionRequirement":"","termStart":"2023-04-17","termEnd":"2025-03-31","residency":"","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Ben",
+        "lastName": "Damerow",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2026-03-31",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Patrese",
+        "lastName": "Griffin",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2026-03-31",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Carol",
+        "lastName": "McGlinn",
+        "role": "Vice Chair",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2026-03-31",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2024-03-31",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 5,
+        "firstName": "Alyssa",
+        "lastName": "Stewart",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2021-03-15",
+        "termEnd": "2024-03-31",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Bobby",
+        "lastName": "Hopewell",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2021-03-15",
+        "termEnd": "2024-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Alonzo",
+        "lastName": "Wilson",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2026-02-04",
+        "termEnd": "2027-11-16",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2024-03-31",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 9,
+        "firstName": "Kym",
+        "lastName": "Hollars",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2021-03-15",
+        "termEnd": "2024-03-31",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 10,
+        "firstName": "Brenda",
+        "lastName": "Hughes",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 11,
+        "firstName": "John",
+        "lastName": "Oliver",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-04-17",
+        "termEnd": "2025-03-31",
+        "residency": "",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -645,7 +2652,7 @@
     "category": "Public Safety & Civil Rights",
     "meetingSchedule": "",
     "description": "",
-    "color": "#7a4a10",
+    "color": "#81222c",
     "slug": "trb",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -654,14 +2661,73 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"","lastName":"","role":"Member","positionRequirement":"City Manager/Designee","termStart":"2022-01-01","termEnd":"2100-01-01","residency":"","isVacant":true},
-      {"position":2,"firstName":"David","lastName":"Juday","role":"Member","positionRequirement":"Public Safety Chief/Designee","termStart":"2022-01-01","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":3,"firstName":"","lastName":"","role":"Member","positionRequirement":"Public Works Director/Designee","termStart":null,"termEnd":"2100-01-01","residency":"","isVacant":true},
-      {"position":4,"firstName":"Dennis","lastName":"Randolph","role":"Member","positionRequirement":"Traffic Engineer","termStart":"2022-01-01","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":5,"firstName":"James","lastName":"Baker","role":"Member","positionRequirement":"City Engineer","termStart":"2022-01-01","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":6,"firstName":"Christina","lastName":"Anderson","role":"Member","positionRequirement":"City Planner","termStart":"2022-01-01","termEnd":"2100-01-01","residency":"","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "City Manager/Designee",
+        "termStart": "2022-01-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 2,
+        "firstName": "David",
+        "lastName": "Juday",
+        "role": "Member",
+        "positionRequirement": "Public Safety Chief/Designee",
+        "termStart": "2022-01-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "Public Works Director/Designee",
+        "termStart": null,
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 4,
+        "firstName": "Dennis",
+        "lastName": "Randolph",
+        "role": "Member",
+        "positionRequirement": "Traffic Engineer",
+        "termStart": "2022-01-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "James",
+        "lastName": "Baker",
+        "role": "Member",
+        "positionRequirement": "City Engineer",
+        "termStart": "2022-01-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Christina",
+        "lastName": "Anderson",
+        "role": "Member",
+        "positionRequirement": "City Planner",
+        "termStart": "2022-01-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -670,7 +2736,7 @@
     "category": "Environment & Parks",
     "meetingSchedule": "",
     "description": "",
-    "color": "#234d28",
+    "color": "#1d633b",
     "slug": "tre",
     "legalClassification": "Type 1 Advisory Boards",
     "hasRecordings": false,
@@ -679,13 +2745,62 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Brian","lastName":"LaBelle","role":"Member","positionRequirement":"","termStart":"2022-04-01","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":2,"firstName":"Erik","lastName":"Injerd","role":"Member","positionRequirement":"","termStart":"2022-04-01","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":3,"firstName":"","lastName":"","role":"Member","positionRequirement":"","termStart":null,"termEnd":"2100-01-01","residency":"","isVacant":true},
-      {"position":4,"firstName":"Patrick","lastName":"McVerry","role":"Member","positionRequirement":"","termStart":"2022-04-01","termEnd":"2100-01-01","residency":"","isVacant":false},
-      {"position":5,"firstName":"Thomas","lastName":"Dewhirst","role":"Member","positionRequirement":"","termStart":"2024-01-01","termEnd":"2100-01-01","residency":"","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Brian",
+        "lastName": "LaBelle",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-04-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Erik",
+        "lastName": "Injerd",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-04-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "",
+        "lastName": "",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": null,
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": true
+      },
+      {
+        "position": 4,
+        "firstName": "Patrick",
+        "lastName": "McVerry",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2022-04-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Thomas",
+        "lastName": "Dewhirst",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-01-01",
+        "termEnd": "2100-01-01",
+        "residency": "",
+        "isVacant": false
+      }
     ]
   },
   {
@@ -694,7 +2809,7 @@
     "category": "Land Use & Planning",
     "meetingSchedule": "",
     "description": "",
-    "color": "#4a6a8a",
+    "color": "#78471c",
     "slug": "zba",
     "legalClassification": "Quasi-Judicial Commissions",
     "hasRecordings": true,
@@ -703,16 +2818,95 @@
     "subscribeEnabled": false,
     "jointWith": null,
     "relatedBoards": null,
-    "reportUrl": null,
     "members": [
-      {"position":1,"firstName":"Gary","lastName":"Wark","role":"Vice Chair","positionRequirement":"","termStart":"2023-03-06","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":2,"firstName":"Jack","lastName":"Urban","role":"Alternate","positionRequirement":"","termStart":"2025-08-18","termEnd":"2026-03-01","residency":"Resident","isVacant":false},
-      {"position":3,"firstName":"Allison","lastName":"Haan","role":"Member","positionRequirement":"","termStart":"2024-01-22","termEnd":"2026-03-31","residency":"Resident","isVacant":false},
-      {"position":4,"firstName":"Beth Ann","lastName":"Den Hombergh","role":"Member","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":5,"firstName":"Remi","lastName":"Harrington","role":"Secretary","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":6,"firstName":"Alan","lastName":"Sylvester","role":"Alternate","positionRequirement":"","termStart":"2025-04-01","termEnd":"2028-03-31","residency":"Resident","isVacant":false},
-      {"position":7,"firstName":"Tony","lastName":"McReynolds","role":"Member","positionRequirement":"","termStart":"2023-12-04","termEnd":"2027-03-31","residency":"Resident","isVacant":false},
-      {"position":8,"firstName":"Joseph","lastName":"Hohler III","role":"Chair","positionRequirement":"","termStart":"2024-04-01","termEnd":"2027-03-31","residency":"Resident","isVacant":false}
+      {
+        "position": 1,
+        "firstName": "Gary",
+        "lastName": "Wark",
+        "role": "Vice Chair",
+        "positionRequirement": "",
+        "termStart": "2023-03-06",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 2,
+        "firstName": "Jack",
+        "lastName": "Urban",
+        "role": "Alternate",
+        "positionRequirement": "",
+        "termStart": "2025-08-18",
+        "termEnd": "2026-03-01",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 3,
+        "firstName": "Allison",
+        "lastName": "Haan",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2024-01-22",
+        "termEnd": "2026-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 4,
+        "firstName": "Beth Ann",
+        "lastName": "Den Hombergh",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 5,
+        "firstName": "Remi",
+        "lastName": "Harrington",
+        "role": "Secretary",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 6,
+        "firstName": "Alan",
+        "lastName": "Sylvester",
+        "role": "Alternate",
+        "positionRequirement": "",
+        "termStart": "2025-04-01",
+        "termEnd": "2028-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 7,
+        "firstName": "Tony",
+        "lastName": "McReynolds",
+        "role": "Member",
+        "positionRequirement": "",
+        "termStart": "2023-12-04",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      },
+      {
+        "position": 8,
+        "firstName": "Joseph",
+        "lastName": "Hohler III",
+        "role": "Chair",
+        "positionRequirement": "",
+        "termStart": "2024-04-01",
+        "termEnd": "2027-03-31",
+        "residency": "Resident",
+        "isVacant": false
+      }
     ]
   }
 ]
