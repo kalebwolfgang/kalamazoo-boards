@@ -234,6 +234,14 @@
     {
       "date": "2026-07-09",
       "display": "Thursday, July 9, 2026",
+      "time": "9:00 AM",
+      "location": "City Records Center, 3001 S Burdick St",
+      "abbr": "EC",
+      "name": "Election Commission"
+    },
+    {
+      "date": "2026-07-09",
+      "display": "Thursday, July 9, 2026",
       "time": "7:00 PM – 9:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
