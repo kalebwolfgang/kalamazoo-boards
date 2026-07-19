@@ -55,6 +55,10 @@ LOOKAHEAD_MONTHS        = 6
 PRESERVE_IF_EMPTY       = ("agenda_url", "minutes_url", "youtube_id", "youtube_url", "scrapedAt")
 DETROIT_TZ              = ZoneInfo("America/Detroit")
 
+# Populated by retire_passed_meetings() call sites; reported by run_watchdog so
+# a retirement is visible in the run output instead of happening silently.
+RETIRED_MEETINGS: dict[str, list[str]] = {}
+
 
 # ---------------------------------------------------------------------------
 # Board configuration
@@ -1101,6 +1105,118 @@ def compute_upcoming_schedule(board: dict, n: int = 6) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Schedule-generated upcoming: retirement and flag preservation
+#
+# compute_upcoming_schedule() regenerates the upcoming list from a recurrence
+# rule on every run, keeping only dates >= today. Anything stored on the
+# previous run for a date that has since passed is simply discarded.
+#
+# For a normal meeting that is harmless: the CivicClerk / Minutes-Agendas path
+# archives it independently. For a CANCELLED meeting it is not. A cancellation
+# lives only on the upcoming entry, and a cancelled meeting produces no agenda
+# and no minutes, so nothing else ever archives it. The record disappears the
+# day it passes and the public archive silently loses the fact that the meeting
+# was called and cancelled. CPSRAB lost 2026-06-09 and 2026-07-14 this way.
+#
+# retire_passed_meetings() moves those records into the archive before the
+# regenerated list replaces the stored one. preserve_flagged_upcoming() keeps
+# flags on FUTURE dates sticky, so a cancellation no longer depends on the
+# notices page still carrying the notice on every subsequent run.
+# ---------------------------------------------------------------------------
+
+def retire_passed_meetings(
+    board: dict,
+    existing_upcoming: list[dict],
+    archive: list[dict],
+) -> tuple[list[dict], list[str]]:
+    """
+    Move cancelled upcoming entries whose date has passed into the archive.
+
+    Only cancelled entries are retired. A normal past meeting is archived by
+    the document-scraping path, and copying it here would create a duplicate.
+
+    If the archive already holds that date, the existing record is flagged
+    rather than a second one added: a board can have both a CivicClerk event
+    and a schedule-generated entry for the same day.
+
+    Returns the modified archive and the list of dates retired.
+    """
+    today_iso = date.today().strftime("%Y-%m-%d")
+    retired: list[str] = []
+
+    by_date = {m.get("date"): m for m in archive}
+
+    for entry in existing_upcoming or []:
+        d = entry.get("date")
+        if not d or d >= today_iso:
+            continue
+        if not entry.get("isCancelled"):
+            continue
+
+        existing_rec = by_date.get(d)
+        if existing_rec is not None:
+            if not existing_rec.get("isCancelled"):
+                existing_rec["isCancelled"] = True
+                retired.append(d)
+            continue
+
+        record = {
+            "date":        d,
+            "display":     entry.get("display") or format_display_date(d),
+            "link_label":  "Cancelled",
+            "isCancelled": True,
+            "minutes_url": None,
+            "agenda_url":  None,
+            "location":    entry.get("location"),
+            "scrapedAt":   datetime.now(timezone.utc).isoformat(),
+            "sourceUrl":   board.get("web_url"),
+        }
+        archive.append(record)
+        by_date[d] = record
+        retired.append(d)
+
+    return archive, retired
+
+
+def preserve_flagged_upcoming(
+    generated: list[dict],
+    existing_upcoming: list[dict],
+) -> list[dict]:
+    """
+    Carry stored flags forward onto a regenerated upcoming list.
+
+    A recurrence rule knows only dates. It cannot know that a future meeting
+    was cancelled, rescheduled, moved, or called as a special session. Those
+    facts are written onto the stored entry by the notices handler.
+
+    Without this, a flag survives only because the notices page still carries
+    the notice and the handler reapplies it on every run. If the city takes a
+    notice down, or rewords it past the parser, the flag silently vanishes.
+    This makes a flag sticky once set.
+
+    Stored entries whose date is not in the generated list are NOT carried
+    over: they are either in the past (handled by retire_passed_meetings) or
+    no longer part of the schedule.
+    """
+    FLAGS = ("isCancelled", "rescheduledFrom", "locationChanged",
+             "isSpecial", "location")
+
+    stored_by_date = {
+        e.get("date"): e
+        for e in (existing_upcoming or [])
+        if any(e.get(f) for f in FLAGS)
+    }
+    if not stored_by_date:
+        return generated
+
+    out = []
+    for entry in generated:
+        stored = stored_by_date.get(entry.get("date"))
+        out.append(stored if stored is not None else entry)
+    return out
+
+
+# ---------------------------------------------------------------------------
 # Minutes-Agendas page scraping  (web_docs_and_youtube boards)
 # ---------------------------------------------------------------------------
 
@@ -1996,7 +2112,21 @@ def run_web_docs_and_youtube_board(
     print(f"    added: {stats['added']}  updated: {stats['updated']}  unchanged: {stats['unchanged']}")
     merged_recordings = merge_recordings(existing.get("recordings", []), recordings)
 
+    stored_upcoming = existing.get("upcoming_meetings", [])
+
+    # Retire cancelled entries that have passed into the archive BEFORE the
+    # regenerated list replaces them, otherwise the record is lost forever.
+    merged_meetings, retired = retire_passed_meetings(
+        board, stored_upcoming, merged_meetings
+    )
+    if retired:
+        merged_meetings.sort(key=lambda m: m.get("date", ""), reverse=True)
+        print(f"  Retired {len(retired)} cancelled meeting(s) to archive: "
+              + ", ".join(retired))
+        RETIRED_MEETINGS.setdefault(board["abbr"], []).extend(retired)
+
     upcoming = compute_upcoming_schedule(board)
+    upcoming = preserve_flagged_upcoming(upcoming, stored_upcoming)
     print(f"  Upcoming: computed {len(upcoming)} dates from schedule rule")
 
     output = {
@@ -2025,10 +2155,25 @@ def run_youtube_only_board(
     existing          = load_existing(board["output"])
     merged_recordings = merge_recordings(existing.get("recordings", []), recordings)
 
+    archive = existing.get("meetings", [])
+
     if board.get("schedule"):
+        stored_upcoming = existing.get("upcoming_meetings", [])
+        # Same retirement pass as the web_docs path: this branch discards the
+        # stored upcoming list wholesale, so cancelled past dates must be moved
+        # into the archive first.
+        archive, retired = retire_passed_meetings(board, stored_upcoming, archive)
+        if retired:
+            archive.sort(key=lambda m: m.get("date", ""), reverse=True)
+            print(f"  Retired {len(retired)} cancelled meeting(s) to archive: "
+                  + ", ".join(retired))
+            RETIRED_MEETINGS.setdefault(board["abbr"], []).extend(retired)
+
         upcoming = compute_upcoming_schedule(board)
+        upcoming = preserve_flagged_upcoming(upcoming, stored_upcoming)
         print(f"  Upcoming: computed {len(upcoming)} dates from schedule rule")
     else:
+        # This branch already preserves the stored list, so nothing is lost.
         upcoming = existing.get("upcoming_meetings", [])
         print(f"  Upcoming: preserved {len(upcoming)} dates from existing JSON")
 
@@ -2036,11 +2181,11 @@ def run_youtube_only_board(
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "metadata":          build_metadata(board),
         "upcoming_meetings": upcoming,
-        "meetings":          existing.get("meetings", []),
+        "meetings":          archive,
         "recordings":        merged_recordings,
     }
     _write_output(board, output)
-    preserved = len(existing.get("meetings", []))
+    preserved = len(archive)
     print(f"  Wrote {board['output']}  ({preserved} meetings preserved, {len(merged_recordings)} recordings)")
 
 
@@ -2246,6 +2391,9 @@ def run_watchdog(boards_run: list, prev_state: dict, dom_alerts: list) -> None:
     """
     if not prev_state:
         print("  Watchdog: no previous state snapshot — skipping comparison.")
+        for abbr, dates in sorted(RETIRED_MEETINGS.items()):
+            if dates:
+                print(f"  RETIRED: {abbr} → {', '.join(dates)}")
         for alert in dom_alerts:
             print(f"  DOM ALERT: {alert}")
         if dom_alerts:
@@ -2259,6 +2407,15 @@ def run_watchdog(boards_run: list, prev_state: dict, dom_alerts: list) -> None:
     print("\nRunning watchdog checks...")
     errors:  list[str] = []
     alerts:  list[str] = list(dom_alerts)  # dom alerts are warnings, not hard stops
+
+    # Informational, not a warning: record any cancelled meetings that moved
+    # from upcoming into the archive on this run.
+    for abbr, dates in sorted(RETIRED_MEETINGS.items()):
+        if dates:
+            alerts.append(
+                f"{abbr}: retired {len(dates)} cancelled meeting(s) to archive "
+                f"({', '.join(dates)})"
+            )
 
     prev_by_board = prev_state.get("byBoard", {})
 
