@@ -14,6 +14,17 @@
   ],
   "meetings": [
     {
+      "date": "2026-07-09",
+      "display": "July 9, 2026",
+      "link_label": "No documents posted",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": "City Records Center, 3001 S Burdick St",
+      "isCancelled": false,
+      "scrapedAt": "2026-07-19T01:03:52.751208+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Election-Commission"
+    },
+    {
       "date": "2026-04-09",
       "display": "April 9, 2026",
       "event_id": 2763,
