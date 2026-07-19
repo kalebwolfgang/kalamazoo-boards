@@ -13,7 +13,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -131,12 +130,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": "EDC",
-    "relatedBoards": [
-      {
-        "abbr": "EDC",
-        "label": "Shares membership with EDC"
-      }
-    ],
     "members": [
       {
         "position": 1,
@@ -275,7 +268,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -392,7 +384,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -542,7 +533,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -659,7 +649,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -776,12 +765,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": "DEGA",
-    "relatedBoards": [
-      {
-        "abbr": "DEGA",
-        "label": "Shares membership with DEGA"
-      }
-    ],
     "members": [
       {
         "position": 1,
@@ -920,12 +903,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": "DDA",
-    "relatedBoards": [
-      {
-        "abbr": "DDA",
-        "label": "Shares membership with DDA"
-      }
-    ],
     "members": [
       {
         "position": 1,
@@ -1043,12 +1020,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": "BRA",
-    "relatedBoards": [
-      {
-        "abbr": "BRA",
-        "label": "Shares membership with BRA"
-      }
-    ],
     "members": [
       {
         "position": 1,
@@ -1187,7 +1158,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -1238,7 +1208,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -1311,7 +1280,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -1450,7 +1418,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -1545,7 +1512,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -1640,7 +1606,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -1735,7 +1700,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -1885,7 +1849,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -1980,7 +1943,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -2075,7 +2037,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -2192,7 +2153,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -2309,7 +2269,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -2404,7 +2363,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -2521,7 +2479,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -2660,7 +2617,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -2744,7 +2700,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
@@ -2817,7 +2772,6 @@
     "boardEmail": null,
     "subscribeEnabled": false,
     "jointWith": null,
-    "relatedBoards": null,
     "members": [
       {
         "position": 1,
