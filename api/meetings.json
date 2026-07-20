@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-19",
+  "lastUpdated": "2026-07-20",
   "meetings": [
     {
       "date": "2026-07-21",
@@ -785,6 +785,14 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
       "name": "Citizen-Public Safety Review and Appeals Board"
+    },
+    {
+      "date": "2027-01-14",
+      "display": "Thursday, January 14, 2027",
+      "time": "07:00 PM – 09:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "ZBA",
+      "name": "Zoning Board of Appeals"
     }
   ]
 }
