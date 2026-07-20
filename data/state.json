@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-18T15:26:24.190728-04:00",
-  "totalMeetings": 548,
+  "timestamp": "2026-07-20T11:59:19.361216-04:00",
+  "totalMeetings": 554,
   "byBoard": {
     "crb": {
       "meetings": 24
@@ -9,7 +9,7 @@
       "meetings": 45
     },
     "cpsrab": {
-      "meetings": 45
+      "meetings": 47
     },
     "dda": {
       "meetings": 38
@@ -21,7 +21,7 @@
       "meetings": 41
     },
     "ec": {
-      "meetings": 14
+      "meetings": 15
     },
     "ecc": {
       "meetings": 24
@@ -63,10 +63,10 @@
       "meetings": 4
     },
     "tre": {
-      "meetings": 2
+      "meetings": 3
     },
     "bba": {
-      "meetings": 1
+      "meetings": 3
     },
     "cdaac": {
       "meetings": 1

@@ -700,4 +700,11 @@ DTEND;TZID=America/Detroit:20270112T200000
 SUMMARY:Citizen-Public Safety Review and Appeals Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
+BEGIN:VEVENT
+UID:ZBA-2027-01-14@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20270114T190000
+DTEND;TZID=America/Detroit:20270114T210000
+SUMMARY:Zoning Board of Appeals — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
 END:VCALENDAR
