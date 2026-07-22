@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-20T15:59:19.745541+00:00",
-  "runId": "0247fd90",
+  "timestamp": "2026-07-22T15:46:22.589346+00:00",
+  "runId": "5de3cec8",
   "validationPassed": true,
   "changes": [
     {
@@ -45,8 +45,8 @@
     },
     {
       "board": "hdc",
-      "meetings": 39,
-      "upcoming": 6
+      "meetings": 40,
+      "upcoming": 5
     },
     {
       "board": "hpc",
