@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-20",
+  "last_updated": "2026-07-22",
   "meetings": [
     {
       "date": "2026-06-02",
@@ -313,10 +313,11 @@
     {
       "date": "2026-07-21",
       "display": "Tuesday, July 21, 2026",
-      "time": "05:00 PM – 07:00 PM",
+      "time": "5:00 PM – 7:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission",
+      "youtube_url": "https://www.youtube.com/watch?v=BputsxoA2Ls",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2741/files/agenda/5251"
     },
     {
