@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-22",
+  "last_updated": "2026-07-24",
   "meetings": [
     {
       "date": "2026-06-02",
@@ -323,16 +323,7 @@
     {
       "date": "2026-07-22",
       "display": "Wednesday, July 22, 2026",
-      "time": "2:30 PM",
-      "location": "Community Room at City Hall, 241 W. South Street",
-      "abbr": "ERSB",
-      "name": "Employee Retirement System Board of Trustees",
-      "isSpecial": true
-    },
-    {
-      "date": "2026-07-22",
-      "display": "Wednesday, July 22, 2026",
-      "time": "9:30 AM",
+      "time": "TBD",
       "location": "Third Floor Conference Room, City Hall, 241 W South St",
       "abbr": "BOR",
       "name": "Board of Review for Assessments"
@@ -343,7 +334,8 @@
       "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
-      "name": "Natural Features Protection Review Board"
+      "name": "Natural Features Protection Review Board",
+      "notOnCityCalendar": true
     },
     {
       "date": "2026-08-04",
@@ -505,7 +497,7 @@
     {
       "date": "2026-09-02",
       "display": "Wednesday, September 2, 2026",
-      "time": "02:30 PM – 03:30 PM",
+      "time": "08:00 AM – 09:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "ERSB",
       "name": "Employee Retirement System Board of Trustees"
@@ -987,7 +979,7 @@
     {
       "date": "2026-12-09",
       "display": "Wednesday, December 9, 2026",
-      "time": "02:30 PM – 03:30 PM",
+      "time": "08:00 AM – 09:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "ERSB",
       "name": "Employee Retirement System Board of Trustees"
