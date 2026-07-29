@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-07-27",
+  "last_updated": "2026-07-29",
   "metadata": {
     "time": "04:00 PM – 06:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-07-28",
-      "display": "Tuesday, July 28, 2026",
-      "time": "04:00 PM – 06:00 PM",
-      "notOnCityCalendar": true
-    },
     {
       "date": "2026-08-25",
       "display": "Tuesday, August 25, 2026",
@@ -38,6 +32,20 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-07-28",
+      "display": "July 28, 2026",
+      "event_id": 2728,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2728/overview",
+      "link_label": "Meeting Record",
+      "isCancelled": true,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2728/overview",
+      "scrapedAt": "2026-07-29T15:52:27.365325+00:00",
+      "meeting_type": "Natural Features Protection Review Board - CANCELLED"
+    },
     {
       "date": "2026-06-23",
       "display": "June 23, 2026",

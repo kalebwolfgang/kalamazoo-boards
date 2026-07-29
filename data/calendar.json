@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-27",
+  "last_updated": "2026-07-29",
   "meetings": [
     {
       "date": "2026-06-02",
@@ -331,11 +331,11 @@
     {
       "date": "2026-07-28",
       "display": "Tuesday, July 28, 2026",
-      "time": "04:00 PM – 06:00 PM",
+      "time": "4:00 PM – 6:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board",
-      "notOnCityCalendar": true
+      "isCancelled": true
     },
     {
       "date": "2026-08-04",
@@ -351,7 +351,8 @@
       "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CRB",
-      "name": "Civil Rights Board"
+      "name": "Civil Rights Board",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2606/files/agenda/5260"
     },
     {
       "date": "2026-08-05",
