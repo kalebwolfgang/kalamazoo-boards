@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-29T15:53:04.097895+00:00",
-  "runId": "ba7d2765",
+  "timestamp": "2026-07-31T16:04:29.483647+00:00",
+  "runId": "e713fb4f",
   "validationPassed": true,
   "changes": [
     {
@@ -21,12 +21,12 @@
     {
       "board": "dda",
       "meetings": 38,
-      "upcoming": 5
+      "upcoming": 6
     },
     {
       "board": "dega",
       "meetings": 41,
-      "upcoming": 5
+      "upcoming": 6
     },
     {
       "board": "edc",
