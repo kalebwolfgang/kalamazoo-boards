@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-29",
+  "last_updated": "2026-07-31",
   "meetings": [
     {
       "date": "2026-06-02",
@@ -357,6 +357,24 @@
     {
       "date": "2026-08-05",
       "display": "Wednesday, August 5, 2026",
+      "time": "8:30 AM",
+      "location": "125 S. Kalamazoo Mall, City Centre Events Space",
+      "abbr": "DDA",
+      "name": "Downtown Development Authority Board",
+      "isSpecial": true
+    },
+    {
+      "date": "2026-08-05",
+      "display": "Wednesday, August 5, 2026",
+      "time": "8:30 AM",
+      "location": "125 S. Kalamazoo Mall, City Centre Events Space",
+      "abbr": "DEGA",
+      "name": "Downtown Economic Growth Authority Board",
+      "isSpecial": true
+    },
+    {
+      "date": "2026-08-05",
+      "display": "Wednesday, August 5, 2026",
       "time": "5:30 PM",
       "location": "Axtell Creek Park",
       "abbr": "PRAB",
@@ -399,7 +417,7 @@
     {
       "date": "2026-08-17",
       "display": "Monday, August 17, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -407,7 +425,7 @@
     {
       "date": "2026-08-17",
       "display": "Monday, August 17, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
@@ -602,7 +620,7 @@
     {
       "date": "2026-09-21",
       "display": "Monday, September 21, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -610,7 +628,7 @@
     {
       "date": "2026-09-21",
       "display": "Monday, September 21, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
@@ -739,7 +757,7 @@
     {
       "date": "2026-10-19",
       "display": "Monday, October 19, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -747,7 +765,7 @@
     {
       "date": "2026-10-19",
       "display": "Monday, October 19, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
@@ -835,7 +853,7 @@
     {
       "date": "2026-11-16",
       "display": "Monday, November 16, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -843,7 +861,7 @@
     {
       "date": "2026-11-16",
       "display": "Monday, November 16, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
@@ -1060,7 +1078,7 @@
     {
       "date": "2026-12-21",
       "display": "Monday, December 21, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -1068,7 +1086,7 @@
     {
       "date": "2026-12-21",
       "display": "Monday, December 21, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "08:30 AM – 10:00 AM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
