@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-08-03T16:31:23.265758+00:00",
-  "runId": "a994a628",
+  "timestamp": "2026-08-05T16:04:05.852493+00:00",
+  "runId": "09536d79",
   "validationPassed": true,
   "changes": [
     {
       "board": "crb",
-      "meetings": 24,
+      "meetings": 25,
       "upcoming": 3
     },
     {
@@ -25,7 +25,7 @@
     },
     {
       "board": "dega",
-      "meetings": 41,
+      "meetings": 42,
       "upcoming": 6
     },
     {
@@ -105,8 +105,8 @@
     },
     {
       "board": "tre",
-      "meetings": 3,
-      "upcoming": 5
+      "meetings": 4,
+      "upcoming": 4
     },
     {
       "board": "bba",
