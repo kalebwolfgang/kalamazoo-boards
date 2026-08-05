@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-03T12:31:22.872687-04:00",
-  "totalMeetings": 557,
+  "timestamp": "2026-08-05T12:04:05.432118-04:00",
+  "totalMeetings": 560,
   "byBoard": {
     "crb": {
-      "meetings": 24
+      "meetings": 25
     },
     "bra": {
       "meetings": 45
@@ -15,7 +15,7 @@
       "meetings": 38
     },
     "dega": {
-      "meetings": 41
+      "meetings": 42
     },
     "edc": {
       "meetings": 41
@@ -63,7 +63,7 @@
       "meetings": 4
     },
     "tre": {
-      "meetings": 3
+      "meetings": 4
     },
     "bba": {
       "meetings": 3

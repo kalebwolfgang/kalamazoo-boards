@@ -29,36 +29,36 @@ LOCATION:125 S. Kalamazoo Mall, City Centre Events Space
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-08-17@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260817T083000
-DTEND;TZID=America/Detroit:20260817T100000
+DTSTART;TZID=America/Detroit:20260817T150000
+DTEND;TZID=America/Detroit:20260817T170000
 SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-09-21@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260921T083000
-DTEND;TZID=America/Detroit:20260921T100000
+DTSTART;TZID=America/Detroit:20260921T150000
+DTEND;TZID=America/Detroit:20260921T170000
 SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-10-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261019T083000
-DTEND;TZID=America/Detroit:20261019T100000
+DTSTART;TZID=America/Detroit:20261019T150000
+DTEND;TZID=America/Detroit:20261019T170000
 SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-11-16@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261116T083000
-DTEND;TZID=America/Detroit:20261116T100000
+DTSTART;TZID=America/Detroit:20261116T150000
+DTEND;TZID=America/Detroit:20261116T170000
 SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-12-21@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261221T083000
-DTEND;TZID=America/Detroit:20261221T100000
+DTSTART;TZID=America/Detroit:20261221T150000
+DTEND;TZID=America/Detroit:20261221T170000
 SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
