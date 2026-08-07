@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-05",
+  "last_updated": "2026-08-07",
   "metadata": {
     "time": "07:00 PM – 09:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -8,7 +8,8 @@
     {
       "date": "2026-08-13",
       "display": "Thursday, August 13, 2026",
-      "time": "07:00 PM – 09:00 PM"
+      "time": "07:00 PM – 09:00 PM",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2620/files/agenda/5274"
     },
     {
       "date": "2026-09-10",

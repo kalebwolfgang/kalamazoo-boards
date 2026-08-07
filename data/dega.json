@@ -1,17 +1,10 @@
 {
-  "last_updated": "2026-08-05",
+  "last_updated": "2026-08-07",
   "metadata": {
     "time": "03:00 PM – 05:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-08-05",
-      "display": "Wednesday, August 5, 2026",
-      "time": "8:30 AM",
-      "isSpecial": true,
-      "location": "125 S. Kalamazoo Mall, City Centre Events Space"
-    },
     {
       "date": "2026-08-17",
       "display": "Monday, August 17, 2026",
