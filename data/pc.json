@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-10",
+  "last_updated": "2026-08-12",
   "metadata": {
     "time": "07:00 PM – 09:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -78,16 +78,19 @@
     },
     {
       "date": "2026-05-07",
-      "display": "May 07, 2026",
+      "display": "May 7, 2026",
       "event_id": 2587,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995",
-      "link_label": "Agenda",
-      "minutes_url": null,
+      "link_label": "Agenda & Minutes",
+      "isCancelled": false,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/5291",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2587/files/agenda/4995",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2587/overview",
+      "scrapedAt": null,
       "meeting_type": "Planning Commission - Regular Meeting",
       "youtube_id": "RGquK8ZfqZ8",
-      "youtube_url": "https://www.youtube.com/watch?v=RGquK8ZfqZ8",
-      "isCancelled": false
+      "youtube_url": "https://www.youtube.com/watch?v=RGquK8ZfqZ8"
     },
     {
       "date": "2026-04-08",

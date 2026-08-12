@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-10",
+  "last_updated": "2026-08-12",
   "meetings": [
     {
       "date": "2026-07-02",
@@ -182,17 +182,9 @@
       "isCancelled": true
     },
     {
-      "date": "2026-08-11",
-      "display": "Tuesday, August 11, 2026",
-      "time": "06:00 PM – 08:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "CPSRAB",
-      "name": "Citizen-Public Safety Review and Appeals Board"
-    },
-    {
       "date": "2026-08-12",
       "display": "Wednesday, August 12, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "6:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -906,6 +898,14 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
       "name": "Zoning Board of Appeals"
+    },
+    {
+      "date": "2027-02-09",
+      "display": "Tuesday, February 9, 2027",
+      "time": "06:00 PM – 08:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "CPSRAB",
+      "name": "Citizen-Public Safety Review and Appeals Board"
     }
   ]
 }
