@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-08-12",
+  "last_updated": "2026-08-14",
   "metadata": {
     "time": "06:00 PM – 08:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-08-12",
-      "display": "Wednesday, August 12, 2026",
-      "time": "6:00 PM"
-    },
     {
       "date": "2026-09-09",
       "display": "Wednesday, September 9, 2026",
@@ -36,24 +31,26 @@
       "date": "2026-08-12",
       "display": "August 12, 2026",
       "event_id": 2679,
-      "url": "https://kalamazoomi.portal.civicclerk.com/event/2679/files/agenda/5288",
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2679/files/agenda/5295",
       "link_label": "Agenda",
       "isCancelled": false,
       "minutes_url": null,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2679/files/agenda/5288",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2679/files/agenda/5295",
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2679/overview",
       "scrapedAt": "2026-08-12T15:01:59.641349+00:00",
-      "meeting_type": "Historic Preservation Commission"
+      "meeting_type": "Historic Preservation Commission",
+      "youtube_id": "7FC3p8qsoiw",
+      "youtube_url": "https://www.youtube.com/watch?v=7FC3p8qsoiw"
     },
     {
       "date": "2026-07-08",
       "display": "July 8, 2026",
       "event_id": 2678,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2678/files/agenda/5230",
-      "link_label": "Agenda",
+      "link_label": "Agenda & Minutes",
       "isCancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2678/files/agenda/5286",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2678/files/agenda/5230",
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2678/overview",
@@ -521,6 +518,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-08-12",
+      "display": "August 12, 2026",
+      "youtube_id": "7FC3p8qsoiw",
+      "youtube_url": "https://www.youtube.com/watch?v=7FC3p8qsoiw",
+      "title": "August 12, 2026 Historic Preservation Commission"
+    },
     {
       "date": "2026-07-08",
       "display": "July 8, 2026",

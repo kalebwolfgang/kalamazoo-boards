@@ -21,11 +21,11 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:PRAB-2026-09-08@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260908T173000
-DTEND;TZID=America/Detroit:20260908T193000
+UID:PRAB-2026-09-09@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20260909T173000
+DTEND;TZID=America/Detroit:20260909T193000
 SUMMARY:Parks and Recreation Advisory Board — City of Kalamazoo
-LOCATION:Community Room, Mayors' Riverfront Park
+LOCATION:Parks and Recreation Community Room at Mayors' Riverfront Park, 251 Mills Street
 END:VEVENT
 BEGIN:VEVENT
 UID:PRAB-2026-10-06@kalamazoocity-boards
