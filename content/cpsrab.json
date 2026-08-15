@@ -1,38 +1,135 @@
 {
   "abbr": "CPSRAB",
   "appealProcess": {
-    "title": "How Appeals Work",
+    "title": "How appeals work",
     "anchor": "how-appeals-work",
-    "open": false,
-    "body": [
+    "intro": "Six steps run from the complaint to the final decision. Two of them are yours, and each has a deadline attached.",
+    "steps": [
       {
-        "type": "paragraph",
-        "text": "CPSRAB reviews appeals of complaint findings made by the Chief of Public Safety after investigation by the Office of Professional Standards. The Board may only recommend changes to findings of exonerated, unfounded, or not sustained."
-      },
-      {
-        "type": "steps",
-        "items": [
+        "title": "File a complaint",
+        "short": "File a complaint",
+        "actor": "Kalamazoo Department of Public Safety",
+        "desc": "Complaints about a public safety employee are investigated by the Office of Professional Standards, which is a division inside the Kalamazoo Department of Public Safety. You can file online, by phone, in person at any station, or by mail.",
+        "links": [
           {
-            "title": "File a Complaint",
-            "desc": "Submit a PCR complaint with KDPS online, in person, by mail, phone, or email. OPS receives and investigates the complaint."
+            "text": "How to file a complaint",
+            "href": "https://www.kalamazoopublicsafety.org/Resources/File-a-Commendation-or-Complaint"
           },
           {
-            "title": "OPS Investigation",
-            "desc": "OPS investigates within 45 days. Upon completion, the Chief makes a final finding and notifies the complainant within 10 business days."
-          },
-          {
-            "title": "File an Appeal",
-            "desc": "If unsatisfied with the Chief's finding, file an appeal with the City Manager within 15 business days of receiving the decision."
-          },
-          {
-            "title": "CPSRAB Hearing",
-            "desc": "The City Manager refers qualifying appeals to CPSRAB. A hearing is scheduled within 30 business days and held within 60."
-          },
-          {
-            "title": "Board Recommendation",
-            "desc": "The Board submits a written report to the City Manager within 14 business days recommending to sustain or reverse the Chief's finding."
+            "text": "File a complaint online",
+            "href": "https://us.openforms.com/Form/a4480d08-6ed8-4fc8-a673-5133a2f17a9b"
           }
         ]
+      },
+      {
+        "title": "The investigation and the finding",
+        "short": "Investigation",
+        "actor": "Office of Professional Standards",
+        "desc": "The Office of Professional Standards completes its investigation within 45 days of the complaint being filed. If more time is needed, the inspector assigned to the case contacts you with an estimated completion date. The findings then go to the Chief of Public Safety for a final determination, and you receive written notice of the outcome.",
+        "links": [
+          {
+            "text": "About the Office of Professional Standards",
+            "href": "https://www.kalamazoopublicsafety.org/Divisions/Professional-Standards"
+          }
+        ]
+      },
+      {
+        "title": "File an appeal",
+        "short": "File an appeal",
+        "actor": "City Manager's Office",
+        "desc": "If you disagree with the finding, you appeal to the City Manager's Office. Your appeal form and the response letter you received must both be received by the City Manager's Office no later than 15 business days after you received that letter, which is roughly three calendar weeks. Incomplete materials are not processed.",
+        "links": [
+          {
+            "text": "File an appeal online",
+            "href": "https://us.openforms.com/Form/7f3be12c-8090-4af0-92ab-3d9280e035a7"
+          },
+          {
+            "text": "Appeal form",
+            "href": "https://www.kalamazoocity.org/files/assets/public/v/1/applications-amp-forms/cpsrab-appeal-form.pdf",
+            "pdf": true
+          }
+        ]
+      },
+      {
+        "title": "The hearing",
+        "short": "The hearing",
+        "actor": "The Board",
+        "desc": "The City Manager's Office refers qualifying appeals to the Board and schedules a hearing within 30 business days. The hearing is held no later than 60 business days after the appeal is filed. You may appear in person, and you choose on the appeal form whether the hearing is open to the public or closed. The Board reviews the case materials but does not hear from witnesses other than the Chief of Public Safety or the Chief's designee.",
+        "links": [
+          {
+            "text": "How the Board handles appeals",
+            "href": "https://www.kalamazoocpsrab.org/complaints"
+          }
+        ]
+      },
+      {
+        "title": "The Board's recommendation",
+        "short": "Recommendation",
+        "actor": "The Board",
+        "desc": "The Board deliberates privately and sends a written report to the City Manager no later than 15 business days after the hearing. It can recommend that the Chief's finding be upheld or changed to sustained, and it can ask in writing for further investigation. It cannot impose discipline, and it cannot recommend that discipline be imposed or increased.",
+        "links": [
+          {
+            "text": "Policies and Procedures of Operation",
+            "href": "https://www.kalamazoocity.org/files/assets/public/v/2/bylaws/cpsrab-policies-and-procedures-of-operation_2025.pdf",
+            "pdf": true
+          }
+        ]
+      },
+      {
+        "title": "The City Manager decides",
+        "short": "Final decision",
+        "actor": "City Manager's Office",
+        "desc": "The City Manager has the final authority to uphold or amend the response made by the Chief of Public Safety and the recommendation made by the Board. You are notified of the outcome no later than 20 business days after the hearing. This is the last step in the process.",
+        "links": [
+          {
+            "text": "Terms of the appeal process",
+            "href": "https://www.kalamazoocity.org/files/assets/public/v/1/applications-amp-forms/cpsrab-appeal-form.pdf",
+            "pdf": true
+          }
+        ]
+      }
+    ],
+    "body": [
+      {
+        "type": "heading",
+        "text": "What an appeal can and cannot do"
+      },
+      {
+        "type": "paragraph",
+        "text": "The Board is an outside check on an investigation carried out inside the Kalamazoo Department of Public Safety. It cannot discipline anyone. The strongest outcome an appeal can produce is a recommendation to the City Manager that the Chief of Public Safety’s finding be changed to sustained. Decisions about discipline are made separately and are not part of this process."
+      },
+      {
+        "type": "heading",
+        "text": "Which findings can be appealed"
+      },
+      {
+        "type": "paragraph",
+        "text": "Whether you can appeal depends entirely on which finding the Chief of Public Safety reached. The finding is named in the written notice you received, so check that letter for the exact wording before you file."
+      },
+      {
+        "type": "field",
+        "label": "Sustained",
+        "value": "There was enough evidence to prove what you reported. This finding cannot be appealed."
+      },
+      {
+        "type": "field",
+        "label": "Not sustained",
+        "value": "The investigation could not prove or disprove what you reported. This finding can be appealed."
+      },
+      {
+        "type": "field",
+        "label": "Unfounded",
+        "value": "The investigation determined that the incident did not happen, or did not involve a department employee. This finding can be appealed."
+      },
+      {
+        "type": "field",
+        "label": "Exonerated",
+        "value": "The incident did happen, but was found to be justified and proper. This finding can be appealed."
+      },
+      {
+        "type": "field",
+        "label": "Misconduct not based on complaint",
+        "value": "The investigation uncovered improper job performance unrelated to what you reported. This finding can be appealed."
       }
     ]
   },
@@ -67,7 +164,7 @@
         {
           "type": "list",
           "items": [
-            "Receive copies of PCR complaints (with personal information redacted) upon request",
+            "Receive copies of complaints (with personal information redacted) upon request",
             "Be updated monthly on the progress of all active complaint investigations by the Office of Professional Standards",
             "Inquire about any complaint investigation, regardless of the Chief's finding, in the absence of a formal appeal",
             "Review the complaint reporting process and recommend improvements to the Chief and City Manager"
