@@ -562,14 +562,21 @@ footer a:hover { color: var(--gold-lt); }
 .status-badge.open          { background: #fee2e2; color: #991b1b; }
 
 .staff-note-wrap { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x) clamp(32px, 5vw, 48px); }
-.staff-note { background: var(--cream-dk); border: 1px solid var(--border); border-radius: 3px; padding: 14px 18px; font-size: 14px; color: var(--muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55; }
-.staff-note strong { color: var(--body); }
-.staff-liaisons { display: flex; flex-direction: column; gap: 8px; }
-.staff-liaison-row { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
-.staff-liaison-name { font-weight: 600; color: var(--body); }
-.staff-liaison-role { color: var(--muted); font-size: 13px; }
-.staff-liaison-email { font-size: 13px; color: var(--muted); }
-.staff-liaison-email a { color: var(--navy-light); }
+/* ── CITY CONTACT POINT ──
+   The email is the actionable thing here, so it leads each card and the
+   person's name and title sit underneath it. Cards wrap to one column on
+   narrow screens. */
+.contact-block { background: var(--cream-dk); border: 1px solid var(--border); border-radius: 3px; padding: 18px 20px; }
+.contact-block-head { display: flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--body); margin-bottom: 14px; }
+.contact-block-head strong { font-weight: 700; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.contact-card { background: #fff; border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; }
+.contact-email { display: inline-block; font-size: 17px; font-weight: 600; color: var(--navy-light); text-decoration: none; word-break: break-word; line-height: 1.35; }
+.contact-email:hover, .contact-email:focus { text-decoration: underline; }
+.contact-person { margin-top: 6px; display: flex; flex-direction: column; gap: 1px; }
+.contact-name { font-size: 14px; font-weight: 600; color: var(--body); }
+.contact-role { font-size: 13px; color: var(--muted); line-height: 1.45; }
+.contact-note { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.5; }
 
 /* ── CANCELLATION ── */
 .meeting-canceled .minutes-date { text-decoration: line-through; opacity: 0.6; }
@@ -609,6 +616,9 @@ footer a:hover { color: var(--gold-lt); }
    Type modifier (.special-cta--appeal) sets the background color.
    ────────────────────────────────────────────── */
 .special-cta { padding: clamp(24px, 4vw, 40px) var(--pad-x) 0; }
+/* Standalone accordion rendered directly beneath a special CTA. Matches the
+   CTA's container width so the two read as one unit. */
+.acc-list--standalone { max-width: 1400px; margin: 0 auto; padding: 14px var(--pad-x) 0; }
 .special-cta-inner {
   max-width: 1400px; margin: 0 auto;
   border-radius: 4px;
@@ -787,5 +797,6 @@ footer a:hover { color: var(--gold-lt); }
   .members-table th { background: #f0f0f0 !important; color: black; }
 
   .h-scroll-track { display: none; }
-  .staff-note { background: white; border: 1px solid #ccc; }
+  .contact-block { background: white; border: 1px solid #ccc; }
+  .contact-card { border: 1px solid #ccc; }
 }
