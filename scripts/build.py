@@ -1079,7 +1079,14 @@ def generate_search_index(boards_data: list[dict]) -> None:
         except (json.JSONDecodeError, OSError):
             continue
 
-        for acc in cdata.get("accordions", []):
+        # appealProcess is a standalone accordion rendered under the special
+        # CTA rather than in the main list, but it is a searchable section
+        # like any other, so it is indexed alongside them.
+        sections = list(cdata.get("accordions", []))
+        if cdata.get("appealProcess"):
+            sections.append(cdata["appealProcess"])
+
+        for acc in sections:
             anchor  = acc.get("anchor", "")
             title   = acc.get("title", "")
             summary = acc.get("summary", "")
@@ -1093,6 +1100,15 @@ def generate_search_index(boards_data: list[dict]) -> None:
                     body_parts.append(
                         f"{item.get('label', '')} {item.get('value', '')}"
                     )
+                elif item.get("type") == "steps":
+                    # Previously skipped entirely, so step text was invisible
+                    # to search on every board that used it.
+                    for step in item.get("items", []):
+                        body_parts.append(
+                            f"{step.get('title', '')} {step.get('desc', '')}"
+                        )
+                elif item.get("type") == "heading":
+                    body_parts.append(item.get("text", ""))
             content_text = f"{summary} {' '.join(body_parts)}".strip()
             entries.append({
                 "id":      f"board-{slug}-{anchor}",
