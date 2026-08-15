@@ -43,11 +43,12 @@
       }
     },
     "appealProcess": {
-      "description": "Standalone accordion rendered directly beneath the special CTA rather than in the main accordion list.",
+      "description": "Standalone step-by-step process rendered directly beneath the special CTA rather than in the main accordion list.",
       "type": "object",
       "required": [
         "title",
-        "anchor"
+        "anchor",
+        "steps"
       ],
       "additionalProperties": false,
       "properties": {
@@ -57,8 +58,57 @@
         "anchor": {
           "type": "string"
         },
-        "open": {
-          "type": "boolean"
+        "intro": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "desc"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "short": {
+                "type": "string",
+                "description": "Short label for the compact rail. Falls back to title."
+              },
+              "actor": {
+                "type": "string",
+                "description": "Who is responsible for this step."
+              },
+              "desc": {
+                "type": "string"
+              },
+              "links": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "text",
+                    "href"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "href": {
+                      "type": "string"
+                    },
+                    "pdf": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "body": {
           "type": "array",
