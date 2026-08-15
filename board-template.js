@@ -72,6 +72,7 @@ let pendingCalendarAction = null;
      1. Apply appends to .bottom-cards as 3rd card
      2. Special CTA inserts before .bottom-cards
      3. Documents inserts after 1st card → final order: Minutes / Key Docs / Recordings / Apply */
+  applyNavApplyUrl();
   renderApplyToServe();
   renderSpecialCta();
   renderMembersSubhead();
@@ -252,21 +253,35 @@ function renderStaffLiaison() {
   const icon = `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--navy-light);margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
 
   const rows = liaisons.map(l => `
-    <div class="staff-liaison-row">
-      <span class="staff-liaison-name">${l.name}</span>
-      ${l.title ? `<span class="staff-liaison-role">${l.title}</span>` : ''}
-      ${l.email ? `<span class="staff-liaison-email"><a href="mailto:${l.email}">${l.email}</a></span>` : ''}
+    <div class="contact-card">
+      ${l.email
+        ? `<a class="contact-email" href="mailto:${l.email}">${l.email}</a>`
+        : ''}
+      <div class="contact-person">
+        <span class="contact-name">${l.name}</span>
+        ${l.title ? `<span class="contact-role">${l.title}</span>` : ''}
+      </div>
+      ${l.note ? `<div class="contact-note">${l.note}</div>` : ''}
     </div>
-    ${l.note ? `<div style="font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5">${l.note}</div>` : ''}
   `).join('');
 
+  /* Board-wide inbox. Most boards do not have one, so this whole card is
+     omitted rather than rendered empty. */
   const boardEmailHtml = BOARD.boardEmail
-    ? `<div style="margin-top:8px;font-size:13px">Board email: <a href="mailto:${BOARD.boardEmail}" style="color:var(--navy-light)">${BOARD.boardEmail}</a></div>`
+    ? `<div class="contact-card">
+         <a class="contact-email" href="mailto:${BOARD.boardEmail}">${BOARD.boardEmail}</a>
+         <div class="contact-person"><span class="contact-name">Board inbox</span>
+         <span class="contact-role">Reaches the full ${BOARD.abbr}</span></div>
+       </div>`
     : '';
 
   const wrap = document.createElement('div');
   wrap.className = 'staff-note-wrap';
-  wrap.innerHTML = `<div class="staff-note">${icon}<div><strong>Staff Liaison${liaisons.length > 1 ? 's' : ''}:</strong><div class="staff-liaisons">${rows}</div>${boardEmailHtml}</div></div>`;
+  wrap.innerHTML = `
+    <div class="contact-block">
+      <div class="contact-block-head">${icon}<strong>City Contact Point</strong></div>
+      <div class="contact-grid">${boardEmailHtml}${rows}</div>
+    </div>`;
 
   membersSection.insertAdjacentElement('afterend', wrap);
 }
@@ -750,6 +765,22 @@ function renderApplyToServe() {
    CRB has btnUrl: null — renders section without a button.
    type maps to visual treatment via .special-cta--{type}.
    ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   NAV APPLY LINK
+   The nav "Apply to Serve" link is static HTML and points at the City's
+   general board application page, which is correct for most boards. A few
+   boards take applications somewhere else entirely (CPSRAB uses its own
+   site). Where BOARD.applyUrl differs, repoint the nav link at it. The
+   static href stays as the no-JS fallback.
+   ═══════════════════════════════════════════════════════════════ */
+function applyNavApplyUrl() {
+  if (!BOARD.applyUrl) return;
+  document.querySelectorAll('a.nav-apply').forEach(a => {
+    a.href = BOARD.applyUrl;
+  });
+}
+
+
 function renderSpecialCta() {
   const cta = BOARD.specialCta;
   if (!cta) return;
@@ -781,24 +812,27 @@ function renderSpecialCta() {
 /* ═══════════════════════════════════════════════════════════════
    ACCORDION SYSTEM
    ═══════════════════════════════════════════════════════════════ */
-function initAccordions() {
-  document.querySelectorAll('.acc-trigger').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      const next     = !expanded;
-      btn.setAttribute('aria-expanded', String(next));
-      btn.nextElementSibling.hidden = !next;
+function bindAccordionTrigger(btn) {
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const next     = !expanded;
+    btn.setAttribute('aria-expanded', String(next));
+    btn.nextElementSibling.hidden = !next;
 
-      const item = btn.closest('.acc-item');
-      if (item?.id) {
-        if (next) {
-          history.replaceState(null, '', '#' + item.id);
-        } else if (window.location.hash === '#' + item.id) {
-          history.replaceState(null, '', window.location.pathname + window.location.search);
-        }
+    const item = btn.closest('.acc-item');
+    if (item?.id) {
+      if (next) {
+        history.replaceState(null, '', '#' + item.id);
+      } else if (window.location.hash === '#' + item.id) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
       }
-    });
+    }
   });
+}
+
+function initAccordions() {
+  document.querySelectorAll('.acc-trigger').forEach(bindAccordionTrigger);
 }
 
 function handleDeepLink() {
@@ -1023,6 +1057,7 @@ function fetchContent(abbr, bodyType) {
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(content => {
       renderAccordionBodies(content.accordions || []);
+      renderAppealProcess(content.appealProcess);
       renderHowToSection(content, bodyType);
       renderPublicCommentGuide(content.publicCommentGuide);
     })
@@ -1036,6 +1071,54 @@ function fetchContent(abbr, bodyType) {
       });
     });
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   APPEAL PROCESS ACCORDION
+   Boards with a special CTA that asks the reader to start a process need
+   the process itself next to the button, not buried in the main accordion
+   list. Driven by the appealProcess key in content/{abbr}.json, this builds
+   the same accordion markup used everywhere else and inserts it directly
+   after the .special-cta block.
+
+   Runs inside the content fetch, so initAccordions() has already bound the
+   static triggers and handleDeepLink() has already run. Both are redone for
+   this one item here.
+   ═══════════════════════════════════════════════════════════════ */
+function renderAppealProcess(data) {
+  if (!data || !data.anchor) return;
+
+  const cta = document.querySelector('.special-cta');
+  if (!cta) return;
+  if (document.getElementById(data.anchor)) return;
+
+  const isOpen = data.open === true || window.location.hash === '#' + data.anchor;
+
+  const chevron = `<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>`;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'acc-list acc-list--standalone';
+  wrap.innerHTML = `
+    <div class="accordion">
+      <div class="acc-item" id="${data.anchor}">
+        <button class="acc-trigger" aria-expanded="${isOpen}">${data.title || 'How It Works'}${chevron}</button>
+        <div class="acc-panel"${isOpen ? '' : ' hidden'}><div class="acc-panel-inner">${renderBodyItems(data.body || [])}</div></div>
+      </div>
+    </div>`;
+
+  cta.insertAdjacentElement('afterend', wrap);
+
+  bindAccordionTrigger(wrap.querySelector('.acc-trigger'));
+
+  if (window.location.hash === '#' + data.anchor) {
+    setTimeout(() => {
+      const item = document.getElementById(data.anchor);
+      if (!item) return;
+      const top = item.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }, 100);
+  }
+}
+
 
 function renderAccordionBodies(accordions) {
   accordions.forEach(acc => {
