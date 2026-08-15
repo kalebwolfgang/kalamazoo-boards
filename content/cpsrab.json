@@ -1,6 +1,41 @@
-
 {
   "abbr": "CPSRAB",
+  "appealProcess": {
+    "title": "How Appeals Work",
+    "anchor": "how-appeals-work",
+    "open": false,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "CPSRAB reviews appeals of complaint findings made by the Chief of Public Safety after investigation by the Office of Professional Standards. The Board may only recommend changes to findings of exonerated, unfounded, or not sustained."
+      },
+      {
+        "type": "steps",
+        "items": [
+          {
+            "title": "File a Complaint",
+            "desc": "Submit a PCR complaint with KDPS online, in person, by mail, phone, or email. OPS receives and investigates the complaint."
+          },
+          {
+            "title": "OPS Investigation",
+            "desc": "OPS investigates within 45 days. Upon completion, the Chief makes a final finding and notifies the complainant within 10 business days."
+          },
+          {
+            "title": "File an Appeal",
+            "desc": "If unsatisfied with the Chief's finding, file an appeal with the City Manager within 15 business days of receiving the decision."
+          },
+          {
+            "title": "CPSRAB Hearing",
+            "desc": "The City Manager refers qualifying appeals to CPSRAB. A hearing is scheduled within 30 business days and held within 60."
+          },
+          {
+            "title": "Board Recommendation",
+            "desc": "The Board submits a written report to the City Manager within 14 business days recommending to sustain or reverse the Chief's finding."
+          }
+        ]
+      }
+    ]
+  },
   "accordions": [
     {
       "title": "About & Mission",
@@ -113,76 +148,6 @@
           "type": "field",
           "label": "Orientation",
           "value": "Members must attend an orientation session within their first 90 days and attend the Kalamazoo Regional Citizens Academy within the first year of service."
-        }
-      ]
-    },
-    {
-      "title": "How Appeals Work",
-      "anchor": "how-appeals-work",
-      "body": [
-        {
-          "type": "paragraph",
-          "text": "CPSRAB reviews appeals of complaint findings made by the Chief of Public Safety after investigation by the Office of Professional Standards. The Board may only recommend changes to findings of exonerated, unfounded, or not sustained."
-        },
-        {
-          "type": "steps",
-          "items": [
-            {
-              "title": "File a Complaint",
-              "desc": "Submit a PCR complaint with KDPS online, in person, by mail, phone, or email. OPS receives and investigates the complaint."
-            },
-            {
-              "title": "OPS Investigation",
-              "desc": "OPS investigates within 45 days. Upon completion, the Chief makes a final finding and notifies the complainant within 10 business days."
-            },
-            {
-              "title": "File an Appeal",
-              "desc": "If unsatisfied with the Chief's finding, file an appeal with the City Manager within 15 business days of receiving the decision."
-            },
-            {
-              "title": "CPSRAB Hearing",
-              "desc": "The City Manager refers qualifying appeals to CPSRAB. A hearing is scheduled within 30 business days and held within 60."
-            },
-            {
-              "title": "Board Recommendation",
-              "desc": "The Board submits a written report to the City Manager within 14 business days recommending to sustain or reverse the Chief's finding."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "How to Apply",
-      "anchor": "how-to-join",
-      "body": [
-        {
-          "type": "paragraph",
-          "text": "Community members are invited to apply for one of up to 12 seats — up to 6 representing diverse organizations and up to 6 at-large. Applications are reviewed by the City Manager's Office; candidates selected to move forward will be notified and may be interviewed before final appointment."
-        },
-        {
-          "type": "steps",
-          "items": [
-            {
-              "title": "Review requirements and disqualifiers",
-              "desc": "Must be a U.S. citizen or legal U.S. resident. City of Kalamazoo residents have first priority; non-residents with identifiable city interests are eligible. Ineligible if you are a current KDPS or city employee, work for another law enforcement agency, are a retired or former law enforcement officer, an immediate family member of KDPS personnel, hold or are seeking political office, or are currently on probation, parole, or subject to an active personal protection order."
-            },
-            {
-              "title": "Prepare your materials",
-              "desc": "Write a brief statement describing your relevant experience and your reasons for wanting to serve. A background check form is also required as part of the application."
-            },
-            {
-              "title": "Submit your application",
-              "desc": "Apply online at <a href=\"https://www.kalamazoocpsrab.org/join-cpsrab\" target=\"_blank\" rel=\"noopener\">kalamazoocpsrab.org/join-cpsrab</a>, by email at <a href=\"mailto:cpsrab@kalamazoocity.org\">cpsrab@kalamazoocity.org</a>, by calling 311 or (269) 337-8000, or in person at City Hall, 241 W South Street."
-            },
-            {
-              "title": "Interview and selection",
-              "desc": "The City Manager or their designee may schedule an interview with selected candidates. All applicants will be notified of the outcome. The City Manager makes the final appointment."
-            },
-            {
-              "title": "Orientation and onboarding",
-              "desc": "New members complete an orientation session within their first 90 days covering public safety policies, the complaint process, police authority, and use of force. Members must also attend the Kalamazoo Regional Citizens Academy within their first year of service."
-            }
-          ]
         }
       ]
     }
