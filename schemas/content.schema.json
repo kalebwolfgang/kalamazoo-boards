@@ -42,6 +42,32 @@
         }
       }
     },
+    "appealProcess": {
+      "description": "Standalone accordion rendered directly beneath the special CTA rather than in the main accordion list.",
+      "type": "object",
+      "required": [
+        "title",
+        "anchor"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "anchor": {
+          "type": "string"
+        },
+        "open": {
+          "type": "boolean"
+        },
+        "body": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bodyItem"
+          }
+        }
+      }
+    },
     "howToJoin": {
       "type": "object",
       "additionalProperties": false,
