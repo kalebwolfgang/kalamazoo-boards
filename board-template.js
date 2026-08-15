@@ -1091,29 +1091,92 @@ function renderAppealProcess(data) {
   if (!cta) return;
   if (document.getElementById(data.anchor)) return;
 
-  const isOpen = data.open === true || window.location.hash === '#' + data.anchor;
+  const steps = Array.isArray(data.steps) ? data.steps : [];
+  if (!steps.length) return;
 
-  const chevron = `<svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>`;
+  const pad = n => String(n).padStart(2, '0');
 
-  const wrap = document.createElement('div');
-  wrap.className = 'acc-list acc-list--standalone';
+  /* Always-visible rail. Each cell is a button that opens the detail list
+     and scrolls to its own step, so the rail doubles as a table of
+     contents rather than being decoration above one. */
+  const rail = steps.map((s, i) => `
+    <button class="proc-rail-cell" data-step="${i}" aria-controls="${data.anchor}-detail">
+      <span class="proc-rail-num">${pad(i + 1)}</span>
+      <span class="proc-rail-label">${s.short || s.title}</span>
+      ${s.actor ? `<span class="proc-rail-actor">${s.actor}</span>` : ''}
+    </button>`).join('');
+
+  const detail = steps.map((s, i) => `
+    <li class="proc-step" id="${data.anchor}-step-${i + 1}">
+      <div class="proc-step-num" aria-hidden="true">${pad(i + 1)}</div>
+      <div class="proc-step-body">
+        <div class="proc-step-title">${s.title}</div>
+        ${s.actor ? `<div class="proc-step-actor">${s.actor}</div>` : ''}
+        <p class="proc-step-desc">${s.desc}</p>
+        ${Array.isArray(s.links) && s.links.length
+          ? `<div class="proc-step-links">${s.links.map(l =>
+              `<a href="${l.href}" target="_blank" rel="noopener">${l.text}${l.pdf ? '<span class="proc-pdf">PDF</span>' : ''}</a>`
+            ).join('')}</div>`
+          : ''}
+      </div>
+    </li>`).join('');
+
+  const wrap = document.createElement('section');
+  wrap.className = 'proc-section';
+  wrap.id = data.anchor;
   wrap.innerHTML = `
-    <div class="accordion">
-      <div class="acc-item" id="${data.anchor}">
-        <button class="acc-trigger" aria-expanded="${isOpen}">${data.title || 'How It Works'}${chevron}</button>
-        <div class="acc-panel"${isOpen ? '' : ' hidden'}><div class="acc-panel-inner">${renderBodyItems(data.body || [])}</div></div>
+    <div class="proc-inner">
+      <h2 class="proc-heading">${data.title || 'How it works'}</h2>
+      ${data.intro ? `<p class="proc-intro">${data.intro}</p>` : ''}
+      <div class="proc-rail">${rail}</div>
+      <button class="proc-toggle" aria-expanded="false" aria-controls="${data.anchor}-detail">
+        <span class="proc-toggle-text">Show what happens at each step</span>
+        <svg class="acc-chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="proc-detail" id="${data.anchor}-detail" hidden>
+        <ol class="proc-steps">${detail}</ol>
+        <div class="proc-notes">${renderBodyItems(data.body || [])}</div>
       </div>
     </div>`;
 
   cta.insertAdjacentElement('afterend', wrap);
 
-  bindAccordionTrigger(wrap.querySelector('.acc-trigger'));
+  const toggle = wrap.querySelector('.proc-toggle');
+  const detailEl = wrap.querySelector('.proc-detail');
+  const label = wrap.querySelector('.proc-toggle-text');
+
+  function openDetail() {
+    detailEl.hidden = false;
+    toggle.setAttribute('aria-expanded', 'true');
+    label.textContent = 'Hide step details';
+  }
+  function closeDetail() {
+    detailEl.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    label.textContent = 'Show what happens at each step';
+  }
+
+  toggle.addEventListener('click', () => {
+    if (detailEl.hidden) openDetail(); else closeDetail();
+  });
+
+  wrap.querySelectorAll('.proc-rail-cell').forEach(cell => {
+    cell.addEventListener('click', () => {
+      openDetail();
+      const n = Number(cell.dataset.step) + 1;
+      const target = document.getElementById(`${data.anchor}-step-${n}`);
+      if (!target) return;
+      wrap.querySelectorAll('.proc-step').forEach(s => s.classList.remove('is-current'));
+      target.classList.add('is-current');
+      const top = target.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
 
   if (window.location.hash === '#' + data.anchor) {
+    openDetail();
     setTimeout(() => {
-      const item = document.getElementById(data.anchor);
-      if (!item) return;
-      const top = item.getBoundingClientRect().top + window.scrollY - 72;
+      const top = wrap.getBoundingClientRect().top + window.scrollY - 72;
       window.scrollTo({ top, behavior: 'smooth' });
     }, 100);
   }
