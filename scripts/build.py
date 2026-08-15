@@ -1083,8 +1083,20 @@ def generate_search_index(boards_data: list[dict]) -> None:
         # CTA rather than in the main list, but it is a searchable section
         # like any other, so it is indexed alongside them.
         sections = list(cdata.get("accordions", []))
-        if cdata.get("appealProcess"):
-            sections.append(cdata["appealProcess"])
+        appeal = cdata.get("appealProcess")
+        if appeal:
+            # appealProcess carries its steps outside the body array, so they
+            # are flattened into a summary line the shared loop can index.
+            step_text = " ".join(
+                f"{s.get('title', '')} {s.get('actor', '')} {s.get('desc', '')}"
+                for s in appeal.get("steps", [])
+            )
+            sections.append({
+                "anchor":  appeal.get("anchor", ""),
+                "title":   appeal.get("title", ""),
+                "summary": f"{appeal.get('intro', '')} {step_text}".strip(),
+                "body":    appeal.get("body", []),
+            })
 
         for acc in sections:
             anchor  = acc.get("anchor", "")
