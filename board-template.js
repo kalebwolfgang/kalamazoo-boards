@@ -1096,30 +1096,20 @@ function renderAppealProcess(data) {
 
   const pad = n => String(n).padStart(2, '0');
 
-  /* Always-visible rail. Each cell is a button that opens the detail list
-     and scrolls to its own step, so the rail doubles as a table of
-     contents rather than being decoration above one. */
+  const chevron = `<svg class="proc-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>`;
+
+  /* Each rail cell toggles its own panel. One panel is shown at a time and
+     the content is swapped into it, rather than expanding inside the grid
+     cell, so a six-column row does not have to reflow around it. */
   const rail = steps.map((s, i) => `
-    <button class="proc-rail-cell" data-step="${i}" aria-controls="${data.anchor}-detail">
-      <span class="proc-rail-num">${pad(i + 1)}</span>
+    <button class="proc-rail-cell" data-step="${i}" aria-expanded="false" aria-controls="${data.anchor}-panel">
+      <span class="proc-rail-top">
+        <span class="proc-rail-num">${pad(i + 1)}</span>
+        ${chevron}
+      </span>
       <span class="proc-rail-label">${s.short || s.title}</span>
       ${s.actor ? `<span class="proc-rail-actor">${s.actor}</span>` : ''}
     </button>`).join('');
-
-  const detail = steps.map((s, i) => `
-    <li class="proc-step" id="${data.anchor}-step-${i + 1}">
-      <div class="proc-step-num" aria-hidden="true">${pad(i + 1)}</div>
-      <div class="proc-step-body">
-        <div class="proc-step-title">${s.title}</div>
-        ${s.actor ? `<div class="proc-step-actor">${s.actor}</div>` : ''}
-        <p class="proc-step-desc">${s.desc}</p>
-        ${Array.isArray(s.links) && s.links.length
-          ? `<div class="proc-step-links">${s.links.map(l =>
-              `<a href="${l.href}" target="_blank" rel="noopener">${l.text}${l.pdf ? '<span class="proc-pdf">PDF</span>' : ''}</a>`
-            ).join('')}</div>`
-          : ''}
-      </div>
-    </li>`).join('');
 
   const wrap = document.createElement('section');
   wrap.className = 'proc-section';
@@ -1128,53 +1118,73 @@ function renderAppealProcess(data) {
     <div class="proc-inner">
       <h2 class="proc-heading">${data.title || 'How it works'}</h2>
       ${data.intro ? `<p class="proc-intro">${data.intro}</p>` : ''}
+      <p class="proc-hint">Select any step below to see what happens, who is responsible, and where to file.</p>
       <div class="proc-rail">${rail}</div>
-      <button class="proc-toggle" aria-expanded="false" aria-controls="${data.anchor}-detail">
-        <span class="proc-toggle-text">Show what happens at each step</span>
-        <svg class="acc-chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      <div class="proc-panel" id="${data.anchor}-panel" hidden></div>
+      <button class="proc-toggle" aria-expanded="false" aria-controls="${data.anchor}-notes">
+        <span class="proc-toggle-text">What an appeal can and cannot do</span>
+        ${chevron}
       </button>
-      <div class="proc-detail" id="${data.anchor}-detail" hidden>
-        <ol class="proc-steps">${detail}</ol>
-        <div class="proc-notes">${renderBodyItems(data.body || [])}</div>
-      </div>
+      <div class="proc-notes" id="${data.anchor}-notes" hidden>${renderBodyItems(data.body || [])}</div>
     </div>`;
 
   cta.insertAdjacentElement('afterend', wrap);
 
-  const toggle = wrap.querySelector('.proc-toggle');
-  const detailEl = wrap.querySelector('.proc-detail');
-  const label = wrap.querySelector('.proc-toggle-text');
+  /* ── per-step disclosure ── */
+  const panel = wrap.querySelector('.proc-panel');
+  const cells = [...wrap.querySelectorAll('.proc-rail-cell')];
 
-  function openDetail() {
-    detailEl.hidden = false;
-    toggle.setAttribute('aria-expanded', 'true');
-    label.textContent = 'Hide step details';
-  }
-  function closeDetail() {
-    detailEl.hidden = true;
-    toggle.setAttribute('aria-expanded', 'false');
-    label.textContent = 'Show what happens at each step';
+  function closeStep() {
+    panel.hidden = true;
+    panel.innerHTML = '';
+    cells.forEach(c => {
+      c.classList.remove('is-open');
+      c.setAttribute('aria-expanded', 'false');
+    });
   }
 
-  toggle.addEventListener('click', () => {
-    if (detailEl.hidden) openDetail(); else closeDetail();
-  });
+  function openStep(i) {
+    const s = steps[i];
+    if (!s) return;
+    panel.innerHTML = `
+      <div class="proc-step">
+        <div class="proc-step-num" aria-hidden="true">${pad(i + 1)}</div>
+        <div class="proc-step-body">
+          <div class="proc-step-title">${s.title}</div>
+          ${s.actor ? `<div class="proc-step-actor">${s.actor}</div>` : ''}
+          <p class="proc-step-desc">${s.desc}</p>
+          ${Array.isArray(s.links) && s.links.length
+            ? `<div class="proc-step-links">${s.links.map(l =>
+                `<a href="${l.href}" target="_blank" rel="noopener">${l.text}${l.pdf ? '<span class="proc-pdf">PDF</span>' : ''}</a>`
+              ).join('')}</div>`
+            : ''}
+        </div>
+      </div>`;
+    panel.hidden = false;
+    cells.forEach((c, n) => {
+      const on = n === i;
+      c.classList.toggle('is-open', on);
+      c.setAttribute('aria-expanded', String(on));
+    });
+  }
 
-  wrap.querySelectorAll('.proc-rail-cell').forEach(cell => {
+  cells.forEach((cell, i) => {
     cell.addEventListener('click', () => {
-      openDetail();
-      const n = Number(cell.dataset.step) + 1;
-      const target = document.getElementById(`${data.anchor}-step-${n}`);
-      if (!target) return;
-      wrap.querySelectorAll('.proc-step').forEach(s => s.classList.remove('is-current'));
-      target.classList.add('is-current');
-      const top = target.getBoundingClientRect().top + window.scrollY - 72;
-      window.scrollTo({ top, behavior: 'smooth' });
+      if (cell.classList.contains('is-open')) closeStep();
+      else openStep(i);
     });
   });
 
+  /* ── limits and definitions ── */
+  const toggle = wrap.querySelector('.proc-toggle');
+  const notes  = wrap.querySelector('.proc-notes');
+  toggle.addEventListener('click', () => {
+    const open = notes.hidden;
+    notes.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+
   if (window.location.hash === '#' + data.anchor) {
-    openDetail();
     setTimeout(() => {
       const top = wrap.getBoundingClientRect().top + window.scrollY - 72;
       window.scrollTo({ top, behavior: 'smooth' });
