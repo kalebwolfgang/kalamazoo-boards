@@ -626,14 +626,15 @@ footer a:hover { color: var(--gold-lt); }
   /* Fallback for browsers without color-mix. */
   background: var(--cream-dk);
   /* The CTA's red continues past its own edge and fades out here, so there is
-     no seam between the two. Stops are in pixels rather than percentages so
-     the fade lands in the same place regardless of how tall the section grows
-     when a step is open. --cta-color is set by the CTA modifier below. */
+     no seam between the two. --cta-color is set by an adjacent-sibling rule
+     further down this file, keyed off the CTA's modifier class. The fallback
+     is the appeal red, never --board-color: on a board whose colour differs
+     from its CTA that produces a fade in the wrong colour entirely. */
   background: linear-gradient(
     180deg,
-    var(--cta-color, var(--board-color, var(--navy))) 0,
-    color-mix(in srgb, var(--cta-color, var(--board-color, var(--navy))) 30%, #fff) 72px,
-    color-mix(in srgb, var(--cta-color, var(--board-color, var(--navy))) 8%,  #fff) 132px,
+    var(--cta-color, #7f1d1d) 0,
+    color-mix(in srgb, var(--cta-color, #7f1d1d) 30%, #fff) 72px,
+    color-mix(in srgb, var(--cta-color, #7f1d1d) 8%,  #fff) 132px,
     var(--cream-dk) 240px
   );
   border: 1px solid var(--border); border-top: none;
@@ -726,9 +727,11 @@ footer a:hover { color: var(--gold-lt); }
 
 /* Appeal type — dark crimson rounded box */
 .special-cta--appeal .special-cta-inner { background: #7f1d1d; }
-/* Exposed so a following .proc-section can fade the same color downward
-   instead of guessing at it. Each CTA modifier sets its own. */
-.special-cta--appeal { --cta-color: #7f1d1d; }
+/* The process section is a SIBLING of the CTA, not a child, so a custom
+   property set on the CTA does not inherit into it. Set it on the section
+   directly. Each CTA modifier needs its own line here; without one the
+   section falls back to the appeal red. */
+.special-cta--appeal + .proc-section { --cta-color: #7f1d1d; }
 
 /* ── PROCESS STEPS (How Appeals Work) ── */
 .process-steps { display: flex; flex-direction: column; margin-top: 14px; }
