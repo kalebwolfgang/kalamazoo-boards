@@ -1116,11 +1116,9 @@ function renderAppealProcess(data) {
   wrap.id = data.anchor;
   wrap.innerHTML = `
     <div class="proc-inner">
-      <div class="proc-head">
-        <h2 class="proc-heading">${data.title || 'How it works'}</h2>
-        <p class="proc-hint">Select a step for details</p>
-      </div>
+      <h2 class="proc-heading">${data.title || 'How it works'}</h2>
       ${data.intro ? `<p class="proc-intro">${data.intro}</p>` : ''}
+      <p class="proc-hint">Select any step below to see what happens, who is responsible, and where to file.</p>
       <div class="proc-rail">${rail}</div>
       <div class="proc-panel" id="${data.anchor}-panel" hidden></div>
       <button class="proc-toggle" aria-expanded="false" aria-controls="${data.anchor}-notes">
