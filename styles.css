@@ -625,19 +625,20 @@ footer a:hover { color: var(--gold-lt); }
   max-width: 1400px; margin: 0 auto;
   /* Fallback for browsers without color-mix. */
   background: var(--cream-dk);
-  /* Carries the CTA's red down into the section and lets it fade out, so the
-     two read as one unit instead of a red block sitting on a gray one.
-     --cta-color is set by the CTA modifier above; the board color is only a
-     fallback for a process section used without a CTA. */
+  /* The CTA's red continues past its own edge and fades out here, so there is
+     no seam between the two. Stops are in pixels rather than percentages so
+     the fade lands in the same place regardless of how tall the section grows
+     when a step is open. --cta-color is set by the CTA modifier below. */
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--cta-color, var(--board-color, var(--navy))) 16%, #fff) 0%,
-    color-mix(in srgb, var(--cta-color, var(--board-color, var(--navy))) 6%,  #fff) 45%,
-    var(--cream-dk) 100%
+    var(--cta-color, var(--board-color, var(--navy))) 0,
+    color-mix(in srgb, var(--cta-color, var(--board-color, var(--navy))) 30%, #fff) 72px,
+    color-mix(in srgb, var(--cta-color, var(--board-color, var(--navy))) 8%,  #fff) 132px,
+    var(--cream-dk) 240px
   );
   border: 1px solid var(--border); border-top: none;
   border-radius: 0 0 4px 4px;
-  padding: clamp(20px, 3vw, 28px) clamp(20px, 5vw, 48px) clamp(22px, 3vw, 30px);
+  padding: clamp(54px, 7vw, 76px) clamp(20px, 5vw, 48px) clamp(22px, 3vw, 30px);
 }
 .proc-heading { font-family: 'Playfair Display', serif; font-size: clamp(19px, 2.4vw, 24px); font-weight: 600; color: var(--navy); margin: 0 0 6px; }
 .proc-intro { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0 0 20px; max-width: 720px; }
