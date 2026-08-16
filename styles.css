@@ -623,53 +623,56 @@ footer a:hover { color: var(--gold-lt); }
 .proc-section { padding: 0 var(--pad-x) 0; }
 .proc-inner {
   max-width: 1400px; margin: 0 auto;
-  background: #fff; border: 1px solid var(--border); border-top: none;
+  /* Fallback for browsers without color-mix. */
+  background: var(--cream-dk);
+  /* Carries the CTA's red down into the section and lets it fade out, so the
+     two read as one unit instead of a red block sitting on a gray one.
+     --cta-color is set by the CTA modifier above; the board color is only a
+     fallback for a process section used without a CTA. */
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--cta-color, var(--board-color, var(--navy))) 16%, #fff) 0%,
+    color-mix(in srgb, var(--cta-color, var(--board-color, var(--navy))) 6%,  #fff) 45%,
+    var(--cream-dk) 100%
+  );
+  border: 1px solid var(--border); border-top: none;
   border-radius: 0 0 4px 4px;
   padding: clamp(20px, 3vw, 28px) clamp(20px, 5vw, 48px) clamp(22px, 3vw, 30px);
 }
-/* Eyebrow rather than a second serif headline. The red box above already
-   carries the display type, and a matching heading here made the two read as
-   separate sections rather than one card. */
-.proc-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 24px; margin-bottom: 12px; }
-.proc-heading { font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0; }
-.proc-intro { font-size: 15px; color: var(--body); line-height: 1.65; margin: 0 0 20px; max-width: 720px; }
+.proc-heading { font-family: 'Playfair Display', serif; font-size: clamp(19px, 2.4vw, 24px); font-weight: 600; color: var(--navy); margin: 0 0 6px; }
+.proc-intro { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0 0 20px; max-width: 720px; }
 
-.proc-hint { font-size: 13px; color: var(--muted); margin: 0; }
+.proc-hint { font-size: 13.5px; color: var(--muted); margin: 0 0 12px; }
 
 .proc-rail { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
 @media (max-width: 900px) { .proc-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .proc-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-/* Rules, not boxes: the boxed version read as a second grid competing with
-   the document cards below. Affordance comes from the chevron and the rule
-   colouring on hover, not from a card outline. */
+/* Cells are cards, not bare text: background, border and a chevron so the
+   affordance is obvious without a hover state, which touch users never see. */
 .proc-rail-cell {
-  display: flex; flex-direction: column; gap: 3px; text-align: left;
-  background: none; border: none;
+  display: flex; flex-direction: column; gap: 4px; text-align: left;
+  background: #fff; border: 1px solid var(--border);
   border-top: 3px solid var(--border-dk, #c9c2b4);
-  border-radius: 0; padding: 9px 0 0;
+  border-radius: 3px; padding: 10px 12px 12px;
   cursor: pointer; font: inherit;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 }
-.proc-rail-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.proc-rail-cell:hover { border-top-color: var(--board-color, var(--navy)); }
-.proc-rail-cell:hover .proc-rail-label { color: var(--navy-light); }
-.proc-rail-cell:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
-.proc-rail-cell.is-open { border-top-color: var(--board-color, var(--navy)); }
-.proc-rail-cell.is-open .proc-rail-num,
-.proc-rail-cell.is-open .proc-rail-label { color: var(--board-color, var(--navy)); }
+.proc-rail-top { display: flex; align-items: center; justify-content: space-between; }
+.proc-rail-cell:hover { border-top-color: var(--board-color, var(--navy)); box-shadow: 0 2px 6px rgba(0,0,0,0.07); transform: translateY(-1px); }
+.proc-rail-cell:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.proc-rail-cell.is-open { border-color: var(--board-color, var(--navy)); border-top-color: var(--board-color, var(--navy)); background: var(--cream); }
 .proc-rail-cell.is-open .proc-chevron { transform: rotate(180deg); }
 .proc-chevron { color: var(--navy-light); flex-shrink: 0; transition: transform 0.2s; }
-.proc-rail-num { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--muted); }
-.proc-rail-label { font-size: 14.5px; font-weight: 600; color: var(--body); line-height: 1.3; transition: color 0.15s; }
+.proc-rail-num { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--board-color, var(--navy)); }
+.proc-rail-label { font-size: 14px; font-weight: 600; color: var(--body); line-height: 1.3; }
 .proc-rail-actor { font-size: 11.5px; color: var(--muted); line-height: 1.35; }
 
 /* Panel for the selected step, shown beneath the whole rail. */
 .proc-panel {
-  margin-top: 18px; background: var(--cream-dk);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--board-color, var(--navy));
-  border-radius: 3px; padding: 18px 22px;
+  margin-top: 12px; background: #fff;
+  border: 1px solid var(--board-color, var(--navy));
+  border-radius: 3px; padding: 18px 20px;
 }
 .proc-step { display: flex; gap: 16px; }
 .proc-step-num {
@@ -722,6 +725,9 @@ footer a:hover { color: var(--gold-lt); }
 
 /* Appeal type — dark crimson rounded box */
 .special-cta--appeal .special-cta-inner { background: #7f1d1d; }
+/* Exposed so a following .proc-section can fade the same color downward
+   instead of guessing at it. Each CTA modifier sets its own. */
+.special-cta--appeal { --cta-color: #7f1d1d; }
 
 /* ── PROCESS STEPS (How Appeals Work) ── */
 .process-steps { display: flex; flex-direction: column; margin-top: 14px; }
