@@ -4,7 +4,7 @@
     {
       "date": "2026-08-17",
       "display": "Monday, August 17, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "3:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -12,7 +12,7 @@
     {
       "date": "2026-08-17",
       "display": "Monday, August 17, 2026",
-      "time": "03:00 PM – 05:00 PM",
+      "time": "3:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
@@ -23,7 +23,8 @@
       "time": "05:00 PM – 07:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
-      "name": "Historic District Commission"
+      "name": "Historic District Commission",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2742/files/agenda/5312"
     },
     {
       "date": "2026-08-19",
@@ -122,7 +123,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizen-Public Safety Review and Appeals Board"
+      "name": "Citizens Public Safety Review and Appeal Board"
     },
     {
       "date": "2026-09-09",
@@ -291,7 +292,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizen-Public Safety Review and Appeals Board"
+      "name": "Citizens Public Safety Review and Appeal Board"
     },
     {
       "date": "2026-10-14",
@@ -412,7 +413,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizen-Public Safety Review and Appeals Board"
+      "name": "Citizens Public Safety Review and Appeal Board"
     },
     {
       "date": "2026-11-10",
@@ -565,7 +566,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizen-Public Safety Review and Appeals Board"
+      "name": "Citizens Public Safety Review and Appeal Board"
     },
     {
       "date": "2026-12-08",
@@ -693,7 +694,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizen-Public Safety Review and Appeals Board"
+      "name": "Citizens Public Safety Review and Appeal Board"
     },
     {
       "date": "2027-01-14",
@@ -709,7 +710,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizen-Public Safety Review and Appeals Board"
+      "name": "Citizens Public Safety Review and Appeal Board"
     }
   ]
 }
