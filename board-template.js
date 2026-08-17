@@ -1128,7 +1128,21 @@ function renderAppealProcess(data) {
       <div class="proc-notes" id="${data.anchor}-notes" hidden>${renderBodyItems(data.body || [])}</div>
     </div>`;
 
-  cta.insertAdjacentElement('afterend', wrap);
+  /* One block, not two. Blending two separately-painted elements can never be
+     seamless, because the boundary is always a place where something changes.
+     Instead the CTA's inner box and this section are moved into a single
+     wrapper that carries one gradient across both, so there is no boundary to
+     hide: the red simply runs out partway down. */
+  const ctaInner = cta.querySelector('.special-cta-inner');
+  if (ctaInner && ctaInner.parentNode) {
+    const stack = document.createElement('div');
+    stack.className = 'cta-stack';
+    ctaInner.parentNode.insertBefore(stack, ctaInner);
+    stack.appendChild(ctaInner);
+    stack.appendChild(wrap);
+  } else {
+    cta.insertAdjacentElement('afterend', wrap);
+  }
 
   /* ── per-step disclosure ── */
   const panel = wrap.querySelector('.proc-panel');
