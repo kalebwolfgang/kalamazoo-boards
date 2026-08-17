@@ -79,14 +79,7 @@
         "title": "The City Manager decides",
         "short": "Final decision",
         "actor": "City Manager's Office",
-        "desc": "The City Manager has the final authority to uphold or amend the response made by the Chief of Public Safety and the recommendation made by the Board. You are notified of the outcome no later than 20 business days after the hearing. This is the last step in the process.",
-        "links": [
-          {
-            "text": "Terms of the appeal process",
-            "href": "https://www.kalamazoocity.org/files/assets/public/v/1/applications-amp-forms/cpsrab-appeal-form.pdf",
-            "pdf": true
-          }
-        ]
+        "desc": "The City Manager holds final authority and may sustain or amend the response made by the Chief of Public Safety and the recommendation made by the Board. You will receive notification of the findings from the City Manager no later than 20 business days after the hearing. The City Manager's decision concludes the appeal process."
       }
     ],
     "body": [
