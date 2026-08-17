@@ -103,7 +103,7 @@ BOARDS = [
     },
     {
         "key":                    "cpsrab",
-        "name":                   "Citizen-Public Safety Review and Appeals Board",
+        "name":                   "Citizens Public Safety Review and Appeal Board",
         "abbr":                   "CPSRAB",
         "time":                   "6:00 PM \u2013 8:00 PM",
         "location":               "City Commission Chambers, City Hall Second Floor, 241 W South St",
