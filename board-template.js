@@ -1084,6 +1084,48 @@ function fetchContent(abbr, bodyType) {
    static triggers and handleDeepLink() has already run. Both are redone for
    this one item here.
    ═══════════════════════════════════════════════════════════════ */
+/* Animates a region's height so the outline around the whole block grows and
+   shrinks with it instead of jumping. Height is measured, set explicitly for
+   the duration of the transition, then released back to auto so the content
+   can still reflow afterwards. Honours reduced-motion. */
+function slideRegion(el, open, afterClose) {
+  const reduce = window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduce || typeof el.scrollHeight !== 'number') {
+    el.hidden = !open;
+    el.style.height = '';
+    if (!open && afterClose) afterClose();
+    return;
+  }
+
+  el.removeEventListener('transitionend', el._slideDone || (() => {}));
+
+  if (open) {
+    el.hidden = false;
+    const from = el.style.height && el.style.height !== 'auto' ? el.style.height : '0px';
+    el.style.height = from;
+    void el.offsetHeight;                       // force reflow before animating
+    el.style.height = el.scrollHeight + 'px';
+    el._slideDone = () => {
+      el.style.height = 'auto';
+      el.removeEventListener('transitionend', el._slideDone);
+    };
+  } else {
+    el.style.height = el.scrollHeight + 'px';
+    void el.offsetHeight;
+    el.style.height = '0px';
+    el._slideDone = () => {
+      el.hidden = true;
+      el.style.height = '';
+      el.removeEventListener('transitionend', el._slideDone);
+      if (afterClose) afterClose();
+    };
+  }
+  el.addEventListener('transitionend', el._slideDone);
+}
+
+
 function renderAppealProcess(data) {
   if (!data || !data.anchor) return;
 
@@ -1125,7 +1167,7 @@ function renderAppealProcess(data) {
         <span class="proc-toggle-text">What an appeal can and cannot do</span>
         ${chevron}
       </button>
-      <div class="proc-notes" id="${data.anchor}-notes" hidden>${renderBodyItems(data.body || [])}</div>
+      <div class="proc-notes" id="${data.anchor}-notes" hidden><div class="proc-notes-inner">${renderBodyItems(data.body || [])}</div></div>
     </div>`;
 
   /* One block, not two. Blending two separately-painted elements can never be
@@ -1149,8 +1191,7 @@ function renderAppealProcess(data) {
   const cells = [...wrap.querySelectorAll('.proc-rail-cell')];
 
   function closeStep() {
-    panel.hidden = true;
-    panel.innerHTML = '';
+    slideRegion(panel, false, () => { panel.innerHTML = ''; });
     cells.forEach(c => {
       c.classList.remove('is-open');
       c.setAttribute('aria-expanded', 'false');
@@ -1174,7 +1215,9 @@ function renderAppealProcess(data) {
             : ''}
         </div>
       </div>`;
-    panel.hidden = false;
+    /* Swapping steps animates from the old height to the new one rather than
+       snapping, since the panel is already open at a different size. */
+    slideRegion(panel, true);
     cells.forEach((c, n) => {
       const on = n === i;
       c.classList.toggle('is-open', on);
@@ -1194,7 +1237,7 @@ function renderAppealProcess(data) {
   const notes  = wrap.querySelector('.proc-notes');
   toggle.addEventListener('click', () => {
     const open = notes.hidden;
-    notes.hidden = !open;
+    slideRegion(notes, open);
     toggle.setAttribute('aria-expanded', String(open));
   });
 
