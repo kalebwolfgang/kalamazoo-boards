@@ -618,37 +618,27 @@ footer a:hover { color: var(--gold-lt); }
 .special-cta { padding: clamp(24px, 4vw, 40px) var(--pad-x) 0; }
 /* ── ONE BLOCK: CTA + PROCESS ──
    .cta-stack is created by renderAppealProcess and holds both .special-cta-inner
-   and .proc-section. It is the only element painted, so there is no seam.
-   Solid red through the first 40%, then an eased fade that reaches the page
-   colour only at the very bottom edge rather than turning grey early and
-   sitting flat. */
+   and .proc-section. The red outline runs around the whole unit, so the solid
+   red header and the grey process area read as one box rather than two. The
+   border on the red half is invisible against the red, which is the point:
+   the outline only shows where the grey is. */
 .cta-stack {
   max-width: 1400px; margin: 0 auto;
-  border-radius: 4px; overflow: hidden;
-  background: linear-gradient(
-    180deg,
-    #7f1d1d 0%,
-    #7f1d1d 40%,
-    #8a3131 55%,
-    #9f5756 68%,
-    #ba8885 80%,
-    #d6b9b5 90%,
-    #e8dad5 96%,
-    var(--cream) 100%
-  );
+  background: var(--cream-dk);
+  border: 2px solid #7f1d1d;
+  border-radius: 4px;
+  overflow: hidden;
 }
-.cta-stack .special-cta-inner { background: none; border-radius: 0; max-width: none; margin: 0; }
+.cta-stack .special-cta-inner { background: #7f1d1d; border-radius: 0; max-width: none; margin: 0; }
 .proc-section { padding: 0; }
 .proc-inner {
   max-width: none; margin: 0;
   background: none; border: none; border-radius: 0;
   padding: clamp(24px, 3vw, 34px) clamp(20px, 5vw, 48px) clamp(28px, 4vw, 40px);
 }
-/* The top of this section now sits on red, so its type is reversed out. The
-   cards below are white and read on any shade the fade passes through. */
-.proc-heading { font-family: 'Playfair Display', serif; font-size: clamp(19px, 2.4vw, 24px); font-weight: 600; color: #fff; margin: 0 0 6px; }
-.proc-intro { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.65; margin: 0 0 20px; max-width: 720px; }
-.proc-hint { font-size: 13.5px; color: rgba(255,255,255,0.6); margin: 0 0 12px; }
+.proc-heading { font-family: 'Playfair Display', serif; font-size: clamp(19px, 2.4vw, 24px); font-weight: 600; color: var(--navy); margin: 0 0 6px; }
+.proc-intro { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0 0 20px; max-width: 720px; }
+.proc-hint { font-size: 13.5px; color: var(--muted); margin: 0 0 12px; }
 
 .proc-rail { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
 @media (max-width: 900px) { .proc-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -674,12 +664,19 @@ footer a:hover { color: var(--gold-lt); }
 .proc-rail-label { font-size: 14px; font-weight: 600; color: var(--body); line-height: 1.3; }
 .proc-rail-actor { font-size: 11.5px; color: var(--muted); line-height: 1.35; }
 
-/* Panel for the selected step, shown beneath the whole rail. */
-.proc-panel {
+/* The two animated regions are bare wrappers: any padding or border on them
+   would survive a collapse to height 0 and leave a visible sliver. All the
+   visual treatment sits on the inner element instead. */
+.proc-panel, .proc-notes { overflow: hidden; transition: height 0.28s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .proc-panel, .proc-notes { transition: none; }
+}
+.proc-panel .proc-step {
   margin-top: 12px; background: #fff;
   border: 1px solid var(--board-color, var(--navy));
   border-radius: 3px; padding: 18px 20px;
 }
+.proc-notes-inner { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 20px; }
 .proc-step { display: flex; gap: 16px; }
 .proc-step-num {
   flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
@@ -701,7 +698,6 @@ footer a:hover { color: var(--gold-lt); }
 }
 .proc-toggle:hover { text-decoration: underline; }
 .proc-toggle[aria-expanded="true"] .proc-chevron { transform: rotate(180deg); }
-.proc-notes { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 20px; }
 /* When a process rail follows the CTA the two are one unit, so the CTA drops
    its bottom corners and the rail picks them up. */
 .special-cta-inner {
