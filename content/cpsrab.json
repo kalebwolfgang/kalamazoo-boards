@@ -3,7 +3,7 @@
   "appealProcess": {
     "title": "How appeals work",
     "anchor": "how-appeals-work",
-    "intro": "Six steps run from the complaint to the final decision. Two of them are yours, and each has a deadline attached.",
+    "intro": "Six steps run from the complaint to the final decision. Two of them are yours, and most carry a deadline.",
     "steps": [
       {
         "title": "File a complaint",
@@ -25,7 +25,7 @@
         "title": "The investigation and the finding",
         "short": "Investigation",
         "actor": "Office of Professional Standards",
-        "desc": "The Office of Professional Standards completes its investigation within 45 days of the complaint being filed. If more time is needed, the inspector assigned to the case contacts you with an estimated completion date. The findings then go to the Chief of Public Safety for a final determination, and you receive written notice of the outcome.",
+        "desc": "The Office of Professional Standards completes its investigation within 45 days of the complaint being filed. If more time is needed, the inspector assigned to the case contacts you with an estimated completion date. The findings then go to the Chief of Public Safety for a final determination, and you receive written notice of the outcome. You are also sent a follow up evaluation form, notice of your right to appeal, and a stamped envelope addressed back to the city so you can start an appeal.",
         "links": [
           {
             "text": "About the Office of Professional Standards",
@@ -37,7 +37,7 @@
         "title": "File an appeal",
         "short": "File an appeal",
         "actor": "City Manager's Office",
-        "desc": "If you disagree with the finding, you appeal to the City Manager's Office. Your appeal form and the response letter you received must both be received by the City Manager's Office no later than 15 business days after you received that letter, which is roughly three calendar weeks. Incomplete materials are not processed.",
+        "desc": "If you disagree with the finding, you appeal to the City Manager's Office. Your appeal form and the response letter you received must both be received by the City Manager's Office no later than 15 business days after you received that letter, which is roughly three calendar weeks. Incomplete materials are not processed. There is only one appeal form: the city titles it the City Manager's Office Appeal Form, and the Board's own site refers to it as its appeal form.",
         "links": [
           {
             "text": "File an appeal online",
@@ -45,7 +45,7 @@
           },
           {
             "text": "Appeal form",
-            "href": "https://www.kalamazoocity.org/files/assets/public/v/1/applications-amp-forms/cpsrab-appeal-form.pdf",
+            "href": "https://www.kalamazoocity.org/files/assets/public/applications-amp-forms/cpsrab-appeal-form.pdf",
             "pdf": true
           }
         ]
@@ -54,7 +54,7 @@
         "title": "The hearing",
         "short": "The hearing",
         "actor": "The Board",
-        "desc": "The City Manager's Office refers qualifying appeals to the Board and schedules a hearing within 30 business days. The hearing is held no later than 60 business days after the appeal is filed. You may appear in person, and you choose on the appeal form whether the hearing is open to the public or closed. The Board reviews the case materials but does not hear from witnesses other than the Chief of Public Safety or the Chief's designee.",
+        "desc": "After examining the appeal material, the City Manager refers the matter to the Board, and the City Manager's Office schedules a hearing within 30 business days. The hearing is held no later than 60 business days after the appeal is filed. Present at the hearing are you, a representative from the Office of Professional Standards, a representative from the City Manager's Office, and members of the Board. You may appear in person, and you choose on the appeal form whether the hearing is open to the public or closed. The Board reviews the case materials but does not hear from witnesses other than the Chief of Public Safety or the Chief's designee.",
         "links": [
           {
             "text": "How the Board handles appeals",
@@ -102,7 +102,7 @@
       {
         "type": "field",
         "label": "Sustained",
-        "value": "There was enough evidence to prove what you reported. This finding cannot be appealed."
+        "value": "There was sufficient evidence to prove what you reported. This finding cannot be appealed."
       },
       {
         "type": "field",
@@ -112,17 +112,22 @@
       {
         "type": "field",
         "label": "Unfounded",
-        "value": "The investigation determined that the incident did not happen, or did not involve a department employee. This finding can be appealed."
+        "value": "The investigation proved conclusively that the acts described did not occur. This finding can be appealed."
       },
       {
         "type": "field",
         "label": "Exonerated",
-        "value": "The incident did happen, but was found to be justified and proper. This finding can be appealed."
+        "value": "The actions described did occur, but were found to be justified or proper. This finding can be appealed."
       },
       {
         "type": "field",
         "label": "Misconduct not based on complaint",
         "value": "The investigation uncovered improper job performance unrelated to what you reported. This finding can be appealed."
+      },
+      {
+        "type": "field",
+        "label": "Exceptionally cleared",
+        "value": "The complainant did not cooperate with the investigation, or did not provide enough information for it to proceed. The Board names four findings it can hear on appeal and this is not among them. Contact the Board directly if you received this finding."
       }
     ]
   },
@@ -134,7 +139,7 @@
       "body": [
         {
           "type": "paragraph",
-          "text": "The Citizens Public Safety Review and Appeal Board (CPSRAB) provides an opportunity for community members to participate in the oversight of the Kalamazoo Department of Public Safety (KDPS). Created by the City Manager pursuant to the authority granted by the Kalamazoo City Charter, the Board receives citizen input on appeals filed after KDPS complaint investigations and can inquire into any conduct of a public safety officer in the absence of a complaint."
+          "text": "The Citizens Public Safety Review and Appeal Board (CPSRAB) provides an opportunity for community members to participate in the oversight of the Kalamazoo Department of Public Safety (KDPS). Established by the City Manager's Office, the Board receives citizen input on appeals filed after KDPS complaint investigations and can inquire into any conduct of a public safety officer in the absence of a complaint."
         },
         {
           "type": "paragraph",
@@ -207,7 +212,7 @@
       "body": [
         {
           "type": "paragraph",
-          "text": "The Board consists of <strong>up to 12 members</strong> appointed by the City Manager — up to 6 from diverse organizations representing diverse populations and up to 6 at-large members. A quorum requires 51% of active members present."
+          "text": "The Board consists of <strong>up to 12 members</strong> appointed by the City Manager: up to 6 from diverse organizations representing diverse populations and up to 6 at-large members. A quorum requires 51% of active members present."
         },
         {
           "type": "field",
