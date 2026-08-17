@@ -616,35 +616,39 @@ footer a:hover { color: var(--gold-lt); }
    Type modifier (.special-cta--appeal) sets the background color.
    ────────────────────────────────────────────── */
 .special-cta { padding: clamp(24px, 4vw, 40px) var(--pad-x) 0; }
-/* ── PROCESS RAIL ──
-   Rendered directly beneath a special CTA and joined to it: the CTA loses its
-   bottom corners, this picks them up, so the two read as one unit. The rail
-   itself is always visible; only the per-step detail collapses. */
-.proc-section { padding: 0 var(--pad-x) 0; }
-.proc-inner {
+/* ── ONE BLOCK: CTA + PROCESS ──
+   .cta-stack is created by renderAppealProcess and holds both .special-cta-inner
+   and .proc-section. It is the only element painted, so there is no seam.
+   Solid red through the first 40%, then an eased fade that reaches the page
+   colour only at the very bottom edge rather than turning grey early and
+   sitting flat. */
+.cta-stack {
   max-width: 1400px; margin: 0 auto;
-  /* Fallback for browsers without color-mix. */
-  background: var(--cream-dk);
-  /* The CTA's red continues past its own edge and fades out here, so there is
-     no seam between the two. --cta-color is set by an adjacent-sibling rule
-     further down this file, keyed off the CTA's modifier class. The fallback
-     is the appeal red, never --board-color: on a board whose colour differs
-     from its CTA that produces a fade in the wrong colour entirely. */
+  border-radius: 4px; overflow: hidden;
   background: linear-gradient(
     180deg,
-    var(--cta-color, #7f1d1d) 0,
-    color-mix(in srgb, var(--cta-color, #7f1d1d) 30%, #fff) 72px,
-    color-mix(in srgb, var(--cta-color, #7f1d1d) 8%,  #fff) 132px,
-    var(--cream-dk) 240px
+    #7f1d1d 0%,
+    #7f1d1d 40%,
+    #8a3131 55%,
+    #9f5756 68%,
+    #ba8885 80%,
+    #d6b9b5 90%,
+    #e8dad5 96%,
+    var(--cream) 100%
   );
-  border: 1px solid var(--border); border-top: none;
-  border-radius: 0 0 4px 4px;
-  padding: clamp(54px, 7vw, 76px) clamp(20px, 5vw, 48px) clamp(22px, 3vw, 30px);
 }
-.proc-heading { font-family: 'Playfair Display', serif; font-size: clamp(19px, 2.4vw, 24px); font-weight: 600; color: var(--navy); margin: 0 0 6px; }
-.proc-intro { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0 0 20px; max-width: 720px; }
-
-.proc-hint { font-size: 13.5px; color: var(--muted); margin: 0 0 12px; }
+.cta-stack .special-cta-inner { background: none; border-radius: 0; max-width: none; margin: 0; }
+.proc-section { padding: 0; }
+.proc-inner {
+  max-width: none; margin: 0;
+  background: none; border: none; border-radius: 0;
+  padding: clamp(24px, 3vw, 34px) clamp(20px, 5vw, 48px) clamp(28px, 4vw, 40px);
+}
+/* The top of this section now sits on red, so its type is reversed out. The
+   cards below are white and read on any shade the fade passes through. */
+.proc-heading { font-family: 'Playfair Display', serif; font-size: clamp(19px, 2.4vw, 24px); font-weight: 600; color: #fff; margin: 0 0 6px; }
+.proc-intro { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.65; margin: 0 0 20px; max-width: 720px; }
+.proc-hint { font-size: 13.5px; color: rgba(255,255,255,0.6); margin: 0 0 12px; }
 
 .proc-rail { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
 @media (max-width: 900px) { .proc-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -700,7 +704,6 @@ footer a:hover { color: var(--gold-lt); }
 .proc-notes { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 20px; }
 /* When a process rail follows the CTA the two are one unit, so the CTA drops
    its bottom corners and the rail picks them up. */
-.special-cta:has(+ .proc-section) .special-cta-inner { border-radius: 4px 4px 0 0; }
 .special-cta-inner {
   max-width: 1400px; margin: 0 auto;
   border-radius: 4px;
@@ -727,11 +730,7 @@ footer a:hover { color: var(--gold-lt); }
 
 /* Appeal type — dark crimson rounded box */
 .special-cta--appeal .special-cta-inner { background: #7f1d1d; }
-/* The process section is a SIBLING of the CTA, not a child, so a custom
-   property set on the CTA does not inherit into it. Set it on the section
-   directly. Each CTA modifier needs its own line here; without one the
-   section falls back to the appeal red. */
-.special-cta--appeal + .proc-section { --cta-color: #7f1d1d; }
+
 
 /* ── PROCESS STEPS (How Appeals Work) ── */
 .process-steps { display: flex; flex-direction: column; margin-top: 14px; }
