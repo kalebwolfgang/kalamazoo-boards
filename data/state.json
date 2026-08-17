@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-14T10:57:11.094083-04:00",
-  "totalMeetings": 563,
+  "timestamp": "2026-08-17T10:33:55.873608-04:00",
+  "totalMeetings": 565,
   "byBoard": {
     "crb": {
       "meetings": 25
@@ -12,10 +12,10 @@
       "meetings": 47
     },
     "dda": {
-      "meetings": 38
+      "meetings": 39
     },
     "dega": {
-      "meetings": 42
+      "meetings": 43
     },
     "edc": {
       "meetings": 41
