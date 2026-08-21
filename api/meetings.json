@@ -1,59 +1,6 @@
 {
-  "lastUpdated": "2026-08-19",
+  "lastUpdated": "2026-08-21",
   "meetings": [
-    {
-      "date": "2026-08-19",
-      "display": "Wednesday, August 19, 2026",
-      "time": "4:30 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "ECC",
-      "name": "Environmental Concerns Committee"
-    },
-    {
-      "date": "2026-08-20",
-      "display": "Thursday, August 20, 2026",
-      "time": "07:45 AM – 09:30 AM",
-      "location": "Community Room at City Hall, 241 W. South Street",
-      "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority Board",
-      "locationChanged": true,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2705/files/agenda/5332"
-    },
-    {
-      "date": "2026-08-20",
-      "display": "Thursday, August 20, 2026",
-      "time": "07:45 AM – 09:30 AM",
-      "location": "Community Room at City Hall, 241 W. South Street",
-      "abbr": "EDC",
-      "name": "Economic Development Corporation Board",
-      "locationChanged": true,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2693/files/agenda/5326"
-    },
-    {
-      "date": "2026-08-20",
-      "display": "Thursday, August 20, 2026",
-      "time": "12:00 PM – 02:00 PM",
-      "location": "Milham Park Golf Club, Kalamazoo",
-      "abbr": "KMGA",
-      "name": "Kalamazoo Municipal Golf Association"
-    },
-    {
-      "date": "2026-08-20",
-      "display": "Thursday, August 20, 2026",
-      "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "BBA",
-      "name": "Building Board of Appeals"
-    },
-    {
-      "date": "2026-08-20",
-      "display": "Thursday, August 20, 2026",
-      "time": "06:00 PM – 07:00 PM",
-      "location": "Northside Association for Community Development, 612 N Park St",
-      "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board",
-      "notOnCityCalendar": true
-    },
     {
       "date": "2026-08-25",
       "display": "Tuesday, August 25, 2026",
