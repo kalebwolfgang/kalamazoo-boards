@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-08-19",
+  "last_updated": "2026-08-21",
   "metadata": {
     "time": "04:30 PM – 06:30 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-08-19",
-      "display": "Wednesday, August 19, 2026",
-      "time": "4:30 PM"
-    },
     {
       "date": "2026-09-16",
       "display": "Wednesday, September 16, 2026",
@@ -44,7 +39,9 @@
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2755/overview",
       "scrapedAt": "2026-08-19T14:38:40.346634+00:00",
-      "meeting_type": "Environmental Concerns Committee"
+      "meeting_type": "Environmental Concerns Committee",
+      "youtube_id": "Xe4S46M-Q0E",
+      "youtube_url": "https://www.youtube.com/watch?v=Xe4S46M-Q0E"
     },
     {
       "date": "2026-07-16",
@@ -329,6 +326,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-08-19",
+      "display": "August 19, 2026",
+      "youtube_id": "Xe4S46M-Q0E",
+      "youtube_url": "https://www.youtube.com/watch?v=Xe4S46M-Q0E",
+      "title": "August 19, 2026 Environmental Concerns Committee"
+    },
     {
       "date": "2026-05-20",
       "display": "May 20, 2026",

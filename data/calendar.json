@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-19",
+  "last_updated": "2026-08-21",
   "meetings": [
     {
       "date": "2026-07-02",
@@ -63,7 +63,8 @@
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2666/files/agenda/5236"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2666/files/agenda/5236",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2666/files/agenda/5337"
     },
     {
       "date": "2026-07-13",
@@ -72,7 +73,8 @@
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2655/files/agenda/5234"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2655/files/agenda/5234",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2655/files/agenda/5338"
     },
     {
       "date": "2026-07-14",
@@ -172,7 +174,8 @@
       "location": "125 S Kalamazoo Mall, City Centre Events Space",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2770/files/agenda/5263"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2770/files/agenda/5263",
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2770/files/agenda/5334"
     },
     {
       "date": "2026-08-06",
@@ -224,44 +227,44 @@
     {
       "date": "2026-08-18",
       "display": "Tuesday, August 18, 2026",
-      "time": "05:00 PM – 07:00 PM",
+      "time": "5:00 PM – 7:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission",
-      "isCancelled": true
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2742/files/agenda/5312"
     },
     {
       "date": "2026-08-19",
       "display": "Wednesday, August 19, 2026",
-      "time": "4:30 PM",
+      "time": "4:30 PM – 6:30 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
-      "name": "Environmental Concerns Committee"
+      "name": "Environmental Concerns Committee",
+      "youtube_url": "https://www.youtube.com/watch?v=Xe4S46M-Q0E",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2755/files/agenda/5321"
     },
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "07:45 AM – 09:30 AM",
-      "location": "Community Room at City Hall, 241 W. South Street",
+      "time": "7:45 AM – 9:30 AM",
+      "location": "City Hall Community Room, 241 W. South St",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority Board",
-      "locationChanged": true,
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2705/files/agenda/5332"
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2705/files/agenda/5335"
     },
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "07:45 AM – 09:30 AM",
-      "location": "Community Room at City Hall, 241 W. South Street",
+      "time": "7:45 AM – 9:30 AM",
+      "location": "City Hall Community Room, 241 W. South St",
       "abbr": "EDC",
       "name": "Economic Development Corporation Board",
-      "locationChanged": true,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2693/files/agenda/5326"
     },
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "12:00 PM – 02:00 PM",
+      "time": "12:00 PM – 2:00 PM",
       "location": "Milham Park Golf Club, Kalamazoo",
       "abbr": "KMGA",
       "name": "Kalamazoo Municipal Golf Association"
@@ -269,7 +272,7 @@
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "04:00 PM – 06:00 PM",
+      "time": "4:00 PM – 6:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
@@ -277,11 +280,10 @@
     {
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
-      "time": "06:00 PM – 07:00 PM",
+      "time": "6:00 PM – 7:00 PM",
       "location": "Northside Association for Community Development, 612 N Park St",
       "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board",
-      "notOnCityCalendar": true
+      "name": "Northside Cultural Business District Authority Board"
     },
     {
       "date": "2026-08-25",

@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-08-19",
+  "last_updated": "2026-08-21",
   "metadata": {
     "time": "06:00 PM – 07:00 PM",
     "location": "Northside Association for Community Development, 612 N Park St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-08-20",
-      "display": "Thursday, August 20, 2026",
-      "time": "06:00 PM – 07:00 PM",
-      "notOnCityCalendar": true
-    },
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
@@ -35,6 +29,20 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-08-20",
+      "display": "August 20, 2026",
+      "event_id": 2717,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2717/overview",
+      "link_label": "Meeting Record",
+      "isCancelled": false,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2717/overview",
+      "scrapedAt": "2026-08-21T14:40:43.744754+00:00",
+      "meeting_type": "Northside Cultural Business District Authority Board"
+    },
     {
       "date": "2026-07-16",
       "display": "July 16, 2026",

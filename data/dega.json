@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-19",
+  "last_updated": "2026-08-21",
   "metadata": {
     "time": "03:00 PM – 05:00 PM",
     "location": "City Hall, 241 W South St"
@@ -46,9 +46,9 @@
       "display": "August 5, 2026",
       "event_id": 2770,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2770/files/agenda/5263",
-      "link_label": "Agenda",
+      "link_label": "Agenda & Minutes",
       "isCancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2770/files/agenda/5334",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2770/files/agenda/5263",
       "location": "125 S Kalamazoo Mall, City Centre Events Space",
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2770/overview",
@@ -60,9 +60,9 @@
       "display": "July 13, 2026",
       "event_id": 2655,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2655/files/agenda/5234",
-      "link_label": "Agenda",
+      "link_label": "Agenda & Minutes",
       "isCancelled": false,
-      "minutes_url": null,
+      "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/2655/files/agenda/5338",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2655/files/agenda/5234",
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2655/overview",
