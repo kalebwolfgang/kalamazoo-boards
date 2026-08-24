@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-21",
+  "last_updated": "2026-08-24",
   "meetings": [
     {
       "date": "2026-07-02",
@@ -291,7 +291,8 @@
       "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
-      "name": "Natural Features Protection Review Board"
+      "name": "Natural Features Protection Review Board",
+      "notOnCityCalendar": true
     },
     {
       "date": "2026-08-26",
