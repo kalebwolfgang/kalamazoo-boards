@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-24T10:48:34.602306-04:00",
-  "totalMeetings": 572,
+  "timestamp": "2026-08-26T10:50:29.305232-04:00",
+  "totalMeetings": 573,
   "byBoard": {
     "crb": {
       "meetings": 25
@@ -36,7 +36,7 @@
       "meetings": 3
     },
     "nfp": {
-      "meetings": 27
+      "meetings": 28
     },
     "pc": {
       "meetings": 56
