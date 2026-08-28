@@ -1,14 +1,6 @@
 {
-  "lastUpdated": "2026-08-26",
+  "lastUpdated": "2026-08-28",
   "meetings": [
-    {
-      "date": "2026-08-26",
-      "display": "Wednesday, August 26, 2026",
-      "time": "11:00 AM – 12:00 PM",
-      "location": "W.E. Upjohn Institute, 300 S Westnedge Ave",
-      "abbr": "RIC",
-      "name": "Investment Committee of the Retirement System"
-    },
     {
       "date": "2026-09-01",
       "display": "Tuesday, September 1, 2026",
@@ -16,6 +8,25 @@
       "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
+    },
+    {
+      "date": "2026-09-02",
+      "display": "Wednesday, September 2, 2026",
+      "time": "05:00 PM – 07:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "HDC",
+      "name": "Historic District Commission",
+      "isCancelled": true,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2771/files/agenda/5343"
+    },
+    {
+      "date": "2026-09-02",
+      "display": "Wednesday, September 2, 2026",
+      "time": "05:00 PM – 07:00 PM",
+      "location": "City Hall, 241 W South St",
+      "abbr": "HPC",
+      "name": "Historic Preservation Commission",
+      "isCancelled": true
     },
     {
       "date": "2026-09-02",
@@ -31,7 +42,8 @@
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
-      "name": "Planning Commission"
+      "name": "Planning Commission",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2591/files/agenda/5340"
     },
     {
       "date": "2026-09-08",
@@ -44,7 +56,7 @@
     {
       "date": "2026-09-09",
       "display": "Wednesday, September 9, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -213,7 +225,7 @@
     {
       "date": "2026-10-14",
       "display": "Wednesday, October 14, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -342,7 +354,7 @@
     {
       "date": "2026-11-11",
       "display": "Wednesday, November 11, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -495,7 +507,7 @@
     {
       "date": "2026-12-09",
       "display": "Wednesday, December 9, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "05:00 PM – 07:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
