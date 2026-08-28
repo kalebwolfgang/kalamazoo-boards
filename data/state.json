@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-26T10:50:29.305232-04:00",
-  "totalMeetings": 573,
+  "timestamp": "2026-08-28T19:31:20.959245-04:00",
+  "totalMeetings": 574,
   "byBoard": {
     "crb": {
       "meetings": 25
@@ -57,7 +57,7 @@
       "meetings": 1
     },
     "ric": {
-      "meetings": 1
+      "meetings": 2
     },
     "kmga": {
       "meetings": 5

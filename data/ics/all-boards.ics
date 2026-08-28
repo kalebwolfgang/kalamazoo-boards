@@ -21,18 +21,27 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:RIC-2026-08-26@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260826T110000
-DTEND;TZID=America/Detroit:20260826T120000
-SUMMARY:Investment Committee of the Retirement System — City of Kalamazoo
-LOCATION:W.E. Upjohn Institute, 300 S Westnedge Ave
-END:VEVENT
-BEGIN:VEVENT
 UID:TRE-2026-09-01@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260901T140000
 DTEND;TZID=America/Detroit:20260901T160000
 SUMMARY:Tree Committee — City of Kalamazoo
 LOCATION:Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
+END:VEVENT
+BEGIN:VEVENT
+UID:HDC-2026-09-02@kalamazoocity-boards
+STATUS:CANCELLED
+DTSTART;TZID=America/Detroit:20260902T170000
+DTEND;TZID=America/Detroit:20260902T190000
+SUMMARY:Historic District Commission — City of Kalamazoo
+LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
+END:VEVENT
+BEGIN:VEVENT
+UID:HPC-2026-09-02@kalamazoocity-boards
+STATUS:CANCELLED
+DTSTART;TZID=America/Detroit:20260902T170000
+DTEND;TZID=America/Detroit:20260902T190000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ERSB-2026-09-02@kalamazoocity-boards
@@ -57,8 +66,8 @@ LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-09-09@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260909T180000
-DTEND;TZID=America/Detroit:20260909T200000
+DTSTART;TZID=America/Detroit:20260909T170000
+DTEND;TZID=America/Detroit:20260909T190000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -204,8 +213,8 @@ LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-10-14@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261014T180000
-DTEND;TZID=America/Detroit:20261014T200000
+DTSTART;TZID=America/Detroit:20261014T170000
+DTEND;TZID=America/Detroit:20261014T190000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -316,8 +325,8 @@ LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-11-11@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261111T180000
-DTEND;TZID=America/Detroit:20261111T200000
+DTSTART;TZID=America/Detroit:20261111T170000
+DTEND;TZID=America/Detroit:20261111T190000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -449,8 +458,8 @@ LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-12-09@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261209T180000
-DTEND;TZID=America/Detroit:20261209T200000
+DTSTART;TZID=America/Detroit:20261209T170000
+DTEND;TZID=America/Detroit:20261209T190000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT

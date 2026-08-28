@@ -1,29 +1,41 @@
 {
-  "last_updated": "2026-08-26",
+  "last_updated": "2026-08-28",
   "metadata": {
-    "time": "06:00 PM – 08:00 PM",
+    "time": "05:00 PM – 07:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
     {
+      "date": "2026-08-18",
+      "display": "Tuesday, August 18, 2026",
+      "time": "05:00 PM – 07:00 PM",
+      "isCancelled": true
+    },
+    {
+      "date": "2026-09-02",
+      "display": "Wednesday, September 2, 2026",
+      "time": "05:00 PM – 07:00 PM",
+      "isCancelled": true
+    },
+    {
       "date": "2026-09-09",
       "display": "Wednesday, September 9, 2026",
-      "time": "06:00 PM – 08:00 PM"
+      "time": "05:00 PM – 07:00 PM"
     },
     {
       "date": "2026-10-14",
       "display": "Wednesday, October 14, 2026",
-      "time": "06:00 PM – 08:00 PM"
+      "time": "05:00 PM – 07:00 PM"
     },
     {
       "date": "2026-11-11",
       "display": "Wednesday, November 11, 2026",
-      "time": "06:00 PM – 08:00 PM"
+      "time": "05:00 PM – 07:00 PM"
     },
     {
       "date": "2026-12-09",
       "display": "Wednesday, December 9, 2026",
-      "time": "06:00 PM – 08:00 PM"
+      "time": "05:00 PM – 07:00 PM"
     }
   ],
   "meetings": [

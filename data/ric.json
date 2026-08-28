@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-08-26",
+  "last_updated": "2026-08-28",
   "metadata": {
     "time": "11:00 AM – 12:00 PM",
     "location": "W.E. Upjohn Institute, 300 S Westnedge Ave"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-08-26",
-      "display": "Wednesday, August 26, 2026",
-      "time": "11:00 AM – 12:00 PM"
-    },
     {
       "date": "2026-12-02",
       "display": "Wednesday, December 2, 2026",
@@ -17,6 +12,10 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-08-26",
+      "display": "August 26, 2026"
+    },
     {
       "date": "2026-05-27",
       "display": "May 27, 2026"
