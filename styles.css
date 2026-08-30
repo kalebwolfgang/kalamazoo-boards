@@ -471,6 +471,14 @@ footer a:hover { color: var(--gold-lt); }
 .minutes-sublabel { font-size: 12px; color: var(--muted); }
 .minutes-action { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
 .minutes-item:hover .minutes-action { color: var(--gold); }
+/* Split rows carry two separate documents, so the row itself is not a link.
+   Cancel the whole-row hover and let each link highlight on its own. */
+.minutes-item--split { cursor: default; }
+.minutes-item--split:hover .minutes-date,
+.minutes-item--split:hover .minutes-action { color: inherit; }
+.minutes-item--split .minutes-date { color: var(--navy); }
+a.minutes-action { text-decoration: none; width: fit-content; }
+a.minutes-action:hover { color: var(--gold); }
 
 /* Apply standalone card (4th bottom card) */
 .apply-standalone-inner { padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px); display: flex; flex-direction: column; gap: 20px; height: 100%; }
