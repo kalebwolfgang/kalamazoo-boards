@@ -249,19 +249,51 @@
   ],
   "sources": {
     "description": null,
-    "govStrip.meetingSchedule": null,
-    "govStrip.boardSize": null,
-    "govStrip.termLength": null,
-    "membersSubhead": null,
+    "govStrip.meetingSchedule": {
+      "citation": "City of Kalamazoo CPSRAB board page (recurs the second Tuesday of each month, 6:00 to 8:00 PM)",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB",
+      "verifiedOn": null
+    },
+    "govStrip.boardSize": {
+      "citation": "CPSRAB Policies and Procedures of Operation, effective 2025-10-27, Art. III.A (up to 12 members: up to 6 from diverse organizations, up to 6 at-large)",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/5/bylaws/cpsrab-policies-and-procedures-of-operation_10272025.pdf",
+      "verifiedOn": null
+    },
+    "govStrip.termLength": {
+      "citation": "CPSRAB Policies and Procedures of Operation, effective 2025-10-27, Art. III.A.1 (three-year terms; no more than two consecutive terms without a one-year hiatus)",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/5/bylaws/cpsrab-policies-and-procedures-of-operation_10272025.pdf",
+      "verifiedOn": null
+    },
+    "membersSubhead": {
+      "citation": "CPSRAB Policies and Procedures of Operation, effective 2025-10-27, Art. III.A and III.A.1",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/5/bylaws/cpsrab-policies-and-procedures-of-operation_10272025.pdf",
+      "verifiedOn": null
+    },
     "meeting.note": null,
-    "meeting.location": null,
-    "meeting.address": null,
+    "meeting.location": {
+      "citation": "City of Kalamazoo CPSRAB board page (City Commission Chambers, City Hall Second Floor, 241 W South Street)",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB",
+      "verifiedOn": null
+    },
+    "meeting.address": {
+      "citation": "City of Kalamazoo CPSRAB board page",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB",
+      "verifiedOn": null
+    },
     "roster": null,
     "boardEmail": null,
-    "staffLiaison": null,
+    "staffLiaison": {
+      "citation": "CPSRAB Policies and Procedures of Operation, effective 2025-10-27, Art. III.E.1 (liaison advises and does not participate in deliberations)",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/5/bylaws/cpsrab-policies-and-procedures-of-operation_10272025.pdf",
+      "verifiedOn": null
+    },
     "applyUrl": null,
     "applyText": null,
-    "specialCta": null,
+    "specialCta": {
+      "citation": "CPSRAB Policies and Procedures of Operation, effective 2025-10-27, Art. IX.A.1.i (appeal to the City Manager within 15 business days of notification of the Chief's decision)",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/5/bylaws/cpsrab-policies-and-procedures-of-operation_10272025.pdf",
+      "verifiedOn": null
+    },
     "appealProcess": null,
     "accordions.about-mission": null,
     "accordions.roles-responsibilities": null,
