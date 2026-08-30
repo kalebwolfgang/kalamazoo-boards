@@ -239,13 +239,19 @@ function renderMembersSubhead() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   STAFF LIAISON
+   STAFF LIAISON & CONTACT POINT
+   Renders the "City Contact Point" block. This holds two independent
+   things: the board's own inbox (BOARD.boardEmail) and any staff
+   liaisons (BOARD.staffLiaison). Either one alone is enough to render
+   the block, so a board with an inbox and no liaison still shows its
+   contact. Previously this function returned early whenever there were
+   no liaisons, which silently dropped boardEmail for those boards.
    ═══════════════════════════════════════════════════════════════ */
 function renderStaffLiaison() {
   const liaisons = Array.isArray(BOARD.staffLiaison)
     ? BOARD.staffLiaison
     : (BOARD.staffLiaison ? [BOARD.staffLiaison] : []);
-  if (!liaisons.length) return;
+  if (!liaisons.length && !BOARD.boardEmail) return;
 
   const membersSection = document.querySelector('.members-section');
   if (!membersSection) return;
