@@ -246,5 +246,27 @@
         }
       ]
     }
-  ]
+  ],
+  "sources": {
+    "description": null,
+    "govStrip.meetingSchedule": null,
+    "govStrip.boardSize": null,
+    "govStrip.termLength": null,
+    "membersSubhead": null,
+    "meeting.note": null,
+    "meeting.location": null,
+    "meeting.address": null,
+    "roster": null,
+    "boardEmail": null,
+    "staffLiaison": null,
+    "applyUrl": null,
+    "applyText": null,
+    "specialCta": null,
+    "appealProcess": null,
+    "accordions.about-mission": null,
+    "accordions.roles-responsibilities": null,
+    "accordions.membership-requirements": null,
+    "externalLinks": null,
+    "documents": null
+  }
 }
