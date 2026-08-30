@@ -60,9 +60,6 @@
           "elected"
         ]
       },
-      "meetingSchedule": {
-        "type": "string"
-      },
       "boardEmail": {
         "type": [
           "string",
