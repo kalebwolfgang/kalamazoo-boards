@@ -177,6 +177,44 @@
           "type": "string"
         }
       }
+    },
+    "sources": {
+      "description": "Provenance for every user-visible fact on this board's page, keyed by field name. A null value means the fact is published but NOT yet verified against a citable source, and must be resolved before public launch. Keys cover facts held in this file, in boards.json, and in the page's own BOARD constant, so this is the single per-board audit list.",
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "required": [
+              "citation"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "citation": {
+                "type": "string",
+                "description": "Human-readable source, e.g. 'Kalamazoo Code of Ordinances 2-100' or 'CPSRAB Policies and Procedures of Operation 2025, p.4'."
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Direct link to the source document or page."
+              },
+              "verifiedOn": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "ISO date the City of Kalamazoo confirmed this fact during audit. Null means sourced by us but not yet City-confirmed."
+              }
+            }
+          }
+        ]
+      }
     }
   },
   "$defs": {
