@@ -172,6 +172,30 @@ def validate_meeting_files() -> list[str]:
     return all_errors
 
 
+def validate_content_files() -> list[str]:
+    """
+    Validate each content/<abbr>.json against content.schema.json.
+    Returns list of error strings. A missing content/ directory is not an
+    error: boards without a content file fall back to the generic template.
+    """
+    if not CONTENT_DIR.is_dir():
+        return []
+
+    schema     = load_schema("content.schema.json")
+    validator  = Draft202012Validator(schema)
+    all_errors: list[str] = []
+
+    for path in sorted(CONTENT_DIR.glob("*.json")):
+        with path.open(encoding="utf-8") as f:
+            data = json.load(f)
+
+        errors = sorted(validator.iter_errors(data), key=lambda e: list(e.absolute_path))
+        for e in errors:
+            all_errors.append(f"content/{path.name} {format_error(e)}")
+
+    return all_errors
+
+
 # ---------------------------------------------------------------------------
 # Calendar JSON build  (moved here from scraper.py in Task 1)
 # ---------------------------------------------------------------------------
@@ -1232,6 +1256,10 @@ def main() -> None:
     print(f"  data/*.json ({len(list(DATA_DIR.glob('*.json')))} files)...")
     all_errors.extend(validate_meeting_files())
 
+    content_files = sorted(CONTENT_DIR.glob("*.json")) if CONTENT_DIR.is_dir() else []
+    print(f"  content/*.json ({len(content_files)} files)...")
+    all_errors.extend(validate_content_files())
+
     if all_errors:
         header = f"Schema validation FAILED — {len(all_errors)} error(s):\n\n"
         body   = header + "\n".join(all_errors)
@@ -1240,7 +1268,7 @@ def main() -> None:
         write_changelog(run_id, validation_passed=False)
         sys.exit(1)
 
-    print(f"  Validation passed. {len(list(DATA_DIR.glob('*.json')))} file(s) OK.")
+    print(f"  Validation passed. {len(list(DATA_DIR.glob('*.json'))) + len(content_files)} file(s) OK.")
 
     # ── Step 2: Build calendar + ICS ──────────────────────────────────────
     build_calendar_json()
