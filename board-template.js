@@ -1657,37 +1657,34 @@ function renderMinutes(data) {
   }
 }
 
-/* Two documents, or one?
+/* One row per DOCUMENT, not per meeting.
 
-   Every CivicClerk board stores a meeting's agenda, agenda packet and
-   minutes as separate file IDs under a single event, e.g.
-     agenda   /event/2587/files/agenda/4995
-     minutes  /event/2587/files/agenda/5291
-   The URLs differ but both open that event's file list, so one link
-   already reaches everything and a second would be redundant.
+   A meeting can have an agenda, minutes, or both, and they are separate
+   files. Collapsing them into a single "View Meeting Documents" link meant
+   the agenda was unreachable whenever minutes also existed, because the row
+   linked `minutes_url || agenda_url` and minutes always won. Each document
+   now gets its own row, labelled with what it actually is.
 
-   CPSRAB is the only board not on CivicClerk. It posts standalone PDFs
-   on the city site with no shared container:
-     agenda   /minutes-amp-agendas/cpsrab/12-10-2024-agenda.pdf
-     minutes  /minutes-amp-agendas/cpsrab/december-10-2024.pdf
-   There one link genuinely cannot reach the other document, which left
-   22 CPSRAB agendas present in the data and unreachable on the page,
-   because the row linked `minutes_url || agenda_url` and minutes always won.
+   Cases handled:
+     agenda + minutes          two rows, "Agenda" and "Minutes"
+     agenda only               one row,  "Agenda"
+     minutes only              one row,  "Minutes"
+     one file serving both     one row,  "Agenda & Minutes"
+     generic url only          one row,  the record's own link_label */
+function meetingDocuments(m) {
+  const docs = [];
 
-   Detected from the URLs rather than hardcoded to a board, so any board
-   the city moves off CivicClerk picks up the right behaviour on its own. */
-const CIVICCLERK_EVENT_RE = /\/event\/(\d+)\//;
+  if (m.agenda_url && m.agenda_url === m.minutes_url) {
+    docs.push({ label: 'Agenda & Minutes', url: m.agenda_url });
+    return docs;
+  }
+  if (m.agenda_url)  docs.push({ label: 'Agenda',  url: m.agenda_url  });
+  if (m.minutes_url) docs.push({ label: 'Minutes', url: m.minutes_url });
 
-function sameCivicClerkEvent(a, b) {
-  const ma = a.match(CIVICCLERK_EVENT_RE);
-  const mb = b.match(CIVICCLERK_EVENT_RE);
-  return !!(ma && mb && ma[1] === mb[1]);
-}
-
-function hasSeparateDocuments(m) {
-  return !!(m.agenda_url && m.minutes_url &&
-            m.agenda_url !== m.minutes_url &&
-            !sameCivicClerkEvent(m.agenda_url, m.minutes_url));
+  if (!docs.length && m.url) {
+    docs.push({ label: m.link_label || 'Meeting Documents', url: m.url });
+  }
+  return docs;
 }
 
 function drawMinutes(meetings, year, el, countEl) {
@@ -1699,40 +1696,25 @@ function drawMinutes(meetings, year, el, countEl) {
     countEl.textContent = filtered.length !== meetings.length ? `${filtered.length} shown` : '';
   }
 
-  el.innerHTML = filtered.map(m => {
-    const iconColor = 'var(--navy-light)';
-    const docIcon   = `<svg width="16" height="16" fill="none" stroke="${iconColor}" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
+  const iconColor = 'var(--navy-light)';
+  const docIcon   = `<svg width="16" height="16" fill="none" stroke="${iconColor}" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
 
-    const heading = `
-      <div class="minutes-date">${m.display || m.date}</div>
-      <div class="minutes-sublabel">${BOARD.abbr}</div>`;
-
-    /* Split case: one row, one date, two labelled links. The row is a div
-       rather than an anchor, since it is no longer a single destination. */
-    if (hasSeparateDocuments(m)) {
-      return `
-        <div class="minutes-item minutes-item--split">
+  const rows = [];
+  filtered.forEach(m => {
+    meetingDocuments(m).forEach(doc => {
+      rows.push(`
+        <a class="minutes-item" href="${doc.url}" target="_blank" rel="noopener">
           <div class="minutes-icon">${docIcon}</div>
           <div class="minutes-info">
-            ${heading}
-            <a class="minutes-action" href="${m.agenda_url}" target="_blank" rel="noopener">${SVG_EXT} Agenda</a>
-            <a class="minutes-action" href="${m.minutes_url}" target="_blank" rel="noopener">${SVG_EXT} Minutes</a>
+            <div class="minutes-date">${m.display || m.date}</div>
+            <div class="minutes-sublabel">${BOARD.abbr}</div>
+            <div class="minutes-action">${SVG_EXT} ${doc.label}</div>
           </div>
-        </div>`;
-    }
+        </a>`);
+    });
+  });
 
-    /* Single destination. Label stays generic because the city labels the
-       same file "Minutes", "Agenda" or "Agenda & Minutes" inconsistently. */
-    const url = m.minutes_url || m.agenda_url || m.url;
-    return `
-      <a class="minutes-item" href="${url}" target="_blank" rel="noopener">
-        <div class="minutes-icon">${docIcon}</div>
-        <div class="minutes-info">
-          ${heading}
-          <div class="minutes-action">${SVG_EXT} View Meeting Documents</div>
-        </div>
-      </a>`;
-  }).join('')
+  el.innerHTML = rows.join('')
     || `<div style="padding:18px;font-size:14px;color:var(--muted)">No meeting documents posted for this year.</div>`;
 }
 
