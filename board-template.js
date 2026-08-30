@@ -160,10 +160,23 @@ function renderGovStrip() {
 /* ═══════════════════════════════════════════════════════════════
    MEETING INFO BAR
    Optional one-line schedule note rendered between the gov strip
-   and the Watch Live banner. Controlled by BOARD.meetingNote.
+   and the Watch Live banner.
+
+   Source order, first non-empty wins:
+     1. noteOverride  — metadata.meetingScheduleNote from data/{abbr}.json,
+                        passed in by fetchMeetingData()
+     2. BOARD.meeting.note  — the nested field every board page defines
+     3. BOARD.meetingNote   — legacy flat field, kept as a fallback
+
+   This previously read the flat field ONLY. No board page has ever
+   defined it, so for any board whose data file also lacked a
+   meetingScheduleNote the bar never rendered and its authored note was
+   silently dropped. CPSRAB was one such board.
    ═══════════════════════════════════════════════════════════════ */
 function renderMeetingInfoBar(noteOverride) {
-  const note = noteOverride || BOARD.meetingNote;
+  const note = noteOverride
+            || (BOARD.meeting && BOARD.meeting.note)
+            || BOARD.meetingNote;
   if (!note) return;
   const govStrip = document.querySelector('.gov-strip');
   if (!govStrip) return;
@@ -1375,31 +1388,55 @@ function renderHowToSection(content, bodyType) {
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   PUBLIC COMMENT BAR
+   Renders content.publicCommentGuide as a one-line strip directly
+   under the meeting info bar, so all meeting logistics sit together.
+
+   This previously wrote into an accordion with the id "public-comment".
+   No board page has that accordion, and under the three-section
+   standard (About & Mission / Roles & Responsibilities / Membership
+   Requirements) none will, so the function was dead code and any
+   publicCommentGuide data would have rendered nowhere.
+
+   Deliberately renders NOTHING when the guide is absent. A missing
+   guide means "not yet verified", not "this board takes no public
+   comment". Asserting the latter without a source is exactly what the
+   pre-launch City audit is meant to prevent.
+   ═══════════════════════════════════════════════════════════════ */
 function renderPublicCommentGuide(guide) {
   if (!guide) return;
-  const item  = document.getElementById('public-comment');
-  if (!item) return;
-  const panel = item.querySelector('.acc-panel-inner');
-  if (!panel) return;
 
-  const rows = [
-    guide.location  && { label: 'Location',   value: guide.location },
-    guide.remote    && { label: 'Remote',      value: guide.remote },
-    guide.signUp    && { label: 'Sign-Up',     value: guide.signUp },
-    guide.timeLimit && { label: 'Time Limit',  value: guide.timeLimit },
+  const parts = [
+    guide.signUp,
+    guide.timeLimit,
+    guide.remote,
+    guide.location,
   ].filter(Boolean);
 
-  if (rows.length) {
-    panel.innerHTML +=
-      `<div class="req-grid">` +
-      rows.map(r =>
-        `<div class="req-card">` +
-        `<div class="req-card-label">${r.label}</div>` +
-        `<div class="req-card-value">${r.value}</div>` +
-        `</div>`
-      ).join('') +
-      `</div>`;
-  }
+  if (!parts.length) return;
+  if (document.querySelector('.public-comment-bar')) return;
+
+  /* Anchor after the meeting info bar when it exists, otherwise after the
+     gov strip. The meeting bar can render later than this one, since it
+     may be driven by the async data fetch — anchoring this way keeps the
+     order correct either way, because the meeting bar inserts afterend of
+     the gov strip and therefore lands above this one. */
+  const anchor = document.querySelector('.meeting-info-bar')
+              || document.querySelector('.gov-strip');
+  if (!anchor) return;
+
+  const SVG_MIC = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--muted)"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>`;
+
+  const bar = document.createElement('div');
+  bar.className = 'meeting-info-bar public-comment-bar';
+  bar.innerHTML = `
+    <div class="meeting-info-inner">
+      ${SVG_MIC}
+      <span><strong>Public comment:</strong> ${parts.join(' &middot; ')}</span>
+    </div>`;
+
+  anchor.insertAdjacentElement('afterend', bar);
 }
 
 
