@@ -31,7 +31,7 @@
      ABOVE this stylesheet, so --board-color must NOT be declared here: an
      equal-specificity :root rule loading later would overwrite the page's own
      value, which is why board colour never actually applied. Use sites carry
-     the fallback: var(--board-color, var(--navy)).
+     the fallback: var(--navy).
      Board pages use the site navy for their chrome. The board's own colour is
      reserved for small accents so a page does not become a wall of one colour. */
   --pad-x: clamp(16px, 4vw, 40px);
@@ -274,7 +274,11 @@ footer a:hover { color: var(--gold-lt); }
 /* Requirement cards */
 .req-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
 @media (min-width: 600px) { .req-grid { grid-template-columns: 1fr 1fr; } }
-.req-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--board-color, var(--navy)); border-radius: 3px; padding: 14px 16px; }
+/* Accent is fixed navy, not var(--board-color). Board colour is an identity
+   accent for badges and dots; using it here made the same Membership
+   Requirements block red on CRB and blue on CPSRAB, which reads as an
+   inconsistency rather than as theming. */
+.req-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--navy); border-radius: 3px; padding: 14px 16px; }
 .req-card-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
 .req-card-value { font-size: 15px; color: var(--body); line-height: 1.55; }
 
@@ -283,6 +287,13 @@ footer a:hover { color: var(--gold-lt); }
 .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .sidebar-card-header { background: var(--navy); padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.90); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
 .sidebar-card-body { padding: 18px; }
+/* Speak at a Meeting card — one labelled row per fact. */
+.pc-row { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.pc-row:first-child { padding-top: 0; }
+.pc-row:last-child { padding-bottom: 0; border-bottom: none; }
+.pc-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+.pc-value { font-size: 14px; color: var(--body); line-height: 1.5; }
+.pc-value a { color: var(--navy-light); font-weight: 500; }
 .meeting-item { padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border-lt); }
 .meeting-item:last-of-type { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
 .next-badge { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-bottom: 5px; }
@@ -614,7 +625,7 @@ footer a:hover { color: var(--gold-lt); }
 /* ── SPECIAL CTA ──
    Outer .special-cta is transparent — just provides spacing.
    The colored rounded box is .special-cta-inner.
-   Type modifier (.special-cta--appeal) sets the background color.
+   Appearance is identical for every cta.type.
    ────────────────────────────────────────────── */
 .special-cta { padding: clamp(24px, 4vw, 40px) var(--pad-x) 0; }
 /* ── ONE BLOCK: CTA + PROCESS ──
@@ -656,12 +667,12 @@ footer a:hover { color: var(--gold-lt); }
   transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 }
 .proc-rail-top { display: flex; align-items: center; justify-content: space-between; }
-.proc-rail-cell:hover { border-top-color: var(--board-color, var(--navy)); box-shadow: 0 2px 6px rgba(0,0,0,0.07); transform: translateY(-1px); }
+.proc-rail-cell:hover { border-top-color: var(--navy); box-shadow: 0 2px 6px rgba(0,0,0,0.07); transform: translateY(-1px); }
 .proc-rail-cell:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
-.proc-rail-cell.is-open { border-color: var(--board-color, var(--navy)); border-top-color: var(--board-color, var(--navy)); background: var(--cream); }
+.proc-rail-cell.is-open { border-color: var(--navy); border-top-color: var(--navy); background: var(--cream); }
 .proc-rail-cell.is-open .proc-chevron { transform: rotate(180deg); }
 .proc-chevron { color: var(--navy-light); flex-shrink: 0; transition: transform 0.2s; }
-.proc-rail-num { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--board-color, var(--navy)); }
+.proc-rail-num { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--navy); }
 .proc-rail-label { font-size: 14px; font-weight: 600; color: var(--body); line-height: 1.3; }
 .proc-rail-actor { font-size: 11.5px; color: var(--muted); line-height: 1.35; }
 
@@ -674,14 +685,14 @@ footer a:hover { color: var(--gold-lt); }
 }
 .proc-panel .proc-step {
   margin-top: 12px; background: #fff;
-  border: 1px solid var(--board-color, var(--navy));
+  border: 1px solid var(--navy);
   border-radius: 3px; padding: 18px 20px;
 }
 .proc-notes-inner { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 20px; }
 .proc-step { display: flex; gap: 16px; }
 .proc-step-num {
   flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
-  background: var(--board-color, var(--navy)); color: #fff;
+  background: var(--navy); color: #fff;
   display: flex; align-items: center; justify-content: center;
   font-size: 12px; font-weight: 700;
 }
@@ -703,12 +714,12 @@ footer a:hover { color: var(--gold-lt); }
    its bottom corners and the rail picks them up. */
 .special-cta-inner {
   max-width: 1400px; margin: 0 auto;
-  /* Default background. Every text colour inside this block is white or a
-     white alpha, so without a background here the whole CTA renders as white
-     on white and is invisible. Only .special-cta--appeal used to set one,
-     which meant any other cta.type (complaint, and anything added later)
-     produced an unreadable block. Type modifiers below override this. */
-  background: var(--navy);
+  /* Every action CTA looks identical regardless of cta.type — appeal,
+     complaint, or anything added later. Previously only .special-cta--appeal
+     set a background, so a complaint CTA rendered white-on-white. Setting it
+     here means one appearance for all types and no per-type styling to keep
+     in sync. */
+  background: #7f1d1d;
   border-radius: 4px;
   padding: clamp(24px, 5vw, 44px) clamp(20px, 5vw, 48px);
   display: flex; flex-direction: column; gap: 28px;
@@ -731,8 +742,6 @@ footer a:hover { color: var(--gold-lt); }
 .special-cta-btn:hover { background: #b91c1c; border-color: rgba(255,255,255,0.55); }
 .special-cta-note { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
 
-/* Appeal type — dark crimson rounded box */
-.special-cta--appeal .special-cta-inner { background: #7f1d1d; }
 
 
 /* ── PROCESS STEPS (How Appeals Work) ── */
