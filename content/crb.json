@@ -27,14 +27,14 @@
         {
           "type": "list",
           "items": [
-            "Foster mutual understanding and respect among the people in the City, and discourage and prevent unlawful discriminatory practices toward the protected classes described in the Ordinance",
-            "Review claims of discrimination brought by City residents and make recommendations for resolution, following investigation of the claim by the City Manager or the City Manager's designee",
-            "Review and analyze conditions, practices, attitudes, policies and other factors within Kalamazoo that contribute to discriminatory impact and further inequities, and evaluate the impact of antidiscrimination efforts",
-            "Make recommendations to the City Commission and City Manager on ways to improve City programs and ordinances to eliminate discrimination or remove the effects of past discrimination",
-            "Engage in public awareness activities so residents are informed of local protections and the role of the Board",
-            "Engage with federal, state and local agencies to assist in addressing issues of discrimination in the City",
-            "Provide an annual report to the City Commission on complaints received and actions taken. Under the bylaws, the Chairperson sees that this report is submitted by February 1 each year",
-            "Establish bylaws and procedural rules for its meetings, subject to approval by the City Commission"
+            "Foster mutual understanding and respect among the people in the City, and discourage and prevent unlawful discriminatory practices toward the protected classes described in the Ordinance.",
+            "Review claims of discrimination brought by City residents and make recommendations for resolution, following investigation of the claim by the City Manager or the City Manager's designee.",
+            "Review and analyze conditions, practices, attitudes, policies and other factors within Kalamazoo that contribute to discriminatory impact and further inequities, and evaluate the impact of antidiscrimination efforts.",
+            "Make recommendations to the City Commission and City Manager on ways to improve City programs and ordinances to eliminate discrimination or remove the effects of past discrimination.",
+            "Engage in public awareness activities so residents are informed of local protections and the role of the Board.",
+            "Engage with federal, state and local agencies to assist in addressing issues of discrimination in the City.",
+            "Provide an annual report to the City Commission on complaints received and actions taken. Under the bylaws, the Chairperson sees that this report is submitted by February 1 each year.",
+            "Establish bylaws and procedural rules for its meetings, subject to approval by the City Commission."
           ]
         },
         {
@@ -99,12 +99,7 @@
         "short": "Gather info",
         "actor": "You",
         "desc": "Before filing, collect what happened and when, and the person or organization the complaint is about. It also helps to note whether you have already referred the complaint elsewhere, such as the Fair Housing Center of Southwest Michigan or the Michigan Department of Civil Rights.",
-        "links": [
-          {
-            "text": "What to gather before filing",
-            "href": "https://www.kalamazoocity.org/Residents/Connect-with-311/Report-Civil-Rights-Complaint"
-          }
-        ]
+        "links": []
       },
       {
         "title": "File the complaint",
@@ -135,12 +130,7 @@
         "short": "Acknowledged",
         "actor": "City staff",
         "desc": "A member of the City's team follows up within three business days to confirm your complaint was received. If you filed online, you are also notified once the appropriate staff have reviewed it whether it will be investigated.",
-        "links": [
-          {
-            "text": "How the City handles complaints",
-            "href": "https://www.kalamazoocity.org/Residents/Connect-with-311/Report-Civil-Rights-Complaint"
-          }
-        ]
+        "links": []
       },
       {
         "title": "The investigation",
@@ -161,8 +151,8 @@
         "desc": "The Board reviews the claim and the investigation results. If the ordinance was violated, the Board makes a recommendation to the City Manager on how it should be addressed. The Board recommends; it does not decide or enforce.",
         "links": [
           {
-            "text": "Ordinance 18-19.B",
-            "href": "https://ecode360.com/36972181"
+            "text": "Civil Rights Board Bylaws",
+            "href": "https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/kcrb-comm-bylaws-final.pdf"
           }
         ]
       }
