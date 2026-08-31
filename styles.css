@@ -214,15 +214,15 @@ footer a:hover { color: var(--gold-lt); }
 .acc-trigger[aria-expanded="true"] .acc-chevron { transform: rotate(180deg); color: var(--gold); }
 .acc-panel[hidden] { display: none; }
 .acc-panel-inner { padding: clamp(16px, 3vw, 26px) clamp(16px, 3vw, 22px); }
-.acc-panel-inner p { font-size: clamp(15px, 2.5vw, 18px); color: var(--body); line-height: 1.75; margin-bottom: 14px; }
-.acc-panel-inner p:last-child { margin-bottom: 0; }
-.acc-panel-inner ul { margin: 0 0 0 20px; }
-.acc-panel-inner li { font-size: clamp(15px, 2.5vw, 18px); color: var(--body); line-height: 1.7; margin-bottom: 8px; }
-.acc-panel-inner li:last-child { margin-bottom: 0; }
+.acc-panel-inner p, .proc-notes-inner p { font-size: clamp(15px, 2.5vw, 18px); color: var(--body); line-height: 1.75; margin-bottom: 14px; }
+.acc-panel-inner p:last-child, .proc-notes-inner p:last-child { margin-bottom: 0; }
+.acc-panel-inner ul, .proc-notes-inner ul { margin: 0 0 0 20px; }
+.acc-panel-inner li, .proc-notes-inner li { font-size: clamp(15px, 2.5vw, 18px); color: var(--body); line-height: 1.7; margin-bottom: 8px; }
+.acc-panel-inner li:last-child, .proc-notes-inner li:last-child { margin-bottom: 0; }
 .acc-panel-inner a { color: var(--navy-light); }
 .acc-panel-inner a:hover { color: var(--gold); text-decoration: underline; }
-.acc-panel-inner h4 { font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; margin: 20px 0 8px; }
-.acc-panel-inner h4:first-child { margin-top: 0; }
+.acc-panel-inner h4, .proc-notes-inner h4 { font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; margin: 20px 0 8px; }
+.acc-panel-inner h4:first-child, .proc-notes-inner h4:first-child { margin-top: 0; }
 
 /* ──────────────────────────────────────────────────
    BOARD PAGE TEMPLATE CSS
@@ -265,6 +265,10 @@ footer a:hover { color: var(--gold-lt); }
 .gov-item { flex: 1; text-align: center; padding: clamp(14px, 3vw, 20px) clamp(12px, 2.5vw, 16px); border-right: 1px solid rgba(255,255,255,0.08); min-width: 110px; }
 .gov-item:last-child { border-right: none; }
 .gov-value { font-size: clamp(15px, 2.5vw, 20px); font-weight: 700; color: var(--gold-lt); margin-bottom: 4px; line-height: 1.2; }
+/* Optional second line for a long value, e.g. "1st Wednesday," / "Every Other
+   Month". Indented so the continuation reads as belonging to the line above
+   instead of looking like a separate value. Set item.value2 in BOARD.govStrip. */
+.gov-value-cont { display: block; padding-left: 1.6em; }
 .gov-label { font-size: clamp(10px, 1.8vw, 12px); color: rgba(255,255,255,0.95); text-transform: uppercase; letter-spacing: 0.06em; }
 
 /* Board body two-column layout */
