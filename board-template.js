@@ -149,7 +149,9 @@ function renderGovStrip() {
   inner.innerHTML = items
     .map(item => `
       <div class="gov-item">
-        <div class="gov-value"${item._color ? ` style="color:${item._color}"` : ''}>${item.value}</div>
+        <div class="gov-value"${item._color ? ` style="color:${item._color}"` : ''}>${item.value}${
+          item.value2 ? `<span class="gov-value-cont">${item.value2}</span>` : ''
+        }</div>
         <div class="gov-label">${item.label}</div>
       </div>`)
     .join('');
