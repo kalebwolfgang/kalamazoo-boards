@@ -347,9 +347,10 @@ footer a:hover { color: var(--gold-lt); }
   letter-spacing: 0.01em;
 }
 
-/* Push appeal CTA button to the far right at desktop — fixes blank space */
+/* Push the CTA button to the far right at desktop — fixes blank space.
+   Applies to every cta.type, not just appeal. */
 @media (min-width: 800px) {
-  .special-cta--appeal .special-cta-action { margin-left: auto; }
+  .special-cta-action { margin-left: auto; }
 }
 
 /* Add to Calendar — solid green, clearly an action button */
@@ -471,14 +472,6 @@ footer a:hover { color: var(--gold-lt); }
 .minutes-sublabel { font-size: 12px; color: var(--muted); }
 .minutes-action { font-size: 13px; color: var(--navy-light); margin-top: 5px; display: flex; align-items: center; gap: 5px; }
 .minutes-item:hover .minutes-action { color: var(--gold); }
-/* Split rows carry two separate documents, so the row itself is not a link.
-   Cancel the whole-row hover and let each link highlight on its own. */
-.minutes-item--split { cursor: default; }
-.minutes-item--split:hover .minutes-date,
-.minutes-item--split:hover .minutes-action { color: inherit; }
-.minutes-item--split .minutes-date { color: var(--navy); }
-a.minutes-action { text-decoration: none; width: fit-content; }
-a.minutes-action:hover { color: var(--gold); }
 
 /* Apply standalone card (4th bottom card) */
 .apply-standalone-inner { padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 36px); display: flex; flex-direction: column; gap: 20px; height: 100%; }
@@ -710,6 +703,12 @@ a.minutes-action:hover { color: var(--gold); }
    its bottom corners and the rail picks them up. */
 .special-cta-inner {
   max-width: 1400px; margin: 0 auto;
+  /* Default background. Every text colour inside this block is white or a
+     white alpha, so without a background here the whole CTA renders as white
+     on white and is invisible. Only .special-cta--appeal used to set one,
+     which meant any other cta.type (complaint, and anything added later)
+     produced an unreadable block. Type modifiers below override this. */
+  background: var(--navy);
   border-radius: 4px;
   padding: clamp(24px, 5vw, 44px) clamp(20px, 5vw, 48px);
   display: flex; flex-direction: column; gap: 28px;
