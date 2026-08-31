@@ -25,16 +25,50 @@
       "anchor": "roles-responsibilities",
       "body": [
         {
+          "type": "heading",
+          "text": "Review"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Review claims of discrimination brought by City residents and make recommendations for resolution, following investigation of the claim by the City Manager or the City Manager's designee.",
+            "Review and analyze conditions, practices, attitudes, policies and other factors within Kalamazoo that contribute to discriminatory impact and further inequities.",
+            "Evaluate the impact of the City's antidiscrimination efforts."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Advisory"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Make recommendations to the City Commission and City Manager on ways to improve City programs and ordinances to eliminate discrimination.",
+            "Make recommendations on ways to remove the effects of past discrimination.",
+            "Establish bylaws and procedural rules for its meetings, subject to approval by the City Commission."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Reporting"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Provide an annual report to the City Commission on complaints received and actions taken.",
+            "Under the bylaws, the Chairperson sees that the annual report is submitted by February 1 each year."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Community Outreach"
+        },
+        {
           "type": "list",
           "items": [
             "Foster mutual understanding and respect among the people in the City, and discourage and prevent unlawful discriminatory practices toward the protected classes described in the Ordinance.",
-            "Review claims of discrimination brought by City residents and make recommendations for resolution, following investigation of the claim by the City Manager or the City Manager's designee.",
-            "Review and analyze conditions, practices, attitudes, policies and other factors within Kalamazoo that contribute to discriminatory impact and further inequities, and evaluate the impact of antidiscrimination efforts.",
-            "Make recommendations to the City Commission and City Manager on ways to improve City programs and ordinances to eliminate discrimination or remove the effects of past discrimination.",
             "Engage in public awareness activities so residents are informed of local protections and the role of the Board.",
-            "Engage with federal, state and local agencies to assist in addressing issues of discrimination in the City.",
-            "Provide an annual report to the City Commission on complaints received and actions taken. Under the bylaws, the Chairperson sees that this report is submitted by February 1 each year.",
-            "Establish bylaws and procedural rules for its meetings, subject to approval by the City Commission."
+            "Engage with federal, state and local agencies to assist in addressing issues of discrimination in the City."
           ]
         },
         {
@@ -245,7 +279,7 @@
       "verifiedOn": null
     },
     "accordions.roles-responsibilities": {
-      "citation": "Kalamazoo Code of Ordinances 18-19.A through 18-19.H; February 1 annual report deadline from CRB Bylaws Sec. 4.2(a)7",
+      "citation": "Kalamazoo Code of Ordinances 18-19.A through 18-19.H, grouped as Review / Advisory / Reporting / Community Outreach; February 1 annual report deadline from CRB Bylaws Sec. 4.2(a)7",
       "url": "https://ecode360.com/36972181",
       "verifiedOn": null
     },
