@@ -1349,48 +1349,54 @@ function renderHowToSection(content, bodyType) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PUBLIC COMMENT BAR
-   Renders content.publicCommentGuide as a one-line strip directly
-   under the meeting info bar, so all meeting logistics sit together.
+   SPEAK AT A MEETING
+   Renders content.publicCommentGuide as a sidebar card beneath
+   Upcoming Meetings, so a resident reading the next meeting date
+   sees how to speak at it in the same column.
 
-   This previously wrote into an accordion with the id "public-comment".
-   No board page has that accordion, and under the three-section
-   standard (About & Mission / Roles & Responsibilities / Membership
-   Requirements) none will, so the function was dead code and any
-   publicCommentGuide data would have rendered nowhere.
+   Earlier versions put this in an accordion with the id
+   "public-comment" (which no page has, so it was dead code), then
+   as a single run-on strip under the gov strip. Both were wrong.
+   Each fact is a labelled row here, matching the card language used
+   everywhere else on the page.
 
-   Deliberately renders NOTHING when the guide is absent. A missing
-   guide means "not yet verified", not "this board takes no public
-   comment". Asserting the latter without a source is exactly what the
-   pre-launch City audit is meant to prevent.
+   Renders NOTHING when the guide is absent. A missing guide means
+   "not yet verified", never "this board takes no public comment".
    ═══════════════════════════════════════════════════════════════ */
 function renderPublicCommentGuide(guide) {
   if (!guide) return;
 
-  const parts = [
-    guide.signUp,
-    guide.timeLimit,
-    guide.remote,
-    guide.location,
+  const rows = [
+    guide.location  && { label: 'In Person',  value: guide.location  },
+    guide.remote    && { label: 'By Phone',   value: guide.remote    },
+    guide.signUp    && { label: 'Signing Up', value: guide.signUp    },
+    guide.timeLimit && { label: 'Time Limit', value: guide.timeLimit },
   ].filter(Boolean);
 
-  if (!parts.length) return;
-  if (document.querySelector('.public-comment-bar')) return;
+  if (!rows.length) return;
+  if (document.querySelector('.public-comment-card')) return;
 
-  const anchor = document.querySelector('.gov-strip');
-  if (!anchor) return;
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
 
-  const SVG_MIC = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;color:var(--muted)"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>`;
+  const SVG_MIC = `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>`;
 
-  const bar = document.createElement('div');
-  bar.className = 'meeting-info-bar public-comment-bar';
-  bar.innerHTML = `
-    <div class="meeting-info-inner">
-      ${SVG_MIC}
-      <span><strong>Public comment:</strong> ${parts.join(' &middot; ')}</span>
+  const card = document.createElement('div');
+  card.className = 'sidebar-card public-comment-card';
+  card.innerHTML = `
+    <div class="sidebar-card-header">${SVG_MIC} Speak at a Meeting</div>
+    <div class="sidebar-card-body">
+      ${rows.map(r => `
+        <div class="pc-row">
+          <div class="pc-label">${r.label}</div>
+          <div class="pc-value">${r.value}</div>
+        </div>`).join('')}
     </div>`;
 
-  anchor.insertAdjacentElement('afterend', bar);
+  /* Sits directly after Upcoming Meetings, above External Resources. */
+  const firstCard = sidebar.querySelector('.sidebar-card');
+  if (firstCard) firstCard.insertAdjacentElement('afterend', card);
+  else sidebar.appendChild(card);
 }
 
 
