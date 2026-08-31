@@ -89,9 +89,103 @@
       ]
     }
   ],
+  "appealProcess": {
+    "title": "How complaints work",
+    "anchor": "complaint-process",
+    "intro": "Five steps run from the complaint to the Board's recommendation. The first two are yours, and the complaint carries a deadline.",
+    "steps": [
+      {
+        "title": "Gather your information",
+        "short": "Gather info",
+        "actor": "You",
+        "desc": "Before filing, collect what happened and when, and the person or organization the complaint is about. It also helps to note whether you have already referred the complaint elsewhere, such as the Fair Housing Center of Southwest Michigan or the Michigan Department of Civil Rights.",
+        "links": [
+          {
+            "text": "What to gather before filing",
+            "href": "https://www.kalamazoocity.org/Residents/Connect-with-311/Report-Civil-Rights-Complaint"
+          }
+        ]
+      },
+      {
+        "title": "File the complaint",
+        "short": "File",
+        "actor": "You",
+        "desc": "File online, or bring the paper form to City Hall during business hours, or mail it to the City Manager's Office at 241 W South Street. The incident must have happened inside Kalamazoo city limits and within the last 91 days, or it cannot be investigated. Complaints outside the City's ordinance are referred to the appropriate authority, and you are told who they went to.",
+        "links": [
+          {
+            "text": "File online (English)",
+            "href": "https://us.openforms.com/Form/40f0ea8c-3628-440c-989e-e4a0f79cece1"
+          },
+          {
+            "text": "File online (Spanish)",
+            "href": "https://us.openforms.com/Form/29c31949-7ada-4760-a8b1-949b75385cd0"
+          },
+          {
+            "text": "Paper form (PDF)",
+            "href": "https://www.kalamazoocity.org/files/assets/public/v/2/applications-amp-forms/civil-rights-complaint_fillable.pdf"
+          },
+          {
+            "text": "Paper form in Spanish (PDF)",
+            "href": "https://www.kalamazoocity.org/files/assets/public/v/1/applications-amp-forms/dei-civil-rights-discrimination-complaint_spanish.pdf"
+          }
+        ]
+      },
+      {
+        "title": "The City confirms receipt",
+        "short": "Acknowledged",
+        "actor": "City staff",
+        "desc": "A member of the City's team follows up within three business days to confirm your complaint was received. Once the appropriate staff have reviewed it, you are notified whether it will be investigated.",
+        "links": [
+          {
+            "text": "How the City handles complaints",
+            "href": "https://www.kalamazoocity.org/Residents/Connect-with-311/Report-Civil-Rights-Complaint"
+          }
+        ]
+      },
+      {
+        "title": "The investigation",
+        "short": "Investigation",
+        "actor": "City staff, not the Board",
+        "desc": "The complaint is investigated by City staff with relevant knowledge and experience, under the City Manager or the City Manager's designee. The Board does not investigate. The results of the investigation are shared with the Board.",
+        "links": [
+          {
+            "text": "Ordinance 18-19.B",
+            "href": "https://ecode360.com/36972181"
+          }
+        ]
+      },
+      {
+        "title": "The Board's recommendation",
+        "short": "Recommendation",
+        "actor": "The Board",
+        "desc": "The Board reviews the claim and the investigation results. If the ordinance was violated, the Board makes a recommendation to the City Manager on how it should be addressed. The Board recommends; it does not decide or enforce.",
+        "links": [
+          {
+            "text": "Ordinance 18-19.B",
+            "href": "https://ecode360.com/36972181"
+          }
+        ]
+      }
+    ],
+    "body": [
+      {
+        "type": "heading",
+        "text": "Before you file"
+      },
+      {
+        "type": "list",
+        "items": [
+          "The incident must have happened within Kalamazoo city limits.",
+          "Complaints more than 91 days after the incident cannot be investigated.",
+          "Complaints become public information and may be discussed by the Civil Rights Board or released under a Freedom of Information Act request. The City uses discretion in responding, but cannot keep a complaint confidential.",
+          "Local protections go beyond state and federal law, covering source of income, status as a survivor of domestic violence, and prior arrest or conviction record."
+        ]
+      }
+    ]
+  },
   "publicCommentGuide": {
-    "location": "City Commission Chambers, City Hall, 241 W South Street",
-    "remote": "call 888-382-9556 during the public comment period",
+    "location": "City Commission Chambers, Kalamazoo City Hall, 241 W South Street",
+    "remote": "Call 888-382-9556 during the public comment period",
     "timeLimit": "4 minutes per speaker, unless extended by the Chairperson"
   },
   "sources": {
@@ -141,18 +235,13 @@
       "verifiedOn": null
     },
     "publicCommentGuide.location": {
-      "citation": "CRB Bylaws Sec. 5.9 (all meetings open to the public, citizens permitted to address the meeting), plus the city page for the venue",
+      "citation": "CRB Bylaws Sec. 5.9 (all meetings open to the public, citizens permitted to address the meeting), with the venue from the city Civil Rights Board page",
       "url": "https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/kcrb-comm-bylaws-final.pdf",
       "verifiedOn": null
     },
     "specialCta": {
       "citation": "City of Kalamazoo Report Civil Rights Complaint page, linked from the Civil Rights Board page",
       "url": "https://www.kalamazoocity.org/Residents/Connect-with-311/Report-Civil-Rights-Complaint",
-      "verifiedOn": null
-    },
-    "boardEmail": {
-      "citation": "City of Kalamazoo Civil Rights Board page, Contact DEI Staff link",
-      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
       "verifiedOn": null
     },
     "staffLiaison": {
@@ -183,6 +272,11 @@
     "applyUrl": null,
     "applyText": null,
     "roster": null,
-    "externalLinks": null
+    "externalLinks": null,
+    "appealProcess": {
+      "citation": "City of Kalamazoo Report Civil Rights Complaint page (Online and In Person steps), Civil Rights Complaint form 'What happens to this complaint?', and Code of Ordinances 18-19.B",
+      "url": "https://www.kalamazoocity.org/Residents/Connect-with-311/Report-Civil-Rights-Complaint",
+      "verifiedOn": null
+    }
   }
 }
