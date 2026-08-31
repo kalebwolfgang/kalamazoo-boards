@@ -22,6 +22,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:CPSRAB-2026-09-08@kalamazoocity-boards
+STATUS:CANCELLED
 DTSTART;TZID=America/Detroit:20260908T180000
 DTEND;TZID=America/Detroit:20260908T200000
 SUMMARY:Citizens Public Safety Review and Appeal Board — City of Kalamazoo
