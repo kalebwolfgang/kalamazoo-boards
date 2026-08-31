@@ -1,0 +1,188 @@
+{
+  "abbr": "CRB",
+  "accordions": [
+    {
+      "title": "About & Mission",
+      "anchor": "about-mission",
+      "open": true,
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "The Civil Rights Board implements the general policy and purposes set forth in Chapter 18 \"Non-Discrimination\" and Chapter 18A \"Fair Housing\" of the City of Kalamazoo Code of Ordinances. The Board was created in September 2020 following updates to Chapter 18."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Board fosters mutual understanding and respect among the people in the City, working to discourage and prevent unlawful discriminatory practices toward the protected classes described in the Ordinance."
+        },
+        {
+          "type": "paragraph",
+          "text": "Board meetings are conducted under the Michigan Open Meetings Act, and Board records are available to the public under the Michigan Freedom of Information Act."
+        }
+      ]
+    },
+    {
+      "title": "Roles & Responsibilities",
+      "anchor": "roles-responsibilities",
+      "body": [
+        {
+          "type": "list",
+          "items": [
+            "Foster mutual understanding and respect among the people in the City, and discourage and prevent unlawful discriminatory practices toward the protected classes described in the Ordinance",
+            "Review claims of discrimination brought by City residents and make recommendations for resolution, following investigation of the claim by the City Manager or the City Manager's designee",
+            "Review and analyze conditions, practices, attitudes, policies and other factors within Kalamazoo that contribute to discriminatory impact and further inequities, and evaluate the impact of antidiscrimination efforts",
+            "Make recommendations to the City Commission and City Manager on ways to improve City programs and ordinances to eliminate discrimination or remove the effects of past discrimination",
+            "Engage in public awareness activities so residents are informed of local protections and the role of the Board",
+            "Engage with federal, state and local agencies to assist in addressing issues of discrimination in the City",
+            "Provide an annual report to the City Commission on complaints received and actions taken. Under the bylaws, the Chairperson sees that this report is submitted by February 1 each year",
+            "Establish bylaws and procedural rules for its meetings, subject to approval by the City Commission"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The Board reviews claims and makes recommendations. Investigation of a claim is carried out by the City Manager or the City Manager's designee, not by the Board."
+        }
+      ]
+    },
+    {
+      "title": "Membership Requirements",
+      "anchor": "membership-requirements",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "The Board consists of 9 members: 7 voting members and 2 ex-officio members who have no vote but may otherwise fully participate in any meeting."
+        },
+        {
+          "type": "field",
+          "label": "Appointment",
+          "value": "Voting members are appointed by the Mayor and approved by the City Commission."
+        },
+        {
+          "type": "field",
+          "label": "Expertise Required",
+          "value": "Members must be able to demonstrate experience in civil rights, public accommodation, employment, disability or housing law."
+        },
+        {
+          "type": "field",
+          "label": "Residency",
+          "value": "Members shall be residents of the City, reflecting and representing the diversity of the Kalamazoo community. Up to 2 members may be non-residents when there is a valid reason, such as working in the City or holding special expertise needed to carry out the Board's duties."
+        },
+        {
+          "type": "field",
+          "label": "Ex-Officio Members",
+          "value": "One City Commissioner, and one City officer or employee recommended by the City Manager who is neither a City Commissioner nor the City Manager. Both are appointed by the Mayor and approved by the City Commission."
+        },
+        {
+          "type": "field",
+          "label": "Term Length",
+          "value": "Three years. Members may serve up to two consecutive terms. A member whose term has expired may continue to serve until a successor is appointed."
+        },
+        {
+          "type": "field",
+          "label": "Attendance",
+          "value": "A member absent for 3 consecutive meetings, or for more than 50% of regular meetings over a six-month period, is considered to have resigned and the seat is deemed vacant."
+        },
+        {
+          "type": "field",
+          "label": "Quorum",
+          "value": "Five members. Ex-officio members count toward establishing a quorum."
+        }
+      ]
+    }
+  ],
+  "publicCommentGuide": {
+    "location": "City Commission Chambers, City Hall, 241 W South Street",
+    "remote": "call 888-382-9556 during the public comment period",
+    "timeLimit": "4 minutes per speaker, unless extended by the Chairperson"
+  },
+  "sources": {
+    "description": {
+      "citation": "City of Kalamazoo Civil Rights Board page, and Kalamazoo Code of Ordinances Ch. 18 Art. IV (adopted 9-8-2020 by Ord. No. 2013)",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
+      "verifiedOn": null
+    },
+    "govStrip.meetingSchedule": {
+      "citation": "City of Kalamazoo Civil Rights Board page (meets the first Wednesday every other month at 5 p.m. in the City Commission Chambers)",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
+      "verifiedOn": null
+    },
+    "govStrip.boardSize": {
+      "citation": "Kalamazoo Code of Ordinances 18-14.B, and CRB Bylaws Sec. 3.1 (nine members: seven voting, two ex-officio without a vote)",
+      "url": "https://ecode360.com/36972181",
+      "verifiedOn": null
+    },
+    "govStrip.termLength": {
+      "citation": "Kalamazoo Code of Ordinances 18-15.A, and CRB Bylaws Sec. 3.4 (three-year terms, up to two consecutive)",
+      "url": "https://ecode360.com/36972181",
+      "verifiedOn": null
+    },
+    "membersSubhead": {
+      "citation": "Kalamazoo Code of Ordinances 18-14.B, and CRB Bylaws Sec. 3.1",
+      "url": "https://ecode360.com/36972181",
+      "verifiedOn": null
+    },
+    "meeting.location": {
+      "citation": "City of Kalamazoo Civil Rights Board page (City Commission Chambers, Kalamazoo City Hall, Second Floor, 241 W South Street)",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
+      "verifiedOn": null
+    },
+    "meeting.address": {
+      "citation": "City of Kalamazoo Civil Rights Board page",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
+      "verifiedOn": null
+    },
+    "publicCommentGuide.timeLimit": {
+      "citation": "CRB Bylaws Sec. 5.9 (citizens' comments limited to 4 minutes unless extended by the chairperson)",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/kcrb-comm-bylaws-final.pdf",
+      "verifiedOn": null
+    },
+    "publicCommentGuide.remote": {
+      "citation": "City of Kalamazoo Civil Rights Board page, Public Comment By Phone (call 888-382-9556 during the public comment period)",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
+      "verifiedOn": null
+    },
+    "publicCommentGuide.location": {
+      "citation": "CRB Bylaws Sec. 5.9 (all meetings open to the public, citizens permitted to address the meeting), plus the city page for the venue",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/1/bylaws/kcrb-comm-bylaws-final.pdf",
+      "verifiedOn": null
+    },
+    "specialCta": {
+      "citation": "City of Kalamazoo Report Civil Rights Complaint page, linked from the Civil Rights Board page",
+      "url": "https://www.kalamazoocity.org/Residents/Connect-with-311/Report-Civil-Rights-Complaint",
+      "verifiedOn": null
+    },
+    "boardEmail": {
+      "citation": "City of Kalamazoo Civil Rights Board page, Contact DEI Staff link",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
+      "verifiedOn": null
+    },
+    "staffLiaison": {
+      "citation": "City of Kalamazoo Civil Rights Board page (Lal Tluangi, DEI Coordinator, Staff Liaison; Tanya Hewitt-Smith, DEI Director)",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
+      "verifiedOn": null
+    },
+    "accordions.about-mission": {
+      "citation": "Kalamazoo Code of Ordinances 18-18 and 18-19.A; CRB Bylaws Art. II; city page for the September 2020 creation date",
+      "url": "https://ecode360.com/36972181",
+      "verifiedOn": null
+    },
+    "accordions.roles-responsibilities": {
+      "citation": "Kalamazoo Code of Ordinances 18-19.A through 18-19.H; February 1 annual report deadline from CRB Bylaws Sec. 4.2(a)7",
+      "url": "https://ecode360.com/36972181",
+      "verifiedOn": null
+    },
+    "accordions.membership-requirements": {
+      "citation": "Kalamazoo Code of Ordinances 18-14.B, 18-14.C, 18-15.A, 18-15.B; CRB Bylaws Sec. 3.1 to 3.5 and 5.5",
+      "url": "https://ecode360.com/36972181",
+      "verifiedOn": null
+    },
+    "documents": {
+      "citation": "CRB Bylaws and both ordinance chapters are linked from the City of Kalamazoo Civil Rights Board page",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Civil-Rights-Board",
+      "verifiedOn": null
+    },
+    "applyUrl": null,
+    "applyText": null,
+    "roster": null,
+    "externalLinks": null
+  }
+}
