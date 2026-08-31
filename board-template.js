@@ -1482,14 +1482,28 @@ function renderUpcomingMeetings(data) {
   const BANNER = (bg, border, color, icon, text) =>
     `<div style="background:${bg};border:1px solid ${border};border-radius:3px;padding:8px 12px;margin-top:8px;font-size:12px;font-weight:700;color:${color};letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">${icon}${text}</div>`;
 
+  /* Meeting location, most specific source first:
+       1. m.location            — set on a single meeting, e.g. a location change
+       2. data.metadata.location — scraped from the city page every run, so it
+                                   stays current; this is the intended source
+       3. BOARD.meeting.location — hardcoded fallback, used only if a scrape
+                                   fails or the parser rejects the page text
+
+     The map link is derived from whichever string is actually displayed, so
+     the pin text and the link can never drift apart. BOARD.meeting.mapsUrl is
+     kept as a fallback for the same reason as the hardcoded location. */
+  const scrapedLoc = (data.metadata && data.metadata.location) || '';
+
   el.innerHTML = upcoming.slice(0, 3).map((m, i) => {
     const cancelled  = m.isCancelled  || m.cancelled      || false;
     const locChanged = m.isLocationChanged || m.locationChanged || false;
     const unverified = m.notOnCityCalendar || false;
     const movedFrom  = m.rescheduledFrom || null;
-    const loc        = m.location || (BOARD.meeting && BOARD.meeting.location) || '';
-    const mapsUrl    = BOARD.meeting && BOARD.meeting.mapsUrl ? BOARD.meeting.mapsUrl : null;
+    const loc        = m.location || scrapedLoc || (BOARD.meeting && BOARD.meeting.location) || '';
     const locIsTBD   = loc === 'Location TBD';
+    const mapsUrl    = (loc && !locIsTBD)
+      ? 'https://maps.google.com/?q=' + encodeURIComponent(loc + ', Kalamazoo, MI')
+      : ((BOARD.meeting && BOARD.meeting.mapsUrl) || null);
     const locColor   = locChanged ? '#92400e' : 'var(--navy-light)';
     const locLinkable = mapsUrl && !locIsTBD && !cancelled;
     return `
