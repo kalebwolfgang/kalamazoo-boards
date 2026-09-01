@@ -232,7 +232,13 @@
           "Variances granted by the Board apply to the site plan and documents submitted at the hearing."
         ]
       }
-    ]
+    ],
+    "notesLabel": "Fees, deadlines, and what to expect"
+  },
+  "publicCommentGuide": {
+    "location": "City Commission Chambers, Kalamazoo City Hall, 241 W South Street. Any person may appear at a public hearing and submit evidence, on their own behalf or for an organization",
+    "signUp": "State your name and address for the record. If you are speaking for an organization, give its name and mailing address",
+    "timeLimit": "No set limit, but the Board may exclude testimony it finds irrelevant, immaterial or unduly repetitious"
   },
   "sources": {
     "description": {
@@ -315,6 +321,21 @@
     "applicationFee": {
       "citation": "City of Kalamazoo 2026 CPED Fee Schedule, Zoning Board of Appeals section (Use Variance $390, Dimensional Variance $312, Appeal of Administrative Decision $312, Ordinance Interpretation $286, Temporary Use $156)",
       "url": "https://www.kalamazoocity.org/files/assets/public/v/7/applications-amp-forms/2026-cped-fee-schedule_final.pdf",
+      "verifiedOn": null
+    },
+    "publicCommentGuide.location": {
+      "citation": "Kalamazoo Code of Ordinances App. A § 8.2A.2 (any person may appear and submit evidence); venue from the City board page",
+      "url": "https://ecode360.com/33037792",
+      "verifiedOn": null
+    },
+    "publicCommentGuide.signUp": {
+      "citation": "Kalamazoo Code of Ordinances App. A § 8.2A.2 (each person shall be identified, state an address, and name the organization represented)",
+      "url": "https://ecode360.com/33037792",
+      "verifiedOn": null
+    },
+    "publicCommentGuide.timeLimit": {
+      "citation": "Kalamazoo Code of Ordinances App. A § 8.2A.3 (body may exclude testimony that is irrelevant, immaterial or unduly repetitious); no fixed speaking limit is set in § 8.2",
+      "url": "https://ecode360.com/33037792",
       "verifiedOn": null
     }
   }
