@@ -1,0 +1,321 @@
+{
+  "abbr": "ZBA",
+  "accordions": [
+    {
+      "title": "About & Mission",
+      "anchor": "about-mission",
+      "open": true,
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "The Zoning Board of Appeals hears requests for variances from the Zoning Ordinance, provides interpretations of the Ordinance, and hears appeals of administrative zoning decisions made by the City Planner or another administrative official."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Board was established by the City of Kalamazoo as authorized by the Michigan Zoning Enabling Act, MCL § 125.3101 et seq., under § 11.3 of Appendix A, the City of Kalamazoo Zoning Ordinance. Its stated purpose is to hear and decide questions that arise in the administration of the Zoning Ordinance."
+        },
+        {
+          "type": "paragraph",
+          "text": "Board meetings follow Robert's Rules of Order Newly Revised, though the Chair may adjust procedure to suit the needs of the Board."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Board's decision is the end of the process at the City level. An appeal of a Zoning Board of Appeals decision must be filed with the Circuit Court within 30 days after the Board makes its decision in writing, or within 21 days after the Board approves the minutes of the meeting."
+        }
+      ]
+    },
+    {
+      "title": "Roles & Responsibilities",
+      "anchor": "roles-responsibilities",
+      "body": [
+        {
+          "type": "heading",
+          "text": "Review"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Review, hear, consider and approve, approve with conditions or disapprove variances.",
+            "Hear, review, consider, and affirm, partly affirm, modify or reverse any order, decision, determination or interpretation of the City Planner or any other city administrative official made under the Zoning Ordinance.",
+            "Review, hear, consider and approve, approve with conditions or disapprove a change from one nonconforming use to another nonconforming use."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Requests the Board Hears"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dimensional variance: relief from physical or dimensional standards that apply to a lot or structure.",
+            "Use variance: relief from standards that apply to how a lot or structure is used.",
+            "Administrative appeal: relief from a zoning decision made by Community Planning and Economic Development staff.",
+            "Interpretation of the Ordinance: a request to confirm the precise meaning of the ordinance text.",
+            "Temporary use approval: approval of a temporary use lasting more than 30 days.",
+            "Natural features protection: relief from standards that apply to protected natural areas."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "How Decisions Are Made"
+        },
+        {
+          "type": "list",
+          "items": [
+            "After hearing an appeal, the Board makes a finding of fact: the facts and circumstances it relied on, based on the evidence presented to it.",
+            "To reverse or modify a decision, the Board needs competent, material and substantial evidence on the record that the decision failed to comply with the Zoning Ordinance, state law, or the federal or state constitution, and a concurring vote of the majority of Board members.",
+            "The Board may impose conditions ensuring the requirements and purposes of the Zoning Ordinance are met on any affirmative decision.",
+            "If the Board does not decide on the day of the hearing after all evidence is presented, it must decide by the next regularly scheduled meeting.",
+            "Unless the Board specifies otherwise, a granted variance becomes null and void if it is not exercised within one year of being granted."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The Board decides these requests rather than recommending them onward. City staff review applications and advise the Board, but the vote to grant or deny is the Board's."
+        }
+      ]
+    },
+    {
+      "title": "Membership Requirements",
+      "anchor": "membership-requirements",
+      "body": [
+        {
+          "type": "paragraph",
+          "text": "The Board consists of eight members: six regular members and two alternate members."
+        },
+        {
+          "type": "field",
+          "label": "Appointment",
+          "value": "Members are appointed by the City Commission. Under the bylaws, appointments follow a recommendation from the Board itself."
+        },
+        {
+          "type": "field",
+          "label": "Eligibility",
+          "value": "Members must be residents of the City of Kalamazoo and serve without compensation. No member of the City Commission and no City employee may serve on the Board."
+        },
+        {
+          "type": "field",
+          "label": "Representation",
+          "value": "In recommending members, the Board aims for a membership that represents a cross-section of the community by gender, race and neighborhood, that includes experience or interest in the subjects routinely before the Board, and that reflects several points of view."
+        },
+        {
+          "type": "field",
+          "label": "Term Length",
+          "value": "Three years. Members may not serve more than two consecutive terms, not counting time spent filling the unexpired term of a former member."
+        },
+        {
+          "type": "field",
+          "label": "Vacancies",
+          "value": "A vacancy is filled for the remaining term using the same procedure as an original appointment."
+        },
+        {
+          "type": "field",
+          "label": "Absences",
+          "value": "A member absent for more than 50% of regular meetings over a six-month period is considered to have resigned. The Board then recommends someone to fill the remaining term, subject to City Commission approval."
+        },
+        {
+          "type": "field",
+          "label": "Alternate Members",
+          "value": "There is a first and a second alternate; the alternate with the most seniority is the first alternate. Alternates may take part in all deliberations but do not vote unless a regular member cannot vote because of absence or a conflict of interest. The first alternate has priority to replace the first regular member unable to vote, and the second alternate replaces the second."
+        },
+        {
+          "type": "field",
+          "label": "Quorum",
+          "value": "Four members, regular or alternate. No meeting may be called to order and no business transacted without them. If no quorum is present, the meeting is rescheduled to the next regularly scheduled meeting."
+        },
+        {
+          "type": "field",
+          "label": "Officers",
+          "value": "A Chair, Vice-Chair and Secretary, elected by the Board at its Annual Meeting, which is the first regular meeting in February. Officers serve one-year terms and may be re-elected. A staff employee of the Community Development and Planning Department serves as Recording Secretary and has no vote."
+        }
+      ]
+    }
+  ],
+  "appealProcess": {
+    "title": "How a request reaches the Board",
+    "anchor": "application-process",
+    "intro": "Two routes lead to the same hearing. Five of the six request types are applications for permission, and one, an appeal of an administrative decision, is a challenge to a decision already made. They diverge at the start and converge at the hearing.",
+    "steps": [
+      {
+        "title": "Identify which route you are on",
+        "short": "Which route",
+        "actor": "You",
+        "desc": "Applications for permission cover dimensional variances, use variances, ordinance interpretations, temporary use approvals, and natural features protection. An administrative appeal is different: it challenges an order, decision, determination or interpretation already made by the City Planner or another city official, and it must be made in writing within 30 days of the date of that decision. The application route has no equivalent 30-day clock, only the four-week filing deadline in step 3. Both routes carry a filing fee, listed below.",
+        "links": [
+          {
+            "text": "View the Zoning Code",
+            "href": "https://www.kalamazoocity.org/Business-Development/Zoning-Code"
+          }
+        ]
+      },
+      {
+        "title": "Start the request",
+        "short": "Start",
+        "actor": "You",
+        "desc": "Applying for permission: schedule a pre-application meeting with the Zoning Administrator to confirm an application is needed and to go over the timeline, the required forms, and what you must do to notify neighbors. Contact Pete Eldridge at (269) 337-8806 or eldridgep@kalamazoocity.org. Appealing a decision: put the appeal in writing within 30 days. The City Planner or the official whose decision is being appealed then transmits the appeal and all related papers, documents and materials to the Board.",
+        "links": []
+      },
+      {
+        "title": "File it",
+        "short": "File",
+        "actor": "You",
+        "desc": "Applying for permission: complete the application form and the review sheet matching your request type, with supporting documents such as a site sketch, plan, photographs or letters of support. File online, or by mail or in person at Community Planning and Economic Development, 150 E. Crosstown Parkway, Suite B. Submit four weeks before the meeting you want to be heard at. A filing fee applies; the amount depends on the request type and is listed below. Appealing a decision: the written appeal is the filing, and the record assembled by the City Planner goes to the Board with it.",
+        "links": [
+          {
+            "text": "Apply online",
+            "href": "https://us.openforms.com/Form/98e86600-9675-4915-961d-2fd0b8a0f2a8"
+          },
+          {
+            "text": "Application form (PDF)",
+            "href": "https://www.kalamazoocity.org/files/assets/public/v/2/applications-amp-forms/zba/zba-application-2022.pdf"
+          }
+        ]
+      },
+      {
+        "title": "Notice and scheduling",
+        "short": "Notice",
+        "actor": "You and the City",
+        "desc": "The City mails notice of the public hearing to every property owner within 300 feet, giving the address, the type of request, and the date, time and location. Applicants should also contact the neighborhood association, neighbors and nearby property owners, because the Board will ask about that outreach at the hearing. An appeal is scheduled for the next regularly scheduled meeting that satisfies the written notice requirements of the Zoning Ordinance.",
+        "links": []
+      },
+      {
+        "title": "The hearing and the decision",
+        "short": "Hearing",
+        "actor": "You and the Board",
+        "desc": "Both routes end here. You or a representative must attend, and you have ten minutes to explain the request. On an appeal, the city staff whose decision is being challenged appear in person to present information when work has already started. The Board makes a finding of fact based on the evidence presented, then votes. To reverse or modify a decision it needs competent, material and substantial evidence that the decision failed to comply with the Zoning Ordinance, state law, or the federal or state constitution, and a concurring vote of the majority of Board members. If it does not decide on the day of the hearing, it must decide by the next regularly scheduled meeting.",
+        "links": [
+          {
+            "text": "Meeting schedule",
+            "href": "https://www.kalamazoocity.org/Government/Boards-Commissions/Zoning-Board-of-Appeals"
+          }
+        ]
+      }
+    ],
+    "body": [
+      {
+        "type": "heading",
+        "text": "Fees"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Use variance: $390.",
+          "Dimensional variance: $312.",
+          "Appeal of an administrative decision: $312.",
+          "Ordinance interpretation: $286.",
+          "Temporary use: $156.",
+          "Amounts are from the City's 2026 CPED Fee Schedule and are set annually."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Deadlines"
+      },
+      {
+        "type": "list",
+        "items": [
+          "An appeal of a decision by the City Planner or another city official must be made in writing within 30 days of the date of that decision.",
+          "Applications for permission are due four weeks before the meeting you want to be heard at.",
+          "A granted variance becomes null and void if it is not exercised within one year, unless the Board specifies otherwise.",
+          "A decision by the Board can only be appealed to the Circuit Court, within 30 days after the written decision or 21 days after the minutes are approved."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "At the hearing"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Meetings are held the second Thursday of each month at 7 p.m. in City Hall.",
+          "You or a representative must attend, and you have ten minutes to present.",
+          "Variances granted by the Board apply to the site plan and documents submitted at the hearing."
+        ]
+      }
+    ]
+  },
+  "sources": {
+    "description": {
+      "citation": "Kalamazoo Code of Ordinances App. A § 11.3.B (powers and duties), and the City of Kalamazoo Zoning Board of Appeals page",
+      "url": "https://ecode360.com/33038311",
+      "verifiedOn": null
+    },
+    "govStrip.meetingSchedule": {
+      "citation": "ZBA Bylaws Sec. 6.0 (regular meetings in City Hall at 7:00 p.m. on the second Thursday of each month), confirmed by the City board page",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/2/bylaws/zba-bylaws.pdf",
+      "verifiedOn": null
+    },
+    "govStrip.boardSize": {
+      "citation": "Kalamazoo Code of Ordinances App. A § 11.3.C.1 (six regular and two alternate members). ZBA Bylaws Sec. 4.0 says seven regular and two alternates; eight seats are currently filled. CONFLICT — requires City confirmation",
+      "url": "https://ecode360.com/33038311",
+      "verifiedOn": null
+    },
+    "govStrip.termLength": {
+      "citation": "ZBA Bylaws Sec. 4.1 and Kalamazoo Code of Ordinances App. A § 11.3.C.4 (three-year terms, no more than two consecutive)",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/2/bylaws/zba-bylaws.pdf",
+      "verifiedOn": null
+    },
+    "membersSubhead": {
+      "citation": "Kalamazoo Code of Ordinances App. A § 11.3.C.1 and C.6; current seats from the City board page",
+      "url": "https://ecode360.com/33038311",
+      "verifiedOn": null
+    },
+    "meeting.location": {
+      "citation": "City of Kalamazoo Zoning Board of Appeals page (City Commission Chambers, Kalamazoo City Hall, Second Floor, 241 W South Street)",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Zoning-Board-of-Appeals",
+      "verifiedOn": null
+    },
+    "staffLiaison": {
+      "citation": "City of Kalamazoo Zoning Board of Appeals page (Pete Eldridge, Zoning Administrator, Staff Liaison)",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Zoning-Board-of-Appeals",
+      "verifiedOn": null
+    },
+    "applyText": {
+      "citation": "ZBA Bylaws Sec. 4.0, 4.1 and 4.2; Kalamazoo Code of Ordinances App. A § 11.3.C.2",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/2/bylaws/zba-bylaws.pdf",
+      "verifiedOn": null
+    },
+    "specialCta": {
+      "citation": "City of Kalamazoo Apply for a Zoning Board of Appeals Hearing page",
+      "url": "https://www.kalamazoocity.org/Business-Development/Real-Estate-Development/Apply-for-Board-or-Commission-Review/Apply-for-a-Zoning-Board-of-Appeals-Hearing",
+      "verifiedOn": null
+    },
+    "appealProcess": {
+      "citation": "Application route from the City's Apply for a ZBA Hearing page (Steps 1 to 5); appeal route from ZBA Bylaws Sec. 7.0 to 7.5 and Sec. 8.0; Circuit Court deadline from Code of Ordinances App. A § 11.3.F",
+      "url": "https://www.kalamazoocity.org/Business-Development/Real-Estate-Development/Apply-for-Board-or-Commission-Review/Apply-for-a-Zoning-Board-of-Appeals-Hearing",
+      "verifiedOn": null
+    },
+    "accordions.about-mission": {
+      "citation": "Kalamazoo Code of Ordinances App. A § 11.3.A, § 11.3.B, § 11.3.F; ZBA Bylaws Art. II, Sec. 3.0 and Sec. 6.8",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/2/bylaws/zba-bylaws.pdf",
+      "verifiedOn": null
+    },
+    "accordions.roles-responsibilities": {
+      "citation": "Kalamazoo Code of Ordinances App. A § 11.3.B.1 to B.3; ZBA Bylaws Sec. 7.4, 7.5 and 8.0; request types from the City's Apply for a ZBA Hearing page",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/2/bylaws/zba-bylaws.pdf",
+      "verifiedOn": null
+    },
+    "accordions.membership-requirements": {
+      "citation": "ZBA Bylaws Sec. 4.0 to 4.4, Art. V and Sec. 6.1; Kalamazoo Code of Ordinances App. A § 11.3.C.1 to C.6, § 11.3.D and § 11.3.E. NOTE: the ordinance says six regular members and the bylaws say seven; eight seats are filled and eight is used here",
+      "url": "https://ecode360.com/33038311",
+      "verifiedOn": null
+    },
+    "documents": {
+      "citation": "Bylaws and ordinance chapter both linked from the City of Kalamazoo Zoning Board of Appeals page",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Zoning-Board-of-Appeals",
+      "verifiedOn": null
+    },
+    "externalLinks": {
+      "citation": "City of Kalamazoo Zoning Board of Appeals page and Zoning Code page",
+      "url": "https://www.kalamazoocity.org/Government/Boards-Commissions/Zoning-Board-of-Appeals",
+      "verifiedOn": null
+    },
+    "applyUrl": null,
+    "roster": null,
+    "applicationFee": {
+      "citation": "City of Kalamazoo 2026 CPED Fee Schedule, Zoning Board of Appeals section (Use Variance $390, Dimensional Variance $312, Appeal of Administrative Decision $312, Ordinance Interpretation $286, Temporary Use $156)",
+      "url": "https://www.kalamazoocity.org/files/assets/public/v/7/applications-amp-forms/2026-cped-fee-schedule_final.pdf",
+      "verifiedOn": null
+    }
+  }
+}
