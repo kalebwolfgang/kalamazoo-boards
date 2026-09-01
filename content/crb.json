@@ -193,10 +193,6 @@
     ],
     "body": [
       {
-        "type": "heading",
-        "text": "Before you file"
-      },
-      {
         "type": "list",
         "items": [
           "The incident must have happened within Kalamazoo city limits.",
@@ -205,7 +201,8 @@
           "Local protections go beyond state and federal law, covering source of income, status as a survivor of domestic violence, and prior arrest or conviction record."
         ]
       }
-    ]
+    ],
+    "notesLabel": "Before you file"
   },
   "publicCommentGuide": {
     "location": "City Commission Chambers, Kalamazoo City Hall, 241 W South Street",
