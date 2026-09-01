@@ -1145,7 +1145,7 @@ function renderAppealProcess(data) {
       <div class="proc-rail">${rail}</div>
       <div class="proc-panel" id="${data.anchor}-panel" hidden></div>
       <button class="proc-toggle" aria-expanded="false" aria-controls="${data.anchor}-notes">
-        <span class="proc-toggle-text">What an appeal can and cannot do</span>
+        <span class="proc-toggle-text">${data.notesLabel || 'More detail'}</span>
         ${chevron}
       </button>
       <div class="proc-notes" id="${data.anchor}-notes" hidden><div class="proc-notes-inner">${renderBodyItems(data.body || [])}</div></div>
