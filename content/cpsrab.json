@@ -84,10 +84,6 @@
     ],
     "body": [
       {
-        "type": "heading",
-        "text": "What an appeal can and cannot do"
-      },
-      {
         "type": "paragraph",
         "text": "The Board is an outside check on an investigation carried out inside the Kalamazoo Department of Public Safety. It cannot discipline anyone. The strongest outcome an appeal can produce is a recommendation to the City Manager that the Chief of Public Safety’s finding be changed to sustained. Decisions about discipline are made separately and are not part of this process."
       },
@@ -129,7 +125,8 @@
         "label": "Exceptionally cleared",
         "value": "The complainant did not cooperate with the investigation, or did not provide enough information for it to proceed. The Board names four findings it can hear on appeal and this is not among them. Contact the Board directly if you received this finding."
       }
-    ]
+    ],
+    "notesLabel": "What an appeal can and cannot do"
   },
   "accordions": [
     {
