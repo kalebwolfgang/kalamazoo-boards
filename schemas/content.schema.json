@@ -61,6 +61,10 @@
         "intro": {
           "type": "string"
         },
+        "notesLabel": {
+          "type": "string",
+          "description": "Label on the collapsible notes toggle under the step rail. Describe what is actually inside it for THIS board. Was hardcoded to 'What an appeal can and cannot do', which was wrong on every board that is not hearing appeals."
+        },
         "steps": {
           "type": "array",
           "items": {
