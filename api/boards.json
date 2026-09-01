@@ -2644,7 +2644,7 @@
     "abbr": "ZBA",
     "name": "Zoning Board of Appeals",
     "category": "Land Use & Planning",
-    "description": "",
+    "description": "Hears requests for variances from the Zoning Ordinance, provides interpretations of the Ordinance, and hears appeals of administrative zoning decisions made by the City Planner or another administrative official. Decisions are final at the City level and can only be appealed to the Circuit Court.",
     "color": "#4a6a8a",
     "slug": "zba",
     "legalClassification": "Quasi-Judicial Commissions",
