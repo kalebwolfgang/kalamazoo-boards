@@ -67,6 +67,11 @@
       "additionalProperties": false,
       "properties": {
         "date":         { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "rescheduledFrom": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "Set when this meeting moved from an earlier date. Kept after the meeting passes so the vacated date is never mistaken for a meeting that went missing and re-added from the city calendar."
+        },
         "display":      { "type": "string" },
         "event_id":     { "type": "integer" },
         "url":          { "type": ["string", "null"] },
