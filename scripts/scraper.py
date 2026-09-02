@@ -52,7 +52,11 @@ MINUTES_AGENDAS_URL     = f"{CITY_BASE_URL}/Government/Boards-Commissions/Minute
 SPECIAL_NOTICES_URL     = f"{CITY_BASE_URL}/Government/Boards-Commissions/Special-Meeting-Notices"
 LOOKBACK_MONTHS         = 6
 LOOKAHEAD_MONTHS        = 6
-LOOKBACK_MONTHS         = 3
+
+# How many past months to check the CITY CALENDAR against on a routine run.
+# Deliberately a separate name from LOOKBACK_MONTHS above, which controls how
+# far back documents and YouTube videos are searched and must stay at 6.
+CALENDAR_LOOKBACK_MONTHS = 3
 PRESERVE_IF_EMPTY       = ("agenda_url", "minutes_url", "youtube_id", "youtube_url", "scrapedAt")
 DETROIT_TZ              = ZoneInfo("America/Detroit")
 
@@ -81,11 +85,11 @@ BOARDS = [
         "time":        "5:00 PM",
         "location":    "City Commission Chambers, City Hall Second Floor, 241 W South St",
         "category_id": 32,
-        "keywords":    ["civil rights board", "civil rights"],
+        "keywords":    ["civil rights"],
         "output":      Path("data") / "crb.json",
         "youtube":     True,
         "youtube_search_query": "Civil Rights Board",
-        "youtube_title_filter": ["civil rights board", "civil rights"],
+        "youtube_title_filter": ["civil rights"],
         "youtube_tolerance":    3,
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Civil-Rights-Board",
     },
@@ -115,7 +119,7 @@ BOARDS = [
         "output":                 Path("data") / "cpsrab.json",
         "youtube":                True,
         "youtube_search_query":   "Citizens Public Safety Review and Appeal Board",
-        "youtube_title_filter":   ["citizens public safety", "cpsrab"],
+        "youtube_title_filter":   ["public safety review", "cpsrab"],
         "youtube_tolerance":      3,
         "schedule":               ("monthly", "tuesday", 2, None),
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB",
@@ -178,11 +182,11 @@ BOARDS = [
         "time":        "4:30 PM \u2013 6:30 PM",
         "location":    "City Commission Chambers, City Hall Second Floor, 241 W South St",
         "category_id": 46,
-        "keywords":    ["environmental concerns committee", "environmental concerns"],
+        "keywords":    ["environmental concerns"],
         "output":      Path("data") / "ecc.json",
         "youtube":     True,
         "youtube_search_query": "Environmental Concerns Committee",
-        "youtube_title_filter": ["environmental concerns committee", "environmental concerns"],
+        "youtube_title_filter": ["environmental concerns"],
         "youtube_tolerance":    3,
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Environmental-Concerns-Committee",
     },
@@ -212,7 +216,7 @@ BOARDS = [
         "output":      Path("data") / "hpc.json",
         "youtube":     True,
         "youtube_search_query": "Historic Preservation Commission",
-        "youtube_title_filter": ["historic preservation commission", "historical preservation commission"],
+        "youtube_title_filter": ["historic preservation", "historical preservation"],
         "youtube_tolerance":    3,
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Historic-Preservation-Commission",
     },
@@ -240,7 +244,7 @@ BOARDS = [
         "output":      Path("data") / "nfp.json",
         "youtube":     True,
         "youtube_search_query": "Natural Features Protection Review Board",
-        "youtube_title_filter": ["natural features protection"],
+        "youtube_title_filter": ["natural features"],
         "youtube_tolerance":    3,
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Natural-Features-Protection-Review-Board",
     },
@@ -266,11 +270,11 @@ BOARDS = [
         "time":        "7:00 PM \u2013 9:00 PM",
         "location":    "City Commission Chambers, City Hall Second Floor, 241 W South St",
         "category_id": 30,
-        "keywords":    ["zoning board of appeals", "zoning board"],
+        "keywords":    ["zoning board"],
         "output":      Path("data") / "zba.json",
         "youtube":     True,
         "youtube_search_query": "Zoning Board of Appeals Kalamazoo",
-        "youtube_title_filter": ["zoning board of appeals", "zoning board"],
+        "youtube_title_filter": ["zoning board"],
         "youtube_tolerance":    3,
         "web_url": f"{CITY_BASE_URL}/Government/Boards-Commissions/Zoning-Board-of-Appeals",
     },
@@ -3289,7 +3293,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Scrape all Kalamazoo boards.")
     parser.add_argument("--board", help="Run only this board key (e.g. crb, bba).")
     parser.add_argument(
-        "--backfill-months", type=int, default=LOOKBACK_MONTHS,
+        "--backfill-months", type=int, default=CALENDAR_LOOKBACK_MONTHS,
         help="How many past months to check the city calendar against. "
              "Use a larger number once to fill older gaps, e.g. 24.",
     )
