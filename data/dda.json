@@ -6,13 +6,6 @@
   },
   "upcoming_meetings": [
     {
-      "date": "2026-09-01",
-      "display": "Tuesday, September 1, 2026",
-      "time": "8:00 AM",
-      "isSpecial": true,
-      "location": "Community Room at City Hall, 241 W. South Street"
-    },
-    {
       "date": "2026-09-21",
       "display": "Monday, September 21, 2026",
       "time": "08:00 AM – 09:00 AM"
@@ -49,6 +42,26 @@
       "meeting_type": "Downtown Development Authority Board"
     },
     {
+      "date": "2026-08-05",
+      "display": "Wednesday, August 5, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": "125 S. Kalamazoo Mall, City Centre Events Space",
+      "scrapedAt": "2026-09-02T01:33:15.972891+00:00",
+      "sourceUrl": null,
+      "link_label": "No documents posted"
+    },
+    {
+      "date": "2026-07-20",
+      "display": "Monday, July 20, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-09-02T01:33:15.972883+00:00",
+      "sourceUrl": null,
+      "link_label": "No documents posted"
+    },
+    {
       "date": "2026-07-13",
       "display": "July 13, 2026",
       "event_id": 2666,
@@ -75,6 +88,16 @@
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2665/overview",
       "scrapedAt": "2026-06-15T18:43:33.219822+00:00",
       "meeting_type": "Downtown Development Authority Board"
+    },
+    {
+      "date": "2026-05-18",
+      "display": "Monday, May 18, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-09-02T01:33:15.972858+00:00",
+      "sourceUrl": null,
+      "link_label": "No documents posted"
     },
     {
       "date": "2026-05-11",
