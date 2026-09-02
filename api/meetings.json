@@ -5,9 +5,10 @@
       "date": "2026-09-02",
       "display": "Wednesday, September 2, 2026",
       "time": "5:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "CRB",
-      "name": "Civil Rights Board"
+      "name": "Civil Rights Board",
+      "isSpecial": true
     },
     {
       "date": "2026-09-02",
