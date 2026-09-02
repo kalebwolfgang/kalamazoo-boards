@@ -154,7 +154,8 @@ def validate_meeting_files() -> list[str]:
     Returns list of error strings.
     """
     schema   = load_schema("meetings.schema.json")
-    skip     = {"calendar.json", "meta.json", "state.json", "changelog.json"}
+    skip     = {"calendar.json", "meta.json", "state.json", "changelog.json",
+                "notices.json"}
     all_errors: list[str] = []
 
     for path in sorted(DATA_DIR.glob("*.json")):
@@ -170,6 +171,51 @@ def validate_meeting_files() -> list[str]:
             all_errors.append(f"{path.name} {format_error(e)}")
 
     return all_errors
+
+
+def validate_no_duplicate_dates() -> list[str]:
+    """Fail the build when one board has more than one record for a date.
+
+    Checked separately for the archive and the upcoming list, then across the
+    two. A date in both lists means the same meeting renders twice.
+
+    Cancelled and rescheduled records are ordinary records here: a board still
+    only has one meeting on a given day.
+    """
+    skip = {"calendar.json", "meta.json", "state.json", "changelog.json",
+            "notices.json"}
+    errors: list[str] = []
+
+    for path in sorted(DATA_DIR.glob("*.json")):
+        if path.name in skip:
+            continue
+
+        with path.open(encoding="utf-8") as f:
+            data = json.load(f)
+
+        for field in ("meetings", "upcoming_meetings"):
+            counts: dict[str, int] = {}
+            for record in data.get(field, []):
+                iso = record.get("date")
+                if iso:
+                    counts[iso] = counts.get(iso, 0) + 1
+            for iso, count in sorted(counts.items()):
+                if count > 1:
+                    errors.append(
+                        f"{path.name} has {count} records in {field} for {iso}. "
+                        f"A board meets once on a given day; merge them."
+                    )
+
+        archived = {m.get("date") for m in data.get("meetings", [])}
+        upcoming = {m.get("date") for m in data.get("upcoming_meetings", [])}
+        for iso in sorted(archived & upcoming):
+            if iso:
+                errors.append(
+                    f"{path.name} lists {iso} in both meetings and "
+                    f"upcoming_meetings, so it renders twice on the calendar."
+                )
+
+    return errors
 
 
 def validate_content_files() -> list[str]:
@@ -1259,6 +1305,9 @@ def main() -> None:
     content_files = sorted(CONTENT_DIR.glob("*.json")) if CONTENT_DIR.is_dir() else []
     print(f"  content/*.json ({len(content_files)} files)...")
     all_errors.extend(validate_content_files())
+
+    print("  checking for duplicate dates...")
+    all_errors.extend(validate_no_duplicate_dates())
 
     if all_errors:
         header = f"Schema validation FAILED — {len(all_errors)} error(s):\n\n"
