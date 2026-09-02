@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-08-31",
+  "last_updated": "2026-09-02",
   "metadata": {
-    "time": "08:00 AM – 09:00 AM",
+    "time": "03:00 PM – 05:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
@@ -27,6 +27,15 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-09-01",
+      "display": "Tuesday, September 1, 2026",
+      "link_label": "No documents posted",
+      "minutes_url": null,
+      "agenda_url": null,
+      "scrapedAt": "2026-09-02T02:45:36.100173+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/ocapi/calendars/getcalendaritems"
+    },
     {
       "date": "2026-08-17",
       "display": "August 17, 2026",

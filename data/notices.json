@@ -1,0 +1,114 @@
+{
+  "last_updated": "2026-09-02",
+  "notices": [
+    {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Parks-and-Recreation-Advisory-Board-September-Meeting-Rescheduled",
+      "first_seen": "2026-09-02",
+      "last_seen": "2026-09-02",
+      "stillPosted": true,
+      "text": "Parks and Recreation Advisory Board September Meeting Rescheduled The meeting of the Parks and Recreation Advisory Board scheduled for Tuesday, September 8, 2026 has been RESCHEDULED to meet on Wednesday, September 9, 2026, at 5:30 p.m. in Parks and Recreation Community Room at Mayors' Riverfront Park, 251 Mills Street",
+      "boards": [
+        "PRAB"
+      ],
+      "actions": [
+        {
+          "action": "rescheduled",
+          "old": "2026-09-08",
+          "new": "2026-09-09",
+          "time": "5:30 PM",
+          "location": "Parks and Recreation Community Room at Mayors' Riverfront Park, 251 Mills Street"
+        }
+      ]
+    },
+    {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/NFP-Review-Board-August-25-Meeting-Cancelled",
+      "first_seen": "2026-09-02",
+      "last_seen": "2026-09-02",
+      "stillPosted": true,
+      "text": "NFP Review Board August 25 Meeting Cancelled The meeting of the Natural Features Protection Review Board scheduled for Tuesday, August 25th, 2026, at 4:00 p.m. in City Commission Chambers at City Hall, 241 W. South Street, has been CANCELLED due to the lack of agenda items.",
+      "boards": [
+        "NFP"
+      ],
+      "actions": [
+        {
+          "action": "cancelled",
+          "date": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Historic-Preservation-Commission-Special-Meeting-on-September-2",
+      "first_seen": "2026-09-02",
+      "last_seen": "2026-09-02",
+      "stillPosted": true,
+      "text": "Historic Preservation Commission Special Meeting on September 2 The Historic District Commission will meet in special session on Wednesday, September 2, 2026, at 5:00 p.m. This meeting will take place in the City Commission Chambers at City Hall, 241 W. South Street. The purpose of the meeting is to conduct business originally scheduled for the August 18, 2026 meeting which was cancelled.",
+      "boards": [
+        "HDC"
+      ],
+      "actions": [
+        {
+          "action": "special",
+          "date": "2026-09-02",
+          "time": "5:00 PM",
+          "location": "City Commission Chambers at City Hall, 241 W. South Street"
+        },
+        {
+          "action": "cancelled",
+          "date": "2026-08-18"
+        }
+      ]
+    },
+    {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/CPSRAB-September-Meeting-Cancelled",
+      "first_seen": "2026-09-02",
+      "last_seen": "2026-09-02",
+      "stillPosted": true,
+      "text": "CPSRAB September Meeting Cancelled The meeting of the Citizen Public Safety Review and Appeal Board scheduled for Tuesday, September 8, 2026, at 6:00 p.m. in City Commission Chambers at City Hall, 241 W. South Street, has been CANCELLED.",
+      "boards": [
+        "CPSRAB"
+      ],
+      "actions": [
+        {
+          "action": "cancelled",
+          "date": "2026-09-08"
+        }
+      ]
+    },
+    {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Downtown-Economic-Growth-Authority-Board-Special-Meeting-on-September-1",
+      "first_seen": "2026-09-02",
+      "last_seen": "2026-09-02",
+      "stillPosted": true,
+      "text": "Downtown Economic Growth Authority Board Meeting on September 1 The Downtown Economic Growth Authority Board will meet in special session on Tuesday, September 1, 2026, at 8:00 a.m. This meeting will take place in the Community Room at City Hall, 241 W. South Street. The purpose of the meeting is a grant discussion.",
+      "boards": [
+        "DEGA"
+      ],
+      "actions": [
+        {
+          "action": "special",
+          "date": "2026-09-01",
+          "time": "8:00 AM",
+          "location": "Community Room at City Hall, 241 W. South Street"
+        }
+      ]
+    },
+    {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Civil-Rights-Board-Special-Meeting-on-September-2",
+      "first_seen": "2026-09-02",
+      "last_seen": "2026-09-02",
+      "stillPosted": true,
+      "text": "Civil Rights Board Special Meeting on September 2 The Civil Rights Board will meet in special session on Wednesday, September 2, 2026, at 5:00 p.m. This meeting will take place in Community Room at City Hall, 241 W. South Street. The purpose of the meeting is The purpose of the meeting is to vote on new board member and to announce open board position.",
+      "boards": [
+        "CRB"
+      ],
+      "actions": [
+        {
+          "action": "special",
+          "date": "2026-09-02",
+          "time": "5:00 PM",
+          "location": "Community Room at City Hall, 241 W. South Street"
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-08-31",
+  "last_updated": "2026-09-02",
   "metadata": {
-    "time": "08:00 AM – 09:00 AM",
+    "time": "03:00 PM – 05:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
@@ -29,13 +29,17 @@
   "meetings": [
     {
       "date": "2026-09-01",
-      "display": "Tuesday, September 1, 2026",
+      "display": "September 1, 2026",
+      "event_id": 2772,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2772/files/agenda/5352",
+      "link_label": "Agenda",
+      "isCancelled": false,
       "minutes_url": null,
-      "agenda_url": null,
-      "location": "Community Room at City Hall, 241 W. South Street",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2772/files/agenda/5352",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2772/overview",
       "scrapedAt": "2026-09-02T01:33:16.098340+00:00",
-      "sourceUrl": null,
-      "link_label": "No documents posted"
+      "meeting_type": "Special Meeting"
     },
     {
       "date": "2026-08-17",

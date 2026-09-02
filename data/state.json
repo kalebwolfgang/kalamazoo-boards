@@ -1,33 +1,33 @@
 {
-  "timestamp": "2026-08-31T15:55:29.543045-04:00",
-  "totalMeetings": 574,
+  "timestamp": "2026-09-01T22:45:36.107805-04:00",
+  "totalMeetings": 597,
   "byBoard": {
     "crb": {
-      "meetings": 25
+      "meetings": 26
     },
     "bra": {
-      "meetings": 46
-    },
-    "cpsrab": {
       "meetings": 47
     },
-    "dda": {
-      "meetings": 39
+    "cpsrab": {
+      "meetings": 49
     },
-    "dega": {
+    "dda": {
       "meetings": 43
     },
+    "dega": {
+      "meetings": 46
+    },
     "edc": {
-      "meetings": 42
+      "meetings": 44
     },
     "ec": {
       "meetings": 15
     },
     "ecc": {
-      "meetings": 25
+      "meetings": 26
     },
     "hdc": {
-      "meetings": 41
+      "meetings": 42
     },
     "hpc": {
       "meetings": 37
@@ -36,7 +36,7 @@
       "meetings": 3
     },
     "nfp": {
-      "meetings": 28
+      "meetings": 29
     },
     "pc": {
       "meetings": 56
@@ -45,10 +45,10 @@
       "meetings": 58
     },
     "ersb": {
-      "meetings": 10
+      "meetings": 12
     },
     "prab": {
-      "meetings": 3
+      "meetings": 4
     },
     "trb": {
       "meetings": 2
@@ -63,10 +63,10 @@
       "meetings": 5
     },
     "tre": {
-      "meetings": 4
+      "meetings": 5
     },
     "bba": {
-      "meetings": 4
+      "meetings": 5
     },
     "cdaac": {
       "meetings": 1
@@ -75,7 +75,7 @@
       "meetings": 27
     },
     "spk": {
-      "meetings": 10
+      "meetings": 12
     }
   }
 }
