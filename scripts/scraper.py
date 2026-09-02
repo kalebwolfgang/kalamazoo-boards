@@ -52,6 +52,7 @@ MINUTES_AGENDAS_URL     = f"{CITY_BASE_URL}/Government/Boards-Commissions/Minute
 SPECIAL_NOTICES_URL     = f"{CITY_BASE_URL}/Government/Boards-Commissions/Special-Meeting-Notices"
 LOOKBACK_MONTHS         = 6
 LOOKAHEAD_MONTHS        = 6
+LOOKBACK_MONTHS         = 3
 PRESERVE_IF_EMPTY       = ("agenda_url", "minutes_url", "youtube_id", "youtube_url", "scrapedAt")
 DETROIT_TZ              = ZoneInfo("America/Detroit")
 
@@ -427,6 +428,58 @@ JOINT_BOARD_MAP: dict = {
     "DEGA": ["DDA"],
 }
 
+
+def _board_has_date(abbr: str, iso: str) -> bool:
+    """True when a board already has a meeting recorded on this date."""
+    board = next((b for b in BOARDS if b.get("abbr") == abbr), None)
+    if not board or not board["output"].exists():
+        return False
+    try:
+        with board["output"].open(encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return False
+    for field in ("upcoming_meetings", "meetings"):
+        for record in data.get(field, []):
+            if record.get("date") == iso:
+                return True
+    return False
+
+
+def expand_to_joint_partners(boards: list[str], actions: list[dict]) -> list[str]:
+    """Add a joint partner board only when the notice really covers it.
+
+    A blanket copy put a DEGA-only special session onto DDA's calendar. The
+    partner is now included only if the notice names it, or if the partner
+    already has a meeting on one of the dates in question.
+    """
+    dates: list[str] = []
+    for action in actions:
+        if action["action"] == "rescheduled":
+            dates.extend([action["old"], action["new"]])
+        elif action.get("date"):
+            dates.append(action["date"])
+
+    out = list(boards)
+    named = set(boards)
+
+    for abbr in list(boards):
+        for partner in JOINT_BOARD_MAP.get(abbr, []):
+            if partner in named:
+                continue
+            shared = next((d for d in dates if _board_has_date(partner, d)), None)
+            if shared:
+                out.append(partner)
+                named.add(partner)
+                print(f"  JOINT: applying {abbr} notice to {partner} as well "
+                      f"({partner} has a meeting on {shared})")
+            else:
+                print(f"  JOINT: NOT applying {abbr} notice to {partner}; "
+                      f"{partner} has nothing scheduled on "
+                      f"{', '.join(dates) or 'these dates'}")
+
+    return out
+
 # Fast key lookup — used by build.py and watchdog
 BOARDS_BY_KEY: dict = {b["key"]: b for b in BOARDS}
 
@@ -567,7 +620,8 @@ def _post_calendar(guids: list[str], start: date, end: date) -> dict | None:
     return payload
 
 
-def fetch_city_calendar(months: int = LOOKAHEAD_MONTHS) -> dict:
+def fetch_city_calendar(months: int = LOOKAHEAD_MONTHS,
+                        lookback: int = 0) -> dict:
     """
     Fetch upcoming meetings for every mapped board from the city calendar API.
 
@@ -586,7 +640,14 @@ def fetch_city_calendar(months: int = LOOKAHEAD_MONTHS) -> dict:
     print("\nFetching city calendar API...")
     all_guids = list(CALENDAR_GUID_TO_KEYS.keys())
     by_board: dict = {}
-    windows = _month_windows(date.today().replace(day=1), months)
+    first = date.today().replace(day=1)
+    if lookback:
+        year, month = first.year, first.month - lookback
+        while month < 1:
+            month += 12
+            year -= 1
+        first = date(year, month, 1)
+    windows = _month_windows(first, months + lookback)
     failures = []
 
     for start, end in windows:
@@ -1105,23 +1166,22 @@ def compute_upcoming_schedule(board: dict, n: int = 6) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Schedule-generated upcoming: retirement and flag preservation
+# Schedule-generated upcoming: retirement and merging
 #
 # compute_upcoming_schedule() regenerates the upcoming list from a recurrence
 # rule on every run, keeping only dates >= today. Anything stored on the
-# previous run for a date that has since passed is simply discarded.
+# previous run for a date that has since passed used to be simply discarded,
+# and a stored date the rule did not reproduce was dropped as well.
 #
-# For a normal meeting that is harmless: the CivicClerk / Minutes-Agendas path
-# archives it independently. For a CANCELLED meeting it is not. A cancellation
-# lives only on the upcoming entry, and a cancelled meeting produces no agenda
-# and no minutes, so nothing else ever archives it. The record disappears the
-# day it passes and the public archive silently loses the fact that the meeting
-# was called and cancelled. CPSRAB lost 2026-06-09 and 2026-07-14 this way.
+# That lost meetings. A meeting with no agenda and no minutes was archived by
+# nothing, so it vanished the day it passed: eighteen of them across eleven
+# boards. A special meeting added from a notice survived exactly one run,
+# because it is not part of the board's regular schedule.
 #
-# retire_passed_meetings() moves those records into the archive before the
-# regenerated list replaces the stored one. preserve_flagged_upcoming() keeps
-# flags on FUTURE dates sticky, so a cancellation no longer depends on the
-# notices page still carrying the notice on every subsequent run.
+# The rule now is that a meeting is never deleted. retire_passed_meetings()
+# moves every passed date into the archive before the regenerated list
+# replaces the stored one. merge_upcoming() keeps stored future dates and
+# their flags, whether or not the recurrence rule knows about them.
 # ---------------------------------------------------------------------------
 
 def retire_passed_meetings(
@@ -1129,15 +1189,15 @@ def retire_passed_meetings(
     existing_upcoming: list[dict],
     archive: list[dict],
 ) -> tuple[list[dict], list[str]]:
-    """
-    Move cancelled upcoming entries whose date has passed into the archive.
+    """Move every upcoming meeting whose date has passed into the archive.
 
-    Only cancelled entries are retired. A normal past meeting is archived by
-    the document-scraping path, and copying it here would create a duplicate.
+    Not only cancelled ones. A meeting the city never posted documents for is
+    still a meeting that was scheduled, and the record of it belongs in the
+    archive rather than nowhere.
 
-    If the archive already holds that date, the existing record is flagged
-    rather than a second one added: a board can have both a CivicClerk event
-    and a schedule-generated entry for the same day.
+    If the archive already holds that date the existing record is updated
+    rather than a second one added, because a board can have both a
+    CivicClerk event and a schedule-generated entry for the same day.
 
     Returns the modified archive and the list of dates retired.
     """
@@ -1150,27 +1210,44 @@ def retire_passed_meetings(
         d = entry.get("date")
         if not d or d >= today_iso:
             continue
-        if not entry.get("isCancelled"):
-            continue
 
         existing_rec = by_date.get(d)
         if existing_rec is not None:
-            if not existing_rec.get("isCancelled"):
+            # Already archived. Carry over anything the archive is missing.
+            changed = False
+            if entry.get("isCancelled") and not existing_rec.get("isCancelled"):
                 existing_rec["isCancelled"] = True
+                changed = True
+            if entry.get("location") and not existing_rec.get("location"):
+                existing_rec["location"] = entry["location"]
+                changed = True
+            if changed:
                 retired.append(d)
             continue
 
         record = {
             "date":        d,
             "display":     entry.get("display") or format_display_date(d),
-            "link_label":  "Cancelled",
-            "isCancelled": True,
             "minutes_url": None,
             "agenda_url":  None,
             "location":    entry.get("location"),
             "scrapedAt":   datetime.now(timezone.utc).isoformat(),
             "sourceUrl":   board.get("web_url"),
         }
+        # Keep the reschedule note. Without it, the date this meeting moved
+        # away from looks like a missing meeting once both dates are past,
+        # and the calendar backfill puts it back.
+        if entry.get("rescheduledFrom"):
+            record["rescheduledFrom"] = entry["rescheduledFrom"]
+        if entry.get("isCancelled"):
+            record["isCancelled"] = True
+            record["link_label"]  = "Cancelled"
+        else:
+            record["link_label"] = "No documents posted"
+        # An archive record must not carry event_id or url: the schema types
+        # event_id as an integer and forbids unknown properties, so a null
+        # would fail validation and stop the build.
+
         archive.append(record)
         by_date[d] = record
         retired.append(d)
@@ -1178,42 +1255,116 @@ def retire_passed_meetings(
     return archive, retired
 
 
-def preserve_flagged_upcoming(
+def merge_upcoming(
+    board: dict,
     generated: list[dict],
     existing_upcoming: list[dict],
 ) -> list[dict]:
+    """Combine a freshly generated upcoming list with what was already stored.
+
+    Replaces preserve_flagged_upcoming, which only copied flags onto dates the
+    generator happened to produce again. Anything the generator did not know
+    about was dropped, so a special meeting added by a notice survived exactly
+    one run.
+
+    Three rules:
+      1. A stored date the generator repeats keeps its stored version, so
+         cancellations, locations and reschedule notes stay put.
+      2. A stored future date the generator does not know about is kept
+         anyway. It was on the site, so it stays on the site.
+      3. A date another meeting was rescheduled away from is dropped. The
+         meeting moved, and a recurrence rule would otherwise put the old
+         date back every run.
     """
-    Carry stored flags forward onto a regenerated upcoming list.
-
-    A recurrence rule knows only dates. It cannot know that a future meeting
-    was cancelled, rescheduled, moved, or called as a special session. Those
-    facts are written onto the stored entry by the notices handler.
-
-    Without this, a flag survives only because the notices page still carries
-    the notice and the handler reapplies it on every run. If the city takes a
-    notice down, or rewords it past the parser, the flag silently vanishes.
-    This makes a flag sticky once set.
-
-    Stored entries whose date is not in the generated list are NOT carried
-    over: they are either in the past (handled by retire_passed_meetings) or
-    no longer part of the schedule.
-    """
-    FLAGS = ("isCancelled", "rescheduledFrom", "locationChanged",
-             "isSpecial", "location")
+    today_iso = date.today().strftime("%Y-%m-%d")
 
     stored_by_date = {
-        e.get("date"): e
-        for e in (existing_upcoming or [])
-        if any(e.get(f) for f in FLAGS)
+        e.get("date"): e for e in (existing_upcoming or []) if e.get("date")
     }
-    if not stored_by_date:
-        return generated
 
-    out = []
+    out: list[dict] = []
+    seen: set[str] = set()
+
     for entry in generated:
-        stored = stored_by_date.get(entry.get("date"))
-        out.append(stored if stored is not None else entry)
-    return out
+        d = entry.get("date")
+        if not d or d in seen:
+            continue
+        out.append(stored_by_date.get(d, entry))
+        seen.add(d)
+
+    for d, entry in stored_by_date.items():
+        # Past dates are handled by retire_passed_meetings, which runs first.
+        if d < today_iso or d in seen:
+            continue
+        out.append(entry)
+        seen.add(d)
+
+    vacated = {
+        e.get("rescheduledFrom") for e in out if e.get("rescheduledFrom")
+    }
+    if vacated:
+        out = [e for e in out if e.get("date") not in vacated]
+
+    return sorted(out, key=lambda m: m.get("date", ""))
+
+
+def merge_meetings(existing: list, scraped: list) -> tuple:
+    """Merge scraped meetings into the archive.
+
+    Only the lookup changed. A record archived without documents is keyed by
+    its date, and the same meeting arrives later keyed by its CivicClerk
+    event_id once the city posts an agenda. Matching on event_id alone created
+    a second record for the same day, so a date match is now accepted as a
+    fallback and the event_id is written onto the record that already exists.
+    """
+    stats = {"added": 0, "updated": 0, "unchanged": 0, "preserved": 0}
+
+    def key(m):
+        return ("id", m["event_id"]) if m.get("event_id") is not None else ("date", m.get("date"))
+
+    by_key = {key(m): m for m in existing}
+
+    for s in scraped:
+        k = key(s)
+
+        if k not in by_key and k[0] == "id":
+            # Same day, already archived without an event_id. Adopt it rather
+            # than adding a duplicate row for the same meeting.
+            date_key = ("date", s.get("date"))
+            if date_key in by_key:
+                existing_rec = by_key.pop(date_key)
+                existing_rec["event_id"] = s["event_id"]
+                # A placeholder label no longer applies once documents exist.
+                if existing_rec.get("link_label") == "No documents posted":
+                    existing_rec.pop("link_label", None)
+                by_key[k] = existing_rec
+
+        if k not in by_key:
+            s["scrapedAt"] = datetime.now(timezone.utc).isoformat()
+            by_key[k]      = s
+            stats["added"] += 1
+            print(f"    + NEW:     {s['date']}")
+            continue
+
+        merged, preserved = smart_merge(by_key[k], s)
+        if preserved:
+            stats["preserved"] += len(preserved)
+        changed = any(
+            by_key[k].get(f) != merged.get(f)
+            for f in ("url", "isCancelled", "minutes_url", "agenda_url", "youtube_id", "youtube_url")
+        )
+        if changed:
+            by_key[k] = merged
+            stats["updated"] += 1
+        else:
+            stats["unchanged"] += 1
+
+    return sorted(by_key.values(), key=lambda m: m["date"], reverse=True), stats
+
+
+
+
+
 
 
 # ---------------------------------------------------------------------------
@@ -1573,38 +1724,6 @@ def smart_merge(existing: dict, scraped: dict) -> tuple:
     return result, preserved
 
 
-def merge_meetings(existing: list, scraped: list) -> tuple:
-    stats = {"added": 0, "updated": 0, "unchanged": 0, "preserved": 0}
-
-    def key(m):
-        return ("id", m["event_id"]) if m.get("event_id") is not None else ("date", m.get("date"))
-
-    by_key = {key(m): m for m in existing}
-
-    for s in scraped:
-        k = key(s)
-        if k not in by_key:
-            # Stamp provenance on first insertion
-            s["scrapedAt"] = datetime.now(timezone.utc).isoformat()
-            by_key[k]      = s
-            stats["added"] += 1
-            print(f"    + NEW:     {s['date']}")
-            continue
-
-        merged, preserved = smart_merge(by_key[k], s)
-        if preserved:
-            stats["preserved"] += len(preserved)
-        changed = any(
-            by_key[k].get(f) != merged.get(f)
-            for f in ("url", "isCancelled", "minutes_url", "agenda_url", "youtube_id", "youtube_url")
-        )
-        if changed:
-            by_key[k] = merged
-            stats["updated"] += 1
-        else:
-            stats["unchanged"] += 1
-
-    return sorted(by_key.values(), key=lambda m: m["date"], reverse=True), stats
 
 
 def merge_recordings(existing: list, new_recs: list) -> list:
@@ -1636,145 +1755,764 @@ def build_metadata(board: dict) -> dict:
 # Special Meeting Notices helpers
 # ---------------------------------------------------------------------------
 
-def _detect_notice_boards(text: str) -> list[str]:
-    """Return list of board abbrs mentioned in notice text."""
-    text_lower = text.lower()
+
+
+# ---------------------------------------------------------------------------
+# Notice text normalisation
+#
+# The city's OpenCities editor pastes zero-width and non-breaking characters
+# between words. They are invisible on the page but sit inside the string and
+# break any pattern that expects a plain space.
+# ---------------------------------------------------------------------------
+
+_INVISIBLE = dict.fromkeys(
+    [0x200B, 0x200C, 0x200D, 0x200E, 0x200F, 0xFEFF, 0x00AD], None
+)
+
+def _normalize_notice_text(text: str) -> str:
+    """Strip invisible characters and normalise spacing and punctuation."""
+    text = text.translate(_INVISIBLE)
+    text = text.replace("\u00a0", " ")          # non-breaking space
+    text = text.replace("\u2013", "-").replace("\u2014", "-")  # en/em dash
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+
+_MONTHS = {
+    "january": 1, "jan": 1,
+    "february": 2, "feb": 2, "febr": 2,
+    "march": 3, "mar": 3,
+    "april": 4, "apr": 4,
+    "may": 5,
+    "june": 6, "jun": 6,
+    "july": 7, "jul": 7,
+    "august": 8, "aug": 8,
+    "september": 9, "sep": 9, "sept": 9,
+    "october": 10, "oct": 10,
+    "november": 11, "nov": 11,
+    "december": 12, "dec": 12,
+}
+
+_MONTH_ALT = "|".join(sorted(_MONTHS, key=len, reverse=True))
+
+# "August 25, 2026" / "August 25th, 2026" / "Aug. 25 2026" / "September 2"
+_TEXT_DATE = re.compile(
+    r"\b(" + _MONTH_ALT + r")\.?\s+"
+    r"(\d{1,2})(?:st|nd|rd|th)?(?![\d:])"
+    r"(?:\s*,?\s*(\d{4}))?\b",
+    re.IGNORECASE,
+)
+
+# "September, 8, 2026" - a comma between month and day. Only accepted when a
+# full year follows, so that "in August, 20 people attended" is not a date.
+_TEXT_DATE_COMMA = re.compile(
+    r"\b(" + _MONTH_ALT + r")\.?\s*,\s*"
+    r"(\d{1,2})(?:st|nd|rd|th)?(?![\d:])\s*,?\s*(\d{4})\b",
+    re.IGNORECASE,
+)
+
+# "2026-09-15"
+_ISO = re.compile(r"\b(20\d{2})-(\d{1,2})-(\d{1,2})\b")
+
+# "25 August 2026" / "25th of August, 2026"
+_DAY_FIRST = re.compile(
+    r"\b(\d{1,2})(?:st|nd|rd|th)?(?![\d:])\s+(?:of\s+)?(" + _MONTH_ALT + r")\.?"
+    r"(?:\s*,?\s*(\d{4}))?\b",
+    re.IGNORECASE,
+)
+
+# "8/25/2026" / "08-25-26"
+_NUMERIC = re.compile(r"\b(\d{1,2})[/.-](\d{1,2})[/.-](\d{2}|\d{4})\b")
+
+
+def _resolve_year(month: int, day: int, today: date) -> int | None:
+    """Pick the most plausible year for a date written without one.
+
+    A notice is about something close to now, so choose the year that puts the
+    date nearest today, looking one year back and one year forward.
+    """
+    best, best_gap = None, None
+    for year in (today.year - 1, today.year, today.year + 1):
+        try:
+            candidate = date(year, month, day)
+        except ValueError:
+            continue
+        gap = abs((candidate - today).days)
+        if best_gap is None or gap < best_gap:
+            best, best_gap = year, gap
+    return best
+
+
+def _extract_notice_dates(text: str, today: date | None = None) -> list[str]:
+    """Extract every date in a notice, in the order written, as ISO strings.
+
+    Handles the spellings the city actually uses, plus the ones it has not
+    used yet: ordinal suffixes, abbreviated months, day-first order, slash
+    and dash numerics, missing years, and stray punctuation.
+    """
+    today = today or date.today()
+    text = _normalize_notice_text(text)
+
+    found: list[tuple[int, str]] = []   # (position in text, ISO date)
+
+    def add(pos: int, year: int | None, month: int, day: int) -> None:
+        if year is None:
+            year = _resolve_year(month, day, today)
+        if year is None:
+            return
+        if year < 100:
+            year += 2000
+        try:
+            iso = date(year, month, day).strftime("%Y-%m-%d")
+        except ValueError:
+            return
+        found.append((pos, iso))
+
+    for m in _TEXT_DATE.finditer(text):
+        month = _MONTHS[m.group(1).lower()]
+        add(m.start(), int(m.group(3)) if m.group(3) else None, month, int(m.group(2)))
+
+    for m in _TEXT_DATE_COMMA.finditer(text):
+        add(m.start(), int(m.group(3)),
+            _MONTHS[m.group(1).lower()], int(m.group(2)))
+
+    for m in _ISO.finditer(text):
+        add(m.start(), int(m.group(1)), int(m.group(2)), int(m.group(3)))
+
+    for m in _DAY_FIRST.finditer(text):
+        month = _MONTHS[m.group(2).lower()]
+        add(m.start(), int(m.group(3)) if m.group(3) else None, month, int(m.group(1)))
+
+    for m in _NUMERIC.finditer(text):
+        add(m.start(), int(m.group(3)), int(m.group(1)), int(m.group(2)))
+
+    # Keep document order, drop duplicates. Callers rely on the order:
+    # a reschedule notice writes the old date before the new one.
+    found.sort(key=lambda pair: pair[0])
+    results, seen = [], set()
+    for _, iso in found:
+        if iso not in seen:
+            results.append(iso)
+            seen.add(iso)
+    return results
+
+
+# ---------------------------------------------------------------------------
+# Which board is the notice about?
+# ---------------------------------------------------------------------------
+
+# The sentence that names the meeting's owner. The city writes one of:
+#   "The meeting of the <BOARD> scheduled for ..."
+#   "The <BOARD> will meet in special session ..."
+#   "The <BOARD> has been cancelled ..."
+_SUBJECT_PATTERNS = [
+    r"meeting of the\s+(.{3,90}?)\s+(?:scheduled|will|has|is)\b",
+    r"\bThe\s+(.{3,90}?)\s+will meet\b",
+    r"\bThe\s+(.{3,90}?)\s+(?:meeting )?has been\b",
+]
+
+
+# Every abbreviation the site uses, longest first so that a longer one is
+# never swallowed by a shorter one sitting inside it.
+_KNOWN_ABBRS = sorted(
+    {abbr for _, abbr in NOTICE_BOARD_MAP} | {b["abbr"] for b in BOARDS},
+    key=len, reverse=True,
+)
+
+
+def _match_boards(text: str) -> list[str]:
+    """Every board name appearing in a string, most specific first."""
+    lowered = text.lower()
     found, seen = [], set()
     for fragment, abbr in NOTICE_BOARD_MAP:
-        if fragment in text_lower and abbr not in seen:
+        if fragment in lowered and abbr not in seen:
             found.append(abbr)
             seen.add(abbr)
     return found
 
 
-def _extract_notice_dates(text: str) -> list[str]:
-    """Extract all ISO date strings from notice text."""
-    pattern = re.compile(
-        r"(January|February|March|April|May|June|July|August"
-        r"|September|October|November|December)"
-        r"\s+(\d{1,2}),?\s+(\d{4})",
-        re.IGNORECASE,
-    )
-    results, seen = [], set()
-    for m in pattern.finditer(text):
-        try:
-            d = datetime.strptime(
-                f"{m.group(1)} {m.group(2)} {m.group(3)}", "%B %d %Y"
-            ).date()
-            iso = d.strftime("%Y-%m-%d")
-            if iso not in seen:
-                results.append(iso)
-                seen.add(iso)
-        except ValueError:
-            continue
-    return results
+def _match_acronyms(text: str) -> list[str]:
+    """Board abbreviations written on their own, e.g. "the CPSRAB meeting".
 
-
-def _extract_moved_location(text: str) -> str | None:
-    """Pull new location from a location-change or reschedule notice.
-
-    The city phrases these several ways:
-      "has been MOVED to meet in <place>"
-      "has been RESCHEDULED to meet on <day>, <date>, at <time> in <place>"
+    Only used when no board name was spelled out. Matching is case sensitive
+    and whole-word, so an abbreviation cannot be found inside another word.
     """
+    found, seen = [], set()
+    for abbr in _KNOWN_ABBRS:
+        if abbr in seen:
+            continue
+        if re.search(r"\b" + re.escape(abbr) + r"\b", text):
+            found.append(abbr)
+            seen.add(abbr)
+    return found
+
+
+def _boards_in(text: str) -> list[str]:
+    """Board names in a string, falling back to abbreviations."""
+    return _match_boards(text) or _match_acronyms(text)
+
+
+def _detect_notice_boards(text: str, warnings: list | None = None) -> list[str]:
+    """Return the board(s) a notice is about.
+
+    The heading and the body do not always agree. The city has published a
+    notice headed "Historic Preservation Commission" whose body says
+    "Historic District Commission". Scanning the whole notice matched both and
+    wrote the meeting onto two boards, one of which never had it.
+
+    So the sentence that describes the meeting wins. Only if no board can be
+    read from that sentence does this fall back to scanning everything.
+    """
+    text = _normalize_notice_text(text)
+    everywhere = _boards_in(text)
+
+    for pattern in _SUBJECT_PATTERNS:
+        m = re.search(pattern, text, re.IGNORECASE)
+        if not m:
+            continue
+        subject = _boards_in(m.group(1))
+        if len(subject) == 1:
+            other = [a for a in everywhere if a not in subject]
+            if other and warnings is not None:
+                warnings.append(
+                    f"Notice names {'/'.join(other)} elsewhere in the text but "
+                    f"describes a {subject[0]} meeting. Using {subject[0]}. "
+                    f"Notice text: {text[:120]}"
+                )
+            return subject
+        if len(subject) > 1:
+            # Two boards genuinely named in the same sentence, e.g. a joint
+            # meeting. Keep both.
+            return subject
+
+    return everywhere
+
+
+# ---------------------------------------------------------------------------
+# What is the notice announcing?
+# ---------------------------------------------------------------------------
+
+# Each phrase is tied to what it does to a meeting. Distance from the date
+# decides which one applies, so a stray word later in the notice cannot
+# override the phrase sitting next to the date.
+_ACTION_PHRASES = [
+    ("cancelled",       r"\bcancel\w*\b"),
+    ("cancelled",       r"\bwill not (?:be held|meet|take place)\b"),
+    ("special",         r"\bspecial (?:session|meeting)\b"),
+    ("special",         r"\bwill meet\b"),
+    ("special",         r"\bwill hold\b"),
+    ("location_change", r"\blocation (?:change|has changed)\b"),
+    ("location_change", r"\bmoved to meet (?:in|at)\b"),
+    ("location_change", r"\bnew location\b"),
+]
+
+_RESCHEDULE_MARKER = re.compile(
+    r"\breschedul\w*(?:\s+to\s+meet)?|\bmoved to meet on\b|\bwill now meet on\b"
+    r"|\bpostponed (?:to|until)\b|\bchanged to\b",
+    re.IGNORECASE,
+)
+
+def _dates_with_positions(text: str, today: date | None = None) -> list[tuple[int, str]]:
+    """Every date in the notice with where it sits in the text."""
+    today = today or date.today()
+    found: list[tuple[int, str]] = []
+
+    def add(pos, year, month, day):
+        if year is None:
+            year = _resolve_year(month, day, today)
+        if year is None:
+            return
+        if year < 100:
+            year += 2000
+        try:
+            found.append((pos, date(year, month, day).strftime("%Y-%m-%d")))
+        except ValueError:
+            return
+
+    for m in _TEXT_DATE.finditer(text):
+        add(m.start(), int(m.group(3)) if m.group(3) else None,
+            _MONTHS[m.group(1).lower()], int(m.group(2)))
+    for m in _TEXT_DATE_COMMA.finditer(text):
+        add(m.start(), int(m.group(3)), _MONTHS[m.group(1).lower()], int(m.group(2)))
+    for m in _ISO.finditer(text):
+        add(m.start(), int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    for m in _DAY_FIRST.finditer(text):
+        add(m.start(), int(m.group(3)) if m.group(3) else None,
+            _MONTHS[m.group(2).lower()], int(m.group(1)))
+    for m in _NUMERIC.finditer(text):
+        add(m.start(), int(m.group(3)), int(m.group(1)), int(m.group(2)))
+
+    found.sort(key=lambda pair: pair[0])
+    out, seen = [], set()
+    for pos, iso in found:
+        if iso not in seen:
+            out.append((pos, iso))
+            seen.add(iso)
+    return out
+
+
+
+# ---------------------------------------------------------------------------
+# Sentence splitting
+#
+# An action only applies to a date sitting in the same sentence. Without that
+# rule, "...has been CANCELLED. The board last met on July 14" reads the old
+# meeting as cancelled too. Street and time abbreviations carry full stops of
+# their own, so they are hidden before splitting and restored afterwards.
+# ---------------------------------------------------------------------------
+
+_ABBREVIATIONS = [
+    "a.m.", "p.m.", "A.M.", "P.M.",
+    "St.", "Ave.", "Rd.", "Blvd.", "Dr.", "Ct.", "Ln.", "Pl.", "Ste.",
+    "Mr.", "Mrs.", "Ms.", "Dr.", "No.", "Inc.", "Jr.", "Sr.", "Corp.",
+    "Jan.", "Feb.", "Mar.", "Apr.", "Jun.", "Jul.", "Aug.",
+    "Sep.", "Sept.", "Oct.", "Nov.", "Dec.",
+]
+
+_SINGLE_LETTER_ABBREV = re.compile(r"\b([A-Z])\.")
+_PLACEHOLDER = "\x00"
+
+
+def _split_sentences(text: str) -> list[tuple[int, str]]:
+    """Split a notice into sentences, returned as (start position, text)."""
+    masked = text
+    for abbr in _ABBREVIATIONS:
+        masked = masked.replace(abbr, abbr.replace(".", _PLACEHOLDER))
+    masked = _SINGLE_LETTER_ABBREV.sub(r"\1" + _PLACEHOLDER, masked)
+
+    # An abbreviation can also end a sentence: "at 5:00 p.m. The purpose ...".
+    # Put the full stop back when the next word starts a new sentence.
+    masked = re.sub(
+        _PLACEHOLDER + r"(\s+(?:The|This|That|Please|All|Questions|Members|An|A|In|"
+        r"If|Notice|For|Any|Public|Meeting|Purpose|Anyone|Persons|Board|Its)\b)",
+        r".\1", masked,
+    )
+
+    sentences, start = [], 0
+    for m in re.finditer(r"[.!?]+\s+", masked):
+        end = m.end()
+        sentences.append((start, text[start:end]))
+        start = end
+    if start < len(text):
+        sentences.append((start, text[start:]))
+    return sentences
+
+
+def _sentence_at(sentences: list[tuple[int, str]], pos: int) -> tuple[int, str]:
+    """The sentence containing a position."""
+    current = sentences[0] if sentences else (0, "")
+    for start, body in sentences:
+        if start <= pos:
+            current = (start, body)
+        else:
+            break
+    return current
+
+
+def _nearest_action(sentences: list[tuple[int, str]], pos: int) -> str | None:
+    """The action phrase that applies to a date.
+
+    Only phrases in the same sentence as the date count, and of those the
+    closest one wins.
+    """
+    start, body = _sentence_at(sentences, pos)
+    local = pos - start
+    best, best_gap = None, None
+    for action, pattern in _ACTION_PHRASES:
+        for m in re.finditer(pattern, body, re.IGNORECASE):
+            gap = 0 if m.start() <= local <= m.end() else min(
+                abs(m.start() - local), abs(m.end() - local)
+            )
+            if best_gap is None or gap < best_gap:
+                best, best_gap = action, gap
+    return best
+
+
+def _extract_time(text: str) -> str | None:
+    m = re.search(r"\bat\s+(\d{1,2}(?::\d{2})?\s*[aApP]\.?[mM]\.?)", text)
+    if not m:
+        return None
+    t = m.group(1).strip().rstrip(".")
+    t = re.sub(r"a\.?m\.?", "AM", t, flags=re.IGNORECASE)
+    t = re.sub(r"p\.?m\.?", "PM", t, flags=re.IGNORECASE)
+    return t
+
+
+# A location runs to the end of the sentence. Street abbreviations such as
+# "241 W. South Street" contain full stops of their own, so a sentence only
+# ends where a full stop is followed by a word that starts a new one.
+_SENTENCE_END = (
+    r"(?=\.\s+(?:The|This|That|Please|All|Questions|Members|An|A|In|If|Notice|"
+    r"For|Any|Public|Meeting|Purpose)\b|\.\s*$|\Z)"
+)
+
+
+def _extract_location(text: str) -> str | None:
     patterns = [
-        r"moved to meet (?:in|at)\s+(.+)",
-        r"reschedul\w*\s+to\s+meet\s+on\s+.*?\bin\s+(?:the\s+)?(.+)",
-        r"reschedul\w*\s+to\s+meet\s+(?:in|at)\s+(?:the\s+)?(.+)",
+        r"(?:take place|be held)\s+(?:at|in)\s+(?:the\s+)?(.+?)" + _SENTENCE_END,
+        r"moved to meet (?:in|at)\s+(?:the\s+)?(.+?)" + _SENTENCE_END,
+        r"reschedul\w*\s+to\s+meet\s+on\s+.*?\bin\s+(?:the\s+)?(.+?)" + _SENTENCE_END,
+        r"reschedul\w*\s+to\s+meet\s+(?:in|at)\s+(?:the\s+)?(.+?)" + _SENTENCE_END,
     ]
     for pat in patterns:
         m = re.search(pat, text, re.IGNORECASE)
         if m:
             loc = m.group(1).strip().rstrip(".,")
             loc = re.sub(r"^the\s+", "", loc, flags=re.IGNORECASE)
-            if loc:
+            if loc and len(loc) < 200:
                 return loc
     return None
 
 
-def _classify_notice(text: str) -> str:
+def parse_notice(text: str, today: date | None = None,
+                 warnings: list | None = None) -> dict:
+    """Read one notice into the list of changes it asks for.
+
+    A notice can say more than one thing. The September 2 special meeting
+    notice also records that the August 18 meeting was cancelled, and both
+    facts belong on the site.
+
+    Returns {"boards": [...], "actions": [...]} where each action is one of:
+      {"action": "rescheduled", "old": iso, "new": iso, "time":, "location":}
+      {"action": "cancelled", "date": iso}
+      {"action": "special", "date": iso, "time":, "location":}
+      {"action": "location_change", "date": iso, "location":}
     """
-    Decide what a Special Meeting Notice is announcing.
+    today = today or date.today()
+    text = _normalize_notice_text(text)
 
-    Returns one of:
-      'rescheduled'     the meeting moved to a different DATE
-      'location_change' same date, different place
-      'cancelled'       the meeting will not happen
-      'special_meeting' a new meeting was added
+    boards = _detect_notice_boards(text, warnings)
+    dated = _dates_with_positions(text, today)
+    sentences = _split_sentences(text)
+    actions: list[dict] = []
+    used: set[str] = set()
 
-    Order matters. A reschedule notice says "RESCHEDULED" and carries two
-    dates; a location-only change says "RESCHEDULED" or "MOVED" but carries
-    one. A reschedule must be detected before 'special_meeting', otherwise
-    the new date gets added while the old one is left standing, which is
-    exactly what produced the duplicate PRAB August entry.
+    time_str = _extract_time(text)
+    location = _extract_location(text)
+
+    # A reschedule is the one action that ties two dates together, so it is
+    # resolved first and its two dates are taken out of play.
+    marker_seen = bool(_RESCHEDULE_MARKER.search(text))
+
+    # The heading repeats the word "Rescheduled" before either date is
+    # written, so take the marker that has a date on both sides of it rather
+    # than the first one in the text.
+    for marker in _RESCHEDULE_MARKER.finditer(text):
+        before = [iso for pos, iso in dated if pos < marker.start()]
+        after = [iso for pos, iso in dated if pos > marker.end()]
+        if before and after and before[-1] != after[0]:
+            actions.append({
+                "action": "rescheduled",
+                "old": before[-1],
+                "new": after[0],
+                "time": time_str,
+                "location": location,
+            })
+            used.update({before[-1], after[0]})
+            break
+        if not before and len(after) >= 2:
+            # "will now meet on <new> instead of <old>" puts both dates after
+            # the marker, in the opposite order.
+            swap = re.search(r"instead of|rather than|previously scheduled (?:for|on)",
+                             text, re.IGNORECASE)
+            if swap:
+                old = next((iso for pos, iso in dated if pos > swap.end()), None)
+                new = next((iso for pos, iso in dated
+                            if pos > marker.end() and iso != old), None)
+                if old and new and old != new:
+                    actions.append({
+                        "action": "rescheduled", "old": old, "new": new,
+                        "time": time_str, "location": location,
+                    })
+                    used.update({old, new})
+                    break
+
+    for pos, iso in dated:
+        if iso in used:
+            continue
+        action = _nearest_action(sentences, pos)
+        if action == "cancelled":
+            actions.append({"action": "cancelled", "date": iso})
+        elif action == "special":
+            actions.append({
+                "action": "special", "date": iso,
+                "time": time_str, "location": location,
+            })
+        elif action == "location_change" and location:
+            actions.append({
+                "action": "location_change", "date": iso, "location": location,
+            })
+        elif marker_seen and location:
+            actions.append({
+                "action": "location_change", "date": iso, "location": location,
+            })
+        else:
+            if warnings is not None:
+                warnings.append(
+                    f"Date {iso} in a notice with no clear action nearby; "
+                    f"ignored. Notice text: {text[:120]}"
+                )
+        used.add(iso)
+
+    return {"boards": boards, "actions": actions}
+
+
+# ---------------------------------------------------------------------------
+# Applying a notice to the stored data
+# ---------------------------------------------------------------------------
+
+def _find(records: list, iso: str) -> dict | None:
+    return next((m for m in records if m.get("date") == iso), None)
+
+
+def _record_cancellation(data: dict, iso: str, board: dict) -> bool:
+    """Mark a meeting cancelled, wherever it lives, adding it if missing.
+
+    A cancellation can name a date that has already passed. Those belong in
+    the archive, not in the upcoming list, and they are never dropped: the
+    city told us the meeting did not happen and that is worth keeping.
     """
-    lc = text.lower()
-    dates = _extract_notice_dates(text)
-    is_move = ("reschedul" in lc) or ("moved" in lc) or ("location change" in lc)
+    upcoming = data.setdefault("upcoming_meetings", [])
+    archive  = data.setdefault("meetings", [])
 
-    if is_move and len(dates) >= 2:
-        return "rescheduled"
-    if is_move:
-        return "location_change"
-    if "cancel" in lc:
-        return "cancelled"
-    return "special_meeting"
+    existing = _find(upcoming, iso) or _find(archive, iso)
+    if existing:
+        if existing.get("isCancelled"):
+            return False
+        existing["isCancelled"] = True
+        return True
 
-
-def _extract_reschedule_dates(text: str) -> tuple:
-    """
-    For a reschedule notice, determine which date is vacated and which is new.
-
-    The city writes these as:
-      "scheduled for <OLD>, ... has been RESCHEDULED to meet on <NEW>, ..."
-
-    Returns (old_iso, new_iso), or (None, None) if it cannot be determined.
-    """
-    dates = _extract_notice_dates(text)
-    if len(dates) < 2:
-        return (None, None)
-
-    split = re.search(r"reschedul\w*\s+to\s+meet", text, re.IGNORECASE)
-    if split:
-        before = _extract_notice_dates(text[: split.start()])
-        after  = _extract_notice_dates(text[split.start():])
-        if before and after:
-            return (before[0], after[0])
-
-    return (dates[0], dates[-1])
-
-
-def _extract_special_meeting_info(text: str) -> tuple[str | None, str | None]:
-    """Return (time_str, location_str) from a special-meeting notice."""
-    time_m = re.search(r"\bat\s+(\d{1,2}:\d{2}\s*[aApP]\.?[mM]\.?)", text)
-    time_str = None
-    if time_m:
-        t = time_m.group(1).strip().rstrip(".")
-        t = re.sub(r"a\.m\.?", "AM", t, flags=re.IGNORECASE)
-        t = re.sub(r"p\.m\.?", "PM", t, flags=re.IGNORECASE)
-        time_str = t
-
-    loc_m = re.search(
-        r"(?:take place (?:at|in)|held (?:at|in))\s+(.+?)(?=\.\s+(?:The|This|Please|All|Questions|Members|An|In)\b|\Z)",
-        text, re.IGNORECASE,
-    )
-    if loc_m:
-        loc_str = loc_m.group(1).strip().rstrip(".,")
-        loc_str = re.sub(r"^the\s+", "", loc_str, flags=re.IGNORECASE)
+    if iso >= date.today().strftime("%Y-%m-%d"):
+        upcoming.append({
+            "date":        iso,
+            "display":     format_display_date_long(iso),
+            "time":        board.get("time", "TBD"),
+            "isCancelled": True,
+        })
+        upcoming.sort(key=lambda m: m["date"])
     else:
-        loc_str = None
-    return time_str, loc_str
+        # Archive records must not carry event_id or url: the schema types
+        # event_id as an integer and forbids unknown properties, so a null
+        # would fail validation and halt the build.
+        archive.append({
+            "date":        iso,
+            "display":     format_display_date_long(iso),
+            "isCancelled": True,
+        })
+        archive.sort(key=lambda m: m["date"], reverse=True)
+    return True
+
+
+def _record_special(data: dict, iso: str, board: dict,
+                    time_str: str | None, location: str | None) -> bool:
+    upcoming = data.setdefault("upcoming_meetings", [])
+    archive  = data.setdefault("meetings", [])
+    changed  = False
+
+    existing = _find(upcoming, iso)
+    if existing:
+        if time_str and existing.get("time") != time_str:
+            existing["time"] = time_str
+            changed = True
+        if location and existing.get("location") != location:
+            existing["location"] = location
+            changed = True
+        if not existing.get("isSpecial"):
+            existing["isSpecial"] = True
+            changed = True
+        return changed
+
+    if _find(archive, iso):
+        return False        # already happened and already recorded
+
+    if iso >= date.today().strftime("%Y-%m-%d"):
+        entry = {
+            "date":      iso,
+            "display":   format_display_date_long(iso),
+            "time":      time_str or board.get("time", "TBD"),
+            "isSpecial": True,
+        }
+        if location:
+            entry["location"] = location
+        upcoming.append(entry)
+        upcoming.sort(key=lambda m: m["date"])
+    else:
+        entry = {"date": iso, "display": format_display_date_long(iso)}
+        if location:
+            entry["location"] = location
+        archive.append(entry)
+        archive.sort(key=lambda m: m["date"], reverse=True)
+    return True
+
+
+def _record_reschedule(data: dict, old_iso: str, new_iso: str, board: dict,
+                       time_str: str | None, location: str | None) -> bool:
+    """Move a meeting to a new date.
+
+    A reschedule is not a cancellation. The meeting is still happening, so the
+    old date comes off the calendar and the new date carries a note saying
+    where it moved from.
+    """
+    upcoming = data.setdefault("upcoming_meetings", [])
+    changed  = False
+
+    before = len(upcoming)
+    upcoming[:] = [m for m in upcoming if m.get("date") != old_iso]
+    if len(upcoming) != before:
+        changed = True
+
+    entry = _find(upcoming, new_iso)
+    if entry:
+        if time_str and entry.get("time") != time_str:
+            entry["time"] = time_str
+            changed = True
+        if location and entry.get("location") != location:
+            entry["location"] = location
+            changed = True
+        if entry.get("rescheduledFrom") != old_iso:
+            entry["rescheduledFrom"] = old_iso
+            changed = True
+        # It is the board's regular meeting on a new date, not an extra
+        # session, and its absence from the old date is explained now.
+        if entry.pop("isSpecial", None) is not None:
+            changed = True
+        if entry.pop("notOnCityCalendar", None) is not None:
+            changed = True
+    else:
+        entry = {
+            "date":            new_iso,
+            "display":         format_display_date_long(new_iso),
+            "time":            time_str or board.get("time", "TBD"),
+            "rescheduledFrom": old_iso,
+        }
+        if location:
+            entry["location"] = location
+        upcoming.append(entry)
+        changed = True
+
+    upcoming.sort(key=lambda m: m["date"])
+    return changed
+
+
+def _record_location_change(data: dict, iso: str, location: str) -> bool:
+    entry = _find(data.setdefault("upcoming_meetings", []), iso)
+    if not entry or entry.get("location") == location:
+        return False
+    entry["location"] = location
+    entry["locationChanged"] = True
+    return True
+
+
+def apply_notice_actions(board: dict, parsed: dict) -> int:
+    """Write one notice's actions onto one board's data file."""
+    if not board["output"].exists():
+        return 0
+
+    with board["output"].open("r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    abbr = board.get("abbr")
+    changed = False
+
+    for action in parsed["actions"]:
+        kind = action["action"]
+        if kind == "rescheduled":
+            if _record_reschedule(data, action["old"], action["new"], board,
+                                  action.get("time"), action.get("location")):
+                changed = True
+                print(f"  RESCHEDULED: {abbr} {action['old']} -> {action['new']}")
+        elif kind == "cancelled":
+            if _record_cancellation(data, action["date"], board):
+                changed = True
+                print(f"  CANCELLED: {abbr} {action['date']}")
+        elif kind == "special":
+            if _record_special(data, action["date"], board,
+                               action.get("time"), action.get("location")):
+                changed = True
+                print(f"  SPECIAL: {abbr} {action['date']}")
+        elif kind == "location_change":
+            if _record_location_change(data, action["date"], action["location"]):
+                changed = True
+                print(f"  LOCATION CHANGE: {abbr} {action['date']} -> {action['location']}")
+
+    if changed:
+        _write_output(board, data)
+        return 1
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# Notice log
+#
+# The city deletes a notice once it is no longer current, so the wording is
+# gone the moment it stops being visible. Keeping a copy means the exact text
+# can still be read months later, and a notice that quietly disappears can be
+# spotted.
+# ---------------------------------------------------------------------------
+
+NOTICE_LOG_PATH = Path("data/notices.json")
+
+
+def record_notice_log(entries: list[dict], dom_alerts: list) -> None:
+    """Save every notice seen this run, keeping ones that have come down."""
+    today = date.today().strftime("%Y-%m-%d")
+
+    stored: dict = {}
+    if NOTICE_LOG_PATH.exists():
+        try:
+            with NOTICE_LOG_PATH.open(encoding="utf-8") as f:
+                for item in json.load(f).get("notices", []):
+                    stored[item["url"]] = item
+        except Exception as exc:
+            print(f"  WARNING: could not read {NOTICE_LOG_PATH}: {exc}")
+
+    seen_now = set()
+    for entry in entries:
+        seen_now.add(entry["url"])
+        existing = stored.get(entry["url"])
+        if existing:
+            existing["last_seen"] = today
+            existing["stillPosted"] = True
+            if existing.get("text") != entry["text"]:
+                # The city edited a notice after posting it. Keep both.
+                existing.setdefault("previousText", []).append(existing["text"])
+                existing["text"] = entry["text"]
+                msg = f"Notice text was edited by the city: {entry['url']}"
+                print(f"  NOTE: {msg}")
+                dom_alerts.append(msg)
+            existing["boards"] = entry["boards"]
+            existing["actions"] = entry["actions"]
+        else:
+            stored[entry["url"]] = {
+                "url":          entry["url"],
+                "first_seen":   today,
+                "last_seen":    today,
+                "stillPosted":  True,
+                "text":         entry["text"],
+                "boards":       entry["boards"],
+                "actions":      entry["actions"],
+            }
+
+    for url, item in stored.items():
+        if url not in seen_now and item.get("stillPosted"):
+            item["stillPosted"] = False
+            print(f"  NOTE: notice no longer posted: {url}")
+
+    NOTICE_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "last_updated": today,
+        "notices": sorted(stored.values(), key=lambda i: i["first_seen"], reverse=True),
+    }
+    with NOTICE_LOG_PATH.open("w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2, ensure_ascii=False)
 
 
 def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> None:
-    """
-    Fetch the Special Meeting Notices page and apply changes to per-board
-    data/*.json files.
+    """Fetch the Special Meeting Notices page and apply what it says.
 
-    Handles three notice types:
-      cancelled       — sets isCancelled: True on the matching upcoming date
-      location_change — updates location on the matching upcoming date
-      special_meeting — adds or updates an entry in upcoming_meetings
+    Each notice is read into a list of actions, then written onto the board
+    the notice is actually about. A notice can carry more than one action:
+    a special meeting called to replace one that was cancelled records both.
     """
     print(f"\n{'='*60}\n  Special Meeting Notices\n{'='*60}")
     print(f"  Fetching {SPECIAL_NOTICES_URL}...")
@@ -1788,165 +2526,184 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
         dom_alerts.append(msg)
         return
 
-    html = r.text.replace("\u200b", "")
+    html = r.text
+
+    # The page prints its own count, e.g. "6 Result(s) Found". If we read a
+    # different number of notices than the page says it has, something on the
+    # page changed or a notice was missed. This page has served a partial copy
+    # before, so the count is worth checking every run.
+    stated_count = None
+    count_match = re.search(r"(\d+)\s*Result\(s\)\s*Found", html, re.IGNORECASE)
+    if count_match:
+        stated_count = int(count_match.group(1))
 
     notice_pattern = re.compile(
         r'<a\s[^>]*href="(?:https?://[^/]+)?(/Government/Boards-Commissions/Special-Meeting-Notices/[^"]+)"[^>]*>(.*?)</a>',
         re.IGNORECASE | re.DOTALL,
     )
 
+    notices_seen = 0
     notices_applied = 0
+    log_entries: list[dict] = []
 
     for match in notice_pattern.finditer(html):
         raw_text = re.sub(r"<[^>]+>", " ", match.group(2))
-        raw_text = re.sub(r"\s+", " ", raw_text).strip()
+        raw_text = _normalize_notice_text(raw_text)
         if not raw_text or len(raw_text) < 10:
             continue
 
-        boards = _detect_notice_boards(raw_text)
-        dates  = _extract_notice_dates(raw_text)
+        notices_seen += 1
+        notice_url = match.group(1)
+        warnings: list[str] = []
+        parsed = parse_notice(raw_text, warnings=warnings)
+        log_entries.append({
+            "url":     notice_url,
+            "text":    raw_text,
+            "boards":  parsed["boards"],
+            "actions": parsed["actions"],
+        })
 
-        # Expand to include joint board partners
-        seen_abbrs = set(boards)
-        for abbr in list(boards):
-            for partner in JOINT_BOARD_MAP.get(abbr, []):
-                if partner not in seen_abbrs:
-                    boards.append(partner)
-                    seen_abbrs.add(partner)
+        for warning in warnings:
+            print(f"  WARNING: {warning}")
+            dom_alerts.append(warning)
 
-        if not boards or not dates:
+        if not parsed["boards"]:
+            msg = f"Notice matched no board: {raw_text[:120]}"
+            print(f"  WARNING: {msg}")
+            dom_alerts.append(msg)
             continue
 
-        notice_type = _classify_notice(raw_text)
+        if not parsed["actions"]:
+            msg = f"Notice produced no readable change: {raw_text[:120]}"
+            print(f"  WARNING: {msg}")
+            dom_alerts.append(msg)
+            continue
+
+        boards = list(parsed["boards"])
+
+        # Joint boards. Two boards that always meet together share one notice.
+        # NOTE: this is the behaviour being reviewed in the DDA and DEGA fix;
+        # today it copies every notice across, including a special session
+        # that named only one of them.
+        boards = expand_to_joint_partners(boards, parsed["actions"])
 
         for abbr in boards:
             board = next((b for b in BOARDS if b.get("abbr") == abbr), None)
-            if not board or not board["output"].exists():
+            if not board:
+                continue
+            notices_applied += apply_notice_actions(board, parsed)
+
+    if stated_count is not None and stated_count != notices_seen:
+        msg = (f"Special Meeting Notices page says {stated_count} notice(s) but "
+               f"{notices_seen} were read. The page may have changed shape or "
+               f"served a partial copy.")
+        print(f"  WARNING: {msg}")
+        dom_alerts.append(msg)
+    elif stated_count is None:
+        msg = "Could not read the notice count from the Special Meeting Notices page."
+        print(f"  WARNING: {msg}")
+        dom_alerts.append(msg)
+
+    record_notice_log(log_entries, dom_alerts)
+
+    print(f"  Read {notices_seen} notice(s), changed {notices_applied} board file(s).")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def backfill_archive_from_calendar(boards_to_run: list, calendar: dict) -> list:
+    """Add past meetings the city calendar has and the site does not.
+
+    Runs after reconciliation. Only touches dates before today; everything
+    from today forward is reconciliation's job.
+
+    Returns a list of human-readable strings for the watchdog.
+    """
+    print(f"\n{'='*60}\n  Backfilling archive from city calendar\n{'='*60}")
+
+    api_by_board = calendar.get("meetings", {})
+    win_start    = calendar.get("window_start")
+    today_iso    = date.today().isoformat()
+
+    if not win_start or win_start >= today_iso:
+        print("  No past months were queried. Nothing to backfill.")
+        return []
+
+    notes: list[str] = []
+    added_total = 0
+
+    for board in boards_to_run:
+        key = board["key"]
+        if key in CALENDAR_UNCOVERED_KEYS:
+            continue
+
+        api_meetings = api_by_board.get(key)
+        if not api_meetings:
+            continue
+
+        if not board["output"].exists():
+            continue
+        with board["output"].open("r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        archive  = data.get("meetings", [])
+        upcoming = data.get("upcoming_meetings", [])
+
+        known = {m.get("date") for m in archive} | {m.get("date") for m in upcoming}
+
+        # A date another meeting moved away from is not a missing meeting.
+        vacated = {
+            m.get("rescheduledFrom")
+            for m in list(archive) + list(upcoming)
+            if m.get("rescheduledFrom")
+        }
+
+        added = 0
+        for iso in sorted(api_meetings):
+            if iso >= today_iso or iso < win_start:
+                continue
+            if iso in known or iso in vacated:
                 continue
 
-            with board["output"].open("r", encoding="utf-8") as f:
-                data = json.load(f)
+            archive.append({
+                "date":        iso,
+                "display":     format_display_date_long(iso),
+                "link_label":  "No documents posted",
+                "minutes_url": None,
+                "agenda_url":  None,
+                "scrapedAt":   datetime.now(timezone.utc).isoformat(),
+                "sourceUrl":   CITY_CALENDAR_API,
+            })
+            known.add(iso)
+            added += 1
+            msg = f"BACKFILLED from city calendar: {board['abbr']} {iso}"
+            print(f"  {msg}")
+            notes.append(msg)
 
-            upcoming = data.get("upcoming_meetings", [])
-            changed  = False
+        if added:
+            archive.sort(key=lambda m: m.get("date", ""), reverse=True)
+            data["meetings"] = archive
+            _write_output(board, data)
+            added_total += added
 
-            if notice_type == "rescheduled":
-                old_iso, new_iso = _extract_reschedule_dates(raw_text)
-                new_loc  = _extract_moved_location(raw_text)
-                time_str, _ = _extract_special_meeting_info(raw_text)
+    if not added_total:
+        print("  Archive already matches the city calendar for the past window.")
+    else:
+        print(f"  Added {added_total} past meeting(s) across the boards.")
 
-                if old_iso and new_iso and old_iso != new_iso:
-                    # A reschedule is NOT a cancellation. The meeting is still
-                    # happening, one day later. Showing the old date struck
-                    # through would read as "the August meeting was cancelled",
-                    # which is false. The old date is removed outright and the
-                    # new date carries a note saying where it moved from.
-                    before = len(upcoming)
-                    upcoming[:] = [m for m in upcoming if m["date"] != old_iso]
-                    if len(upcoming) != before:
-                        changed = True
-                        print(f"  RESCHEDULED (old date removed): {abbr} {old_iso} -> {new_iso}")
+    return notes
 
-                    new_entry = next((m for m in upcoming if m["date"] == new_iso), None)
-                    if new_entry:
-                        if time_str and new_entry.get("time") != time_str:
-                            new_entry["time"] = time_str
-                            changed = True
-                        if new_loc and new_entry.get("location") != new_loc:
-                            new_entry["location"] = new_loc
-                            changed = True
-                        if new_entry.get("rescheduledFrom") != old_iso:
-                            new_entry["rescheduledFrom"] = old_iso
-                            changed = True
-                        # This is the board's regular meeting on a new date,
-                        # not an extra special session.
-                        if new_entry.pop("isSpecial", None) is not None:
-                            changed = True
-                        # Its absence from the old date is explained now.
-                        if new_entry.pop("notOnCityCalendar", None) is not None:
-                            changed = True
-                        print(f"  RESCHEDULED (new date noted): {abbr} {new_iso}")
-                    else:
-                        entry = {
-                            "date":            new_iso,
-                            "display":         format_display_date_long(new_iso),
-                            "time":            time_str or board.get("time", "TBD"),
-                            "rescheduledFrom": old_iso,
-                        }
-                        if new_loc:
-                            entry["location"] = new_loc
-                        upcoming.append(entry)
-                        changed = True
-                        print(f"  RESCHEDULED (new added): {abbr} {new_iso}")
-
-                    upcoming.sort(key=lambda m: m["date"])
-
-            elif notice_type == "cancelled":
-                for date_iso in dates:
-                    existing = next((m for m in upcoming if m["date"] == date_iso), None)
-                    if existing:
-                        if not existing.get("isCancelled"):
-                            existing["isCancelled"] = True
-                            changed = True
-                            print(f"  CANCELLED: {abbr} {date_iso}")
-                    else:
-                        upcoming.append({
-                            "date":        date_iso,
-                            "display":     format_display_date_long(date_iso),
-                            "time":        board.get("time", "TBD"),
-                            "isCancelled": True,
-                        })
-                        upcoming.sort(key=lambda m: m["date"])
-                        changed = True
-                        print(f"  CANCELLED (added): {abbr} {date_iso}")
-
-            elif notice_type == "location_change":
-                new_loc = _extract_moved_location(raw_text)
-                if new_loc:
-                    for date_iso in dates:
-                        existing = next((m for m in upcoming if m["date"] == date_iso), None)
-                        if existing and existing.get("location") != new_loc:
-                            existing["location"] = new_loc
-                            existing["locationChanged"] = True
-                            changed = True
-                            print(f"  LOCATION CHANGE: {abbr} {date_iso} → {new_loc}")
-
-            elif notice_type == "special_meeting":
-                time_str, loc_str = _extract_special_meeting_info(raw_text)
-                for date_iso in dates:
-                    existing = next((m for m in upcoming if m["date"] == date_iso), None)
-                    if existing:
-                        if time_str and existing.get("time") != time_str:
-                            existing["time"] = time_str
-                            changed = True
-                        if loc_str and existing.get("location") != loc_str:
-                            existing["location"] = loc_str
-                            changed = True
-                        if not existing.get("isSpecial"):
-                            existing["isSpecial"] = True
-                            changed = True
-                        if changed:
-                            print(f"  SPECIAL (updated): {abbr} {date_iso}")
-                    else:
-                        new_entry: dict = {
-                            "date":    date_iso,
-                            "display": format_display_date_long(date_iso),
-                            "time":    time_str or board.get("time", "TBD"),
-                            "isSpecial": True,
-                        }
-                        if loc_str:
-                            new_entry["location"] = loc_str
-                        upcoming.append(new_entry)
-                        upcoming.sort(key=lambda m: m["date"])
-                        changed = True
-                        print(f"  SPECIAL (added): {abbr} {date_iso}")
-
-            if changed:
-                data["upcoming_meetings"] = upcoming
-                _write_output(board, data)
-                notices_applied += 1
-
-    print(f"  Applied {notices_applied} notice change(s) across boards.")
 
 def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
     """
@@ -2121,12 +2878,12 @@ def run_web_docs_and_youtube_board(
     )
     if retired:
         merged_meetings.sort(key=lambda m: m.get("date", ""), reverse=True)
-        print(f"  Retired {len(retired)} cancelled meeting(s) to archive: "
+        print(f"  Retired {len(retired)} passed meeting(s) to archive: "
               + ", ".join(retired))
         RETIRED_MEETINGS.setdefault(board["abbr"], []).extend(retired)
 
     upcoming = compute_upcoming_schedule(board)
-    upcoming = preserve_flagged_upcoming(upcoming, stored_upcoming)
+    upcoming = merge_upcoming(board, upcoming, stored_upcoming)
     print(f"  Upcoming: computed {len(upcoming)} dates from schedule rule")
 
     output = {
@@ -2165,16 +2922,20 @@ def run_youtube_only_board(
         archive, retired = retire_passed_meetings(board, stored_upcoming, archive)
         if retired:
             archive.sort(key=lambda m: m.get("date", ""), reverse=True)
-            print(f"  Retired {len(retired)} cancelled meeting(s) to archive: "
+            print(f"  Retired {len(retired)} passed meeting(s) to archive: "
                   + ", ".join(retired))
             RETIRED_MEETINGS.setdefault(board["abbr"], []).extend(retired)
 
         upcoming = compute_upcoming_schedule(board)
-        upcoming = preserve_flagged_upcoming(upcoming, stored_upcoming)
+        upcoming = merge_upcoming(board, upcoming, stored_upcoming)
         print(f"  Upcoming: computed {len(upcoming)} dates from schedule rule")
     else:
-        # This branch already preserves the stored list, so nothing is lost.
-        upcoming = existing.get("upcoming_meetings", [])
+        stored_upcoming = existing.get("upcoming_meetings", [])
+        archive, retired = retire_passed_meetings(board, stored_upcoming, archive)
+        if retired:
+            archive.sort(key=lambda m: m.get("date", ""), reverse=True)
+            RETIRED_MEETINGS.setdefault(board["abbr"], []).extend(retired)
+        upcoming = merge_upcoming(board, [], stored_upcoming)
         print(f"  Upcoming: preserved {len(upcoming)} dates from existing JSON")
 
     output = {
@@ -2210,6 +2971,16 @@ def run_web_scrape_board(board: dict, dom_alerts: list) -> None:
     print("  Step 2: Writing...")
     existing      = load_existing(board["output"])
     existing_meetings = existing.get("meetings", [])
+
+    stored_upcoming = existing.get("upcoming_meetings", [])
+    existing_meetings, retired = retire_passed_meetings(
+        board, stored_upcoming, existing_meetings
+    )
+    if retired:
+        print(f"  Retired {len(retired)} passed meeting(s) to archive: "
+              + ", ".join(retired))
+        RETIRED_MEETINGS.setdefault(board["abbr"], []).extend(retired)
+    upcoming = merge_upcoming(board, upcoming, stored_upcoming)
     existing_dates    = {m.get("date") for m in existing_meetings}
     new_past          = [m for m in past_scraped if m["date"] not in existing_dates]
     if new_past:
@@ -2319,6 +3090,20 @@ def run_board(
     existing = load_existing(board["output"])
     merged_meetings, stats = merge_meetings(existing.get("meetings", []), scraped)
     print(f"    added: {stats['added']}  updated: {stats['updated']}  unchanged: {stats['unchanged']}")
+
+    # A meeting is never dropped. Anything stored whose date has passed moves
+    # into the archive, and anything stored for a future date the generator
+    # does not know about is kept.
+    stored_upcoming = existing.get("upcoming_meetings", [])
+    merged_meetings, retired = retire_passed_meetings(
+        board, stored_upcoming, merged_meetings
+    )
+    if retired:
+        merged_meetings.sort(key=lambda m: m.get("date", ""), reverse=True)
+        print(f"  Retired {len(retired)} passed meeting(s) to archive: "
+              + ", ".join(retired))
+        RETIRED_MEETINGS.setdefault(board["abbr"], []).extend(retired)
+    upcoming = merge_upcoming(board, upcoming, stored_upcoming)
 
     merged_recordings: list = []
     if board.get("youtube"):
@@ -2503,6 +3288,11 @@ def write_meta_json() -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Scrape all Kalamazoo boards.")
     parser.add_argument("--board", help="Run only this board key (e.g. crb, bba).")
+    parser.add_argument(
+        "--backfill-months", type=int, default=LOOKBACK_MONTHS,
+        help="How many past months to check the city calendar against. "
+             "Use a larger number once to fill older gaps, e.g. 24.",
+    )
     return parser.parse_args()
 
 
@@ -2558,10 +3348,13 @@ def main() -> None:
     # last so it sees the result of both scraping and notice application.
     calendar_discrepancies: list = []
     try:
-        city_calendar = fetch_city_calendar()
+        city_calendar = fetch_city_calendar(lookback=max(0, args.backfill_months))
         if city_calendar.get("meetings"):
             calendar_discrepancies = reconcile_with_city_calendar(
                 boards_to_run, city_calendar
+            )
+            calendar_discrepancies.extend(
+                backfill_archive_from_calendar(boards_to_run, city_calendar)
             )
         else:
             msg = "City calendar API returned no data; reconciliation skipped."
