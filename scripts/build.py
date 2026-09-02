@@ -206,14 +206,25 @@ def validate_no_duplicate_dates() -> list[str]:
                         f"A board meets once on a given day; merge them."
                     )
 
+        # A date in both lists renders twice on the calendar. The exception is
+        # the day of the meeting itself: the document scraper files a meeting
+        # as past as soon as its date arrives, while the upcoming list still
+        # carries it until the day ends. That overlap is normal and clears
+        # itself, so only a date that has actually passed is an error.
+        today = _date.today().isoformat()
         archived = {m.get("date") for m in data.get("meetings", [])}
         upcoming = {m.get("date") for m in data.get("upcoming_meetings", [])}
         for iso in sorted(archived & upcoming):
-            if iso:
+            if not iso:
+                continue
+            if iso < today:
                 errors.append(
                     f"{path.name} lists {iso} in both meetings and "
                     f"upcoming_meetings, so it renders twice on the calendar."
                 )
+            else:
+                print(f"    note: {path.name} has {iso} in both lists "
+                      f"(meeting day; clears on its own)")
 
     return errors
 
