@@ -1,0 +1,65 @@
+name: Repair Lost Meetings
+
+# A one-time repair, run from a button instead of a terminal.
+#
+# Actions tab -> "Repair Lost Meetings" -> "Run workflow".
+# Leave "dry run" set to true the first time. It prints every change it would
+# make and writes nothing. Read the log, then run it again with dry run set to
+# false to actually apply and commit the fixes.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (print changes, write nothing)'
+        type: boolean
+        default: true
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo with full history
+        uses: actions/checkout@v4
+        with:
+          # The repair reads past commits to find meetings that were dropped,
+          # so the whole history is needed, not just the latest commit.
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests jsonschema
+
+      - name: Run repair
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python scripts/repair_lost_meetings.py --dry-run
+          else
+            python scripts/repair_lost_meetings.py
+          fi
+
+      - name: Validate and rebuild
+        if: ${{ inputs.dry_run == false }}
+        run: python scripts/build.py
+
+      - name: Commit the repaired data
+        if: ${{ inputs.dry_run == false }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A data/
+          git add api/ || true
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Restore lost meetings and remove meetings recorded on the wrong board"
+            git push
+          fi
