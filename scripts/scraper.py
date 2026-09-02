@@ -1730,6 +1730,52 @@ def smart_merge(existing: dict, scraped: dict) -> tuple:
 
 
 
+
+def attach_recordings(board: dict, meetings: list, recordings: list) -> int:
+    """Link YouTube recordings to the meetings they belong to.
+
+    Runs over the WHOLE archive rather than only the meetings scraped this
+    run. Previously the matching happened before the merge and only saw fresh
+    CivicClerk results, so a meeting that was restored, backfilled from the
+    city calendar, or archived without documents could never get its video,
+    even when the recording was sitting in the same file.
+
+    A recording is matched to the nearest meeting within the board's tolerance
+    that does not already have a video. Returns how many were attached.
+    """
+    if not recordings or not meetings:
+        return 0
+
+    tolerance = timedelta(days=board.get("youtube_tolerance", 3))
+    attached = 0
+
+    for rec in recordings:
+        try:
+            rec_date = datetime.strptime(rec["date"], "%Y-%m-%d").date()
+        except (KeyError, ValueError):
+            continue
+
+        best, best_delta = None, tolerance + timedelta(days=1)
+        for m in meetings:
+            if m.get("youtube_id"):
+                continue
+            try:
+                m_date = datetime.strptime(m["date"], "%Y-%m-%d").date()
+            except (KeyError, ValueError):
+                continue
+            delta = abs(rec_date - m_date)
+            if delta <= tolerance and delta < best_delta:
+                best, best_delta = m, delta
+
+        if best is not None:
+            best["youtube_id"]  = rec["youtube_id"]
+            best["youtube_url"] = rec["youtube_url"]
+            attached += 1
+            print(f"    + VIDEO: {best['date']}  {rec['youtube_id']}")
+
+    return attached
+
+
 def merge_recordings(existing: list, new_recs: list) -> list:
     by_id = {r["youtube_id"]: r for r in existing}
     for r in new_recs:
@@ -2872,6 +2918,7 @@ def run_web_docs_and_youtube_board(
     merged_meetings, stats = merge_meetings(existing.get("meetings", []), scraped_meetings)
     print(f"    added: {stats['added']}  updated: {stats['updated']}  unchanged: {stats['unchanged']}")
     merged_recordings = merge_recordings(existing.get("recordings", []), recordings)
+    attach_recordings(board, merged_meetings, merged_recordings)
 
     stored_upcoming = existing.get("upcoming_meetings", [])
 
@@ -3075,20 +3122,6 @@ def run_board(
     if board.get("youtube") and api_key:
         print("  Step 2: Fetching YouTube streams...")
         all_recs = fetch_youtube_streams(api_key, board, start_iso, end_iso)
-        tolerance = board.get("youtube_tolerance", 3)
-        for rec in all_recs:
-            rec_date     = datetime.strptime(rec["date"], "%Y-%m-%d").date()
-            best_meeting = None
-            best_delta   = timedelta(days=tolerance + 1)
-            for m in scraped:
-                m_date = datetime.strptime(m["date"], "%Y-%m-%d").date()
-                delta  = abs(rec_date - m_date)
-                if delta <= timedelta(days=tolerance) and delta < best_delta:
-                    best_delta   = delta
-                    best_meeting = m
-            if best_meeting and not best_meeting.get("youtube_id"):
-                best_meeting["youtube_id"]  = rec["youtube_id"]
-                best_meeting["youtube_url"] = rec["youtube_url"]
 
     print("  Step 3: Merging...")
     existing = load_existing(board["output"])
@@ -3112,6 +3145,7 @@ def run_board(
     merged_recordings: list = []
     if board.get("youtube"):
         merged_recordings = merge_recordings(existing.get("recordings", []), all_recs)
+        attach_recordings(board, merged_meetings, merged_recordings)
 
     output: dict = {
         "last_updated":      datetime.now(timezone.utc).strftime("%Y-%m-%d"),
