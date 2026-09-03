@@ -1,19 +1,10 @@
 {
-  "last_updated": "2026-09-02",
+  "last_updated": "2026-09-03",
   "metadata": {
     "time": "05:00 PM – 07:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-09-02",
-      "display": "Wednesday, September 2, 2026",
-      "time": "5:00 PM",
-      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2771/files/agenda/5343",
-      "isCancelled": true,
-      "location": "City Commission Chambers at City Hall, 241 W. South Street",
-      "isSpecial": true
-    },
     {
       "date": "2026-09-15",
       "display": "Tuesday, September 15, 2026",
@@ -42,10 +33,10 @@
       "event_id": 2771,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2771/files/agenda/5343",
       "link_label": "Agenda",
-      "isCancelled": false,
+      "isCancelled": true,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2771/files/agenda/5343",
-      "location": null,
+      "location": "City Commission Chambers at City Hall, 241 W. South Street",
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2771/overview",
       "scrapedAt": "2026-09-02T02:44:48.902245+00:00",
       "meeting_type": "Historic District Commission"

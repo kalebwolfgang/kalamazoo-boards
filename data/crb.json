@@ -1,17 +1,10 @@
 {
-  "last_updated": "2026-09-02",
+  "last_updated": "2026-09-03",
   "metadata": {
-    "time": "05:00 PM – 06:00 PM",
+    "time": "05:00 PM – 07:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-09-02",
-      "display": "Wednesday, September 2, 2026",
-      "time": "5:00 PM",
-      "location": "Community Room at City Hall, 241 W. South Street",
-      "isSpecial": true
-    },
     {
       "date": "2026-10-07",
       "display": "Wednesday, October 7, 2026",
@@ -33,7 +26,7 @@
       "isCancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2773/files/agenda/5357",
-      "location": null,
+      "location": "Community Room at City Hall, 241 W. South Street",
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2773/overview",
       "scrapedAt": "2026-09-02T02:44:06.127278+00:00"
     },

@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-09-02",
+  "last_updated": "2026-09-03",
   "metadata": {
-    "time": "05:00 PM – 07:00 PM",
+    "time": "06:00 PM – 08:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-09-02",
-      "display": "Wednesday, September 2, 2026",
-      "time": "5:00 PM"
-    },
     {
       "date": "2026-09-09",
       "display": "Wednesday, September 9, 2026",
@@ -32,6 +27,18 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-09-02",
+      "display": "Wednesday, September 2, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-09-03T06:48:26.069028+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Historic-Preservation-Commission",
+      "link_label": "No documents posted",
+      "youtube_id": "AMEkX-1nxho",
+      "youtube_url": "https://www.youtube.com/watch?v=AMEkX-1nxho"
+    },
     {
       "date": "2026-08-12",
       "display": "August 12, 2026",
@@ -523,6 +530,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-09-02",
+      "display": "September 2, 2026",
+      "youtube_id": "AMEkX-1nxho",
+      "youtube_url": "https://www.youtube.com/watch?v=AMEkX-1nxho",
+      "title": "September 2, 2026 Historic Preservation Commission"
+    },
     {
       "date": "2026-08-12",
       "display": "August 12, 2026",
