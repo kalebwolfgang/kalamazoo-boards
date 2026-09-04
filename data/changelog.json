@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-03T17:47:57.067099+00:00",
-  "runId": "1e5752b5",
+  "timestamp": "2026-09-04T06:54:53.941705+00:00",
+  "runId": "d1a0bdd4",
   "validationPassed": true,
   "changes": [
     {
@@ -66,7 +66,7 @@
     {
       "board": "pc",
       "meetings": 57,
-      "upcoming": 5
+      "upcoming": 4
     },
     {
       "board": "zba",

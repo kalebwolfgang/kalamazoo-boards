@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-03",
+  "last_updated": "2026-09-04",
   "metadata": {
     "time": "05:00 PM – 07:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -39,7 +39,9 @@
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2771/overview",
       "scrapedAt": "2026-09-02T02:44:48.902245+00:00",
-      "meeting_type": "Historic District Commission"
+      "meeting_type": "Historic District Commission",
+      "youtube_id": "7RxSlW3bqZQ",
+      "youtube_url": "https://www.youtube.com/watch?v=7RxSlW3bqZQ"
     },
     {
       "date": "2026-08-18",
@@ -47,7 +49,7 @@
       "event_id": 2742,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2742/files/agenda/5312",
       "link_label": "Agenda",
-      "isCancelled": true,
+      "isCancelled": false,
       "minutes_url": null,
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2742/files/agenda/5312",
       "location": null,
@@ -579,6 +581,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-09-02",
+      "display": "September 2, 2026",
+      "youtube_id": "7RxSlW3bqZQ",
+      "youtube_url": "https://www.youtube.com/watch?v=7RxSlW3bqZQ",
+      "title": "September 2, 2026 City of Kalamazoo Historic District Commission"
+    },
     {
       "date": "2026-07-21",
       "display": "July 21, 2026",
