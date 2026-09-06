@@ -32,6 +32,7 @@ import json
 import os
 import re
 import smtplib
+import time
 import traceback
 from datetime import datetime, date, timedelta, timezone
 from email.mime.text import MIMEText
@@ -52,6 +53,11 @@ MINUTES_AGENDAS_URL     = f"{CITY_BASE_URL}/Government/Boards-Commissions/Minute
 SPECIAL_NOTICES_URL     = f"{CITY_BASE_URL}/Government/Boards-Commissions/Special-Meeting-Notices"
 LOOKBACK_MONTHS         = 6
 LOOKAHEAD_MONTHS        = 6
+
+# One board failing must never stop the rest of the run. Each board is tried
+# this many times, with a growing wait between attempts, before it is skipped.
+BOARD_RETRY_ATTEMPTS     = 3
+BOARD_RETRY_WAIT_SECONDS = 20
 
 # How many past months to check the CITY CALENDAR against on a routine run.
 # Deliberately a separate name from LOOKBACK_MONTHS above, which controls how
@@ -710,6 +716,12 @@ def fetch_city_calendar(months: int = LOOKAHEAD_MONTHS,
 # ---------------------------------------------------------------------------
 # Alert email
 # ---------------------------------------------------------------------------
+
+def _short_error(tb: str) -> str:
+    """Return the last line of a traceback, for one-line summaries."""
+    lines = [ln.strip() for ln in tb.strip().splitlines() if ln.strip()]
+    return lines[-1] if lines else "unknown error"
+
 
 def send_alert_email(subject: str, body: str) -> None:
     """Send email via SMTP. Credentials from environment variables.
@@ -3366,18 +3378,41 @@ def main() -> None:
     needs_youtube = any(b.get("youtube") for b in boards_to_run)
     api_key       = get_youtube_key() if needs_youtube else None
 
+    failed_boards: list = []
+
     for board in boards_to_run:
-        try:
-            run_board(board, start_iso, end_iso, api_key, dom_alerts)
-        except Exception:
-            tb = traceback.format_exc()
-            msg = f"Unhandled exception for board '{board['key']}':\n\n{tb}"
-            print(f"\nERROR: {msg}")
-            send_alert_email(
-                f"[kalamazoo-boards] Scraper exception: {board['key']}",
-                msg,
+        key     = board["key"]
+        last_tb = ""
+
+        for attempt in range(1, BOARD_RETRY_ATTEMPTS + 1):
+            try:
+                run_board(board, start_iso, end_iso, api_key, dom_alerts)
+                last_tb = ""
+                break
+            except Exception:
+                last_tb = traceback.format_exc()
+                if attempt < BOARD_RETRY_ATTEMPTS:
+                    wait = BOARD_RETRY_WAIT_SECONDS * attempt
+                    print(
+                        f"\n  WARNING: '{key}' failed on attempt {attempt} of "
+                        f"{BOARD_RETRY_ATTEMPTS}: {_short_error(last_tb)}"
+                    )
+                    print(f"  Retrying in {wait}s...")
+                    time.sleep(wait)
+
+        if last_tb:
+            reason = _short_error(last_tb)
+            print(
+                f"\nERROR: board '{key}' failed {BOARD_RETRY_ATTEMPTS} times "
+                f"and was SKIPPED. Its existing data file was left unchanged.\n\n"
+                f"{last_tb}"
             )
-            raise
+            failed_boards.append((key, reason))
+            dom_alerts.append(
+                f"Board '{key}' was skipped after {BOARD_RETRY_ATTEMPTS} failed "
+                f"attempts: {reason}"
+            )
+            continue
 
     # Apply special meeting notices (cancellations, location changes, special meetings)
     scrape_and_apply_special_notices(boards_to_run, dom_alerts)
@@ -3409,7 +3444,22 @@ def main() -> None:
         save_state(boards_to_run)
 
     write_meta_json()
+
+    if failed_boards:
+        print("\n" + "=" * 60)
+        print(f"  {len(failed_boards)} of {len(boards_to_run)} board(s) SKIPPED this run:")
+        for key, reason in failed_boards:
+            print(f"    {key}: {reason}")
+        print("  Their existing data files were left unchanged.")
+        print("=" * 60)
+
     print("\nDone. Run scripts/build.py to validate schemas and build calendar.json / ICS files.")
+
+    if failed_boards:
+        raise SystemExit(
+            f"Scraper finished with {len(failed_boards)} skipped board(s): "
+            + ", ".join(key for key, _ in failed_boards)
+        )
 
 
 if __name__ == "__main__":
