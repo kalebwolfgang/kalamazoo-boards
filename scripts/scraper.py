@@ -59,6 +59,11 @@ LOOKAHEAD_MONTHS        = 6
 BOARD_RETRY_ATTEMPTS     = 3
 BOARD_RETRY_WAIT_SECONDS = 20
 
+# Exit code used when the run completed but one or more boards were skipped.
+# Deliberately NOT 1: the workflow treats 1 as "something went badly wrong,
+# do not build or commit", and 2 as "good data, but flag the run as failed".
+EXIT_SKIPPED_BOARDS      = 2
+
 # How many past months to check the CITY CALENDAR against on a routine run.
 # Deliberately a separate name from LOOKBACK_MONTHS above, which controls how
 # far back documents and YouTube videos are searched and must stay at 6.
@@ -3456,10 +3461,11 @@ def main() -> None:
     print("\nDone. Run scripts/build.py to validate schemas and build calendar.json / ICS files.")
 
     if failed_boards:
-        raise SystemExit(
-            f"Scraper finished with {len(failed_boards)} skipped board(s): "
+        print(
+            f"\nScraper finished with {len(failed_boards)} skipped board(s): "
             + ", ".join(key for key, _ in failed_boards)
         )
+        raise SystemExit(EXIT_SKIPPED_BOARDS)
 
 
 if __name__ == "__main__":
