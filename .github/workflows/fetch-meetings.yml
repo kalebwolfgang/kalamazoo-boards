@@ -9,13 +9,10 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     permissions:
       contents: write
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -28,7 +25,13 @@ jobs:
       - name: Install dependencies
         run: pip install requests jsonschema
 
+      # Exit code 2 from the scraper means "the run finished, but one or more
+      # boards were skipped". The good boards still have fresh data, so we keep
+      # going, build, commit, and fail the job at the very end instead.
+      # Any other non-zero code means something went wrong that we must not
+      # build or commit on top of, so we stop right here.
       - name: Run scraper
+        id: scrape
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           SMTP_HOST:       ${{ secrets.SMTP_HOST }}
@@ -36,7 +39,22 @@ jobs:
           SMTP_USER:       ${{ secrets.SMTP_USER }}
           SMTP_PASS:       ${{ secrets.SMTP_PASS }}
           NOTIFY_EMAIL:    ${{ secrets.NOTIFY_EMAIL }}
-        run: python scripts/scraper.py
+        run: |
+          set +e
+          python scripts/scraper.py
+          code=$?
+          set -e
+
+          if [ "$code" -eq 0 ]; then
+            echo "skipped_boards=false" >> "$GITHUB_OUTPUT"
+          elif [ "$code" -eq 2 ]; then
+            echo "skipped_boards=true" >> "$GITHUB_OUTPUT"
+            echo "::warning::One or more boards were skipped. The remaining boards will still be built and committed, and this run will be marked as failed at the end."
+          else
+            echo "skipped_boards=false" >> "$GITHUB_OUTPUT"
+            echo "::error::Scraper failed with exit code $code. Nothing will be built or committed."
+            exit "$code"
+          fi
 
       - name: Validate schemas and build calendar
         env:
@@ -54,3 +72,11 @@ jobs:
           git add data/*.json data/ics/
           git commit -m "auto: scraper update $(date +'%Y-%m-%d')"
           git push
+
+      # Runs last, so the good data is already committed by this point.
+      - name: Fail the run if any board was skipped
+        if: steps.scrape.outputs.skipped_boards == 'true'
+        run: |
+          echo "One or more boards were skipped this run."
+          echo "See the 'Run scraper' step above for which ones and why."
+          exit 1
