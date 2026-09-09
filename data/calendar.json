@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-08",
+  "last_updated": "2026-09-09",
   "meetings": [
     {
       "date": "2026-08-04",
@@ -263,7 +263,7 @@
     {
       "date": "2026-09-08",
       "display": "Tuesday, September 8, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "6:00 PM – 8:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
       "name": "Citizens Public Safety Review and Appeal Board",
@@ -856,6 +856,14 @@
       "abbr": "CPSRAB",
       "name": "Citizens Public Safety Review and Appeal Board",
       "notOnCityCalendar": true
+    },
+    {
+      "date": "2027-03-09",
+      "display": "Tuesday, March 9, 2027",
+      "time": "06:00 PM – 08:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "CPSRAB",
+      "name": "Citizens Public Safety Review and Appeal Board"
     }
   ]
 }

@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-09-08",
+  "last_updated": "2026-09-09",
   "metadata": {
     "time": "06:00 PM – 08:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-09-08",
-      "display": "Tuesday, September 8, 2026",
-      "time": "06:00 PM – 08:00 PM",
-      "isCancelled": true
-    },
     {
       "date": "2026-10-13",
       "display": "Tuesday, October 13, 2026",
@@ -36,9 +30,25 @@
       "display": "Tuesday, February 9, 2027",
       "time": "06:00 PM – 08:00 PM",
       "notOnCityCalendar": true
+    },
+    {
+      "date": "2027-03-09",
+      "display": "Tuesday, March 9, 2027",
+      "time": "06:00 PM – 08:00 PM"
     }
   ],
   "meetings": [
+    {
+      "date": "2026-09-08",
+      "display": "Tuesday, September 8, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-09-09T06:59:12.980761+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB",
+      "isCancelled": true,
+      "link_label": "Cancelled"
+    },
     {
       "date": "2026-08-11",
       "display": "Tuesday, August 11, 2026",
