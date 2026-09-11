@@ -1,31 +1,6 @@
 {
-  "lastUpdated": "2026-09-09",
+  "lastUpdated": "2026-09-11",
   "meetings": [
-    {
-      "date": "2026-09-09",
-      "display": "Wednesday, September 9, 2026",
-      "time": "05:00 PM – 07:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "HPC",
-      "name": "Historic Preservation Commission"
-    },
-    {
-      "date": "2026-09-09",
-      "display": "Wednesday, September 9, 2026",
-      "time": "5:30 PM",
-      "location": "Parks and Recreation Community Room at Mayors' Riverfront Park, 251 Mills Street",
-      "abbr": "PRAB",
-      "name": "Parks and Recreation Advisory Board",
-      "rescheduledFrom": "2026-09-08"
-    },
-    {
-      "date": "2026-09-10",
-      "display": "Thursday, September 10, 2026",
-      "time": "07:00 PM – 09:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "ZBA",
-      "name": "Zoning Board of Appeals"
-    },
     {
       "date": "2026-09-15",
       "display": "Tuesday, September 15, 2026",
