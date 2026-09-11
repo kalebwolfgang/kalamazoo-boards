@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-09T17:45:27.362014+00:00",
-  "runId": "1df54bbd",
+  "timestamp": "2026-09-11T06:58:54.448261+00:00",
+  "runId": "8d554371",
   "validationPassed": true,
   "changes": [
     {
@@ -51,7 +51,7 @@
     {
       "board": "hpc",
       "meetings": 39,
-      "upcoming": 4
+      "upcoming": 3
     },
     {
       "board": "locc",
@@ -70,8 +70,8 @@
     },
     {
       "board": "zba",
-      "meetings": 58,
-      "upcoming": 5
+      "meetings": 59,
+      "upcoming": 4
     },
     {
       "board": "ersb",
@@ -80,8 +80,8 @@
     },
     {
       "board": "prab",
-      "meetings": 4,
-      "upcoming": 4
+      "meetings": 5,
+      "upcoming": 3
     },
     {
       "board": "trb",

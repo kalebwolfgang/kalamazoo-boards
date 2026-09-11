@@ -1,17 +1,10 @@
 {
-  "last_updated": "2026-09-09",
+  "last_updated": "2026-09-11",
   "metadata": {
     "time": "05:30 PM – 07:30 PM",
     "location": "TBD"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-09-09",
-      "display": "Wednesday, September 9, 2026",
-      "time": "5:30 PM",
-      "location": "Parks and Recreation Community Room at Mayors' Riverfront Park, 251 Mills Street",
-      "rescheduledFrom": "2026-09-08"
-    },
     {
       "date": "2026-10-06",
       "display": "Tuesday, October 6, 2026",
@@ -29,6 +22,17 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-09-09",
+      "display": "Wednesday, September 9, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": "Parks and Recreation Community Room at Mayors' Riverfront Park, 251 Mills Street",
+      "scrapedAt": "2026-09-11T06:58:31.222663+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Parks-Recreation-Advisory-Board-PRAB",
+      "rescheduledFrom": "2026-09-08",
+      "link_label": "No documents posted"
+    },
     {
       "date": "2026-08-05",
       "display": "Wednesday, August 5, 2026",
