@@ -2470,6 +2470,46 @@ def _record_location_change(data: dict, iso: str, location: str) -> bool:
     return True
 
 
+def _drop_upcoming_already_archived(data: dict, abbr: str | None) -> bool:
+    """Remove any upcoming date that already sits in the archive.
+
+    Notices are read at the end of the run, after every board has already
+    retired its passed meetings. So a notice can point at a date that was
+    still upcoming when it was posted but has since been held and archived,
+    and writing it back into upcoming_meetings leaves the same date in both
+    lists. That renders the meeting twice and fails schema validation.
+
+    The archived copy is the true one, so the upcoming copy is dropped and
+    any note it carried about where it moved from is kept on the archived
+    entry.
+    """
+    archive  = data.get("meetings", [])
+    upcoming = data.get("upcoming_meetings", [])
+    if not archive or not upcoming:
+        return False
+
+    archived_dates = {m.get("date") for m in archive}
+    kept, dropped  = [], []
+    for meeting in upcoming:
+        (dropped if meeting.get("date") in archived_dates else kept).append(meeting)
+
+    if not dropped:
+        return False
+
+    for meeting in dropped:
+        iso      = meeting.get("date")
+        archived = _find(archive, iso)
+        if archived is not None:
+            moved_from = meeting.get("rescheduledFrom")
+            if moved_from and not archived.get("rescheduledFrom"):
+                archived["rescheduledFrom"] = moved_from
+        print(f"  ALREADY HELD: {abbr} {iso} (notice points at a date already "
+              f"in the archive; kept in the archive only)")
+
+    upcoming[:] = kept
+    return True
+
+
 def apply_notice_actions(board: dict, parsed: dict) -> int:
     """Write one notice's actions onto one board's data file."""
     if not board["output"].exists():
@@ -2501,6 +2541,10 @@ def apply_notice_actions(board: dict, parsed: dict) -> int:
             if _record_location_change(data, action["date"], action["location"]):
                 changed = True
                 print(f"  LOCATION CHANGE: {abbr} {action['date']} -> {action['location']}")
+
+    # Runs after every action, so no notice can leave a date in both lists.
+    if _drop_upcoming_already_archived(data, abbr):
+        changed = True
 
     if changed:
         _write_output(board, data)
