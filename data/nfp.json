@@ -33,7 +33,7 @@
       "event_id": 2729,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2729/overview",
       "link_label": "Meeting Record",
-      "isCancelled": true,
+      "isCancelled": false,
       "minutes_url": null,
       "agenda_url": null,
       "location": null,

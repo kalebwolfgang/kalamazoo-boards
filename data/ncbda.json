@@ -1,14 +1,16 @@
 {
   "last_updated": "2026-09-14",
   "metadata": {
-    "time": "06:00 PM – 07:00 PM",
+    "time": "05:00 PM – 06:00 PM",
     "location": "Northside Association for Community Development, 612 N Park St"
   },
   "upcoming_meetings": [
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "06:00 PM – 07:00 PM"
+      "time": "06:00 PM – 07:00 PM",
+      "location": "5:00 p.m",
+      "locationChanged": true
     },
     {
       "date": "2026-10-15",
