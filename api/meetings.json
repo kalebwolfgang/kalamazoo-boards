@@ -21,17 +21,19 @@
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority Board"
+      "name": "Brownfield Redevelopment Authority Board",
+      "locationChanged": true
     },
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "Community Room at City Hall, 241 W. South Street",
       "abbr": "EDC",
-      "name": "Economic Development Corporation Board"
+      "name": "Economic Development Corporation Board",
+      "locationChanged": true
     },
     {
       "date": "2026-09-17",
@@ -53,9 +55,10 @@
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
       "time": "06:00 PM – 07:00 PM",
-      "location": "Northside Association for Community Development, 612 N Park St",
+      "location": "5:00 p.m",
       "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board"
+      "name": "Northside Cultural Business District Authority Board",
+      "locationChanged": true
     },
     {
       "date": "2026-09-21",
