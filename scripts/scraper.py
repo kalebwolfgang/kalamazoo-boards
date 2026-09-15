@@ -28,6 +28,7 @@ Output:
 
 import argparse
 import calendar as _cal
+import html as _html
 import json
 import os
 import re
@@ -764,6 +765,123 @@ def send_alert_email(subject: str, body: str) -> None:
 # City website metadata scraping
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Reading the location from a board page
+#
+# The page the updater downloads is HTML. The location sits under
+#   <h2 class="sub-title">Location</h2>
+# as one or more <p> lines, followed by a map widget whose hidden block
+# repeats the venue name (gmap-info <h2>) and street (gmap-address).
+# The old reader looked for a "## Location" text heading, which only exists
+# in a converted copy of the page, so it never found anything.
+# ---------------------------------------------------------------------------
+
+_LOCATION_HEADING = re.compile(
+    r"<h2[^>]*>\s*Location\s*</h2>(.*?)"
+    r"(?=<div[^>]*skip-map|<div[^>]*class=[\"'][^\"']*gmap|<h2|"
+    r"<div[^>]*class=[\"']col-|\Z)",
+    re.IGNORECASE | re.DOTALL,
+)
+
+_PROSE_MARKERS = (
+    "see the detailed schedule",
+    "see description",
+    "each meeting's location",
+    "varies",
+    "to be determined",
+)
+
+
+def _html_lines(fragment: str) -> list[str]:
+    """Visible text of an HTML fragment, one entry per line or paragraph."""
+    fragment = re.sub(r"<a\b[^>]*>\s*(View Map|Skip to[^<]*)\s*</a>", "",
+                      fragment, flags=re.IGNORECASE)
+    fragment = re.sub(r"<br\s*/?>|</p>|</div>|</li>", "\n", fragment,
+                      flags=re.IGNORECASE)
+    fragment = re.sub(r"<[^>]+>", "", fragment)
+    fragment = _html.unescape(fragment).replace("\u00a0", " ")
+    lines = []
+    for line in fragment.split("\n"):
+        line = re.sub(r"\s+", " ", line).strip()
+        if line:
+            lines.append(line)
+    return lines
+
+
+def _tidy_location(location: str) -> str:
+    """Shorten and normalise an address the way the site writes them."""
+    location = re.sub(r"\s+,", ",", location)
+    location = re.sub(r",?\s*Kalamazoo,?\s*(MI\s*)?\d{5}[^,]*", "", location)
+    location = location.replace("Kalamazoo City Hall, Second Floor", "City Hall Second Floor")
+    location = location.replace("Kalamazoo City Hall", "City Hall")
+    location = re.sub(r"\bStreet\b", "St", location)
+    location = re.sub(r"\bAvenue\b", "Ave", location)
+    location = re.sub(r",\s*,", ",", location)
+    location = re.sub(r"\s+", " ", location).strip().strip(",").strip()
+    if ("City Commission Chambers" in location and "City Hall" in location
+            and "Second Floor" not in location):
+        location = location.replace("City Hall", "City Hall Second Floor")
+    location = re.sub(r"\b415 Stockbridge\b", "415 E Stockbridge", location)
+    return location
+
+
+def _extract_page_location(html_text: str) -> dict:
+    """Return {"location": ...} or {"prose": ...} from a board page.
+
+    Reads the lines under the Location heading. An intro line ending in a
+    colon ("Unless otherwise noted meetings are held at:") is skipped. If the
+    lines give no street address, the map widget's venue and street are used.
+    """
+    m = _LOCATION_HEADING.search(html_text)
+    if not m:
+        # A converted text copy of the page (used in tests and hand checks).
+        md = re.search(r"##\s*Location\s*\n+(.*?)(?=\n##|\[Skip to|\Z)",
+                       html_text, re.IGNORECASE | re.DOTALL)
+        if not md:
+            return {}
+        body = re.sub(r"\[\s*View Map\s*\]\([^)]*\)", "", md.group(1),
+                      flags=re.IGNORECASE)
+        body = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", body)
+        lines = [re.sub(r"\s+", " ", ln).strip() for ln in body.split("\n")]
+        lines = [ln for ln in lines if ln]
+    else:
+        lines = _html_lines(m.group(1))
+
+    lines = [ln for ln in lines
+             if not ln.endswith(":")
+             and not re.fullmatch(r"[\d.,\s-]+", ln)]
+
+    if lines:
+        joined = " ".join(lines[:2])
+        if any(p in joined.lower() for p in _PROSE_MARKERS):
+            return {"prose": joined}
+        # Venue name lines come first, then the street. Read up to and
+        # including the first line with a street number (at most three).
+        parts = []
+        for ln in lines[:3]:
+            parts.append(ln)
+            if re.search(r"\d", ln):
+                break
+        if not any(re.search(r"\d", p) for p in parts):
+            parts = lines[:1]
+        location = _tidy_location(", ".join(parts))
+        if location:
+            return {"location": location}
+
+    # Fall back to the map widget.
+    venue = re.search(r'class=["\']gmap-info["\'][^>]*>\s*<h2[^>]*>(.*?)</h2>',
+                      html_text, re.IGNORECASE | re.DOTALL)
+    street = re.search(r'class=["\']gmap-address["\'][^>]*>(.*?)</div>',
+                       html_text, re.IGNORECASE | re.DOTALL)
+    parts = []
+    if venue:
+        parts.append(" ".join(_html_lines(venue.group(1))))
+    if street:
+        parts.append(" ".join(_html_lines(street.group(1))))
+    location = _tidy_location(", ".join(p for p in parts if p))
+    return {"location": location} if location else {}
+
+
 _BOARD_PAGE_CACHE: dict[str, str | None] = {}
 
 
@@ -808,69 +926,11 @@ def scrape_city_web_info(url: str) -> dict:
         if time_m:
             result["time"] = f"{time_m.group(1).strip()} \u2013 {time_m.group(2).strip()}"
 
-        # Location: section after "## Location"
-        loc_m = re.search(
-            r"##\s*Location\s*\n+(.*?)(?=\n##|\Z)",
-            text, re.IGNORECASE | re.DOTALL,
-        )
-        if loc_m:
-            loc_raw = loc_m.group(1)
-            # Drop map/skip links ENTIRELY before de-linking the rest.
-            # The OpenCities template renders "[View Map](...)" inline on the
-            # same line as the address whenever a board has one fixed venue.
-            # De-linking first turned it into the bare words "View Map", and
-            # the line filter below then discarded the whole line, address and
-            # all. That silently returned None for the majority of boards, so
-            # the hardcoded fallback was never actually refreshed.
-            loc_raw = re.sub(r"\[\s*View Map\s*\]\([^)]*\)", "", loc_raw, flags=re.IGNORECASE)
-            loc_raw = re.sub(r"\[\s*Skip to[^\]]*\]\([^)]*\)", "", loc_raw, flags=re.IGNORECASE)
-            loc_raw = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", loc_raw)
-            loc_raw = re.sub(r",?\s*Kalamazoo,?\s*\d{5}[^,\n]*", "", loc_raw)
-            lines = [
-                ln.strip()
-                for ln in loc_raw.split("\n")
-                if ln.strip()
-                and not re.match(r"^[\d.,\s-]+$", ln.strip())
-                and "View Map"  not in ln
-                and "Skip to"   not in ln
-                and not ln.strip().startswith("#")
-            ]
-            if lines:
-                location = ", ".join(lines[:2])
-                location = location.replace("Kalamazoo City Hall, Second Floor", "City Hall Second Floor")
-                location = location.replace("Kalamazoo City Hall",               "City Hall")
-                location = re.sub(r"\bStreet\b", "St",  location)
-                location = re.sub(r"\bAvenue\b", "Ave", location)
-                location = re.sub(r",\s*,",     ",",    location)
-                location = re.sub(r"\s+",       " ",    location).strip().rstrip(",")
-
-                # Normalize: City Commission Chambers in City Hall always on Second Floor
-                if (
-                    "City Commission Chambers" in location
-                    and "City Hall" in location
-                    and "Second Floor" not in location
-                ):
-                    location = location.replace("City Hall", "City Hall Second Floor")
-
-                # Normalize: 415 Stockbridge → 415 E Stockbridge
-                location = re.sub(r"\b415 Stockbridge\b", "415 E Stockbridge", location)
-
-                # Some boards have no single venue and the city writes prose
-                # in this slot instead of an address ("Please see the detailed
-                # schedule above for each meeting's location."). That is not a
-                # location and must not be stored as one.
-                prose_markers = (
-                    "see the detailed schedule",
-                    "see description",
-                    "each meeting's location",
-                    "varies",
-                    "to be determined",
-                )
-                low = location.lower()
-                if any(p in low for p in prose_markers):
-                    result["location_is_prose"] = location
-                else:
-                    result["location"] = location
+        loc = _extract_page_location(text)
+        if loc.get("location"):
+            result["location"] = loc["location"]
+        elif loc.get("prose"):
+            result["location_is_prose"] = loc["prose"]
 
         return result
 
@@ -1017,7 +1077,26 @@ def get_meeting_location(board: dict, date_iso: str, meeting: dict) -> str | Non
             else "Milham Park Golf Club, Kalamazoo"
         )
 
-    return board.get("location")
+    # The location read from the city page on the last run, stored in the
+    # board's data file. build.py runs in its own process, where the board
+    # config still holds the original hardcoded value.
+    return _stored_board_location(board) or board.get("location")
+
+
+_STORED_LOCATION_CACHE: dict[str, str | None] = {}
+
+
+def _stored_board_location(board: dict) -> str | None:
+    key = board["key"]
+    if key not in _STORED_LOCATION_CACHE:
+        loc = None
+        try:
+            with board["output"].open(encoding="utf-8") as f:
+                loc = (json.load(f).get("metadata") or {}).get("location")
+        except Exception:
+            loc = None
+        _STORED_LOCATION_CACHE[key] = None if loc in (None, "", "TBD") else loc
+    return _STORED_LOCATION_CACHE[key]
 
 
 # ---------------------------------------------------------------------------
@@ -1257,6 +1336,16 @@ def _removed_dates(board: dict) -> set[str]:
         if r.get("date")
     }
 
+
+# A meeting further out than this is never flagged "not on city calendar",
+# unless it is one of the next three a board page shows. The city publishes
+# only a few months ahead, and the calendar shows two.
+FLAG_HORIZON_DAYS = 90
+BOARD_PAGE_SHOWS  = 3
+
+# Two records this close together for one board, one already cancelled,
+# are the same meeting filed under two dates.
+DUPLICATE_DAYS = 3
 
 # How far apart two dates can be and still be read as one meeting moving.
 # Kept well under two weeks so a board that meets every other week is never
@@ -2754,7 +2843,10 @@ def _record_time_change(data: dict, iso: str, board: dict,
         upcoming.append(entry)
         upcoming.sort(key=lambda m: m["date"])
         changed = True
-    elif entry.get("time") != time_str:
+    elif _start_of(entry.get("time")) != _start_of(time_str):
+        # Compared by start time. The city page later adds the end time
+        # ("5:00 PM" becomes "05:00 PM \u2013 06:00 PM"); that is the same
+        # time, and rewriting it every run would undo the page's detail.
         if entry.get("time") and not entry.get("previousTime"):
             entry["previousTime"] = entry["time"]
         entry["time"] = time_str
@@ -3428,6 +3520,28 @@ def verify_past_meetings(boards_to_run: list, calendar: dict | None = None) -> l
             to_cancel = []
             unhide = [(e, held) for e, held in unhide if held]
 
+        # --- A second record for a meeting that is already cancelled -------
+        # The site can hold one meeting under two dates (CivicClerk had ECC on
+        # July 16, the schedule on July 15). When one is a real cancellation,
+        # the other is the same meeting, so it is filed away, not shown.
+        real_cancels = [m for m in archive
+                        if m.get("isCancelled") and not m.get("cancelNote")]
+        duplicates: list[tuple[dict, dict]] = []
+        for record in archive:
+            if record.get("isCancelled") and not record.get("cancelNote"):
+                continue
+            if record not in to_cancel and not record.get("cancelNote"):
+                continue
+            if record in to_uncancel:
+                continue
+            twin = [m for m in real_cancels
+                    if m is not record
+                    and _days_apart(m["date"], record["date"]) <= DUPLICATE_DAYS]
+            if len(twin) == 1:
+                duplicates.append((record, twin[0]))
+                if record in to_cancel:
+                    to_cancel.remove(record)
+
         # --- A cancelled-looking record that is really a silent move -------
         # A page-listed meeting close by, already archived, with nothing
         # pointing at it yet, is where this meeting went.
@@ -3488,6 +3602,20 @@ def verify_past_meetings(boards_to_run: list, calendar: dict | None = None) -> l
             changed = True
             msg = (f"MARKED CANCELLED: {board['abbr']} {record['date']} has no "
                    f"documents and is not on the city's past meeting list")
+            print(f"  {msg}")
+            notes.append(msg)
+
+        for dup, twin in duplicates:
+            archive.remove(dup)
+            _move_to_removed(
+                data, dup, "archive",
+                f"Same meeting as the cancelled one on {twin['date']}; "
+                f"filed under two dates.",
+                moved_to=twin["date"],
+            )
+            changed = True
+            msg = (f"DUPLICATE REMOVED: {board['abbr']} {dup['date']} is the same "
+                   f"meeting as the cancelled {twin['date']}")
             print(f"  {msg}")
             notes.append(msg)
 
@@ -3558,6 +3686,7 @@ def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
               "applied, but absences will not be flagged this run.")
 
     today_iso = date.today().isoformat()
+    flag_horizon = (date.today() + timedelta(days=FLAG_HORIZON_DAYS)).isoformat()
     # Never judge absence before today or outside the queried window.
     lower = max(today_iso, win_start) if win_start else today_iso
     discrepancies: list[str] = []
@@ -3582,6 +3711,12 @@ def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
         upcoming = data.get("upcoming_meetings", [])
         ours = {m["date"]: m for m in upcoming}
         changed = False
+
+        # A board page lists the next three meetings, which can reach past
+        # 90 days for a board that meets every other month. Those stay
+        # checked so the page never shows an unverified meeting silently.
+        shown = sorted(d for d in ours if d >= today_iso)[:BOARD_PAGE_SHOWS]
+        board_horizon = max([flag_horizon] + shown)
 
         # --- Restore: a removed meeting is back on the city calendar ---------
         for iso in sorted(api_meetings):
@@ -3711,6 +3846,12 @@ def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
                         changed = True
                     print(f"  NOTE: {board['abbr']} {iso} is not on the city "
                           f"calendar but a notice announced it; left as is.")
+                    continue
+                # Beyond 90 days the city often has not published yet, so a
+                # missing date there is not a warning sign.
+                if iso > board_horizon:
+                    if meeting.pop("notOnCityCalendar", None):
+                        changed = True
                     continue
                 # Case 3c: unexplained disappearance with nothing later on the
                 # city calendar to compare against. Keep it, flag it.
