@@ -808,21 +808,56 @@ def _html_lines(fragment: str) -> list[str]:
     return lines
 
 
+_DIRECTIONS = {"North": "N", "South": "S", "East": "E", "West": "W"}
+
+# The room in City Hall that most boards use, written one way everywhere.
+CITY_HALL_CHAMBERS = "City Commission Chambers, City Hall Second Floor, 241 W South St"
+
+
 def _tidy_location(location: str) -> str:
     """Shorten and normalise an address the way the site writes them."""
+    # A date the city left in front of an old venue ("May 12, 2025 - ...").
+    location = re.sub(
+        r"^\s*(" + "|".join(_cal.month_name[1:]) + r")\s+\d{1,2},?\s+\d{4}\s*[-\u2013:]\s*",
+        "", location)
     location = re.sub(r"\s+,", ",", location)
     location = re.sub(r",?\s*Kalamazoo,?\s*(MI\s*)?\d{5}[^,]*", "", location)
     location = location.replace("Kalamazoo City Hall, Second Floor", "City Hall Second Floor")
     location = location.replace("Kalamazoo City Hall", "City Hall")
     location = re.sub(r"\bStreet\b", "St", location)
     location = re.sub(r"\bAvenue\b", "Ave", location)
+    # "241 W. South St." -> "241 W South St"
+    location = re.sub(r"\b(\d+\s+[NSEW])\.\s", r"\1 ", location)
+    location = re.sub(r"\b(St|Ave|Rd|Blvd|Dr|Ct)\.(?=,|\s*$)", r"\1", location)
+    # "300 South Westnedge" -> "300 S Westnedge"
+    location = re.sub(r"\b(\d+)\s+(North|South|East|West)\s+",
+                      lambda m: f"{m.group(1)} {_DIRECTIONS[m.group(2)]} ", location)
+    # "245 N Rose St Suite 100" -> "245 N Rose St, Suite 100"
+    location = re.sub(r"(?<=[A-Za-z.])\s+(Suite|Ste\.?)\s+", r", \1 ", location)
     location = re.sub(r",\s*,", ",", location)
     location = re.sub(r"\s+", " ", location).strip().strip(",").strip()
+    location = re.sub(r"\b415 (E )?Stockbridge\b(?!\s+Ave)", "415 E Stockbridge Ave", location)
+    location = re.sub(r"\b415 Stockbridge Ave\b", "415 E Stockbridge Ave", location)
+    if "Commission Chambers" in location and "241 W South" in location:
+        return CITY_HALL_CHAMBERS
     if ("City Commission Chambers" in location and "City Hall" in location
             and "Second Floor" not in location):
         location = location.replace("City Hall", "City Hall Second Floor")
-    location = re.sub(r"\b415 Stockbridge\b", "415 E Stockbridge", location)
     return location
+
+
+def _is_location_prose(line: str) -> bool:
+    """An intro sentence rather than an address.
+
+    "Unless otherwise noted meetings are held at:" and "Meetings are held at
+    the City's CPED Offices, Main Conference Room, unless otherwise noted."
+    Street abbreviations end in a full stop too, so a full stop alone is not
+    enough; the line must also read like a sentence.
+    """
+    if line.endswith(":"):
+        return True
+    return line.endswith(".") and bool(re.search(
+        r"\b(meetings?|held|unless|please|will|are)\b", line, re.IGNORECASE))
 
 
 def _extract_page_location(html_text: str) -> dict:
@@ -847,8 +882,14 @@ def _extract_page_location(html_text: str) -> dict:
     else:
         lines = _html_lines(m.group(1))
 
+    # "Please see the detailed schedule above for each meeting's location."
+    # means there is no single venue. Checked before intro lines are dropped.
+    whole = " ".join(lines).lower()
+    if any(p in whole for p in _PROSE_MARKERS):
+        return {"prose": " ".join(lines)}
+
     lines = [ln for ln in lines
-             if not ln.endswith(":")
+             if not _is_location_prose(ln)
              and not re.fullmatch(r"[\d.,\s-]+", ln)]
 
     if lines:
@@ -977,7 +1018,9 @@ def refresh_board_metadata(boards_to_run: list, alerts: list | None = None) -> d
 
         if key not in skip_location:
             new_loc = info.get("location")
-            old_loc = board.get("location")
+            # Compared with what the last run read from the page, not the
+            # address typed into this file, so only real moves alert.
+            old_loc = _stored_board_location(board) or board.get("location")
             if new_loc:
                 if old_loc and new_loc != old_loc:
                     msg = (f"LOCATION CHANGED: {board['abbr']} "
@@ -986,6 +1029,7 @@ def refresh_board_metadata(boards_to_run: list, alerts: list | None = None) -> d
                     if alerts is not None:
                         alerts.append(msg)
                 board["location"] = new_loc
+                _STORED_LOCATION_CACHE[key] = new_loc
                 board["locationVerifiedAt"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
                 board_updates["location"] = new_loc
                 print(f"    {key.upper()}: location \u2192 {new_loc}")
