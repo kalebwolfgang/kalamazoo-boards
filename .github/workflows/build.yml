@@ -86,6 +86,28 @@ jobs:
           git add board-*.html sitemap.xml search-index.json api/ || true
           git add data/calendar.json data/changelog.json || true
           git add -A data/ics/ || true
-          git diff --staged --quiet || \
-            git commit -m "auto: build update $(date +'%Y-%m-%d') [skip ci]"
-          git push
+          if git diff --staged --quiet; then
+            echo "No build changes this run. Nothing to commit."
+            exit 0
+          fi
+
+          git commit -m "auto: build update $(date +'%Y-%m-%d') [skip ci]"
+
+          # The scraper can save to the repo while this build is going. Pull
+          # its changes in first, then push. If both touched the same file,
+          # the version already on GitHub wins, since the scraper's data is
+          # newer and the next build regenerates the rest. Tries three times.
+          pushed=false
+          for attempt in 1 2 3; do
+            if git pull --rebase -X ours origin main && git push; then
+              pushed=true
+              break
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "Push attempt $attempt failed. Retrying in 15 seconds..."
+            sleep 15
+          done
+          if [ "$pushed" != "true" ]; then
+            echo "::error::Could not save changes to the repo after 3 attempts."
+            exit 1
+          fi
