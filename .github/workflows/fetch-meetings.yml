@@ -70,8 +70,32 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/*.json data/ics/
+
+          # Nothing new this run: nothing to save, and not a failure.
+          if git diff --staged --quiet; then
+            echo "No data changes this run. Nothing to commit."
+            exit 0
+          fi
+
           git commit -m "auto: scraper update $(date +'%Y-%m-%d')"
-          git push
+
+          # The Build workflow can save to the repo while this run is going.
+          # Pull its changes in first, then push. If both touched the same
+          # file, this run's fresher data wins. Tries three times.
+          pushed=false
+          for attempt in 1 2 3; do
+            if git pull --rebase -X theirs origin main && git push; then
+              pushed=true
+              break
+            fi
+            git rebase --abort 2>/dev/null || true
+            echo "Push attempt $attempt failed. Retrying in 15 seconds..."
+            sleep 15
+          done
+          if [ "$pushed" != "true" ]; then
+            echo "::error::Could not save changes to the repo after 3 attempts."
+            exit 1
+          fi
 
       # Runs last, so the good data is already committed by this point.
       - name: Fail the run if any board was skipped
