@@ -34,6 +34,11 @@
     "recordings": {
       "type": "array",
       "items": { "$ref": "#/$defs/recording" }
+    },
+    "removed_meetings": {
+      "type": "array",
+      "description": "Meetings the city removed from its calendar with no notice explaining it. Kept here for the record and never shown on the site. A meeting returns automatically if the city relists it, posts documents for it, or posts a notice about it.",
+      "items": { "$ref": "#/$defs/removedMeeting" }
     }
   },
   "$defs": {
@@ -49,6 +54,14 @@
          "isCancelled":     { "type": "boolean" },
             "isSpecial":       { "type": "boolean" },
             "locationChanged": { "type": "boolean" },
+            "timeChanged": {
+              "type": "boolean",
+              "description": "True when a city notice moved this meeting to a new start time on the same date."
+            },
+            "previousTime": {
+              "type": "string",
+              "description": "The time this meeting was scheduled for before a notice changed it, so the site can say what it changed from."
+            },
             "notOnCityCalendar": {
               "type": "boolean",
               "description": "True when this meeting is in our data but absent from the city calendar API with no notice explaining it. Kept and flagged rather than deleted."
@@ -77,6 +90,10 @@
         "url":          { "type": ["string", "null"] },
         "link_label":   { "type": "string" },
         "isCancelled":  { "type": "boolean" },
+        "cancelNote": {
+          "type": "string",
+          "description": "Set when this meeting was marked cancelled because it is missing from the city's list of past meeting dates. Removed automatically if documents, a recording, or the city's listing later show it was held."
+        },
         "minutes_url":  { "type": ["string", "null"] },
         "agenda_url":   { "type": ["string", "null"] },
         "scrapedAt":    { "type": ["string", "null"] },
@@ -94,6 +111,24 @@
       "not": {
         "required": ["hasRecording"],
         "description": "Typo guard: 'hasRecording' (singular) is never valid. Use 'hasRecordings'."
+      }
+    },
+    "removedMeeting": {
+      "type": "object",
+      "required": ["date", "display", "from", "removedOn"],
+      "additionalProperties": false,
+      "properties": {
+        "date":      { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "display":   { "type": "string" },
+        "from":      { "type": "string", "enum": ["upcoming", "archive"] },
+        "removedOn": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "reason":    { "type": "string" },
+        "movedTo": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "Set when the city moved this meeting to another date without a notice. A move is not a cancellation, so this meeting never comes back as cancelled."
+        },
+        "record":    { "type": "object", "description": "The meeting exactly as it was stored before it was removed." }
       }
     },
     "recording": {
