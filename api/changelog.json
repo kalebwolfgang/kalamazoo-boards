@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-15T21:56:54.550762+00:00",
-  "runId": "ce74509d",
+  "timestamp": "2026-09-15T23:12:23.796846+00:00",
+  "runId": "041e97af",
   "validationPassed": true,
   "changes": [
     {
@@ -40,7 +40,7 @@
     },
     {
       "board": "ecc",
-      "meetings": 26,
+      "meetings": 25,
       "upcoming": 4
     },
     {
@@ -60,7 +60,7 @@
     },
     {
       "board": "nfp",
-      "meetings": 29,
+      "meetings": 28,
       "upcoming": 4
     },
     {
