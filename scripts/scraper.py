@@ -764,6 +764,26 @@ def send_alert_email(subject: str, body: str) -> None:
 # City website metadata scraping
 # ---------------------------------------------------------------------------
 
+_BOARD_PAGE_CACHE: dict[str, str | None] = {}
+
+
+def _fetch_board_page(url: str) -> str | None:
+    """Fetch a city board page once per run and reuse it.
+
+    The metadata refresh reads every board page at the start of the run and
+    the past-meeting check reads them again at the end. One fetch serves both.
+    """
+    if url not in _BOARD_PAGE_CACHE:
+        try:
+            r = requests.get(url, timeout=30)
+            r.raise_for_status()
+            _BOARD_PAGE_CACHE[url] = r.text
+        except Exception as exc:
+            print(f"    WARNING: could not fetch {url}: {exc}")
+            _BOARD_PAGE_CACHE[url] = None
+    return _BOARD_PAGE_CACHE[url]
+
+
 def scrape_city_web_info(url: str) -> dict:
     """
     Scrape meeting time and location from a city board page.
@@ -775,9 +795,9 @@ def scrape_city_web_info(url: str) -> dict:
       - "415 Stockbridge" → "415 E Stockbridge"
     """
     try:
-        r = requests.get(url, timeout=30)
-        r.raise_for_status()
-        text   = r.text
+        text = _fetch_board_page(url)
+        if text is None:
+            raise RuntimeError("page could not be fetched")
         result = {}
 
         # Time: "Next date: Wednesday, June 03, 2026 | 05:00 PM\n to 07:00 PM"
@@ -1205,6 +1225,166 @@ def compute_upcoming_schedule(board: dict, n: int = 6) -> list[dict]:
 # their flags, whether or not the recurrence rule knows about them.
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Meetings the city removed without explanation
+#
+# The city deletes a cancelled meeting from its calendar instead of marking
+# it. When a meeting disappears from the city calendar, no notice explains
+# it, and the city calendar still lists a LATER meeting for the same board,
+# the meeting was almost certainly dropped. It is moved out of
+# upcoming_meetings / meetings into removed_meetings in the same data file.
+#
+# Nothing public reads removed_meetings, so the meeting disappears from the
+# calendar, the board pages, the ICS feeds and the API, but the record stays
+# in the file. It comes back automatically if the city puts it back on its
+# calendar, posts documents for it, or posts a notice about it.
+# ---------------------------------------------------------------------------
+
+def _read_board_file(board: dict) -> dict:
+    if not board["output"].exists():
+        return {}
+    try:
+        with board["output"].open(encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _removed_dates(board: dict) -> set[str]:
+    return {
+        r.get("date")
+        for r in _read_board_file(board).get("removed_meetings", [])
+        if r.get("date")
+    }
+
+
+# How far apart two dates can be and still be read as one meeting moving.
+# Kept well under two weeks so a board that meets every other week is never
+# mistaken for a move.
+SILENT_RESCHEDULE_DAYS = 10
+
+
+def _move_to_removed(data: dict, record: dict, source: str, reason: str,
+                     moved_to: str | None = None) -> None:
+    """File a meeting under removed_meetings, keeping the original record.
+
+    moved_to marks a meeting the city moved to another date without a notice.
+    It is a reschedule, not a cancellation, so it never comes back as
+    cancelled when its date passes.
+    """
+    kept = dict(record)
+    kept.pop("notOnCityCalendar", None)
+    entry = {
+        "date":      record.get("date"),
+        "display":   record.get("display") or format_display_date_long(record["date"]),
+        "from":      source,
+        "removedOn": date.today().strftime("%Y-%m-%d"),
+        "reason":    reason,
+        "record":    kept,
+    }
+    if moved_to:
+        entry["movedTo"] = moved_to
+    data.setdefault("removed_meetings", []).append(entry)
+    data["removed_meetings"].sort(key=lambda r: r.get("date", ""))
+
+
+def _take_from_removed(data: dict, iso: str) -> dict | None:
+    """Remove one date from removed_meetings and return its entry.
+
+    If the entry was a silent reschedule, the meeting it moved to no longer
+    points back at it; otherwise that note would keep this date off the site.
+    """
+    removed = data.get("removed_meetings", [])
+    for i, entry in enumerate(removed):
+        if entry.get("date") == iso:
+            taken = removed.pop(i)
+            target = taken.get("movedTo")
+            if target:
+                for field in ("upcoming_meetings", "meetings"):
+                    for m in data.get(field, []):
+                        if (m.get("date") == target
+                                and m.get("rescheduledFrom") == iso):
+                            m.pop("rescheduledFrom", None)
+            return taken
+    return None
+
+
+def _days_apart(a: str, b: str) -> int:
+    return abs((date.fromisoformat(a) - date.fromisoformat(b)).days)
+
+
+# Flags that mean a city notice announced this meeting. A notice is direct
+# evidence, so a meeting carrying one is never hidden for being absent from
+# the calendar.
+_NOTICE_FLAGS = ("isSpecial", "rescheduledFrom", "timeChanged", "locationChanged")
+
+
+def _notice_backed(meeting: dict) -> bool:
+    return any(meeting.get(flag) for flag in _NOTICE_FLAGS)
+
+
+def _filter_removed(board: dict, scraped: list[dict]) -> list[dict]:
+    """Drop scraped past meetings the city removed, unless they have documents.
+
+    Documents are proof the meeting happened, so a removed meeting that gets
+    an agenda or minutes is taken off the removed list and archived normally.
+    """
+    data = _read_board_file(board)
+    if not data.get("removed_meetings"):
+        return scraped
+
+    removed = {r.get("date") for r in data["removed_meetings"]}
+    kept: list[dict] = []
+    restored = False
+    for record in scraped:
+        iso = record.get("date")
+        if iso not in removed:
+            kept.append(record)
+        elif record.get("agenda_url") or record.get("minutes_url"):
+            _take_from_removed(data, iso)
+            restored = True
+            kept.append(record)
+            print(f"  RESTORED: {board['abbr']} {iso} (documents were posted)")
+    if restored:
+        _write_output(board, data)
+    return kept
+
+
+# A clock time written as text, e.g. "5:00 p.m.", "5 PM", "17:00".
+_TIME_TEXT = r"\d{1,2}(?::\d{2})?\s*[aApP]\.?\s*[mM]\.?"
+
+
+def _looks_like_time(value: str | None) -> bool:
+    """True when a string is only a clock time and not a place.
+
+    A notice reading "RESCHEDULED to meet at 5:00 p.m." once put "5:00 p.m"
+    into a meeting's location. Anything that is just a time is never a venue.
+    """
+    if not value:
+        return False
+    return bool(re.fullmatch(
+        r"\s*(?:at\s+)?\d{1,2}(?::\d{2})?\s*(?:[aApP]\.?\s*[mM]\.?)?\s*",
+        value,
+    ))
+
+
+def _clear_time_as_location(entries: list[dict]) -> bool:
+    """Remove a clock time wrongly stored as a meeting location.
+
+    Flags are sticky from run to run, so a bad value saved once would stay on
+    the site forever. This takes it back off, along with the "location
+    changed" flag it brought with it.
+    """
+    changed = False
+    for entry in entries or []:
+        if _looks_like_time(entry.get("location")):
+            entry.pop("location", None)
+            entry.pop("locationChanged", None)
+            changed = True
+            print(f"  CLEANED: {entry.get('date')} had a time stored as its location")
+    return changed
+
+
 def retire_passed_meetings(
     board: dict,
     existing_upcoming: list[dict],
@@ -1239,7 +1419,8 @@ def retire_passed_meetings(
             if entry.get("isCancelled") and not existing_rec.get("isCancelled"):
                 existing_rec["isCancelled"] = True
                 changed = True
-            if entry.get("location") and not existing_rec.get("location"):
+            if (entry.get("location") and not existing_rec.get("location")
+                    and not _looks_like_time(entry["location"])):
                 existing_rec["location"] = entry["location"]
                 changed = True
             if changed:
@@ -1251,7 +1432,8 @@ def retire_passed_meetings(
             "display":     entry.get("display") or format_display_date(d),
             "minutes_url": None,
             "agenda_url":  None,
-            "location":    entry.get("location"),
+            "location":    None if _looks_like_time(entry.get("location"))
+                           else entry.get("location"),
             "scrapedAt":   datetime.now(timezone.utc).isoformat(),
             "sourceUrl":   board.get("web_url"),
         }
@@ -1299,6 +1481,8 @@ def merge_upcoming(
     """
     today_iso = date.today().strftime("%Y-%m-%d")
 
+    _clear_time_as_location(existing_upcoming)
+
     stored_by_date = {
         e.get("date"): e for e in (existing_upcoming or []) if e.get("date")
     }
@@ -1325,6 +1509,12 @@ def merge_upcoming(
     }
     if vacated:
         out = [e for e in out if e.get("date") not in vacated]
+
+    # A meeting the city removed stays off the site, even though a source
+    # such as CivicClerk may still list it.
+    removed = _removed_dates(board)
+    if removed:
+        out = [e for e in out if e.get("date") not in removed]
 
     return sorted(out, key=lambda m: m.get("date", ""))
 
@@ -1742,6 +1932,15 @@ def smart_merge(existing: dict, scraped: dict) -> tuple:
         if not result.get(field) and existing.get(field):
             result[field] = existing[field]
             preserved.append(field)
+    # A meeting marked cancelled because the city's own page shows it never
+    # happened stays cancelled until documents or a recording turn up.
+    if existing.get("cancelNote") and not (
+        result.get("agenda_url") or result.get("minutes_url")
+        or result.get("youtube_id")
+    ):
+        for field in ("isCancelled", "cancelNote", "link_label"):
+            if field in existing:
+                result[field] = existing[field]
     return result, preserved
 
 
@@ -2079,6 +2278,18 @@ _RESCHEDULE_MARKER = re.compile(
     re.IGNORECASE,
 )
 
+# A notice that keeps the date but changes the start time. Kept narrow on
+# purpose: a special meeting notice also names a time, and that is not a
+# time change.
+_TIME_CHANGE_MARKER = re.compile(
+    r"\btime\s+(?:has\s+)?(?:been\s+)?chang\w*"
+    r"|\bnew\s+(?:meeting\s+|start\s+)?time\b"
+    r"|\breschedul\w*\s+to\s+(?:meet\s+|begin\s+|start\s+)?at\s+\d"
+    r"|\bwill\s+now\s+(?:meet|begin|start)\s+at\s+\d",
+    re.IGNORECASE,
+)
+
+
 def _dates_with_positions(text: str, today: date | None = None) -> list[tuple[int, str]]:
     """Every date in the notice with where it sits in the text."""
     today = today or date.today()
@@ -2214,7 +2425,25 @@ _SENTENCE_END = (
 )
 
 
+def _strip_times(text: str) -> str:
+    """Take clock times out of a notice before looking for a place.
+
+    "to meet at 5:00 p.m. in the Community Room" becomes "to meet in the
+    Community Room", and "to meet at 5:00 p.m." leaves nothing to read as a
+    place at all.
+    """
+    # A time followed by more words about the place: drop the time and its
+    # full stop so the place reads straight on.
+    text = re.sub(r"\b(?:at\s+)?" + _TIME_TEXT + r",?\s+(?=(?:in|at|on)\b)",
+                  "", text, flags=re.IGNORECASE)
+    # A time at the end of a sentence: drop it but keep the full stop.
+    text = re.sub(r"\b(?:at\s+)?\d{1,2}(?::\d{2})?\s*[aApP]\.?\s*[mM](?=\W|$)",
+                  "", text, flags=re.IGNORECASE)
+    return re.sub(r"[ \t]{2,}", " ", text)
+
+
 def _extract_location(text: str) -> str | None:
+    text = _strip_times(text)
     patterns = [
         r"(?:take place|be held)\s+(?:at|in)\s+(?:the\s+)?(.+?)" + _SENTENCE_END,
         r"moved to meet (?:in|at)\s+(?:the\s+)?(.+?)" + _SENTENCE_END,
@@ -2226,9 +2455,25 @@ def _extract_location(text: str) -> str | None:
         if m:
             loc = m.group(1).strip().rstrip(".,")
             loc = re.sub(r"^the\s+", "", loc, flags=re.IGNORECASE)
-            if loc and len(loc) < 200:
+            if loc and len(loc) < 200 and not _looks_like_time(loc):
                 return loc
     return None
+
+
+def _time_change_applies(sentences: list[tuple[int, str]], pos: int) -> bool:
+    """A time change only applies to a date in the same sentence as it.
+
+    "...RESCHEDULED to meet at 5:00 p.m. The October 15 meeting is unchanged."
+    must not move October 15.
+    """
+    _, body = _sentence_at(sentences, pos)
+    return bool(_TIME_CHANGE_MARKER.search(body)
+                or re.search(_TIME_TEXT, body))
+
+
+def _full_clock(time_str: str) -> str:
+    """Write "6 PM" as "6:00 PM" to match every other time on the site."""
+    return re.sub(r"^(\d{1,2})\s*(AM|PM)$", r"\1:00 \2", time_str.strip())
 
 
 def parse_notice(text: str, today: date | None = None,
@@ -2244,6 +2489,7 @@ def parse_notice(text: str, today: date | None = None,
       {"action": "cancelled", "date": iso}
       {"action": "special", "date": iso, "time":, "location":}
       {"action": "location_change", "date": iso, "location":}
+      {"action": "time_change", "date": iso, "time":, "location":}
     """
     today = today or date.today()
     text = _normalize_notice_text(text)
@@ -2260,11 +2506,16 @@ def parse_notice(text: str, today: date | None = None,
     # A reschedule is the one action that ties two dates together, so it is
     # resolved first and its two dates are taken out of play.
     marker_seen = bool(_RESCHEDULE_MARKER.search(text))
+    time_change_seen = bool(time_str and _TIME_CHANGE_MARKER.search(text))
 
     # The heading repeats the word "Rescheduled" before either date is
     # written, so take the marker that has a date on both sides of it rather
     # than the first one in the text.
     for marker in _RESCHEDULE_MARKER.finditer(text):
+        # "RESCHEDULED to meet at 5:00 p.m." moves the time, not the date.
+        # A later date in the notice must not be read as the new date.
+        if re.match(r"\s+at\s+\d", text[marker.end():]):
+            continue
         before = [iso for pos, iso in dated if pos < marker.start()]
         after = [iso for pos, iso in dated if pos > marker.end()]
         if before and after and before[-1] != after[0]:
@@ -2308,6 +2559,16 @@ def parse_notice(text: str, today: date | None = None,
         elif action == "location_change" and location:
             actions.append({
                 "action": "location_change", "date": iso, "location": location,
+            })
+            if time_change_seen and _time_change_applies(sentences, pos):
+                actions.append({
+                    "action": "time_change", "date": iso,
+                    "time": _full_clock(time_str), "location": None,
+                })
+        elif time_change_seen and _time_change_applies(sentences, pos):
+            actions.append({
+                "action": "time_change", "date": iso,
+                "time": _full_clock(time_str), "location": location,
             })
         elif marker_seen and location:
             actions.append({
@@ -2470,6 +2731,47 @@ def _record_location_change(data: dict, iso: str, location: str) -> bool:
     return True
 
 
+def _record_time_change(data: dict, iso: str, board: dict,
+                        time_str: str, location: str | None) -> bool:
+    """Change a meeting's start time, keeping the date.
+
+    The old time is kept in previousTime so the site can say what it changed
+    from. The location is left alone unless the notice names a new one.
+    """
+    upcoming = data.setdefault("upcoming_meetings", [])
+    changed  = False
+
+    entry = _find(upcoming, iso)
+    if entry is None:
+        # A date that has already passed cannot have its time moved.
+        if iso < date.today().strftime("%Y-%m-%d"):
+            return False
+        entry = {
+            "date":    iso,
+            "display": format_display_date_long(iso),
+            "time":    time_str,
+        }
+        upcoming.append(entry)
+        upcoming.sort(key=lambda m: m["date"])
+        changed = True
+    elif entry.get("time") != time_str:
+        if entry.get("time") and not entry.get("previousTime"):
+            entry["previousTime"] = entry["time"]
+        entry["time"] = time_str
+        changed = True
+
+    if not entry.get("timeChanged"):
+        entry["timeChanged"] = True
+        changed = True
+
+    if location and entry.get("location") != location:
+        entry["location"] = location
+        entry["locationChanged"] = True
+        changed = True
+
+    return changed
+
+
 def _drop_upcoming_already_archived(data: dict, abbr: str | None) -> bool:
     """Remove any upcoming date that already sits in the archive.
 
@@ -2541,6 +2843,23 @@ def apply_notice_actions(board: dict, parsed: dict) -> int:
             if _record_location_change(data, action["date"], action["location"]):
                 changed = True
                 print(f"  LOCATION CHANGE: {abbr} {action['date']} -> {action['location']}")
+        elif kind == "time_change":
+            if _record_time_change(data, action["date"], board,
+                                   action["time"], action.get("location")):
+                changed = True
+                print(f"  TIME CHANGE: {abbr} {action['date']} -> {action['time']}")
+
+    # A notice about a removed date is new information: the notice has just
+    # written the correct record, so the date comes off the removed list.
+    for action in parsed["actions"]:
+        for iso in (action.get("date"), action.get("old"), action.get("new")):
+            if iso and _take_from_removed(data, iso):
+                changed = True
+                print(f"  RESTORED: {abbr} {iso} (a notice mentions it)")
+
+    # A time wrongly saved as a place by an older version of this parser.
+    if _clear_time_as_location(data.get("upcoming_meetings", [])):
+        changed = True
 
     # Runs after every action, so no notice can leave a date in both lists.
     if _drop_upcoming_already_archived(data, abbr):
@@ -2770,8 +3089,31 @@ def backfill_archive_from_calendar(boards_to_run: list, calendar: dict) -> list:
 
         archive  = data.get("meetings", [])
         upcoming = data.get("upcoming_meetings", [])
+        file_changed = False
 
-        known = {m.get("date") for m in archive} | {m.get("date") for m in upcoming}
+        # A past meeting the city put back on its calendar returns to the
+        # archive as it was.
+        for iso in sorted(api_meetings):
+            if iso >= today_iso or iso < win_start:
+                continue
+            if iso in {m.get("date") for m in archive}:
+                continue
+            entry = _take_from_removed(data, iso)
+            if not entry:
+                continue
+            record = entry.get("record") or {
+                "date": iso, "display": format_display_date_long(iso),
+            }
+            record.pop("notOnCityCalendar", None)
+            archive.append(record)
+            file_changed = True
+            msg = f"RESTORED: {board['abbr']} {iso} is back on the city calendar"
+            print(f"  {msg}")
+            notes.append(msg)
+
+        known = ({m.get("date") for m in archive}
+                 | {m.get("date") for m in upcoming}
+                 | {r.get("date") for r in data.get("removed_meetings", [])})
 
         # A date another meeting moved away from is not a missing meeting.
         vacated = {
@@ -2802,7 +3144,7 @@ def backfill_archive_from_calendar(boards_to_run: list, calendar: dict) -> list:
             print(f"  {msg}")
             notes.append(msg)
 
-        if added:
+        if added or file_changed:
             archive.sort(key=lambda m: m.get("date", ""), reverse=True)
             data["meetings"] = archive
             _write_output(board, data)
@@ -2813,6 +3155,363 @@ def backfill_archive_from_calendar(boards_to_run: list, calendar: dict) -> list:
     else:
         print(f"  Added {added_total} past meeting(s) across the boards.")
 
+    return notes
+
+
+# ---------------------------------------------------------------------------
+# Past meeting check against each board's own city page
+#
+# Every board page lists the dates its meetings were held under "When",
+# past and future together. A past meeting that is not on that list did not
+# happen. The city removes a cancelled meeting instead of marking it, so this
+# list is the most reliable record of what actually took place.
+# ---------------------------------------------------------------------------
+
+_PAGE_DATE = re.compile(r"(\w+day,\s+\w+\s+\d{1,2},\s+\d{4})\s*\|")
+_PAGE_TIME = re.compile(
+    r"(\d{1,2}:\d{2}\s*[AP]M)(?:\s*(?:-|\u2013|to)\s*(\d{1,2}:\d{2}\s*[AP]M))?",
+    re.IGNORECASE,
+)
+
+# Fields an archived meeting may carry (see pastMeeting in the schema).
+_ARCHIVE_FIELDS = (
+    "date", "display", "rescheduledFrom", "event_id", "url", "link_label",
+    "isCancelled", "cancelNote", "minutes_url", "agenda_url", "scrapedAt",
+    "sourceUrl", "meeting_type", "location", "youtube_id", "youtube_url",
+    "hasRecordings", "title",
+)
+
+CANCEL_NOTE = "Not on the city's list of past meeting dates"
+
+# Brake for a page that loads half-broken. If one run would cancel more than
+# this many meetings for one board, nothing is cancelled for that board and a
+# warning is raised instead.
+MAX_CANCELS_PER_BOARD = 6
+
+# A healthy page lists most meetings that are known to have happened. If
+# fewer than this share of a board's documented meetings appear on its page,
+# the page is not trusted this run.
+MIN_PAGE_COVERAGE = 0.5
+
+
+def _page_event_times(html: str) -> dict[str, str | None]:
+    """Every dated entry on a board page, with its time when one is shown.
+
+    Returns {"2026-09-17": "05:00 PM \u2013 06:00 PM", ...}. The city uses
+    12:00 AM for entries with no real time; those map to None.
+    """
+    out: dict[str, str | None] = {}
+    matches = list(_PAGE_DATE.finditer(html))
+    for i, m in enumerate(matches):
+        try:
+            d = datetime.strptime(re.sub(r"\s+", " ", m.group(1).strip()),
+                                  "%A, %B %d, %Y")
+        except ValueError:
+            continue
+        iso = d.strftime("%Y-%m-%d")
+        stop = matches[i + 1].start() if i + 1 < len(matches) else m.end() + 300
+        tail = re.sub(r"<[^>]+>", " ", html[m.end():min(stop, m.end() + 300)])
+        tail = re.sub(r"\s+", " ", tail)
+        time_str = None
+        t = _PAGE_TIME.search(tail)
+        if t and t.start() < 20 and not t.group(1).upper().startswith("12:00 AM"):
+            start_t = t.group(1).upper().replace("  ", " ")
+            time_str = (f"{start_t} \u2013 {t.group(2).upper()}"
+                        if t.group(2) else start_t)
+        if iso not in out or (out[iso] is None and time_str):
+            out[iso] = time_str
+    return out
+
+
+def _page_event_dates(html: str) -> set[str]:
+    return set(_page_event_times(html))
+
+
+def _start_of(time_str: str | None) -> str | None:
+    """"05:00 PM \u2013 06:00 PM" -> "5:00 PM", for comparing start times."""
+    if not time_str:
+        return None
+    m = re.match(r"\s*0?(\d{1,2}:\d{2})\s*([AP]M)", time_str, re.IGNORECASE)
+    return f"{m.group(1)} {m.group(2).upper()}" if m else None
+
+
+def _has_proof_it_happened(record: dict) -> bool:
+    return bool(record.get("agenda_url") or record.get("minutes_url")
+                or record.get("youtube_id"))
+
+
+# Boards whose page times are not one meeting per date: LOCC is "On Call"
+# and the Board of Review holds several sessions on one day.
+PAGE_TIME_SKIP = {"locc", "bor"}
+
+
+def _apply_page_times(board: dict, data: dict, times: dict) -> list[str]:
+    """Give each upcoming meeting the exact time its city page lists.
+
+    The board's usual time is the most common start time on the page. A date
+    whose start time differs from it is marked as a time change, so one-off
+    changes show up even when the city posts no notice. A time set by a
+    notice is newer than the page and is not overwritten by a different one.
+    """
+    notes: list[str] = []
+    if board["key"] in PAGE_TIME_SKIP:
+        return notes
+
+    today_iso = date.today().isoformat()
+    # The usual time comes from recent and upcoming dates only, so a board
+    # that permanently moved its meeting time is not flagged forever.
+    recent_from = (date.today() - timedelta(days=183)).isoformat()
+    recent = {d: t for d, t in times.items() if t and d >= recent_from}
+    starts = [_start_of(t) for t in recent.values()]
+    if not starts:
+        return notes
+    counts = sorted(((starts.count(x), x) for x in set(starts)), reverse=True)
+    # With no clear usual time, times are still copied but nothing is flagged.
+    usual_start = counts[0][1] if len(counts) == 1 or counts[0][0] > counts[1][0] else None
+    usual_time = next((t for t in recent.values()
+                       if _start_of(t) == usual_start), None)
+
+    for meeting in data.get("upcoming_meetings", []):
+        iso = meeting.get("date")
+        page_time = times.get(iso)
+        if not iso or iso < today_iso or not page_time:
+            continue
+        current = meeting.get("time")
+        page_start = _start_of(page_time)
+
+        if meeting.get("timeChanged") and _start_of(current) != page_start:
+            continue    # a notice changed it and the page has not caught up
+
+        # A page entry with only a start time never replaces a stored range
+        # that starts at the same time; the stored end time is still right.
+        same_start = _start_of(current) == page_start
+        if (same_start and "\u2013" not in page_time
+                and current and "\u2013" in current):
+            page_time = current
+
+        if current != page_time:
+            meeting["time"] = page_time
+            notes.append(f"TIME FROM CITY PAGE: {board['abbr']} {iso} "
+                         f"{current} -> {page_time}")
+
+        if (usual_start and page_start != usual_start
+                and not meeting.get("timeChanged")):
+            meeting["timeChanged"] = True
+            meeting.setdefault("previousTime", usual_time)
+            notes.append(f"TIME CHANGE FOUND ON CITY PAGE: {board['abbr']} {iso} "
+                         f"is at {page_time}, usually {usual_time}")
+    return notes
+
+
+def verify_past_meetings(boards_to_run: list, calendar: dict | None = None) -> list:
+    """Check meetings against the "When" list on each board's city page.
+
+    Past meetings:
+    - A hidden meeting whose date has passed comes back into the archive:
+      as held if the page lists it, as cancelled if it does not.
+    - An archived meeting with no documents and no recording that the page
+      does not list is marked cancelled.
+    - A meeting this check cancelled is uncancelled if the page lists it
+      after all.
+    Upcoming meetings get the exact time the page lists for their date.
+
+    Safeguards: nothing older than the earliest date on the page is judged; a
+    date the city calendar API still lists is never cancelled here; a page
+    that lists too few of a board's known meetings is not trusted; and a run
+    that would cancel too many meetings for one board cancels none.
+    """
+    print(f"\n{'='*60}\n  Checking meetings against board pages\n{'='*60}")
+    today_iso = date.today().isoformat()
+    api_by_board = (calendar or {}).get("meetings", {})
+    api_start = (calendar or {}).get("window_start") or today_iso
+    notes: list[str] = []
+
+    for board in boards_to_run:
+        url = board.get("web_url")
+        if not url:
+            continue
+        html = _fetch_board_page(url)
+        if not html:
+            continue
+        times = _page_event_times(html)
+        listed = set(times)
+        past_listed = sorted(d for d in listed if d < today_iso)
+
+        data = _read_board_file(board)
+        if not data:
+            continue
+        changed = False
+
+        time_notes = _apply_page_times(board, data, times)
+        if time_notes:
+            changed = True
+            for n in time_notes:
+                print(f"  {n}")
+            notes.extend(time_notes)
+
+        if not past_listed:
+            if changed:
+                _write_output(board, data)
+            continue   # page shows no history; nothing to judge against
+        earliest = past_listed[0]
+
+        archive = data.setdefault("meetings", [])
+        api_dates = set(api_by_board.get(board["key"], {}))
+
+        def on_api(iso: str) -> bool:
+            return iso >= api_start and iso in api_dates
+
+        def in_range(iso: str | None) -> bool:
+            return bool(iso) and earliest <= iso < today_iso
+
+        # --- Is the page trustworthy this run? -----------------------------
+        # Two checks. The page should list most meetings with minutes or a
+        # recording, and it should not leave most of the site's past meetings
+        # unexplained. A page that loads half-broken fails one or both.
+        in_window = [m for m in archive
+                     if in_range(m.get("date")) and not m.get("isCancelled")]
+        documented = [m["date"] for m in in_window
+                      if m.get("minutes_url") or m.get("youtube_id")]
+        explained = [m for m in in_window
+                     if m["date"] in listed or on_api(m["date"])
+                     or _has_proof_it_happened(m)]
+        problem = None
+        if len(documented) >= 4:
+            share = sum(1 for d in documented if d in listed) / len(documented)
+            if share < MIN_PAGE_COVERAGE:
+                problem = (f"lists only {share:.0%} of meetings known to have "
+                           f"happened")
+        if problem is None and len(in_window) >= 3:
+            share = len(explained) / len(in_window)
+            if share < MIN_PAGE_COVERAGE:
+                problem = (f"would leave {len(in_window) - len(explained)} of "
+                           f"{len(in_window)} past meetings unexplained")
+        if problem:
+            msg = (f"PAGE NOT TRUSTED: {board['abbr']} page {problem}. "
+                   f"Past meetings were not checked this run. {url}")
+            print(f"  WARNING: {msg}")
+            notes.append(msg)
+            if changed:
+                _write_output(board, data)
+            continue
+
+        # --- Plan every change before making any ---------------------------
+        unhide: list[tuple[dict, bool]] = []      # (removed entry, was held)
+        for entry in data.get("removed_meetings", []):
+            iso = entry.get("date")
+            if not in_range(iso) or entry.get("movedTo"):
+                continue
+            held = (iso in listed or on_api(iso)
+                    or _has_proof_it_happened(entry.get("record") or {}))
+            unhide.append((entry, held))
+
+        to_cancel: list[dict] = []
+        to_uncancel: list[dict] = []
+        for record in archive:
+            iso = record.get("date")
+            if not in_range(iso):
+                continue
+            held = iso in listed or on_api(iso) or _has_proof_it_happened(record)
+            if record.get("cancelNote"):
+                if held:
+                    to_uncancel.append(record)
+            elif not record.get("isCancelled") and not held:
+                to_cancel.append(record)
+
+        cancels = len(to_cancel) + sum(1 for _, held in unhide if not held)
+        if cancels > MAX_CANCELS_PER_BOARD:
+            msg = (f"TOO MANY CANCELLATIONS: {board['abbr']} would cancel "
+                   f"{cancels} past meetings in one run. Nothing was cancelled; "
+                   f"check the page by hand: {url}")
+            print(f"  WARNING: {msg}")
+            notes.append(msg)
+            to_cancel = []
+            unhide = [(e, held) for e, held in unhide if held]
+
+        # --- A cancelled-looking record that is really a silent move -------
+        # A page-listed meeting close by, already archived, with nothing
+        # pointing at it yet, is where this meeting went.
+        moved: list[tuple[dict, dict]] = []
+        for record in list(to_cancel):
+            iso = record["date"]
+            near = [m for m in archive
+                    if m is not record and m.get("date") in listed
+                    and not m.get("isCancelled") and not m.get("rescheduledFrom")
+                    and _days_apart(m["date"], iso) <= SILENT_RESCHEDULE_DAYS]
+            if len(near) == 1:
+                moved.append((record, near[0]))
+                to_cancel.remove(record)
+
+        # --- Apply ---------------------------------------------------------
+        for entry, held in unhide:
+            iso = entry["date"]
+            data["removed_meetings"].remove(entry)
+            changed = True
+            if any(m.get("date") == iso for m in archive):
+                continue
+            original = entry.get("record") or {}
+            record = {k: original[k] for k in _ARCHIVE_FIELDS if k in original}
+            record["date"] = iso
+            record.setdefault("display", entry.get("display")
+                              or format_display_date_long(iso))
+            if held:
+                record.pop("isCancelled", None)
+                record.pop("cancelNote", None)
+                if not _has_proof_it_happened(record):
+                    record["link_label"] = "No documents posted"
+                msg = f"UNHIDDEN: {board['abbr']} {iso} was held (on the city page)"
+            else:
+                record["isCancelled"] = True
+                record["cancelNote"]  = CANCEL_NOTE
+                record["link_label"]  = "Cancelled"
+                msg = (f"UNHIDDEN AS CANCELLED: {board['abbr']} {iso} has passed "
+                       f"and is not on the city's past meeting list")
+            archive.append(record)
+            print(f"  {msg}")
+            notes.append(msg)
+
+        for record in to_uncancel:
+            record.pop("isCancelled", None)
+            record.pop("cancelNote", None)
+            if not _has_proof_it_happened(record):
+                record["link_label"] = "No documents posted"
+            changed = True
+            msg = (f"UNCANCELLED: {board['abbr']} {record['date']} now appears "
+                   f"as held")
+            print(f"  {msg}")
+            notes.append(msg)
+
+        for record in to_cancel:
+            record["isCancelled"] = True
+            record["cancelNote"]  = CANCEL_NOTE
+            record["link_label"]  = "Cancelled"
+            changed = True
+            msg = (f"MARKED CANCELLED: {board['abbr']} {record['date']} has no "
+                   f"documents and is not on the city's past meeting list")
+            print(f"  {msg}")
+            notes.append(msg)
+
+        for old, new in moved:
+            archive.remove(old)
+            _move_to_removed(
+                data, old, "archive",
+                f"Moved to {new['date']} with no notice; the city page lists "
+                f"that date instead.",
+                moved_to=new["date"],
+            )
+            new["rescheduledFrom"] = old["date"]
+            changed = True
+            msg = (f"MOVED WITHOUT NOTICE: {board['abbr']} {old['date']} -> "
+                   f"{new['date']}. Shown as rescheduled.")
+            print(f"  {msg}")
+            notes.append(msg)
+
+        if changed:
+            archive.sort(key=lambda m: m.get("date", ""), reverse=True)
+            _write_output(board, data)
+
+    if not notes:
+        print("  Every meeting matches the board pages.")
     return notes
 
 
@@ -2884,6 +3583,27 @@ def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
         ours = {m["date"]: m for m in upcoming}
         changed = False
 
+        # --- Restore: a removed meeting is back on the city calendar ---------
+        for iso in sorted(api_meetings):
+            if iso < today_iso or iso in ours:
+                continue
+            entry = _take_from_removed(data, iso)
+            if not entry:
+                continue
+            record = entry.get("record") or {
+                "date": iso, "display": format_display_date_long(iso),
+            }
+            record.pop("notOnCityCalendar", None)
+            upcoming.append(record)
+            ours[iso] = record
+            changed = True
+            msg = (f"RESTORED: {board['abbr']} {iso} is back on the city "
+                   f"calendar and shows on the site again")
+            print(f"  {msg}")
+            discrepancies.append(msg)
+
+        added_this_run: set[str] = set()
+
         # --- Case 1: API has it, we do not -> add ---------------------------
         for iso, info in sorted(api_meetings.items()):
             if iso < today_iso:
@@ -2897,6 +3617,7 @@ def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
             }
             upcoming.append(entry)
             ours[iso] = entry
+            added_this_run.add(iso)
             changed = True
             added += 1
             msg = f"ADDED from city calendar: {board['abbr']} {iso} {info['time']}"
@@ -2908,6 +3629,10 @@ def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
             if iso < today_iso or iso not in ours:
                 continue
             existing = ours[iso]
+            # A time the city announced in a notice is newer than its own
+            # calendar, which is often not updated. Leave it alone.
+            if existing.get("timeChanged"):
+                continue
             # Only correct when our stored time is a plain start time that
             # disagrees. Ranges like "5:30 PM - 7:30 PM" carry an end time the
             # API does not provide, so do not overwrite those with a bare time.
@@ -2933,7 +3658,62 @@ def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
                     continue
                 if meeting.get("isCancelled"):
                     continue  # Case 2: expected, already marked
-                # Case 3: unexplained disappearance. Keep it, flag it.
+                # Case 3a: moved without a notice. A new date appeared on the
+                # city calendar close to this one, so the meeting moved there.
+                # Treated like a notice reschedule: the old date comes off the
+                # site and the new one says where it moved from.
+                nearby = [
+                    d for d in added_this_run
+                    if d != iso and _days_apart(d, iso) <= SILENT_RESCHEDULE_DAYS
+                    and not ours[d].get("rescheduledFrom")
+                ]
+                if len(nearby) == 1 and not _notice_backed(meeting):
+                    new_iso = nearby[0]
+                    upcoming.remove(meeting)
+                    _move_to_removed(
+                        data, meeting, "upcoming",
+                        f"Moved to {new_iso} on the city calendar with no notice.",
+                        moved_to=new_iso,
+                    )
+                    ours[new_iso]["rescheduledFrom"] = iso
+                    changed = True
+                    flagged += 1
+                    msg = (f"MOVED WITHOUT NOTICE: {board['abbr']} {iso} -> "
+                           f"{new_iso}. Shown as rescheduled.")
+                    print(f"  {msg}")
+                    discrepancies.append(msg)
+                    continue
+                # Case 3b: the city still lists a LATER meeting for this
+                # board, so its calendar is current and this one was dropped.
+                # Hide it from the site; keep the record in the file. Never
+                # for a meeting a notice announced: the notice is evidence.
+                if (any(d > iso for d in api_meetings)
+                        and not _notice_backed(meeting)):
+                    upcoming.remove(meeting)
+                    _move_to_removed(
+                        data, meeting, "upcoming",
+                        "Missing from the city calendar while a later meeting "
+                        "is still listed; no notice explains it.",
+                    )
+                    changed = True
+                    flagged += 1
+                    msg = (f"HIDDEN: {board['abbr']} {iso} was removed from the "
+                           f"city calendar. Kept in removed_meetings, not shown "
+                           f"on the site.")
+                    print(f"  {msg}")
+                    discrepancies.append(msg)
+                    continue
+                # A meeting a notice announced stays as it is. The city often
+                # never adds special meetings to its calendar, and the notice
+                # already explains the meeting.
+                if _notice_backed(meeting):
+                    if meeting.pop("notOnCityCalendar", None):
+                        changed = True
+                    print(f"  NOTE: {board['abbr']} {iso} is not on the city "
+                          f"calendar but a notice announced it; left as is.")
+                    continue
+                # Case 3c: unexplained disappearance with nothing later on the
+                # city calendar to compare against. Keep it, flag it.
                 if not meeting.get("notOnCityCalendar"):
                     meeting["notOnCityCalendar"] = True
                     changed = True
@@ -2944,7 +3724,10 @@ def reconcile_with_city_calendar(boards_to_run: list, calendar: dict) -> list:
                 discrepancies.append(msg)
 
         # Clear the flag if a previously-missing meeting reappears.
+        still_listed = {m.get("date") for m in upcoming}
         for iso, meeting in ours.items():
+            if iso not in still_listed:
+                continue
             if iso in api_meetings and meeting.get("notOnCityCalendar"):
                 del meeting["notOnCityCalendar"]
                 changed = True
@@ -2976,6 +3759,7 @@ def run_web_docs_and_youtube_board(
 
     print("  Step 3: Merging...")
     existing = load_existing(board["output"])
+    scraped_meetings = _filter_removed(board, scraped_meetings)
     merged_meetings, stats = merge_meetings(existing.get("meetings", []), scraped_meetings)
     print(f"    added: {stats['added']}  updated: {stats['updated']}  unchanged: {stats['unchanged']}")
     merged_recordings = merge_recordings(existing.get("recordings", []), recordings)
@@ -3094,7 +3878,10 @@ def run_web_scrape_board(board: dict, dom_alerts: list) -> None:
         RETIRED_MEETINGS.setdefault(board["abbr"], []).extend(retired)
     upcoming = merge_upcoming(board, upcoming, stored_upcoming)
     existing_dates    = {m.get("date") for m in existing_meetings}
-    new_past          = [m for m in past_scraped if m["date"] not in existing_dates]
+    removed_dates     = _removed_dates(board)
+    new_past          = [m for m in past_scraped
+                         if m["date"] not in existing_dates
+                         and m["date"] not in removed_dates]
     if new_past:
         print(f"    Adding {len(new_past)} new past meeting(s) to archive")
     merged_meetings = sorted(
@@ -3186,6 +3973,7 @@ def run_board(
 
     print("  Step 3: Merging...")
     existing = load_existing(board["output"])
+    scraped = _filter_removed(board, scraped)
     merged_meetings, stats = merge_meetings(existing.get("meetings", []), scraped)
     print(f"    added: {stats['added']}  updated: {stats['updated']}  unchanged: {stats['unchanged']}")
 
@@ -3222,6 +4010,15 @@ def run_board(
 
 
 def _write_output(board: dict, payload: dict) -> None:
+    # The per-board runners build their output from scratch and do not know
+    # about removed_meetings. Carry it over from the file so it is never lost.
+    if "removed_meetings" not in payload:
+        previous = _read_board_file(board).get("removed_meetings")
+        if previous:
+            payload["removed_meetings"] = previous
+    elif not payload["removed_meetings"]:
+        del payload["removed_meetings"]
+
     board["output"].parent.mkdir(parents=True, exist_ok=True)
     with board["output"].open("w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
@@ -3469,6 +4266,7 @@ def main() -> None:
     # Cross-check every board against the city's own calendar API. This runs
     # last so it sees the result of both scraping and notice application.
     calendar_discrepancies: list = []
+    city_calendar: dict | None = None
     try:
         city_calendar = fetch_city_calendar(lookback=max(0, args.backfill_months))
         if city_calendar.get("meetings"):
@@ -3486,6 +4284,21 @@ def main() -> None:
         tb = traceback.format_exc()
         print(f"  WARNING: calendar reconciliation failed:\n{tb}")
         dom_alerts.append(f"Calendar reconciliation raised an exception:\n{tb}")
+
+    # Past meetings are checked against each board's own page. This runs even
+    # if the calendar API failed; it only uses the API as an extra safeguard.
+    try:
+        calendar_discrepancies.extend(
+            verify_past_meetings(
+                boards_to_run,
+                city_calendar if city_calendar and not city_calendar.get("failed")
+                else None,
+            )
+        )
+    except Exception:
+        tb = traceback.format_exc()
+        print(f"  WARNING: past meeting check failed:\n{tb}")
+        dom_alerts.append(f"Past meeting check raised an exception:\n{tb}")
 
     # Watchdog + state snapshot (full runs only)
     if not single_board:
