@@ -54,16 +54,15 @@
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "06:00 PM – 07:00 PM",
-      "location": "5:00 p.m",
+      "time": "05:00 PM – 06:00 PM",
+      "location": "Northside Association for Community Development, 612 N Park St",
       "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board",
-      "locationChanged": true
+      "name": "Northside Cultural Business District Authority Board"
     },
     {
       "date": "2026-09-21",
       "display": "Monday, September 21, 2026",
-      "time": "08:00 AM – 09:00 AM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -71,7 +70,7 @@
     {
       "date": "2026-09-21",
       "display": "Monday, September 21, 2026",
-      "time": "08:00 AM – 09:00 AM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
@@ -151,7 +150,7 @@
     {
       "date": "2026-10-14",
       "display": "Wednesday, October 14, 2026",
-      "time": "05:00 PM – 07:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -189,18 +188,9 @@
       "name": "Building Board of Appeals"
     },
     {
-      "date": "2026-10-15",
-      "display": "Thursday, October 15, 2026",
-      "time": "06:00 PM – 07:00 PM",
-      "location": "Northside Association for Community Development, 612 N Park St",
-      "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board",
-      "notOnCityCalendar": true
-    },
-    {
       "date": "2026-10-19",
       "display": "Monday, October 19, 2026",
-      "time": "08:00 AM – 09:00 AM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -208,7 +198,7 @@
     {
       "date": "2026-10-19",
       "display": "Monday, October 19, 2026",
-      "time": "08:00 AM – 09:00 AM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
@@ -280,7 +270,7 @@
     {
       "date": "2026-11-11",
       "display": "Wednesday, November 11, 2026",
-      "time": "05:00 PM – 07:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -296,7 +286,7 @@
     {
       "date": "2026-11-16",
       "display": "Monday, November 16, 2026",
-      "time": "08:00 AM – 09:00 AM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -304,7 +294,7 @@
     {
       "date": "2026-11-16",
       "display": "Monday, November 16, 2026",
-      "time": "08:00 AM – 09:00 AM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
@@ -366,15 +356,6 @@
       "name": "Community Development Act Advisory Committee"
     },
     {
-      "date": "2026-11-19",
-      "display": "Thursday, November 19, 2026",
-      "time": "06:00 PM – 07:00 PM",
-      "location": "Northside Association for Community Development, 612 N Park St",
-      "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board",
-      "notOnCityCalendar": true
-    },
-    {
       "date": "2026-11-24",
       "display": "Tuesday, November 24, 2026",
       "time": "04:00 PM – 06:00 PM",
@@ -433,7 +414,7 @@
     {
       "date": "2026-12-09",
       "display": "Wednesday, December 9, 2026",
-      "time": "05:00 PM – 07:00 PM",
+      "time": "06:00 PM – 08:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
       "name": "Historic Preservation Commission"
@@ -521,7 +502,7 @@
     {
       "date": "2026-12-21",
       "display": "Monday, December 21, 2026",
-      "time": "08:00 AM – 09:00 AM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DDA",
       "name": "Downtown Development Authority Board"
@@ -529,7 +510,7 @@
     {
       "date": "2026-12-21",
       "display": "Monday, December 21, 2026",
-      "time": "08:00 AM – 09:00 AM",
+      "time": "03:00 PM – 05:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "DEGA",
       "name": "Downtown Economic Growth Authority Board"
