@@ -5,7 +5,7 @@
       "date": "2026-08-04",
       "display": "Tuesday, August 4, 2026",
       "time": "2:00 PM – 4:00 PM",
-      "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
+      "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge",
       "abbr": "TRE",
       "name": "Tree Committee"
     },
@@ -108,7 +108,7 @@
       "date": "2026-08-18",
       "display": "Tuesday, August 18, 2026",
       "time": "5:00 PM – 7:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2742/files/agenda/5312"
@@ -117,7 +117,7 @@
       "date": "2026-08-19",
       "display": "Wednesday, August 19, 2026",
       "time": "4:30 PM – 6:30 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee",
       "youtube_url": "https://www.youtube.com/watch?v=Xe4S46M-Q0E",
@@ -153,7 +153,7 @@
       "date": "2026-08-20",
       "display": "Thursday, August 20, 2026",
       "time": "4:00 PM – 6:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -170,7 +170,7 @@
       "date": "2026-08-25",
       "display": "Tuesday, August 25, 2026",
       "time": "4:00 PM – 6:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, Commission Chambers, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board",
       "isCancelled": true
@@ -179,7 +179,7 @@
       "date": "2026-08-26",
       "display": "Wednesday, August 26, 2026",
       "time": "11:00 AM – 12:00 PM",
-      "location": "W.E. Upjohn Institute, 300 S Westnedge Ave",
+      "location": "W.E. Upjohn, 300 South Westnedge Ave",
       "abbr": "RIC",
       "name": "Investment Committee of the Retirement System"
     },
@@ -204,7 +204,7 @@
       "date": "2026-09-01",
       "display": "Tuesday, September 1, 2026",
       "time": "2:00 PM – 4:00 PM",
-      "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
+      "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge",
       "abbr": "TRE",
       "name": "Tree Committee"
     },
@@ -221,7 +221,7 @@
       "date": "2026-09-02",
       "display": "Wednesday, September 2, 2026",
       "time": "5:00 PM – 7:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission",
       "youtube_url": "https://www.youtube.com/watch?v=7RxSlW3bqZQ",
@@ -303,7 +303,7 @@
       "date": "2026-09-15",
       "display": "Tuesday, September 15, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
     },
@@ -311,7 +311,7 @@
       "date": "2026-09-16",
       "display": "Wednesday, September 16, 2026",
       "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
     },
@@ -345,7 +345,7 @@
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -385,7 +385,7 @@
       "date": "2026-09-29",
       "display": "Tuesday, September 29, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, Commission Chambers, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
@@ -409,7 +409,7 @@
       "date": "2026-10-06",
       "display": "Tuesday, October 6, 2026",
       "time": "02:00 PM – 04:00 PM",
-      "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
+      "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge",
       "abbr": "TRE",
       "name": "Tree Committee"
     },
@@ -457,7 +457,7 @@
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "Meetings are held at the City's CPED Offices, Main Conference Room, unless otherwise noted., Community Planning & Economic Development Offices, 245 N Rose St Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority Board"
     },
@@ -465,7 +465,7 @@
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "Meetings are held at the City's CPED Offices, Main Conference Room, unless otherwise noted., Community Planning & Economic Development Offices, 245 N Rose St Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation Board"
     },
@@ -481,7 +481,7 @@
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -505,7 +505,7 @@
       "date": "2026-10-20",
       "display": "Tuesday, October 20, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
     },
@@ -513,7 +513,7 @@
       "date": "2026-10-21",
       "display": "Wednesday, October 21, 2026",
       "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
     },
@@ -529,7 +529,7 @@
       "date": "2026-10-27",
       "display": "Tuesday, October 27, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, Commission Chambers, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
@@ -537,7 +537,7 @@
       "date": "2026-11-03",
       "display": "Tuesday, November 3, 2026",
       "time": "02:00 PM – 04:00 PM",
-      "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
+      "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge",
       "abbr": "TRE",
       "name": "Tree Committee"
     },
@@ -601,7 +601,7 @@
       "date": "2026-11-17",
       "display": "Tuesday, November 17, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
     },
@@ -609,7 +609,7 @@
       "date": "2026-11-18",
       "display": "Wednesday, November 18, 2026",
       "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
     },
@@ -617,7 +617,7 @@
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "Meetings are held at the City's CPED Offices, Main Conference Room, unless otherwise noted., Community Planning & Economic Development Offices, 245 N Rose St Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority Board"
     },
@@ -625,7 +625,7 @@
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "Meetings are held at the City's CPED Offices, Main Conference Room, unless otherwise noted., Community Planning & Economic Development Offices, 245 N Rose St Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation Board"
     },
@@ -641,7 +641,7 @@
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -657,7 +657,7 @@
       "date": "2026-11-24",
       "display": "Tuesday, November 24, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, Commission Chambers, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
@@ -665,7 +665,7 @@
       "date": "2026-12-01",
       "display": "Tuesday, December 1, 2026",
       "time": "02:00 PM – 04:00 PM",
-      "location": "Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
+      "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge",
       "abbr": "TRE",
       "name": "Tree Committee"
     },
@@ -681,7 +681,7 @@
       "date": "2026-12-02",
       "display": "Wednesday, December 2, 2026",
       "time": "11:00 AM – 12:00 PM",
-      "location": "W.E. Upjohn Institute, 300 S Westnedge Ave",
+      "location": "W.E. Upjohn, 300 South Westnedge Ave",
       "abbr": "RIC",
       "name": "Investment Committee of the Retirement System"
     },
@@ -737,7 +737,7 @@
       "date": "2026-12-15",
       "display": "Tuesday, December 15, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "HDC",
       "name": "Historic District Commission"
     },
@@ -745,7 +745,7 @@
       "date": "2026-12-16",
       "display": "Wednesday, December 16, 2026",
       "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall Second Floor, City Commission Chambers, 241 W South St",
       "abbr": "ECC",
       "name": "Environmental Concerns Committee"
     },
@@ -753,7 +753,7 @@
       "date": "2026-12-17",
       "display": "Thursday, December 17, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "Meetings are held at the City's CPED Offices, Main Conference Room, unless otherwise noted., Community Planning & Economic Development Offices, 245 N Rose St Suite 100",
       "abbr": "BRA",
       "name": "Brownfield Redevelopment Authority Board"
     },
@@ -761,7 +761,7 @@
       "date": "2026-12-17",
       "display": "Thursday, December 17, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "CPED Main Conference Room, 245 N Rose St, Suite 100",
+      "location": "Meetings are held at the City's CPED Offices, Main Conference Room, unless otherwise noted., Community Planning & Economic Development Offices, 245 N Rose St Suite 100",
       "abbr": "EDC",
       "name": "Economic Development Corporation Board"
     },
@@ -777,7 +777,7 @@
       "date": "2026-12-17",
       "display": "Thursday, December 17, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, 241 W South St",
       "abbr": "BBA",
       "name": "Building Board of Appeals"
     },
@@ -793,7 +793,7 @@
       "date": "2026-12-18",
       "display": "Friday, December 18, 2026",
       "time": "04:00 PM – 06:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "City Hall, Commission Chambers, 241 W South St",
       "abbr": "NFP",
       "name": "Natural Features Protection Review Board"
     },
@@ -843,8 +843,7 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board",
-      "notOnCityCalendar": true
+      "name": "Citizens Public Safety Review and Appeal Board"
     },
     {
       "date": "2027-03-09",

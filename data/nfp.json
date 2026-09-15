@@ -2,7 +2,7 @@
   "last_updated": "2026-09-15",
   "metadata": {
     "time": "04:00 PM – 06:00 PM",
-    "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
+    "location": "City Hall, Commission Chambers, 241 W South St"
   },
   "upcoming_meetings": [
     {
@@ -85,18 +85,6 @@
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2726/overview",
       "scrapedAt": "2026-07-18T18:22:31.689827+00:00",
       "meeting_type": "Natural Features Protection Review Board - CANCELLED"
-    },
-    {
-      "date": "2026-05-26",
-      "display": "Tuesday, May 26, 2026",
-      "minutes_url": null,
-      "agenda_url": null,
-      "location": null,
-      "scrapedAt": "2026-09-02T01:33:17.227620+00:00",
-      "sourceUrl": null,
-      "link_label": "Cancelled",
-      "isCancelled": true,
-      "cancelNote": "Not on the city's list of past meeting dates"
     },
     {
       "date": "2026-05-07",
@@ -743,6 +731,28 @@
       "youtube_id": "8zfBjbRSDrE",
       "youtube_url": "https://www.youtube.com/watch?v=8zfBjbRSDrE",
       "title": "Natural Features Protection (NFP) Review Board, September 29, 2020"
+    }
+  ],
+  "removed_meetings": [
+    {
+      "date": "2026-05-26",
+      "display": "Tuesday, May 26, 2026",
+      "from": "archive",
+      "removedOn": "2026-09-15",
+      "reason": "Same meeting as the cancelled one on 2026-05-27; filed under two dates.",
+      "record": {
+        "date": "2026-05-26",
+        "display": "Tuesday, May 26, 2026",
+        "minutes_url": null,
+        "agenda_url": null,
+        "location": null,
+        "scrapedAt": "2026-09-02T01:33:17.227620+00:00",
+        "sourceUrl": null,
+        "link_label": "Cancelled",
+        "isCancelled": true,
+        "cancelNote": "Not on the city's list of past meeting dates"
+      },
+      "movedTo": "2026-05-27"
     }
   ]
 }
