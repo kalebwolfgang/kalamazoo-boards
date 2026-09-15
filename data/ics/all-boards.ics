@@ -64,22 +64,22 @@ LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NCBDA-2026-09-17@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260917T180000
-DTEND;TZID=America/Detroit:20260917T190000
+DTSTART;TZID=America/Detroit:20260917T170000
+DTEND;TZID=America/Detroit:20260917T180000
 SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
-LOCATION:5:00 p.m
+LOCATION:Northside Association for Community Development, 612 N Park St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-09-21@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260921T080000
-DTEND;TZID=America/Detroit:20260921T090000
+DTSTART;TZID=America/Detroit:20260921T150000
+DTEND;TZID=America/Detroit:20260921T170000
 SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-09-21@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260921T080000
-DTEND;TZID=America/Detroit:20260921T090000
+DTSTART;TZID=America/Detroit:20260921T150000
+DTEND;TZID=America/Detroit:20260921T170000
 SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -148,8 +148,8 @@ LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-10-14@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261014T170000
-DTEND;TZID=America/Detroit:20261014T190000
+DTSTART;TZID=America/Detroit:20261014T180000
+DTEND;TZID=America/Detroit:20261014T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -182,23 +182,16 @@ SUMMARY:Building Board of Appeals — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
-UID:NCBDA-2026-10-15@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261015T180000
-DTEND;TZID=America/Detroit:20261015T190000
-SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
-LOCATION:Northside Association for Community Development, 612 N Park St
-END:VEVENT
-BEGIN:VEVENT
 UID:DDA-2026-10-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261019T080000
-DTEND;TZID=America/Detroit:20261019T090000
+DTSTART;TZID=America/Detroit:20261019T150000
+DTEND;TZID=America/Detroit:20261019T170000
 SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-10-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261019T080000
-DTEND;TZID=America/Detroit:20261019T090000
+DTSTART;TZID=America/Detroit:20261019T150000
+DTEND;TZID=America/Detroit:20261019T170000
 SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -260,8 +253,8 @@ LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-11-11@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261111T170000
-DTEND;TZID=America/Detroit:20261111T190000
+DTSTART;TZID=America/Detroit:20261111T180000
+DTEND;TZID=America/Detroit:20261111T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -274,15 +267,15 @@ LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-11-16@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261116T080000
-DTEND;TZID=America/Detroit:20261116T090000
+DTSTART;TZID=America/Detroit:20261116T150000
+DTEND;TZID=America/Detroit:20261116T170000
 SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-11-16@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261116T080000
-DTEND;TZID=America/Detroit:20261116T090000
+DTSTART;TZID=America/Detroit:20261116T150000
+DTEND;TZID=America/Detroit:20261116T170000
 SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -336,13 +329,6 @@ SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
 LOCATION:Community Room, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
-UID:NCBDA-2026-11-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261119T180000
-DTEND;TZID=America/Detroit:20261119T190000
-SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
-LOCATION:Northside Association for Community Development, 612 N Park St
-END:VEVENT
-BEGIN:VEVENT
 UID:NFP-2026-11-24@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261124T160000
 DTEND;TZID=America/Detroit:20261124T180000
@@ -393,8 +379,8 @@ LOCATION:Community Room, Mayors' Riverfront Park
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-12-09@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261209T170000
-DTEND;TZID=America/Detroit:20261209T190000
+DTSTART;TZID=America/Detroit:20261209T180000
+DTEND;TZID=America/Detroit:20261209T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
@@ -470,15 +456,15 @@ LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DDA-2026-12-21@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261221T080000
-DTEND;TZID=America/Detroit:20261221T090000
+DTSTART;TZID=America/Detroit:20261221T150000
+DTEND;TZID=America/Detroit:20261221T170000
 SUMMARY:Downtown Development Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:DEGA-2026-12-21@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261221T080000
-DTEND;TZID=America/Detroit:20261221T090000
+DTSTART;TZID=America/Detroit:20261221T150000
+DTEND;TZID=America/Detroit:20261221T170000
 SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT

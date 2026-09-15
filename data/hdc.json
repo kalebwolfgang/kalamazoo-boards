@@ -39,7 +39,9 @@
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2743/overview",
       "scrapedAt": "2026-09-15T07:06:05.640871+00:00",
-      "meeting_type": "Historic District Commission"
+      "meeting_type": "Historic District Commission",
+      "youtube_id": "maqlUcK6_4k",
+      "youtube_url": "https://www.youtube.com/watch?v=maqlUcK6_4k"
     },
     {
       "date": "2026-09-02",
@@ -595,6 +597,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-09-15",
+      "display": "September 15, 2026",
+      "youtube_id": "maqlUcK6_4k",
+      "youtube_url": "https://www.youtube.com/watch?v=maqlUcK6_4k",
+      "title": "September 15, 2026 Historic District Commission"
+    },
     {
       "date": "2026-09-02",
       "display": "September 2, 2026",

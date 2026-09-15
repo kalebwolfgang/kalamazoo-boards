@@ -12,9 +12,10 @@
       ],
       "actions": [
         {
-          "action": "location_change",
+          "action": "time_change",
           "date": "2026-09-17",
-          "location": "5:00 p.m"
+          "time": "5:00 PM",
+          "location": null
         }
       ]
     },

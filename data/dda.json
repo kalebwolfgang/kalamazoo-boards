@@ -8,22 +8,22 @@
     {
       "date": "2026-09-21",
       "display": "Monday, September 21, 2026",
-      "time": "08:00 AM – 09:00 AM"
+      "time": "03:00 PM – 05:00 PM"
     },
     {
       "date": "2026-10-19",
       "display": "Monday, October 19, 2026",
-      "time": "08:00 AM – 09:00 AM"
+      "time": "03:00 PM – 05:00 PM"
     },
     {
       "date": "2026-11-16",
       "display": "Monday, November 16, 2026",
-      "time": "08:00 AM – 09:00 AM"
+      "time": "03:00 PM – 05:00 PM"
     },
     {
       "date": "2026-12-21",
       "display": "Monday, December 21, 2026",
-      "time": "08:00 AM – 09:00 AM"
+      "time": "03:00 PM – 05:00 PM"
     }
   ],
   "meetings": [
@@ -61,16 +61,6 @@
       "link_label": "No documents posted"
     },
     {
-      "date": "2026-07-20",
-      "display": "Monday, July 20, 2026",
-      "minutes_url": null,
-      "agenda_url": null,
-      "location": null,
-      "scrapedAt": "2026-09-02T01:33:15.972883+00:00",
-      "sourceUrl": null,
-      "link_label": "No documents posted"
-    },
-    {
       "date": "2026-07-13",
       "display": "July 13, 2026",
       "event_id": 2666,
@@ -82,7 +72,8 @@
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2666/overview",
       "scrapedAt": "2026-07-13T16:38:01.487317+00:00",
-      "meeting_type": "Downtown Development Authority Board"
+      "meeting_type": "Downtown Development Authority Board",
+      "rescheduledFrom": "2026-07-20"
     },
     {
       "date": "2026-06-15",
@@ -99,16 +90,6 @@
       "meeting_type": "Downtown Development Authority Board"
     },
     {
-      "date": "2026-05-18",
-      "display": "Monday, May 18, 2026",
-      "minutes_url": null,
-      "agenda_url": null,
-      "location": null,
-      "scrapedAt": "2026-09-02T01:33:15.972858+00:00",
-      "sourceUrl": null,
-      "link_label": "No documents posted"
-    },
-    {
       "date": "2026-05-11",
       "display": "May 11, 2026",
       "event_id": 2664,
@@ -120,7 +101,8 @@
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2664/overview",
       "scrapedAt": null,
-      "meeting_type": "Downtown Development Authority Board"
+      "meeting_type": "Downtown Development Authority Board",
+      "rescheduledFrom": "2026-05-18"
     },
     {
       "date": "2026-04-20",
@@ -506,6 +488,44 @@
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/651/files/agenda/1830",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/651/files/agenda/1647",
       "isCancelled": false
+    }
+  ],
+  "removed_meetings": [
+    {
+      "date": "2026-05-18",
+      "display": "Monday, May 18, 2026",
+      "from": "archive",
+      "removedOn": "2026-09-15",
+      "reason": "Moved to 2026-05-11 with no notice; the city page lists that date instead.",
+      "record": {
+        "date": "2026-05-18",
+        "display": "Monday, May 18, 2026",
+        "minutes_url": null,
+        "agenda_url": null,
+        "location": null,
+        "scrapedAt": "2026-09-02T01:33:15.972858+00:00",
+        "sourceUrl": null,
+        "link_label": "No documents posted"
+      },
+      "movedTo": "2026-05-11"
+    },
+    {
+      "date": "2026-07-20",
+      "display": "Monday, July 20, 2026",
+      "from": "archive",
+      "removedOn": "2026-09-15",
+      "reason": "Moved to 2026-07-13 with no notice; the city page lists that date instead.",
+      "record": {
+        "date": "2026-07-20",
+        "display": "Monday, July 20, 2026",
+        "minutes_url": null,
+        "agenda_url": null,
+        "location": null,
+        "scrapedAt": "2026-09-02T01:33:15.972883+00:00",
+        "sourceUrl": null,
+        "link_label": "No documents posted"
+      },
+      "movedTo": "2026-07-13"
     }
   ]
 }

@@ -8,21 +8,9 @@
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
-      "time": "06:00 PM – 07:00 PM",
-      "location": "5:00 p.m",
-      "locationChanged": true
-    },
-    {
-      "date": "2026-10-15",
-      "display": "Thursday, October 15, 2026",
-      "time": "06:00 PM – 07:00 PM",
-      "notOnCityCalendar": true
-    },
-    {
-      "date": "2026-11-19",
-      "display": "Thursday, November 19, 2026",
-      "time": "06:00 PM – 07:00 PM",
-      "notOnCityCalendar": true
+      "time": "05:00 PM – 06:00 PM",
+      "previousTime": "06:00 PM – 07:00 PM",
+      "timeChanged": true
     },
     {
       "date": "2026-12-17",
@@ -36,28 +24,30 @@
       "display": "August 20, 2026",
       "event_id": 2717,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2717/overview",
-      "link_label": "Meeting Record",
-      "isCancelled": false,
+      "link_label": "Cancelled",
+      "isCancelled": true,
       "minutes_url": null,
       "agenda_url": null,
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2717/overview",
       "scrapedAt": "2026-08-21T14:40:43.744754+00:00",
-      "meeting_type": "Northside Cultural Business District Authority Board"
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelNote": "Not on the city's list of past meeting dates"
     },
     {
       "date": "2026-07-16",
       "display": "July 16, 2026",
       "event_id": 2716,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2716/overview",
-      "link_label": "Meeting Record",
-      "isCancelled": false,
+      "link_label": "Cancelled",
+      "isCancelled": true,
       "minutes_url": null,
       "agenda_url": null,
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2716/overview",
       "scrapedAt": "2026-07-18T18:22:56.742770+00:00",
-      "meeting_type": "Northside Cultural Business District Authority Board"
+      "meeting_type": "Northside Cultural Business District Authority Board",
+      "cancelNote": "Not on the city's list of past meeting dates"
     },
     {
       "date": "2026-06-18",
@@ -345,6 +335,32 @@
       "minutes_url": "https://kalamazoomi.portal.civicclerk.com/event/948/files/agenda/2774",
       "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/948/files/agenda/2533",
       "isCancelled": false
+    }
+  ],
+  "removed_meetings": [
+    {
+      "date": "2026-10-15",
+      "display": "Thursday, October 15, 2026",
+      "from": "upcoming",
+      "removedOn": "2026-09-15",
+      "reason": "Missing from the city calendar while a later meeting is still listed; no notice explains it.",
+      "record": {
+        "date": "2026-10-15",
+        "display": "Thursday, October 15, 2026",
+        "time": "06:00 PM – 07:00 PM"
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "display": "Thursday, November 19, 2026",
+      "from": "upcoming",
+      "removedOn": "2026-09-15",
+      "reason": "Missing from the city calendar while a later meeting is still listed; no notice explains it.",
+      "record": {
+        "date": "2026-11-19",
+        "display": "Thursday, November 19, 2026",
+        "time": "06:00 PM – 07:00 PM"
+      }
     }
   ]
 }

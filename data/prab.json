@@ -41,8 +41,10 @@
       "location": "Axtell Creek Park",
       "scrapedAt": "2026-09-02T01:33:17.466615+00:00",
       "sourceUrl": null,
-      "link_label": "No documents posted",
-      "rescheduledFrom": "2026-08-04"
+      "link_label": "Cancelled",
+      "rescheduledFrom": "2026-08-04",
+      "isCancelled": true,
+      "cancelNote": "Not on the city's list of past meeting dates"
     },
     {
       "date": "2026-07-07",

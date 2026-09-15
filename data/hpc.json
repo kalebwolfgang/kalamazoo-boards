@@ -8,17 +8,17 @@
     {
       "date": "2026-10-14",
       "display": "Wednesday, October 14, 2026",
-      "time": "05:00 PM – 07:00 PM"
+      "time": "06:00 PM – 08:00 PM"
     },
     {
       "date": "2026-11-11",
       "display": "Wednesday, November 11, 2026",
-      "time": "05:00 PM – 07:00 PM"
+      "time": "06:00 PM – 08:00 PM"
     },
     {
       "date": "2026-12-09",
       "display": "Wednesday, December 9, 2026",
-      "time": "05:00 PM – 07:00 PM"
+      "time": "06:00 PM – 08:00 PM"
     }
   ],
   "meetings": [
@@ -127,14 +127,15 @@
       "display": "April 8, 2026",
       "event_id": 2675,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2675/overview",
-      "link_label": "Meeting Record",
-      "isCancelled": false,
+      "link_label": "Cancelled",
+      "isCancelled": true,
       "minutes_url": null,
       "agenda_url": null,
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2675/overview",
       "scrapedAt": "2026-07-18T18:22:22.307404+00:00",
-      "meeting_type": "Historic Preservation Commission"
+      "meeting_type": "Historic Preservation Commission",
+      "cancelNote": "Not on the city's list of past meeting dates"
     },
     {
       "date": "2026-03-11",

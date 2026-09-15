@@ -32,14 +32,15 @@
       "display": "August 25, 2026",
       "event_id": 2729,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2729/overview",
-      "link_label": "Meeting Record",
-      "isCancelled": false,
+      "link_label": "Cancelled",
+      "isCancelled": true,
       "minutes_url": null,
       "agenda_url": null,
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2729/overview",
       "scrapedAt": "2026-08-26T14:49:59.309998+00:00",
-      "meeting_type": "Natural Features Protection Review Board"
+      "meeting_type": "Natural Features Protection Review Board",
+      "cancelNote": "Not on the city's list of past meeting dates"
     },
     {
       "date": "2026-07-28",
@@ -93,7 +94,9 @@
       "location": null,
       "scrapedAt": "2026-09-02T01:33:17.227620+00:00",
       "sourceUrl": null,
-      "link_label": "No documents posted"
+      "link_label": "Cancelled",
+      "isCancelled": true,
+      "cancelNote": "Not on the city's list of past meeting dates"
     },
     {
       "date": "2026-05-07",

@@ -22,22 +22,22 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:HPC-2026-10-14@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261014T170000
-DTEND;TZID=America/Detroit:20261014T190000
+DTSTART;TZID=America/Detroit:20261014T180000
+DTEND;TZID=America/Detroit:20261014T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-11-11@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261111T170000
-DTEND;TZID=America/Detroit:20261111T190000
+DTSTART;TZID=America/Detroit:20261111T180000
+DTEND;TZID=America/Detroit:20261111T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:HPC-2026-12-09@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261209T170000
-DTEND;TZID=America/Detroit:20261209T190000
+DTSTART;TZID=America/Detroit:20261209T180000
+DTEND;TZID=America/Detroit:20261209T200000
 SUMMARY:Historic Preservation Commission — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
