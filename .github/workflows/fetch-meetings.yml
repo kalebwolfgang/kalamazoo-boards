@@ -79,6 +79,11 @@ jobs:
 
           git commit -m "auto: scraper update $(date +'%Y-%m-%d')"
 
+          # build.py also rewrote the board pages, sitemap and API files. The
+          # Build workflow saves those, so this run drops its copies. Left in
+          # place, they block pulling in the latest version below.
+          git reset --hard HEAD
+
           # The Build workflow can save to the repo while this run is going.
           # Pull its changes in first, then push. If both touched the same
           # file, this run's fresher data wins. Tries three times.
