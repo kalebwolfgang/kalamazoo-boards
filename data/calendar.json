@@ -357,7 +357,9 @@
       "time": "05:00 PM – 06:00 PM",
       "location": "Northside Association for Community Development, 612 N Park St",
       "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board"
+      "name": "Northside Cultural Business District Authority Board",
+      "timeChanged": true,
+      "previousTime": "06:00 PM – 07:00 PM"
     },
     {
       "date": "2026-09-21",
