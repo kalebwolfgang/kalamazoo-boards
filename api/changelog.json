@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-15T23:12:23.796846+00:00",
-  "runId": "041e97af",
+  "timestamp": "2026-09-16T00:05:03.643327+00:00",
+  "runId": "1c0be9d9",
   "validationPassed": true,
   "changes": [
     {
@@ -40,13 +40,13 @@
     },
     {
       "board": "ecc",
-      "meetings": 25,
+      "meetings": 26,
       "upcoming": 4
     },
     {
       "board": "hdc",
       "meetings": 43,
-      "upcoming": 4
+      "upcoming": 3
     },
     {
       "board": "hpc",
