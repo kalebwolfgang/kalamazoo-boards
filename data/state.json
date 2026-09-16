@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-15T19:12:23.419590-04:00",
-  "totalMeetings": 598,
+  "timestamp": "2026-09-15T20:05:03.220227-04:00",
+  "totalMeetings": 599,
   "byBoard": {
     "crb": {
       "meetings": 26
@@ -24,7 +24,7 @@
       "meetings": 15
     },
     "ecc": {
-      "meetings": 25
+      "meetings": 26
     },
     "hdc": {
       "meetings": 43
