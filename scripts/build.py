@@ -307,6 +307,12 @@ def build_calendar_json() -> dict:
                 entry["notOnCityCalendar"] = True
             if meeting.get("rescheduledFrom"):
                 entry["rescheduledFrom"] = meeting["rescheduledFrom"]
+            # Same day, new start time. previousTime lets the calendar say
+            # what the time changed from.
+            if meeting.get("timeChanged"):
+                entry["timeChanged"] = True
+                if meeting.get("previousTime"):
+                    entry["previousTime"] = meeting["previousTime"]
             if meeting.get("agenda_url"):
                 entry["agenda_url"] = meeting["agenda_url"]
             all_meetings.append(entry)
