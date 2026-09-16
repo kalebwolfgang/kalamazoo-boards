@@ -531,13 +531,6 @@ body { font-size: 16px; }
   const DAYS_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const DAYS_LONG  = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-  /* "06:00 PM \u2013 07:00 PM" -> "6:00 PM" (start time only) */
-  function calFmtStartTime(t) {
-    if (!t) return '';
-    const m = String(t).match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
-    return m ? `${parseInt(m[1], 10)}:${m[2]} ${m[3].toUpperCase()}` : String(t);
-  }
-
   /* "2026-08-04" -> "Tuesday, August 4" */
   function calFmtLongDate(iso) {
     if (!iso) return '';
@@ -1005,7 +998,7 @@ body { font-size: 16px; }
         </div>` : ''}
         ${m.timeChanged && !m.isCancelled ? `<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:8px 12px;font-size:12px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          ${m.previousTime ? `Time changed from ${calFmtStartTime(m.previousTime)}` : 'Time changed'}
+          Time Changed
         </div>` : ''}
         ${m.notOnCityCalendar && !m.isCancelled ? `<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:8px 12px;font-size:12px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
