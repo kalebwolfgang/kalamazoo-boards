@@ -1019,6 +1019,13 @@ function fmtDate(iso) {
   return `${MONTHS_SHORT[+m - 1]} ${+d}, ${y}`;
 }
 
+/* "06:00 PM \u2013 07:00 PM" -> "6:00 PM" (start time only) */
+function fmtStartTime(t) {
+  if (!t) return '';
+  const m = String(t).match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+  return m ? `${parseInt(m[1], 10)}:${m[2]} ${m[3].toUpperCase()}` : String(t);
+}
+
 /* "2026-08-04" -> "Tuesday, August 4" */
 function fmtLongDate(iso) {
   if (!iso) return '';
@@ -1485,6 +1492,7 @@ function renderUpcomingMeetings(data) {
   const SVG_PIN_FILLED = `<svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>`;
   const SVG_CANCEL     = `<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>`;
   const SVG_STAR       = `<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+  const SVG_CLOCK      = `<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`;
   const SVG_PIN_BANNER = `<svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>`;
 
   const BANNER = (bg, border, color, icon, text) =>
@@ -1507,6 +1515,7 @@ function renderUpcomingMeetings(data) {
     const locChanged = m.isLocationChanged || m.locationChanged || false;
     const unverified = m.notOnCityCalendar || false;
     const movedFrom  = m.rescheduledFrom || null;
+    const timeMoved  = (m.timeChanged || false) && !cancelled;
     const loc        = m.location || scrapedLoc || (BOARD.meeting && BOARD.meeting.location) || '';
     const locIsTBD   = loc === 'Location TBD';
     const mapsUrl    = (loc && !locIsTBD)
@@ -1518,7 +1527,7 @@ function renderUpcomingMeetings(data) {
       <div class="meeting-item${cancelled ? ' meeting-canceled' : ''}">
         ${i === 0 ? '<span class="next-badge">Next</span>' : ''}
         <div class="meeting-date">${m.display || m.date}</div>
-        ${m.time ? `<div class="meeting-time">${m.time}</div>` : ''}
+        ${m.time ? `<div class="meeting-time"${timeMoved ? ' style="color:#92400e;font-weight:600"' : ''}>${timeMoved ? '<span style="display:block;font-size:11px;font-weight:600;margin-bottom:1px;">New meeting time:</span>' : ''}${m.time}</div>` : ''}
         ${loc ? `<div style="margin-top:6px">
           ${locChanged ? `<span style="display:block;font-size:11px;font-weight:600;color:#92400e;margin-bottom:2px;">New meeting location:</span>` : ''}
           ${locLinkable
@@ -1527,6 +1536,7 @@ function renderUpcomingMeetings(data) {
         </div>` : ''}
         ${cancelled  ? BANNER('#fee2e2','#fca5a5','#dc2626',SVG_CANCEL,'Meeting Cancelled') : ''}
         ${movedFrom && !cancelled ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CAL,'Rescheduled from ' + fmtLongDate(movedFrom)) : ''}
+        ${timeMoved ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CLOCK, m.previousTime ? 'Time changed from ' + fmtStartTime(m.previousTime) : 'Time changed') : ''}
         ${m.isSpecialSession ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_STAR,'Special Session') : ''}
         ${locChanged  ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_PIN_BANNER,'Location Changed') : ''}
         ${unverified && !cancelled ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CAL,'No Longer On City Calendar \u2014 Verifying') : ''}
