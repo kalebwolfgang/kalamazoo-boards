@@ -531,6 +531,13 @@ body { font-size: 16px; }
   const DAYS_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const DAYS_LONG  = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
+  /* "06:00 PM \u2013 07:00 PM" -> "6:00 PM" (start time only) */
+  function calFmtStartTime(t) {
+    if (!t) return '';
+    const m = String(t).match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+    return m ? `${parseInt(m[1], 10)}:${m[2]} ${m[3].toUpperCase()}` : String(t);
+  }
+
   /* "2026-08-04" -> "Tuesday, August 4" */
   function calFmtLongDate(iso) {
     if (!iso) return '';
@@ -629,6 +636,8 @@ body { font-size: 16px; }
           locationChanged: m.locationChanged || false,
           rescheduledFrom: m.rescheduledFrom || null,
           notOnCityCalendar: m.notOnCityCalendar || false,
+          timeChanged:     m.timeChanged     || false,
+          previousTime:    m.previousTime    || null,
         };
         if (!meetingsByDate[m.date]) meetingsByDate[m.date] = [];
         meetingsByDate[m.date].push(entry);
@@ -969,7 +978,7 @@ body { font-size: 16px; }
           <div class="modal-meeting-badge" style="background:${color}"><span>${m.abbr}</span></div>
           <div class="modal-meeting-info">
             <div class="modal-meeting-name">${m.name}</div>
-            ${m.time ? `<div class="modal-meeting-sub">${m.time}</div>` : ''}
+            ${m.time ? `<div class="modal-meeting-sub"${m.timeChanged && !m.isCancelled ? ' style="color:#92400e;font-weight:600;"' : ''}>${m.timeChanged && !m.isCancelled ? '<span style="display:block;font-size:11px;font-weight:600;margin-bottom:1px;">New meeting time:</span>' : ''}${m.time}</div>` : ''}
           </div>
         </div>
         <div class="modal-detail-row">
@@ -993,6 +1002,10 @@ body { font-size: 16px; }
         ${m.rescheduledFrom && !m.isCancelled ? `<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:8px 12px;font-size:12px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           Rescheduled from ${calFmtLongDate(m.rescheduledFrom)}
+        </div>` : ''}
+        ${m.timeChanged && !m.isCancelled ? `<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:8px 12px;font-size:12px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          ${m.previousTime ? `Time changed from ${calFmtStartTime(m.previousTime)}` : 'Time changed'}
         </div>` : ''}
         ${m.notOnCityCalendar && !m.isCancelled ? `<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:3px;padding:8px 12px;font-size:12px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px;">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
