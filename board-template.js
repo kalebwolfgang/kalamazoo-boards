@@ -1019,13 +1019,6 @@ function fmtDate(iso) {
   return `${MONTHS_SHORT[+m - 1]} ${+d}, ${y}`;
 }
 
-/* "06:00 PM \u2013 07:00 PM" -> "6:00 PM" (start time only) */
-function fmtStartTime(t) {
-  if (!t) return '';
-  const m = String(t).match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
-  return m ? `${parseInt(m[1], 10)}:${m[2]} ${m[3].toUpperCase()}` : String(t);
-}
-
 /* "2026-08-04" -> "Tuesday, August 4" */
 function fmtLongDate(iso) {
   if (!iso) return '';
@@ -1536,7 +1529,7 @@ function renderUpcomingMeetings(data) {
         </div>` : ''}
         ${cancelled  ? BANNER('#fee2e2','#fca5a5','#dc2626',SVG_CANCEL,'Meeting Cancelled') : ''}
         ${movedFrom && !cancelled ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CAL,'Rescheduled from ' + fmtLongDate(movedFrom)) : ''}
-        ${timeMoved ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CLOCK, m.previousTime ? 'Time changed from ' + fmtStartTime(m.previousTime) : 'Time changed') : ''}
+        ${timeMoved ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CLOCK,'Time Changed') : ''}
         ${m.isSpecialSession ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_STAR,'Special Session') : ''}
         ${locChanged  ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_PIN_BANNER,'Location Changed') : ''}
         ${unverified && !cancelled ? BANNER('#fef3c7','#fcd34d','#92400e',SVG_CAL,'No Longer On City Calendar \u2014 Verifying') : ''}
