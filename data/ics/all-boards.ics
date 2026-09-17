@@ -21,25 +21,18 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:ECC-2026-09-16@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260916T163000
-DTEND;TZID=America/Detroit:20260916T183000
-SUMMARY:Environmental Concerns Committee — City of Kalamazoo
-LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:BRA-2026-09-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260917T074500
 DTEND;TZID=America/Detroit:20260917T093000
 SUMMARY:Brownfield Redevelopment Authority Board — City of Kalamazoo
-LOCATION:Community Room at City Hall, 241 W. South Street
+LOCATION:Community Planning & Economic Development Offices, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:EDC-2026-09-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260917T074500
 DTEND;TZID=America/Detroit:20260917T093000
 SUMMARY:Economic Development Corporation Board — City of Kalamazoo
-LOCATION:Community Room at City Hall, 241 W. South Street
+LOCATION:Community Planning & Economic Development Offices, 245 N Rose St, Suite 100
 END:VEVENT
 BEGIN:VEVENT
 UID:KMGA-2026-09-17@kalamazoocity-boards
