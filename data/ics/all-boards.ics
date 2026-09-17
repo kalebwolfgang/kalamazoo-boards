@@ -78,6 +78,7 @@ LOCATION:Community Room, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:NFP-2026-09-29@kalamazoocity-boards
+STATUS:CANCELLED
 DTSTART;TZID=America/Detroit:20260929T160000
 DTEND;TZID=America/Detroit:20260929T180000
 SUMMARY:Natural Features Protection Review Board — City of Kalamazoo
