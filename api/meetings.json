@@ -73,7 +73,8 @@
       "time": "04:00 PM – 06:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "NFP",
-      "name": "Natural Features Protection Review Board"
+      "name": "Natural Features Protection Review Board",
+      "isCancelled": true
     },
     {
       "date": "2026-10-01",
