@@ -1,48 +1,6 @@
 {
-  "lastUpdated": "2026-09-17",
+  "lastUpdated": "2026-09-18",
   "meetings": [
-    {
-      "date": "2026-09-17",
-      "display": "Thursday, September 17, 2026",
-      "time": "07:45 AM – 09:30 AM",
-      "location": "Community Planning & Economic Development Offices, 245 N Rose St, Suite 100",
-      "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority Board"
-    },
-    {
-      "date": "2026-09-17",
-      "display": "Thursday, September 17, 2026",
-      "time": "07:45 AM – 09:30 AM",
-      "location": "Community Planning & Economic Development Offices, 245 N Rose St, Suite 100",
-      "abbr": "EDC",
-      "name": "Economic Development Corporation Board"
-    },
-    {
-      "date": "2026-09-17",
-      "display": "Thursday, September 17, 2026",
-      "time": "12:00 PM – 02:00 PM",
-      "location": "Milham Park Golf Club, Kalamazoo",
-      "abbr": "KMGA",
-      "name": "Kalamazoo Municipal Golf Association"
-    },
-    {
-      "date": "2026-09-17",
-      "display": "Thursday, September 17, 2026",
-      "time": "04:00 PM – 06:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "BBA",
-      "name": "Building Board of Appeals"
-    },
-    {
-      "date": "2026-09-17",
-      "display": "Thursday, September 17, 2026",
-      "time": "05:00 PM – 06:00 PM",
-      "location": "Northside Association for Community Development, 612 N Park St",
-      "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board",
-      "timeChanged": true,
-      "previousTime": "06:00 PM – 07:00 PM"
-    },
     {
       "date": "2026-09-21",
       "display": "Monday, September 21, 2026",
