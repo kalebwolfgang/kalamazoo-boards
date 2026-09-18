@@ -1,10 +1,26 @@
 {
-  "last_updated": "2026-09-17",
+  "last_updated": "2026-09-18",
   "notices": [
+    {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Building-Board-of-Appeals-September-Meeting-Cancelled",
+      "first_seen": "2026-09-18",
+      "last_seen": "2026-09-18",
+      "stillPosted": true,
+      "text": "Building Board of Appeals September Meeting Cancelled The meeting of the Building Board of Appeals scheduled for Thursday, September 17, 2026, at 4:00 p.m. in City Commission Chambers at City Hall, 241 W. South Street, has been CANCELLED due to the lack of agenda items.",
+      "boards": [
+        "BBA"
+      ],
+      "actions": [
+        {
+          "action": "cancelled",
+          "date": "2026-09-17"
+        }
+      ]
+    },
     {
       "url": "/Government/Boards-Commissions/Special-Meeting-Notices/NFP-Review-Board-September-29-Meeting-Cancelled",
       "first_seen": "2026-09-17",
-      "last_seen": "2026-09-17",
+      "last_seen": "2026-09-18",
       "stillPosted": true,
       "text": "NFP Review Board September 29 Meeting Cancelled The meeting of the Natural Features Protection Review Board scheduled for Tuesday, September 29, 2026 has been CANCELLED due to the lack of agenda items.",
       "boards": [
@@ -20,7 +36,7 @@
     {
       "url": "/Government/Boards-Commissions/Special-Meeting-Notices/NCBDA-Board-September-Meeting-Time-Changed",
       "first_seen": "2026-09-14",
-      "last_seen": "2026-09-17",
+      "last_seen": "2026-09-18",
       "stillPosted": true,
       "text": "NCBDA Board September Meeting Time Changed The meeting of the Northside Cultural Business District Authority Board scheduled for Thursday, September 17, 2026, has been RESCHEDULED to meet at 5:00 p.m.",
       "boards": [
@@ -38,7 +54,7 @@
     {
       "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Brownfield-Redevelopment-Authority-Board-September-Meeting-Moved",
       "first_seen": "2026-09-14",
-      "last_seen": "2026-09-17",
+      "last_seen": "2026-09-18",
       "stillPosted": true,
       "text": "Brownfield Redevelopment Authority Board September Meeting Moved The meeting of the Brownfield Redevelopment Authority Board scheduled for Thursday, September 17, 2026, at 7:45 a.m., has been MOVED to meet in the Community Room at City Hall, 241 W. South Street.",
       "boards": [

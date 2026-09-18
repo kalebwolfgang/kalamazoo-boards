@@ -21,41 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:BRA-2026-09-17@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260917T074500
-DTEND;TZID=America/Detroit:20260917T093000
-SUMMARY:Brownfield Redevelopment Authority Board — City of Kalamazoo
-LOCATION:Community Planning & Economic Development Offices, 245 N Rose St, Suite 100
-END:VEVENT
-BEGIN:VEVENT
-UID:EDC-2026-09-17@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260917T074500
-DTEND;TZID=America/Detroit:20260917T093000
-SUMMARY:Economic Development Corporation Board — City of Kalamazoo
-LOCATION:Community Planning & Economic Development Offices, 245 N Rose St, Suite 100
-END:VEVENT
-BEGIN:VEVENT
-UID:KMGA-2026-09-17@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260917T120000
-DTEND;TZID=America/Detroit:20260917T140000
-SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
-LOCATION:Milham Park Golf Club, Kalamazoo
-END:VEVENT
-BEGIN:VEVENT
-UID:BBA-2026-09-17@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260917T160000
-DTEND;TZID=America/Detroit:20260917T180000
-SUMMARY:Building Board of Appeals — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:NCBDA-2026-09-17@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20260917T170000
-DTEND;TZID=America/Detroit:20260917T180000
-SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
-LOCATION:Northside Association for Community Development, 612 N Park St
-END:VEVENT
-BEGIN:VEVENT
 UID:DDA-2026-09-21@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20260921T150000
 DTEND;TZID=America/Detroit:20260921T170000
