@@ -76,6 +76,26 @@ DETROIT_TZ              = ZoneInfo("America/Detroit")
 # a retirement is visible in the run output instead of happening silently.
 RETIRED_MEETINGS: dict[str, list[str]] = {}
 
+# ---------------------------------------------------------------------------
+# Being gentle on the city's servers
+#
+# HTTP is one shared connection used for every request in the run. Opening a
+# fresh connection for each request is extra work for the city's servers.
+#
+# POLITE_PAUSE_SECONDS is a short gap between requests that would otherwise
+# fire back to back at the same server (CivicClerk pages, calendar retries).
+#
+# A CivicClerk page that fails is retried on its own, up to
+# PAGE_RETRY_ATTEMPTS times with a growing wait, instead of starting the
+# whole download over at page 1.
+# ---------------------------------------------------------------------------
+
+HTTP = requests.Session()
+
+POLITE_PAUSE_SECONDS    = 0.5
+PAGE_RETRY_ATTEMPTS     = 4
+PAGE_RETRY_WAIT_SECONDS = 10
+
 
 # ---------------------------------------------------------------------------
 # Board configuration
@@ -621,7 +641,7 @@ def _post_calendar(guids: list[str], start: date, end: date) -> dict | None:
         "EndDate":      end.strftime("%Y-%m-%d"),
     }
     try:
-        r = requests.post(CITY_CALENDAR_API, json=body, timeout=30)
+        r = HTTP.post(CITY_CALENDAR_API, json=body, timeout=30)
         r.raise_for_status()
         payload = r.json()
     except Exception as exc:
@@ -666,14 +686,20 @@ def fetch_city_calendar(months: int = LOOKAHEAD_MONTHS,
     windows = _month_windows(first, months + lookback)
     failures = []
 
-    for start, end in windows:
+    for index, (start, end) in enumerate(windows):
+        # A short gap between months, so the requests do not arrive as a burst.
+        if index:
+            time.sleep(POLITE_PAUSE_SECONDS)
+
         payload = _post_calendar(all_guids, start, end)
 
         if payload is None:
-            # Retry board by board to isolate the failure.
+            # Retry board by board to isolate the failure. The server just
+            # struggled, so each retry waits a moment before going out.
             print(f"    {start:%Y-%m}: batch failed, retrying per board...")
             payload = {"data": []}
             for guid in all_guids:
+                time.sleep(POLITE_PAUSE_SECONDS)
                 single = _post_calendar([guid], start, end)
                 if single is None:
                     failures.append(f"{start:%Y-%m} guid {guid}")
@@ -923,24 +949,29 @@ def _extract_page_location(html_text: str) -> dict:
     return {"location": location} if location else {}
 
 
-_BOARD_PAGE_CACHE: dict[str, str | None] = {}
+_BOARD_PAGE_CACHE: dict[str, str] = {}
 
 
 def _fetch_board_page(url: str) -> str | None:
     """Fetch a city board page once per run and reuse it.
 
-    The metadata refresh reads every board page at the start of the run and
-    the past-meeting check reads them again at the end. One fetch serves both.
+    The metadata refresh reads every board page at the start of the run. The
+    web-scrape boards, the Election Commission and the past-meeting check all
+    read the same pages again later. One download serves all of them.
+
+    Only a successful download is kept. If a page failed, the next caller
+    tries again, so one bad moment early in the run is not repeated later.
     """
-    if url not in _BOARD_PAGE_CACHE:
-        try:
-            r = requests.get(url, timeout=30)
-            r.raise_for_status()
-            _BOARD_PAGE_CACHE[url] = r.text
-        except Exception as exc:
-            print(f"    WARNING: could not fetch {url}: {exc}")
-            _BOARD_PAGE_CACHE[url] = None
-    return _BOARD_PAGE_CACHE[url]
+    if url in _BOARD_PAGE_CACHE:
+        return _BOARD_PAGE_CACHE[url]
+    try:
+        r = HTTP.get(url, timeout=30)
+        r.raise_for_status()
+    except Exception as exc:
+        print(f"    WARNING: could not fetch {url}: {exc}")
+        return None
+    _BOARD_PAGE_CACHE[url] = r.text
+    return r.text
 
 
 def scrape_city_web_info(url: str) -> dict:
@@ -1156,16 +1187,66 @@ def build_cc_url(start_date: str, end_date: str) -> str:
     return base + query
 
 
+# The full CivicClerk event list is the same for every board, so it is
+# downloaded once per run and shared. Keyed by the request URL.
+_CC_EVENTS_CACHE: dict[str, list[dict]] = {}
+
+
+def _get_cc_page(url: str) -> dict:
+    """Download one CivicClerk page, retrying just that page if it fails.
+
+    A server error (5xx), a rate limit (429), a timeout or a dropped
+    connection is retried after a growing wait. Any other error, such as a
+    bad request, is raised straight away because waiting will not fix it.
+    """
+    for attempt in range(1, PAGE_RETRY_ATTEMPTS + 1):
+        try:
+            r = HTTP.get(url, timeout=30)
+            r.raise_for_status()
+            return r.json()
+        except requests.exceptions.HTTPError as exc:
+            status = exc.response.status_code if exc.response is not None else 0
+            if status < 500 and status != 429:
+                raise
+            error = exc
+        except (requests.exceptions.ConnectionError,
+                requests.exceptions.Timeout,
+                ValueError) as exc:
+            error = exc
+
+        if attempt == PAGE_RETRY_ATTEMPTS:
+            raise error
+        wait = PAGE_RETRY_WAIT_SECONDS * attempt
+        print(f"    [CivicClerk] page failed ({_short_error(str(error))}); "
+              f"retrying this page in {wait}s...")
+        time.sleep(wait)
+    raise RuntimeError("unreachable")
+
+
 def fetch_all_cc_events(url: str) -> list[dict]:
+    """Download every CivicClerk event in the window, once per run.
+
+    The first board to ask downloads the list; every later board reuses it.
+    A download that fails part way is not saved, so the next board or the
+    board's own retry starts fresh.
+    """
+    if url in _CC_EVENTS_CACHE:
+        print(f"    [CivicClerk] reusing this run's download "
+              f"({len(_CC_EVENTS_CACHE[url])} events)")
+        return _CC_EVENTS_CACHE[url]
+
+    first_url = url
     all_events, page = [], 1
     while url:
         print(f"    [CivicClerk] page {page}...")
-        r = requests.get(url, timeout=30)
-        r.raise_for_status()
-        data = r.json()
+        data = _get_cc_page(url)
         all_events.extend(data.get("value", []))
         url  = data.get("@odata.nextLink")
         page += 1
+        if url:
+            time.sleep(POLITE_PAUSE_SECONDS)
+
+    _CC_EVENTS_CACHE[first_url] = all_events
     return all_events
 
 
@@ -1725,7 +1806,7 @@ def scrape_minutes_agendas_docs(board: dict, start_iso: str, end_iso: str) -> li
     """
     section_name = board["minutes_agendas_section"]
     print(f"    [Web] Fetching Minutes-Agendas page for {section_name}...")
-    r = requests.get(MINUTES_AGENDAS_URL, timeout=30)
+    r = HTTP.get(MINUTES_AGENDAS_URL, timeout=30)
     r.raise_for_status()
     html = r.text
 
@@ -1872,10 +1953,11 @@ def scrape_web_upcoming(board: dict, dom_alerts: list, html: str | None = None) 
     """Scrape upcoming meeting dates from a city website board page."""
     url = board["web_url"]
     if html is None:
-        print(f"    [Web] Fetching {url}...")
-        r = requests.get(url, timeout=30)
-        r.raise_for_status()
-        html = r.text
+        # Reuses the copy downloaded at the start of the run when there is one.
+        print(f"    [Web] Reading {url}...")
+        html = _fetch_board_page(url)
+        if html is None:
+            raise RuntimeError(f"could not fetch {url}")
 
     if not check_dom_integrity(html):
         msg = f"{board['name']} ({board['key']}) — no date|pipe pattern at {url}"
@@ -1929,12 +2011,9 @@ def scrape_web_past_meetings(board: dict, html: str | None = None) -> list[dict]
     if not url:
         return []
     if html is None:
-        try:
-            r = requests.get(url, timeout=30)
-            r.raise_for_status()
-            html = r.text
-        except Exception as exc:
-            print(f"    WARNING: Could not fetch past meetings from {url}: {exc}")
+        html = _fetch_board_page(url)
+        if html is None:
+            print(f"    WARNING: Could not fetch past meetings from {url}")
             return []
 
     today        = date.today()
@@ -1997,7 +2076,7 @@ def fetch_youtube_streams(api_key: str, board: dict, start_date: str, end_date: 
     while True:
         if page_token:
             params["pageToken"] = page_token
-        r = requests.get("https://www.googleapis.com/youtube/v3/search", params=params, timeout=30)
+        r = HTTP.get("https://www.googleapis.com/youtube/v3/search", params=params, timeout=30)
         r.raise_for_status()
         data       = r.json()
         all_items.extend(data.get("items", []))
@@ -3084,7 +3163,7 @@ def scrape_and_apply_special_notices(boards_to_run: list, dom_alerts: list) -> N
     print(f"  Fetching {SPECIAL_NOTICES_URL}...")
 
     try:
-        r = requests.get(SPECIAL_NOTICES_URL, timeout=30)
+        r = HTTP.get(SPECIAL_NOTICES_URL, timeout=30)
         r.raise_for_status()
     except Exception as exc:
         msg = f"Could not fetch Special Meeting Notices page: {exc}"
@@ -4037,13 +4116,11 @@ def run_web_scrape_board(board: dict, dom_alerts: list) -> None:
 
     url = board["web_url"]
     print(f"  Step 1: Fetching board page from city website...")
-    print(f"    [Web] Fetching {url}...")
-    try:
-        r = requests.get(url, timeout=30)
-        r.raise_for_status()
-        html = r.text
-    except Exception as exc:
-        print(f"    WARNING: Could not fetch {url}: {exc}")
+    # Reuses the copy downloaded at the start of the run when there is one.
+    print(f"    [Web] Reading {url}...")
+    html = _fetch_board_page(url)
+    if html is None:
+        print(f"    WARNING: Could not fetch {url}")
         return
 
     upcoming     = scrape_web_upcoming(board, dom_alerts, html=html)
