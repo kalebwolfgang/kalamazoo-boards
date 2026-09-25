@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-09-24",
+  "last_updated": "2026-09-25",
   "metadata": {
     "time": "05:30 PM – 07:30 PM",
     "location": "Community Room, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-09-24",
-      "display": "Thursday, September 24, 2026",
-      "time": "05:30 PM – 07:30 PM"
-    },
     {
       "date": "2026-10-22",
       "display": "Thursday, October 22, 2026",
@@ -22,6 +17,16 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-09-24",
+      "display": "Thursday, September 24, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-09-25T07:00:36.351664+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Community-Development-Act-Advisory-Committee-CDAAC",
+      "link_label": "No documents posted"
+    },
     {
       "date": "2026-06-25",
       "display": "June 25, 2026"
