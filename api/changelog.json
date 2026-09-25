@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-24T18:21:40.823282+00:00",
-  "runId": "2965a395",
+  "timestamp": "2026-09-25T07:00:52.466162+00:00",
+  "runId": "302015b3",
   "validationPassed": true,
   "changes": [
     {
@@ -115,8 +115,8 @@
     },
     {
       "board": "cdaac",
-      "meetings": 1,
-      "upcoming": 3
+      "meetings": 2,
+      "upcoming": 2
     },
     {
       "board": "ncbda",
