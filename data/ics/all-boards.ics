@@ -113,6 +113,13 @@ SUMMARY:Building Board of Appeals — City of Kalamazoo
 LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
+UID:NCBDA-2026-10-15@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261015T180000
+DTEND;TZID=America/Detroit:20261015T190000
+SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
+LOCATION:Northside Association for Community Development, 612 N. Park Street
+END:VEVENT
+BEGIN:VEVENT
 UID:DDA-2026-10-19@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261019T150000
 DTEND;TZID=America/Detroit:20261019T170000

@@ -6,6 +6,13 @@
   },
   "upcoming_meetings": [
     {
+      "date": "2026-10-15",
+      "display": "Thursday, October 15, 2026",
+      "time": "06:00 PM – 07:00 PM",
+      "isSpecial": true,
+      "location": "Northside Association for Community Development, 612 N. Park Street"
+    },
+    {
       "date": "2026-12-17",
       "display": "Thursday, December 17, 2026",
       "time": "06:00 PM – 07:00 PM"
@@ -345,18 +352,6 @@
     }
   ],
   "removed_meetings": [
-    {
-      "date": "2026-10-15",
-      "display": "Thursday, October 15, 2026",
-      "from": "upcoming",
-      "removedOn": "2026-09-15",
-      "reason": "Missing from the city calendar while a later meeting is still listed; no notice explains it.",
-      "record": {
-        "date": "2026-10-15",
-        "display": "Thursday, October 15, 2026",
-        "time": "06:00 PM – 07:00 PM"
-      }
-    },
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",

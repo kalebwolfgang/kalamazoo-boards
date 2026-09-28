@@ -21,6 +21,13 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
+UID:NCBDA-2026-10-15@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261015T180000
+DTEND;TZID=America/Detroit:20261015T190000
+SUMMARY:Northside Cultural Business District Authority Board — City of Kalamazoo
+LOCATION:Northside Association for Community Development, 612 N. Park Street
+END:VEVENT
+BEGIN:VEVENT
 UID:NCBDA-2026-12-17@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261217T180000
 DTEND;TZID=America/Detroit:20261217T190000
