@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-28T08:06:48.696793+00:00",
-  "runId": "543081b6",
+  "timestamp": "2026-09-28T20:27:33.313898+00:00",
+  "runId": "a92fdffe",
   "validationPassed": true,
   "changes": [
     {
@@ -121,7 +121,7 @@
     {
       "board": "ncbda",
       "meetings": 28,
-      "upcoming": 1
+      "upcoming": 2
     },
     {
       "board": "spk",
