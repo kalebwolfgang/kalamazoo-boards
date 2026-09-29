@@ -8,7 +8,8 @@
     {
       "date": "2026-10-08",
       "display": "Thursday, October 8, 2026",
-      "time": "07:00 PM – 09:00 PM"
+      "time": "07:00 PM – 09:00 PM",
+      "isCancelled": true
     },
     {
       "date": "2026-11-12",

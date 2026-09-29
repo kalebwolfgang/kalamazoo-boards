@@ -447,7 +447,8 @@
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ZBA",
-      "name": "Zoning Board of Appeals"
+      "name": "Zoning Board of Appeals",
+      "isCancelled": true
     },
     {
       "date": "2026-10-13",
