@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-10-01",
+  "last_updated": "2026-10-02",
   "metadata": {
     "time": "07:00 PM – 09:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-10-01",
-      "display": "Thursday, October 1, 2026",
-      "time": "07:00 PM – 09:00 PM"
-    },
     {
       "date": "2026-11-05",
       "display": "Thursday, November 5, 2026",
@@ -39,7 +34,9 @@
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2592/overview",
       "scrapedAt": "2026-10-01T08:09:50.452912+00:00",
-      "meeting_type": "Planning Commission - Regular Meeting"
+      "meeting_type": "Planning Commission - Regular Meeting",
+      "youtube_id": "39rlnYA7AMQ",
+      "youtube_url": "https://www.youtube.com/watch?v=39rlnYA7AMQ"
     },
     {
       "date": "2026-09-03",
@@ -780,6 +777,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-10-01",
+      "display": "October 1, 2026",
+      "youtube_id": "39rlnYA7AMQ",
+      "youtube_url": "https://www.youtube.com/watch?v=39rlnYA7AMQ",
+      "title": "October 1. 2026 Planning Commission"
+    },
     {
       "date": "2026-06-04",
       "display": "June 4, 2026",
