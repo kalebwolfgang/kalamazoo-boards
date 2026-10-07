@@ -21,20 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:PRAB-2026-10-06@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261006T173000
-DTEND;TZID=America/Detroit:20261006T193000
-SUMMARY:Parks and Recreation Advisory Board — City of Kalamazoo
-LOCATION:Community Room, Mayors' Riverfront Park
-END:VEVENT
-BEGIN:VEVENT
-UID:TRE-2026-10-06@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261006T140000
-DTEND;TZID=America/Detroit:20261006T160000
-SUMMARY:Tree Committee — City of Kalamazoo
-LOCATION:City of Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave
-END:VEVENT
-BEGIN:VEVENT
 UID:CRB-2026-10-07@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261007T170000
 DTEND;TZID=America/Detroit:20261007T190000

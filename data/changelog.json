@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-06T19:22:49.101576+00:00",
-  "runId": "3a367fe9",
+  "timestamp": "2026-10-07T08:03:02.909382+00:00",
+  "runId": "541f0b99",
   "validationPassed": true,
   "changes": [
     {
       "board": "crb",
-      "meetings": 26,
+      "meetings": 27,
       "upcoming": 2
     },
     {
@@ -80,8 +80,8 @@
     },
     {
       "board": "prab",
-      "meetings": 5,
-      "upcoming": 3
+      "meetings": 6,
+      "upcoming": 2
     },
     {
       "board": "trb",
@@ -105,8 +105,8 @@
     },
     {
       "board": "tre",
-      "meetings": 5,
-      "upcoming": 3
+      "meetings": 6,
+      "upcoming": 2
     },
     {
       "board": "bba",

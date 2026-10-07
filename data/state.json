@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-10-06T15:22:28.979597-04:00",
-  "totalMeetings": 609,
+  "timestamp": "2026-10-07T04:03:02.438099-04:00",
+  "totalMeetings": 612,
   "byBoard": {
     "crb": {
-      "meetings": 26
+      "meetings": 27
     },
     "bra": {
       "meetings": 48
@@ -48,7 +48,7 @@
       "meetings": 12
     },
     "prab": {
-      "meetings": 5
+      "meetings": 6
     },
     "trb": {
       "meetings": 2
@@ -63,7 +63,7 @@
       "meetings": 6
     },
     "tre": {
-      "meetings": 5
+      "meetings": 6
     },
     "bba": {
       "meetings": 6
