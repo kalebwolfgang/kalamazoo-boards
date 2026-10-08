@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-10-07T19:49:58.184048+00:00",
-  "runId": "b4284650",
+  "timestamp": "2026-10-08T08:18:11.106896+00:00",
+  "runId": "e2156d5f",
   "validationPassed": true,
   "changes": [
     {
       "board": "crb",
       "meetings": 27,
-      "upcoming": 2
+      "upcoming": 1
     },
     {
       "board": "bra",
@@ -70,8 +70,8 @@
     },
     {
       "board": "zba",
-      "meetings": 59,
-      "upcoming": 4
+      "meetings": 60,
+      "upcoming": 3
     },
     {
       "board": "ersb",
