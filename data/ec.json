@@ -1,18 +1,21 @@
 {
-  "last_updated": "2026-10-08",
+  "last_updated": "2026-10-09",
   "metadata": {
     "time": "9:00 AM",
     "location": "TBD"
   },
-  "upcoming_meetings": [
+  "upcoming_meetings": [],
+  "meetings": [
     {
       "date": "2026-10-08",
       "display": "Thursday, October 8, 2026",
-      "time": "09:00 AM – 10:00 AM",
-      "location": "City Records Center, 3001 S Burdick St"
-    }
-  ],
-  "meetings": [
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": "City Records Center, 3001 S Burdick St",
+      "scrapedAt": "2026-10-09T08:19:44.462287+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Election-Commission",
+      "link_label": "No documents posted"
+    },
     {
       "date": "2026-07-09",
       "display": "July 9, 2026",
