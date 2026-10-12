@@ -317,7 +317,8 @@
       "time": "04:00 PM – 06:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "BBA",
-      "name": "Building Board of Appeals"
+      "name": "Building Board of Appeals",
+      "isCancelled": true
     },
     {
       "date": "2026-10-15",
