@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-13T20:09:06.465543+00:00",
-  "runId": "c734fccb",
+  "timestamp": "2026-10-14T07:00:26.520667+00:00",
+  "runId": "0c660841",
   "validationPassed": true,
   "changes": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "board": "cpsrab",
-      "meetings": 50,
+      "meetings": 51,
       "upcoming": 6
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "board": "hpc",
-      "meetings": 39,
+      "meetings": 40,
       "upcoming": 3
     },
     {
