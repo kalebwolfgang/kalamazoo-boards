@@ -1,14 +1,6 @@
 {
-  "lastUpdated": "2026-10-14",
+  "lastUpdated": "2026-10-15",
   "meetings": [
-    {
-      "date": "2026-10-14",
-      "display": "Wednesday, October 14, 2026",
-      "time": "06:00 PM – 08:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "HPC",
-      "name": "Historic Preservation Commission"
-    },
     {
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
@@ -46,10 +38,9 @@
       "date": "2026-10-15",
       "display": "Thursday, October 15, 2026",
       "time": "06:00 PM – 07:00 PM",
-      "location": "Northside Association for Community Development, 612 N. Park Street",
+      "location": "Northside Association for Community Development, 612 N Park St",
       "abbr": "NCBDA",
-      "name": "Northside Cultural Business District Authority Board",
-      "isSpecial": true
+      "name": "Northside Cultural Business District Authority Board"
     },
     {
       "date": "2026-10-19",
