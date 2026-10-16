@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-10-15",
+  "last_updated": "2026-10-16",
   "metadata": {
     "time": "04:00 PM – 06:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-10-15",
-      "display": "Thursday, October 15, 2026",
-      "time": "04:00 PM – 06:00 PM",
-      "isCancelled": true
-    },
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
@@ -23,6 +17,17 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-15",
+      "display": "Thursday, October 15, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-10-16T06:39:19.032609+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Building-Board-of-Appeals",
+      "isCancelled": true,
+      "link_label": "Cancelled"
+    },
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",

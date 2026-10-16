@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-10-15",
+  "last_updated": "2026-10-16",
   "metadata": {
     "time": "12:00 PM – 02:00 PM",
     "location": "TBD"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-10-15",
-      "display": "Thursday, October 15, 2026",
-      "time": "12:00 PM – 02:00 PM"
-    },
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
@@ -22,6 +17,16 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-15",
+      "display": "Thursday, October 15, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-10-16T06:39:19.004767+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Kalamazoo-Municipal-Golf-Association",
+      "link_label": "No documents posted"
+    },
     {
       "date": "2026-09-17",
       "display": "Thursday, September 17, 2026",
