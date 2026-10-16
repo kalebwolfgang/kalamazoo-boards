@@ -1,19 +1,19 @@
 {
   "last_updated": "2026-10-16",
   "metadata": {
-    "time": "02:00 PM – 04:00 PM",
+    "time": "02:00 PM – 03:00 PM",
     "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave"
   },
   "upcoming_meetings": [
     {
-      "date": "2026-11-03",
-      "display": "Tuesday, November 3, 2026",
-      "time": "02:00 PM – 04:00 PM"
+      "date": "2026-11-05",
+      "display": "Thursday, November 5, 2026",
+      "time": "02:00 PM – 03:00 PM"
     },
     {
-      "date": "2026-12-01",
-      "display": "Tuesday, December 1, 2026",
-      "time": "02:00 PM – 04:00 PM"
+      "date": "2026-12-03",
+      "display": "Thursday, December 3, 2026",
+      "time": "02:00 PM – 03:00 PM"
     }
   ],
   "meetings": [
@@ -59,6 +59,32 @@
     {
       "date": "2026-05-05",
       "display": "May 5, 2026"
+    }
+  ],
+  "removed_meetings": [
+    {
+      "date": "2026-11-03",
+      "display": "Tuesday, November 3, 2026",
+      "from": "upcoming",
+      "removedOn": "2026-10-16",
+      "reason": "Missing from the city calendar while a later meeting is still listed; no notice explains it.",
+      "record": {
+        "date": "2026-11-03",
+        "display": "Tuesday, November 3, 2026",
+        "time": "02:00 PM – 04:00 PM"
+      }
+    },
+    {
+      "date": "2026-12-01",
+      "display": "Tuesday, December 1, 2026",
+      "from": "upcoming",
+      "removedOn": "2026-10-16",
+      "reason": "Missing from the city calendar while a later meeting is still listed; no notice explains it.",
+      "record": {
+        "date": "2026-12-01",
+        "display": "Tuesday, December 1, 2026",
+        "time": "02:00 PM – 04:00 PM"
+      }
     }
   ]
 }
