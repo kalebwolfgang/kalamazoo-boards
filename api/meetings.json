@@ -50,20 +50,20 @@
       "name": "Natural Features Protection Review Board"
     },
     {
-      "date": "2026-11-03",
-      "display": "Tuesday, November 3, 2026",
-      "time": "02:00 PM – 04:00 PM",
-      "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
-      "abbr": "TRE",
-      "name": "Tree Committee"
-    },
-    {
       "date": "2026-11-05",
       "display": "Thursday, November 5, 2026",
       "time": "07:00 PM – 09:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
+    },
+    {
+      "date": "2026-11-05",
+      "display": "Thursday, November 5, 2026",
+      "time": "02:00 PM – 03:00 PM",
+      "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
+      "abbr": "TRE",
+      "name": "Tree Committee"
     },
     {
       "date": "2026-11-10",
@@ -178,14 +178,6 @@
       "name": "Natural Features Protection Review Board"
     },
     {
-      "date": "2026-12-01",
-      "display": "Tuesday, December 1, 2026",
-      "time": "02:00 PM – 04:00 PM",
-      "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
-      "abbr": "TRE",
-      "name": "Tree Committee"
-    },
-    {
       "date": "2026-12-02",
       "display": "Wednesday, December 2, 2026",
       "time": "05:00 PM – 07:00 PM",
@@ -208,6 +200,14 @@
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
       "name": "Planning Commission"
+    },
+    {
+      "date": "2026-12-03",
+      "display": "Thursday, December 3, 2026",
+      "time": "02:00 PM – 03:00 PM",
+      "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
+      "abbr": "TRE",
+      "name": "Tree Committee"
     },
     {
       "date": "2026-12-08",
