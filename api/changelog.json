@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-15T18:07:25.654903+00:00",
-  "runId": "11850e0c",
+  "timestamp": "2026-10-16T06:39:34.439541+00:00",
+  "runId": "7e287524",
   "validationPassed": true,
   "changes": [
     {
@@ -11,7 +11,7 @@
     {
       "board": "bra",
       "meetings": 49,
-      "upcoming": 3
+      "upcoming": 2
     },
     {
       "board": "cpsrab",
@@ -31,7 +31,7 @@
     {
       "board": "edc",
       "meetings": 46,
-      "upcoming": 3
+      "upcoming": 2
     },
     {
       "board": "ec",
@@ -100,8 +100,8 @@
     },
     {
       "board": "kmga",
-      "meetings": 6,
-      "upcoming": 3
+      "meetings": 7,
+      "upcoming": 2
     },
     {
       "board": "tre",
@@ -110,8 +110,8 @@
     },
     {
       "board": "bba",
-      "meetings": 6,
-      "upcoming": 3
+      "meetings": 7,
+      "upcoming": 2
     },
     {
       "board": "cdaac",
@@ -121,7 +121,7 @@
     {
       "board": "ncbda",
       "meetings": 29,
-      "upcoming": 2
+      "upcoming": 1
     },
     {
       "board": "spk",
