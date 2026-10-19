@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-18",
+  "last_updated": "2026-10-19",
   "metadata": {
     "time": "03:00 PM – 05:00 PM",
     "location": "City Hall, 241 W South St"
@@ -22,6 +22,20 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-10-19",
+      "display": "October 19, 2026",
+      "event_id": 2658,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2658/files/agenda/5528",
+      "link_label": "Agenda",
+      "isCancelled": false,
+      "minutes_url": null,
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2658/files/agenda/5528",
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2658/overview",
+      "scrapedAt": "2026-10-19T07:12:35.565305+00:00",
+      "meeting_type": "Downtown Economic Growth Authority Board"
+    },
     {
       "date": "2026-09-21",
       "display": "September 21, 2026",
