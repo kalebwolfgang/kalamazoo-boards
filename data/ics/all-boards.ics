@@ -21,20 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:DDA-2026-10-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261019T150000
-DTEND;TZID=America/Detroit:20261019T170000
-SUMMARY:Downtown Development Authority Board — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:DEGA-2026-10-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261019T150000
-DTEND;TZID=America/Detroit:20261019T170000
-SUMMARY:Downtown Economic Growth Authority Board — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:HDC-2026-10-20@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261020T170000
 DTEND;TZID=America/Detroit:20261020T190000
