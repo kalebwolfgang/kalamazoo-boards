@@ -1,14 +1,6 @@
 {
-  "lastUpdated": "2026-10-21",
+  "lastUpdated": "2026-10-22",
   "meetings": [
-    {
-      "date": "2026-10-21",
-      "display": "Wednesday, October 21, 2026",
-      "time": "04:30 PM – 06:30 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "ECC",
-      "name": "Environmental Concerns Committee"
-    },
     {
       "date": "2026-10-22",
       "display": "Thursday, October 22, 2026",
@@ -103,7 +95,8 @@
       "time": "04:30 PM – 06:30 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
-      "name": "Environmental Concerns Committee"
+      "name": "Environmental Concerns Committee",
+      "isCancelled": true
     },
     {
       "date": "2026-11-19",
