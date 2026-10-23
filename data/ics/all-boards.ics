@@ -21,13 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:CDAAC-2026-10-22@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261022T173000
-DTEND;TZID=America/Detroit:20261022T193000
-SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
-LOCATION:Community Room, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:NFP-2026-10-27@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261027T160000
 DTEND;TZID=America/Detroit:20261027T180000

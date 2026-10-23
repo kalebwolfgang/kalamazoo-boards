@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-22T14:26:04.698823-04:00",
-  "totalMeetings": 625,
+  "timestamp": "2026-10-23T02:51:07.781514-04:00",
+  "totalMeetings": 626,
   "byBoard": {
     "crb": {
       "meetings": 27
@@ -69,7 +69,7 @@
       "meetings": 7
     },
     "cdaac": {
-      "meetings": 2
+      "meetings": 3
     },
     "ncbda": {
       "meetings": 29
