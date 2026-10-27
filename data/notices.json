@@ -2,6 +2,22 @@
   "last_updated": "2026-10-27",
   "notices": [
     {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/NFP-Review-Board-October-27-Meeting-Cancelled",
+      "first_seen": "2026-10-27",
+      "last_seen": "2026-10-27",
+      "stillPosted": true,
+      "text": "NFP Review Board October 27 Meeting Cancelled The meeting of the Natural Features Protection Review Board scheduled for Tuesday, October 27, 2026 at 4:00 p.m. in City Commission Chambers at City Hall, 241 W. South Street, has been CANCELLED due to the lack of agenda items.",
+      "boards": [
+        "NFP"
+      ],
+      "actions": [
+        {
+          "action": "cancelled",
+          "date": "2026-10-27"
+        }
+      ]
+    },
+    {
       "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Environmental-Concerns-Committee-November-18-Meeting-Cancelled",
       "first_seen": "2026-10-22",
       "last_seen": "2026-10-27",
