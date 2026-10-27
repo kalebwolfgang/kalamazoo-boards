@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-26T19:49:15.019308+00:00",
-  "runId": "a5ecc3d3",
+  "timestamp": "2026-10-27T07:11:22.971259+00:00",
+  "runId": "6134a872",
   "validationPassed": true,
   "changes": [
     {
@@ -60,7 +60,7 @@
     },
     {
       "board": "nfp",
-      "meetings": 29,
+      "meetings": 30,
       "upcoming": 3
     },
     {
