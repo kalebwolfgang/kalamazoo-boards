@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-27",
+  "last_updated": "2026-10-28",
   "metadata": {
     "time": "04:00 PM – 06:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
@@ -23,7 +23,7 @@
       "event_id": 2731,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2731/overview",
       "link_label": "Meeting Record",
-      "isCancelled": false,
+      "isCancelled": true,
       "minutes_url": null,
       "agenda_url": null,
       "location": null,
