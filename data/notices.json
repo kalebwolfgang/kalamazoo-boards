@@ -2,6 +2,24 @@
   "last_updated": "2026-10-30",
   "notices": [
     {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/CDAAC-October-Meeting-Rescheduled-to-December-10",
+      "first_seen": "2026-10-30",
+      "last_seen": "2026-10-30",
+      "stillPosted": true,
+      "text": "CDAAC October Meeting Rescheduled to December 10 The Community Development Act Advisory Committee will meet in special session on Thursday, December 10, 2026, at 5:30 p.m. This meeting will take place in Community Room at City Hall, 241 W. South Street. The purpose of the meeting is Have deliberations over interviews completed from the last scheduled meeting.",
+      "boards": [
+        "CDAAC"
+      ],
+      "actions": [
+        {
+          "action": "special",
+          "date": "2026-12-10",
+          "time": "5:30 PM",
+          "location": "Community Room at City Hall, 241 W. South Street"
+        }
+      ]
+    },
+    {
       "url": "/Government/Boards-Commissions/Special-Meeting-Notices/NFP-Review-Board-October-27-Meeting-Cancelled",
       "first_seen": "2026-10-27",
       "last_seen": "2026-10-28",
