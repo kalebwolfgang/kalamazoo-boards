@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-03T20:28:24.356442+00:00",
-  "runId": "05fd518e",
+  "timestamp": "2026-11-04T08:28:03.935065+00:00",
+  "runId": "89602fec",
   "validationPassed": true,
   "changes": [
     {
@@ -105,7 +105,7 @@
     },
     {
       "board": "tre",
-      "meetings": 6,
+      "meetings": 7,
       "upcoming": 2
     },
     {
