@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-05",
+  "last_updated": "2026-11-06",
   "meetings": [
     {
       "date": "2026-10-01",
@@ -184,18 +184,29 @@
     {
       "date": "2026-11-05",
       "display": "Thursday, November 5, 2026",
-      "time": "07:00 PM – 09:00 PM",
+      "time": "7:00 PM – 9:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "PC",
-      "name": "Planning Commission"
+      "name": "Planning Commission",
+      "youtube_url": "https://www.youtube.com/watch?v=nX22CaES3Dw",
+      "agenda_url": "https://kalamazoomi.portal.civicclerk.com/event/2593/files/agenda/5555"
     },
     {
       "date": "2026-11-05",
       "display": "Thursday, November 5, 2026",
-      "time": "02:00 PM – 03:00 PM",
+      "time": "2:00 PM – 4:00 PM",
       "location": "City of Kalamazoo Stockbridge Facility, 415 E Stockbridge Ave",
       "abbr": "TRE",
       "name": "Tree Committee"
+    },
+    {
+      "date": "2026-11-06",
+      "display": "Friday, November 6, 2026",
+      "time": "7:00 PM – 9:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "PC",
+      "name": "Planning Commission",
+      "youtube_url": "https://www.youtube.com/watch?v=nX22CaES3Dw"
     },
     {
       "date": "2026-11-10",
