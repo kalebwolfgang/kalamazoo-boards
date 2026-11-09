@@ -2,6 +2,22 @@
   "last_updated": "2026-11-09",
   "notices": [
     {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Historic-Preservation-Commission-November-Meeting-Cancelled",
+      "first_seen": "2026-11-09",
+      "last_seen": "2026-11-09",
+      "stillPosted": true,
+      "text": "Historic Preservation Commission November Meeting Cancelled The meeting of the Historic Preservation Commission scheduled for Wednesday, November 11, 2026, at 6:00 p.m. in City Commission Chambers at City Hall, 241 W. South Street, has been CANCELLED due to observance of Veterans Day.",
+      "boards": [
+        "HPC"
+      ],
+      "actions": [
+        {
+          "action": "cancelled",
+          "date": "2026-11-11"
+        }
+      ]
+    },
+    {
       "url": "/Government/Boards-Commissions/Special-Meeting-Notices/CDAAC-October-Meeting-Rescheduled-to-December-10",
       "first_seen": "2026-10-30",
       "last_seen": "2026-11-09",
