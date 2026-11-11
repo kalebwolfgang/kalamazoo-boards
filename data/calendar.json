@@ -214,7 +214,8 @@
       "time": "6:00 PM – 8:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizens Public Safety Review and Appeal Board",
+      "youtube_url": "https://www.youtube.com/watch?v=zo4bNHB0V4M"
     },
     {
       "date": "2026-11-10",
@@ -230,7 +231,8 @@
       "time": "6:00 PM – 8:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
-      "name": "Historic Preservation Commission"
+      "name": "Historic Preservation Commission",
+      "isCancelled": true
     },
     {
       "date": "2026-11-12",

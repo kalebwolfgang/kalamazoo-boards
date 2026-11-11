@@ -18,7 +18,7 @@
       "event_id": 2682,
       "url": "https://kalamazoomi.portal.civicclerk.com/event/2682/overview",
       "link_label": "Meeting Record",
-      "isCancelled": false,
+      "isCancelled": true,
       "minutes_url": null,
       "agenda_url": null,
       "location": null,
