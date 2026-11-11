@@ -7,7 +7,8 @@
       "time": "6:00 PM – 8:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
-      "name": "Historic Preservation Commission"
+      "name": "Historic Preservation Commission",
+      "isCancelled": true
     },
     {
       "date": "2026-11-12",
