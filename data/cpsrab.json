@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-11",
   "metadata": {
     "time": "06:00 PM – 08:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-11-10",
-      "display": "Tuesday, November 10, 2026",
-      "time": "06:00 PM – 08:00 PM"
-    },
     {
       "date": "2026-12-08",
       "display": "Tuesday, December 8, 2026",
@@ -23,7 +18,8 @@
     {
       "date": "2027-02-09",
       "display": "Tuesday, February 9, 2027",
-      "time": "06:00 PM – 08:00 PM"
+      "time": "06:00 PM – 08:00 PM",
+      "notOnCityCalendar": true
     },
     {
       "date": "2027-03-09",
@@ -34,9 +30,24 @@
       "date": "2027-04-13",
       "display": "Tuesday, April 13, 2027",
       "time": "06:00 PM – 08:00 PM"
+    },
+    {
+      "date": "2027-05-11",
+      "display": "Tuesday, May 11, 2027",
+      "time": "06:00 PM – 08:00 PM"
     }
   ],
   "meetings": [
+    {
+      "date": "2026-11-10",
+      "display": "Tuesday, November 10, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-11-11T08:45:00.703172+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB",
+      "link_label": "No documents posted"
+    },
     {
       "date": "2026-10-13",
       "display": "Tuesday, October 13, 2026",
@@ -472,6 +483,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-11-10",
+      "display": "November 10, 2026",
+      "youtube_id": "zo4bNHB0V4M",
+      "youtube_url": "https://www.youtube.com/watch?v=zo4bNHB0V4M",
+      "title": "November 10, 2026 Citizens Public Safety Review and Appeal Board"
+    },
     {
       "date": "2026-10-13",
       "display": "October 13, 2026",

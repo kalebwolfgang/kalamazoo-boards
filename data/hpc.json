@@ -1,16 +1,10 @@
 {
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-11",
   "metadata": {
     "time": "06:00 PM – 08:00 PM",
     "location": "City Hall, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-11-11",
-      "display": "Wednesday, November 11, 2026",
-      "time": "06:00 PM – 08:00 PM",
-      "isCancelled": true
-    },
     {
       "date": "2026-12-09",
       "display": "Wednesday, December 9, 2026",
@@ -18,6 +12,20 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-11-11",
+      "display": "November 11, 2026",
+      "event_id": 2682,
+      "url": "https://kalamazoomi.portal.civicclerk.com/event/2682/overview",
+      "link_label": "Meeting Record",
+      "isCancelled": false,
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2682/overview",
+      "scrapedAt": "2026-11-11T08:45:01.385029+00:00",
+      "meeting_type": "Historic Preservation Commission"
+    },
     {
       "date": "2026-10-14",
       "display": "October 14, 2026",

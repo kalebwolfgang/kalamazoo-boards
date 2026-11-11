@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-11",
   "metadata": {
     "time": "05:30 PM – 07:30 PM",
     "location": "TBD"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-11-10",
-      "display": "Tuesday, November 10, 2026",
-      "time": "05:30 PM – 07:30 PM"
-    },
     {
       "date": "2026-12-08",
       "display": "Tuesday, December 8, 2026",
@@ -17,6 +12,16 @@
     }
   ],
   "meetings": [
+    {
+      "date": "2026-11-10",
+      "display": "Tuesday, November 10, 2026",
+      "minutes_url": null,
+      "agenda_url": null,
+      "location": null,
+      "scrapedAt": "2026-11-11T08:45:02.122189+00:00",
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Parks-Recreation-Advisory-Board-PRAB",
+      "link_label": "No documents posted"
+    },
     {
       "date": "2026-10-06",
       "display": "Tuesday, October 6, 2026",
