@@ -1,30 +1,13 @@
 {
-  "lastUpdated": "2026-11-10",
+  "lastUpdated": "2026-11-11",
   "meetings": [
-    {
-      "date": "2026-11-10",
-      "display": "Tuesday, November 10, 2026",
-      "time": "06:00 PM – 08:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
-    },
-    {
-      "date": "2026-11-10",
-      "display": "Tuesday, November 10, 2026",
-      "time": "05:30 PM – 07:30 PM",
-      "location": "Community Room, Mayors' Riverfront Park",
-      "abbr": "PRAB",
-      "name": "Parks and Recreation Advisory Board"
-    },
     {
       "date": "2026-11-11",
       "display": "Wednesday, November 11, 2026",
-      "time": "06:00 PM – 08:00 PM",
+      "time": "6:00 PM – 8:00 PM",
       "location": "City Hall, 241 W South St",
       "abbr": "HPC",
-      "name": "Historic Preservation Commission",
-      "isCancelled": true
+      "name": "Historic Preservation Commission"
     },
     {
       "date": "2026-11-12",
@@ -306,7 +289,8 @@
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
-      "name": "Citizens Public Safety Review and Appeal Board"
+      "name": "Citizens Public Safety Review and Appeal Board",
+      "notOnCityCalendar": true
     },
     {
       "date": "2027-03-09",
@@ -319,6 +303,14 @@
     {
       "date": "2027-04-13",
       "display": "Tuesday, April 13, 2027",
+      "time": "06:00 PM – 08:00 PM",
+      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "abbr": "CPSRAB",
+      "name": "Citizens Public Safety Review and Appeal Board"
+    },
+    {
+      "date": "2027-05-11",
+      "display": "Tuesday, May 11, 2027",
       "time": "06:00 PM – 08:00 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "CPSRAB",
