@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-11T16:10:11.390644-05:00",
-  "totalMeetings": 633,
+  "timestamp": "2026-11-12T04:06:37.270528-05:00",
+  "totalMeetings": 634,
   "byBoard": {
     "crb": {
       "meetings": 27
@@ -42,7 +42,7 @@
       "meetings": 59
     },
     "zba": {
-      "meetings": 60
+      "meetings": 61
     },
     "ersb": {
       "meetings": 12
