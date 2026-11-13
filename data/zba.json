@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-11-12",
+  "last_updated": "2026-11-13",
   "metadata": {
     "time": "07:00 PM – 09:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-11-12",
-      "display": "Thursday, November 12, 2026",
-      "time": "07:00 PM – 09:00 PM"
-    },
     {
       "date": "2026-12-10",
       "display": "Thursday, December 10, 2026",
@@ -34,7 +29,9 @@
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2623/overview",
       "scrapedAt": "2026-11-12T09:06:21.319925+00:00",
-      "meeting_type": "Zoning Board of Appeals"
+      "meeting_type": "Zoning Board of Appeals",
+      "youtube_id": "N8ZhFzhVp3E",
+      "youtube_url": "https://www.youtube.com/watch?v=N8ZhFzhVp3E"
     },
     {
       "date": "2026-10-08",
@@ -818,6 +815,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-11-12",
+      "display": "November 12, 2026",
+      "youtube_id": "N8ZhFzhVp3E",
+      "youtube_url": "https://www.youtube.com/watch?v=N8ZhFzhVp3E",
+      "title": "November 12, 2026 Zoning Board of Appeals"
+    },
     {
       "date": "2026-09-10",
       "display": "September 10, 2026",
