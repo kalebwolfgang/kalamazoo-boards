@@ -2,6 +2,23 @@
   "last_updated": "2026-11-17",
   "notices": [
     {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/EDCBRA-November-19-Meeting-Location-Changed",
+      "first_seen": "2026-11-17",
+      "last_seen": "2026-11-17",
+      "stillPosted": true,
+      "text": "EDC/BRA November 19 Meeting Location Changed The meeting of the Economic Development Corporation Board scheduled for Thursday, November 19, 2026, at 7:45 a.m. in the Community Planning & Economic Development Main Conference Room, 245 N. Rose Street, Suite 100, has been RESCHEDULED to meet on Thursday, November 19, 2026, at 7:45 a.m. in the Crosstown Training Room, 150 E. Crosstown Parkway, 1st Floor.",
+      "boards": [
+        "EDC"
+      ],
+      "actions": [
+        {
+          "action": "location_change",
+          "date": "2026-11-19",
+          "location": "Crosstown Training Room, 150 E. Crosstown Parkway, 1st Floor"
+        }
+      ]
+    },
+    {
       "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Historic-Preservation-Commission-November-Meeting-Cancelled",
       "first_seen": "2026-11-09",
       "last_seen": "2026-11-12",
