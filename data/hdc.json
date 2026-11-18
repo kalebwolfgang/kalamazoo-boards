@@ -1,15 +1,10 @@
 {
-  "last_updated": "2026-11-17",
+  "last_updated": "2026-11-18",
   "metadata": {
     "time": "05:00 PM – 07:00 PM",
     "location": "City Commission Chambers, City Hall Second Floor, 241 W South St"
   },
   "upcoming_meetings": [
-    {
-      "date": "2026-11-17",
-      "display": "Tuesday, November 17, 2026",
-      "time": "05:00 PM – 07:00 PM"
-    },
     {
       "date": "2026-12-15",
       "display": "Tuesday, December 15, 2026",
@@ -29,7 +24,9 @@
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2745/overview",
       "scrapedAt": "2026-11-17T10:00:06.559385+00:00",
-      "meeting_type": "Historic District Commission"
+      "meeting_type": "Historic District Commission",
+      "youtube_id": "kbnWlQekMck",
+      "youtube_url": "https://www.youtube.com/watch?v=kbnWlQekMck"
     },
     {
       "date": "2026-10-20",
@@ -617,6 +614,13 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-11-17",
+      "display": "November 17, 2026",
+      "youtube_id": "kbnWlQekMck",
+      "youtube_url": "https://www.youtube.com/watch?v=kbnWlQekMck",
+      "title": "November 17, 2026 Historic District Commission"
+    },
     {
       "date": "2026-10-20",
       "display": "October 20, 2026",
