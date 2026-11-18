@@ -1,22 +1,13 @@
 {
-  "lastUpdated": "2026-11-17",
+  "lastUpdated": "2026-11-18",
   "meetings": [
-    {
-      "date": "2026-11-17",
-      "display": "Tuesday, November 17, 2026",
-      "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
-      "abbr": "HDC",
-      "name": "Historic District Commission"
-    },
     {
       "date": "2026-11-18",
       "display": "Wednesday, November 18, 2026",
-      "time": "04:30 PM – 06:30 PM",
+      "time": "4:30 PM – 6:30 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
-      "name": "Environmental Concerns Committee",
-      "isCancelled": true
+      "name": "Environmental Concerns Committee"
     },
     {
       "date": "2026-11-19",
