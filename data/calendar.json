@@ -281,7 +281,8 @@
       "time": "4:30 PM – 6:30 PM",
       "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
       "abbr": "ECC",
-      "name": "Environmental Concerns Committee"
+      "name": "Environmental Concerns Committee",
+      "isCancelled": true
     },
     {
       "date": "2026-11-19",
