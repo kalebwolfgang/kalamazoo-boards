@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-18",
+  "last_updated": "2026-11-19",
   "meetings": [
     {
       "date": "2026-10-01",
@@ -288,19 +288,17 @@
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "Crosstown Training Room, 150 E. Crosstown Parkway, 1st Floor",
+      "location": "Community Planning & Economic Development Offices, 150 E Crosstown Pkwy",
       "abbr": "BRA",
-      "name": "Brownfield Redevelopment Authority Board",
-      "locationChanged": true
+      "name": "Brownfield Redevelopment Authority Board"
     },
     {
       "date": "2026-11-19",
       "display": "Thursday, November 19, 2026",
       "time": "07:45 AM – 09:30 AM",
-      "location": "Crosstown Training Room, 150 E. Crosstown Parkway, 1st Floor",
+      "location": "Community Planning & Economic Development Offices, 150 E Crosstown Pkwy",
       "abbr": "EDC",
-      "name": "Economic Development Corporation Board",
-      "locationChanged": true
+      "name": "Economic Development Corporation Board"
     },
     {
       "date": "2026-11-19",
