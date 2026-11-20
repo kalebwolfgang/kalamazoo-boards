@@ -21,41 +21,6 @@ RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:BRA-2026-11-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261119T074500
-DTEND;TZID=America/Detroit:20261119T093000
-SUMMARY:Brownfield Redevelopment Authority Board — City of Kalamazoo
-LOCATION:Community Planning & Economic Development Offices, 150 E Crosstown Pkwy
-END:VEVENT
-BEGIN:VEVENT
-UID:EDC-2026-11-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261119T074500
-DTEND;TZID=America/Detroit:20261119T093000
-SUMMARY:Economic Development Corporation Board — City of Kalamazoo
-LOCATION:Community Planning & Economic Development Offices, 150 E Crosstown Pkwy
-END:VEVENT
-BEGIN:VEVENT
-UID:KMGA-2026-11-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261119T120000
-DTEND;TZID=America/Detroit:20261119T140000
-SUMMARY:Kalamazoo Municipal Golf Association — City of Kalamazoo
-LOCATION:Eastern Hills Golf Club, Kalamazoo
-END:VEVENT
-BEGIN:VEVENT
-UID:BBA-2026-11-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261119T160000
-DTEND;TZID=America/Detroit:20261119T180000
-SUMMARY:Building Board of Appeals — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
-UID:CDAAC-2026-11-19@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261119T173000
-DTEND;TZID=America/Detroit:20261119T193000
-SUMMARY:Community Development Act Advisory Committee — City of Kalamazoo
-LOCATION:Community Room, City Hall Second Floor, 241 W South St
-END:VEVENT
-BEGIN:VEVENT
 UID:NFP-2026-11-24@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261124T160000
 DTEND;TZID=America/Detroit:20261124T180000
