@@ -20,6 +20,15 @@
     {
       "date": "2026-12-02",
       "display": "Wednesday, December 2, 2026",
+      "time": "06:00 PM – 08:00 PM",
+      "location": "City Commission Chambers at City Hall, 241 W. South Street",
+      "abbr": "HPC",
+      "name": "Historic Preservation Commission",
+      "rescheduledFrom": "2026-12-09"
+    },
+    {
+      "date": "2026-12-02",
+      "display": "Wednesday, December 2, 2026",
       "time": "11:00 AM – 12:00 PM",
       "location": "W.E. Upjohn, 300 S Westnedge Ave",
       "abbr": "RIC",
@@ -56,14 +65,6 @@
       "location": "Community Room, Mayors' Riverfront Park",
       "abbr": "PRAB",
       "name": "Parks and Recreation Advisory Board"
-    },
-    {
-      "date": "2026-12-09",
-      "display": "Wednesday, December 9, 2026",
-      "time": "06:00 PM – 08:00 PM",
-      "location": "City Hall, 241 W South St",
-      "abbr": "HPC",
-      "name": "Historic Preservation Commission"
     },
     {
       "date": "2026-12-09",
