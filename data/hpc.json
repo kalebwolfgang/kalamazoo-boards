@@ -6,9 +6,11 @@
   },
   "upcoming_meetings": [
     {
-      "date": "2026-12-09",
-      "display": "Wednesday, December 9, 2026",
-      "time": "06:00 PM – 08:00 PM"
+      "date": "2026-12-02",
+      "display": "Wednesday, December 2, 2026",
+      "time": "06:00 PM – 08:00 PM",
+      "location": "City Commission Chambers at City Hall, 241 W. South Street",
+      "rescheduledFrom": "2026-12-09"
     }
   ],
   "meetings": [

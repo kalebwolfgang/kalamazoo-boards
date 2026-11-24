@@ -52,13 +52,13 @@
     },
     {
       "date": "2026-10-13",
-      "display": "Tuesday, October 13, 2026",
-      "minutes_url": null,
+      "display": "October 13, 2026",
       "agenda_url": null,
-      "location": null,
+      "minutes_url": "https://www.kalamazoocity.org/files/assets/public/v/1/minutes-amp-agendas/cpsrab/october-13-2026_final.pdf",
+      "link_label": "Minutes",
+      "isCancelled": false,
+      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Minutes-Agendas",
       "scrapedAt": "2026-10-14T07:00:08.162333+00:00",
-      "sourceUrl": "https://www.kalamazoocity.org/Government/Boards-Commissions/Citizens-Public-Safety-Review-and-Appeal-Board-CPSRAB",
-      "link_label": "No documents posted",
       "youtube_id": "PZOdVMbj-Bg",
       "youtube_url": "https://www.youtube.com/watch?v=PZOdVMbj-Bg"
     },

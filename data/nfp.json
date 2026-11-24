@@ -29,7 +29,9 @@
       "location": null,
       "sourceUrl": "https://kalamazoomi.portal.civicclerk.com/event/2732/overview",
       "scrapedAt": "2026-11-24T01:32:37.451834+00:00",
-      "meeting_type": "Natural Features Protection Review Board"
+      "meeting_type": "Natural Features Protection Review Board",
+      "youtube_id": "i3i5ugSmqYI",
+      "youtube_url": "https://www.youtube.com/watch?v=i3i5ugSmqYI"
     },
     {
       "date": "2026-10-27",
@@ -429,6 +431,20 @@
     }
   ],
   "recordings": [
+    {
+      "date": "2026-11-24",
+      "display": "November 24, 2026",
+      "youtube_id": "i3i5ugSmqYI",
+      "youtube_url": "https://www.youtube.com/watch?v=i3i5ugSmqYI",
+      "title": "November 24, 2026 Natural Features Protection Review Board"
+    },
+    {
+      "date": "2026-11-24",
+      "display": "November 24, 2026",
+      "youtube_id": "Y65ezogwLZQ",
+      "youtube_url": "https://www.youtube.com/watch?v=Y65ezogwLZQ",
+      "title": "November 24, 2026 Natural Features Protection Review Board"
+    },
     {
       "date": "2026-06-23",
       "display": "June 23, 2026",

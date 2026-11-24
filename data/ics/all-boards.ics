@@ -35,6 +35,13 @@ SUMMARY:Civil Rights Board — City of Kalamazoo
 LOCATION:City Commission Chambers, City Hall Second Floor, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
+UID:HPC-2026-12-02@kalamazoocity-boards
+DTSTART;TZID=America/Detroit:20261202T180000
+DTEND;TZID=America/Detroit:20261202T200000
+SUMMARY:Historic Preservation Commission — City of Kalamazoo
+LOCATION:City Commission Chambers at City Hall, 241 W. South Street
+END:VEVENT
+BEGIN:VEVENT
 UID:RIC-2026-12-02@kalamazoocity-boards
 DTSTART;TZID=America/Detroit:20261202T110000
 DTEND;TZID=America/Detroit:20261202T120000
@@ -68,13 +75,6 @@ DTSTART;TZID=America/Detroit:20261208T173000
 DTEND;TZID=America/Detroit:20261208T193000
 SUMMARY:Parks and Recreation Advisory Board — City of Kalamazoo
 LOCATION:Community Room, Mayors' Riverfront Park
-END:VEVENT
-BEGIN:VEVENT
-UID:HPC-2026-12-09@kalamazoocity-boards
-DTSTART;TZID=America/Detroit:20261209T180000
-DTEND;TZID=America/Detroit:20261209T200000
-SUMMARY:Historic Preservation Commission — City of Kalamazoo
-LOCATION:City Hall, 241 W South St
 END:VEVENT
 BEGIN:VEVENT
 UID:ERSB-2026-12-09@kalamazoocity-boards
