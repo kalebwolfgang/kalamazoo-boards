@@ -2,6 +2,23 @@
   "last_updated": "2026-11-25",
   "notices": [
     {
+      "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Civil-Rights-Board-Rescheduled-Meeting",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "stillPosted": true,
+      "text": "Civil Rights Board Rescheduled Meeting The meeting of the Civil Rights Board scheduled for Wednesday, December 2, 2026, at 5:00 p.m. in the City Commission Chambers at City Hall, 241 W. South Street, has been RESCHEDULED to meet on Wednesday, December 2, 2026 at 5:00 p.m. in the Crosstown Community Room, 2nd floor, 150 E. Crosstown Pkwy, Kalamazoo, MI 49001.",
+      "boards": [
+        "CRB"
+      ],
+      "actions": [
+        {
+          "action": "location_change",
+          "date": "2026-12-02",
+          "location": "Crosstown Community Room, 2nd floor, 150 E. Crosstown Pkwy, Kalamazoo, MI 49001"
+        }
+      ]
+    },
+    {
       "url": "/Government/Boards-Commissions/Special-Meeting-Notices/Historic-Preservation-Commission-December-Meeting-Rescheduled",
       "first_seen": "2026-11-24",
       "last_seen": "2026-11-25",
