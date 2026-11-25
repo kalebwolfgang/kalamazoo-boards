@@ -5,9 +5,10 @@
       "date": "2026-12-02",
       "display": "Wednesday, December 2, 2026",
       "time": "05:00 PM – 07:00 PM",
-      "location": "City Commission Chambers, City Hall Second Floor, 241 W South St",
+      "location": "Crosstown Community Room, 2nd floor, 150 E. Crosstown Pkwy, Kalamazoo, MI 49001",
       "abbr": "CRB",
-      "name": "Civil Rights Board"
+      "name": "Civil Rights Board",
+      "locationChanged": true
     },
     {
       "date": "2026-12-02",
